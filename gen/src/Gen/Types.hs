@@ -37,7 +37,7 @@ module Gen.Types
     ) where
 
 import           Control.Applicative
-import           Control.Lens               hiding ((.=))
+import           Control.Lens               hiding ((.=), preview)
 import           Control.Monad.Except
 import           Control.Monad.State.Strict
 import           Data.Aeson                 hiding (Array, Bool, String)
@@ -127,12 +127,14 @@ parseVersion x = first (mappend (Text.unpack x) . mappend " -> ") $
 
     preface = A.takeWhile (/= '_') *> void (A.char '_') <|> pure ()
     number  = A.takeWhile  (/= 'v') *> A.char 'v' *> A.double
+    preview = A.takeWhile (/= 'p') *> A.char 'p' *> A.double
 
     alpha = A.string "alpha"
          *> (Alpha <$> optional A.decimal <*> optional A.letter)
         <&> Just
 
-    beta  = A.string "beta"
+    beta  = optional preview
+         *> A.string "beta"
          *> (Beta <$> optional A.decimal <*> optional A.letter)
         <&> Just
 
