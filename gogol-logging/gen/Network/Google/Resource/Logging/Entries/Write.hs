@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes log entries to Stackdriver Logging. All log entries are written
--- by this method.
+-- Log entry resourcesWrites log entries to Stackdriver Logging. This API
+-- method is the only way to send log entries to Stackdriver Logging. This
+-- method is used, directly or indirectly, by the Stackdriver Logging agent
+-- (fluentd) and all logging libraries configured to use Stackdriver
+-- Logging.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.entries.write@.
 module Network.Google.Resource.Logging.Entries.Write
@@ -44,8 +47,8 @@ module Network.Google.Resource.Logging.Entries.Write
     , ewCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.entries.write@ method which the
 -- 'EntriesWrite' request conforms to.
@@ -63,19 +66,22 @@ type EntriesWriteResource =
                          ReqBody '[JSON] WriteLogEntriesRequest :>
                            Post '[JSON] WriteLogEntriesResponse
 
--- | Writes log entries to Stackdriver Logging. All log entries are written
--- by this method.
+-- | Log entry resourcesWrites log entries to Stackdriver Logging. This API
+-- method is the only way to send log entries to Stackdriver Logging. This
+-- method is used, directly or indirectly, by the Stackdriver Logging agent
+-- (fluentd) and all logging libraries configured to use Stackdriver
+-- Logging.
 --
 -- /See:/ 'entriesWrite' smart constructor.
 data EntriesWrite = EntriesWrite'
-    { _ewXgafv          :: !(Maybe Xgafv)
+    { _ewXgafv :: !(Maybe Xgafv)
     , _ewUploadProtocol :: !(Maybe Text)
-    , _ewPp             :: !Bool
-    , _ewAccessToken    :: !(Maybe Text)
-    , _ewUploadType     :: !(Maybe Text)
-    , _ewPayload        :: !WriteLogEntriesRequest
-    , _ewBearerToken    :: !(Maybe Text)
-    , _ewCallback       :: !(Maybe Text)
+    , _ewPp :: !Bool
+    , _ewAccessToken :: !(Maybe Text)
+    , _ewUploadType :: !(Maybe Text)
+    , _ewPayload :: !WriteLogEntriesRequest
+    , _ewBearerToken :: !(Maybe Text)
+    , _ewCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntriesWrite' with the minimum fields required to make a request.
@@ -100,7 +106,7 @@ data EntriesWrite = EntriesWrite'
 entriesWrite
     :: WriteLogEntriesRequest -- ^ 'ewPayload'
     -> EntriesWrite
-entriesWrite pEwPayload_ =
+entriesWrite pEwPayload_ = 
     EntriesWrite'
     { _ewXgafv = Nothing
     , _ewUploadProtocol = Nothing

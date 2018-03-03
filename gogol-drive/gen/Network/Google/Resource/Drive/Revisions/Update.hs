@@ -38,8 +38,8 @@ module Network.Google.Resource.Drive.Revisions.Update
     , revRevisionId
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.revisions.update@ method which the
 -- 'RevisionsUpdate' request conforms to.
@@ -57,8 +57,8 @@ type RevisionsUpdateResource =
 --
 -- /See:/ 'revisionsUpdate' smart constructor.
 data RevisionsUpdate = RevisionsUpdate'
-    { _revPayload    :: !Revision
-    , _revFileId     :: !Text
+    { _revPayload :: !Revision
+    , _revFileId :: !Text
     , _revRevisionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,7 +76,7 @@ revisionsUpdate
     -> Text -- ^ 'revFileId'
     -> Text -- ^ 'revRevisionId'
     -> RevisionsUpdate
-revisionsUpdate pRevPayload_ pRevFileId_ pRevRevisionId_ =
+revisionsUpdate pRevPayload_ pRevFileId_ pRevRevisionId_ = 
     RevisionsUpdate'
     { _revPayload = pRevPayload_
     , _revFileId = pRevFileId_

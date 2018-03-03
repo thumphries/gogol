@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Reports.Delete
     , rdProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.delete@ method which the
 -- 'ReportsDelete' request conforms to.
 type ReportsDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -55,7 +55,7 @@ type ReportsDeleteResource =
 --
 -- /See:/ 'reportsDelete' smart constructor.
 data ReportsDelete = ReportsDelete'
-    { _rdReportId  :: !(Textual Int64)
+    { _rdReportId :: !(Textual Int64)
     , _rdProFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ reportsDelete
     :: Int64 -- ^ 'rdReportId'
     -> Int64 -- ^ 'rdProFileId'
     -> ReportsDelete
-reportsDelete pRdReportId_ pRdProFileId_ =
+reportsDelete pRdReportId_ pRdProFileId_ = 
     ReportsDelete'
     { _rdReportId = _Coerce # pRdReportId_
     , _rdProFileId = _Coerce # pRdProFileId_

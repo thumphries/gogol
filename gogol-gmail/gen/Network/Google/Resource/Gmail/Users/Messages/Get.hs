@@ -39,8 +39,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Get
     , umgMetadataHeaders
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.get@ method which the
 -- 'UsersMessagesGet' request conforms to.
@@ -59,9 +59,9 @@ type UsersMessagesGetResource =
 --
 -- /See:/ 'usersMessagesGet' smart constructor.
 data UsersMessagesGet = UsersMessagesGet'
-    { _umgFormat          :: !UsersMessagesGetFormat
-    , _umgUserId          :: !Text
-    , _umgId              :: !Text
+    { _umgFormat :: !UsersMessagesGetFormat
+    , _umgUserId :: !Text
+    , _umgId :: !Text
     , _umgMetadataHeaders :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ data UsersMessagesGet = UsersMessagesGet'
 usersMessagesGet
     :: Text -- ^ 'umgId'
     -> UsersMessagesGet
-usersMessagesGet pUmgId_ =
+usersMessagesGet pUmgId_ = 
     UsersMessagesGet'
     { _umgFormat = Full
     , _umgUserId = "me"

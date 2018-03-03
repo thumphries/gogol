@@ -36,11 +36,12 @@ module Network.Google.Resource.BigQuery.Jobs.Get
 
     -- * Request Lenses
     , jgJobId
+    , jgLocation
     , jgProjectId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.jobs.get@ method which the
 -- 'JobsGet' request conforms to.
@@ -51,7 +52,8 @@ type JobsGetResource =
            Capture "projectId" Text :>
              "jobs" :>
                Capture "jobId" Text :>
-                 QueryParam "alt" AltJSON :> Get '[JSON] Job
+                 QueryParam "location" Text :>
+                   QueryParam "alt" AltJSON :> Get '[JSON] Job
 
 -- | Returns information about a specific job. Job information is available
 -- for a six month period after creation. Requires that you\'re the person
@@ -59,7 +61,8 @@ type JobsGetResource =
 --
 -- /See:/ 'jobsGet' smart constructor.
 data JobsGet = JobsGet'
-    { _jgJobId     :: !Text
+    { _jgJobId :: !Text
+    , _jgLocation :: !(Maybe Text)
     , _jgProjectId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,20 +72,29 @@ data JobsGet = JobsGet'
 --
 -- * 'jgJobId'
 --
+-- * 'jgLocation'
+--
 -- * 'jgProjectId'
 jobsGet
     :: Text -- ^ 'jgJobId'
     -> Text -- ^ 'jgProjectId'
     -> JobsGet
-jobsGet pJgJobId_ pJgProjectId_ =
+jobsGet pJgJobId_ pJgProjectId_ = 
     JobsGet'
     { _jgJobId = pJgJobId_
+    , _jgLocation = Nothing
     , _jgProjectId = pJgProjectId_
     }
 
 -- | [Required] Job ID of the requested job
 jgJobId :: Lens' JobsGet Text
 jgJobId = lens _jgJobId (\ s a -> s{_jgJobId = a})
+
+-- | [Experimental] The geographic location of the job. Required except for
+-- US and EU.
+jgLocation :: Lens' JobsGet (Maybe Text)
+jgLocation
+  = lens _jgLocation (\ s a -> s{_jgLocation = a})
 
 -- | [Required] Project ID of the requested job
 jgProjectId :: Lens' JobsGet Text
@@ -96,7 +108,7 @@ instance GoogleRequest JobsGet where
                "https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/cloud-platform.read-only"]
         requestClient JobsGet'{..}
-          = go _jgProjectId _jgJobId (Just AltJSON)
+          = go _jgProjectId _jgJobId _jgLocation (Just AltJSON)
               bigQueryService
           where go
                   = buildClient (Proxy :: Proxy JobsGetResource) mempty

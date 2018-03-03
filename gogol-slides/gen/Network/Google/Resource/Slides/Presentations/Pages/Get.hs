@@ -44,8 +44,8 @@ module Network.Google.Resource.Slides.Presentations.Pages.Get
     , ppgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Slides.Types
+import Network.Google.Prelude
+import Network.Google.Slides.Types
 
 -- | A resource alias for @slides.presentations.pages.get@ method which the
 -- 'PresentationsPagesGet' request conforms to.
@@ -68,15 +68,15 @@ type PresentationsPagesGetResource =
 --
 -- /See:/ 'presentationsPagesGet' smart constructor.
 data PresentationsPagesGet = PresentationsPagesGet'
-    { _ppgXgafv          :: !(Maybe Xgafv)
+    { _ppgXgafv :: !(Maybe Xgafv)
     , _ppgUploadProtocol :: !(Maybe Text)
-    , _ppgPp             :: !Bool
-    , _ppgAccessToken    :: !(Maybe Text)
-    , _ppgPageObjectId   :: !Text
-    , _ppgUploadType     :: !(Maybe Text)
+    , _ppgPp :: !Bool
+    , _ppgAccessToken :: !(Maybe Text)
+    , _ppgPageObjectId :: !Text
+    , _ppgUploadType :: !(Maybe Text)
     , _ppgPresentationId :: !Text
-    , _ppgBearerToken    :: !(Maybe Text)
-    , _ppgCallback       :: !(Maybe Text)
+    , _ppgBearerToken :: !(Maybe Text)
+    , _ppgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PresentationsPagesGet' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ presentationsPagesGet
     :: Text -- ^ 'ppgPageObjectId'
     -> Text -- ^ 'ppgPresentationId'
     -> PresentationsPagesGet
-presentationsPagesGet pPpgPageObjectId_ pPpgPresentationId_ =
+presentationsPagesGet pPpgPageObjectId_ pPpgPresentationId_ = 
     PresentationsPagesGet'
     { _ppgXgafv = Nothing
     , _ppgUploadProtocol = Nothing
@@ -170,6 +170,7 @@ instance GoogleRequest PresentationsPagesGet where
         type Rs PresentationsPagesGet = Page
         type Scopes PresentationsPagesGet =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/presentations",
                "https://www.googleapis.com/auth/presentations.readonly"]

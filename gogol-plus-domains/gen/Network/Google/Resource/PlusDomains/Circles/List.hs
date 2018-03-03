@@ -38,8 +38,8 @@ module Network.Google.Resource.PlusDomains.Circles.List
     , cMaxResults
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.list@ method which the
 -- 'CirclesList' request conforms to.
@@ -57,8 +57,8 @@ type CirclesListResource =
 --
 -- /See:/ 'circlesList' smart constructor.
 data CirclesList = CirclesList'
-    { _cUserId     :: !Text
-    , _cPageToken  :: !(Maybe Text)
+    { _cUserId :: !Text
+    , _cPageToken :: !(Maybe Text)
     , _cMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data CirclesList = CirclesList'
 circlesList
     :: Text -- ^ 'cUserId'
     -> CirclesList
-circlesList pCUserId_ =
+circlesList pCUserId_ = 
     CirclesList'
     { _cUserId = pCUserId_
     , _cPageToken = Nothing

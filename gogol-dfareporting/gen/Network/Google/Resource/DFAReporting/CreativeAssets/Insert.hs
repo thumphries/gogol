@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.CreativeAssets.Insert
     , caiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeAssets.insert@ method which the
 -- 'CreativeAssetsInsert' request conforms to.
 type CreativeAssetsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeAssets" :>
@@ -57,7 +57,7 @@ type CreativeAssetsInsertResource =
        :<|>
        "upload" :>
          "dfareporting" :>
-           "v2.7" :>
+           "v3.0" :>
              "userprofiles" :>
                Capture "profileId" (Textual Int64) :>
                  "creativeAssets" :>
@@ -73,8 +73,8 @@ type CreativeAssetsInsertResource =
 -- /See:/ 'creativeAssetsInsert' smart constructor.
 data CreativeAssetsInsert = CreativeAssetsInsert'
     { _caiAdvertiserId :: !(Textual Int64)
-    , _caiProFileId    :: !(Textual Int64)
-    , _caiPayload      :: !CreativeAssetMetadata
+    , _caiProFileId :: !(Textual Int64)
+    , _caiPayload :: !CreativeAssetMetadata
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeAssetsInsert' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ creativeAssetsInsert
     -> Int64 -- ^ 'caiProFileId'
     -> CreativeAssetMetadata -- ^ 'caiPayload'
     -> CreativeAssetsInsert
-creativeAssetsInsert pCaiAdvertiserId_ pCaiProFileId_ pCaiPayload_ =
+creativeAssetsInsert pCaiAdvertiserId_ pCaiProFileId_ pCaiPayload_ = 
     CreativeAssetsInsert'
     { _caiAdvertiserId = _Coerce # pCaiAdvertiserId_
     , _caiProFileId = _Coerce # pCaiProFileId_

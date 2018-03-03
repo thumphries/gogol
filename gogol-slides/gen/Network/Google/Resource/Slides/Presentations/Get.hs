@@ -43,8 +43,8 @@ module Network.Google.Resource.Slides.Presentations.Get
     , pgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Slides.Types
+import Network.Google.Prelude
+import Network.Google.Slides.Types
 
 -- | A resource alias for @slides.presentations.get@ method which the
 -- 'PresentationsGet' request conforms to.
@@ -65,14 +65,14 @@ type PresentationsGetResource =
 --
 -- /See:/ 'presentationsGet' smart constructor.
 data PresentationsGet = PresentationsGet'
-    { _pgXgafv          :: !(Maybe Xgafv)
+    { _pgXgafv :: !(Maybe Xgafv)
     , _pgUploadProtocol :: !(Maybe Text)
-    , _pgPp             :: !Bool
-    , _pgAccessToken    :: !(Maybe Text)
-    , _pgUploadType     :: !(Maybe Text)
+    , _pgPp :: !Bool
+    , _pgAccessToken :: !(Maybe Text)
+    , _pgUploadType :: !(Maybe Text)
     , _pgPresentationId :: !Text
-    , _pgBearerToken    :: !(Maybe Text)
-    , _pgCallback       :: !(Maybe Text)
+    , _pgBearerToken :: !(Maybe Text)
+    , _pgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PresentationsGet' with the minimum fields required to make a request.
@@ -97,7 +97,7 @@ data PresentationsGet = PresentationsGet'
 presentationsGet
     :: Text -- ^ 'pgPresentationId'
     -> PresentationsGet
-presentationsGet pPgPresentationId_ =
+presentationsGet pPgPresentationId_ = 
     PresentationsGet'
     { _pgXgafv = Nothing
     , _pgUploadProtocol = Nothing
@@ -155,6 +155,7 @@ instance GoogleRequest PresentationsGet where
         type Rs PresentationsGet = Presentation
         type Scopes PresentationsGet =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/presentations",
                "https://www.googleapis.com/auth/presentations.readonly"]

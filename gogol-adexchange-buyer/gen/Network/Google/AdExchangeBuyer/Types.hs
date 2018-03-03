@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -57,6 +57,11 @@ module Network.Google.AdExchangeBuyer.Types
     , editAllOrderDealsResponse
     , eaodrDeals
     , eaodrOrderRevisionNumber
+
+    -- * TargetingValueDemogGenderCriteria
+    , TargetingValueDemogGenderCriteria
+    , targetingValueDemogGenderCriteria
+    , tvdgcDemogGenderCriteriaIds
 
     -- * CreativesList
     , CreativesList
@@ -178,6 +183,7 @@ module Network.Google.AdExchangeBuyer.Types
     , DealServingMetadata
     , dealServingMetadata
     , dsmDealPauseStatus
+    , dsmAlcoholAdsAllowed
 
     -- * AddOrderDealsResponse
     , AddOrderDealsResponse
@@ -195,6 +201,7 @@ module Network.Google.AdExchangeBuyer.Types
     -- * PricePerBuyer
     , PricePerBuyer
     , pricePerBuyer
+    , ppbBilledBuyer
     , ppbPrice
     , ppbAuctionTier
     , ppbBuyer
@@ -211,6 +218,7 @@ module Network.Google.AdExchangeBuyer.Types
     , cAgencyId
     , cCorrections
     , cProductCategories
+    , cVideoVastXML
     , cKind
     , cHTMLSnippet
     , cAdvertiserId
@@ -252,6 +260,11 @@ module Network.Google.AdExchangeBuyer.Types
     , pretargetingConfigList
     , pclKind
     , pclItems
+
+    -- * TargetingValueDemogAgeCriteria
+    , TargetingValueDemogAgeCriteria
+    , targetingValueDemogAgeCriteria
+    , tvdacDemogAgeCriteriaIds
 
     -- * DealTermsNonGuaranteedFixedPriceTerms
     , DealTermsNonGuaranteedFixedPriceTerms
@@ -299,6 +312,7 @@ module Network.Google.AdExchangeBuyer.Types
     -- * Account
     , Account
     , account
+    , aApplyPretargetingToNonGuaranteedDeals
     , aMaximumTotalQps
     , aKind
     , aCookieMatchingURL
@@ -385,6 +399,8 @@ module Network.Google.AdExchangeBuyer.Types
     , tvcsCompanionSizes
     , tvcsSkippableAdType
     , tvcsCreativeSizeType
+    , tvcsAllowedFormats
+    , tvcsNATiveTemplate
 
     -- * DealTermsGuaranteedFixedPriceTermsBillingInfo
     , DealTermsGuaranteedFixedPriceTermsBillingInfo
@@ -475,10 +491,12 @@ module Network.Google.AdExchangeBuyer.Types
     -- * TargetingValue
     , TargetingValue
     , targetingValue
+    , tvDemogAgeCriteriaValue
     , tvCreativeSizeValue
     , tvStringValue
     , tvLongValue
     , tvDayPartTargetingValue
+    , tvDemogGenderCriteriaValue
 
     -- * CreativeNATiveAdAppIcon
     , CreativeNATiveAdAppIcon
@@ -549,6 +567,7 @@ module Network.Google.AdExchangeBuyer.Types
     , proLastUpdateTimeMs
     , proKind
     , proRevisionNumber
+    , proBilledBuyer
     , proPrivateAuctionId
     , proDeliveryControl
     , proHasCreatorSignedOff
@@ -562,9 +581,11 @@ module Network.Google.AdExchangeBuyer.Types
     , proMarketplacePublisherProFileId
     , proPublisherProvidedForecast
     , proLabels
+    , proCreatorRole
     , proPublisherProFileId
     , proLegacyOfferId
     , proProductId
+    , proBuyer
 
     -- * CreativeServingRestrictionsItem
     , CreativeServingRestrictionsItem
@@ -617,6 +638,7 @@ module Network.Google.AdExchangeBuyer.Types
     , marketplaceDeal
     , mdExternalDealId
     , mdBuyerPrivateData
+    , mdIsSetupComplete
     , mdWebPropertyCode
     , mdCreationTimeMs
     , mdTerms
@@ -725,9 +747,9 @@ module Network.Google.AdExchangeBuyer.Types
     , dtgfptMinimumDailyLooks
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types.Product
-import           Network.Google.AdExchangeBuyer.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types.Product
+import Network.Google.AdExchangeBuyer.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v1.4' of the Ad Exchange Buyer API. This contains the host and root path used as a starting point for constructing service requests.
 adExchangeBuyerService :: ServiceConfig

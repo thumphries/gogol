@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Patch
     , fapId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.patch@ method which the
 -- 'FloodlightActivitiesPatch' request conforms to.
 type FloodlightActivitiesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -61,8 +61,8 @@ type FloodlightActivitiesPatchResource =
 -- /See:/ 'floodlightActivitiesPatch' smart constructor.
 data FloodlightActivitiesPatch = FloodlightActivitiesPatch'
     { _fapProFileId :: !(Textual Int64)
-    , _fapPayload   :: !FloodlightActivity
-    , _fapId        :: !(Textual Int64)
+    , _fapPayload :: !FloodlightActivity
+    , _fapId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ floodlightActivitiesPatch
     -> FloodlightActivity -- ^ 'fapPayload'
     -> Int64 -- ^ 'fapId'
     -> FloodlightActivitiesPatch
-floodlightActivitiesPatch pFapProFileId_ pFapPayload_ pFapId_ =
+floodlightActivitiesPatch pFapProFileId_ pFapPayload_ pFapId_ = 
     FloodlightActivitiesPatch'
     { _fapProFileId = _Coerce # pFapProFileId_
     , _fapPayload = pFapPayload_

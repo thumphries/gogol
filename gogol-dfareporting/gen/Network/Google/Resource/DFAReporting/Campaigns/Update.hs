@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Campaigns.Update
     , cuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.campaigns.update@ method which the
 -- 'CampaignsUpdate' request conforms to.
 type CampaignsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "campaigns" :>
@@ -56,7 +56,7 @@ type CampaignsUpdateResource =
 -- /See:/ 'campaignsUpdate' smart constructor.
 data CampaignsUpdate = CampaignsUpdate'
     { _cuProFileId :: !(Textual Int64)
-    , _cuPayload   :: !Campaign
+    , _cuPayload :: !Campaign
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CampaignsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ campaignsUpdate
     :: Int64 -- ^ 'cuProFileId'
     -> Campaign -- ^ 'cuPayload'
     -> CampaignsUpdate
-campaignsUpdate pCuProFileId_ pCuPayload_ =
+campaignsUpdate pCuProFileId_ pCuPayload_ = 
     CampaignsUpdate'
     { _cuProFileId = _Coerce # pCuProFileId_
     , _cuPayload = pCuPayload_

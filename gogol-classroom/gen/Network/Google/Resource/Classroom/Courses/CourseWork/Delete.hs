@@ -52,8 +52,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.Delete
     , ccwdCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.delete@ method which the
 -- 'CoursesCourseWorkDelete' request conforms to.
@@ -63,7 +63,7 @@ type CoursesCourseWorkDeleteResource =
          Capture "courseId" Text :>
            "courseWork" :>
              Capture "id" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -84,15 +84,15 @@ type CoursesCourseWorkDeleteResource =
 --
 -- /See:/ 'coursesCourseWorkDelete' smart constructor.
 data CoursesCourseWorkDelete = CoursesCourseWorkDelete'
-    { _ccwdXgafv          :: !(Maybe Text)
+    { _ccwdXgafv :: !(Maybe Xgafv)
     , _ccwdUploadProtocol :: !(Maybe Text)
-    , _ccwdPp             :: !Bool
-    , _ccwdCourseId       :: !Text
-    , _ccwdAccessToken    :: !(Maybe Text)
-    , _ccwdUploadType     :: !(Maybe Text)
-    , _ccwdBearerToken    :: !(Maybe Text)
-    , _ccwdId             :: !Text
-    , _ccwdCallback       :: !(Maybe Text)
+    , _ccwdPp :: !Bool
+    , _ccwdCourseId :: !Text
+    , _ccwdAccessToken :: !(Maybe Text)
+    , _ccwdUploadType :: !(Maybe Text)
+    , _ccwdBearerToken :: !(Maybe Text)
+    , _ccwdId :: !Text
+    , _ccwdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkDelete' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ coursesCourseWorkDelete
     :: Text -- ^ 'ccwdCourseId'
     -> Text -- ^ 'ccwdId'
     -> CoursesCourseWorkDelete
-coursesCourseWorkDelete pCcwdCourseId_ pCcwdId_ =
+coursesCourseWorkDelete pCcwdCourseId_ pCcwdId_ = 
     CoursesCourseWorkDelete'
     { _ccwdXgafv = Nothing
     , _ccwdUploadProtocol = Nothing
@@ -134,7 +134,7 @@ coursesCourseWorkDelete pCcwdCourseId_ pCcwdId_ =
     }
 
 -- | V1 error format.
-ccwdXgafv :: Lens' CoursesCourseWorkDelete (Maybe Text)
+ccwdXgafv :: Lens' CoursesCourseWorkDelete (Maybe Xgafv)
 ccwdXgafv
   = lens _ccwdXgafv (\ s a -> s{_ccwdXgafv = a})
 

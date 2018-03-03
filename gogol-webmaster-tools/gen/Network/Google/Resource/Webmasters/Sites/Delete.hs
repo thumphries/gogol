@@ -36,8 +36,8 @@ module Network.Google.Resource.Webmasters.Sites.Delete
     , sSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sites.delete@ method which the
 -- 'SitesDelete' request conforms to.
@@ -63,13 +63,15 @@ newtype SitesDelete = SitesDelete'
 sitesDelete
     :: Text -- ^ 'sSiteURL'
     -> SitesDelete
-sitesDelete pSSiteURL_ =
+sitesDelete pSSiteURL_ = 
     SitesDelete'
     { _sSiteURL = pSSiteURL_
     }
 
 -- | The URI of the property as defined in Search Console. Examples:
--- http:\/\/www.example.com\/ or android-app:\/\/com.example\/
+-- http:\/\/www.example.com\/ or android-app:\/\/com.example\/ Note: for
+-- property-sets, use the URI that starts with sc-set: which is used in
+-- Search Console URLs.
 sSiteURL :: Lens' SitesDelete Text
 sSiteURL = lens _sSiteURL (\ s a -> s{_sSiteURL = a})
 

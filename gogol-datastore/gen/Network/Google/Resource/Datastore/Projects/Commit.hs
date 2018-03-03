@@ -45,8 +45,8 @@ module Network.Google.Resource.Datastore.Projects.Commit
     , pcCallback
     ) where
 
-import           Network.Google.Datastore.Types
-import           Network.Google.Prelude
+import Network.Google.Datastore.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datastore.projects.commit@ method which the
 -- 'ProjectsCommit' request conforms to.
@@ -70,15 +70,15 @@ type ProjectsCommitResource =
 --
 -- /See:/ 'projectsCommit' smart constructor.
 data ProjectsCommit = ProjectsCommit'
-    { _pcXgafv          :: !(Maybe Xgafv)
+    { _pcXgafv :: !(Maybe Xgafv)
     , _pcUploadProtocol :: !(Maybe Text)
-    , _pcPp             :: !Bool
-    , _pcAccessToken    :: !(Maybe Text)
-    , _pcUploadType     :: !(Maybe Text)
-    , _pcPayload        :: !CommitRequest
-    , _pcBearerToken    :: !(Maybe Text)
-    , _pcProjectId      :: !Text
-    , _pcCallback       :: !(Maybe Text)
+    , _pcPp :: !Bool
+    , _pcAccessToken :: !(Maybe Text)
+    , _pcUploadType :: !(Maybe Text)
+    , _pcPayload :: !CommitRequest
+    , _pcBearerToken :: !(Maybe Text)
+    , _pcProjectId :: !Text
+    , _pcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsCommit' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsCommit
     :: CommitRequest -- ^ 'pcPayload'
     -> Text -- ^ 'pcProjectId'
     -> ProjectsCommit
-projectsCommit pPcPayload_ pPcProjectId_ =
+projectsCommit pPcPayload_ pPcProjectId_ = 
     ProjectsCommit'
     { _pcXgafv = Nothing
     , _pcUploadProtocol = Nothing

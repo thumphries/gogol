@@ -22,7 +22,7 @@
 --
 -- Send encoded debug capture data for component.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.debug.sendCapture@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.debug.sendCapture@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.Debug.SendCapture
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.Debug.SendCapture
     , pjdscCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.debug.sendCapture@ method which the
 -- 'ProjectsJobsDebugSendCapture' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsJobsDebugSendCaptureResource =
              Capture "jobId" Text :>
                "debug" :>
                  "sendCapture" :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -73,16 +73,16 @@ type ProjectsJobsDebugSendCaptureResource =
 --
 -- /See:/ 'projectsJobsDebugSendCapture' smart constructor.
 data ProjectsJobsDebugSendCapture = ProjectsJobsDebugSendCapture'
-    { _pjdscXgafv          :: !(Maybe Text)
-    , _pjdscJobId          :: !Text
+    { _pjdscXgafv :: !(Maybe Xgafv)
+    , _pjdscJobId :: !Text
     , _pjdscUploadProtocol :: !(Maybe Text)
-    , _pjdscPp             :: !Bool
-    , _pjdscAccessToken    :: !(Maybe Text)
-    , _pjdscUploadType     :: !(Maybe Text)
-    , _pjdscPayload        :: !SendDebugCaptureRequest
-    , _pjdscBearerToken    :: !(Maybe Text)
-    , _pjdscProjectId      :: !Text
-    , _pjdscCallback       :: !(Maybe Text)
+    , _pjdscPp :: !Bool
+    , _pjdscAccessToken :: !(Maybe Text)
+    , _pjdscUploadType :: !(Maybe Text)
+    , _pjdscPayload :: !SendDebugCaptureRequest
+    , _pjdscBearerToken :: !(Maybe Text)
+    , _pjdscProjectId :: !Text
+    , _pjdscCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsDebugSendCapture' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ projectsJobsDebugSendCapture
     -> SendDebugCaptureRequest -- ^ 'pjdscPayload'
     -> Text -- ^ 'pjdscProjectId'
     -> ProjectsJobsDebugSendCapture
-projectsJobsDebugSendCapture pPjdscJobId_ pPjdscPayload_ pPjdscProjectId_ =
+projectsJobsDebugSendCapture pPjdscJobId_ pPjdscPayload_ pPjdscProjectId_ = 
     ProjectsJobsDebugSendCapture'
     { _pjdscXgafv = Nothing
     , _pjdscJobId = pPjdscJobId_
@@ -128,7 +128,7 @@ projectsJobsDebugSendCapture pPjdscJobId_ pPjdscPayload_ pPjdscProjectId_ =
     }
 
 -- | V1 error format.
-pjdscXgafv :: Lens' ProjectsJobsDebugSendCapture (Maybe Text)
+pjdscXgafv :: Lens' ProjectsJobsDebugSendCapture (Maybe Xgafv)
 pjdscXgafv
   = lens _pjdscXgafv (\ s a -> s{_pjdscXgafv = a})
 
@@ -188,6 +188,8 @@ instance GoogleRequest ProjectsJobsDebugSendCapture
              SendDebugCaptureResponse
         type Scopes ProjectsJobsDebugSendCapture =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsDebugSendCapture'{..}
           = go _pjdscProjectId _pjdscJobId _pjdscXgafv

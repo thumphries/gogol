@@ -36,8 +36,8 @@ module Network.Google.Resource.YouTube.LiveChatBans.Delete
     , lcbdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveChatBans.delete@ method which the
 -- 'LiveChatBansDelete' request conforms to.
@@ -64,7 +64,7 @@ newtype LiveChatBansDelete = LiveChatBansDelete'
 liveChatBansDelete
     :: Text -- ^ 'lcbdId'
     -> LiveChatBansDelete
-liveChatBansDelete pLcbdId_ =
+liveChatBansDelete pLcbdId_ = 
     LiveChatBansDelete'
     { _lcbdId = pLcbdId_
     }

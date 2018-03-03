@@ -46,8 +46,8 @@ module Network.Google.Resource.CloudBilling.Projects.GetBillingInfo
     , pgbiCallback
     ) where
 
-import           Network.Google.Billing.Types
-import           Network.Google.Prelude
+import Network.Google.Billing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbilling.projects.getBillingInfo@ method which the
 -- 'ProjectsGetBillingInfo' request conforms to.
@@ -55,7 +55,7 @@ type ProjectsGetBillingInfoResource =
      "v1" :>
        Capture "name" Text :>
          "billingInfo" :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -72,14 +72,14 @@ type ProjectsGetBillingInfoResource =
 --
 -- /See:/ 'projectsGetBillingInfo' smart constructor.
 data ProjectsGetBillingInfo = ProjectsGetBillingInfo'
-    { _pgbiXgafv          :: !(Maybe Text)
+    { _pgbiXgafv :: !(Maybe Xgafv)
     , _pgbiUploadProtocol :: !(Maybe Text)
-    , _pgbiPp             :: !Bool
-    , _pgbiAccessToken    :: !(Maybe Text)
-    , _pgbiUploadType     :: !(Maybe Text)
-    , _pgbiBearerToken    :: !(Maybe Text)
-    , _pgbiName           :: !Text
-    , _pgbiCallback       :: !(Maybe Text)
+    , _pgbiPp :: !Bool
+    , _pgbiAccessToken :: !(Maybe Text)
+    , _pgbiUploadType :: !(Maybe Text)
+    , _pgbiBearerToken :: !(Maybe Text)
+    , _pgbiName :: !Text
+    , _pgbiCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGetBillingInfo' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ data ProjectsGetBillingInfo = ProjectsGetBillingInfo'
 projectsGetBillingInfo
     :: Text -- ^ 'pgbiName'
     -> ProjectsGetBillingInfo
-projectsGetBillingInfo pPgbiName_ =
+projectsGetBillingInfo pPgbiName_ = 
     ProjectsGetBillingInfo'
     { _pgbiXgafv = Nothing
     , _pgbiUploadProtocol = Nothing
@@ -117,7 +117,7 @@ projectsGetBillingInfo pPgbiName_ =
     }
 
 -- | V1 error format.
-pgbiXgafv :: Lens' ProjectsGetBillingInfo (Maybe Text)
+pgbiXgafv :: Lens' ProjectsGetBillingInfo (Maybe Xgafv)
 pgbiXgafv
   = lens _pgbiXgafv (\ s a -> s{_pgbiXgafv = a})
 

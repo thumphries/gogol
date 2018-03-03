@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the jobs in the project.
+-- Lists the jobs in the project. If there are no jobs that match the
+-- request parameters, the list request returns an empty response body: {}.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.jobs.list@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.jobs.list@.
 module Network.Google.Resource.Ml.Projects.Jobs.List
     (
     -- * REST Resource
@@ -46,13 +47,13 @@ module Network.Google.Resource.Ml.Projects.Jobs.List
     , pjlCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.jobs.list@ method which the
 -- 'ProjectsJobsList' request conforms to.
 type ProjectsJobsListResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "parent" Text :>
          "jobs" :>
            QueryParam "$.xgafv" Xgafv :>
@@ -66,24 +67,24 @@ type ProjectsJobsListResource =
                            QueryParam "pageSize" (Textual Int32) :>
                              QueryParam "callback" Text :>
                                QueryParam "alt" AltJSON :>
-                                 Get '[JSON]
-                                   GoogleCloudMlV1beta1__ListJobsResponse
+                                 Get '[JSON] GoogleCloudMlV1__ListJobsResponse
 
--- | Lists the jobs in the project.
+-- | Lists the jobs in the project. If there are no jobs that match the
+-- request parameters, the list request returns an empty response body: {}.
 --
 -- /See:/ 'projectsJobsList' smart constructor.
 data ProjectsJobsList = ProjectsJobsList'
-    { _pjlParent         :: !Text
-    , _pjlXgafv          :: !(Maybe Xgafv)
+    { _pjlParent :: !Text
+    , _pjlXgafv :: !(Maybe Xgafv)
     , _pjlUploadProtocol :: !(Maybe Text)
-    , _pjlPp             :: !Bool
-    , _pjlAccessToken    :: !(Maybe Text)
-    , _pjlUploadType     :: !(Maybe Text)
-    , _pjlBearerToken    :: !(Maybe Text)
-    , _pjlFilter         :: !(Maybe Text)
-    , _pjlPageToken      :: !(Maybe Text)
-    , _pjlPageSize       :: !(Maybe (Textual Int32))
-    , _pjlCallback       :: !(Maybe Text)
+    , _pjlPp :: !Bool
+    , _pjlAccessToken :: !(Maybe Text)
+    , _pjlUploadType :: !(Maybe Text)
+    , _pjlBearerToken :: !(Maybe Text)
+    , _pjlFilter :: !(Maybe Text)
+    , _pjlPageToken :: !(Maybe Text)
+    , _pjlPageSize :: !(Maybe (Textual Int32))
+    , _pjlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsList' with the minimum fields required to make a request.
@@ -114,7 +115,7 @@ data ProjectsJobsList = ProjectsJobsList'
 projectsJobsList
     :: Text -- ^ 'pjlParent'
     -> ProjectsJobsList
-projectsJobsList pPjlParent_ =
+projectsJobsList pPjlParent_ = 
     ProjectsJobsList'
     { _pjlParent = pPjlParent_
     , _pjlXgafv = Nothing
@@ -129,8 +130,7 @@ projectsJobsList pPjlParent_ =
     , _pjlCallback = Nothing
     }
 
--- | Required. The name of the project for which to list jobs. Authorization:
--- requires \`Viewer\` role on the specified project.
+-- | Required. The name of the project for which to list jobs.
 pjlParent :: Lens' ProjectsJobsList Text
 pjlParent
   = lens _pjlParent (\ s a -> s{_pjlParent = a})
@@ -167,7 +167,18 @@ pjlBearerToken
   = lens _pjlBearerToken
       (\ s a -> s{_pjlBearerToken = a})
 
--- | Optional. Specifies the subset of jobs to retrieve.
+-- | Optional. Specifies the subset of jobs to retrieve. You can filter on
+-- the value of one or more attributes of the job object. For example,
+-- retrieve jobs with a job identifier that starts with \'census\':
+--
+-- 'gcloud ml-engine jobs list --filter=\'jobId:census*\''
+--
+-- List all failed jobs with names that start with \'rnn\':
+--
+-- 'gcloud ml-engine jobs list --filter=\'jobId:rnn* AND state:FAILED\''
+--
+-- For more examples, see the guide to
+-- </ml-engine/docs/monitor-training monitoring jobs>.
 pjlFilter :: Lens' ProjectsJobsList (Maybe Text)
 pjlFilter
   = lens _pjlFilter (\ s a -> s{_pjlFilter = a})
@@ -195,7 +206,7 @@ pjlCallback
 
 instance GoogleRequest ProjectsJobsList where
         type Rs ProjectsJobsList =
-             GoogleCloudMlV1beta1__ListJobsResponse
+             GoogleCloudMlV1__ListJobsResponse
         type Scopes ProjectsJobsList =
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsJobsList'{..}

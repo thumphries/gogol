@@ -50,15 +50,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Activate
     , baCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.activate@ method which the
 -- 'BeaconsActivate' request conforms to.
 type BeaconsActivateResource =
      "v1beta1" :>
        CaptureMode "beaconName" "activate" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -78,15 +78,15 @@ type BeaconsActivateResource =
 --
 -- /See:/ 'beaconsActivate' smart constructor.
 data BeaconsActivate = BeaconsActivate'
-    { _baXgafv          :: !(Maybe Text)
+    { _baXgafv :: !(Maybe Xgafv)
     , _baUploadProtocol :: !(Maybe Text)
-    , _baPp             :: !Bool
-    , _baAccessToken    :: !(Maybe Text)
-    , _baBeaconName     :: !Text
-    , _baUploadType     :: !(Maybe Text)
-    , _baBearerToken    :: !(Maybe Text)
-    , _baProjectId      :: !(Maybe Text)
-    , _baCallback       :: !(Maybe Text)
+    , _baPp :: !Bool
+    , _baAccessToken :: !(Maybe Text)
+    , _baBeaconName :: !Text
+    , _baUploadType :: !(Maybe Text)
+    , _baBearerToken :: !(Maybe Text)
+    , _baProjectId :: !(Maybe Text)
+    , _baCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsActivate' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ data BeaconsActivate = BeaconsActivate'
 beaconsActivate
     :: Text -- ^ 'baBeaconName'
     -> BeaconsActivate
-beaconsActivate pBaBeaconName_ =
+beaconsActivate pBaBeaconName_ = 
     BeaconsActivate'
     { _baXgafv = Nothing
     , _baUploadProtocol = Nothing
@@ -127,7 +127,7 @@ beaconsActivate pBaBeaconName_ =
     }
 
 -- | V1 error format.
-baXgafv :: Lens' BeaconsActivate (Maybe Text)
+baXgafv :: Lens' BeaconsActivate (Maybe Xgafv)
 baXgafv = lens _baXgafv (\ s a -> s{_baXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

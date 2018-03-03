@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.ProFileFilterLinks.Insert
     , mpffliAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileFilterLinks.insert@ method which the
 -- 'ManagementProFileFilterLinksInsert' request conforms to.
@@ -64,9 +64,9 @@ type ManagementProFileFilterLinksInsertResource =
 -- /See:/ 'managementProFileFilterLinksInsert' smart constructor.
 data ManagementProFileFilterLinksInsert = ManagementProFileFilterLinksInsert'
     { _mpffliWebPropertyId :: !Text
-    , _mpffliProFileId     :: !Text
-    , _mpffliPayload       :: !ProFileFilterLink
-    , _mpffliAccountId     :: !Text
+    , _mpffliProFileId :: !Text
+    , _mpffliPayload :: !ProFileFilterLink
+    , _mpffliAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileFilterLinksInsert' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ managementProFileFilterLinksInsert
     -> ProFileFilterLink -- ^ 'mpffliPayload'
     -> Text -- ^ 'mpffliAccountId'
     -> ManagementProFileFilterLinksInsert
-managementProFileFilterLinksInsert pMpffliWebPropertyId_ pMpffliProFileId_ pMpffliPayload_ pMpffliAccountId_ =
+managementProFileFilterLinksInsert pMpffliWebPropertyId_ pMpffliProFileId_ pMpffliPayload_ pMpffliAccountId_ = 
     ManagementProFileFilterLinksInsert'
     { _mpffliWebPropertyId = pMpffliWebPropertyId_
     , _mpffliProFileId = pMpffliProFileId_

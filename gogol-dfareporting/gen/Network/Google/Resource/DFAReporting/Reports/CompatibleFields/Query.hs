@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.Reports.CompatibleFields.Query
     , rcfqPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.compatibleFields.query@ method which the
 -- 'ReportsCompatibleFieldsQuery' request conforms to.
 type ReportsCompatibleFieldsQueryResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -63,7 +63,7 @@ type ReportsCompatibleFieldsQueryResource =
 -- /See:/ 'reportsCompatibleFieldsQuery' smart constructor.
 data ReportsCompatibleFieldsQuery = ReportsCompatibleFieldsQuery'
     { _rcfqProFileId :: !(Textual Int64)
-    , _rcfqPayload   :: !Report
+    , _rcfqPayload :: !Report
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsCompatibleFieldsQuery' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ reportsCompatibleFieldsQuery
     :: Int64 -- ^ 'rcfqProFileId'
     -> Report -- ^ 'rcfqPayload'
     -> ReportsCompatibleFieldsQuery
-reportsCompatibleFieldsQuery pRcfqProFileId_ pRcfqPayload_ =
+reportsCompatibleFieldsQuery pRcfqProFileId_ pRcfqPayload_ = 
     ReportsCompatibleFieldsQuery'
     { _rcfqProFileId = _Coerce # pRcfqProFileId_
     , _rcfqPayload = pRcfqPayload_

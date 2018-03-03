@@ -40,8 +40,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.Insert
     , igmiPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.insert@ method which the
 -- 'InstanceGroupManagersInsert' request conforms to.
@@ -64,8 +64,8 @@ type InstanceGroupManagersInsertResource =
 -- /See:/ 'instanceGroupManagersInsert' smart constructor.
 data InstanceGroupManagersInsert = InstanceGroupManagersInsert'
     { _igmiProject :: !Text
-    , _igmiSize    :: !(Textual Int32)
-    , _igmiZone    :: !Text
+    , _igmiSize :: !(Textual Int32)
+    , _igmiZone :: !Text
     , _igmiPayload :: !InstanceGroupManager
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ instanceGroupManagersInsert
     -> Text -- ^ 'igmiZone'
     -> InstanceGroupManager -- ^ 'igmiPayload'
     -> InstanceGroupManagersInsert
-instanceGroupManagersInsert pIgmiProject_ pIgmiSize_ pIgmiZone_ pIgmiPayload_ =
+instanceGroupManagersInsert pIgmiProject_ pIgmiSize_ pIgmiZone_ pIgmiPayload_ = 
     InstanceGroupManagersInsert'
     { _igmiProject = pIgmiProject_
     , _igmiSize = _Coerce # pIgmiSize_

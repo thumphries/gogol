@@ -37,8 +37,8 @@ module Network.Google.Resource.Drive.Comments.Create
     , ccFileId
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.comments.create@ method which the
 -- 'CommentsCreate' request conforms to.
@@ -56,7 +56,7 @@ type CommentsCreateResource =
 -- /See:/ 'commentsCreate' smart constructor.
 data CommentsCreate = CommentsCreate'
     { _ccPayload :: !Comment
-    , _ccFileId  :: !Text
+    , _ccFileId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommentsCreate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ commentsCreate
     :: Comment -- ^ 'ccPayload'
     -> Text -- ^ 'ccFileId'
     -> CommentsCreate
-commentsCreate pCcPayload_ pCcFileId_ =
+commentsCreate pCcPayload_ pCcFileId_ = 
     CommentsCreate'
     { _ccPayload = pCcPayload_
     , _ccFileId = pCcFileId_

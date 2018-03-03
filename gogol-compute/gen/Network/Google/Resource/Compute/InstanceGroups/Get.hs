@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.InstanceGroups.Get
     , iggInstanceGroup
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.instanceGroups.get@ method which the
 -- 'InstanceGroupsGet' request conforms to.
@@ -60,8 +60,8 @@ type InstanceGroupsGetResource =
 --
 -- /See:/ 'instanceGroupsGet' smart constructor.
 data InstanceGroupsGet = InstanceGroupsGet'
-    { _iggProject       :: !Text
-    , _iggZone          :: !Text
+    { _iggProject :: !Text
+    , _iggZone :: !Text
     , _iggInstanceGroup :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ instanceGroupsGet
     -> Text -- ^ 'iggZone'
     -> Text -- ^ 'iggInstanceGroup'
     -> InstanceGroupsGet
-instanceGroupsGet pIggProject_ pIggZone_ pIggInstanceGroup_ =
+instanceGroupsGet pIggProject_ pIggZone_ pIggInstanceGroup_ = 
     InstanceGroupsGet'
     { _iggProject = pIggProject_
     , _iggZone = pIggZone_

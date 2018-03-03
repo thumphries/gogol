@@ -36,8 +36,8 @@ module Network.Google.Resource.Gmail.Users.Labels.List
     , ullUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.list@ method which the
 -- 'UsersLabelsList' request conforms to.
@@ -64,7 +64,7 @@ newtype UsersLabelsList = UsersLabelsList'
 -- * 'ullUserId'
 usersLabelsList
     :: UsersLabelsList
-usersLabelsList =
+usersLabelsList = 
     UsersLabelsList'
     { _ullUserId = "me"
     }

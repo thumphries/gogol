@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesManagement.Events.ResetForAllPlayers
     , erfapEventId
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.events.resetForAllPlayers@ method which the
 -- 'EventsResetForAllPlayers' request conforms to.
@@ -68,7 +68,7 @@ newtype EventsResetForAllPlayers = EventsResetForAllPlayers'
 eventsResetForAllPlayers
     :: Text -- ^ 'erfapEventId'
     -> EventsResetForAllPlayers
-eventsResetForAllPlayers pErfapEventId_ =
+eventsResetForAllPlayers pErfapEventId_ = 
     EventsResetForAllPlayers'
     { _erfapEventId = pErfapEventId_
     }

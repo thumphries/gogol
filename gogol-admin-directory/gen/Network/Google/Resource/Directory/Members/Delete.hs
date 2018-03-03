@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Members.Delete
     , mdGroupKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.delete@ method which the
 -- 'MembersDelete' request conforms to.
@@ -57,7 +57,7 @@ type MembersDeleteResource =
 -- /See:/ 'membersDelete' smart constructor.
 data MembersDelete = MembersDelete'
     { _mdMemberKey :: !Text
-    , _mdGroupKey  :: !Text
+    , _mdGroupKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MembersDelete' with the minimum fields required to make a request.
@@ -71,18 +71,18 @@ membersDelete
     :: Text -- ^ 'mdMemberKey'
     -> Text -- ^ 'mdGroupKey'
     -> MembersDelete
-membersDelete pMdMemberKey_ pMdGroupKey_ =
+membersDelete pMdMemberKey_ pMdGroupKey_ = 
     MembersDelete'
     { _mdMemberKey = pMdMemberKey_
     , _mdGroupKey = pMdGroupKey_
     }
 
--- | Email or immutable Id of the member
+-- | Email or immutable ID of the member
 mdMemberKey :: Lens' MembersDelete Text
 mdMemberKey
   = lens _mdMemberKey (\ s a -> s{_mdMemberKey = a})
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 mdGroupKey :: Lens' MembersDelete Text
 mdGroupKey
   = lens _mdGroupKey (\ s a -> s{_mdGroupKey = a})

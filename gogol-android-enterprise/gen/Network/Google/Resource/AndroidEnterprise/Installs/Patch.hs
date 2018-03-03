@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Requests to install the latest version of an app to a device. If the app
--- is already installed then it is updated to the latest version if
+-- is already installed, then it is updated to the latest version if
 -- necessary. This method supports patch semantics.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.installs.patch@.
@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidEnterprise.Installs.Patch
     , ipDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.installs.patch@ method which the
 -- 'InstallsPatch' request conforms to.
@@ -62,16 +62,16 @@ type InstallsPatchResource =
                            ReqBody '[JSON] Install :> Patch '[JSON] Install
 
 -- | Requests to install the latest version of an app to a device. If the app
--- is already installed then it is updated to the latest version if
+-- is already installed, then it is updated to the latest version if
 -- necessary. This method supports patch semantics.
 --
 -- /See:/ 'installsPatch' smart constructor.
 data InstallsPatch = InstallsPatch'
     { _ipEnterpriseId :: !Text
-    , _ipPayload      :: !Install
-    , _ipUserId       :: !Text
-    , _ipInstallId    :: !Text
-    , _ipDeviceId     :: !Text
+    , _ipPayload :: !Install
+    , _ipUserId :: !Text
+    , _ipInstallId :: !Text
+    , _ipDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstallsPatch' with the minimum fields required to make a request.
@@ -94,7 +94,7 @@ installsPatch
     -> Text -- ^ 'ipInstallId'
     -> Text -- ^ 'ipDeviceId'
     -> InstallsPatch
-installsPatch pIpEnterpriseId_ pIpPayload_ pIpUserId_ pIpInstallId_ pIpDeviceId_ =
+installsPatch pIpEnterpriseId_ pIpPayload_ pIpUserId_ pIpInstallId_ pIpDeviceId_ = 
     InstallsPatch'
     { _ipEnterpriseId = pIpEnterpriseId_
     , _ipPayload = pIpPayload_

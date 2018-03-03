@@ -37,8 +37,8 @@ module Network.Google.Resource.Webmasters.Sitemaps.Get
     , sgSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sitemaps.get@ method which the
 -- 'SitemapsGet' request conforms to.
@@ -56,7 +56,7 @@ type SitemapsGetResource =
 -- /See:/ 'sitemapsGet' smart constructor.
 data SitemapsGet = SitemapsGet'
     { _sgFeedpath :: !Text
-    , _sgSiteURL  :: !Text
+    , _sgSiteURL :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitemapsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sitemapsGet
     :: Text -- ^ 'sgFeedpath'
     -> Text -- ^ 'sgSiteURL'
     -> SitemapsGet
-sitemapsGet pSgFeedpath_ pSgSiteURL_ =
+sitemapsGet pSgFeedpath_ pSgSiteURL_ = 
     SitemapsGet'
     { _sgFeedpath = pSgFeedpath_
     , _sgSiteURL = pSgSiteURL_

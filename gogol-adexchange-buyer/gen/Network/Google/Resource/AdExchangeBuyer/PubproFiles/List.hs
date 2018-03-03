@@ -36,8 +36,8 @@ module Network.Google.Resource.AdExchangeBuyer.PubproFiles.List
     , pflAccountId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.pubprofiles.list@ method which the
 -- 'PubproFilesList' request conforms to.
@@ -65,7 +65,7 @@ newtype PubproFilesList = PubproFilesList'
 pubproFilesList
     :: Int32 -- ^ 'pflAccountId'
     -> PubproFilesList
-pubproFilesList pPflAccountId_ =
+pubproFilesList pPflAccountId_ = 
     PubproFilesList'
     { _pflAccountId = _Coerce # pPflAccountId_
     }

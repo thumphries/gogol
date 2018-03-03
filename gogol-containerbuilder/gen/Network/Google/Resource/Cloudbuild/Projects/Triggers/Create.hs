@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new BuildTrigger. This API is experimental.
+-- Creates a new \`BuildTrigger\`. This API is experimental.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.create@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.create@.
 module Network.Google.Resource.Cloudbuild.Projects.Triggers.Create
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Triggers.Create
     , ptcCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.triggers.create@ method which the
 -- 'ProjectsTriggersCreate' request conforms to.
@@ -65,19 +65,19 @@ type ProjectsTriggersCreateResource =
                              ReqBody '[JSON] BuildTrigger :>
                                Post '[JSON] BuildTrigger
 
--- | Creates a new BuildTrigger. This API is experimental.
+-- | Creates a new \`BuildTrigger\`. This API is experimental.
 --
 -- /See:/ 'projectsTriggersCreate' smart constructor.
 data ProjectsTriggersCreate = ProjectsTriggersCreate'
-    { _ptcXgafv          :: !(Maybe Xgafv)
+    { _ptcXgafv :: !(Maybe Xgafv)
     , _ptcUploadProtocol :: !(Maybe Text)
-    , _ptcPp             :: !Bool
-    , _ptcAccessToken    :: !(Maybe Text)
-    , _ptcUploadType     :: !(Maybe Text)
-    , _ptcPayload        :: !BuildTrigger
-    , _ptcBearerToken    :: !(Maybe Text)
-    , _ptcProjectId      :: !Text
-    , _ptcCallback       :: !(Maybe Text)
+    , _ptcPp :: !Bool
+    , _ptcAccessToken :: !(Maybe Text)
+    , _ptcUploadType :: !(Maybe Text)
+    , _ptcPayload :: !BuildTrigger
+    , _ptcBearerToken :: !(Maybe Text)
+    , _ptcProjectId :: !Text
+    , _ptcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTriggersCreate' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsTriggersCreate
     :: BuildTrigger -- ^ 'ptcPayload'
     -> Text -- ^ 'ptcProjectId'
     -> ProjectsTriggersCreate
-projectsTriggersCreate pPtcPayload_ pPtcProjectId_ =
+projectsTriggersCreate pPtcPayload_ pPtcProjectId_ = 
     ProjectsTriggersCreate'
     { _ptcXgafv = Nothing
     , _ptcUploadProtocol = Nothing

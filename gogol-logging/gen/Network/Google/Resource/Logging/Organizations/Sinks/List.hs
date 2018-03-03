@@ -45,8 +45,8 @@ module Network.Google.Resource.Logging.Organizations.Sinks.List
     , oslCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.organizations.sinks.list@ method which the
 -- 'OrganizationsSinksList' request conforms to.
@@ -70,16 +70,16 @@ type OrganizationsSinksListResource =
 --
 -- /See:/ 'organizationsSinksList' smart constructor.
 data OrganizationsSinksList = OrganizationsSinksList'
-    { _oslParent         :: !Text
-    , _oslXgafv          :: !(Maybe Xgafv)
+    { _oslParent :: !Text
+    , _oslXgafv :: !(Maybe Xgafv)
     , _oslUploadProtocol :: !(Maybe Text)
-    , _oslPp             :: !Bool
-    , _oslAccessToken    :: !(Maybe Text)
-    , _oslUploadType     :: !(Maybe Text)
-    , _oslBearerToken    :: !(Maybe Text)
-    , _oslPageToken      :: !(Maybe Text)
-    , _oslPageSize       :: !(Maybe (Textual Int32))
-    , _oslCallback       :: !(Maybe Text)
+    , _oslPp :: !Bool
+    , _oslAccessToken :: !(Maybe Text)
+    , _oslUploadType :: !(Maybe Text)
+    , _oslBearerToken :: !(Maybe Text)
+    , _oslPageToken :: !(Maybe Text)
+    , _oslPageSize :: !(Maybe (Textual Int32))
+    , _oslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrganizationsSinksList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data OrganizationsSinksList = OrganizationsSinksList'
 organizationsSinksList
     :: Text -- ^ 'oslParent'
     -> OrganizationsSinksList
-organizationsSinksList pOslParent_ =
+organizationsSinksList pOslParent_ = 
     OrganizationsSinksList'
     { _oslParent = pOslParent_
     , _oslXgafv = Nothing
@@ -122,8 +122,9 @@ organizationsSinksList pOslParent_ =
     , _oslCallback = Nothing
     }
 
--- | Required. The parent resource whose sinks are to be listed. Examples:
--- \"projects\/my-logging-project\", \"organizations\/123456789\".
+-- | Required. The parent resource whose sinks are to be listed:
+-- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 oslParent :: Lens' OrganizationsSinksList Text
 oslParent
   = lens _oslParent (\ s a -> s{_oslParent = a})

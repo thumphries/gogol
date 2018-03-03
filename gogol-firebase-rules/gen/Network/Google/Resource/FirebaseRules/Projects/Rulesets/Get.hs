@@ -43,8 +43,8 @@ module Network.Google.Resource.FirebaseRules.Projects.Rulesets.Get
     , prgCallback
     ) where
 
-import           Network.Google.FirebaseRules.Types
-import           Network.Google.Prelude
+import Network.Google.FirebaseRules.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @firebaserules.projects.rulesets.get@ method which the
 -- 'ProjectsRulesetsGet' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsRulesetsGetResource =
 --
 -- /See:/ 'projectsRulesetsGet' smart constructor.
 data ProjectsRulesetsGet = ProjectsRulesetsGet'
-    { _prgXgafv          :: !(Maybe Xgafv)
+    { _prgXgafv :: !(Maybe Xgafv)
     , _prgUploadProtocol :: !(Maybe Text)
-    , _prgPp             :: !Bool
-    , _prgAccessToken    :: !(Maybe Text)
-    , _prgUploadType     :: !(Maybe Text)
-    , _prgBearerToken    :: !(Maybe Text)
-    , _prgName           :: !Text
-    , _prgCallback       :: !(Maybe Text)
+    , _prgPp :: !Bool
+    , _prgAccessToken :: !(Maybe Text)
+    , _prgUploadType :: !(Maybe Text)
+    , _prgBearerToken :: !(Maybe Text)
+    , _prgName :: !Text
+    , _prgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRulesetsGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsRulesetsGet = ProjectsRulesetsGet'
 projectsRulesetsGet
     :: Text -- ^ 'prgName'
     -> ProjectsRulesetsGet
-projectsRulesetsGet pPrgName_ =
+projectsRulesetsGet pPrgName_ = 
     ProjectsRulesetsGet'
     { _prgXgafv = Nothing
     , _prgUploadProtocol = Nothing

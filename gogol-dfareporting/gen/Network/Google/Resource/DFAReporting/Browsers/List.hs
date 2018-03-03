@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.Browsers.List
     , blProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.browsers.list@ method which the
 -- 'BrowsersList' request conforms to.
 type BrowsersListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "browsers" :>
@@ -65,7 +65,7 @@ newtype BrowsersList = BrowsersList'
 browsersList
     :: Int64 -- ^ 'blProFileId'
     -> BrowsersList
-browsersList pBlProFileId_ =
+browsersList pBlProFileId_ = 
     BrowsersList'
     { _blProFileId = _Coerce # pBlProFileId_
     }

@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Style.Delete
     , sdTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.style.delete@ method which the
 -- 'StyleDelete' request conforms to.
@@ -70,7 +70,7 @@ styleDelete
     :: Int32 -- ^ 'sdStyleId'
     -> Text -- ^ 'sdTableId'
     -> StyleDelete
-styleDelete pSdStyleId_ pSdTableId_ =
+styleDelete pSdStyleId_ pSdTableId_ = 
     StyleDelete'
     { _sdStyleId = _Coerce # pSdStyleId_
     , _sdTableId = pSdTableId_

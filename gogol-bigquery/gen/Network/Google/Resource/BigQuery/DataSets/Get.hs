@@ -37,8 +37,8 @@ module Network.Google.Resource.BigQuery.DataSets.Get
     , dsgProjectId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.datasets.get@ method which the
 -- 'DataSetsGet' request conforms to.
@@ -70,7 +70,7 @@ dataSetsGet
     :: Text -- ^ 'dsgDataSetId'
     -> Text -- ^ 'dsgProjectId'
     -> DataSetsGet
-dataSetsGet pDsgDataSetId_ pDsgProjectId_ =
+dataSetsGet pDsgDataSetId_ pDsgProjectId_ = 
     DataSetsGet'
     { _dsgDataSetId = pDsgDataSetId_
     , _dsgProjectId = pDsgProjectId_

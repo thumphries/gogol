@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Members.Insert
     , miPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.insert@ method which the
 -- 'MembersInsert' request conforms to.
@@ -57,7 +57,7 @@ type MembersInsertResource =
 -- /See:/ 'membersInsert' smart constructor.
 data MembersInsert = MembersInsert'
     { _miGroupKey :: !Text
-    , _miPayload  :: !Member
+    , _miPayload :: !Member
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MembersInsert' with the minimum fields required to make a request.
@@ -71,13 +71,13 @@ membersInsert
     :: Text -- ^ 'miGroupKey'
     -> Member -- ^ 'miPayload'
     -> MembersInsert
-membersInsert pMiGroupKey_ pMiPayload_ =
+membersInsert pMiGroupKey_ pMiPayload_ = 
     MembersInsert'
     { _miGroupKey = pMiGroupKey_
     , _miPayload = pMiPayload_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 miGroupKey :: Lens' MembersInsert Text
 miGroupKey
   = lens _miGroupKey (\ s a -> s{_miGroupKey = a})

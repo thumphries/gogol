@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.UnSampledReports.Insert
     , musriAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.unsampledReports.insert@ method which the
 -- 'ManagementUnSampledReportsInsert' request conforms to.
@@ -64,9 +64,9 @@ type ManagementUnSampledReportsInsertResource =
 -- /See:/ 'managementUnSampledReportsInsert' smart constructor.
 data ManagementUnSampledReportsInsert = ManagementUnSampledReportsInsert'
     { _musriWebPropertyId :: !Text
-    , _musriProFileId     :: !Text
-    , _musriPayload       :: !UnSampledReport
-    , _musriAccountId     :: !Text
+    , _musriProFileId :: !Text
+    , _musriPayload :: !UnSampledReport
+    , _musriAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementUnSampledReportsInsert' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ managementUnSampledReportsInsert
     -> UnSampledReport -- ^ 'musriPayload'
     -> Text -- ^ 'musriAccountId'
     -> ManagementUnSampledReportsInsert
-managementUnSampledReportsInsert pMusriWebPropertyId_ pMusriProFileId_ pMusriPayload_ pMusriAccountId_ =
+managementUnSampledReportsInsert pMusriWebPropertyId_ pMusriProFileId_ pMusriPayload_ pMusriAccountId_ = 
     ManagementUnSampledReportsInsert'
     { _musriWebPropertyId = pMusriWebPropertyId_
     , _musriProFileId = pMusriProFileId_

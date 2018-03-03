@@ -22,7 +22,7 @@
 --
 -- Finds the full hashes that match the requested hash prefixes.
 --
--- /See:/ <https://developers.google.com/safe-browsing/ Safe Browsing APIs Reference> for @safebrowsing.fullHashes.find@.
+-- /See:/ <https://developers.google.com/safe-browsing/ Google Safe Browsing API Reference> for @safebrowsing.fullHashes.find@.
 module Network.Google.Resource.SafeBrowsing.FullHashes.Find
     (
     -- * REST Resource
@@ -43,15 +43,15 @@ module Network.Google.Resource.SafeBrowsing.FullHashes.Find
     , fhfCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SafeBrowsing.Types
+import Network.Google.Prelude
+import Network.Google.SafeBrowsing.Types
 
 -- | A resource alias for @safebrowsing.fullHashes.find@ method which the
 -- 'FullHashesFind' request conforms to.
 type FullHashesFindResource =
      "v4" :>
        "fullHashes:find" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -66,14 +66,14 @@ type FullHashesFindResource =
 --
 -- /See:/ 'fullHashesFind' smart constructor.
 data FullHashesFind = FullHashesFind'
-    { _fhfXgafv          :: !(Maybe Text)
+    { _fhfXgafv :: !(Maybe Xgafv)
     , _fhfUploadProtocol :: !(Maybe Text)
-    , _fhfPp             :: !Bool
-    , _fhfAccessToken    :: !(Maybe Text)
-    , _fhfUploadType     :: !(Maybe Text)
-    , _fhfPayload        :: !FindFullHashesRequest
-    , _fhfBearerToken    :: !(Maybe Text)
-    , _fhfCallback       :: !(Maybe Text)
+    , _fhfPp :: !Bool
+    , _fhfAccessToken :: !(Maybe Text)
+    , _fhfUploadType :: !(Maybe Text)
+    , _fhfPayload :: !FindFullHashesRequest
+    , _fhfBearerToken :: !(Maybe Text)
+    , _fhfCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FullHashesFind' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data FullHashesFind = FullHashesFind'
 fullHashesFind
     :: FindFullHashesRequest -- ^ 'fhfPayload'
     -> FullHashesFind
-fullHashesFind pFhfPayload_ =
+fullHashesFind pFhfPayload_ = 
     FullHashesFind'
     { _fhfXgafv = Nothing
     , _fhfUploadProtocol = Nothing
@@ -111,7 +111,7 @@ fullHashesFind pFhfPayload_ =
     }
 
 -- | V1 error format.
-fhfXgafv :: Lens' FullHashesFind (Maybe Text)
+fhfXgafv :: Lens' FullHashesFind (Maybe Xgafv)
 fhfXgafv = lens _fhfXgafv (\ s a -> s{_fhfXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

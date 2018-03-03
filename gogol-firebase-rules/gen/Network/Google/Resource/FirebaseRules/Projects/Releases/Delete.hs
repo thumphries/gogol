@@ -43,8 +43,8 @@ module Network.Google.Resource.FirebaseRules.Projects.Releases.Delete
     , prdCallback
     ) where
 
-import           Network.Google.FirebaseRules.Types
-import           Network.Google.Prelude
+import Network.Google.FirebaseRules.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @firebaserules.projects.releases.delete@ method which the
 -- 'ProjectsReleasesDelete' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsReleasesDeleteResource =
 --
 -- /See:/ 'projectsReleasesDelete' smart constructor.
 data ProjectsReleasesDelete = ProjectsReleasesDelete'
-    { _prdXgafv          :: !(Maybe Xgafv)
+    { _prdXgafv :: !(Maybe Xgafv)
     , _prdUploadProtocol :: !(Maybe Text)
-    , _prdPp             :: !Bool
-    , _prdAccessToken    :: !(Maybe Text)
-    , _prdUploadType     :: !(Maybe Text)
-    , _prdBearerToken    :: !(Maybe Text)
-    , _prdName           :: !Text
-    , _prdCallback       :: !(Maybe Text)
+    , _prdPp :: !Bool
+    , _prdAccessToken :: !(Maybe Text)
+    , _prdUploadType :: !(Maybe Text)
+    , _prdBearerToken :: !(Maybe Text)
+    , _prdName :: !Text
+    , _prdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsReleasesDelete' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsReleasesDelete = ProjectsReleasesDelete'
 projectsReleasesDelete
     :: Text -- ^ 'prdName'
     -> ProjectsReleasesDelete
-projectsReleasesDelete pPrdName_ =
+projectsReleasesDelete pPrdName_ = 
     ProjectsReleasesDelete'
     { _prdXgafv = Nothing
     , _prdUploadProtocol = Nothing

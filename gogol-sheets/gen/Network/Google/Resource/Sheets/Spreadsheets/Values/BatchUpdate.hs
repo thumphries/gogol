@@ -46,8 +46,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Values.BatchUpdate
     , svbuCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.values.batchUpdate@ method which the
 -- 'SpreadsheetsValuesBatchUpdate' request conforms to.
@@ -73,15 +73,15 @@ type SpreadsheetsValuesBatchUpdateResource =
 --
 -- /See:/ 'spreadsheetsValuesBatchUpdate' smart constructor.
 data SpreadsheetsValuesBatchUpdate = SpreadsheetsValuesBatchUpdate'
-    { _svbuXgafv          :: !(Maybe Xgafv)
+    { _svbuXgafv :: !(Maybe Xgafv)
     , _svbuUploadProtocol :: !(Maybe Text)
-    , _svbuPp             :: !Bool
-    , _svbuAccessToken    :: !(Maybe Text)
-    , _svbuSpreadsheetId  :: !Text
-    , _svbuUploadType     :: !(Maybe Text)
-    , _svbuPayload        :: !BatchUpdateValuesRequest
-    , _svbuBearerToken    :: !(Maybe Text)
-    , _svbuCallback       :: !(Maybe Text)
+    , _svbuPp :: !Bool
+    , _svbuAccessToken :: !(Maybe Text)
+    , _svbuSpreadsheetId :: !Text
+    , _svbuUploadType :: !(Maybe Text)
+    , _svbuPayload :: !BatchUpdateValuesRequest
+    , _svbuBearerToken :: !(Maybe Text)
+    , _svbuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsValuesBatchUpdate' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ spreadsheetsValuesBatchUpdate
     :: Text -- ^ 'svbuSpreadsheetId'
     -> BatchUpdateValuesRequest -- ^ 'svbuPayload'
     -> SpreadsheetsValuesBatchUpdate
-spreadsheetsValuesBatchUpdate pSvbuSpreadsheetId_ pSvbuPayload_ =
+spreadsheetsValuesBatchUpdate pSvbuSpreadsheetId_ pSvbuPayload_ = 
     SpreadsheetsValuesBatchUpdate'
     { _svbuXgafv = Nothing
     , _svbuUploadProtocol = Nothing
@@ -177,6 +177,7 @@ instance GoogleRequest SpreadsheetsValuesBatchUpdate
              BatchUpdateValuesResponse
         type Scopes SpreadsheetsValuesBatchUpdate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsValuesBatchUpdate'{..}
           = go _svbuSpreadsheetId _svbuXgafv

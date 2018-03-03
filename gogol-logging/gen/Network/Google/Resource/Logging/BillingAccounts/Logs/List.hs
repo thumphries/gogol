@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.billingAccounts.logs.list@.
 module Network.Google.Resource.Logging.BillingAccounts.Logs.List
@@ -46,8 +46,8 @@ module Network.Google.Resource.Logging.BillingAccounts.Logs.List
     , ballCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.billingAccounts.logs.list@ method which the
 -- 'BillingAccountsLogsList' request conforms to.
@@ -67,21 +67,21 @@ type BillingAccountsLogsListResource =
                              QueryParam "alt" AltJSON :>
                                Get '[JSON] ListLogsResponse
 
--- | Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- | Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ 'billingAccountsLogsList' smart constructor.
 data BillingAccountsLogsList = BillingAccountsLogsList'
-    { _ballParent         :: !Text
-    , _ballXgafv          :: !(Maybe Xgafv)
+    { _ballParent :: !Text
+    , _ballXgafv :: !(Maybe Xgafv)
     , _ballUploadProtocol :: !(Maybe Text)
-    , _ballPp             :: !Bool
-    , _ballAccessToken    :: !(Maybe Text)
-    , _ballUploadType     :: !(Maybe Text)
-    , _ballBearerToken    :: !(Maybe Text)
-    , _ballPageToken      :: !(Maybe Text)
-    , _ballPageSize       :: !(Maybe (Textual Int32))
-    , _ballCallback       :: !(Maybe Text)
+    , _ballPp :: !Bool
+    , _ballAccessToken :: !(Maybe Text)
+    , _ballUploadType :: !(Maybe Text)
+    , _ballBearerToken :: !(Maybe Text)
+    , _ballPageToken :: !(Maybe Text)
+    , _ballPageSize :: !(Maybe (Textual Int32))
+    , _ballCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsLogsList' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ data BillingAccountsLogsList = BillingAccountsLogsList'
 billingAccountsLogsList
     :: Text -- ^ 'ballParent'
     -> BillingAccountsLogsList
-billingAccountsLogsList pBallParent_ =
+billingAccountsLogsList pBallParent_ = 
     BillingAccountsLogsList'
     { _ballParent = pBallParent_
     , _ballXgafv = Nothing
@@ -126,6 +126,7 @@ billingAccountsLogsList pBallParent_ =
 
 -- | Required. The resource name that owns the logs:
 -- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 ballParent :: Lens' BillingAccountsLogsList Text
 ballParent
   = lens _ballParent (\ s a -> s{_ballParent = a})

@@ -36,11 +36,12 @@ module Network.Google.Resource.Storage.BucketAccessControls.Patch
     -- * Request Lenses
     , bacpBucket
     , bacpPayload
+    , bacpUserProject
     , bacpEntity
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Storage.Types
+import Network.Google.Prelude
+import Network.Google.Storage.Types
 
 -- | A resource alias for @storage.bucketAccessControls.patch@ method which the
 -- 'BucketAccessControlsPatch' request conforms to.
@@ -51,18 +52,20 @@ type BucketAccessControlsPatchResource =
            Capture "bucket" Text :>
              "acl" :>
                Capture "entity" Text :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] BucketAccessControl :>
-                     Patch '[JSON] BucketAccessControl
+                 QueryParam "userProject" Text :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] BucketAccessControl :>
+                       Patch '[JSON] BucketAccessControl
 
 -- | Updates an ACL entry on the specified bucket. This method supports patch
 -- semantics.
 --
 -- /See:/ 'bucketAccessControlsPatch' smart constructor.
 data BucketAccessControlsPatch = BucketAccessControlsPatch'
-    { _bacpBucket  :: !Text
+    { _bacpBucket :: !Text
     , _bacpPayload :: !BucketAccessControl
-    , _bacpEntity  :: !Text
+    , _bacpUserProject :: !(Maybe Text)
+    , _bacpEntity :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BucketAccessControlsPatch' with the minimum fields required to make a request.
@@ -73,16 +76,19 @@ data BucketAccessControlsPatch = BucketAccessControlsPatch'
 --
 -- * 'bacpPayload'
 --
+-- * 'bacpUserProject'
+--
 -- * 'bacpEntity'
 bucketAccessControlsPatch
     :: Text -- ^ 'bacpBucket'
     -> BucketAccessControl -- ^ 'bacpPayload'
     -> Text -- ^ 'bacpEntity'
     -> BucketAccessControlsPatch
-bucketAccessControlsPatch pBacpBucket_ pBacpPayload_ pBacpEntity_ =
+bucketAccessControlsPatch pBacpBucket_ pBacpPayload_ pBacpEntity_ = 
     BucketAccessControlsPatch'
     { _bacpBucket = pBacpBucket_
     , _bacpPayload = pBacpPayload_
+    , _bacpUserProject = Nothing
     , _bacpEntity = pBacpEntity_
     }
 
@@ -95,6 +101,13 @@ bacpBucket
 bacpPayload :: Lens' BucketAccessControlsPatch BucketAccessControl
 bacpPayload
   = lens _bacpPayload (\ s a -> s{_bacpPayload = a})
+
+-- | The project to be billed for this request. Required for Requester Pays
+-- buckets.
+bacpUserProject :: Lens' BucketAccessControlsPatch (Maybe Text)
+bacpUserProject
+  = lens _bacpUserProject
+      (\ s a -> s{_bacpUserProject = a})
 
 -- | The entity holding the permission. Can be user-userId,
 -- user-emailAddress, group-groupId, group-emailAddress, allUsers, or
@@ -111,7 +124,8 @@ instance GoogleRequest BucketAccessControlsPatch
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/devstorage.full_control"]
         requestClient BucketAccessControlsPatch'{..}
-          = go _bacpBucket _bacpEntity (Just AltJSON)
+          = go _bacpBucket _bacpEntity _bacpUserProject
+              (Just AltJSON)
               _bacpPayload
               storageService
           where go

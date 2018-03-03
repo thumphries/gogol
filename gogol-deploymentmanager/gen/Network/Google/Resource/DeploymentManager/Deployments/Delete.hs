@@ -38,8 +38,8 @@ module Network.Google.Resource.DeploymentManager.Deployments.Delete
     , ddDeployment
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.deployments.delete@ method which the
 -- 'DeploymentsDelete' request conforms to.
@@ -60,9 +60,9 @@ type DeploymentsDeleteResource =
 --
 -- /See:/ 'deploymentsDelete' smart constructor.
 data DeploymentsDelete = DeploymentsDelete'
-    { _ddProject      :: !Text
+    { _ddProject :: !Text
     , _ddDeletePolicy :: !DeploymentsDeleteDeletePolicy
-    , _ddDeployment   :: !Text
+    , _ddDeployment :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeploymentsDelete' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ deploymentsDelete
     :: Text -- ^ 'ddProject'
     -> Text -- ^ 'ddDeployment'
     -> DeploymentsDelete
-deploymentsDelete pDdProject_ pDdDeployment_ =
+deploymentsDelete pDdProject_ pDdDeployment_ = 
     DeploymentsDelete'
     { _ddProject = pDdProject_
     , _ddDeletePolicy = Delete'

@@ -38,8 +38,8 @@ module Network.Google.Resource.PlusDomains.People.ListByCircle
     , plbcMaxResults
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.people.listByCircle@ method which the
 -- 'PeopleListByCircle' request conforms to.
@@ -57,8 +57,8 @@ type PeopleListByCircleResource =
 --
 -- /See:/ 'peopleListByCircle' smart constructor.
 data PeopleListByCircle = PeopleListByCircle'
-    { _plbcCircleId   :: !Text
-    , _plbcPageToken  :: !(Maybe Text)
+    { _plbcCircleId :: !Text
+    , _plbcPageToken :: !(Maybe Text)
     , _plbcMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data PeopleListByCircle = PeopleListByCircle'
 peopleListByCircle
     :: Text -- ^ 'plbcCircleId'
     -> PeopleListByCircle
-peopleListByCircle pPlbcCircleId_ =
+peopleListByCircle pPlbcCircleId_ = 
     PeopleListByCircle'
     { _plbcCircleId = pPlbcCircleId_
     , _plbcPageToken = Nothing

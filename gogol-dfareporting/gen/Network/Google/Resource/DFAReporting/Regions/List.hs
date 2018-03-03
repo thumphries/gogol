@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.Regions.List
     , rProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.regions.list@ method which the
 -- 'RegionsList' request conforms to.
 type RegionsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "regions" :>
@@ -65,7 +65,7 @@ newtype RegionsList = RegionsList'
 regionsList
     :: Int64 -- ^ 'rProFileId'
     -> RegionsList
-regionsList pRProFileId_ =
+regionsList pRProFileId_ = 
     RegionsList'
     { _rProFileId = _Coerce # pRProFileId_
     }

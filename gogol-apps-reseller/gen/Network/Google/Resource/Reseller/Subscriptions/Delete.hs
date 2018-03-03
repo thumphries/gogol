@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels\/Downgrades a subscription.
+-- Cancel, suspend or transfer a subscription to direct.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.subscriptions.delete@.
 module Network.Google.Resource.Reseller.Subscriptions.Delete
@@ -38,8 +38,8 @@ module Network.Google.Resource.Reseller.Subscriptions.Delete
     , sdSubscriptionId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.subscriptions.delete@ method which the
 -- 'SubscriptionsDelete' request conforms to.
@@ -55,12 +55,12 @@ type SubscriptionsDeleteResource =
                      SubscriptionsDeleteDeletionType
                      :> QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
--- | Cancels\/Downgrades a subscription.
+-- | Cancel, suspend or transfer a subscription to direct.
 --
 -- /See:/ 'subscriptionsDelete' smart constructor.
 data SubscriptionsDelete = SubscriptionsDelete'
-    { _sdCustomerId     :: !Text
-    , _sdDeletionType   :: !SubscriptionsDeleteDeletionType
+    { _sdCustomerId :: !Text
+    , _sdDeletionType :: !SubscriptionsDeleteDeletionType
     , _sdSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,25 +78,33 @@ subscriptionsDelete
     -> SubscriptionsDeleteDeletionType -- ^ 'sdDeletionType'
     -> Text -- ^ 'sdSubscriptionId'
     -> SubscriptionsDelete
-subscriptionsDelete pSdCustomerId_ pSdDeletionType_ pSdSubscriptionId_ =
+subscriptionsDelete pSdCustomerId_ pSdDeletionType_ pSdSubscriptionId_ = 
     SubscriptionsDelete'
     { _sdCustomerId = pSdCustomerId_
     , _sdDeletionType = pSdDeletionType_
     , _sdSubscriptionId = pSdSubscriptionId_
     }
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 sdCustomerId :: Lens' SubscriptionsDelete Text
 sdCustomerId
   = lens _sdCustomerId (\ s a -> s{_sdCustomerId = a})
 
--- | Whether the subscription is to be fully cancelled or downgraded
+-- | The deletionType query string enables the cancellation, downgrade, or
+-- suspension of a subscription.
 sdDeletionType :: Lens' SubscriptionsDelete SubscriptionsDeleteDeletionType
 sdDeletionType
   = lens _sdDeletionType
       (\ s a -> s{_sdDeletionType = a})
 
--- | Id of the subscription, which is unique for a customer
+-- | This is a required property. The subscriptionId is the subscription
+-- identifier and is unique for each customer. Since a subscriptionId
+-- changes when a subscription is updated, we recommend to not use this ID
+-- as a key for persistent data. And the subscriptionId can be found using
+-- the retrieve all reseller subscriptions method.
 sdSubscriptionId :: Lens' SubscriptionsDelete Text
 sdSubscriptionId
   = lens _sdSubscriptionId

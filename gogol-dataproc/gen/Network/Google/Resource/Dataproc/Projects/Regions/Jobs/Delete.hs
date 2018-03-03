@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the job from the project. If the job is active, the delete
--- fails, and the response returns \`FAILED_PRECONDITION\`.
+-- fails, and the response returns FAILED_PRECONDITION.
 --
 -- /See:/ <https://cloud.google.com/dataproc/ Google Cloud Dataproc API Reference> for @dataproc.projects.regions.jobs.delete@.
 module Network.Google.Resource.Dataproc.Projects.Regions.Jobs.Delete
@@ -46,8 +46,8 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Jobs.Delete
     , prjdCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.jobs.delete@ method which the
 -- 'ProjectsRegionsJobsDelete' request conforms to.
@@ -59,7 +59,7 @@ type ProjectsRegionsJobsDeleteResource =
              Capture "region" Text :>
                "jobs" :>
                  Capture "jobId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -70,20 +70,20 @@ type ProjectsRegionsJobsDeleteResource =
                                    Delete '[JSON] Empty
 
 -- | Deletes the job from the project. If the job is active, the delete
--- fails, and the response returns \`FAILED_PRECONDITION\`.
+-- fails, and the response returns FAILED_PRECONDITION.
 --
 -- /See:/ 'projectsRegionsJobsDelete' smart constructor.
 data ProjectsRegionsJobsDelete = ProjectsRegionsJobsDelete'
-    { _prjdXgafv          :: !(Maybe Text)
-    , _prjdJobId          :: !Text
+    { _prjdXgafv :: !(Maybe Xgafv)
+    , _prjdJobId :: !Text
     , _prjdUploadProtocol :: !(Maybe Text)
-    , _prjdPp             :: !Bool
-    , _prjdAccessToken    :: !(Maybe Text)
-    , _prjdUploadType     :: !(Maybe Text)
-    , _prjdBearerToken    :: !(Maybe Text)
-    , _prjdRegion         :: !Text
-    , _prjdProjectId      :: !Text
-    , _prjdCallback       :: !(Maybe Text)
+    , _prjdPp :: !Bool
+    , _prjdAccessToken :: !(Maybe Text)
+    , _prjdUploadType :: !(Maybe Text)
+    , _prjdBearerToken :: !(Maybe Text)
+    , _prjdRegion :: !Text
+    , _prjdProjectId :: !Text
+    , _prjdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsJobsDelete' with the minimum fields required to make a request.
@@ -114,7 +114,7 @@ projectsRegionsJobsDelete
     -> Text -- ^ 'prjdRegion'
     -> Text -- ^ 'prjdProjectId'
     -> ProjectsRegionsJobsDelete
-projectsRegionsJobsDelete pPrjdJobId_ pPrjdRegion_ pPrjdProjectId_ =
+projectsRegionsJobsDelete pPrjdJobId_ pPrjdRegion_ pPrjdProjectId_ = 
     ProjectsRegionsJobsDelete'
     { _prjdXgafv = Nothing
     , _prjdJobId = pPrjdJobId_
@@ -129,11 +129,11 @@ projectsRegionsJobsDelete pPrjdJobId_ pPrjdRegion_ pPrjdProjectId_ =
     }
 
 -- | V1 error format.
-prjdXgafv :: Lens' ProjectsRegionsJobsDelete (Maybe Text)
+prjdXgafv :: Lens' ProjectsRegionsJobsDelete (Maybe Xgafv)
 prjdXgafv
   = lens _prjdXgafv (\ s a -> s{_prjdXgafv = a})
 
--- | [Required] The job ID.
+-- | Required. The job ID.
 prjdJobId :: Lens' ProjectsRegionsJobsDelete Text
 prjdJobId
   = lens _prjdJobId (\ s a -> s{_prjdJobId = a})
@@ -166,12 +166,12 @@ prjdBearerToken
   = lens _prjdBearerToken
       (\ s a -> s{_prjdBearerToken = a})
 
--- | [Required] The Cloud Dataproc region in which to handle the request.
+-- | Required. The Cloud Dataproc region in which to handle the request.
 prjdRegion :: Lens' ProjectsRegionsJobsDelete Text
 prjdRegion
   = lens _prjdRegion (\ s a -> s{_prjdRegion = a})
 
--- | [Required] The ID of the Google Cloud Platform project that the job
+-- | Required. The ID of the Google Cloud Platform project that the job
 -- belongs to.
 prjdProjectId :: Lens' ProjectsRegionsJobsDelete Text
 prjdProjectId

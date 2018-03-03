@@ -36,8 +36,8 @@ module Network.Google.Resource.Books.CloudLoading.DeleteBook
     , cldbVolumeId
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.cloudloading.deleteBook@ method which the
 -- 'CloudLoadingDeleteBook' request conforms to.
@@ -64,7 +64,7 @@ newtype CloudLoadingDeleteBook = CloudLoadingDeleteBook'
 cloudLoadingDeleteBook
     :: Text -- ^ 'cldbVolumeId'
     -> CloudLoadingDeleteBook
-cloudLoadingDeleteBook pCldbVolumeId_ =
+cloudLoadingDeleteBook pCldbVolumeId_ = 
     CloudLoadingDeleteBook'
     { _cldbVolumeId = pCldbVolumeId_
     }

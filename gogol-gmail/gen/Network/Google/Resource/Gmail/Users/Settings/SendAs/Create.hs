@@ -27,7 +27,8 @@
 -- the resource\'s verification status will be set to pending; otherwise,
 -- the resource will be created with verification status set to accepted.
 -- If a signature is provided, Gmail will sanitize the HTML before saving
--- it with the alias.
+-- it with the alias. This method is only available to service account
+-- clients that have been delegated domain-wide authority.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.sendAs.create@.
 module Network.Google.Resource.Gmail.Users.Settings.SendAs.Create
@@ -44,8 +45,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Create
     , ussacUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.create@ method which the
 -- 'UsersSettingsSendAsCreate' request conforms to.
@@ -66,12 +67,13 @@ type UsersSettingsSendAsCreateResource =
 -- the resource\'s verification status will be set to pending; otherwise,
 -- the resource will be created with verification status set to accepted.
 -- If a signature is provided, Gmail will sanitize the HTML before saving
--- it with the alias.
+-- it with the alias. This method is only available to service account
+-- clients that have been delegated domain-wide authority.
 --
 -- /See:/ 'usersSettingsSendAsCreate' smart constructor.
 data UsersSettingsSendAsCreate = UsersSettingsSendAsCreate'
     { _ussacPayload :: !SendAs
-    , _ussacUserId  :: !Text
+    , _ussacUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsSendAsCreate' with the minimum fields required to make a request.
@@ -84,7 +86,7 @@ data UsersSettingsSendAsCreate = UsersSettingsSendAsCreate'
 usersSettingsSendAsCreate
     :: SendAs -- ^ 'ussacPayload'
     -> UsersSettingsSendAsCreate
-usersSettingsSendAsCreate pUssacPayload_ =
+usersSettingsSendAsCreate pUssacPayload_ = 
     UsersSettingsSendAsCreate'
     { _ussacPayload = pUssacPayload_
     , _ussacUserId = "me"

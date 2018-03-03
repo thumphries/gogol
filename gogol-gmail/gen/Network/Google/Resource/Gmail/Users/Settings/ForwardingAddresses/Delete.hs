@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified forwarding address and revokes any verification
--- that may have been required.
+-- that may have been required. This method is only available to service
+-- account clients that have been delegated domain-wide authority.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.forwardingAddresses.delete@.
 module Network.Google.Resource.Gmail.Users.Settings.ForwardingAddresses.Delete
@@ -38,8 +39,8 @@ module Network.Google.Resource.Gmail.Users.Settings.ForwardingAddresses.Delete
     , usfadUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.forwardingAddresses.delete@ method which the
 -- 'UsersSettingsForwardingAddressesDelete' request conforms to.
@@ -54,12 +55,13 @@ type UsersSettingsForwardingAddressesDeleteResource =
                    QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
 -- | Deletes the specified forwarding address and revokes any verification
--- that may have been required.
+-- that may have been required. This method is only available to service
+-- account clients that have been delegated domain-wide authority.
 --
 -- /See:/ 'usersSettingsForwardingAddressesDelete' smart constructor.
 data UsersSettingsForwardingAddressesDelete = UsersSettingsForwardingAddressesDelete'
     { _usfadForwardingEmail :: !Text
-    , _usfadUserId          :: !Text
+    , _usfadUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsForwardingAddressesDelete' with the minimum fields required to make a request.
@@ -72,7 +74,7 @@ data UsersSettingsForwardingAddressesDelete = UsersSettingsForwardingAddressesDe
 usersSettingsForwardingAddressesDelete
     :: Text -- ^ 'usfadForwardingEmail'
     -> UsersSettingsForwardingAddressesDelete
-usersSettingsForwardingAddressesDelete pUsfadForwardingEmail_ =
+usersSettingsForwardingAddressesDelete pUsfadForwardingEmail_ = 
     UsersSettingsForwardingAddressesDelete'
     { _usfadForwardingEmail = pUsfadForwardingEmail_
     , _usfadUserId = "me"

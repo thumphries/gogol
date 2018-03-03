@@ -20,8 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates a per-user managed configuration for an app for the
--- specified user. This method supports patch semantics.
+-- Adds or updates the managed configuration settings for an app for the
+-- specified user. If you support the Managed configurations iframe, you
+-- can apply managed configurations to a user by specifying an mcmId and
+-- its associated configuration variables (if any) in the request.
+-- Alternatively, all EMMs can apply managed configurations by passing a
+-- list of managed properties. This method supports patch semantics.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.managedconfigurationsforuser.patch@.
 module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforUser.Patch
@@ -40,8 +44,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforUser.Pa
     , mcupManagedConfigurationForUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsforuser.patch@ method which the
 -- 'ManagedConfigurationsforUserPatch' request conforms to.
@@ -58,14 +62,18 @@ type ManagedConfigurationsforUserPatchResource =
                        ReqBody '[JSON] ManagedConfiguration :>
                          Patch '[JSON] ManagedConfiguration
 
--- | Adds or updates a per-user managed configuration for an app for the
--- specified user. This method supports patch semantics.
+-- | Adds or updates the managed configuration settings for an app for the
+-- specified user. If you support the Managed configurations iframe, you
+-- can apply managed configurations to a user by specifying an mcmId and
+-- its associated configuration variables (if any) in the request.
+-- Alternatively, all EMMs can apply managed configurations by passing a
+-- list of managed properties. This method supports patch semantics.
 --
 -- /See:/ 'managedConfigurationsforUserPatch' smart constructor.
 data ManagedConfigurationsforUserPatch = ManagedConfigurationsforUserPatch'
-    { _mcupEnterpriseId                  :: !Text
-    , _mcupPayload                       :: !ManagedConfiguration
-    , _mcupUserId                        :: !Text
+    { _mcupEnterpriseId :: !Text
+    , _mcupPayload :: !ManagedConfiguration
+    , _mcupUserId :: !Text
     , _mcupManagedConfigurationForUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +94,7 @@ managedConfigurationsforUserPatch
     -> Text -- ^ 'mcupUserId'
     -> Text -- ^ 'mcupManagedConfigurationForUserId'
     -> ManagedConfigurationsforUserPatch
-managedConfigurationsforUserPatch pMcupEnterpriseId_ pMcupPayload_ pMcupUserId_ pMcupManagedConfigurationForUserId_ =
+managedConfigurationsforUserPatch pMcupEnterpriseId_ pMcupPayload_ pMcupUserId_ pMcupManagedConfigurationForUserId_ = 
     ManagedConfigurationsforUserPatch'
     { _mcupEnterpriseId = pMcupEnterpriseId_
     , _mcupPayload = pMcupPayload_

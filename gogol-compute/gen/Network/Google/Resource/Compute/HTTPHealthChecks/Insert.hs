@@ -34,12 +34,13 @@ module Network.Google.Resource.Compute.HTTPHealthChecks.Insert
     , HTTPHealthChecksInsert
 
     -- * Request Lenses
+    , httphciRequestId
     , httphciProject
     , httphciPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.httpHealthChecks.insert@ method which the
 -- 'HTTPHealthChecksInsert' request conforms to.
@@ -50,22 +51,26 @@ type HTTPHealthChecksInsertResource =
            Capture "project" Text :>
              "global" :>
                "httpHealthChecks" :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] HTTPHealthCheck :>
-                     Post '[JSON] Operation
+                 QueryParam "requestId" Text :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] HTTPHealthCheck :>
+                       Post '[JSON] Operation
 
 -- | Creates a HttpHealthCheck resource in the specified project using the
 -- data included in the request.
 --
 -- /See:/ 'hTTPHealthChecksInsert' smart constructor.
 data HTTPHealthChecksInsert = HTTPHealthChecksInsert'
-    { _httphciProject :: !Text
+    { _httphciRequestId :: !(Maybe Text)
+    , _httphciProject :: !Text
     , _httphciPayload :: !HTTPHealthCheck
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HTTPHealthChecksInsert' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'httphciRequestId'
 --
 -- * 'httphciProject'
 --
@@ -74,11 +79,27 @@ hTTPHealthChecksInsert
     :: Text -- ^ 'httphciProject'
     -> HTTPHealthCheck -- ^ 'httphciPayload'
     -> HTTPHealthChecksInsert
-hTTPHealthChecksInsert pHttphciProject_ pHttphciPayload_ =
+hTTPHealthChecksInsert pHttphciProject_ pHttphciPayload_ = 
     HTTPHealthChecksInsert'
-    { _httphciProject = pHttphciProject_
+    { _httphciRequestId = Nothing
+    , _httphciProject = pHttphciProject_
     , _httphciPayload = pHttphciPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+httphciRequestId :: Lens' HTTPHealthChecksInsert (Maybe Text)
+httphciRequestId
+  = lens _httphciRequestId
+      (\ s a -> s{_httphciRequestId = a})
 
 -- | Project ID for this request.
 httphciProject :: Lens' HTTPHealthChecksInsert Text
@@ -98,7 +119,8 @@ instance GoogleRequest HTTPHealthChecksInsert where
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient HTTPHealthChecksInsert'{..}
-          = go _httphciProject (Just AltJSON) _httphciPayload
+          = go _httphciProject _httphciRequestId (Just AltJSON)
+              _httphciPayload
               computeService
           where go
                   = buildClient

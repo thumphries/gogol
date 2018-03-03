@@ -37,8 +37,8 @@ module Network.Google.Resource.Prediction.TrainedModels.Analyze
     , tmaId
     ) where
 
-import           Network.Google.Prediction.Types
-import           Network.Google.Prelude
+import Network.Google.Prediction.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @prediction.trainedmodels.analyze@ method which the
 -- 'TrainedModelsAnalyze' request conforms to.
@@ -57,7 +57,7 @@ type TrainedModelsAnalyzeResource =
 -- /See:/ 'trainedModelsAnalyze' smart constructor.
 data TrainedModelsAnalyze = TrainedModelsAnalyze'
     { _tmaProject :: !Text
-    , _tmaId      :: !Text
+    , _tmaId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TrainedModelsAnalyze' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ trainedModelsAnalyze
     :: Text -- ^ 'tmaProject'
     -> Text -- ^ 'tmaId'
     -> TrainedModelsAnalyze
-trainedModelsAnalyze pTmaProject_ pTmaId_ =
+trainedModelsAnalyze pTmaProject_ pTmaId_ = 
     TrainedModelsAnalyze'
     { _tmaProject = pTmaProject_
     , _tmaId = pTmaId_

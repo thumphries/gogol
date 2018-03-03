@@ -35,14 +35,13 @@ module Network.Google.Resource.Games.Applications.Get
     , ApplicationsGet
 
     -- * Request Lenses
-    , agConsistencyToken
     , agApplicationId
     , agPlatformType
     , agLanguage
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.applications.get@ method which the
 -- 'ApplicationsGet' request conforms to.
@@ -51,11 +50,10 @@ type ApplicationsGetResource =
        "v1" :>
          "applications" :>
            Capture "applicationId" Text :>
-             QueryParam "consistencyToken" (Textual Int64) :>
-               QueryParam "platformType" ApplicationsGetPlatformType
-                 :>
-                 QueryParam "language" Text :>
-                   QueryParam "alt" AltJSON :> Get '[JSON] Application
+             QueryParam "platformType" ApplicationsGetPlatformType
+               :>
+               QueryParam "language" Text :>
+                 QueryParam "alt" AltJSON :> Get '[JSON] Application
 
 -- | Retrieves the metadata of the application with the given ID. If the
 -- requested application is not available for the specified platformType,
@@ -63,17 +61,14 @@ type ApplicationsGetResource =
 --
 -- /See:/ 'applicationsGet' smart constructor.
 data ApplicationsGet = ApplicationsGet'
-    { _agConsistencyToken :: !(Maybe (Textual Int64))
-    , _agApplicationId    :: !Text
-    , _agPlatformType     :: !(Maybe ApplicationsGetPlatformType)
-    , _agLanguage         :: !(Maybe Text)
+    { _agApplicationId :: !Text
+    , _agPlatformType :: !(Maybe ApplicationsGetPlatformType)
+    , _agLanguage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationsGet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'agConsistencyToken'
 --
 -- * 'agApplicationId'
 --
@@ -83,20 +78,12 @@ data ApplicationsGet = ApplicationsGet'
 applicationsGet
     :: Text -- ^ 'agApplicationId'
     -> ApplicationsGet
-applicationsGet pAgApplicationId_ =
+applicationsGet pAgApplicationId_ = 
     ApplicationsGet'
-    { _agConsistencyToken = Nothing
-    , _agApplicationId = pAgApplicationId_
+    { _agApplicationId = pAgApplicationId_
     , _agPlatformType = Nothing
     , _agLanguage = Nothing
     }
-
--- | The last-seen mutation timestamp.
-agConsistencyToken :: Lens' ApplicationsGet (Maybe Int64)
-agConsistencyToken
-  = lens _agConsistencyToken
-      (\ s a -> s{_agConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The application ID from the Google Play developer console.
 agApplicationId :: Lens' ApplicationsGet Text
@@ -121,9 +108,7 @@ instance GoogleRequest ApplicationsGet where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient ApplicationsGet'{..}
-          = go _agApplicationId _agConsistencyToken
-              _agPlatformType
-              _agLanguage
+          = go _agApplicationId _agPlatformType _agLanguage
               (Just AltJSON)
               gamesService
           where go

@@ -33,11 +33,11 @@ module Network.Google.Resource.Content.ShippingSettings.Getsupportedcarriers
     , ShippingSettingsGetsupportedcarriers
 
     -- * Request Lenses
-    , ssgMerchantId
+    , sMerchantId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.shippingsettings.getsupportedcarriers@ method which the
 -- 'ShippingSettingsGetsupportedcarriers' request conforms to.
@@ -54,28 +54,27 @@ type ShippingSettingsGetsupportedcarriersResource =
 --
 -- /See:/ 'shippingSettingsGetsupportedcarriers' smart constructor.
 newtype ShippingSettingsGetsupportedcarriers = ShippingSettingsGetsupportedcarriers'
-    { _ssgMerchantId :: Textual Word64
+    { _sMerchantId :: Textual Word64
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ShippingSettingsGetsupportedcarriers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssgMerchantId'
+-- * 'sMerchantId'
 shippingSettingsGetsupportedcarriers
-    :: Word64 -- ^ 'ssgMerchantId'
+    :: Word64 -- ^ 'sMerchantId'
     -> ShippingSettingsGetsupportedcarriers
-shippingSettingsGetsupportedcarriers pSsgMerchantId_ =
+shippingSettingsGetsupportedcarriers pSMerchantId_ = 
     ShippingSettingsGetsupportedcarriers'
-    { _ssgMerchantId = _Coerce # pSsgMerchantId_
+    { _sMerchantId = _Coerce # pSMerchantId_
     }
 
 -- | The ID of the account for which to retrieve the supported carriers.
-ssgMerchantId :: Lens' ShippingSettingsGetsupportedcarriers Word64
-ssgMerchantId
-  = lens _ssgMerchantId
-      (\ s a -> s{_ssgMerchantId = a})
-      . _Coerce
+sMerchantId :: Lens' ShippingSettingsGetsupportedcarriers Word64
+sMerchantId
+  = lens _sMerchantId (\ s a -> s{_sMerchantId = a}) .
+      _Coerce
 
 instance GoogleRequest
          ShippingSettingsGetsupportedcarriers where
@@ -85,7 +84,7 @@ instance GoogleRequest
              '["https://www.googleapis.com/auth/content"]
         requestClient
           ShippingSettingsGetsupportedcarriers'{..}
-          = go _ssgMerchantId (Just AltJSON)
+          = go _sMerchantId (Just AltJSON)
               shoppingContentService
           where go
                   = buildClient

@@ -45,8 +45,8 @@ module Network.Google.Resource.YouTubeReporting.Jobs.Reports.Get
     , jrgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.jobs.reports.get@ method which the
 -- 'JobsReportsGet' request conforms to.
@@ -70,16 +70,16 @@ type JobsReportsGetResource =
 --
 -- /See:/ 'jobsReportsGet' smart constructor.
 data JobsReportsGet = JobsReportsGet'
-    { _jrgXgafv                  :: !(Maybe Xgafv)
-    , _jrgJobId                  :: !Text
-    , _jrgUploadProtocol         :: !(Maybe Text)
-    , _jrgPp                     :: !Bool
-    , _jrgAccessToken            :: !(Maybe Text)
-    , _jrgReportId               :: !Text
-    , _jrgUploadType             :: !(Maybe Text)
+    { _jrgXgafv :: !(Maybe Xgafv)
+    , _jrgJobId :: !Text
+    , _jrgUploadProtocol :: !(Maybe Text)
+    , _jrgPp :: !Bool
+    , _jrgAccessToken :: !(Maybe Text)
+    , _jrgReportId :: !Text
+    , _jrgUploadType :: !(Maybe Text)
     , _jrgOnBehalfOfContentOwner :: !(Maybe Text)
-    , _jrgBearerToken            :: !(Maybe Text)
-    , _jrgCallback               :: !(Maybe Text)
+    , _jrgBearerToken :: !(Maybe Text)
+    , _jrgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobsReportsGet' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ jobsReportsGet
     :: Text -- ^ 'jrgJobId'
     -> Text -- ^ 'jrgReportId'
     -> JobsReportsGet
-jobsReportsGet pJrgJobId_ pJrgReportId_ =
+jobsReportsGet pJrgJobId_ pJrgReportId_ = 
     JobsReportsGet'
     { _jrgXgafv = Nothing
     , _jrgJobId = pJrgJobId_

@@ -50,8 +50,8 @@ module Network.Google.Resource.CloudMonitoring.Timeseries.List
     , tlYoungest
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.timeseries.list@ method which the
 -- 'TimeseriesList' request conforms to.
@@ -82,17 +82,17 @@ type TimeseriesListResource =
 --
 -- /See:/ 'timeseriesList' smart constructor.
 data TimeseriesList = TimeseriesList'
-    { _tlWindow     :: !(Maybe Text)
-    , _tlProject    :: !Text
-    , _tlCount      :: !(Textual Int32)
-    , _tlPayload    :: !ListTimeseriesRequest
+    { _tlWindow :: !(Maybe Text)
+    , _tlProject :: !Text
+    , _tlCount :: !(Textual Int32)
+    , _tlPayload :: !ListTimeseriesRequest
     , _tlAggregator :: !(Maybe TimeseriesListAggregator)
-    , _tlTimespan   :: !(Maybe Text)
-    , _tlMetric     :: !Text
-    , _tlOldest     :: !(Maybe Text)
-    , _tlLabels     :: !(Maybe [Text])
-    , _tlPageToken  :: !(Maybe Text)
-    , _tlYoungest   :: !Text
+    , _tlTimespan :: !(Maybe Text)
+    , _tlMetric :: !Text
+    , _tlOldest :: !(Maybe Text)
+    , _tlLabels :: !(Maybe [Text])
+    , _tlPageToken :: !(Maybe Text)
+    , _tlYoungest :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TimeseriesList' with the minimum fields required to make a request.
@@ -126,7 +126,7 @@ timeseriesList
     -> Text -- ^ 'tlMetric'
     -> Text -- ^ 'tlYoungest'
     -> TimeseriesList
-timeseriesList pTlProject_ pTlPayload_ pTlMetric_ pTlYoungest_ =
+timeseriesList pTlProject_ pTlPayload_ pTlMetric_ pTlYoungest_ = 
     TimeseriesList'
     { _tlWindow = Nothing
     , _tlProject = pTlProject_

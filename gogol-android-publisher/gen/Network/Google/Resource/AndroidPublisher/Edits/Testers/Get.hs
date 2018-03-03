@@ -36,8 +36,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Testers.Get
     , etgEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.testers.get@ method which the
 -- 'EditsTestersGet' request conforms to.
@@ -49,15 +49,15 @@ type EditsTestersGetResource =
              "edits" :>
                Capture "editId" Text :>
                  "testers" :>
-                   Capture "track" EditsTestersGetTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :> Get '[JSON] Testers
 
 --
 -- /See:/ 'editsTestersGet' smart constructor.
 data EditsTestersGet = EditsTestersGet'
-    { _etgTrack       :: !EditsTestersGetTrack
+    { _etgTrack :: !Text
     , _etgPackageName :: !Text
-    , _etgEditId      :: !Text
+    , _etgEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTestersGet' with the minimum fields required to make a request.
@@ -70,18 +70,20 @@ data EditsTestersGet = EditsTestersGet'
 --
 -- * 'etgEditId'
 editsTestersGet
-    :: EditsTestersGetTrack -- ^ 'etgTrack'
+    :: Text -- ^ 'etgTrack'
     -> Text -- ^ 'etgPackageName'
     -> Text -- ^ 'etgEditId'
     -> EditsTestersGet
-editsTestersGet pEtgTrack_ pEtgPackageName_ pEtgEditId_ =
+editsTestersGet pEtgTrack_ pEtgPackageName_ pEtgEditId_ = 
     EditsTestersGet'
     { _etgTrack = pEtgTrack_
     , _etgPackageName = pEtgPackageName_
     , _etgEditId = pEtgEditId_
     }
 
-etgTrack :: Lens' EditsTestersGet EditsTestersGetTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etgTrack :: Lens' EditsTestersGet Text
 etgTrack = lens _etgTrack (\ s a -> s{_etgTrack = a})
 
 -- | Unique identifier for the Android app that is being updated; for

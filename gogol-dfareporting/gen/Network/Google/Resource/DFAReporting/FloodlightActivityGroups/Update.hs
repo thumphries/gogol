@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivityGroups.Update
     , faguPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivityGroups.update@ method which the
 -- 'FloodlightActivityGroupsUpdate' request conforms to.
 type FloodlightActivityGroupsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivityGroups" :>
@@ -57,7 +57,7 @@ type FloodlightActivityGroupsUpdateResource =
 -- /See:/ 'floodlightActivityGroupsUpdate' smart constructor.
 data FloodlightActivityGroupsUpdate = FloodlightActivityGroupsUpdate'
     { _faguProFileId :: !(Textual Int64)
-    , _faguPayload   :: !FloodlightActivityGroup
+    , _faguPayload :: !FloodlightActivityGroup
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivityGroupsUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ floodlightActivityGroupsUpdate
     :: Int64 -- ^ 'faguProFileId'
     -> FloodlightActivityGroup -- ^ 'faguPayload'
     -> FloodlightActivityGroupsUpdate
-floodlightActivityGroupsUpdate pFaguProFileId_ pFaguPayload_ =
+floodlightActivityGroupsUpdate pFaguProFileId_ pFaguPayload_ = 
     FloodlightActivityGroupsUpdate'
     { _faguProFileId = _Coerce # pFaguProFileId_
     , _faguPayload = pFaguPayload_

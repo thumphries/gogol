@@ -40,8 +40,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.Delete
     , igmdZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.delete@ method which the
 -- 'InstanceGroupManagersDelete' request conforms to.
@@ -62,9 +62,9 @@ type InstanceGroupManagersDeleteResource =
 --
 -- /See:/ 'instanceGroupManagersDelete' smart constructor.
 data InstanceGroupManagersDelete = InstanceGroupManagersDelete'
-    { _igmdProject              :: !Text
+    { _igmdProject :: !Text
     , _igmdInstanceGroupManager :: !Text
-    , _igmdZone                 :: !Text
+    , _igmdZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersDelete' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ instanceGroupManagersDelete
     -> Text -- ^ 'igmdInstanceGroupManager'
     -> Text -- ^ 'igmdZone'
     -> InstanceGroupManagersDelete
-instanceGroupManagersDelete pIgmdProject_ pIgmdInstanceGroupManager_ pIgmdZone_ =
+instanceGroupManagersDelete pIgmdProject_ pIgmdInstanceGroupManager_ pIgmdZone_ = 
     InstanceGroupManagersDelete'
     { _igmdProject = pIgmdProject_
     , _igmdInstanceGroupManager = pIgmdInstanceGroupManager_

@@ -40,8 +40,8 @@ module Network.Google.Resource.SQL.Users.Update
     , uuInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.users.update@ method which the
 -- 'UsersUpdate' request conforms to.
@@ -62,10 +62,10 @@ type UsersUpdateResource =
 --
 -- /See:/ 'usersUpdate' smart constructor.
 data UsersUpdate = UsersUpdate'
-    { _uuProject  :: !Text
-    , _uuPayload  :: !User
-    , _uuName     :: !Text
-    , _uuHost     :: !Text
+    { _uuProject :: !Text
+    , _uuPayload :: !User
+    , _uuName :: !Text
+    , _uuHost :: !Text
     , _uuInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ usersUpdate
     -> Text -- ^ 'uuHost'
     -> Text -- ^ 'uuInstance'
     -> UsersUpdate
-usersUpdate pUuProject_ pUuPayload_ pUuName_ pUuHost_ pUuInstance_ =
+usersUpdate pUuProject_ pUuPayload_ pUuName_ pUuHost_ pUuInstance_ = 
     UsersUpdate'
     { _uuProject = pUuProject_
     , _uuPayload = pUuPayload_

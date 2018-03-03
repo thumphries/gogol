@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Asps.Get
     , agUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.asps.get@ method which the
 -- 'AspsGet' request conforms to.
@@ -56,7 +56,7 @@ type AspsGetResource =
 --
 -- /See:/ 'aspsGet' smart constructor.
 data AspsGet = AspsGet'
-    { _agCodeId  :: !(Textual Int32)
+    { _agCodeId :: !(Textual Int32)
     , _agUserKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ aspsGet
     :: Int32 -- ^ 'agCodeId'
     -> Text -- ^ 'agUserKey'
     -> AspsGet
-aspsGet pAgCodeId_ pAgUserKey_ =
+aspsGet pAgCodeId_ pAgUserKey_ = 
     AspsGet'
     { _agCodeId = _Coerce # pAgCodeId_
     , _agUserKey = pAgUserKey_

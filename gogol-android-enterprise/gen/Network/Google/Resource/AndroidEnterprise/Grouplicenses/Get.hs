@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Grouplicenses.Get
     , ggGroupLicenseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.grouplicenses.get@ method which the
 -- 'GrouplicensesGet' request conforms to.
@@ -55,7 +55,7 @@ type GrouplicensesGetResource =
 --
 -- /See:/ 'grouplicensesGet' smart constructor.
 data GrouplicensesGet = GrouplicensesGet'
-    { _ggEnterpriseId   :: !Text
+    { _ggEnterpriseId :: !Text
     , _ggGroupLicenseId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ grouplicensesGet
     :: Text -- ^ 'ggEnterpriseId'
     -> Text -- ^ 'ggGroupLicenseId'
     -> GrouplicensesGet
-grouplicensesGet pGgEnterpriseId_ pGgGroupLicenseId_ =
+grouplicensesGet pGgEnterpriseId_ pGgGroupLicenseId_ = 
     GrouplicensesGet'
     { _ggEnterpriseId = pGgEnterpriseId_
     , _ggGroupLicenseId = pGgGroupLicenseId_

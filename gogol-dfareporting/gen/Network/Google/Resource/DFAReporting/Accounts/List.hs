@@ -44,14 +44,14 @@ module Network.Google.Resource.DFAReporting.Accounts.List
     , accMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accounts.list@ method which the
 -- 'AccountsList' request conforms to.
 type AccountsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accounts" :>
@@ -71,13 +71,13 @@ type AccountsListResource =
 -- /See:/ 'accountsList' smart constructor.
 data AccountsList = AccountsList'
     { _accSearchString :: !(Maybe Text)
-    , _accIds          :: !(Maybe [Textual Int64])
-    , _accProFileId    :: !(Textual Int64)
-    , _accSortOrder    :: !(Maybe AccountsListSortOrder)
-    , _accActive       :: !(Maybe Bool)
-    , _accPageToken    :: !(Maybe Text)
-    , _accSortField    :: !(Maybe AccountsListSortField)
-    , _accMaxResults   :: !(Maybe (Textual Int32))
+    , _accIds :: !(Maybe [Textual Int64])
+    , _accProFileId :: !(Textual Int64)
+    , _accSortOrder :: !AccountsListSortOrder
+    , _accActive :: !(Maybe Bool)
+    , _accPageToken :: !(Maybe Text)
+    , _accSortField :: !AccountsListSortField
+    , _accMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsList' with the minimum fields required to make a request.
@@ -102,16 +102,16 @@ data AccountsList = AccountsList'
 accountsList
     :: Int64 -- ^ 'accProFileId'
     -> AccountsList
-accountsList pAccProFileId_ =
+accountsList pAccProFileId_ = 
     AccountsList'
     { _accSearchString = Nothing
     , _accIds = Nothing
     , _accProFileId = _Coerce # pAccProFileId_
-    , _accSortOrder = Nothing
+    , _accSortOrder = AAscending
     , _accActive = Nothing
     , _accPageToken = Nothing
-    , _accSortField = Nothing
-    , _accMaxResults = Nothing
+    , _accSortField = AID
+    , _accMaxResults = 1000
     }
 
 -- | Allows searching for objects by name or ID. Wildcards (*) are allowed.
@@ -138,8 +138,8 @@ accProFileId
   = lens _accProFileId (\ s a -> s{_accProFileId = a})
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-accSortOrder :: Lens' AccountsList (Maybe AccountsListSortOrder)
+-- | Order of sorted results.
+accSortOrder :: Lens' AccountsList AccountsListSortOrder
 accSortOrder
   = lens _accSortOrder (\ s a -> s{_accSortOrder = a})
 
@@ -155,16 +155,16 @@ accPageToken
   = lens _accPageToken (\ s a -> s{_accPageToken = a})
 
 -- | Field by which to sort the list.
-accSortField :: Lens' AccountsList (Maybe AccountsListSortField)
+accSortField :: Lens' AccountsList AccountsListSortField
 accSortField
   = lens _accSortField (\ s a -> s{_accSortField = a})
 
 -- | Maximum number of results to return.
-accMaxResults :: Lens' AccountsList (Maybe Int32)
+accMaxResults :: Lens' AccountsList Int32
 accMaxResults
   = lens _accMaxResults
       (\ s a -> s{_accMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest AccountsList where
         type Rs AccountsList = AccountsListResponse
@@ -173,11 +173,11 @@ instance GoogleRequest AccountsList where
         requestClient AccountsList'{..}
           = go _accProFileId _accSearchString
               (_accIds ^. _Default)
-              _accSortOrder
+              (Just _accSortOrder)
               _accActive
               _accPageToken
-              _accSortField
-              _accMaxResults
+              (Just _accSortField)
+              (Just _accMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

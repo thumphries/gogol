@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.CustomMetrics.Patch
     , mcmpAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customMetrics.patch@ method which the
 -- 'ManagementCustomMetricsPatch' request conforms to.
@@ -64,11 +64,11 @@ type ManagementCustomMetricsPatchResource =
 --
 -- /See:/ 'managementCustomMetricsPatch' smart constructor.
 data ManagementCustomMetricsPatch = ManagementCustomMetricsPatch'
-    { _mcmpCustomMetricId              :: !Text
-    , _mcmpWebPropertyId               :: !Text
+    { _mcmpCustomMetricId :: !Text
+    , _mcmpWebPropertyId :: !Text
     , _mcmpIgnoreCustomDataSourceLinks :: !Bool
-    , _mcmpPayload                     :: !CustomMetric
-    , _mcmpAccountId                   :: !Text
+    , _mcmpPayload :: !CustomMetric
+    , _mcmpAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomMetricsPatch' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ managementCustomMetricsPatch
     -> CustomMetric -- ^ 'mcmpPayload'
     -> Text -- ^ 'mcmpAccountId'
     -> ManagementCustomMetricsPatch
-managementCustomMetricsPatch pMcmpCustomMetricId_ pMcmpWebPropertyId_ pMcmpPayload_ pMcmpAccountId_ =
+managementCustomMetricsPatch pMcmpCustomMetricId_ pMcmpWebPropertyId_ pMcmpPayload_ pMcmpAccountId_ = 
     ManagementCustomMetricsPatch'
     { _mcmpCustomMetricId = pMcmpCustomMetricId_
     , _mcmpWebPropertyId = pMcmpWebPropertyId_

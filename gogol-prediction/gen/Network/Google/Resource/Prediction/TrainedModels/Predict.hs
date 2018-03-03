@@ -38,8 +38,8 @@ module Network.Google.Resource.Prediction.TrainedModels.Predict
     , tmpId
     ) where
 
-import           Network.Google.Prediction.Types
-import           Network.Google.Prelude
+import Network.Google.Prediction.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @prediction.trainedmodels.predict@ method which the
 -- 'TrainedModelsPredict' request conforms to.
@@ -60,7 +60,7 @@ type TrainedModelsPredictResource =
 data TrainedModelsPredict = TrainedModelsPredict'
     { _tmpProject :: !Text
     , _tmpPayload :: !Input
-    , _tmpId      :: !Text
+    , _tmpId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TrainedModelsPredict' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ trainedModelsPredict
     -> Input -- ^ 'tmpPayload'
     -> Text -- ^ 'tmpId'
     -> TrainedModelsPredict
-trainedModelsPredict pTmpProject_ pTmpPayload_ pTmpId_ =
+trainedModelsPredict pTmpProject_ pTmpPayload_ pTmpId_ = 
     TrainedModelsPredict'
     { _tmpProject = pTmpProject_
     , _tmpPayload = pTmpPayload_

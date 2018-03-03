@@ -48,8 +48,8 @@ module Network.Google.Resource.Books.Layers.AnnotationData.List
     , ladlMaxResults
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.layers.annotationData.list@ method which the
 -- 'LayersAnnotationDataList' request conforms to.
@@ -80,19 +80,19 @@ type LayersAnnotationDataListResource =
 --
 -- /See:/ 'layersAnnotationDataList' smart constructor.
 data LayersAnnotationDataList = LayersAnnotationDataList'
-    { _ladlW                :: !(Maybe (Textual Int32))
-    , _ladlScale            :: !(Maybe (Textual Int32))
-    , _ladlLocale           :: !(Maybe Text)
-    , _ladlContentVersion   :: !Text
-    , _ladlUpdatedMax       :: !(Maybe Text)
-    , _ladlUpdatedMin       :: !(Maybe Text)
+    { _ladlW :: !(Maybe (Textual Int32))
+    , _ladlScale :: !(Maybe (Textual Int32))
+    , _ladlLocale :: !(Maybe Text)
+    , _ladlContentVersion :: !Text
+    , _ladlUpdatedMax :: !(Maybe Text)
+    , _ladlUpdatedMin :: !(Maybe Text)
     , _ladlAnnotationDataId :: !(Maybe [Text])
-    , _ladlVolumeId         :: !Text
-    , _ladlSource           :: !(Maybe Text)
-    , _ladlH                :: !(Maybe (Textual Int32))
-    , _ladlPageToken        :: !(Maybe Text)
-    , _ladlLayerId          :: !Text
-    , _ladlMaxResults       :: !(Maybe (Textual Word32))
+    , _ladlVolumeId :: !Text
+    , _ladlSource :: !(Maybe Text)
+    , _ladlH :: !(Maybe (Textual Int32))
+    , _ladlPageToken :: !(Maybe Text)
+    , _ladlLayerId :: !Text
+    , _ladlMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LayersAnnotationDataList' with the minimum fields required to make a request.
@@ -129,7 +129,7 @@ layersAnnotationDataList
     -> Text -- ^ 'ladlVolumeId'
     -> Text -- ^ 'ladlLayerId'
     -> LayersAnnotationDataList
-layersAnnotationDataList pLadlContentVersion_ pLadlVolumeId_ pLadlLayerId_ =
+layersAnnotationDataList pLadlContentVersion_ pLadlVolumeId_ pLadlLayerId_ = 
     LayersAnnotationDataList'
     { _ladlW = Nothing
     , _ladlScale = Nothing

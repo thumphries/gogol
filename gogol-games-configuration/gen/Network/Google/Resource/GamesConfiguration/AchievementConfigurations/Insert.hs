@@ -37,8 +37,8 @@ module Network.Google.Resource.GamesConfiguration.AchievementConfigurations.Inse
     , aciApplicationId
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.achievementConfigurations.insert@ method which the
 -- 'AchievementConfigurationsInsert' request conforms to.
@@ -56,7 +56,7 @@ type AchievementConfigurationsInsertResource =
 --
 -- /See:/ 'achievementConfigurationsInsert' smart constructor.
 data AchievementConfigurationsInsert = AchievementConfigurationsInsert'
-    { _aciPayload       :: !AchievementConfiguration
+    { _aciPayload :: !AchievementConfiguration
     , _aciApplicationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ achievementConfigurationsInsert
     :: AchievementConfiguration -- ^ 'aciPayload'
     -> Text -- ^ 'aciApplicationId'
     -> AchievementConfigurationsInsert
-achievementConfigurationsInsert pAciPayload_ pAciApplicationId_ =
+achievementConfigurationsInsert pAciPayload_ pAciApplicationId_ = 
     AchievementConfigurationsInsert'
     { _aciPayload = pAciPayload_
     , _aciApplicationId = pAciApplicationId_

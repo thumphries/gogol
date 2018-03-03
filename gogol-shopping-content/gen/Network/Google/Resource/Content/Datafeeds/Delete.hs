@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a datafeed from your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- Deletes a datafeed configuration from your Merchant Center account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.datafeeds.delete@.
 module Network.Google.Resource.Content.Datafeeds.Delete
@@ -39,8 +38,8 @@ module Network.Google.Resource.Content.Datafeeds.Delete
     , ddDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeeds.delete@ method which the
 -- 'DatafeedsDelete' request conforms to.
@@ -53,14 +52,13 @@ type DatafeedsDeleteResource =
                QueryParam "dryRun" Bool :>
                  QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
--- | Deletes a datafeed from your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- | Deletes a datafeed configuration from your Merchant Center account.
 --
 -- /See:/ 'datafeedsDelete' smart constructor.
 data DatafeedsDelete = DatafeedsDelete'
     { _ddMerchantId :: !(Textual Word64)
     , _ddDatafeedId :: !(Textual Word64)
-    , _ddDryRun     :: !(Maybe Bool)
+    , _ddDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DatafeedsDelete' with the minimum fields required to make a request.
@@ -76,18 +74,21 @@ datafeedsDelete
     :: Word64 -- ^ 'ddMerchantId'
     -> Word64 -- ^ 'ddDatafeedId'
     -> DatafeedsDelete
-datafeedsDelete pDdMerchantId_ pDdDatafeedId_ =
+datafeedsDelete pDdMerchantId_ pDdDatafeedId_ = 
     DatafeedsDelete'
     { _ddMerchantId = _Coerce # pDdMerchantId_
     , _ddDatafeedId = _Coerce # pDdDatafeedId_
     , _ddDryRun = Nothing
     }
 
+-- | The ID of the account that manages the datafeed. This account cannot be
+-- a multi-client account.
 ddMerchantId :: Lens' DatafeedsDelete Word64
 ddMerchantId
   = lens _ddMerchantId (\ s a -> s{_ddMerchantId = a})
       . _Coerce
 
+-- | The ID of the datafeed.
 ddDatafeedId :: Lens' DatafeedsDelete Word64
 ddDatafeedId
   = lens _ddDatafeedId (\ s a -> s{_ddDatafeedId = a})

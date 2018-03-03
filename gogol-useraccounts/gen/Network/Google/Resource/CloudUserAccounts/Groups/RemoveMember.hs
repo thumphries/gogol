@@ -38,8 +38,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.RemoveMember
     , grmGroupName
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.removeMember@ method which the
 -- 'GroupsRemoveMember' request conforms to.
@@ -60,8 +60,8 @@ type GroupsRemoveMemberResource =
 --
 -- /See:/ 'groupsRemoveMember' smart constructor.
 data GroupsRemoveMember = GroupsRemoveMember'
-    { _grmProject   :: !Text
-    , _grmPayload   :: !GroupsRemoveMemberRequest
+    { _grmProject :: !Text
+    , _grmPayload :: !GroupsRemoveMemberRequest
     , _grmGroupName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ groupsRemoveMember
     -> GroupsRemoveMemberRequest -- ^ 'grmPayload'
     -> Text -- ^ 'grmGroupName'
     -> GroupsRemoveMember
-groupsRemoveMember pGrmProject_ pGrmPayload_ pGrmGroupName_ =
+groupsRemoveMember pGrmProject_ pGrmPayload_ pGrmGroupName_ = 
     GroupsRemoveMember'
     { _grmProject = pGrmProject_
     , _grmPayload = pGrmPayload_

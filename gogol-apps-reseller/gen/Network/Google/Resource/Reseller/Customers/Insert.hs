@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a customer resource if one does not already exist.
+-- Order a new customer\'s account.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.customers.insert@.
 module Network.Google.Resource.Reseller.Customers.Insert
@@ -37,8 +37,8 @@ module Network.Google.Resource.Reseller.Customers.Insert
     , ciCustomerAuthToken
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.customers.insert@ method which the
 -- 'CustomersInsert' request conforms to.
@@ -51,11 +51,11 @@ type CustomersInsertResource =
                QueryParam "alt" AltJSON :>
                  ReqBody '[JSON] Customer :> Post '[JSON] Customer
 
--- | Creates a customer resource if one does not already exist.
+-- | Order a new customer\'s account.
 --
 -- /See:/ 'customersInsert' smart constructor.
 data CustomersInsert = CustomersInsert'
-    { _ciPayload           :: !Customer
+    { _ciPayload :: !Customer
     , _ciCustomerAuthToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data CustomersInsert = CustomersInsert'
 customersInsert
     :: Customer -- ^ 'ciPayload'
     -> CustomersInsert
-customersInsert pCiPayload_ =
+customersInsert pCiPayload_ = 
     CustomersInsert'
     { _ciPayload = pCiPayload_
     , _ciCustomerAuthToken = Nothing
@@ -80,9 +80,12 @@ ciPayload :: Lens' CustomersInsert Customer
 ciPayload
   = lens _ciPayload (\ s a -> s{_ciPayload = a})
 
--- | An auth token needed for inserting a customer for which domain already
--- exists. Can be generated at https:\/\/admin.google.com\/TransferToken.
--- Optional.
+-- | The customerAuthToken query string is required when creating a resold
+-- account that transfers a direct customer\'s subscription or transfers
+-- another reseller customer\'s subscription to your reseller management.
+-- This is a hexadecimal authentication token needed to complete the
+-- subscription transfer. For more information, see the administrator help
+-- center.
 ciCustomerAuthToken :: Lens' CustomersInsert (Maybe Text)
 ciCustomerAuthToken
   = lens _ciCustomerAuthToken

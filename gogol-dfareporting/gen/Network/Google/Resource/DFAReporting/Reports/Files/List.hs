@@ -41,14 +41,14 @@ module Network.Google.Resource.DFAReporting.Reports.Files.List
     , rflMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.files.list@ method which the
 -- 'ReportsFilesList' request conforms to.
 type ReportsFilesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -64,12 +64,12 @@ type ReportsFilesListResource =
 --
 -- /See:/ 'reportsFilesList' smart constructor.
 data ReportsFilesList = ReportsFilesList'
-    { _rflReportId   :: !(Textual Int64)
-    , _rflProFileId  :: !(Textual Int64)
-    , _rflSortOrder  :: !ReportsFilesListSortOrder
-    , _rflPageToken  :: !(Maybe Text)
-    , _rflSortField  :: !ReportsFilesListSortField
-    , _rflMaxResults :: !(Maybe (Textual Int32))
+    { _rflReportId :: !(Textual Int64)
+    , _rflProFileId :: !(Textual Int64)
+    , _rflSortOrder :: !ReportsFilesListSortOrder
+    , _rflPageToken :: !(Maybe Text)
+    , _rflSortField :: !ReportsFilesListSortField
+    , _rflMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsFilesList' with the minimum fields required to make a request.
@@ -91,14 +91,14 @@ reportsFilesList
     :: Int64 -- ^ 'rflReportId'
     -> Int64 -- ^ 'rflProFileId'
     -> ReportsFilesList
-reportsFilesList pRflReportId_ pRflProFileId_ =
+reportsFilesList pRflReportId_ pRflProFileId_ = 
     ReportsFilesList'
     { _rflReportId = _Coerce # pRflReportId_
     , _rflProFileId = _Coerce # pRflProFileId_
     , _rflSortOrder = RFLSODescending
     , _rflPageToken = Nothing
     , _rflSortField = RFLSFLastModifiedTime
-    , _rflMaxResults = Nothing
+    , _rflMaxResults = 10
     }
 
 -- | The ID of the parent report.
@@ -113,7 +113,7 @@ rflProFileId
   = lens _rflProFileId (\ s a -> s{_rflProFileId = a})
       . _Coerce
 
--- | Order of sorted results, default is \'DESCENDING\'.
+-- | Order of sorted results.
 rflSortOrder :: Lens' ReportsFilesList ReportsFilesListSortOrder
 rflSortOrder
   = lens _rflSortOrder (\ s a -> s{_rflSortOrder = a})
@@ -129,11 +129,11 @@ rflSortField
   = lens _rflSortField (\ s a -> s{_rflSortField = a})
 
 -- | Maximum number of results to return.
-rflMaxResults :: Lens' ReportsFilesList (Maybe Int32)
+rflMaxResults :: Lens' ReportsFilesList Int32
 rflMaxResults
   = lens _rflMaxResults
       (\ s a -> s{_rflMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest ReportsFilesList where
         type Rs ReportsFilesList = FileList
@@ -143,7 +143,7 @@ instance GoogleRequest ReportsFilesList where
           = go _rflProFileId _rflReportId (Just _rflSortOrder)
               _rflPageToken
               (Just _rflSortField)
-              _rflMaxResults
+              (Just _rflMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

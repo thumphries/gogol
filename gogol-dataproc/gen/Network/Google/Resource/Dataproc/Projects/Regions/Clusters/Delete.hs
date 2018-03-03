@@ -34,6 +34,8 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Delete
 
     -- * Request Lenses
     , prcdXgafv
+    , prcdRequestId
+    , prcdClusterUuid
     , prcdUploadProtocol
     , prcdPp
     , prcdAccessToken
@@ -45,8 +47,8 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Delete
     , prcdCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.clusters.delete@ method which the
 -- 'ProjectsRegionsClustersDelete' request conforms to.
@@ -58,30 +60,34 @@ type ProjectsRegionsClustersDeleteResource =
              Capture "region" Text :>
                "clusters" :>
                  Capture "clusterName" Text :>
-                   QueryParam "$.xgafv" Text :>
-                     QueryParam "upload_protocol" Text :>
-                       QueryParam "pp" Bool :>
-                         QueryParam "access_token" Text :>
-                           QueryParam "uploadType" Text :>
-                             QueryParam "bearer_token" Text :>
-                               QueryParam "callback" Text :>
-                                 QueryParam "alt" AltJSON :>
-                                   Delete '[JSON] Operation
+                   QueryParam "$.xgafv" Xgafv :>
+                     QueryParam "requestId" Text :>
+                       QueryParam "clusterUuid" Text :>
+                         QueryParam "upload_protocol" Text :>
+                           QueryParam "pp" Bool :>
+                             QueryParam "access_token" Text :>
+                               QueryParam "uploadType" Text :>
+                                 QueryParam "bearer_token" Text :>
+                                   QueryParam "callback" Text :>
+                                     QueryParam "alt" AltJSON :>
+                                       Delete '[JSON] Operation
 
 -- | Deletes a cluster in a project.
 --
 -- /See:/ 'projectsRegionsClustersDelete' smart constructor.
 data ProjectsRegionsClustersDelete = ProjectsRegionsClustersDelete'
-    { _prcdXgafv          :: !(Maybe Text)
+    { _prcdXgafv :: !(Maybe Xgafv)
+    , _prcdRequestId :: !(Maybe Text)
+    , _prcdClusterUuid :: !(Maybe Text)
     , _prcdUploadProtocol :: !(Maybe Text)
-    , _prcdPp             :: !Bool
-    , _prcdAccessToken    :: !(Maybe Text)
-    , _prcdUploadType     :: !(Maybe Text)
-    , _prcdBearerToken    :: !(Maybe Text)
-    , _prcdClusterName    :: !Text
-    , _prcdRegion         :: !Text
-    , _prcdProjectId      :: !Text
-    , _prcdCallback       :: !(Maybe Text)
+    , _prcdPp :: !Bool
+    , _prcdAccessToken :: !(Maybe Text)
+    , _prcdUploadType :: !(Maybe Text)
+    , _prcdBearerToken :: !(Maybe Text)
+    , _prcdClusterName :: !Text
+    , _prcdRegion :: !Text
+    , _prcdProjectId :: !Text
+    , _prcdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsClustersDelete' with the minimum fields required to make a request.
@@ -89,6 +95,10 @@ data ProjectsRegionsClustersDelete = ProjectsRegionsClustersDelete'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prcdXgafv'
+--
+-- * 'prcdRequestId'
+--
+-- * 'prcdClusterUuid'
 --
 -- * 'prcdUploadProtocol'
 --
@@ -112,9 +122,11 @@ projectsRegionsClustersDelete
     -> Text -- ^ 'prcdRegion'
     -> Text -- ^ 'prcdProjectId'
     -> ProjectsRegionsClustersDelete
-projectsRegionsClustersDelete pPrcdClusterName_ pPrcdRegion_ pPrcdProjectId_ =
+projectsRegionsClustersDelete pPrcdClusterName_ pPrcdRegion_ pPrcdProjectId_ = 
     ProjectsRegionsClustersDelete'
     { _prcdXgafv = Nothing
+    , _prcdRequestId = Nothing
+    , _prcdClusterUuid = Nothing
     , _prcdUploadProtocol = Nothing
     , _prcdPp = True
     , _prcdAccessToken = Nothing
@@ -127,9 +139,29 @@ projectsRegionsClustersDelete pPrcdClusterName_ pPrcdRegion_ pPrcdProjectId_ =
     }
 
 -- | V1 error format.
-prcdXgafv :: Lens' ProjectsRegionsClustersDelete (Maybe Text)
+prcdXgafv :: Lens' ProjectsRegionsClustersDelete (Maybe Xgafv)
 prcdXgafv
   = lens _prcdXgafv (\ s a -> s{_prcdXgafv = a})
+
+-- | Optional. A unique id used to identify the request. If the server
+-- receives two DeleteClusterRequest requests with the same id, then the
+-- second request will be ignored and the first
+-- google.longrunning.Operation created and stored in the backend is
+-- returned.It is recommended to always set this value to a UUID
+-- (https:\/\/en.wikipedia.org\/wiki\/Universally_unique_identifier).The id
+-- must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
+-- and hyphens (-). The maximum length is 40 characters.
+prcdRequestId :: Lens' ProjectsRegionsClustersDelete (Maybe Text)
+prcdRequestId
+  = lens _prcdRequestId
+      (\ s a -> s{_prcdRequestId = a})
+
+-- | Optional. Specifying the cluster_uuid means the RPC should fail (with
+-- error NOT_FOUND) if cluster with specified UUID does not exist.
+prcdClusterUuid :: Lens' ProjectsRegionsClustersDelete (Maybe Text)
+prcdClusterUuid
+  = lens _prcdClusterUuid
+      (\ s a -> s{_prcdClusterUuid = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
 prcdUploadProtocol :: Lens' ProjectsRegionsClustersDelete (Maybe Text)
@@ -159,18 +191,18 @@ prcdBearerToken
   = lens _prcdBearerToken
       (\ s a -> s{_prcdBearerToken = a})
 
--- | [Required] The cluster name.
+-- | Required. The cluster name.
 prcdClusterName :: Lens' ProjectsRegionsClustersDelete Text
 prcdClusterName
   = lens _prcdClusterName
       (\ s a -> s{_prcdClusterName = a})
 
--- | [Required] The Cloud Dataproc region in which to handle the request.
+-- | Required. The Cloud Dataproc region in which to handle the request.
 prcdRegion :: Lens' ProjectsRegionsClustersDelete Text
 prcdRegion
   = lens _prcdRegion (\ s a -> s{_prcdRegion = a})
 
--- | [Required] The ID of the Google Cloud Platform project that the cluster
+-- | Required. The ID of the Google Cloud Platform project that the cluster
 -- belongs to.
 prcdProjectId :: Lens' ProjectsRegionsClustersDelete Text
 prcdProjectId
@@ -190,6 +222,8 @@ instance GoogleRequest ProjectsRegionsClustersDelete
         requestClient ProjectsRegionsClustersDelete'{..}
           = go _prcdProjectId _prcdRegion _prcdClusterName
               _prcdXgafv
+              _prcdRequestId
+              _prcdClusterUuid
               _prcdUploadProtocol
               (Just _prcdPp)
               _prcdAccessToken

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.SubAccounts.Insert
     , saiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.subaccounts.insert@ method which the
 -- 'SubAccountsInsert' request conforms to.
 type SubAccountsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "subaccounts" :>
@@ -56,7 +56,7 @@ type SubAccountsInsertResource =
 -- /See:/ 'subAccountsInsert' smart constructor.
 data SubAccountsInsert = SubAccountsInsert'
     { _saiProFileId :: !(Textual Int64)
-    , _saiPayload   :: !SubAccount
+    , _saiPayload :: !SubAccount
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubAccountsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ subAccountsInsert
     :: Int64 -- ^ 'saiProFileId'
     -> SubAccount -- ^ 'saiPayload'
     -> SubAccountsInsert
-subAccountsInsert pSaiProFileId_ pSaiPayload_ =
+subAccountsInsert pSaiProFileId_ pSaiPayload_ = 
     SubAccountsInsert'
     { _saiProFileId = _Coerce # pSaiProFileId_
     , _saiPayload = pSaiPayload_

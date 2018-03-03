@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Roles.List
     , rlMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.list@ method which the
 -- 'RolesList' request conforms to.
@@ -58,8 +58,8 @@ type RolesListResource =
 --
 -- /See:/ 'rolesList' smart constructor.
 data RolesList = RolesList'
-    { _rlCustomer   :: !Text
-    , _rlPageToken  :: !(Maybe Text)
+    { _rlCustomer :: !Text
+    , _rlPageToken :: !(Maybe Text)
     , _rlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -75,14 +75,14 @@ data RolesList = RolesList'
 rolesList
     :: Text -- ^ 'rlCustomer'
     -> RolesList
-rolesList pRlCustomer_ =
+rolesList pRlCustomer_ = 
     RolesList'
     { _rlCustomer = pRlCustomer_
     , _rlPageToken = Nothing
     , _rlMaxResults = Nothing
     }
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 rlCustomer :: Lens' RolesList Text
 rlCustomer
   = lens _rlCustomer (\ s a -> s{_rlCustomer = a})

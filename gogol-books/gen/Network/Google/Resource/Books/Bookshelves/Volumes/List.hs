@@ -41,8 +41,8 @@ module Network.Google.Resource.Books.Bookshelves.Volumes.List
     , bvlShowPreOrders
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.bookshelves.volumes.list@ method which the
 -- 'BookshelvesVolumesList' request conforms to.
@@ -64,11 +64,11 @@ type BookshelvesVolumesListResource =
 --
 -- /See:/ 'bookshelvesVolumesList' smart constructor.
 data BookshelvesVolumesList = BookshelvesVolumesList'
-    { _bvlUserId        :: !Text
-    , _bvlShelf         :: !Text
-    , _bvlSource        :: !(Maybe Text)
-    , _bvlStartIndex    :: !(Maybe (Textual Word32))
-    , _bvlMaxResults    :: !(Maybe (Textual Word32))
+    { _bvlUserId :: !Text
+    , _bvlShelf :: !Text
+    , _bvlSource :: !(Maybe Text)
+    , _bvlStartIndex :: !(Maybe (Textual Word32))
+    , _bvlMaxResults :: !(Maybe (Textual Word32))
     , _bvlShowPreOrders :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -91,7 +91,7 @@ bookshelvesVolumesList
     :: Text -- ^ 'bvlUserId'
     -> Text -- ^ 'bvlShelf'
     -> BookshelvesVolumesList
-bookshelvesVolumesList pBvlUserId_ pBvlShelf_ =
+bookshelvesVolumesList pBvlUserId_ pBvlShelf_ = 
     BookshelvesVolumesList'
     { _bvlUserId = pBvlUserId_
     , _bvlShelf = pBvlShelf_

@@ -40,8 +40,8 @@ module Network.Google.Resource.Directory.Groups.List
     , glMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.list@ method which the
 -- 'GroupsList' request conforms to.
@@ -61,10 +61,10 @@ type GroupsListResource =
 --
 -- /See:/ 'groupsList' smart constructor.
 data GroupsList = GroupsList'
-    { _glDomain     :: !(Maybe Text)
-    , _glCustomer   :: !(Maybe Text)
-    , _glPageToken  :: !(Maybe Text)
-    , _glUserKey    :: !(Maybe Text)
+    { _glDomain :: !(Maybe Text)
+    , _glCustomer :: !(Maybe Text)
+    , _glPageToken :: !(Maybe Text)
+    , _glUserKey :: !(Maybe Text)
     , _glMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ data GroupsList = GroupsList'
 -- * 'glMaxResults'
 groupsList
     :: GroupsList
-groupsList =
+groupsList = 
     GroupsList'
     { _glDomain = Nothing
     , _glCustomer = Nothing
@@ -97,8 +97,8 @@ groupsList =
 glDomain :: Lens' GroupsList (Maybe Text)
 glDomain = lens _glDomain (\ s a -> s{_glDomain = a})
 
--- | Immutable id of the Google Apps account. In case of multi-domain, to
--- fetch all groups for a customer, fill this field instead of domain.
+-- | Immutable ID of the G Suite account. In case of multi-domain, to fetch
+-- all groups for a customer, fill this field instead of domain.
 glCustomer :: Lens' GroupsList (Maybe Text)
 glCustomer
   = lens _glCustomer (\ s a -> s{_glCustomer = a})
@@ -108,8 +108,8 @@ glPageToken :: Lens' GroupsList (Maybe Text)
 glPageToken
   = lens _glPageToken (\ s a -> s{_glPageToken = a})
 
--- | Email or immutable Id of the user if only those groups are to be listed,
--- the given user is a member of. If Id, it should match with id of user
+-- | Email or immutable ID of the user if only those groups are to be listed,
+-- the given user is a member of. If ID, it should match with id of user
 -- object
 glUserKey :: Lens' GroupsList (Maybe Text)
 glUserKey

@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.Installs.Get
     , igDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.installs.get@ method which the
 -- 'InstallsGet' request conforms to.
@@ -62,9 +62,9 @@ type InstallsGetResource =
 -- /See:/ 'installsGet' smart constructor.
 data InstallsGet = InstallsGet'
     { _igEnterpriseId :: !Text
-    , _igUserId       :: !Text
-    , _igInstallId    :: !Text
-    , _igDeviceId     :: !Text
+    , _igUserId :: !Text
+    , _igInstallId :: !Text
+    , _igDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstallsGet' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ installsGet
     -> Text -- ^ 'igInstallId'
     -> Text -- ^ 'igDeviceId'
     -> InstallsGet
-installsGet pIgEnterpriseId_ pIgUserId_ pIgInstallId_ pIgDeviceId_ =
+installsGet pIgEnterpriseId_ pIgUserId_ pIgInstallId_ pIgDeviceId_ = 
     InstallsGet'
     { _igEnterpriseId = pIgEnterpriseId_
     , _igUserId = pIgUserId_

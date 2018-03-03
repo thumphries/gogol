@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Queries.GetQuery
     , qgqQueryId
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.queries.getquery@ method which the
 -- 'QueriesGetQuery' request conforms to.
@@ -63,7 +63,7 @@ newtype QueriesGetQuery = QueriesGetQuery'
 queriesGetQuery
     :: Int64 -- ^ 'qgqQueryId'
     -> QueriesGetQuery
-queriesGetQuery pQgqQueryId_ =
+queriesGetQuery pQgqQueryId_ = 
     QueriesGetQuery'
     { _qgqQueryId = _Coerce # pQgqQueryId_
     }
@@ -76,7 +76,8 @@ qgqQueryId
 
 instance GoogleRequest QueriesGetQuery where
         type Rs QueriesGetQuery = Query
-        type Scopes QueriesGetQuery = '[]
+        type Scopes QueriesGetQuery =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient QueriesGetQuery'{..}
           = go _qgqQueryId (Just AltJSON)
               doubleClickBidsService

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AccountPermissions.Get
     , apgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountPermissions.get@ method which the
 -- 'AccountPermissionsGet' request conforms to.
 type AccountPermissionsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountPermissions" :>
@@ -57,7 +57,7 @@ type AccountPermissionsGetResource =
 -- /See:/ 'accountPermissionsGet' smart constructor.
 data AccountPermissionsGet = AccountPermissionsGet'
     { _apgProFileId :: !(Textual Int64)
-    , _apgId        :: !(Textual Int64)
+    , _apgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountPermissionsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ accountPermissionsGet
     :: Int64 -- ^ 'apgProFileId'
     -> Int64 -- ^ 'apgId'
     -> AccountPermissionsGet
-accountPermissionsGet pApgProFileId_ pApgId_ =
+accountPermissionsGet pApgProFileId_ pApgId_ = 
     AccountPermissionsGet'
     { _apgProFileId = _Coerce # pApgProFileId_
     , _apgId = _Coerce # pApgId_

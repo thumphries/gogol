@@ -58,8 +58,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.L
     , ccwsslCourseWorkId
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.studentSubmissions.list@ method which the
 -- 'CoursesCourseWorkStudentSubmissionsList' request conforms to.
@@ -72,7 +72,7 @@ type CoursesCourseWorkStudentSubmissionsListResource
              Capture "courseWorkId" Text :>
                "studentSubmissions" :>
                  QueryParams "states" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "late" Text :>
                        QueryParam "upload_protocol" Text :>
                          QueryParam "pp" Bool :>
@@ -100,20 +100,20 @@ type CoursesCourseWorkStudentSubmissionsListResource
 --
 -- /See:/ 'coursesCourseWorkStudentSubmissionsList' smart constructor.
 data CoursesCourseWorkStudentSubmissionsList = CoursesCourseWorkStudentSubmissionsList'
-    { _ccwsslStates         :: !(Maybe [Text])
-    , _ccwsslXgafv          :: !(Maybe Text)
-    , _ccwsslLate           :: !(Maybe Text)
+    { _ccwsslStates :: !(Maybe [Text])
+    , _ccwsslXgafv :: !(Maybe Xgafv)
+    , _ccwsslLate :: !(Maybe Text)
     , _ccwsslUploadProtocol :: !(Maybe Text)
-    , _ccwsslPp             :: !Bool
-    , _ccwsslCourseId       :: !Text
-    , _ccwsslAccessToken    :: !(Maybe Text)
-    , _ccwsslUploadType     :: !(Maybe Text)
-    , _ccwsslUserId         :: !(Maybe Text)
-    , _ccwsslBearerToken    :: !(Maybe Text)
-    , _ccwsslPageToken      :: !(Maybe Text)
-    , _ccwsslPageSize       :: !(Maybe (Textual Int32))
-    , _ccwsslCallback       :: !(Maybe Text)
-    , _ccwsslCourseWorkId   :: !Text
+    , _ccwsslPp :: !Bool
+    , _ccwsslCourseId :: !Text
+    , _ccwsslAccessToken :: !(Maybe Text)
+    , _ccwsslUploadType :: !(Maybe Text)
+    , _ccwsslUserId :: !(Maybe Text)
+    , _ccwsslBearerToken :: !(Maybe Text)
+    , _ccwsslPageToken :: !(Maybe Text)
+    , _ccwsslPageSize :: !(Maybe (Textual Int32))
+    , _ccwsslCallback :: !(Maybe Text)
+    , _ccwsslCourseWorkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkStudentSubmissionsList' with the minimum fields required to make a request.
@@ -151,7 +151,7 @@ coursesCourseWorkStudentSubmissionsList
     :: Text -- ^ 'ccwsslCourseId'
     -> Text -- ^ 'ccwsslCourseWorkId'
     -> CoursesCourseWorkStudentSubmissionsList
-coursesCourseWorkStudentSubmissionsList pCcwsslCourseId_ pCcwsslCourseWorkId_ =
+coursesCourseWorkStudentSubmissionsList pCcwsslCourseId_ pCcwsslCourseWorkId_ = 
     CoursesCourseWorkStudentSubmissionsList'
     { _ccwsslStates = Nothing
     , _ccwsslXgafv = Nothing
@@ -178,7 +178,7 @@ ccwsslStates
       . _Coerce
 
 -- | V1 error format.
-ccwsslXgafv :: Lens' CoursesCourseWorkStudentSubmissionsList (Maybe Text)
+ccwsslXgafv :: Lens' CoursesCourseWorkStudentSubmissionsList (Maybe Xgafv)
 ccwsslXgafv
   = lens _ccwsslXgafv (\ s a -> s{_ccwsslXgafv = a})
 
@@ -256,7 +256,7 @@ ccwsslCallback
   = lens _ccwsslCallback
       (\ s a -> s{_ccwsslCallback = a})
 
--- | Identifer of the student work to request. This may be set to the string
+-- | Identifier of the student work to request. This may be set to the string
 -- literal \`\"-\"\` to request student work for all course work in the
 -- specified course.
 ccwsslCourseWorkId :: Lens' CoursesCourseWorkStudentSubmissionsList Text

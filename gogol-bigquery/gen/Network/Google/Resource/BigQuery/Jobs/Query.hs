@@ -38,8 +38,8 @@ module Network.Google.Resource.BigQuery.Jobs.Query
     , jqProjectId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.jobs.query@ method which the
 -- 'JobsQuery' request conforms to.
@@ -58,7 +58,7 @@ type JobsQueryResource =
 --
 -- /See:/ 'jobsQuery' smart constructor.
 data JobsQuery = JobsQuery'
-    { _jqPayload   :: !QueryRequest
+    { _jqPayload :: !QueryRequest
     , _jqProjectId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ jobsQuery
     :: QueryRequest -- ^ 'jqPayload'
     -> Text -- ^ 'jqProjectId'
     -> JobsQuery
-jobsQuery pJqPayload_ pJqProjectId_ =
+jobsQuery pJqPayload_ pJqProjectId_ = 
     JobsQuery'
     { _jqPayload = pJqPayload_
     , _jqProjectId = pJqProjectId_

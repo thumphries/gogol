@@ -44,8 +44,8 @@ module Network.Google.Resource.Logging.Projects.Metrics.Create
     , pmcCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.metrics.create@ method which the
 -- 'ProjectsMetricsCreate' request conforms to.
@@ -67,15 +67,15 @@ type ProjectsMetricsCreateResource =
 --
 -- /See:/ 'projectsMetricsCreate' smart constructor.
 data ProjectsMetricsCreate = ProjectsMetricsCreate'
-    { _pmcParent         :: !Text
-    , _pmcXgafv          :: !(Maybe Xgafv)
+    { _pmcParent :: !Text
+    , _pmcXgafv :: !(Maybe Xgafv)
     , _pmcUploadProtocol :: !(Maybe Text)
-    , _pmcPp             :: !Bool
-    , _pmcAccessToken    :: !(Maybe Text)
-    , _pmcUploadType     :: !(Maybe Text)
-    , _pmcPayload        :: !LogMetric
-    , _pmcBearerToken    :: !(Maybe Text)
-    , _pmcCallback       :: !(Maybe Text)
+    , _pmcPp :: !Bool
+    , _pmcAccessToken :: !(Maybe Text)
+    , _pmcUploadType :: !(Maybe Text)
+    , _pmcPayload :: !LogMetric
+    , _pmcBearerToken :: !(Maybe Text)
+    , _pmcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMetricsCreate' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ projectsMetricsCreate
     :: Text -- ^ 'pmcParent'
     -> LogMetric -- ^ 'pmcPayload'
     -> ProjectsMetricsCreate
-projectsMetricsCreate pPmcParent_ pPmcPayload_ =
+projectsMetricsCreate pPmcParent_ pPmcPayload_ = 
     ProjectsMetricsCreate'
     { _pmcParent = pPmcParent_
     , _pmcXgafv = Nothing

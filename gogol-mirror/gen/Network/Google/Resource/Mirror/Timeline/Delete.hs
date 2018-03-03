@@ -36,8 +36,8 @@ module Network.Google.Resource.Mirror.Timeline.Delete
     , tdId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.timeline.delete@ method which the
 -- 'TimelineDelete' request conforms to.
@@ -63,7 +63,7 @@ newtype TimelineDelete = TimelineDelete'
 timelineDelete
     :: Text -- ^ 'tdId'
     -> TimelineDelete
-timelineDelete pTdId_ =
+timelineDelete pTdId_ = 
     TimelineDelete'
     { _tdId = pTdId_
     }

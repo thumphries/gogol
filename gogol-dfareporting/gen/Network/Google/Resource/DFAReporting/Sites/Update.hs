@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Sites.Update
     , suPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sites.update@ method which the
 -- 'SitesUpdate' request conforms to.
 type SitesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sites" :>
@@ -56,7 +56,7 @@ type SitesUpdateResource =
 -- /See:/ 'sitesUpdate' smart constructor.
 data SitesUpdate = SitesUpdate'
     { _suProFileId :: !(Textual Int64)
-    , _suPayload   :: !Site
+    , _suPayload :: !Site
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitesUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sitesUpdate
     :: Int64 -- ^ 'suProFileId'
     -> Site -- ^ 'suPayload'
     -> SitesUpdate
-sitesUpdate pSuProFileId_ pSuPayload_ =
+sitesUpdate pSuProFileId_ pSuPayload_ = 
     SitesUpdate'
     { _suProFileId = _Coerce # pSuProFileId_
     , _suPayload = pSuPayload_

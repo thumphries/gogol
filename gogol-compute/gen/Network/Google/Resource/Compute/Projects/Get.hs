@@ -36,8 +36,8 @@ module Network.Google.Resource.Compute.Projects.Get
     , pgProject
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.projects.get@ method which the
 -- 'ProjectsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype ProjectsGet = ProjectsGet'
 projectsGet
     :: Text -- ^ 'pgProject'
     -> ProjectsGet
-projectsGet pPgProject_ =
+projectsGet pPgProject_ = 
     ProjectsGet'
     { _pgProject = pPgProject_
     }

@@ -38,8 +38,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.Insert
     , giPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.insert@ method which the
 -- 'GroupsInsert' request conforms to.
@@ -73,7 +73,7 @@ groupsInsert
     :: Text -- ^ 'giProject'
     -> Group -- ^ 'giPayload'
     -> GroupsInsert
-groupsInsert pGiProject_ pGiPayload_ =
+groupsInsert pGiProject_ pGiPayload_ = 
     GroupsInsert'
     { _giProject = pGiProject_
     , _giPayload = pGiPayload_

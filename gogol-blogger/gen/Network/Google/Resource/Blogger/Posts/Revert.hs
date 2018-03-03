@@ -37,8 +37,8 @@ module Network.Google.Resource.Blogger.Posts.Revert
     , prPostId
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.posts.revert@ method which the
 -- 'PostsRevert' request conforms to.
@@ -71,7 +71,7 @@ postsRevert
     :: Text -- ^ 'prBlogId'
     -> Text -- ^ 'prPostId'
     -> PostsRevert
-postsRevert pPrBlogId_ pPrPostId_ =
+postsRevert pPrBlogId_ pPrPostId_ = 
     PostsRevert'
     { _prBlogId = pPrBlogId_
     , _prPostId = pPrPostId_

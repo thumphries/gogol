@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Campaigns.Patch
     , cpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.campaigns.patch@ method which the
 -- 'CampaignsPatch' request conforms to.
 type CampaignsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "campaigns" :>
@@ -58,8 +58,8 @@ type CampaignsPatchResource =
 -- /See:/ 'campaignsPatch' smart constructor.
 data CampaignsPatch = CampaignsPatch'
     { _cpProFileId :: !(Textual Int64)
-    , _cpPayload   :: !Campaign
-    , _cpId        :: !(Textual Int64)
+    , _cpPayload :: !Campaign
+    , _cpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CampaignsPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ campaignsPatch
     -> Campaign -- ^ 'cpPayload'
     -> Int64 -- ^ 'cpId'
     -> CampaignsPatch
-campaignsPatch pCpProFileId_ pCpPayload_ pCpId_ =
+campaignsPatch pCpProFileId_ pCpPayload_ pCpId_ = 
     CampaignsPatch'
     { _cpProFileId = _Coerce # pCpProFileId_
     , _cpPayload = pCpPayload_

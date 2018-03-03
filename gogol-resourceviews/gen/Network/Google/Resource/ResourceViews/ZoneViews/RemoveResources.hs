@@ -39,8 +39,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.RemoveResources
     , zvrrPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.removeResources@ method which the
 -- 'ZoneViewsRemoveResources' request conforms to.
@@ -63,9 +63,9 @@ type ZoneViewsRemoveResourcesResource =
 -- /See:/ 'zoneViewsRemoveResources' smart constructor.
 data ZoneViewsRemoveResources = ZoneViewsRemoveResources'
     { _zvrrResourceView :: !Text
-    , _zvrrProject      :: !Text
-    , _zvrrZone         :: !Text
-    , _zvrrPayload      :: !ZoneViewsRemoveResourcesRequest
+    , _zvrrProject :: !Text
+    , _zvrrZone :: !Text
+    , _zvrrPayload :: !ZoneViewsRemoveResourcesRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsRemoveResources' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ zoneViewsRemoveResources
     -> Text -- ^ 'zvrrZone'
     -> ZoneViewsRemoveResourcesRequest -- ^ 'zvrrPayload'
     -> ZoneViewsRemoveResources
-zoneViewsRemoveResources pZvrrResourceView_ pZvrrProject_ pZvrrZone_ pZvrrPayload_ =
+zoneViewsRemoveResources pZvrrResourceView_ pZvrrProject_ pZvrrZone_ pZvrrPayload_ = 
     ZoneViewsRemoveResources'
     { _zvrrResourceView = pZvrrResourceView_
     , _zvrrProject = pZvrrProject_

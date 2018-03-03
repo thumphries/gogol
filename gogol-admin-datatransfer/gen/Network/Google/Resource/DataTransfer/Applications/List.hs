@@ -38,8 +38,8 @@ module Network.Google.Resource.DataTransfer.Applications.List
     , alMaxResults
     ) where
 
-import           Network.Google.DataTransfer.Types
-import           Network.Google.Prelude
+import Network.Google.DataTransfer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datatransfer.applications.list@ method which the
 -- 'ApplicationsList' request conforms to.
@@ -59,7 +59,7 @@ type ApplicationsListResource =
 -- /See:/ 'applicationsList' smart constructor.
 data ApplicationsList = ApplicationsList'
     { _alCustomerId :: !(Maybe Text)
-    , _alPageToken  :: !(Maybe Text)
+    , _alPageToken :: !(Maybe Text)
     , _alMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data ApplicationsList = ApplicationsList'
 -- * 'alMaxResults'
 applicationsList
     :: ApplicationsList
-applicationsList =
+applicationsList = 
     ApplicationsList'
     { _alCustomerId = Nothing
     , _alPageToken = Nothing

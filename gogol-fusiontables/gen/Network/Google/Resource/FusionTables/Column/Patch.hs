@@ -39,8 +39,8 @@ module Network.Google.Resource.FusionTables.Column.Patch
     , cpColumnId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.column.patch@ method which the
 -- 'ColumnPatch' request conforms to.
@@ -59,8 +59,8 @@ type ColumnPatchResource =
 --
 -- /See:/ 'columnPatch' smart constructor.
 data ColumnPatch = ColumnPatch'
-    { _cpPayload  :: !Column
-    , _cpTableId  :: !Text
+    { _cpPayload :: !Column
+    , _cpTableId :: !Text
     , _cpColumnId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ columnPatch
     -> Text -- ^ 'cpTableId'
     -> Text -- ^ 'cpColumnId'
     -> ColumnPatch
-columnPatch pCpPayload_ pCpTableId_ pCpColumnId_ =
+columnPatch pCpPayload_ pCpTableId_ pCpColumnId_ = 
     ColumnPatch'
     { _cpPayload = pCpPayload_
     , _cpTableId = pCpTableId_

@@ -45,8 +45,8 @@ module Network.Google.Resource.CloudDebugger.Debugger.Debuggees.Breakpoints.Get
     , ddbgCallback
     ) where
 
-import           Network.Google.Debugger.Types
-import           Network.Google.Prelude
+import Network.Google.Debugger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @clouddebugger.debugger.debuggees.breakpoints.get@ method which the
 -- 'DebuggerDebuggeesBreakpointsGet' request conforms to.
@@ -72,16 +72,16 @@ type DebuggerDebuggeesBreakpointsGetResource =
 --
 -- /See:/ 'debuggerDebuggeesBreakpointsGet' smart constructor.
 data DebuggerDebuggeesBreakpointsGet = DebuggerDebuggeesBreakpointsGet'
-    { _ddbgXgafv          :: !(Maybe Xgafv)
+    { _ddbgXgafv :: !(Maybe Xgafv)
     , _ddbgUploadProtocol :: !(Maybe Text)
-    , _ddbgPp             :: !Bool
-    , _ddbgAccessToken    :: !(Maybe Text)
-    , _ddbgUploadType     :: !(Maybe Text)
-    , _ddbgBreakpointId   :: !Text
-    , _ddbgBearerToken    :: !(Maybe Text)
-    , _ddbgDebuggeeId     :: !Text
-    , _ddbgClientVersion  :: !(Maybe Text)
-    , _ddbgCallback       :: !(Maybe Text)
+    , _ddbgPp :: !Bool
+    , _ddbgAccessToken :: !(Maybe Text)
+    , _ddbgUploadType :: !(Maybe Text)
+    , _ddbgBreakpointId :: !Text
+    , _ddbgBearerToken :: !(Maybe Text)
+    , _ddbgDebuggeeId :: !Text
+    , _ddbgClientVersion :: !(Maybe Text)
+    , _ddbgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DebuggerDebuggeesBreakpointsGet' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ debuggerDebuggeesBreakpointsGet
     :: Text -- ^ 'ddbgBreakpointId'
     -> Text -- ^ 'ddbgDebuggeeId'
     -> DebuggerDebuggeesBreakpointsGet
-debuggerDebuggeesBreakpointsGet pDdbgBreakpointId_ pDdbgDebuggeeId_ =
+debuggerDebuggeesBreakpointsGet pDdbgBreakpointId_ pDdbgDebuggeeId_ = 
     DebuggerDebuggeesBreakpointsGet'
     { _ddbgXgafv = Nothing
     , _ddbgUploadProtocol = Nothing
@@ -170,7 +170,7 @@ ddbgDebuggeeId
   = lens _ddbgDebuggeeId
       (\ s a -> s{_ddbgDebuggeeId = a})
 
--- | The client version making the call. Following: \`domain\/type\/version\`
+-- | The client version making the call. Schema: \`domain\/type\/version\`
 -- (e.g., \`google.com\/intellij\/v1\`).
 ddbgClientVersion :: Lens' DebuggerDebuggeesBreakpointsGet (Maybe Text)
 ddbgClientVersion

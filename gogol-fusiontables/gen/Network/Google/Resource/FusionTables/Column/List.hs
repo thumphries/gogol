@@ -38,8 +38,8 @@ module Network.Google.Resource.FusionTables.Column.List
     , clMaxResults
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.column.list@ method which the
 -- 'ColumnList'' request conforms to.
@@ -57,8 +57,8 @@ type ColumnListResource =
 --
 -- /See:/ 'columnList'' smart constructor.
 data ColumnList' = ColumnList''
-    { _clPageToken  :: !(Maybe Text)
-    , _clTableId    :: !Text
+    { _clPageToken :: !(Maybe Text)
+    , _clTableId :: !Text
     , _clMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data ColumnList' = ColumnList''
 columnList'
     :: Text -- ^ 'clTableId'
     -> ColumnList'
-columnList' pClTableId_ =
+columnList' pClTableId_ = 
     ColumnList''
     { _clPageToken = Nothing
     , _clTableId = pClTableId_

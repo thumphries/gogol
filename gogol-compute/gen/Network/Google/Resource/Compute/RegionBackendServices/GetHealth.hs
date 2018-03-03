@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.RegionBackendServices.GetHealth
     , rbsghBackendService
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.regionBackendServices.getHealth@ method which the
 -- 'RegionBackendServicesGetHealth' request conforms to.
@@ -64,9 +64,9 @@ type RegionBackendServicesGetHealthResource =
 --
 -- /See:/ 'regionBackendServicesGetHealth' smart constructor.
 data RegionBackendServicesGetHealth = RegionBackendServicesGetHealth'
-    { _rbsghProject        :: !Text
-    , _rbsghPayload        :: !ResourceGroupReference
-    , _rbsghRegion         :: !Text
+    { _rbsghProject :: !Text
+    , _rbsghPayload :: !ResourceGroupReference
+    , _rbsghRegion :: !Text
     , _rbsghBackendService :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -87,7 +87,7 @@ regionBackendServicesGetHealth
     -> Text -- ^ 'rbsghRegion'
     -> Text -- ^ 'rbsghBackendService'
     -> RegionBackendServicesGetHealth
-regionBackendServicesGetHealth pRbsghProject_ pRbsghPayload_ pRbsghRegion_ pRbsghBackendService_ =
+regionBackendServicesGetHealth pRbsghProject_ pRbsghPayload_ pRbsghRegion_ pRbsghBackendService_ = 
     RegionBackendServicesGetHealth'
     { _rbsghProject = pRbsghProject_
     , _rbsghPayload = pRbsghPayload_
@@ -109,8 +109,7 @@ rbsghRegion :: Lens' RegionBackendServicesGetHealth Text
 rbsghRegion
   = lens _rbsghRegion (\ s a -> s{_rbsghRegion = a})
 
--- | Name of the BackendService resource to which the queried instance
--- belongs.
+-- | Name of the BackendService resource for which to get health.
 rbsghBackendService :: Lens' RegionBackendServicesGetHealth Text
 rbsghBackendService
   = lens _rbsghBackendService

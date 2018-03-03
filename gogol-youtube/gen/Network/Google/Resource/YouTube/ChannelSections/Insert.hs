@@ -39,8 +39,8 @@ module Network.Google.Resource.YouTube.ChannelSections.Insert
     , csiOnBehalfOfContentOwnerChannel
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.channelSections.insert@ method which the
 -- 'ChannelSectionsInsert' request conforms to.
@@ -59,9 +59,9 @@ type ChannelSectionsInsertResource =
 --
 -- /See:/ 'channelSectionsInsert' smart constructor.
 data ChannelSectionsInsert = ChannelSectionsInsert'
-    { _csiPart                          :: !Text
-    , _csiPayload                       :: !ChannelSection
-    , _csiOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _csiPart :: !Text
+    , _csiPayload :: !ChannelSection
+    , _csiOnBehalfOfContentOwner :: !(Maybe Text)
     , _csiOnBehalfOfContentOwnerChannel :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ channelSectionsInsert
     :: Text -- ^ 'csiPart'
     -> ChannelSection -- ^ 'csiPayload'
     -> ChannelSectionsInsert
-channelSectionsInsert pCsiPart_ pCsiPayload_ =
+channelSectionsInsert pCsiPart_ pCsiPayload_ = 
     ChannelSectionsInsert'
     { _csiPart = pCsiPart_
     , _csiPayload = pCsiPayload_

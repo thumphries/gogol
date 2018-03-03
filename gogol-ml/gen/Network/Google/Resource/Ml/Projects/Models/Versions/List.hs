@@ -21,11 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets basic information about all the versions of a model. If you expect
--- that a model has a lot of versions, or if you need to handle only a
--- limited number of results at a time, you can request that the list be
--- retrieved in batches (called pages):
+-- that a model has many versions, or if you need to handle only a limited
+-- number of results at a time, you can request that the list be retrieved
+-- in batches (called pages). If there are no versions that match the
+-- request parameters, the list request returns an empty response body: {}.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.models.versions.list@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.models.versions.list@.
 module Network.Google.Resource.Ml.Projects.Models.Versions.List
     (
     -- * REST Resource
@@ -43,18 +44,19 @@ module Network.Google.Resource.Ml.Projects.Models.Versions.List
     , pmvlAccessToken
     , pmvlUploadType
     , pmvlBearerToken
+    , pmvlFilter
     , pmvlPageToken
     , pmvlPageSize
     , pmvlCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.models.versions.list@ method which the
 -- 'ProjectsModelsVersionsList' request conforms to.
 type ProjectsModelsVersionsListResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "parent" Text :>
          "versions" :>
            QueryParam "$.xgafv" Xgafv :>
@@ -63,30 +65,33 @@ type ProjectsModelsVersionsListResource =
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "bearer_token" Text :>
-                       QueryParam "pageToken" Text :>
-                         QueryParam "pageSize" (Textual Int32) :>
-                           QueryParam "callback" Text :>
-                             QueryParam "alt" AltJSON :>
-                               Get '[JSON]
-                                 GoogleCloudMlV1beta1__ListVersionsResponse
+                       QueryParam "filter" Text :>
+                         QueryParam "pageToken" Text :>
+                           QueryParam "pageSize" (Textual Int32) :>
+                             QueryParam "callback" Text :>
+                               QueryParam "alt" AltJSON :>
+                                 Get '[JSON]
+                                   GoogleCloudMlV1__ListVersionsResponse
 
 -- | Gets basic information about all the versions of a model. If you expect
--- that a model has a lot of versions, or if you need to handle only a
--- limited number of results at a time, you can request that the list be
--- retrieved in batches (called pages):
+-- that a model has many versions, or if you need to handle only a limited
+-- number of results at a time, you can request that the list be retrieved
+-- in batches (called pages). If there are no versions that match the
+-- request parameters, the list request returns an empty response body: {}.
 --
 -- /See:/ 'projectsModelsVersionsList' smart constructor.
 data ProjectsModelsVersionsList = ProjectsModelsVersionsList'
-    { _pmvlParent         :: !Text
-    , _pmvlXgafv          :: !(Maybe Xgafv)
+    { _pmvlParent :: !Text
+    , _pmvlXgafv :: !(Maybe Xgafv)
     , _pmvlUploadProtocol :: !(Maybe Text)
-    , _pmvlPp             :: !Bool
-    , _pmvlAccessToken    :: !(Maybe Text)
-    , _pmvlUploadType     :: !(Maybe Text)
-    , _pmvlBearerToken    :: !(Maybe Text)
-    , _pmvlPageToken      :: !(Maybe Text)
-    , _pmvlPageSize       :: !(Maybe (Textual Int32))
-    , _pmvlCallback       :: !(Maybe Text)
+    , _pmvlPp :: !Bool
+    , _pmvlAccessToken :: !(Maybe Text)
+    , _pmvlUploadType :: !(Maybe Text)
+    , _pmvlBearerToken :: !(Maybe Text)
+    , _pmvlFilter :: !(Maybe Text)
+    , _pmvlPageToken :: !(Maybe Text)
+    , _pmvlPageSize :: !(Maybe (Textual Int32))
+    , _pmvlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsModelsVersionsList' with the minimum fields required to make a request.
@@ -107,6 +112,8 @@ data ProjectsModelsVersionsList = ProjectsModelsVersionsList'
 --
 -- * 'pmvlBearerToken'
 --
+-- * 'pmvlFilter'
+--
 -- * 'pmvlPageToken'
 --
 -- * 'pmvlPageSize'
@@ -115,7 +122,7 @@ data ProjectsModelsVersionsList = ProjectsModelsVersionsList'
 projectsModelsVersionsList
     :: Text -- ^ 'pmvlParent'
     -> ProjectsModelsVersionsList
-projectsModelsVersionsList pPmvlParent_ =
+projectsModelsVersionsList pPmvlParent_ = 
     ProjectsModelsVersionsList'
     { _pmvlParent = pPmvlParent_
     , _pmvlXgafv = Nothing
@@ -124,13 +131,13 @@ projectsModelsVersionsList pPmvlParent_ =
     , _pmvlAccessToken = Nothing
     , _pmvlUploadType = Nothing
     , _pmvlBearerToken = Nothing
+    , _pmvlFilter = Nothing
     , _pmvlPageToken = Nothing
     , _pmvlPageSize = Nothing
     , _pmvlCallback = Nothing
     }
 
 -- | Required. The name of the model for which to list the version.
--- Authorization: requires \`Viewer\` role on the parent project.
 pmvlParent :: Lens' ProjectsModelsVersionsList Text
 pmvlParent
   = lens _pmvlParent (\ s a -> s{_pmvlParent = a})
@@ -168,6 +175,11 @@ pmvlBearerToken
   = lens _pmvlBearerToken
       (\ s a -> s{_pmvlBearerToken = a})
 
+-- | Optional. Specifies the subset of versions to retrieve.
+pmvlFilter :: Lens' ProjectsModelsVersionsList (Maybe Text)
+pmvlFilter
+  = lens _pmvlFilter (\ s a -> s{_pmvlFilter = a})
+
 -- | Optional. A page token to request the next page of results. You get the
 -- token from the \`next_page_token\` field of the response from the
 -- previous call.
@@ -193,7 +205,7 @@ pmvlCallback
 instance GoogleRequest ProjectsModelsVersionsList
          where
         type Rs ProjectsModelsVersionsList =
-             GoogleCloudMlV1beta1__ListVersionsResponse
+             GoogleCloudMlV1__ListVersionsResponse
         type Scopes ProjectsModelsVersionsList =
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsModelsVersionsList'{..}
@@ -202,6 +214,7 @@ instance GoogleRequest ProjectsModelsVersionsList
               _pmvlAccessToken
               _pmvlUploadType
               _pmvlBearerToken
+              _pmvlFilter
               _pmvlPageToken
               _pmvlPageSize
               _pmvlCallback

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the jobs of a project.
+-- List the jobs of a project in a given region.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.locations.jobs.list@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.locations.jobs.list@.
 module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.List
     (
     -- * REST Resource
@@ -48,8 +48,8 @@ module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.List
     , pljlCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.locations.jobs.list@ method which the
 -- 'ProjectsLocationsJobsList' request conforms to.
@@ -60,7 +60,7 @@ type ProjectsLocationsJobsListResource =
            "locations" :>
              Capture "location" Text :>
                "jobs" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -74,23 +74,23 @@ type ProjectsLocationsJobsListResource =
                                        QueryParam "alt" AltJSON :>
                                          Get '[JSON] ListJobsResponse
 
--- | List the jobs of a project.
+-- | List the jobs of a project in a given region.
 --
 -- /See:/ 'projectsLocationsJobsList' smart constructor.
 data ProjectsLocationsJobsList = ProjectsLocationsJobsList'
-    { _pljlXgafv          :: !(Maybe Text)
+    { _pljlXgafv :: !(Maybe Xgafv)
     , _pljlUploadProtocol :: !(Maybe Text)
-    , _pljlLocation       :: !Text
-    , _pljlPp             :: !Bool
-    , _pljlAccessToken    :: !(Maybe Text)
-    , _pljlUploadType     :: !(Maybe Text)
-    , _pljlBearerToken    :: !(Maybe Text)
-    , _pljlView           :: !(Maybe Text)
-    , _pljlFilter         :: !(Maybe Text)
-    , _pljlPageToken      :: !(Maybe Text)
-    , _pljlProjectId      :: !Text
-    , _pljlPageSize       :: !(Maybe (Textual Int32))
-    , _pljlCallback       :: !(Maybe Text)
+    , _pljlLocation :: !Text
+    , _pljlPp :: !Bool
+    , _pljlAccessToken :: !(Maybe Text)
+    , _pljlUploadType :: !(Maybe Text)
+    , _pljlBearerToken :: !(Maybe Text)
+    , _pljlView :: !(Maybe Text)
+    , _pljlFilter :: !(Maybe Text)
+    , _pljlPageToken :: !(Maybe Text)
+    , _pljlProjectId :: !Text
+    , _pljlPageSize :: !(Maybe (Textual Int32))
+    , _pljlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLocationsJobsList' with the minimum fields required to make a request.
@@ -126,7 +126,7 @@ projectsLocationsJobsList
     :: Text -- ^ 'pljlLocation'
     -> Text -- ^ 'pljlProjectId'
     -> ProjectsLocationsJobsList
-projectsLocationsJobsList pPljlLocation_ pPljlProjectId_ =
+projectsLocationsJobsList pPljlLocation_ pPljlProjectId_ = 
     ProjectsLocationsJobsList'
     { _pljlXgafv = Nothing
     , _pljlUploadProtocol = Nothing
@@ -144,7 +144,7 @@ projectsLocationsJobsList pPljlLocation_ pPljlProjectId_ =
     }
 
 -- | V1 error format.
-pljlXgafv :: Lens' ProjectsLocationsJobsList (Maybe Text)
+pljlXgafv :: Lens' ProjectsLocationsJobsList (Maybe Xgafv)
 pljlXgafv
   = lens _pljlXgafv (\ s a -> s{_pljlXgafv = a})
 
@@ -222,6 +222,8 @@ instance GoogleRequest ProjectsLocationsJobsList
         type Rs ProjectsLocationsJobsList = ListJobsResponse
         type Scopes ProjectsLocationsJobsList =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsLocationsJobsList'{..}
           = go _pljlProjectId _pljlLocation _pljlXgafv

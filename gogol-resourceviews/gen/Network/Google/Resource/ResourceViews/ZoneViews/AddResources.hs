@@ -39,8 +39,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.AddResources
     , zvarPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.addResources@ method which the
 -- 'ZoneViewsAddResources' request conforms to.
@@ -63,9 +63,9 @@ type ZoneViewsAddResourcesResource =
 -- /See:/ 'zoneViewsAddResources' smart constructor.
 data ZoneViewsAddResources = ZoneViewsAddResources'
     { _zvarResourceView :: !Text
-    , _zvarProject      :: !Text
-    , _zvarZone         :: !Text
-    , _zvarPayload      :: !ZoneViewsAddResourcesRequest
+    , _zvarProject :: !Text
+    , _zvarZone :: !Text
+    , _zvarPayload :: !ZoneViewsAddResourcesRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsAddResources' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ zoneViewsAddResources
     -> Text -- ^ 'zvarZone'
     -> ZoneViewsAddResourcesRequest -- ^ 'zvarPayload'
     -> ZoneViewsAddResources
-zoneViewsAddResources pZvarResourceView_ pZvarProject_ pZvarZone_ pZvarPayload_ =
+zoneViewsAddResources pZvarResourceView_ pZvarProject_ pZvarZone_ pZvarPayload_ = 
     ZoneViewsAddResources'
     { _zvarResourceView = pZvarResourceView_
     , _zvarProject = pZvarProject_

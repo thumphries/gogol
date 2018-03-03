@@ -38,8 +38,8 @@ module Network.Google.Resource.FusionTables.Table.ImportTable
     , titEncoding
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.table.importTable@ method which the
 -- 'TableImportTable' request conforms to.
@@ -69,9 +69,9 @@ type TableImportTableResource =
 --
 -- /See:/ 'tableImportTable' smart constructor.
 data TableImportTable = TableImportTable'
-    { _titName      :: !Text
+    { _titName :: !Text
     , _titDelimiter :: !(Maybe Text)
-    , _titEncoding  :: !(Maybe Text)
+    , _titEncoding :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableImportTable' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ data TableImportTable = TableImportTable'
 tableImportTable
     :: Text -- ^ 'titName'
     -> TableImportTable
-tableImportTable pTitName_ =
+tableImportTable pTitName_ = 
     TableImportTable'
     { _titName = pTitName_
     , _titDelimiter = Nothing

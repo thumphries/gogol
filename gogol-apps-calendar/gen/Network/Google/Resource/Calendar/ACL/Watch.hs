@@ -41,8 +41,8 @@ module Network.Google.Resource.Calendar.ACL.Watch
     , awMaxResults
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.acl.watch@ method which the
 -- 'ACLWatch' request conforms to.
@@ -64,12 +64,12 @@ type ACLWatchResource =
 --
 -- /See:/ 'aclWatch' smart constructor.
 data ACLWatch = ACLWatch'
-    { _awSyncToken   :: !(Maybe Text)
-    , _awCalendarId  :: !Text
+    { _awSyncToken :: !(Maybe Text)
+    , _awCalendarId :: !Text
     , _awShowDeleted :: !(Maybe Bool)
-    , _awPayload     :: !Channel
-    , _awPageToken   :: !(Maybe Text)
-    , _awMaxResults  :: !(Maybe (Textual Int32))
+    , _awPayload :: !Channel
+    , _awPageToken :: !(Maybe Text)
+    , _awMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ACLWatch' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ aclWatch
     :: Text -- ^ 'awCalendarId'
     -> Channel -- ^ 'awPayload'
     -> ACLWatch
-aclWatch pAwCalendarId_ pAwPayload_ =
+aclWatch pAwCalendarId_ pAwPayload_ = 
     ACLWatch'
     { _awSyncToken = Nothing
     , _awCalendarId = pAwCalendarId_

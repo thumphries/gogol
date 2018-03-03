@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutpages.Insert
     , siPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutpages.insert@ method which the
 -- 'StorelayoutpagesInsert' request conforms to.
@@ -57,7 +57,7 @@ type StorelayoutpagesInsertResource =
 -- /See:/ 'storelayoutpagesInsert' smart constructor.
 data StorelayoutpagesInsert = StorelayoutpagesInsert'
     { _siEnterpriseId :: !Text
-    , _siPayload      :: !StorePage
+    , _siPayload :: !StorePage
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutpagesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ storelayoutpagesInsert
     :: Text -- ^ 'siEnterpriseId'
     -> StorePage -- ^ 'siPayload'
     -> StorelayoutpagesInsert
-storelayoutpagesInsert pSiEnterpriseId_ pSiPayload_ =
+storelayoutpagesInsert pSiEnterpriseId_ pSiPayload_ = 
     StorelayoutpagesInsert'
     { _siEnterpriseId = pSiEnterpriseId_
     , _siPayload = pSiPayload_

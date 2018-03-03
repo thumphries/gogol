@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a line item. This method can only be called for non-multi-client
--- accounts.
+-- Returns a line item.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.returnlineitem@.
 module Network.Google.Resource.Content.Orders.Returnlineitem
@@ -34,13 +33,13 @@ module Network.Google.Resource.Content.Orders.Returnlineitem
     , OrdersReturnlineitem
 
     -- * Request Lenses
-    , oMerchantId
-    , oPayload
-    , oOrderId
+    , ordMerchantId
+    , ordPayload
+    , ordOrderId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.returnlineitem@ method which the
 -- 'OrdersReturnlineitem' request conforms to.
@@ -55,50 +54,53 @@ type OrdersReturnlineitemResource =
                    ReqBody '[JSON] OrdersReturnLineItemRequest :>
                      Post '[JSON] OrdersReturnLineItemResponse
 
--- | Returns a line item. This method can only be called for non-multi-client
--- accounts.
+-- | Returns a line item.
 --
 -- /See:/ 'ordersReturnlineitem' smart constructor.
 data OrdersReturnlineitem = OrdersReturnlineitem'
-    { _oMerchantId :: !(Textual Word64)
-    , _oPayload    :: !OrdersReturnLineItemRequest
-    , _oOrderId    :: !Text
+    { _ordMerchantId :: !(Textual Word64)
+    , _ordPayload :: !OrdersReturnLineItemRequest
+    , _ordOrderId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrdersReturnlineitem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oMerchantId'
+-- * 'ordMerchantId'
 --
--- * 'oPayload'
+-- * 'ordPayload'
 --
--- * 'oOrderId'
+-- * 'ordOrderId'
 ordersReturnlineitem
-    :: Word64 -- ^ 'oMerchantId'
-    -> OrdersReturnLineItemRequest -- ^ 'oPayload'
-    -> Text -- ^ 'oOrderId'
+    :: Word64 -- ^ 'ordMerchantId'
+    -> OrdersReturnLineItemRequest -- ^ 'ordPayload'
+    -> Text -- ^ 'ordOrderId'
     -> OrdersReturnlineitem
-ordersReturnlineitem pOMerchantId_ pOPayload_ pOOrderId_ =
+ordersReturnlineitem pOrdMerchantId_ pOrdPayload_ pOrdOrderId_ = 
     OrdersReturnlineitem'
-    { _oMerchantId = _Coerce # pOMerchantId_
-    , _oPayload = pOPayload_
-    , _oOrderId = pOOrderId_
+    { _ordMerchantId = _Coerce # pOrdMerchantId_
+    , _ordPayload = pOrdPayload_
+    , _ordOrderId = pOrdOrderId_
     }
 
--- | The ID of the managing account.
-oMerchantId :: Lens' OrdersReturnlineitem Word64
-oMerchantId
-  = lens _oMerchantId (\ s a -> s{_oMerchantId = a}) .
-      _Coerce
+-- | The ID of the account that manages the order. This cannot be a
+-- multi-client account.
+ordMerchantId :: Lens' OrdersReturnlineitem Word64
+ordMerchantId
+  = lens _ordMerchantId
+      (\ s a -> s{_ordMerchantId = a})
+      . _Coerce
 
 -- | Multipart request metadata.
-oPayload :: Lens' OrdersReturnlineitem OrdersReturnLineItemRequest
-oPayload = lens _oPayload (\ s a -> s{_oPayload = a})
+ordPayload :: Lens' OrdersReturnlineitem OrdersReturnLineItemRequest
+ordPayload
+  = lens _ordPayload (\ s a -> s{_ordPayload = a})
 
 -- | The ID of the order.
-oOrderId :: Lens' OrdersReturnlineitem Text
-oOrderId = lens _oOrderId (\ s a -> s{_oOrderId = a})
+ordOrderId :: Lens' OrdersReturnlineitem Text
+ordOrderId
+  = lens _ordOrderId (\ s a -> s{_ordOrderId = a})
 
 instance GoogleRequest OrdersReturnlineitem where
         type Rs OrdersReturnlineitem =
@@ -106,7 +108,8 @@ instance GoogleRequest OrdersReturnlineitem where
         type Scopes OrdersReturnlineitem =
              '["https://www.googleapis.com/auth/content"]
         requestClient OrdersReturnlineitem'{..}
-          = go _oMerchantId _oOrderId (Just AltJSON) _oPayload
+          = go _ordMerchantId _ordOrderId (Just AltJSON)
+              _ordPayload
               shoppingContentService
           where go
                   = buildClient

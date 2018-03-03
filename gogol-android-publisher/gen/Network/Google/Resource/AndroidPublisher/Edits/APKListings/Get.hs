@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKListings.Get
     , eapklgEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apklistings.get@ method which the
 -- 'EditsAPKListingsGet' request conforms to.
@@ -63,10 +63,10 @@ type EditsAPKListingsGetResource =
 --
 -- /See:/ 'editsAPKListingsGet' smart constructor.
 data EditsAPKListingsGet = EditsAPKListingsGet'
-    { _eapklgPackageName    :: !Text
+    { _eapklgPackageName :: !Text
     , _eapklgAPKVersionCode :: !(Textual Int32)
-    , _eapklgLanguage       :: !Text
-    , _eapklgEditId         :: !Text
+    , _eapklgLanguage :: !Text
+    , _eapklgEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKListingsGet' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ editsAPKListingsGet
     -> Text -- ^ 'eapklgLanguage'
     -> Text -- ^ 'eapklgEditId'
     -> EditsAPKListingsGet
-editsAPKListingsGet pEapklgPackageName_ pEapklgAPKVersionCode_ pEapklgLanguage_ pEapklgEditId_ =
+editsAPKListingsGet pEapklgPackageName_ pEapklgAPKVersionCode_ pEapklgLanguage_ pEapklgEditId_ = 
     EditsAPKListingsGet'
     { _eapklgPackageName = pEapklgPackageName_
     , _eapklgAPKVersionCode = _Coerce # pEapklgAPKVersionCode_

@@ -37,8 +37,8 @@ module Network.Google.Resource.Calendar.CalendarList.Insert
     , cliColorRgbFormat
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.calendarList.insert@ method which the
 -- 'CalendarListInsert' request conforms to.
@@ -57,7 +57,7 @@ type CalendarListInsertResource =
 --
 -- /See:/ 'calendarListInsert' smart constructor.
 data CalendarListInsert = CalendarListInsert'
-    { _cliPayload        :: !CalendarListEntry
+    { _cliPayload :: !CalendarListEntry
     , _cliColorRgbFormat :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ data CalendarListInsert = CalendarListInsert'
 calendarListInsert
     :: CalendarListEntry -- ^ 'cliPayload'
     -> CalendarListInsert
-calendarListInsert pCliPayload_ =
+calendarListInsert pCliPayload_ = 
     CalendarListInsert'
     { _cliPayload = pCliPayload_
     , _cliColorRgbFormat = Nothing

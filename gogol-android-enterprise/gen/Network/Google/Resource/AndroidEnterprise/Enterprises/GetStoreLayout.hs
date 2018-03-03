@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the store layout for the enterprise. If the store layout has not
--- been set, or if the store layout has no homepageId set, returns a
--- NOT_FOUND error.
+-- been set, returns \"basic\" as the store layout type and no homepage.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.enterprises.getStoreLayout@.
 module Network.Google.Resource.AndroidEnterprise.Enterprises.GetStoreLayout
@@ -38,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.GetStoreLayout
     , egslEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.getStoreLayout@ method which the
 -- 'EnterprisesGetStoreLayout' request conforms to.
@@ -52,8 +51,7 @@ type EnterprisesGetStoreLayoutResource =
                QueryParam "alt" AltJSON :> Get '[JSON] StoreLayout
 
 -- | Returns the store layout for the enterprise. If the store layout has not
--- been set, or if the store layout has no homepageId set, returns a
--- NOT_FOUND error.
+-- been set, returns \"basic\" as the store layout type and no homepage.
 --
 -- /See:/ 'enterprisesGetStoreLayout' smart constructor.
 newtype EnterprisesGetStoreLayout = EnterprisesGetStoreLayout'
@@ -68,7 +66,7 @@ newtype EnterprisesGetStoreLayout = EnterprisesGetStoreLayout'
 enterprisesGetStoreLayout
     :: Text -- ^ 'egslEnterpriseId'
     -> EnterprisesGetStoreLayout
-enterprisesGetStoreLayout pEgslEnterpriseId_ =
+enterprisesGetStoreLayout pEgslEnterpriseId_ = 
     EnterprisesGetStoreLayout'
     { _egslEnterpriseId = pEgslEnterpriseId_
     }

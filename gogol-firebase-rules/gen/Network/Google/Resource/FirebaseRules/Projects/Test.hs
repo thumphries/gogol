@@ -20,20 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Test \`Source\` for syntactic and semantic correctness. Issues present
--- in the rules, if any, will be returned to the caller with a description,
--- severity, and source location. The test method will typically be
--- executed with a developer provided \`Source\`, but if regression testing
--- is desired, this method may be executed against a \`Ruleset\` resource
--- name and the \`Source\` will be retrieved from the persisted
--- \`Ruleset\`. The following is an example of \`Source\` that permits
+-- Test \`Source\` for syntactic and semantic correctness. Issues present,
+-- if any, will be returned to the caller with a description, severity, and
+-- source location. The test method may be executed with \`Source\` or a
+-- \`Ruleset\` name. Passing \`Source\` is useful for unit testing new
+-- rules. Passing a \`Ruleset\` name is useful for regression testing an
+-- existing rule. The following is an example of \`Source\` that permits
 -- users to upload images to a bucket bearing their user id and matching
 -- the correct metadata: _*Example*_ \/\/ Users are allowed to subscribe
 -- and unsubscribe to the blog. service firebase.storage { match
 -- \/users\/{userId}\/images\/{imageName} { allow write: if userId ==
--- request.userId && (imageName.endsWith(\'.png\') ||
--- imageName.endsWith(\'.jpg\')) &&
--- resource.mimeType.startsWith(\'image\/\') } }
+-- request.auth.uid &&
+-- (imageName.matches(\'*.png′)||/i//m//a//g//e//N//a//m//e/./m//a//t//c//h//e//s/(′ * ./j//p//g/\'))
+-- && resource.mimeType.matches(\'^image\/\') } }
 --
 -- /See:/ <https://firebase.google.com/docs/storage/security Firebase Rules API Reference> for @firebaserules.projects.test@.
 module Network.Google.Resource.FirebaseRules.Projects.Test
@@ -57,8 +56,8 @@ module Network.Google.Resource.FirebaseRules.Projects.Test
     , ptCallback
     ) where
 
-import           Network.Google.FirebaseRules.Types
-import           Network.Google.Prelude
+import Network.Google.FirebaseRules.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @firebaserules.projects.test@ method which the
 -- 'ProjectsTest' request conforms to.
@@ -76,32 +75,31 @@ type ProjectsTestResource =
                          ReqBody '[JSON] TestRulesetRequest :>
                            Post '[JSON] TestRulesetResponse
 
--- | Test \`Source\` for syntactic and semantic correctness. Issues present
--- in the rules, if any, will be returned to the caller with a description,
--- severity, and source location. The test method will typically be
--- executed with a developer provided \`Source\`, but if regression testing
--- is desired, this method may be executed against a \`Ruleset\` resource
--- name and the \`Source\` will be retrieved from the persisted
--- \`Ruleset\`. The following is an example of \`Source\` that permits
+-- | Test \`Source\` for syntactic and semantic correctness. Issues present,
+-- if any, will be returned to the caller with a description, severity, and
+-- source location. The test method may be executed with \`Source\` or a
+-- \`Ruleset\` name. Passing \`Source\` is useful for unit testing new
+-- rules. Passing a \`Ruleset\` name is useful for regression testing an
+-- existing rule. The following is an example of \`Source\` that permits
 -- users to upload images to a bucket bearing their user id and matching
 -- the correct metadata: _*Example*_ \/\/ Users are allowed to subscribe
 -- and unsubscribe to the blog. service firebase.storage { match
 -- \/users\/{userId}\/images\/{imageName} { allow write: if userId ==
--- request.userId && (imageName.endsWith(\'.png\') ||
--- imageName.endsWith(\'.jpg\')) &&
--- resource.mimeType.startsWith(\'image\/\') } }
+-- request.auth.uid &&
+-- (imageName.matches(\'*.png′)||/i//m//a//g//e//N//a//m//e/./m//a//t//c//h//e//s/(′ * ./j//p//g/\'))
+-- && resource.mimeType.matches(\'^image\/\') } }
 --
 -- /See:/ 'projectsTest' smart constructor.
 data ProjectsTest = ProjectsTest'
-    { _ptXgafv          :: !(Maybe Xgafv)
+    { _ptXgafv :: !(Maybe Xgafv)
     , _ptUploadProtocol :: !(Maybe Text)
-    , _ptPp             :: !Bool
-    , _ptAccessToken    :: !(Maybe Text)
-    , _ptUploadType     :: !(Maybe Text)
-    , _ptPayload        :: !TestRulesetRequest
-    , _ptBearerToken    :: !(Maybe Text)
-    , _ptName           :: !Text
-    , _ptCallback       :: !(Maybe Text)
+    , _ptPp :: !Bool
+    , _ptAccessToken :: !(Maybe Text)
+    , _ptUploadType :: !(Maybe Text)
+    , _ptPayload :: !TestRulesetRequest
+    , _ptBearerToken :: !(Maybe Text)
+    , _ptName :: !Text
+    , _ptCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTest' with the minimum fields required to make a request.
@@ -129,7 +127,7 @@ projectsTest
     :: TestRulesetRequest -- ^ 'ptPayload'
     -> Text -- ^ 'ptName'
     -> ProjectsTest
-projectsTest pPtPayload_ pPtName_ =
+projectsTest pPtPayload_ pPtName_ = 
     ProjectsTest'
     { _ptXgafv = Nothing
     , _ptUploadProtocol = Nothing
@@ -178,7 +176,11 @@ ptBearerToken
   = lens _ptBearerToken
       (\ s a -> s{_ptBearerToken = a})
 
--- | Name of the project. Format: \`projects\/{project_id}\`
+-- | Tests may either provide \`source\` or a \`Ruleset\` resource name. For
+-- tests against \`source\`, the resource name must refer to the project:
+-- Format: \`projects\/{project_id}\` For tests against a \`Ruleset\`, this
+-- must be the \`Ruleset\` resource name: Format:
+-- \`projects\/{project_id}\/rulesets\/{ruleset_id}\`
 ptName :: Lens' ProjectsTest Text
 ptName = lens _ptName (\ s a -> s{_ptName = a})
 

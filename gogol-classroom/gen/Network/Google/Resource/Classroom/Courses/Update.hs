@@ -48,8 +48,8 @@ module Network.Google.Resource.Classroom.Courses.Update
     , cuCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.update@ method which the
 -- 'CoursesUpdate' request conforms to.
@@ -57,7 +57,7 @@ type CoursesUpdateResource =
      "v1" :>
        "courses" :>
          Capture "id" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -75,15 +75,15 @@ type CoursesUpdateResource =
 --
 -- /See:/ 'coursesUpdate' smart constructor.
 data CoursesUpdate = CoursesUpdate'
-    { _cuXgafv          :: !(Maybe Text)
+    { _cuXgafv :: !(Maybe Xgafv)
     , _cuUploadProtocol :: !(Maybe Text)
-    , _cuPp             :: !Bool
-    , _cuAccessToken    :: !(Maybe Text)
-    , _cuUploadType     :: !(Maybe Text)
-    , _cuPayload        :: !Course
-    , _cuBearerToken    :: !(Maybe Text)
-    , _cuId             :: !Text
-    , _cuCallback       :: !(Maybe Text)
+    , _cuPp :: !Bool
+    , _cuAccessToken :: !(Maybe Text)
+    , _cuUploadType :: !(Maybe Text)
+    , _cuPayload :: !Course
+    , _cuBearerToken :: !(Maybe Text)
+    , _cuId :: !Text
+    , _cuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesUpdate' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ coursesUpdate
     :: Course -- ^ 'cuPayload'
     -> Text -- ^ 'cuId'
     -> CoursesUpdate
-coursesUpdate pCuPayload_ pCuId_ =
+coursesUpdate pCuPayload_ pCuId_ = 
     CoursesUpdate'
     { _cuXgafv = Nothing
     , _cuUploadProtocol = Nothing
@@ -125,7 +125,7 @@ coursesUpdate pCuPayload_ pCuId_ =
     }
 
 -- | V1 error format.
-cuXgafv :: Lens' CoursesUpdate (Maybe Text)
+cuXgafv :: Lens' CoursesUpdate (Maybe Xgafv)
 cuXgafv = lens _cuXgafv (\ s a -> s{_cuXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

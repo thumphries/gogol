@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesManagement.Quests.ResetForAllPlayers
     , qrfapQuestId
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.quests.resetForAllPlayers@ method which the
 -- 'QuestsResetForAllPlayers' request conforms to.
@@ -68,7 +68,7 @@ newtype QuestsResetForAllPlayers = QuestsResetForAllPlayers'
 questsResetForAllPlayers
     :: Text -- ^ 'qrfapQuestId'
     -> QuestsResetForAllPlayers
-questsResetForAllPlayers pQrfapQuestId_ =
+questsResetForAllPlayers pQrfapQuestId_ = 
     QuestsResetForAllPlayers'
     { _qrfapQuestId = pQrfapQuestId_
     }

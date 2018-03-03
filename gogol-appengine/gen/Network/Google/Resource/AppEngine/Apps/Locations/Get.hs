@@ -22,7 +22,7 @@
 --
 -- Get information about a location.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.locations.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.locations.get@.
 module Network.Google.Resource.AppEngine.Apps.Locations.Get
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.AppEngine.Apps.Locations.Get
     , algCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.locations.get@ method which the
 -- 'AppsLocationsGet' request conforms to.
@@ -55,7 +55,7 @@ type AppsLocationsGetResource =
          Capture "appsId" Text :>
            "locations" :>
              Capture "locationsId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -68,15 +68,15 @@ type AppsLocationsGetResource =
 --
 -- /See:/ 'appsLocationsGet' smart constructor.
 data AppsLocationsGet = AppsLocationsGet'
-    { _algXgafv          :: !(Maybe Text)
+    { _algXgafv :: !(Maybe Xgafv)
     , _algUploadProtocol :: !(Maybe Text)
-    , _algPp             :: !Bool
-    , _algAccessToken    :: !(Maybe Text)
-    , _algUploadType     :: !(Maybe Text)
-    , _algBearerToken    :: !(Maybe Text)
-    , _algAppsId         :: !Text
-    , _algLocationsId    :: !Text
-    , _algCallback       :: !(Maybe Text)
+    , _algPp :: !Bool
+    , _algAccessToken :: !(Maybe Text)
+    , _algUploadType :: !(Maybe Text)
+    , _algBearerToken :: !(Maybe Text)
+    , _algAppsId :: !Text
+    , _algLocationsId :: !Text
+    , _algCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsLocationsGet' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ appsLocationsGet
     :: Text -- ^ 'algAppsId'
     -> Text -- ^ 'algLocationsId'
     -> AppsLocationsGet
-appsLocationsGet pAlgAppsId_ pAlgLocationsId_ =
+appsLocationsGet pAlgAppsId_ pAlgLocationsId_ = 
     AppsLocationsGet'
     { _algXgafv = Nothing
     , _algUploadProtocol = Nothing
@@ -118,7 +118,7 @@ appsLocationsGet pAlgAppsId_ pAlgLocationsId_ =
     }
 
 -- | V1 error format.
-algXgafv :: Lens' AppsLocationsGet (Maybe Text)
+algXgafv :: Lens' AppsLocationsGet (Maybe Xgafv)
 algXgafv = lens _algXgafv (\ s a -> s{_algXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

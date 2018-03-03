@@ -22,7 +22,7 @@
 --
 -- Gets the current configuration of the specified service.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.get@.
 module Network.Google.Resource.AppEngine.Apps.Services.Get
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Get
     , asgCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.get@ method which the
 -- 'AppsServicesGet' request conforms to.
@@ -55,7 +55,7 @@ type AppsServicesGetResource =
          Capture "appsId" Text :>
            "services" :>
              Capture "servicesId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -68,15 +68,15 @@ type AppsServicesGetResource =
 --
 -- /See:/ 'appsServicesGet' smart constructor.
 data AppsServicesGet = AppsServicesGet'
-    { _asgXgafv          :: !(Maybe Text)
+    { _asgXgafv :: !(Maybe Xgafv)
     , _asgUploadProtocol :: !(Maybe Text)
-    , _asgPp             :: !Bool
-    , _asgAccessToken    :: !(Maybe Text)
-    , _asgUploadType     :: !(Maybe Text)
-    , _asgBearerToken    :: !(Maybe Text)
-    , _asgAppsId         :: !Text
-    , _asgServicesId     :: !Text
-    , _asgCallback       :: !(Maybe Text)
+    , _asgPp :: !Bool
+    , _asgAccessToken :: !(Maybe Text)
+    , _asgUploadType :: !(Maybe Text)
+    , _asgBearerToken :: !(Maybe Text)
+    , _asgAppsId :: !Text
+    , _asgServicesId :: !Text
+    , _asgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesGet' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ appsServicesGet
     :: Text -- ^ 'asgAppsId'
     -> Text -- ^ 'asgServicesId'
     -> AppsServicesGet
-appsServicesGet pAsgAppsId_ pAsgServicesId_ =
+appsServicesGet pAsgAppsId_ pAsgServicesId_ = 
     AppsServicesGet'
     { _asgXgafv = Nothing
     , _asgUploadProtocol = Nothing
@@ -118,7 +118,7 @@ appsServicesGet pAsgAppsId_ pAsgServicesId_ =
     }
 
 -- | V1 error format.
-asgXgafv :: Lens' AppsServicesGet (Maybe Text)
+asgXgafv :: Lens' AppsServicesGet (Maybe Xgafv)
 asgXgafv = lens _asgXgafv (\ s a -> s{_asgXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

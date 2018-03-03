@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the seats configuration of a subscription
+-- Update a subscription\'s user license settings.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.subscriptions.changeSeats@.
 module Network.Google.Resource.Reseller.Subscriptions.ChangeSeats
@@ -38,8 +38,8 @@ module Network.Google.Resource.Reseller.Subscriptions.ChangeSeats
     , scsSubscriptionId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.subscriptions.changeSeats@ method which the
 -- 'SubscriptionsChangeSeats' request conforms to.
@@ -55,12 +55,12 @@ type SubscriptionsChangeSeatsResource =
                      QueryParam "alt" AltJSON :>
                        ReqBody '[JSON] Seats :> Post '[JSON] Subscription
 
--- | Changes the seats configuration of a subscription
+-- | Update a subscription\'s user license settings.
 --
 -- /See:/ 'subscriptionsChangeSeats' smart constructor.
 data SubscriptionsChangeSeats = SubscriptionsChangeSeats'
-    { _scsPayload        :: !Seats
-    , _scsCustomerId     :: !Text
+    { _scsPayload :: !Seats
+    , _scsCustomerId :: !Text
     , _scsSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ subscriptionsChangeSeats
     -> Text -- ^ 'scsCustomerId'
     -> Text -- ^ 'scsSubscriptionId'
     -> SubscriptionsChangeSeats
-subscriptionsChangeSeats pScsPayload_ pScsCustomerId_ pScsSubscriptionId_ =
+subscriptionsChangeSeats pScsPayload_ pScsCustomerId_ pScsSubscriptionId_ = 
     SubscriptionsChangeSeats'
     { _scsPayload = pScsPayload_
     , _scsCustomerId = pScsCustomerId_
@@ -90,13 +90,20 @@ scsPayload :: Lens' SubscriptionsChangeSeats Seats
 scsPayload
   = lens _scsPayload (\ s a -> s{_scsPayload = a})
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 scsCustomerId :: Lens' SubscriptionsChangeSeats Text
 scsCustomerId
   = lens _scsCustomerId
       (\ s a -> s{_scsCustomerId = a})
 
--- | Id of the subscription, which is unique for a customer
+-- | This is a required property. The subscriptionId is the subscription
+-- identifier and is unique for each customer. Since a subscriptionId
+-- changes when a subscription is updated, we recommend to not use this ID
+-- as a key for persistent data. And the subscriptionId can be found using
+-- the retrieve all reseller subscriptions method.
 scsSubscriptionId :: Lens' SubscriptionsChangeSeats Text
 scsSubscriptionId
   = lens _scsSubscriptionId

@@ -44,8 +44,8 @@ module Network.Google.Resource.Books.MyConfig.SyncVolumeLicenses
     , mcsvlNonce
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.myconfig.syncVolumeLicenses@ method which the
 -- 'MyConfigSyncVolumeLicenses' request conforms to.
@@ -71,14 +71,14 @@ type MyConfigSyncVolumeLicensesResource =
 --
 -- /See:/ 'myConfigSyncVolumeLicenses' smart constructor.
 data MyConfigSyncVolumeLicenses = MyConfigSyncVolumeLicenses'
-    { _mcsvlCpksver                :: !Text
-    , _mcsvlLocale                 :: !(Maybe Text)
+    { _mcsvlCpksver :: !Text
+    , _mcsvlLocale :: !(Maybe Text)
     , _mcsvlIncludeNonComicsSeries :: !(Maybe Bool)
-    , _mcsvlVolumeIds              :: !(Maybe [Text])
-    , _mcsvlFeatures               :: !(Maybe [MyConfigSyncVolumeLicensesFeatures])
-    , _mcsvlSource                 :: !Text
-    , _mcsvlShowPreOrders          :: !(Maybe Bool)
-    , _mcsvlNonce                  :: !Text
+    , _mcsvlVolumeIds :: !(Maybe [Text])
+    , _mcsvlFeatures :: !(Maybe [MyConfigSyncVolumeLicensesFeatures])
+    , _mcsvlSource :: !Text
+    , _mcsvlShowPreOrders :: !(Maybe Bool)
+    , _mcsvlNonce :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MyConfigSyncVolumeLicenses' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ myConfigSyncVolumeLicenses
     -> Text -- ^ 'mcsvlSource'
     -> Text -- ^ 'mcsvlNonce'
     -> MyConfigSyncVolumeLicenses
-myConfigSyncVolumeLicenses pMcsvlCpksver_ pMcsvlSource_ pMcsvlNonce_ =
+myConfigSyncVolumeLicenses pMcsvlCpksver_ pMcsvlSource_ pMcsvlNonce_ = 
     MyConfigSyncVolumeLicenses'
     { _mcsvlCpksver = pMcsvlCpksver_
     , _mcsvlLocale = Nothing

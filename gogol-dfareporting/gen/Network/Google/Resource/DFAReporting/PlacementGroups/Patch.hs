@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.PlacementGroups.Patch
     , pgpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementGroups.patch@ method which the
 -- 'PlacementGroupsPatch' request conforms to.
 type PlacementGroupsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementGroups" :>
@@ -61,8 +61,8 @@ type PlacementGroupsPatchResource =
 -- /See:/ 'placementGroupsPatch' smart constructor.
 data PlacementGroupsPatch = PlacementGroupsPatch'
     { _pgpProFileId :: !(Textual Int64)
-    , _pgpPayload   :: !PlacementGroup
-    , _pgpId        :: !(Textual Int64)
+    , _pgpPayload :: !PlacementGroup
+    , _pgpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementGroupsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ placementGroupsPatch
     -> PlacementGroup -- ^ 'pgpPayload'
     -> Int64 -- ^ 'pgpId'
     -> PlacementGroupsPatch
-placementGroupsPatch pPgpProFileId_ pPgpPayload_ pPgpId_ =
+placementGroupsPatch pPgpProFileId_ pPgpPayload_ pPgpId_ = 
     PlacementGroupsPatch'
     { _pgpProFileId = _Coerce # pPgpProFileId_
     , _pgpPayload = pPgpPayload_

@@ -39,8 +39,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.AddPublicKey
     , uapkUser
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.addPublicKey@ method which the
 -- 'UsersAddPublicKey' request conforms to.
@@ -63,7 +63,7 @@ type UsersAddPublicKeyResource =
 data UsersAddPublicKey = UsersAddPublicKey'
     { _uapkProject :: !Text
     , _uapkPayload :: !PublicKey
-    , _uapkUser    :: !Text
+    , _uapkUser :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersAddPublicKey' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ usersAddPublicKey
     -> PublicKey -- ^ 'uapkPayload'
     -> Text -- ^ 'uapkUser'
     -> UsersAddPublicKey
-usersAddPublicKey pUapkProject_ pUapkPayload_ pUapkUser_ =
+usersAddPublicKey pUapkProject_ pUapkPayload_ pUapkUser_ = 
     UsersAddPublicKey'
     { _uapkProject = pUapkProject_
     , _uapkPayload = pUapkPayload_

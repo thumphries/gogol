@@ -44,8 +44,8 @@ module Network.Google.Resource.YouTubeReporting.Jobs.Create
     , jcCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.jobs.create@ method which the
 -- 'JobsCreate' request conforms to.
@@ -67,15 +67,15 @@ type JobsCreateResource =
 --
 -- /See:/ 'jobsCreate' smart constructor.
 data JobsCreate = JobsCreate'
-    { _jcXgafv                  :: !(Maybe Xgafv)
-    , _jcUploadProtocol         :: !(Maybe Text)
-    , _jcPp                     :: !Bool
-    , _jcAccessToken            :: !(Maybe Text)
-    , _jcUploadType             :: !(Maybe Text)
-    , _jcPayload                :: !Job
+    { _jcXgafv :: !(Maybe Xgafv)
+    , _jcUploadProtocol :: !(Maybe Text)
+    , _jcPp :: !Bool
+    , _jcAccessToken :: !(Maybe Text)
+    , _jcUploadType :: !(Maybe Text)
+    , _jcPayload :: !Job
     , _jcOnBehalfOfContentOwner :: !(Maybe Text)
-    , _jcBearerToken            :: !(Maybe Text)
-    , _jcCallback               :: !(Maybe Text)
+    , _jcBearerToken :: !(Maybe Text)
+    , _jcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobsCreate' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data JobsCreate = JobsCreate'
 jobsCreate
     :: Job -- ^ 'jcPayload'
     -> JobsCreate
-jobsCreate pJcPayload_ =
+jobsCreate pJcPayload_ = 
     JobsCreate'
     { _jcXgafv = Nothing
     , _jcUploadProtocol = Nothing

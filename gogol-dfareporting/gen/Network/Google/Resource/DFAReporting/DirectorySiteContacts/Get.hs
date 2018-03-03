@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.DirectorySiteContacts.Get
     , dscgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.directorySiteContacts.get@ method which the
 -- 'DirectorySiteContactsGet' request conforms to.
 type DirectorySiteContactsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "directorySiteContacts" :>
@@ -57,7 +57,7 @@ type DirectorySiteContactsGetResource =
 -- /See:/ 'directorySiteContactsGet' smart constructor.
 data DirectorySiteContactsGet = DirectorySiteContactsGet'
     { _dscgProFileId :: !(Textual Int64)
-    , _dscgId        :: !(Textual Int64)
+    , _dscgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DirectorySiteContactsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ directorySiteContactsGet
     :: Int64 -- ^ 'dscgProFileId'
     -> Int64 -- ^ 'dscgId'
     -> DirectorySiteContactsGet
-directorySiteContactsGet pDscgProFileId_ pDscgId_ =
+directorySiteContactsGet pDscgProFileId_ pDscgId_ = 
     DirectorySiteContactsGet'
     { _dscgProFileId = _Coerce # pDscgProFileId_
     , _dscgId = _Coerce # pDscgId_

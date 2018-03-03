@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.LiveBroadcasts.Delete
     , lbdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveBroadcasts.delete@ method which the
 -- 'LiveBroadcastsDelete' request conforms to.
@@ -56,9 +56,9 @@ type LiveBroadcastsDeleteResource =
 --
 -- /See:/ 'liveBroadcastsDelete' smart constructor.
 data LiveBroadcastsDelete = LiveBroadcastsDelete'
-    { _lbdOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _lbdOnBehalfOfContentOwner :: !(Maybe Text)
     , _lbdOnBehalfOfContentOwnerChannel :: !(Maybe Text)
-    , _lbdId                            :: !Text
+    , _lbdId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LiveBroadcastsDelete' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ data LiveBroadcastsDelete = LiveBroadcastsDelete'
 liveBroadcastsDelete
     :: Text -- ^ 'lbdId'
     -> LiveBroadcastsDelete
-liveBroadcastsDelete pLbdId_ =
+liveBroadcastsDelete pLbdId_ = 
     LiveBroadcastsDelete'
     { _lbdOnBehalfOfContentOwner = Nothing
     , _lbdOnBehalfOfContentOwnerChannel = Nothing

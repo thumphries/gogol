@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AdvertiserGroups.Insert
     , agiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertiserGroups.insert@ method which the
 -- 'AdvertiserGroupsInsert' request conforms to.
 type AdvertiserGroupsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertiserGroups" :>
@@ -57,7 +57,7 @@ type AdvertiserGroupsInsertResource =
 -- /See:/ 'advertiserGroupsInsert' smart constructor.
 data AdvertiserGroupsInsert = AdvertiserGroupsInsert'
     { _agiProFileId :: !(Textual Int64)
-    , _agiPayload   :: !AdvertiserGroup
+    , _agiPayload :: !AdvertiserGroup
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertiserGroupsInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ advertiserGroupsInsert
     :: Int64 -- ^ 'agiProFileId'
     -> AdvertiserGroup -- ^ 'agiPayload'
     -> AdvertiserGroupsInsert
-advertiserGroupsInsert pAgiProFileId_ pAgiPayload_ =
+advertiserGroupsInsert pAgiProFileId_ pAgiPayload_ = 
     AdvertiserGroupsInsert'
     { _agiProFileId = _Coerce # pAgiProFileId_
     , _agiPayload = pAgiPayload_

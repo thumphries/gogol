@@ -22,7 +22,7 @@
 --
 -- Request the job status.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.locations.jobs.getMetrics@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.locations.jobs.getMetrics@.
 module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.GetMetrics
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.GetMetrics
     , pljgmCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.locations.jobs.getMetrics@ method which the
 -- 'ProjectsLocationsJobsGetMetrics' request conforms to.
@@ -60,9 +60,9 @@ type ProjectsLocationsJobsGetMetricsResource =
                "jobs" :>
                  Capture "jobId" Text :>
                    "metrics" :>
-                     QueryParam "$.xgafv" Text :>
+                     QueryParam "$.xgafv" Xgafv :>
                        QueryParam "upload_protocol" Text :>
-                         QueryParam "startTime" Text :>
+                         QueryParam "startTime" DateTime' :>
                            QueryParam "pp" Bool :>
                              QueryParam "access_token" Text :>
                                QueryParam "uploadType" Text :>
@@ -75,17 +75,17 @@ type ProjectsLocationsJobsGetMetricsResource =
 --
 -- /See:/ 'projectsLocationsJobsGetMetrics' smart constructor.
 data ProjectsLocationsJobsGetMetrics = ProjectsLocationsJobsGetMetrics'
-    { _pljgmXgafv          :: !(Maybe Text)
-    , _pljgmJobId          :: !Text
+    { _pljgmXgafv :: !(Maybe Xgafv)
+    , _pljgmJobId :: !Text
     , _pljgmUploadProtocol :: !(Maybe Text)
-    , _pljgmLocation       :: !Text
-    , _pljgmStartTime      :: !(Maybe Text)
-    , _pljgmPp             :: !Bool
-    , _pljgmAccessToken    :: !(Maybe Text)
-    , _pljgmUploadType     :: !(Maybe Text)
-    , _pljgmBearerToken    :: !(Maybe Text)
-    , _pljgmProjectId      :: !Text
-    , _pljgmCallback       :: !(Maybe Text)
+    , _pljgmLocation :: !Text
+    , _pljgmStartTime :: !(Maybe DateTime')
+    , _pljgmPp :: !Bool
+    , _pljgmAccessToken :: !(Maybe Text)
+    , _pljgmUploadType :: !(Maybe Text)
+    , _pljgmBearerToken :: !(Maybe Text)
+    , _pljgmProjectId :: !Text
+    , _pljgmCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLocationsJobsGetMetrics' with the minimum fields required to make a request.
@@ -118,7 +118,7 @@ projectsLocationsJobsGetMetrics
     -> Text -- ^ 'pljgmLocation'
     -> Text -- ^ 'pljgmProjectId'
     -> ProjectsLocationsJobsGetMetrics
-projectsLocationsJobsGetMetrics pPljgmJobId_ pPljgmLocation_ pPljgmProjectId_ =
+projectsLocationsJobsGetMetrics pPljgmJobId_ pPljgmLocation_ pPljgmProjectId_ = 
     ProjectsLocationsJobsGetMetrics'
     { _pljgmXgafv = Nothing
     , _pljgmJobId = pPljgmJobId_
@@ -134,7 +134,7 @@ projectsLocationsJobsGetMetrics pPljgmJobId_ pPljgmLocation_ pPljgmProjectId_ =
     }
 
 -- | V1 error format.
-pljgmXgafv :: Lens' ProjectsLocationsJobsGetMetrics (Maybe Text)
+pljgmXgafv :: Lens' ProjectsLocationsJobsGetMetrics (Maybe Xgafv)
 pljgmXgafv
   = lens _pljgmXgafv (\ s a -> s{_pljgmXgafv = a})
 
@@ -157,10 +157,11 @@ pljgmLocation
 
 -- | Return only metric data that has changed since this time. Default is to
 -- return all information about all metrics for the job.
-pljgmStartTime :: Lens' ProjectsLocationsJobsGetMetrics (Maybe Text)
+pljgmStartTime :: Lens' ProjectsLocationsJobsGetMetrics (Maybe UTCTime)
 pljgmStartTime
   = lens _pljgmStartTime
       (\ s a -> s{_pljgmStartTime = a})
+      . mapping _DateTime
 
 -- | Pretty-print response.
 pljgmPp :: Lens' ProjectsLocationsJobsGetMetrics Bool
@@ -201,6 +202,8 @@ instance GoogleRequest
         type Rs ProjectsLocationsJobsGetMetrics = JobMetrics
         type Scopes ProjectsLocationsJobsGetMetrics =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsLocationsJobsGetMetrics'{..}
           = go _pljgmProjectId _pljgmLocation _pljgmJobId

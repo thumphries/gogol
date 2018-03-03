@@ -45,15 +45,15 @@ module Network.Google.Resource.IAM.Projects.ServiceAccounts.Update
     , psauCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.projects.serviceAccounts.update@ method which the
 -- 'ProjectsServiceAccountsUpdate' request conforms to.
 type ProjectsServiceAccountsUpdateResource =
      "v1" :>
        Capture "name" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -69,15 +69,15 @@ type ProjectsServiceAccountsUpdateResource =
 --
 -- /See:/ 'projectsServiceAccountsUpdate' smart constructor.
 data ProjectsServiceAccountsUpdate = ProjectsServiceAccountsUpdate'
-    { _psauXgafv          :: !(Maybe Text)
+    { _psauXgafv :: !(Maybe Xgafv)
     , _psauUploadProtocol :: !(Maybe Text)
-    , _psauPp             :: !Bool
-    , _psauAccessToken    :: !(Maybe Text)
-    , _psauUploadType     :: !(Maybe Text)
-    , _psauPayload        :: !ServiceAccount
-    , _psauBearerToken    :: !(Maybe Text)
-    , _psauName           :: !Text
-    , _psauCallback       :: !(Maybe Text)
+    , _psauPp :: !Bool
+    , _psauAccessToken :: !(Maybe Text)
+    , _psauUploadType :: !(Maybe Text)
+    , _psauPayload :: !ServiceAccount
+    , _psauBearerToken :: !(Maybe Text)
+    , _psauName :: !Text
+    , _psauCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsServiceAccountsUpdate' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsServiceAccountsUpdate
     :: ServiceAccount -- ^ 'psauPayload'
     -> Text -- ^ 'psauName'
     -> ProjectsServiceAccountsUpdate
-projectsServiceAccountsUpdate pPsauPayload_ pPsauName_ =
+projectsServiceAccountsUpdate pPsauPayload_ pPsauName_ = 
     ProjectsServiceAccountsUpdate'
     { _psauXgafv = Nothing
     , _psauUploadProtocol = Nothing
@@ -119,7 +119,7 @@ projectsServiceAccountsUpdate pPsauPayload_ pPsauName_ =
     }
 
 -- | V1 error format.
-psauXgafv :: Lens' ProjectsServiceAccountsUpdate (Maybe Text)
+psauXgafv :: Lens' ProjectsServiceAccountsUpdate (Maybe Xgafv)
 psauXgafv
   = lens _psauXgafv (\ s a -> s{_psauXgafv = a})
 
@@ -157,12 +157,12 @@ psauBearerToken
       (\ s a -> s{_psauBearerToken = a})
 
 -- | The resource name of the service account in the following format:
--- \`projects\/{project}\/serviceAccounts\/{account}\`. Requests using
--- \`-\` as a wildcard for the project will infer the project from the
--- \`account\` and the \`account\` value can be the \`email\` address or
--- the \`unique_id\` of the service account. In responses the resource name
--- will always be in the format
--- \`projects\/{project}\/serviceAccounts\/{email}\`.
+-- \`projects\/{PROJECT_ID}\/serviceAccounts\/{ACCOUNT}\`. Requests using
+-- \`-\` as a wildcard for the \`PROJECT_ID\` will infer the project from
+-- the \`account\` and the \`ACCOUNT\` value can be the \`email\` address
+-- or the \`unique_id\` of the service account. In responses the resource
+-- name will always be in the format
+-- \`projects\/{PROJECT_ID}\/serviceAccounts\/{ACCOUNT}\`.
 psauName :: Lens' ProjectsServiceAccountsUpdate Text
 psauName = lens _psauName (\ s a -> s{_psauName = a})
 

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PlacementStrategies.Update
     , psuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementStrategies.update@ method which the
 -- 'PlacementStrategiesUpdate' request conforms to.
 type PlacementStrategiesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementStrategies" :>
@@ -57,7 +57,7 @@ type PlacementStrategiesUpdateResource =
 -- /See:/ 'placementStrategiesUpdate' smart constructor.
 data PlacementStrategiesUpdate = PlacementStrategiesUpdate'
     { _psuProFileId :: !(Textual Int64)
-    , _psuPayload   :: !PlacementStrategy
+    , _psuPayload :: !PlacementStrategy
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementStrategiesUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ placementStrategiesUpdate
     :: Int64 -- ^ 'psuProFileId'
     -> PlacementStrategy -- ^ 'psuPayload'
     -> PlacementStrategiesUpdate
-placementStrategiesUpdate pPsuProFileId_ pPsuPayload_ =
+placementStrategiesUpdate pPsuProFileId_ pPsuPayload_ = 
     PlacementStrategiesUpdate'
     { _psuProFileId = _Coerce # pPsuProFileId_
     , _psuPayload = pPsuPayload_

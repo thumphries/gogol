@@ -37,8 +37,8 @@ module Network.Google.Resource.Spectrum.Paws.Init
     , piPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Spectrum.Types
+import Network.Google.Prelude
+import Network.Google.Spectrum.Types
 
 -- | A resource alias for @spectrum.paws.init@ method which the
 -- 'PawsInit' request conforms to.
@@ -67,7 +67,7 @@ newtype PawsInit = PawsInit'
 pawsInit
     :: PawsInitRequest -- ^ 'piPayload'
     -> PawsInit
-pawsInit pPiPayload_ =
+pawsInit pPiPayload_ = 
     PawsInit'
     { _piPayload = pPiPayload_
     }

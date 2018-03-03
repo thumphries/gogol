@@ -23,7 +23,7 @@
 -- Lists previously requested builds. Previously requested builds may still
 -- be in-progress, or may have finished successfully or unsuccessfully.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.builds.list@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.builds.list@.
 module Network.Google.Resource.Cloudbuild.Projects.Builds.List
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Builds.List
     , pblCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.builds.list@ method which the
 -- 'ProjectsBuildsList' request conforms to.
@@ -75,17 +75,17 @@ type ProjectsBuildsListResource =
 --
 -- /See:/ 'projectsBuildsList' smart constructor.
 data ProjectsBuildsList = ProjectsBuildsList'
-    { _pblXgafv          :: !(Maybe Xgafv)
+    { _pblXgafv :: !(Maybe Xgafv)
     , _pblUploadProtocol :: !(Maybe Text)
-    , _pblPp             :: !Bool
-    , _pblAccessToken    :: !(Maybe Text)
-    , _pblUploadType     :: !(Maybe Text)
-    , _pblBearerToken    :: !(Maybe Text)
-    , _pblFilter         :: !(Maybe Text)
-    , _pblPageToken      :: !(Maybe Text)
-    , _pblProjectId      :: !Text
-    , _pblPageSize       :: !(Maybe (Textual Int32))
-    , _pblCallback       :: !(Maybe Text)
+    , _pblPp :: !Bool
+    , _pblAccessToken :: !(Maybe Text)
+    , _pblUploadType :: !(Maybe Text)
+    , _pblBearerToken :: !(Maybe Text)
+    , _pblFilter :: !(Maybe Text)
+    , _pblPageToken :: !(Maybe Text)
+    , _pblProjectId :: !Text
+    , _pblPageSize :: !(Maybe (Textual Int32))
+    , _pblCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsBuildsList' with the minimum fields required to make a request.
@@ -116,7 +116,7 @@ data ProjectsBuildsList = ProjectsBuildsList'
 projectsBuildsList
     :: Text -- ^ 'pblProjectId'
     -> ProjectsBuildsList
-projectsBuildsList pPblProjectId_ =
+projectsBuildsList pPblProjectId_ = 
     ProjectsBuildsList'
     { _pblXgafv = Nothing
     , _pblUploadProtocol = Nothing

@@ -32,8 +32,8 @@ module Network.Google.Resource.OAuth2.UserInfo.Get
 
     ) where
 
-import           Network.Google.OAuth2.Types
-import           Network.Google.Prelude
+import Network.Google.OAuth2.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @oauth2.userinfo.get@ method which the
 -- 'UserInfoGet' request conforms to.
@@ -46,7 +46,7 @@ type UserInfoGetResource =
 --
 -- /See:/ 'userInfoGet' smart constructor.
 data UserInfoGet =
-    UserInfoGet'
+    UserInfoGet' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserInfoGet' with the minimum fields required to make a request.

@@ -37,8 +37,8 @@ module Network.Google.Resource.Reseller.Subscriptions.Activate
     , saSubscriptionId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.subscriptions.activate@ method which the
 -- 'SubscriptionsActivate' request conforms to.
@@ -57,7 +57,7 @@ type SubscriptionsActivateResource =
 --
 -- /See:/ 'subscriptionsActivate' smart constructor.
 data SubscriptionsActivate = SubscriptionsActivate'
-    { _saCustomerId     :: !Text
+    { _saCustomerId :: !Text
     , _saSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,18 +72,25 @@ subscriptionsActivate
     :: Text -- ^ 'saCustomerId'
     -> Text -- ^ 'saSubscriptionId'
     -> SubscriptionsActivate
-subscriptionsActivate pSaCustomerId_ pSaSubscriptionId_ =
+subscriptionsActivate pSaCustomerId_ pSaSubscriptionId_ = 
     SubscriptionsActivate'
     { _saCustomerId = pSaCustomerId_
     , _saSubscriptionId = pSaSubscriptionId_
     }
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 saCustomerId :: Lens' SubscriptionsActivate Text
 saCustomerId
   = lens _saCustomerId (\ s a -> s{_saCustomerId = a})
 
--- | Id of the subscription, which is unique for a customer
+-- | This is a required property. The subscriptionId is the subscription
+-- identifier and is unique for each customer. Since a subscriptionId
+-- changes when a subscription is updated, we recommend to not use this ID
+-- as a key for persistent data. And the subscriptionId can be found using
+-- the retrieve all reseller subscriptions method.
 saSubscriptionId :: Lens' SubscriptionsActivate Text
 saSubscriptionId
   = lens _saSubscriptionId

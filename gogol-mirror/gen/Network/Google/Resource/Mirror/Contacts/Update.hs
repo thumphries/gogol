@@ -37,8 +37,8 @@ module Network.Google.Resource.Mirror.Contacts.Update
     , cuId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.contacts.update@ method which the
 -- 'ContactsUpdate' request conforms to.
@@ -55,7 +55,7 @@ type ContactsUpdateResource =
 -- /See:/ 'contactsUpdate' smart constructor.
 data ContactsUpdate = ContactsUpdate'
     { _cuPayload :: !Contact
-    , _cuId      :: !Text
+    , _cuId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContactsUpdate' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ contactsUpdate
     :: Contact -- ^ 'cuPayload'
     -> Text -- ^ 'cuId'
     -> ContactsUpdate
-contactsUpdate pCuPayload_ pCuId_ =
+contactsUpdate pCuPayload_ pCuId_ = 
     ContactsUpdate'
     { _cuPayload = pCuPayload_
     , _cuId = pCuId_

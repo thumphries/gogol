@@ -44,8 +44,8 @@ module Network.Google.Resource.YouTube.PlayListItems.List
     , plilMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.playlistItems.list@ method which the
 -- 'PlayListItemsList' request conforms to.
@@ -69,13 +69,13 @@ type PlayListItemsListResource =
 --
 -- /See:/ 'playListItemsList' smart constructor.
 data PlayListItemsList = PlayListItemsList'
-    { _plilPart                   :: !Text
+    { _plilPart :: !Text
     , _plilOnBehalfOfContentOwner :: !(Maybe Text)
-    , _plilVideoId                :: !(Maybe Text)
-    , _plilId                     :: !(Maybe Text)
-    , _plilPageToken              :: !(Maybe Text)
-    , _plilPlayListId             :: !(Maybe Text)
-    , _plilMaxResults             :: !(Textual Word32)
+    , _plilVideoId :: !(Maybe Text)
+    , _plilId :: !(Maybe Text)
+    , _plilPageToken :: !(Maybe Text)
+    , _plilPlayListId :: !(Maybe Text)
+    , _plilMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayListItemsList' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data PlayListItemsList = PlayListItemsList'
 playListItemsList
     :: Text -- ^ 'plilPart'
     -> PlayListItemsList
-playListItemsList pPlilPart_ =
+playListItemsList pPlilPart_ = 
     PlayListItemsList'
     { _plilPart = pPlilPart_
     , _plilOnBehalfOfContentOwner = Nothing

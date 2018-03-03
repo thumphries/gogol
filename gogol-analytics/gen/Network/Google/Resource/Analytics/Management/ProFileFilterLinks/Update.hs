@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.ProFileFilterLinks.Update
     , mpffluLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileFilterLinks.update@ method which the
 -- 'ManagementProFileFilterLinksUpdate' request conforms to.
@@ -66,10 +66,10 @@ type ManagementProFileFilterLinksUpdateResource =
 -- /See:/ 'managementProFileFilterLinksUpdate' smart constructor.
 data ManagementProFileFilterLinksUpdate = ManagementProFileFilterLinksUpdate'
     { _mpffluWebPropertyId :: !Text
-    , _mpffluProFileId     :: !Text
-    , _mpffluPayload       :: !ProFileFilterLink
-    , _mpffluAccountId     :: !Text
-    , _mpffluLinkId        :: !Text
+    , _mpffluProFileId :: !Text
+    , _mpffluPayload :: !ProFileFilterLink
+    , _mpffluAccountId :: !Text
+    , _mpffluLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileFilterLinksUpdate' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ managementProFileFilterLinksUpdate
     -> Text -- ^ 'mpffluAccountId'
     -> Text -- ^ 'mpffluLinkId'
     -> ManagementProFileFilterLinksUpdate
-managementProFileFilterLinksUpdate pMpffluWebPropertyId_ pMpffluProFileId_ pMpffluPayload_ pMpffluAccountId_ pMpffluLinkId_ =
+managementProFileFilterLinksUpdate pMpffluWebPropertyId_ pMpffluProFileId_ pMpffluPayload_ pMpffluAccountId_ pMpffluLinkId_ = 
     ManagementProFileFilterLinksUpdate'
     { _mpffluWebPropertyId = pMpffluWebPropertyId_
     , _mpffluProFileId = pMpffluProFileId_

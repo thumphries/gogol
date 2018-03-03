@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Get
     , fId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.get@ method which the
 -- 'FloodlightActivitiesGet' request conforms to.
 type FloodlightActivitiesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -57,7 +57,7 @@ type FloodlightActivitiesGetResource =
 -- /See:/ 'floodlightActivitiesGet' smart constructor.
 data FloodlightActivitiesGet = FloodlightActivitiesGet'
     { _fProFileId :: !(Textual Int64)
-    , _fId        :: !(Textual Int64)
+    , _fId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ floodlightActivitiesGet
     :: Int64 -- ^ 'fProFileId'
     -> Int64 -- ^ 'fId'
     -> FloodlightActivitiesGet
-floodlightActivitiesGet pFProFileId_ pFId_ =
+floodlightActivitiesGet pFProFileId_ pFId_ = 
     FloodlightActivitiesGet'
     { _fProFileId = _Coerce # pFProFileId_
     , _fId = _Coerce # pFId_

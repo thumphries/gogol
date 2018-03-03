@@ -37,8 +37,8 @@ module Network.Google.Resource.GamesConfiguration.LeaderboardConfigurations.Upda
     , lcuLeaderboardId
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.leaderboardConfigurations.update@ method which the
 -- 'LeaderboardConfigurationsUpdate' request conforms to.
@@ -55,7 +55,7 @@ type LeaderboardConfigurationsUpdateResource =
 --
 -- /See:/ 'leaderboardConfigurationsUpdate' smart constructor.
 data LeaderboardConfigurationsUpdate = LeaderboardConfigurationsUpdate'
-    { _lcuPayload       :: !LeaderboardConfiguration
+    { _lcuPayload :: !LeaderboardConfiguration
     , _lcuLeaderboardId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ leaderboardConfigurationsUpdate
     :: LeaderboardConfiguration -- ^ 'lcuPayload'
     -> Text -- ^ 'lcuLeaderboardId'
     -> LeaderboardConfigurationsUpdate
-leaderboardConfigurationsUpdate pLcuPayload_ pLcuLeaderboardId_ =
+leaderboardConfigurationsUpdate pLcuPayload_ pLcuLeaderboardId_ = 
     LeaderboardConfigurationsUpdate'
     { _lcuPayload = pLcuPayload_
     , _lcuLeaderboardId = pLcuLeaderboardId_

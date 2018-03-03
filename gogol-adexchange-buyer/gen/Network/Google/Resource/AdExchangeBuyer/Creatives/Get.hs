@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeBuyer.Creatives.Get
     , cgAccountId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.creatives.get@ method which the
 -- 'CreativesGet' request conforms to.
@@ -57,7 +57,7 @@ type CreativesGetResource =
 -- /See:/ 'creativesGet' smart constructor.
 data CreativesGet = CreativesGet'
     { _cgBuyerCreativeId :: !Text
-    , _cgAccountId       :: !(Textual Int32)
+    , _cgAccountId :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ creativesGet
     :: Text -- ^ 'cgBuyerCreativeId'
     -> Int32 -- ^ 'cgAccountId'
     -> CreativesGet
-creativesGet pCgBuyerCreativeId_ pCgAccountId_ =
+creativesGet pCgBuyerCreativeId_ pCgAccountId_ = 
     CreativesGet'
     { _cgBuyerCreativeId = pCgBuyerCreativeId_
     , _cgAccountId = _Coerce # pCgAccountId_

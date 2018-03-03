@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Accounts.Update
     , auuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accounts.update@ method which the
 -- 'AccountsUpdate' request conforms to.
 type AccountsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accounts" :>
@@ -56,7 +56,7 @@ type AccountsUpdateResource =
 -- /See:/ 'accountsUpdate' smart constructor.
 data AccountsUpdate = AccountsUpdate'
     { _auuProFileId :: !(Textual Int64)
-    , _auuPayload   :: !Account
+    , _auuPayload :: !Account
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ accountsUpdate
     :: Int64 -- ^ 'auuProFileId'
     -> Account -- ^ 'auuPayload'
     -> AccountsUpdate
-accountsUpdate pAuuProFileId_ pAuuPayload_ =
+accountsUpdate pAuuProFileId_ pAuuPayload_ = 
     AccountsUpdate'
     { _auuProFileId = _Coerce # pAuuProFileId_
     , _auuPayload = pAuuPayload_

@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Schemas.Patch
     , spSchemaKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.patch@ method which the
 -- 'SchemasPatch' request conforms to.
@@ -58,9 +58,9 @@ type SchemasPatchResource =
 --
 -- /See:/ 'schemasPatch' smart constructor.
 data SchemasPatch = SchemasPatch'
-    { _spPayload    :: !Schema
+    { _spPayload :: !Schema
     , _spCustomerId :: !Text
-    , _spSchemaKey  :: !Text
+    , _spSchemaKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SchemasPatch' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ schemasPatch
     -> Text -- ^ 'spCustomerId'
     -> Text -- ^ 'spSchemaKey'
     -> SchemasPatch
-schemasPatch pSpPayload_ pSpCustomerId_ pSpSchemaKey_ =
+schemasPatch pSpPayload_ pSpCustomerId_ pSpSchemaKey_ = 
     SchemasPatch'
     { _spPayload = pSpPayload_
     , _spCustomerId = pSpCustomerId_
@@ -89,12 +89,12 @@ spPayload :: Lens' SchemasPatch Schema
 spPayload
   = lens _spPayload (\ s a -> s{_spPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 spCustomerId :: Lens' SchemasPatch Text
 spCustomerId
   = lens _spCustomerId (\ s a -> s{_spCustomerId = a})
 
--- | Name or immutable Id of the schema.
+-- | Name or immutable ID of the schema.
 spSchemaKey :: Lens' SchemasPatch Text
 spSchemaKey
   = lens _spSchemaKey (\ s a -> s{_spSchemaKey = a})

@@ -47,8 +47,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Values.BatchClear
     , svbcCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.values.batchClear@ method which the
 -- 'SpreadsheetsValuesBatchClear' request conforms to.
@@ -75,15 +75,15 @@ type SpreadsheetsValuesBatchClearResource =
 --
 -- /See:/ 'spreadsheetsValuesBatchClear' smart constructor.
 data SpreadsheetsValuesBatchClear = SpreadsheetsValuesBatchClear'
-    { _svbcXgafv          :: !(Maybe Xgafv)
+    { _svbcXgafv :: !(Maybe Xgafv)
     , _svbcUploadProtocol :: !(Maybe Text)
-    , _svbcPp             :: !Bool
-    , _svbcAccessToken    :: !(Maybe Text)
-    , _svbcSpreadsheetId  :: !Text
-    , _svbcUploadType     :: !(Maybe Text)
-    , _svbcPayload        :: !BatchClearValuesRequest
-    , _svbcBearerToken    :: !(Maybe Text)
-    , _svbcCallback       :: !(Maybe Text)
+    , _svbcPp :: !Bool
+    , _svbcAccessToken :: !(Maybe Text)
+    , _svbcSpreadsheetId :: !Text
+    , _svbcUploadType :: !(Maybe Text)
+    , _svbcPayload :: !BatchClearValuesRequest
+    , _svbcBearerToken :: !(Maybe Text)
+    , _svbcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsValuesBatchClear' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ spreadsheetsValuesBatchClear
     :: Text -- ^ 'svbcSpreadsheetId'
     -> BatchClearValuesRequest -- ^ 'svbcPayload'
     -> SpreadsheetsValuesBatchClear
-spreadsheetsValuesBatchClear pSvbcSpreadsheetId_ pSvbcPayload_ =
+spreadsheetsValuesBatchClear pSvbcSpreadsheetId_ pSvbcPayload_ = 
     SpreadsheetsValuesBatchClear'
     { _svbcXgafv = Nothing
     , _svbcUploadProtocol = Nothing
@@ -179,6 +179,7 @@ instance GoogleRequest SpreadsheetsValuesBatchClear
              BatchClearValuesResponse
         type Scopes SpreadsheetsValuesBatchClear =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsValuesBatchClear'{..}
           = go _svbcSpreadsheetId _svbcXgafv

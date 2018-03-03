@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSenseHost.CustomChannels.Insert
     , cciAdClientId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.customchannels.insert@ method which the
 -- 'CustomChannelsInsert' request conforms to.
@@ -56,7 +56,7 @@ type CustomChannelsInsertResource =
 --
 -- /See:/ 'customChannelsInsert' smart constructor.
 data CustomChannelsInsert = CustomChannelsInsert'
-    { _cciPayload    :: !CustomChannel
+    { _cciPayload :: !CustomChannel
     , _cciAdClientId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ customChannelsInsert
     :: CustomChannel -- ^ 'cciPayload'
     -> Text -- ^ 'cciAdClientId'
     -> CustomChannelsInsert
-customChannelsInsert pCciPayload_ pCciAdClientId_ =
+customChannelsInsert pCciPayload_ pCciAdClientId_ = 
     CustomChannelsInsert'
     { _cciPayload = pCciPayload_
     , _cciAdClientId = pCciAdClientId_

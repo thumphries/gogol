@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the statuses of the datafeeds in your Merchant Center account.
--- This method can only be called for non-multi-client accounts.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.datafeedstatuses.list@.
 module Network.Google.Resource.Content.Datafeedstatuses.List
@@ -39,8 +38,8 @@ module Network.Google.Resource.Content.Datafeedstatuses.List
     , dlMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeedstatuses.list@ method which the
 -- 'DatafeedstatusesList' request conforms to.
@@ -55,12 +54,11 @@ type DatafeedstatusesListResource =
                    Get '[JSON] DatafeedstatusesListResponse
 
 -- | Lists the statuses of the datafeeds in your Merchant Center account.
--- This method can only be called for non-multi-client accounts.
 --
 -- /See:/ 'datafeedstatusesList' smart constructor.
 data DatafeedstatusesList = DatafeedstatusesList'
     { _dlMerchantId :: !(Textual Word64)
-    , _dlPageToken  :: !(Maybe Text)
+    , _dlPageToken :: !(Maybe Text)
     , _dlMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,14 +74,15 @@ data DatafeedstatusesList = DatafeedstatusesList'
 datafeedstatusesList
     :: Word64 -- ^ 'dlMerchantId'
     -> DatafeedstatusesList
-datafeedstatusesList pDlMerchantId_ =
+datafeedstatusesList pDlMerchantId_ = 
     DatafeedstatusesList'
     { _dlMerchantId = _Coerce # pDlMerchantId_
     , _dlPageToken = Nothing
     , _dlMaxResults = Nothing
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that manages the datafeeds. This account cannot be
+-- a multi-client account.
 dlMerchantId :: Lens' DatafeedstatusesList Word64
 dlMerchantId
   = lens _dlMerchantId (\ s a -> s{_dlMerchantId = a})

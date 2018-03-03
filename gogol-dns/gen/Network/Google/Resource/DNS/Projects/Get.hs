@@ -37,8 +37,8 @@ module Network.Google.Resource.DNS.Projects.Get
     , pgClientOperationId
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.projects.get@ method which the
 -- 'ProjectsGet' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsGetResource =
 --
 -- /See:/ 'projectsGet' smart constructor.
 data ProjectsGet = ProjectsGet'
-    { _pgProject           :: !Text
+    { _pgProject :: !Text
     , _pgClientOperationId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data ProjectsGet = ProjectsGet'
 projectsGet
     :: Text -- ^ 'pgProject'
     -> ProjectsGet
-projectsGet pPgProject_ =
+projectsGet pPgProject_ = 
     ProjectsGet'
     { _pgProject = pPgProject_
     , _pgClientOperationId = Nothing

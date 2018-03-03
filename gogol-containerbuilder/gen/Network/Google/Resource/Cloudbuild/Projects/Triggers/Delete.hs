@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an BuildTrigger by its project ID and trigger ID. This API is
+-- Deletes a \`BuildTrigger\` by its project ID and trigger ID. This API is
 -- experimental.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.delete@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.delete@.
 module Network.Google.Resource.Cloudbuild.Projects.Triggers.Delete
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Triggers.Delete
     , ptdCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.triggers.delete@ method which the
 -- 'ProjectsTriggersDelete' request conforms to.
@@ -65,20 +65,20 @@ type ProjectsTriggersDeleteResource =
                            QueryParam "callback" Text :>
                              QueryParam "alt" AltJSON :> Delete '[JSON] Empty
 
--- | Deletes an BuildTrigger by its project ID and trigger ID. This API is
+-- | Deletes a \`BuildTrigger\` by its project ID and trigger ID. This API is
 -- experimental.
 --
 -- /See:/ 'projectsTriggersDelete' smart constructor.
 data ProjectsTriggersDelete = ProjectsTriggersDelete'
-    { _ptdXgafv          :: !(Maybe Xgafv)
+    { _ptdXgafv :: !(Maybe Xgafv)
     , _ptdUploadProtocol :: !(Maybe Text)
-    , _ptdTriggerId      :: !Text
-    , _ptdPp             :: !Bool
-    , _ptdAccessToken    :: !(Maybe Text)
-    , _ptdUploadType     :: !(Maybe Text)
-    , _ptdBearerToken    :: !(Maybe Text)
-    , _ptdProjectId      :: !Text
-    , _ptdCallback       :: !(Maybe Text)
+    , _ptdTriggerId :: !Text
+    , _ptdPp :: !Bool
+    , _ptdAccessToken :: !(Maybe Text)
+    , _ptdUploadType :: !(Maybe Text)
+    , _ptdBearerToken :: !(Maybe Text)
+    , _ptdProjectId :: !Text
+    , _ptdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTriggersDelete' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsTriggersDelete
     :: Text -- ^ 'ptdTriggerId'
     -> Text -- ^ 'ptdProjectId'
     -> ProjectsTriggersDelete
-projectsTriggersDelete pPtdTriggerId_ pPtdProjectId_ =
+projectsTriggersDelete pPtdTriggerId_ pPtdProjectId_ = 
     ProjectsTriggersDelete'
     { _ptdXgafv = Nothing
     , _ptdUploadProtocol = Nothing
@@ -129,7 +129,7 @@ ptdUploadProtocol
   = lens _ptdUploadProtocol
       (\ s a -> s{_ptdUploadProtocol = a})
 
--- | ID of the BuildTrigger to delete.
+-- | ID of the \`BuildTrigger\` to delete.
 ptdTriggerId :: Lens' ProjectsTriggersDelete Text
 ptdTriggerId
   = lens _ptdTriggerId (\ s a -> s{_ptdTriggerId = a})

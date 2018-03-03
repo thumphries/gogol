@@ -33,15 +33,14 @@ module Network.Google.Resource.Games.Players.List
     , PlayersList
 
     -- * Request Lenses
-    , plConsistencyToken
     , plCollection
     , plLanguage
     , plPageToken
     , plMaxResults
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.players.list@ method which the
 -- 'PlayersList' request conforms to.
@@ -52,29 +51,25 @@ type PlayersListResource =
            "me" :>
              "players" :>
                Capture "collection" PlayersListCollection :>
-                 QueryParam "consistencyToken" (Textual Int64) :>
-                   QueryParam "language" Text :>
-                     QueryParam "pageToken" Text :>
-                       QueryParam "maxResults" (Textual Int32) :>
-                         QueryParam "alt" AltJSON :>
-                           Get '[JSON] PlayerListResponse
+                 QueryParam "language" Text :>
+                   QueryParam "pageToken" Text :>
+                     QueryParam "maxResults" (Textual Int32) :>
+                       QueryParam "alt" AltJSON :>
+                         Get '[JSON] PlayerListResponse
 
 -- | Get the collection of players for the currently authenticated user.
 --
 -- /See:/ 'playersList' smart constructor.
 data PlayersList = PlayersList'
-    { _plConsistencyToken :: !(Maybe (Textual Int64))
-    , _plCollection       :: !PlayersListCollection
-    , _plLanguage         :: !(Maybe Text)
-    , _plPageToken        :: !(Maybe Text)
-    , _plMaxResults       :: !(Maybe (Textual Int32))
+    { _plCollection :: !PlayersListCollection
+    , _plLanguage :: !(Maybe Text)
+    , _plPageToken :: !(Maybe Text)
+    , _plMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayersList' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'plConsistencyToken'
 --
 -- * 'plCollection'
 --
@@ -86,21 +81,13 @@ data PlayersList = PlayersList'
 playersList
     :: PlayersListCollection -- ^ 'plCollection'
     -> PlayersList
-playersList pPlCollection_ =
+playersList pPlCollection_ = 
     PlayersList'
-    { _plConsistencyToken = Nothing
-    , _plCollection = pPlCollection_
+    { _plCollection = pPlCollection_
     , _plLanguage = Nothing
     , _plPageToken = Nothing
     , _plMaxResults = Nothing
     }
-
--- | The last-seen mutation timestamp.
-plConsistencyToken :: Lens' PlayersList (Maybe Int64)
-plConsistencyToken
-  = lens _plConsistencyToken
-      (\ s a -> s{_plConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Collection of players being retrieved
 plCollection :: Lens' PlayersList PlayersListCollection
@@ -131,8 +118,7 @@ instance GoogleRequest PlayersList where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient PlayersList'{..}
-          = go _plCollection _plConsistencyToken _plLanguage
-              _plPageToken
+          = go _plCollection _plLanguage _plPageToken
               _plMaxResults
               (Just AltJSON)
               gamesService

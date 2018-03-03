@@ -37,8 +37,8 @@ module Network.Google.Resource.PlusDomains.Circles.Insert
     , ciUserId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.insert@ method which the
 -- 'CirclesInsert' request conforms to.
@@ -56,7 +56,7 @@ type CirclesInsertResource =
 -- /See:/ 'circlesInsert' smart constructor.
 data CirclesInsert = CirclesInsert'
     { _ciPayload :: !Circle
-    , _ciUserId  :: !Text
+    , _ciUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CirclesInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ circlesInsert
     :: Circle -- ^ 'ciPayload'
     -> Text -- ^ 'ciUserId'
     -> CirclesInsert
-circlesInsert pCiPayload_ pCiUserId_ =
+circlesInsert pCiPayload_ pCiUserId_ = 
     CirclesInsert'
     { _ciPayload = pCiPayload_
     , _ciUserId = pCiUserId_

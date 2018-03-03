@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.RemarketingAudience.Update
     , mrauRemarketingAudienceId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.remarketingAudience.update@ method which the
 -- 'ManagementRemarketingAudienceUpdate' request conforms to.
@@ -62,9 +62,9 @@ type ManagementRemarketingAudienceUpdateResource =
 --
 -- /See:/ 'managementRemarketingAudienceUpdate' smart constructor.
 data ManagementRemarketingAudienceUpdate = ManagementRemarketingAudienceUpdate'
-    { _mrauWebPropertyId         :: !Text
-    , _mrauPayload               :: !RemarketingAudience
-    , _mrauAccountId             :: !Text
+    { _mrauWebPropertyId :: !Text
+    , _mrauPayload :: !RemarketingAudience
+    , _mrauAccountId :: !Text
     , _mrauRemarketingAudienceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ managementRemarketingAudienceUpdate
     -> Text -- ^ 'mrauAccountId'
     -> Text -- ^ 'mrauRemarketingAudienceId'
     -> ManagementRemarketingAudienceUpdate
-managementRemarketingAudienceUpdate pMrauWebPropertyId_ pMrauPayload_ pMrauAccountId_ pMrauRemarketingAudienceId_ =
+managementRemarketingAudienceUpdate pMrauWebPropertyId_ pMrauPayload_ pMrauAccountId_ pMrauRemarketingAudienceId_ = 
     ManagementRemarketingAudienceUpdate'
     { _mrauWebPropertyId = pMrauWebPropertyId_
     , _mrauPayload = pMrauPayload_

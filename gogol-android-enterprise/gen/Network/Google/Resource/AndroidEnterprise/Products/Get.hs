@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Products.Get
     , proProductId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.products.get@ method which the
 -- 'ProductsGet' request conforms to.
@@ -58,8 +58,8 @@ type ProductsGetResource =
 -- /See:/ 'productsGet' smart constructor.
 data ProductsGet = ProductsGet'
     { _proEnterpriseId :: !Text
-    , _proLanguage     :: !(Maybe Text)
-    , _proProductId    :: !Text
+    , _proLanguage :: !(Maybe Text)
+    , _proProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductsGet' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ productsGet
     :: Text -- ^ 'proEnterpriseId'
     -> Text -- ^ 'proProductId'
     -> ProductsGet
-productsGet pProEnterpriseId_ pProProductId_ =
+productsGet pProEnterpriseId_ pProProductId_ = 
     ProductsGet'
     { _proEnterpriseId = pProEnterpriseId_
     , _proLanguage = Nothing

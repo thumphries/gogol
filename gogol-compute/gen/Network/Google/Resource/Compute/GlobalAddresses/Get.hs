@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.GlobalAddresses.Get
     , gagAddress
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.globalAddresses.get@ method which the
 -- 'GlobalAddressesGet' request conforms to.
@@ -73,7 +73,7 @@ globalAddressesGet
     :: Text -- ^ 'gagProject'
     -> Text -- ^ 'gagAddress'
     -> GlobalAddressesGet
-globalAddressesGet pGagProject_ pGagAddress_ =
+globalAddressesGet pGagProject_ pGagAddress_ = 
     GlobalAddressesGet'
     { _gagProject = pGagProject_
     , _gagAddress = pGagAddress_

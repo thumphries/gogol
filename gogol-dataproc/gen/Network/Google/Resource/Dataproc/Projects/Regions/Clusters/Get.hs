@@ -45,8 +45,8 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Get
     , prcgCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.clusters.get@ method which the
 -- 'ProjectsRegionsClustersGet' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsRegionsClustersGetResource =
              Capture "region" Text :>
                "clusters" :>
                  Capture "clusterName" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -71,16 +71,16 @@ type ProjectsRegionsClustersGetResource =
 --
 -- /See:/ 'projectsRegionsClustersGet' smart constructor.
 data ProjectsRegionsClustersGet = ProjectsRegionsClustersGet'
-    { _prcgXgafv          :: !(Maybe Text)
+    { _prcgXgafv :: !(Maybe Xgafv)
     , _prcgUploadProtocol :: !(Maybe Text)
-    , _prcgPp             :: !Bool
-    , _prcgAccessToken    :: !(Maybe Text)
-    , _prcgUploadType     :: !(Maybe Text)
-    , _prcgBearerToken    :: !(Maybe Text)
-    , _prcgClusterName    :: !Text
-    , _prcgRegion         :: !Text
-    , _prcgProjectId      :: !Text
-    , _prcgCallback       :: !(Maybe Text)
+    , _prcgPp :: !Bool
+    , _prcgAccessToken :: !(Maybe Text)
+    , _prcgUploadType :: !(Maybe Text)
+    , _prcgBearerToken :: !(Maybe Text)
+    , _prcgClusterName :: !Text
+    , _prcgRegion :: !Text
+    , _prcgProjectId :: !Text
+    , _prcgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsClustersGet' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ projectsRegionsClustersGet
     -> Text -- ^ 'prcgRegion'
     -> Text -- ^ 'prcgProjectId'
     -> ProjectsRegionsClustersGet
-projectsRegionsClustersGet pPrcgClusterName_ pPrcgRegion_ pPrcgProjectId_ =
+projectsRegionsClustersGet pPrcgClusterName_ pPrcgRegion_ pPrcgProjectId_ = 
     ProjectsRegionsClustersGet'
     { _prcgXgafv = Nothing
     , _prcgUploadProtocol = Nothing
@@ -126,7 +126,7 @@ projectsRegionsClustersGet pPrcgClusterName_ pPrcgRegion_ pPrcgProjectId_ =
     }
 
 -- | V1 error format.
-prcgXgafv :: Lens' ProjectsRegionsClustersGet (Maybe Text)
+prcgXgafv :: Lens' ProjectsRegionsClustersGet (Maybe Xgafv)
 prcgXgafv
   = lens _prcgXgafv (\ s a -> s{_prcgXgafv = a})
 
@@ -158,18 +158,18 @@ prcgBearerToken
   = lens _prcgBearerToken
       (\ s a -> s{_prcgBearerToken = a})
 
--- | [Required] The cluster name.
+-- | Required. The cluster name.
 prcgClusterName :: Lens' ProjectsRegionsClustersGet Text
 prcgClusterName
   = lens _prcgClusterName
       (\ s a -> s{_prcgClusterName = a})
 
--- | [Required] The Cloud Dataproc region in which to handle the request.
+-- | Required. The Cloud Dataproc region in which to handle the request.
 prcgRegion :: Lens' ProjectsRegionsClustersGet Text
 prcgRegion
   = lens _prcgRegion (\ s a -> s{_prcgRegion = a})
 
--- | [Required] The ID of the Google Cloud Platform project that the cluster
+-- | Required. The ID of the Google Cloud Platform project that the cluster
 -- belongs to.
 prcgProjectId :: Lens' ProjectsRegionsClustersGet Text
 prcgProjectId

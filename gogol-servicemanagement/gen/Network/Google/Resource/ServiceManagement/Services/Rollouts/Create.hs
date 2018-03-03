@@ -50,8 +50,8 @@ module Network.Google.Resource.ServiceManagement.Services.Rollouts.Create
     , srcCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.rollouts.create@ method which the
 -- 'ServicesRolloutsCreate' request conforms to.
@@ -80,15 +80,15 @@ type ServicesRolloutsCreateResource =
 --
 -- /See:/ 'servicesRolloutsCreate' smart constructor.
 data ServicesRolloutsCreate = ServicesRolloutsCreate'
-    { _srcXgafv          :: !(Maybe Xgafv)
+    { _srcXgafv :: !(Maybe Xgafv)
     , _srcUploadProtocol :: !(Maybe Text)
-    , _srcPp             :: !Bool
-    , _srcAccessToken    :: !(Maybe Text)
-    , _srcUploadType     :: !(Maybe Text)
-    , _srcPayload        :: !Rollout
-    , _srcBearerToken    :: !(Maybe Text)
-    , _srcServiceName    :: !Text
-    , _srcCallback       :: !(Maybe Text)
+    , _srcPp :: !Bool
+    , _srcAccessToken :: !(Maybe Text)
+    , _srcUploadType :: !(Maybe Text)
+    , _srcPayload :: !Rollout
+    , _srcBearerToken :: !(Maybe Text)
+    , _srcServiceName :: !Text
+    , _srcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesRolloutsCreate' with the minimum fields required to make a request.
@@ -116,7 +116,7 @@ servicesRolloutsCreate
     :: Rollout -- ^ 'srcPayload'
     -> Text -- ^ 'srcServiceName'
     -> ServicesRolloutsCreate
-servicesRolloutsCreate pSrcPayload_ pSrcServiceName_ =
+servicesRolloutsCreate pSrcPayload_ pSrcServiceName_ = 
     ServicesRolloutsCreate'
     { _srcXgafv = Nothing
     , _srcUploadProtocol = Nothing

@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Accounts.Patch
     , appId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accounts.patch@ method which the
 -- 'AccountsPatch' request conforms to.
 type AccountsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accounts" :>
@@ -58,8 +58,8 @@ type AccountsPatchResource =
 -- /See:/ 'accountsPatch' smart constructor.
 data AccountsPatch = AccountsPatch'
     { _appProFileId :: !(Textual Int64)
-    , _appPayload   :: !Account
-    , _appId        :: !(Textual Int64)
+    , _appPayload :: !Account
+    , _appId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ accountsPatch
     -> Account -- ^ 'appPayload'
     -> Int64 -- ^ 'appId'
     -> AccountsPatch
-accountsPatch pAppProFileId_ pAppPayload_ pAppId_ =
+accountsPatch pAppProFileId_ pAppPayload_ pAppId_ = 
     AccountsPatch'
     { _appProFileId = _Coerce # pAppProFileId_
     , _appPayload = pAppPayload_

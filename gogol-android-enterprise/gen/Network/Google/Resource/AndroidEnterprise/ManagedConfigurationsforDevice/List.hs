@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforDevice.
     , mcdlDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsfordevice.list@ method which the
 -- 'ManagedConfigurationsforDeviceList' request conforms to.
@@ -64,8 +64,8 @@ type ManagedConfigurationsforDeviceListResource =
 -- /See:/ 'managedConfigurationsforDeviceList' smart constructor.
 data ManagedConfigurationsforDeviceList = ManagedConfigurationsforDeviceList'
     { _mcdlEnterpriseId :: !Text
-    , _mcdlUserId       :: !Text
-    , _mcdlDeviceId     :: !Text
+    , _mcdlUserId :: !Text
+    , _mcdlDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagedConfigurationsforDeviceList' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ managedConfigurationsforDeviceList
     -> Text -- ^ 'mcdlUserId'
     -> Text -- ^ 'mcdlDeviceId'
     -> ManagedConfigurationsforDeviceList
-managedConfigurationsforDeviceList pMcdlEnterpriseId_ pMcdlUserId_ pMcdlDeviceId_ =
+managedConfigurationsforDeviceList pMcdlEnterpriseId_ pMcdlUserId_ pMcdlDeviceId_ = 
     ManagedConfigurationsforDeviceList'
     { _mcdlEnterpriseId = pMcdlEnterpriseId_
     , _mcdlUserId = pMcdlUserId_

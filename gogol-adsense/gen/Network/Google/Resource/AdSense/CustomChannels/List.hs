@@ -39,8 +39,8 @@ module Network.Google.Resource.AdSense.CustomChannels.List
     , cclMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.customchannels.list@ method which the
 -- 'CustomChannelsList' request conforms to.
@@ -61,7 +61,7 @@ type CustomChannelsListResource =
 -- /See:/ 'customChannelsList' smart constructor.
 data CustomChannelsList = CustomChannelsList'
     { _cclAdClientId :: !Text
-    , _cclPageToken  :: !(Maybe Text)
+    , _cclPageToken :: !(Maybe Text)
     , _cclMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ data CustomChannelsList = CustomChannelsList'
 customChannelsList
     :: Text -- ^ 'cclAdClientId'
     -> CustomChannelsList
-customChannelsList pCclAdClientId_ =
+customChannelsList pCclAdClientId_ = 
     CustomChannelsList'
     { _cclAdClientId = pCclAdClientId_
     , _cclPageToken = Nothing

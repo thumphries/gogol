@@ -43,8 +43,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.ListResources
     , zvlrMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.listResources@ method which the
 -- 'ZoneViewsListResources' request conforms to.
@@ -73,13 +73,13 @@ type ZoneViewsListResourcesResource =
 -- /See:/ 'zoneViewsListResources' smart constructor.
 data ZoneViewsListResources = ZoneViewsListResources'
     { _zvlrResourceView :: !Text
-    , _zvlrListState    :: !ZoneViewsListResourcesListState
-    , _zvlrProject      :: !Text
-    , _zvlrFormat       :: !(Maybe ZoneViewsListResourcesFormat)
-    , _zvlrZone         :: !Text
-    , _zvlrServiceName  :: !(Maybe Text)
-    , _zvlrPageToken    :: !(Maybe Text)
-    , _zvlrMaxResults   :: !(Textual Int32)
+    , _zvlrListState :: !ZoneViewsListResourcesListState
+    , _zvlrProject :: !Text
+    , _zvlrFormat :: !(Maybe ZoneViewsListResourcesFormat)
+    , _zvlrZone :: !Text
+    , _zvlrServiceName :: !(Maybe Text)
+    , _zvlrPageToken :: !(Maybe Text)
+    , _zvlrMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsListResources' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ zoneViewsListResources
     -> Text -- ^ 'zvlrProject'
     -> Text -- ^ 'zvlrZone'
     -> ZoneViewsListResources
-zoneViewsListResources pZvlrResourceView_ pZvlrProject_ pZvlrZone_ =
+zoneViewsListResources pZvlrResourceView_ pZvlrProject_ pZvlrZone_ = 
     ZoneViewsListResources'
     { _zvlrResourceView = pZvlrResourceView_
     , _zvlrListState = All

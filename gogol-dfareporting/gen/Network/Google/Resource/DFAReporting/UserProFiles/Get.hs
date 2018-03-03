@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.UserProFiles.Get
     , upfgProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userProfiles.get@ method which the
 -- 'UserProFilesGet' request conforms to.
 type UserProFilesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              QueryParam "alt" AltJSON :> Get '[JSON] UserProFile
@@ -63,7 +63,7 @@ newtype UserProFilesGet = UserProFilesGet'
 userProFilesGet
     :: Int64 -- ^ 'upfgProFileId'
     -> UserProFilesGet
-userProFilesGet pUpfgProFileId_ =
+userProFilesGet pUpfgProFileId_ = 
     UserProFilesGet'
     { _upfgProFileId = _Coerce # pUpfgProFileId_
     }

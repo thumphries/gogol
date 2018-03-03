@@ -58,8 +58,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.Patch
     , ccwpCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.patch@ method which the
 -- 'CoursesCourseWorkPatch' request conforms to.
@@ -69,9 +69,9 @@ type CoursesCourseWorkPatchResource =
          Capture "courseId" Text :>
            "courseWork" :>
              Capture "id" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" Text :>
+                   QueryParam "updateMask" FieldMask :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
                          QueryParam "uploadType" Text :>
@@ -97,17 +97,17 @@ type CoursesCourseWorkPatchResource =
 --
 -- /See:/ 'coursesCourseWorkPatch' smart constructor.
 data CoursesCourseWorkPatch = CoursesCourseWorkPatch'
-    { _ccwpXgafv          :: !(Maybe Text)
+    { _ccwpXgafv :: !(Maybe Xgafv)
     , _ccwpUploadProtocol :: !(Maybe Text)
-    , _ccwpUpdateMask     :: !(Maybe Text)
-    , _ccwpPp             :: !Bool
-    , _ccwpCourseId       :: !Text
-    , _ccwpAccessToken    :: !(Maybe Text)
-    , _ccwpUploadType     :: !(Maybe Text)
-    , _ccwpPayload        :: !CourseWork
-    , _ccwpBearerToken    :: !(Maybe Text)
-    , _ccwpId             :: !Text
-    , _ccwpCallback       :: !(Maybe Text)
+    , _ccwpUpdateMask :: !(Maybe FieldMask)
+    , _ccwpPp :: !Bool
+    , _ccwpCourseId :: !Text
+    , _ccwpAccessToken :: !(Maybe Text)
+    , _ccwpUploadType :: !(Maybe Text)
+    , _ccwpPayload :: !CourseWork
+    , _ccwpBearerToken :: !(Maybe Text)
+    , _ccwpId :: !Text
+    , _ccwpCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkPatch' with the minimum fields required to make a request.
@@ -140,7 +140,7 @@ coursesCourseWorkPatch
     -> CourseWork -- ^ 'ccwpPayload'
     -> Text -- ^ 'ccwpId'
     -> CoursesCourseWorkPatch
-coursesCourseWorkPatch pCcwpCourseId_ pCcwpPayload_ pCcwpId_ =
+coursesCourseWorkPatch pCcwpCourseId_ pCcwpPayload_ pCcwpId_ = 
     CoursesCourseWorkPatch'
     { _ccwpXgafv = Nothing
     , _ccwpUploadProtocol = Nothing
@@ -156,7 +156,7 @@ coursesCourseWorkPatch pCcwpCourseId_ pCcwpPayload_ pCcwpId_ =
     }
 
 -- | V1 error format.
-ccwpXgafv :: Lens' CoursesCourseWorkPatch (Maybe Text)
+ccwpXgafv :: Lens' CoursesCourseWorkPatch (Maybe Xgafv)
 ccwpXgafv
   = lens _ccwpXgafv (\ s a -> s{_ccwpXgafv = a})
 
@@ -174,8 +174,8 @@ ccwpUploadProtocol
 -- and not set in the CourseWork object, an \`INVALID_ARGUMENT\` error will
 -- be returned. The following fields may be specified by teachers: *
 -- \`title\` * \`description\` * \`state\` * \`due_date\` * \`due_time\` *
--- \`max_points\` * \`submission_modification_mode\`
-ccwpUpdateMask :: Lens' CoursesCourseWorkPatch (Maybe Text)
+-- \`max_points\` * \`scheduled_time\` * \`submission_modification_mode\`
+ccwpUpdateMask :: Lens' CoursesCourseWorkPatch (Maybe FieldMask)
 ccwpUpdateMask
   = lens _ccwpUpdateMask
       (\ s a -> s{_ccwpUpdateMask = a})

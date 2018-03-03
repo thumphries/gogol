@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.Watermarks.Set
     , wsOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.watermarks.set@ method which the
 -- 'WatermarksSet' request conforms to.
@@ -69,8 +69,8 @@ type WatermarksSetResource =
 --
 -- /See:/ 'watermarksSet' smart constructor.
 data WatermarksSet = WatermarksSet'
-    { _wsChannelId              :: !Text
-    , _wsPayload                :: !InvideoBranding
+    { _wsChannelId :: !Text
+    , _wsPayload :: !InvideoBranding
     , _wsOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -87,7 +87,7 @@ watermarksSet
     :: Text -- ^ 'wsChannelId'
     -> InvideoBranding -- ^ 'wsPayload'
     -> WatermarksSet
-watermarksSet pWsChannelId_ pWsPayload_ =
+watermarksSet pWsChannelId_ pWsPayload_ = 
     WatermarksSet'
     { _wsChannelId = pWsChannelId_
     , _wsPayload = pWsPayload_

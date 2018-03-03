@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.Patch
     , upUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.patch@ method which the
 -- 'UsersPatch' request conforms to.
@@ -70,7 +70,7 @@ usersPatch
     :: User -- ^ 'upPayload'
     -> Text -- ^ 'upUserKey'
     -> UsersPatch
-usersPatch pUpPayload_ pUpUserKey_ =
+usersPatch pUpPayload_ pUpUserKey_ = 
     UsersPatch'
     { _upPayload = pUpPayload_
     , _upUserKey = pUpUserKey_
@@ -81,7 +81,7 @@ upPayload :: Lens' UsersPatch User
 upPayload
   = lens _upPayload (\ s a -> s{_upPayload = a})
 
--- | Email or immutable Id of the user. If Id, it should match with id of
+-- | Email or immutable ID of the user. If ID, it should match with id of
 -- user object
 upUserKey :: Lens' UsersPatch Text
 upUserKey

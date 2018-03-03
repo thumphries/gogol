@@ -41,8 +41,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Lease
     , tlGroupByTag
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.lease@ method which the
 -- 'TasksLease' request conforms to.
@@ -65,11 +65,11 @@ type TasksLeaseResource =
 --
 -- /See:/ 'tasksLease' smart constructor.
 data TasksLease = TasksLease'
-    { _tlTaskQueue  :: !Text
-    , _tlTag        :: !(Maybe Text)
-    , _tlProject    :: !Text
-    , _tlNumTasks   :: !(Textual Int32)
-    , _tlLeaseSecs  :: !(Textual Int32)
+    { _tlTaskQueue :: !Text
+    , _tlTag :: !(Maybe Text)
+    , _tlProject :: !Text
+    , _tlNumTasks :: !(Textual Int32)
+    , _tlLeaseSecs :: !(Textual Int32)
     , _tlGroupByTag :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -94,7 +94,7 @@ tasksLease
     -> Int32 -- ^ 'tlNumTasks'
     -> Int32 -- ^ 'tlLeaseSecs'
     -> TasksLease
-tasksLease pTlTaskQueue_ pTlProject_ pTlNumTasks_ pTlLeaseSecs_ =
+tasksLease pTlTaskQueue_ pTlProject_ pTlNumTasks_ pTlLeaseSecs_ = 
     TasksLease'
     { _tlTaskQueue = pTlTaskQueue_
     , _tlTag = Nothing

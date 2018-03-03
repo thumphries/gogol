@@ -57,6 +57,7 @@ library
         , Network.Google.Resource.FusionTables.Table.Insert
         , Network.Google.Resource.FusionTables.Table.List
         , Network.Google.Resource.FusionTables.Table.Patch
+        , Network.Google.Resource.FusionTables.Table.RefetchSheet
         , Network.Google.Resource.FusionTables.Table.ReplaceRows
         , Network.Google.Resource.FusionTables.Table.Update
         , Network.Google.Resource.FusionTables.Task.Delete
@@ -74,5 +75,5 @@ library
         , Network.Google.FusionTables.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.WebProperties.Insert
     , mwpiAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webproperties.insert@ method which the
 -- 'ManagementWebPropertiesInsert' request conforms to.
@@ -61,7 +61,7 @@ type ManagementWebPropertiesInsertResource =
 --
 -- /See:/ 'managementWebPropertiesInsert' smart constructor.
 data ManagementWebPropertiesInsert = ManagementWebPropertiesInsert'
-    { _mwpiPayload   :: !WebProperty
+    { _mwpiPayload :: !WebProperty
     , _mwpiAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,7 +76,7 @@ managementWebPropertiesInsert
     :: WebProperty -- ^ 'mwpiPayload'
     -> Text -- ^ 'mwpiAccountId'
     -> ManagementWebPropertiesInsert
-managementWebPropertiesInsert pMwpiPayload_ pMwpiAccountId_ =
+managementWebPropertiesInsert pMwpiPayload_ pMwpiAccountId_ = 
     ManagementWebPropertiesInsert'
     { _mwpiPayload = pMwpiPayload_
     , _mwpiAccountId = pMwpiAccountId_

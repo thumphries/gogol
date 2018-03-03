@@ -41,8 +41,8 @@ module Network.Google.Resource.FusionTables.Table.ImportRows
     , tirIsStrict
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.table.importRows@ method which the
 -- 'TableImportRows' request conforms to.
@@ -79,11 +79,11 @@ type TableImportRowsResource =
 -- /See:/ 'tableImportRows' smart constructor.
 data TableImportRows = TableImportRows'
     { _tirStartLine :: !(Maybe (Textual Int32))
-    , _tirEndLine   :: !(Maybe (Textual Int32))
-    , _tirTableId   :: !Text
+    , _tirEndLine :: !(Maybe (Textual Int32))
+    , _tirTableId :: !Text
     , _tirDelimiter :: !(Maybe Text)
-    , _tirEncoding  :: !(Maybe Text)
-    , _tirIsStrict  :: !(Maybe Bool)
+    , _tirEncoding :: !(Maybe Text)
+    , _tirIsStrict :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableImportRows' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ data TableImportRows = TableImportRows'
 tableImportRows
     :: Text -- ^ 'tirTableId'
     -> TableImportRows
-tableImportRows pTirTableId_ =
+tableImportRows pTirTableId_ = 
     TableImportRows'
     { _tirStartLine = Nothing
     , _tirEndLine = Nothing

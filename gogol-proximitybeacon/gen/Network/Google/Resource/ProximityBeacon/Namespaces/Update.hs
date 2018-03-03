@@ -46,15 +46,15 @@ module Network.Google.Resource.ProximityBeacon.Namespaces.Update
     , nuCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.namespaces.update@ method which the
 -- 'NamespacesUpdate' request conforms to.
 type NamespacesUpdateResource =
      "v1beta1" :>
        Capture "namespaceName" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -70,16 +70,16 @@ type NamespacesUpdateResource =
 --
 -- /See:/ 'namespacesUpdate' smart constructor.
 data NamespacesUpdate = NamespacesUpdate'
-    { _nuXgafv          :: !(Maybe Text)
+    { _nuXgafv :: !(Maybe Xgafv)
     , _nuUploadProtocol :: !(Maybe Text)
-    , _nuPp             :: !Bool
-    , _nuAccessToken    :: !(Maybe Text)
-    , _nuUploadType     :: !(Maybe Text)
-    , _nuPayload        :: !Namespace
-    , _nuNamespaceName  :: !Text
-    , _nuBearerToken    :: !(Maybe Text)
-    , _nuProjectId      :: !(Maybe Text)
-    , _nuCallback       :: !(Maybe Text)
+    , _nuPp :: !Bool
+    , _nuAccessToken :: !(Maybe Text)
+    , _nuUploadType :: !(Maybe Text)
+    , _nuPayload :: !Namespace
+    , _nuNamespaceName :: !Text
+    , _nuBearerToken :: !(Maybe Text)
+    , _nuProjectId :: !(Maybe Text)
+    , _nuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NamespacesUpdate' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ namespacesUpdate
     :: Namespace -- ^ 'nuPayload'
     -> Text -- ^ 'nuNamespaceName'
     -> NamespacesUpdate
-namespacesUpdate pNuPayload_ pNuNamespaceName_ =
+namespacesUpdate pNuPayload_ pNuNamespaceName_ = 
     NamespacesUpdate'
     { _nuXgafv = Nothing
     , _nuUploadProtocol = Nothing
@@ -124,7 +124,7 @@ namespacesUpdate pNuPayload_ pNuNamespaceName_ =
     }
 
 -- | V1 error format.
-nuXgafv :: Lens' NamespacesUpdate (Maybe Text)
+nuXgafv :: Lens' NamespacesUpdate (Maybe Xgafv)
 nuXgafv = lens _nuXgafv (\ s a -> s{_nuXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -154,7 +154,7 @@ nuPayload
   = lens _nuPayload (\ s a -> s{_nuPayload = a})
 
 -- | Resource name of this namespace. Namespaces names have the format:
--- namespaces\/namespace.
+-- 'namespaces\/namespace'.
 nuNamespaceName :: Lens' NamespacesUpdate Text
 nuNamespaceName
   = lens _nuNamespaceName

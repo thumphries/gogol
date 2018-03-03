@@ -34,8 +34,8 @@ module Network.Google.Resource.Calendar.Colors.Get
 
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.colors.get@ method which the
 -- 'ColorsGet' request conforms to.
@@ -49,7 +49,7 @@ type ColorsGetResource =
 --
 -- /See:/ 'colorsGet' smart constructor.
 data ColorsGet =
-    ColorsGet'
+    ColorsGet' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ColorsGet' with the minimum fields required to make a request.

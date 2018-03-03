@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Reports.Listreports
     , rlQueryId
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.reports.listreports@ method which the
 -- 'ReportsListreports' request conforms to.
@@ -65,7 +65,7 @@ newtype ReportsListreports = ReportsListreports'
 reportsListreports
     :: Int64 -- ^ 'rlQueryId'
     -> ReportsListreports
-reportsListreports pRlQueryId_ =
+reportsListreports pRlQueryId_ = 
     ReportsListreports'
     { _rlQueryId = _Coerce # pRlQueryId_
     }
@@ -78,7 +78,8 @@ rlQueryId
 
 instance GoogleRequest ReportsListreports where
         type Rs ReportsListreports = ListReportsResponse
-        type Scopes ReportsListreports = '[]
+        type Scopes ReportsListreports =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient ReportsListreports'{..}
           = go _rlQueryId (Just AltJSON) doubleClickBidsService
           where go

@@ -38,8 +38,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.AdClients.Get
     , aacgAccountId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.adclients.get@ method which the
 -- 'AccountsAdClientsGet' request conforms to.
@@ -58,7 +58,7 @@ type AccountsAdClientsGetResource =
 -- /See:/ 'accountsAdClientsGet' smart constructor.
 data AccountsAdClientsGet = AccountsAdClientsGet'
     { _aacgAdClientId :: !Text
-    , _aacgAccountId  :: !Text
+    , _aacgAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsAdClientsGet' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ accountsAdClientsGet
     :: Text -- ^ 'aacgAdClientId'
     -> Text -- ^ 'aacgAccountId'
     -> AccountsAdClientsGet
-accountsAdClientsGet pAacgAdClientId_ pAacgAccountId_ =
+accountsAdClientsGet pAacgAdClientId_ pAacgAccountId_ = 
     AccountsAdClientsGet'
     { _aacgAdClientId = pAacgAdClientId_
     , _aacgAccountId = pAacgAccountId_

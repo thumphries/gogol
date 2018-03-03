@@ -35,6 +35,7 @@ library
 
     exposed-modules:
           Network.Google.Resource.Content.Accounts.AuthInfo
+        , Network.Google.Resource.Content.Accounts.Claimwebsite
         , Network.Google.Resource.Content.Accounts.Custombatch
         , Network.Google.Resource.Content.Accounts.Delete
         , Network.Google.Resource.Content.Accounts.Get
@@ -42,11 +43,6 @@ library
         , Network.Google.Resource.Content.Accounts.List
         , Network.Google.Resource.Content.Accounts.Patch
         , Network.Google.Resource.Content.Accounts.Update
-        , Network.Google.Resource.Content.Accountshipping.Custombatch
-        , Network.Google.Resource.Content.Accountshipping.Get
-        , Network.Google.Resource.Content.Accountshipping.List
-        , Network.Google.Resource.Content.Accountshipping.Patch
-        , Network.Google.Resource.Content.Accountshipping.Update
         , Network.Google.Resource.Content.Accountstatuses.Custombatch
         , Network.Google.Resource.Content.Accountstatuses.Get
         , Network.Google.Resource.Content.Accountstatuses.List
@@ -76,12 +72,24 @@ library
         , Network.Google.Resource.Content.Orders.Get
         , Network.Google.Resource.Content.Orders.GetbymerchantOrderid
         , Network.Google.Resource.Content.Orders.GettestOrdertemplate
+        , Network.Google.Resource.Content.Orders.Instorerefundlineitem
         , Network.Google.Resource.Content.Orders.List
         , Network.Google.Resource.Content.Orders.Refund
+        , Network.Google.Resource.Content.Orders.Rejectreturnlineitem
         , Network.Google.Resource.Content.Orders.Returnlineitem
+        , Network.Google.Resource.Content.Orders.Returnrefundlineitem
+        , Network.Google.Resource.Content.Orders.Setlineitemmetadata
         , Network.Google.Resource.Content.Orders.Shiplineitems
+        , Network.Google.Resource.Content.Orders.Updatelineitemshippingdetails
         , Network.Google.Resource.Content.Orders.UpdatemerchantOrderid
         , Network.Google.Resource.Content.Orders.Updateshipment
+        , Network.Google.Resource.Content.Pos.Custombatch
+        , Network.Google.Resource.Content.Pos.Delete
+        , Network.Google.Resource.Content.Pos.Get
+        , Network.Google.Resource.Content.Pos.Insert
+        , Network.Google.Resource.Content.Pos.Inventory
+        , Network.Google.Resource.Content.Pos.List
+        , Network.Google.Resource.Content.Pos.Sale
         , Network.Google.Resource.Content.Products.Custombatch
         , Network.Google.Resource.Content.Products.Delete
         , Network.Google.Resource.Content.Products.Get
@@ -93,6 +101,7 @@ library
         , Network.Google.Resource.Content.ShippingSettings.Custombatch
         , Network.Google.Resource.Content.ShippingSettings.Get
         , Network.Google.Resource.Content.ShippingSettings.Getsupportedcarriers
+        , Network.Google.Resource.Content.ShippingSettings.Getsupportedholidays
         , Network.Google.Resource.Content.ShippingSettings.List
         , Network.Google.Resource.Content.ShippingSettings.Patch
         , Network.Google.Resource.Content.ShippingSettings.Update
@@ -104,5 +113,5 @@ library
         , Network.Google.ShoppingContent.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

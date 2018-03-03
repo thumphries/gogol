@@ -22,8 +22,7 @@
 --
 -- Updates price and availability for multiple products or stores in a
 -- single request. This operation does not update the expiration date of
--- the products. This method can only be called for non-multi-client
--- accounts.
+-- the products.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.inventory.custombatch@.
 module Network.Google.Resource.Content.Inventory.Custombatch
@@ -40,8 +39,8 @@ module Network.Google.Resource.Content.Inventory.Custombatch
     , icDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.inventory.custombatch@ method which the
 -- 'InventoryCustombatch' request conforms to.
@@ -57,13 +56,12 @@ type InventoryCustombatchResource =
 
 -- | Updates price and availability for multiple products or stores in a
 -- single request. This operation does not update the expiration date of
--- the products. This method can only be called for non-multi-client
--- accounts.
+-- the products.
 --
 -- /See:/ 'inventoryCustombatch' smart constructor.
 data InventoryCustombatch = InventoryCustombatch'
     { _icPayload :: !InventoryCustomBatchRequest
-    , _icDryRun  :: !(Maybe Bool)
+    , _icDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InventoryCustombatch' with the minimum fields required to make a request.
@@ -76,7 +74,7 @@ data InventoryCustombatch = InventoryCustombatch'
 inventoryCustombatch
     :: InventoryCustomBatchRequest -- ^ 'icPayload'
     -> InventoryCustombatch
-inventoryCustombatch pIcPayload_ =
+inventoryCustombatch pIcPayload_ = 
     InventoryCustombatch'
     { _icPayload = pIcPayload_
     , _icDryRun = Nothing

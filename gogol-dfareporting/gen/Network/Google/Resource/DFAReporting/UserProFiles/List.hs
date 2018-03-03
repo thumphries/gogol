@@ -34,14 +34,14 @@ module Network.Google.Resource.DFAReporting.UserProFiles.List
 
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userProfiles.list@ method which the
 -- 'UserProFilesList' request conforms to.
 type UserProFilesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            QueryParam "alt" AltJSON :>
              Get '[JSON] UserProFileList
@@ -50,7 +50,7 @@ type UserProFilesListResource =
 --
 -- /See:/ 'userProFilesList' smart constructor.
 data UserProFilesList =
-    UserProFilesList'
+    UserProFilesList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesList' with the minimum fields required to make a request.

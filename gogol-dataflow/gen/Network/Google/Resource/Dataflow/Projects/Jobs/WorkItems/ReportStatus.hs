@@ -22,7 +22,7 @@
 --
 -- Reports the status of dataflow WorkItems leased by a worker.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.workItems.reportStatus@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.workItems.reportStatus@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.WorkItems.ReportStatus
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.WorkItems.ReportStatus
     , pjwirsCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.workItems.reportStatus@ method which the
 -- 'ProjectsJobsWorkItemsReportStatus' request conforms to.
@@ -57,7 +57,7 @@ type ProjectsJobsWorkItemsReportStatusResource =
            "jobs" :>
              Capture "jobId" Text :>
                "workItems:reportStatus" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -72,16 +72,16 @@ type ProjectsJobsWorkItemsReportStatusResource =
 --
 -- /See:/ 'projectsJobsWorkItemsReportStatus' smart constructor.
 data ProjectsJobsWorkItemsReportStatus = ProjectsJobsWorkItemsReportStatus'
-    { _pjwirsXgafv          :: !(Maybe Text)
-    , _pjwirsJobId          :: !Text
+    { _pjwirsXgafv :: !(Maybe Xgafv)
+    , _pjwirsJobId :: !Text
     , _pjwirsUploadProtocol :: !(Maybe Text)
-    , _pjwirsPp             :: !Bool
-    , _pjwirsAccessToken    :: !(Maybe Text)
-    , _pjwirsUploadType     :: !(Maybe Text)
-    , _pjwirsPayload        :: !ReportWorkItemStatusRequest
-    , _pjwirsBearerToken    :: !(Maybe Text)
-    , _pjwirsProjectId      :: !Text
-    , _pjwirsCallback       :: !(Maybe Text)
+    , _pjwirsPp :: !Bool
+    , _pjwirsAccessToken :: !(Maybe Text)
+    , _pjwirsUploadType :: !(Maybe Text)
+    , _pjwirsPayload :: !ReportWorkItemStatusRequest
+    , _pjwirsBearerToken :: !(Maybe Text)
+    , _pjwirsProjectId :: !Text
+    , _pjwirsCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsWorkItemsReportStatus' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ projectsJobsWorkItemsReportStatus
     -> ReportWorkItemStatusRequest -- ^ 'pjwirsPayload'
     -> Text -- ^ 'pjwirsProjectId'
     -> ProjectsJobsWorkItemsReportStatus
-projectsJobsWorkItemsReportStatus pPjwirsJobId_ pPjwirsPayload_ pPjwirsProjectId_ =
+projectsJobsWorkItemsReportStatus pPjwirsJobId_ pPjwirsPayload_ pPjwirsProjectId_ = 
     ProjectsJobsWorkItemsReportStatus'
     { _pjwirsXgafv = Nothing
     , _pjwirsJobId = pPjwirsJobId_
@@ -127,7 +127,7 @@ projectsJobsWorkItemsReportStatus pPjwirsJobId_ pPjwirsPayload_ pPjwirsProjectId
     }
 
 -- | V1 error format.
-pjwirsXgafv :: Lens' ProjectsJobsWorkItemsReportStatus (Maybe Text)
+pjwirsXgafv :: Lens' ProjectsJobsWorkItemsReportStatus (Maybe Xgafv)
 pjwirsXgafv
   = lens _pjwirsXgafv (\ s a -> s{_pjwirsXgafv = a})
 
@@ -188,6 +188,8 @@ instance GoogleRequest
              ReportWorkItemStatusResponse
         type Scopes ProjectsJobsWorkItemsReportStatus =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsWorkItemsReportStatus'{..}
           = go _pjwirsProjectId _pjwirsJobId _pjwirsXgafv

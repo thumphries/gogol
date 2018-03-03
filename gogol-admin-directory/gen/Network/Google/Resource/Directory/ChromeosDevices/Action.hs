@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.ChromeosDevices.Action
     , cdaCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.chromeosdevices.action@ method which the
 -- 'ChromeosDevicesAction' request conforms to.
@@ -62,7 +62,7 @@ type ChromeosDevicesActionResource =
 -- /See:/ 'chromeosDevicesAction' smart constructor.
 data ChromeosDevicesAction = ChromeosDevicesAction'
     { _cdaResourceId :: !Text
-    , _cdaPayload    :: !ChromeOSDeviceAction
+    , _cdaPayload :: !ChromeOSDeviceAction
     , _cdaCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,14 +80,14 @@ chromeosDevicesAction
     -> ChromeOSDeviceAction -- ^ 'cdaPayload'
     -> Text -- ^ 'cdaCustomerId'
     -> ChromeosDevicesAction
-chromeosDevicesAction pCdaResourceId_ pCdaPayload_ pCdaCustomerId_ =
+chromeosDevicesAction pCdaResourceId_ pCdaPayload_ pCdaCustomerId_ = 
     ChromeosDevicesAction'
     { _cdaResourceId = pCdaResourceId_
     , _cdaPayload = pCdaPayload_
     , _cdaCustomerId = pCdaCustomerId_
     }
 
--- | Immutable id of Chrome OS Device
+-- | Immutable ID of Chrome OS Device
 cdaResourceId :: Lens' ChromeosDevicesAction Text
 cdaResourceId
   = lens _cdaResourceId
@@ -98,7 +98,7 @@ cdaPayload :: Lens' ChromeosDevicesAction ChromeOSDeviceAction
 cdaPayload
   = lens _cdaPayload (\ s a -> s{_cdaPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 cdaCustomerId :: Lens' ChromeosDevicesAction Text
 cdaCustomerId
   = lens _cdaCustomerId

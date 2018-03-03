@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -86,6 +86,12 @@ module Network.Google.Gmail.Types
     -- * ForwardingAddressVerificationStatus
     , ForwardingAddressVerificationStatus (..)
 
+    -- * LabelColor
+    , LabelColor
+    , labelColor
+    , lcBackgRoundColor
+    , lcTextColor
+
     -- * FilterCriteria
     , FilterCriteria
     , filterCriteria
@@ -115,6 +121,9 @@ module Network.Google.Gmail.Types
     , messagePartHeader
     , mphValue
     , mphName
+
+    -- * UsersHistoryListHistoryTypes
+    , UsersHistoryListHistoryTypes (..)
 
     -- * SendAsVerificationStatus
     , SendAsVerificationStatus (..)
@@ -293,6 +302,11 @@ module Network.Google.Gmail.Types
     -- * ImapSettingsExpungeBehavior
     , ImapSettingsExpungeBehavior (..)
 
+    -- * ListSmimeInfoResponse
+    , ListSmimeInfoResponse
+    , listSmimeInfoResponse
+    , lsirSmimeInfo
+
     -- * SmtpMsaSecurityMode
     , SmtpMsaSecurityMode (..)
 
@@ -339,12 +353,24 @@ module Network.Google.Gmail.Types
     , lThreadsUnread
     , lMessageListVisibility
     , lMessagesTotal
+    , lColor
     , lMessagesUnread
     , lName
     , lThreadsTotal
     , lLabelListVisibility
     , lId
     , lType
+
+    -- * SmimeInfo
+    , SmimeInfo
+    , smimeInfo
+    , siPem
+    , siExpiration
+    , siEncryptedKeyPassword
+    , siId
+    , siPkcs12
+    , siIssuerCn
+    , siIsDefault
 
     -- * ListMessagesResponse
     , ListMessagesResponse
@@ -359,9 +385,9 @@ module Network.Google.Gmail.Types
     , hmaMessage
     ) where
 
-import           Network.Google.Gmail.Types.Product
-import           Network.Google.Gmail.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types.Product
+import Network.Google.Gmail.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v1' of the Gmail API. This contains the host and root path used as a starting point for constructing service requests.
 gmailService :: ServiceConfig
@@ -373,7 +399,7 @@ gmailService
 gmailSettingsBasicScope :: Proxy '["https://www.googleapis.com/auth/gmail.settings.basic"]
 gmailSettingsBasicScope = Proxy;
 
--- | View and manage your mail
+-- | Read, send, delete, and manage your email
 mailGoogleComScope :: Proxy '["https://mail.google.com/"]
 mailGoogleComScope = Proxy;
 
@@ -406,6 +432,6 @@ gmailInsertScope = Proxy;
 gmailComposeScope :: Proxy '["https://www.googleapis.com/auth/gmail.compose"]
 gmailComposeScope = Proxy;
 
--- | View your emails messages and settings
+-- | View your email messages and settings
 gmailReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/gmail.readonly"]
 gmailReadOnlyScope = Proxy;

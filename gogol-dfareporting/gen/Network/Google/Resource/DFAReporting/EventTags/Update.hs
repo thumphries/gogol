@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.EventTags.Update
     , etuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.eventTags.update@ method which the
 -- 'EventTagsUpdate' request conforms to.
 type EventTagsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "eventTags" :>
@@ -56,7 +56,7 @@ type EventTagsUpdateResource =
 -- /See:/ 'eventTagsUpdate' smart constructor.
 data EventTagsUpdate = EventTagsUpdate'
     { _etuProFileId :: !(Textual Int64)
-    , _etuPayload   :: !EventTag
+    , _etuPayload :: !EventTag
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventTagsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ eventTagsUpdate
     :: Int64 -- ^ 'etuProFileId'
     -> EventTag -- ^ 'etuPayload'
     -> EventTagsUpdate
-eventTagsUpdate pEtuProFileId_ pEtuPayload_ =
+eventTagsUpdate pEtuProFileId_ pEtuPayload_ = 
     EventTagsUpdate'
     { _etuProFileId = _Coerce # pEtuProFileId_
     , _etuPayload = pEtuPayload_

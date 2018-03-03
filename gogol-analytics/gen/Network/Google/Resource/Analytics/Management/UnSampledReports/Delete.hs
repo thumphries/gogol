@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.UnSampledReports.Delete
     , musrdUnSampledReportId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.unsampledReports.delete@ method which the
 -- 'ManagementUnSampledReportsDelete' request conforms to.
@@ -62,9 +62,9 @@ type ManagementUnSampledReportsDeleteResource =
 --
 -- /See:/ 'managementUnSampledReportsDelete' smart constructor.
 data ManagementUnSampledReportsDelete = ManagementUnSampledReportsDelete'
-    { _musrdWebPropertyId     :: !Text
-    , _musrdProFileId         :: !Text
-    , _musrdAccountId         :: !Text
+    { _musrdWebPropertyId :: !Text
+    , _musrdProFileId :: !Text
+    , _musrdAccountId :: !Text
     , _musrdUnSampledReportId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ managementUnSampledReportsDelete
     -> Text -- ^ 'musrdAccountId'
     -> Text -- ^ 'musrdUnSampledReportId'
     -> ManagementUnSampledReportsDelete
-managementUnSampledReportsDelete pMusrdWebPropertyId_ pMusrdProFileId_ pMusrdAccountId_ pMusrdUnSampledReportId_ =
+managementUnSampledReportsDelete pMusrdWebPropertyId_ pMusrdProFileId_ pMusrdAccountId_ pMusrdUnSampledReportId_ = 
     ManagementUnSampledReportsDelete'
     { _musrdWebPropertyId = pMusrdWebPropertyId_
     , _musrdProFileId = pMusrdProFileId_

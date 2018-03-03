@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.Routers.Get
     , rggRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.routers.get@ method which the
 -- 'RoutersGet' request conforms to.
@@ -61,8 +61,8 @@ type RoutersGetResource =
 -- /See:/ 'routersGet' smart constructor.
 data RoutersGet = RoutersGet'
     { _rggProject :: !Text
-    , _rggRouter  :: !Text
-    , _rggRegion  :: !Text
+    , _rggRouter :: !Text
+    , _rggRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoutersGet' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ routersGet
     -> Text -- ^ 'rggRouter'
     -> Text -- ^ 'rggRegion'
     -> RoutersGet
-routersGet pRggProject_ pRggRouter_ pRggRegion_ =
+routersGet pRggProject_ pRggRouter_ pRggRegion_ = 
     RoutersGet'
     { _rggProject = pRggProject_
     , _rggRouter = pRggRouter_

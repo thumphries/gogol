@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves, inserts, and deletes multiple products in a single request.
--- This method can only be called for non-multi-client accounts.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.products.custombatch@.
 module Network.Google.Resource.Content.Products.Custombatch
@@ -38,8 +37,8 @@ module Network.Google.Resource.Content.Products.Custombatch
     , pcDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.products.custombatch@ method which the
 -- 'ProductsCustombatch' request conforms to.
@@ -54,12 +53,11 @@ type ProductsCustombatchResource =
                    Post '[JSON] ProductsCustomBatchResponse
 
 -- | Retrieves, inserts, and deletes multiple products in a single request.
--- This method can only be called for non-multi-client accounts.
 --
 -- /See:/ 'productsCustombatch' smart constructor.
 data ProductsCustombatch = ProductsCustombatch'
     { _pcPayload :: !ProductsCustomBatchRequest
-    , _pcDryRun  :: !(Maybe Bool)
+    , _pcDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductsCustombatch' with the minimum fields required to make a request.
@@ -72,7 +70,7 @@ data ProductsCustombatch = ProductsCustombatch'
 productsCustombatch
     :: ProductsCustomBatchRequest -- ^ 'pcPayload'
     -> ProductsCustombatch
-productsCustombatch pPcPayload_ =
+productsCustombatch pPcPayload_ = 
     ProductsCustombatch'
     { _pcPayload = pPcPayload_
     , _pcDryRun = Nothing

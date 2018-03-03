@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.I18nLanguages.List
     , illHl
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.i18nLanguages.list@ method which the
 -- 'I18nLanguagesList' request conforms to.
@@ -58,7 +58,7 @@ type I18nLanguagesListResource =
 -- /See:/ 'i18nLanguagesList' smart constructor.
 data I18nLanguagesList = I18nLanguagesList'
     { _illPart :: !Text
-    , _illHl   :: !Text
+    , _illHl :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'I18nLanguagesList' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data I18nLanguagesList = I18nLanguagesList'
 i18nLanguagesList
     :: Text -- ^ 'illPart'
     -> I18nLanguagesList
-i18nLanguagesList pIllPart_ =
+i18nLanguagesList pIllPart_ = 
     I18nLanguagesList'
     { _illPart = pIllPart_
     , _illHl = "en_US"

@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Insert
     , eiPayload
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.insert@ method which the
 -- 'EditsInsert' request conforms to.
@@ -56,7 +56,7 @@ type EditsInsertResource =
 -- /See:/ 'editsInsert' smart constructor.
 data EditsInsert = EditsInsert'
     { _eiPackageName :: !Text
-    , _eiPayload     :: !AppEdit
+    , _eiPayload :: !AppEdit
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ editsInsert
     :: Text -- ^ 'eiPackageName'
     -> AppEdit -- ^ 'eiPayload'
     -> EditsInsert
-editsInsert pEiPackageName_ pEiPayload_ =
+editsInsert pEiPackageName_ pEiPayload_ = 
     EditsInsert'
     { _eiPackageName = pEiPackageName_
     , _eiPayload = pEiPayload_

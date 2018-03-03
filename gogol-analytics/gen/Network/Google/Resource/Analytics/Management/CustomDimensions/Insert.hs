@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.CustomDimensions.Insert
     , mcdiAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customDimensions.insert@ method which the
 -- 'ManagementCustomDimensionsInsert' request conforms to.
@@ -61,8 +61,8 @@ type ManagementCustomDimensionsInsertResource =
 -- /See:/ 'managementCustomDimensionsInsert' smart constructor.
 data ManagementCustomDimensionsInsert = ManagementCustomDimensionsInsert'
     { _mcdiWebPropertyId :: !Text
-    , _mcdiPayload       :: !CustomDimension
-    , _mcdiAccountId     :: !Text
+    , _mcdiPayload :: !CustomDimension
+    , _mcdiAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomDimensionsInsert' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ managementCustomDimensionsInsert
     -> CustomDimension -- ^ 'mcdiPayload'
     -> Text -- ^ 'mcdiAccountId'
     -> ManagementCustomDimensionsInsert
-managementCustomDimensionsInsert pMcdiWebPropertyId_ pMcdiPayload_ pMcdiAccountId_ =
+managementCustomDimensionsInsert pMcdiWebPropertyId_ pMcdiPayload_ pMcdiAccountId_ = 
     ManagementCustomDimensionsInsert'
     { _mcdiWebPropertyId = pMcdiWebPropertyId_
     , _mcdiPayload = pMcdiPayload_

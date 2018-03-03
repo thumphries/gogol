@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.TargetingTemplates.Update
     , ttuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.targetingTemplates.update@ method which the
 -- 'TargetingTemplatesUpdate' request conforms to.
 type TargetingTemplatesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "targetingTemplates" :>
@@ -57,7 +57,7 @@ type TargetingTemplatesUpdateResource =
 -- /See:/ 'targetingTemplatesUpdate' smart constructor.
 data TargetingTemplatesUpdate = TargetingTemplatesUpdate'
     { _ttuProFileId :: !(Textual Int64)
-    , _ttuPayload   :: !TargetingTemplate
+    , _ttuPayload :: !TargetingTemplate
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetingTemplatesUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ targetingTemplatesUpdate
     :: Int64 -- ^ 'ttuProFileId'
     -> TargetingTemplate -- ^ 'ttuPayload'
     -> TargetingTemplatesUpdate
-targetingTemplatesUpdate pTtuProFileId_ pTtuPayload_ =
+targetingTemplatesUpdate pTtuProFileId_ pTtuPayload_ = 
     TargetingTemplatesUpdate'
     { _ttuProFileId = _Coerce # pTtuProFileId_
     , _ttuPayload = pTtuPayload_

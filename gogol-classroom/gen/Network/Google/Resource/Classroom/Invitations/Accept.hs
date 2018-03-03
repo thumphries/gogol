@@ -51,8 +51,8 @@ module Network.Google.Resource.Classroom.Invitations.Accept
     , iaCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.invitations.accept@ method which the
 -- 'InvitationsAccept' request conforms to.
@@ -60,7 +60,7 @@ type InvitationsAcceptResource =
      "v1" :>
        "invitations" :>
          CaptureMode "id" "accept" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -81,14 +81,14 @@ type InvitationsAcceptResource =
 --
 -- /See:/ 'invitationsAccept' smart constructor.
 data InvitationsAccept = InvitationsAccept'
-    { _iaXgafv          :: !(Maybe Text)
+    { _iaXgafv :: !(Maybe Xgafv)
     , _iaUploadProtocol :: !(Maybe Text)
-    , _iaPp             :: !Bool
-    , _iaAccessToken    :: !(Maybe Text)
-    , _iaUploadType     :: !(Maybe Text)
-    , _iaBearerToken    :: !(Maybe Text)
-    , _iaId             :: !Text
-    , _iaCallback       :: !(Maybe Text)
+    , _iaPp :: !Bool
+    , _iaAccessToken :: !(Maybe Text)
+    , _iaUploadType :: !(Maybe Text)
+    , _iaBearerToken :: !(Maybe Text)
+    , _iaId :: !Text
+    , _iaCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvitationsAccept' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ data InvitationsAccept = InvitationsAccept'
 invitationsAccept
     :: Text -- ^ 'iaId'
     -> InvitationsAccept
-invitationsAccept pIaId_ =
+invitationsAccept pIaId_ = 
     InvitationsAccept'
     { _iaXgafv = Nothing
     , _iaUploadProtocol = Nothing
@@ -126,7 +126,7 @@ invitationsAccept pIaId_ =
     }
 
 -- | V1 error format.
-iaXgafv :: Lens' InvitationsAccept (Maybe Text)
+iaXgafv :: Lens' InvitationsAccept (Maybe Xgafv)
 iaXgafv = lens _iaXgafv (\ s a -> s{_iaXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

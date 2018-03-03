@@ -57,8 +57,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.T
     , ccwsstiCourseWorkId
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.studentSubmissions.turnIn@ method which the
 -- 'CoursesCourseWorkStudentSubmissionsTurnIn' request conforms to.
@@ -71,7 +71,7 @@ type CoursesCourseWorkStudentSubmissionsTurnInResource
              Capture "courseWorkId" Text :>
                "studentSubmissions" :>
                  CaptureMode "id" "turnIn" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -98,17 +98,17 @@ type CoursesCourseWorkStudentSubmissionsTurnInResource
 --
 -- /See:/ 'coursesCourseWorkStudentSubmissionsTurnIn' smart constructor.
 data CoursesCourseWorkStudentSubmissionsTurnIn = CoursesCourseWorkStudentSubmissionsTurnIn'
-    { _ccwsstiXgafv          :: !(Maybe Text)
+    { _ccwsstiXgafv :: !(Maybe Xgafv)
     , _ccwsstiUploadProtocol :: !(Maybe Text)
-    , _ccwsstiPp             :: !Bool
-    , _ccwsstiCourseId       :: !Text
-    , _ccwsstiAccessToken    :: !(Maybe Text)
-    , _ccwsstiUploadType     :: !(Maybe Text)
-    , _ccwsstiPayload        :: !TurnInStudentSubmissionRequest
-    , _ccwsstiBearerToken    :: !(Maybe Text)
-    , _ccwsstiId             :: !Text
-    , _ccwsstiCallback       :: !(Maybe Text)
-    , _ccwsstiCourseWorkId   :: !Text
+    , _ccwsstiPp :: !Bool
+    , _ccwsstiCourseId :: !Text
+    , _ccwsstiAccessToken :: !(Maybe Text)
+    , _ccwsstiUploadType :: !(Maybe Text)
+    , _ccwsstiPayload :: !TurnInStudentSubmissionRequest
+    , _ccwsstiBearerToken :: !(Maybe Text)
+    , _ccwsstiId :: !Text
+    , _ccwsstiCallback :: !(Maybe Text)
+    , _ccwsstiCourseWorkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkStudentSubmissionsTurnIn' with the minimum fields required to make a request.
@@ -142,7 +142,7 @@ coursesCourseWorkStudentSubmissionsTurnIn
     -> Text -- ^ 'ccwsstiId'
     -> Text -- ^ 'ccwsstiCourseWorkId'
     -> CoursesCourseWorkStudentSubmissionsTurnIn
-coursesCourseWorkStudentSubmissionsTurnIn pCcwsstiCourseId_ pCcwsstiPayload_ pCcwsstiId_ pCcwsstiCourseWorkId_ =
+coursesCourseWorkStudentSubmissionsTurnIn pCcwsstiCourseId_ pCcwsstiPayload_ pCcwsstiId_ pCcwsstiCourseWorkId_ = 
     CoursesCourseWorkStudentSubmissionsTurnIn'
     { _ccwsstiXgafv = Nothing
     , _ccwsstiUploadProtocol = Nothing
@@ -158,7 +158,7 @@ coursesCourseWorkStudentSubmissionsTurnIn pCcwsstiCourseId_ pCcwsstiPayload_ pCc
     }
 
 -- | V1 error format.
-ccwsstiXgafv :: Lens' CoursesCourseWorkStudentSubmissionsTurnIn (Maybe Text)
+ccwsstiXgafv :: Lens' CoursesCourseWorkStudentSubmissionsTurnIn (Maybe Xgafv)
 ccwsstiXgafv
   = lens _ccwsstiXgafv (\ s a -> s{_ccwsstiXgafv = a})
 

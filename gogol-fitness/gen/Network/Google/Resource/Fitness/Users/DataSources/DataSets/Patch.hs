@@ -43,8 +43,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.DataSets.Patch
     , udsdspCurrentTimeMillis
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.datasets.patch@ method which the
 -- 'UsersDataSourcesDataSetsPatch' request conforms to.
@@ -68,10 +68,10 @@ type UsersDataSourcesDataSetsPatchResource =
 --
 -- /See:/ 'usersDataSourcesDataSetsPatch' smart constructor.
 data UsersDataSourcesDataSetsPatch = UsersDataSourcesDataSetsPatch'
-    { _udsdspDataSourceId      :: !Text
-    , _udsdspPayload           :: !DataSet
-    , _udsdspUserId            :: !Text
-    , _udsdspDataSetId         :: !Text
+    { _udsdspDataSourceId :: !Text
+    , _udsdspPayload :: !DataSet
+    , _udsdspUserId :: !Text
+    , _udsdspDataSetId :: !Text
     , _udsdspCurrentTimeMillis :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -94,7 +94,7 @@ usersDataSourcesDataSetsPatch
     -> Text -- ^ 'udsdspUserId'
     -> Text -- ^ 'udsdspDataSetId'
     -> UsersDataSourcesDataSetsPatch
-usersDataSourcesDataSetsPatch pUdsdspDataSourceId_ pUdsdspPayload_ pUdsdspUserId_ pUdsdspDataSetId_ =
+usersDataSourcesDataSetsPatch pUdsdspDataSourceId_ pUdsdspPayload_ pUdsdspUserId_ pUdsdspDataSetId_ = 
     UsersDataSourcesDataSetsPatch'
     { _udsdspDataSourceId = pUdsdspDataSourceId_
     , _udsdspPayload = pUdsdspPayload_

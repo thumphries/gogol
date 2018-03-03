@@ -39,8 +39,8 @@ module Network.Google.Resource.Books.CloudLoading.AddBook
     , clabDriveDocumentId
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.cloudloading.addBook@ method which the
 -- 'CloudLoadingAddBook' request conforms to.
@@ -60,10 +60,10 @@ type CloudLoadingAddBookResource =
 --
 -- /See:/ 'cloudLoadingAddBook' smart constructor.
 data CloudLoadingAddBook = CloudLoadingAddBook'
-    { _clabMimeType          :: !(Maybe Text)
+    { _clabMimeType :: !(Maybe Text)
     , _clabUploadClientToken :: !(Maybe Text)
-    , _clabName              :: !(Maybe Text)
-    , _clabDriveDocumentId   :: !(Maybe Text)
+    , _clabName :: !(Maybe Text)
+    , _clabDriveDocumentId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CloudLoadingAddBook' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ data CloudLoadingAddBook = CloudLoadingAddBook'
 -- * 'clabDriveDocumentId'
 cloudLoadingAddBook
     :: CloudLoadingAddBook
-cloudLoadingAddBook =
+cloudLoadingAddBook = 
     CloudLoadingAddBook'
     { _clabMimeType = Nothing
     , _clabUploadClientToken = Nothing

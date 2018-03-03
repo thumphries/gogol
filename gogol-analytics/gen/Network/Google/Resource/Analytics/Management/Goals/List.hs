@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Goals.List
     , mglMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.goals.list@ method which the
 -- 'ManagementGoalsList' request conforms to.
@@ -65,10 +65,10 @@ type ManagementGoalsListResource =
 -- /See:/ 'managementGoalsList' smart constructor.
 data ManagementGoalsList = ManagementGoalsList'
     { _mglWebPropertyId :: !Text
-    , _mglProFileId     :: !Text
-    , _mglAccountId     :: !Text
-    , _mglStartIndex    :: !(Maybe (Textual Int32))
-    , _mglMaxResults    :: !(Maybe (Textual Int32))
+    , _mglProFileId :: !Text
+    , _mglAccountId :: !Text
+    , _mglStartIndex :: !(Maybe (Textual Int32))
+    , _mglMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementGoalsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ managementGoalsList
     -> Text -- ^ 'mglProFileId'
     -> Text -- ^ 'mglAccountId'
     -> ManagementGoalsList
-managementGoalsList pMglWebPropertyId_ pMglProFileId_ pMglAccountId_ =
+managementGoalsList pMglWebPropertyId_ pMglProFileId_ pMglAccountId_ = 
     ManagementGoalsList'
     { _mglWebPropertyId = pMglWebPropertyId_
     , _mglProFileId = pMglProFileId_

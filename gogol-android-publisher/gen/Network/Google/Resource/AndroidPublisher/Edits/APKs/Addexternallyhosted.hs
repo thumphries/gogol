@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKs.Addexternallyhosted
     , eapkaEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apks.addexternallyhosted@ method which the
 -- 'EditsAPKsAddexternallyhosted' request conforms to.
@@ -67,8 +67,8 @@ type EditsAPKsAddexternallyhostedResource =
 -- /See:/ 'editsAPKsAddexternallyhosted' smart constructor.
 data EditsAPKsAddexternallyhosted = EditsAPKsAddexternallyhosted'
     { _eapkaPackageName :: !Text
-    , _eapkaPayload     :: !APKsAddExternallyHostedRequest
-    , _eapkaEditId      :: !Text
+    , _eapkaPayload :: !APKsAddExternallyHostedRequest
+    , _eapkaEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKsAddexternallyhosted' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ editsAPKsAddexternallyhosted
     -> APKsAddExternallyHostedRequest -- ^ 'eapkaPayload'
     -> Text -- ^ 'eapkaEditId'
     -> EditsAPKsAddexternallyhosted
-editsAPKsAddexternallyhosted pEapkaPackageName_ pEapkaPayload_ pEapkaEditId_ =
+editsAPKsAddexternallyhosted pEapkaPackageName_ pEapkaPayload_ pEapkaEditId_ = 
     EditsAPKsAddexternallyhosted'
     { _eapkaPackageName = pEapkaPackageName_
     , _eapkaPayload = pEapkaPayload_

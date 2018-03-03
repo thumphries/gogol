@@ -40,8 +40,8 @@ module Network.Google.Resource.Blogger.Pages.Update
     , puuPublish
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.pages.update@ method which the
 -- 'PagesUpdate' request conforms to.
@@ -61,10 +61,10 @@ type PagesUpdateResource =
 --
 -- /See:/ 'pagesUpdate' smart constructor.
 data PagesUpdate = PagesUpdate'
-    { _puuBlogId  :: !Text
-    , _puuPageId  :: !Text
+    { _puuBlogId :: !Text
+    , _puuPageId :: !Text
     , _puuPayload :: !Page
-    , _puuRevert  :: !(Maybe Bool)
+    , _puuRevert :: !(Maybe Bool)
     , _puuPublish :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ pagesUpdate
     -> Text -- ^ 'puuPageId'
     -> Page -- ^ 'puuPayload'
     -> PagesUpdate
-pagesUpdate pPuuBlogId_ pPuuPageId_ pPuuPayload_ =
+pagesUpdate pPuuBlogId_ pPuuPageId_ pPuuPayload_ = 
     PagesUpdate'
     { _puuBlogId = pPuuBlogId_
     , _puuPageId = pPuuPageId_

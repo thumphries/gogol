@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.VerificationCodes.List
     , vclUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.verificationCodes.list@ method which the
 -- 'VerificationCodesList' request conforms to.
@@ -68,7 +68,7 @@ newtype VerificationCodesList = VerificationCodesList'
 verificationCodesList
     :: Text -- ^ 'vclUserKey'
     -> VerificationCodesList
-verificationCodesList pVclUserKey_ =
+verificationCodesList pVclUserKey_ = 
     VerificationCodesList'
     { _vclUserKey = pVclUserKey_
     }

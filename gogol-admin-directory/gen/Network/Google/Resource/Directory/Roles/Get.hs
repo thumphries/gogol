@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Roles.Get
     , rgCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.get@ method which the
 -- 'RolesGet' request conforms to.
@@ -56,7 +56,7 @@ type RolesGetResource =
 --
 -- /See:/ 'rolesGet' smart constructor.
 data RolesGet = RolesGet'
-    { _rgRoleId   :: !Text
+    { _rgRoleId :: !Text
     , _rgCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ rolesGet
     :: Text -- ^ 'rgRoleId'
     -> Text -- ^ 'rgCustomer'
     -> RolesGet
-rolesGet pRgRoleId_ pRgCustomer_ =
+rolesGet pRgRoleId_ pRgCustomer_ = 
     RolesGet'
     { _rgRoleId = pRgRoleId_
     , _rgCustomer = pRgCustomer_
@@ -81,7 +81,7 @@ rolesGet pRgRoleId_ pRgCustomer_ =
 rgRoleId :: Lens' RolesGet Text
 rgRoleId = lens _rgRoleId (\ s a -> s{_rgRoleId = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 rgCustomer :: Lens' RolesGet Text
 rgCustomer
   = lens _rgCustomer (\ s a -> s{_rgCustomer = a})

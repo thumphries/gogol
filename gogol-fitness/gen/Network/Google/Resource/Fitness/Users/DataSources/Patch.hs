@@ -41,8 +41,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.Patch
     , udspUserId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.patch@ method which the
 -- 'UsersDataSourcesPatch' request conforms to.
@@ -65,8 +65,8 @@ type UsersDataSourcesPatchResource =
 -- /See:/ 'usersDataSourcesPatch' smart constructor.
 data UsersDataSourcesPatch = UsersDataSourcesPatch'
     { _udspDataSourceId :: !Text
-    , _udspPayload      :: !DataSource
-    , _udspUserId       :: !Text
+    , _udspPayload :: !DataSource
+    , _udspUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSourcesPatch' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ usersDataSourcesPatch
     -> DataSource -- ^ 'udspPayload'
     -> Text -- ^ 'udspUserId'
     -> UsersDataSourcesPatch
-usersDataSourcesPatch pUdspDataSourceId_ pUdspPayload_ pUdspUserId_ =
+usersDataSourcesPatch pUdspDataSourceId_ pUdspPayload_ pUdspUserId_ = 
     UsersDataSourcesPatch'
     { _udspDataSourceId = pUdspDataSourceId_
     , _udspPayload = pUdspPayload_

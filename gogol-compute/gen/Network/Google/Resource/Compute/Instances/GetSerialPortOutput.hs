@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.Instances.GetSerialPortOutput
     , igspoInstance
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.instances.getSerialPortOutput@ method which the
 -- 'InstancesGetSerialPortOutput' request conforms to.
@@ -64,10 +64,10 @@ type InstancesGetSerialPortOutputResource =
 --
 -- /See:/ 'instancesGetSerialPortOutput' smart constructor.
 data InstancesGetSerialPortOutput = InstancesGetSerialPortOutput'
-    { _igspoProject  :: !Text
-    , _igspoStart    :: !(Maybe (Textual Int64))
-    , _igspoZone     :: !Text
-    , _igspoPort     :: !(Textual Int32)
+    { _igspoProject :: !Text
+    , _igspoStart :: !(Maybe (Textual Int64))
+    , _igspoZone :: !Text
+    , _igspoPort :: !(Textual Int32)
     , _igspoInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ instancesGetSerialPortOutput
     -> Text -- ^ 'igspoZone'
     -> Text -- ^ 'igspoInstance'
     -> InstancesGetSerialPortOutput
-instancesGetSerialPortOutput pIgspoProject_ pIgspoZone_ pIgspoInstance_ =
+instancesGetSerialPortOutput pIgspoProject_ pIgspoZone_ pIgspoInstance_ = 
     InstancesGetSerialPortOutput'
     { _igspoProject = pIgspoProject_
     , _igspoStart = Nothing
@@ -103,8 +103,10 @@ igspoProject :: Lens' InstancesGetSerialPortOutput Text
 igspoProject
   = lens _igspoProject (\ s a -> s{_igspoProject = a})
 
--- | For the initial request, leave this field unspecified. For subsequent
--- calls, this field should be set to the next value that was returned in
+-- | Returns output starting from a specific byte position. Use this to page
+-- through output when the output is too large to return in a single
+-- request. For the initial request, leave this field unspecified. For
+-- subsequent calls, this field should be set to the next value returned in
 -- the previous call.
 igspoStart :: Lens' InstancesGetSerialPortOutput (Maybe Int64)
 igspoStart

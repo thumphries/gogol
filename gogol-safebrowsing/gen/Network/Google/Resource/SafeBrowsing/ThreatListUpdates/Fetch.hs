@@ -23,7 +23,7 @@
 -- Fetches the most recent threat list updates. A client can request
 -- updates for multiple lists at once.
 --
--- /See:/ <https://developers.google.com/safe-browsing/ Safe Browsing APIs Reference> for @safebrowsing.threatListUpdates.fetch@.
+-- /See:/ <https://developers.google.com/safe-browsing/ Google Safe Browsing API Reference> for @safebrowsing.threatListUpdates.fetch@.
 module Network.Google.Resource.SafeBrowsing.ThreatListUpdates.Fetch
     (
     -- * REST Resource
@@ -44,15 +44,15 @@ module Network.Google.Resource.SafeBrowsing.ThreatListUpdates.Fetch
     , tlufCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SafeBrowsing.Types
+import Network.Google.Prelude
+import Network.Google.SafeBrowsing.Types
 
 -- | A resource alias for @safebrowsing.threatListUpdates.fetch@ method which the
 -- 'ThreatListUpdatesFetch' request conforms to.
 type ThreatListUpdatesFetchResource =
      "v4" :>
        "threatListUpdates:fetch" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -68,14 +68,14 @@ type ThreatListUpdatesFetchResource =
 --
 -- /See:/ 'threatListUpdatesFetch' smart constructor.
 data ThreatListUpdatesFetch = ThreatListUpdatesFetch'
-    { _tlufXgafv          :: !(Maybe Text)
+    { _tlufXgafv :: !(Maybe Xgafv)
     , _tlufUploadProtocol :: !(Maybe Text)
-    , _tlufPp             :: !Bool
-    , _tlufAccessToken    :: !(Maybe Text)
-    , _tlufUploadType     :: !(Maybe Text)
-    , _tlufPayload        :: !FetchThreatListUpdatesRequest
-    , _tlufBearerToken    :: !(Maybe Text)
-    , _tlufCallback       :: !(Maybe Text)
+    , _tlufPp :: !Bool
+    , _tlufAccessToken :: !(Maybe Text)
+    , _tlufUploadType :: !(Maybe Text)
+    , _tlufPayload :: !FetchThreatListUpdatesRequest
+    , _tlufBearerToken :: !(Maybe Text)
+    , _tlufCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThreatListUpdatesFetch' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data ThreatListUpdatesFetch = ThreatListUpdatesFetch'
 threatListUpdatesFetch
     :: FetchThreatListUpdatesRequest -- ^ 'tlufPayload'
     -> ThreatListUpdatesFetch
-threatListUpdatesFetch pTlufPayload_ =
+threatListUpdatesFetch pTlufPayload_ = 
     ThreatListUpdatesFetch'
     { _tlufXgafv = Nothing
     , _tlufUploadProtocol = Nothing
@@ -113,7 +113,7 @@ threatListUpdatesFetch pTlufPayload_ =
     }
 
 -- | V1 error format.
-tlufXgafv :: Lens' ThreatListUpdatesFetch (Maybe Text)
+tlufXgafv :: Lens' ThreatListUpdatesFetch (Maybe Xgafv)
 tlufXgafv
   = lens _tlufXgafv (\ s a -> s{_tlufXgafv = a})
 

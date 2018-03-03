@@ -36,8 +36,8 @@ module Network.Google.Resource.Webmasters.Sites.Add
     , saSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sites.add@ method which the
 -- 'SitesAdd' request conforms to.
@@ -63,7 +63,7 @@ newtype SitesAdd = SitesAdd'
 sitesAdd
     :: Text -- ^ 'saSiteURL'
     -> SitesAdd
-sitesAdd pSaSiteURL_ =
+sitesAdd pSaSiteURL_ = 
     SitesAdd'
     { _saSiteURL = pSaSiteURL_
     }

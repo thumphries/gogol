@@ -37,8 +37,8 @@ module Network.Google.Resource.Webmasters.Sitemaps.Submit
     , ssSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sitemaps.submit@ method which the
 -- 'SitemapsSubmit' request conforms to.
@@ -56,7 +56,7 @@ type SitemapsSubmitResource =
 -- /See:/ 'sitemapsSubmit' smart constructor.
 data SitemapsSubmit = SitemapsSubmit'
     { _ssFeedpath :: !Text
-    , _ssSiteURL  :: !Text
+    , _ssSiteURL :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitemapsSubmit' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sitemapsSubmit
     :: Text -- ^ 'ssFeedpath'
     -> Text -- ^ 'ssSiteURL'
     -> SitemapsSubmit
-sitemapsSubmit pSsFeedpath_ pSsSiteURL_ =
+sitemapsSubmit pSsFeedpath_ pSsSiteURL_ = 
     SitemapsSubmit'
     { _ssFeedpath = pSsFeedpath_
     , _ssSiteURL = pSsSiteURL_

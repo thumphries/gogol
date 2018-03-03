@@ -34,14 +34,13 @@ module Network.Google.Resource.Games.Rooms.Leave
     , RoomsLeave
 
     -- * Request Lenses
-    , rlConsistencyToken
     , rlPayload
     , rlRoomId
     , rlLanguage
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.rooms.leave@ method which the
 -- 'RoomsLeave' request conforms to.
@@ -51,27 +50,23 @@ type RoomsLeaveResource =
          "rooms" :>
            Capture "roomId" Text :>
              "leave" :>
-               QueryParam "consistencyToken" (Textual Int64) :>
-                 QueryParam "language" Text :>
-                   QueryParam "alt" AltJSON :>
-                     ReqBody '[JSON] RoomLeaveRequest :> Post '[JSON] Room
+               QueryParam "language" Text :>
+                 QueryParam "alt" AltJSON :>
+                   ReqBody '[JSON] RoomLeaveRequest :> Post '[JSON] Room
 
 -- | Leave a room. For internal use by the Games SDK only. Calling this
 -- method directly is unsupported.
 --
 -- /See:/ 'roomsLeave' smart constructor.
 data RoomsLeave = RoomsLeave'
-    { _rlConsistencyToken :: !(Maybe (Textual Int64))
-    , _rlPayload          :: !RoomLeaveRequest
-    , _rlRoomId           :: !Text
-    , _rlLanguage         :: !(Maybe Text)
+    { _rlPayload :: !RoomLeaveRequest
+    , _rlRoomId :: !Text
+    , _rlLanguage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoomsLeave' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'rlConsistencyToken'
 --
 -- * 'rlPayload'
 --
@@ -82,20 +77,12 @@ roomsLeave
     :: RoomLeaveRequest -- ^ 'rlPayload'
     -> Text -- ^ 'rlRoomId'
     -> RoomsLeave
-roomsLeave pRlPayload_ pRlRoomId_ =
+roomsLeave pRlPayload_ pRlRoomId_ = 
     RoomsLeave'
-    { _rlConsistencyToken = Nothing
-    , _rlPayload = pRlPayload_
+    { _rlPayload = pRlPayload_
     , _rlRoomId = pRlRoomId_
     , _rlLanguage = Nothing
     }
-
--- | The last-seen mutation timestamp.
-rlConsistencyToken :: Lens' RoomsLeave (Maybe Int64)
-rlConsistencyToken
-  = lens _rlConsistencyToken
-      (\ s a -> s{_rlConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Multipart request metadata.
 rlPayload :: Lens' RoomsLeave RoomLeaveRequest
@@ -117,9 +104,7 @@ instance GoogleRequest RoomsLeave where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient RoomsLeave'{..}
-          = go _rlRoomId _rlConsistencyToken _rlLanguage
-              (Just AltJSON)
-              _rlPayload
+          = go _rlRoomId _rlLanguage (Just AltJSON) _rlPayload
               gamesService
           where go
                   = buildClient (Proxy :: Proxy RoomsLeaveResource)

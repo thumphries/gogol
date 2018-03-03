@@ -38,8 +38,8 @@ module Network.Google.Resource.Books.Volumes.Recommended.List
     , vrlSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.volumes.recommended.list@ method which the
 -- 'VolumesRecommendedList' request conforms to.
@@ -59,9 +59,9 @@ type VolumesRecommendedListResource =
 --
 -- /See:/ 'volumesRecommendedList' smart constructor.
 data VolumesRecommendedList = VolumesRecommendedList'
-    { _vrlLocale                   :: !(Maybe Text)
+    { _vrlLocale :: !(Maybe Text)
     , _vrlMaxAllowedMaturityRating :: !(Maybe VolumesRecommendedListMaxAllowedMaturityRating)
-    , _vrlSource                   :: !(Maybe Text)
+    , _vrlSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VolumesRecommendedList' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ data VolumesRecommendedList = VolumesRecommendedList'
 -- * 'vrlSource'
 volumesRecommendedList
     :: VolumesRecommendedList
-volumesRecommendedList =
+volumesRecommendedList = 
     VolumesRecommendedList'
     { _vrlLocale = Nothing
     , _vrlMaxAllowedMaturityRating = Nothing

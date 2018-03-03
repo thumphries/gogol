@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.TargetVPNGateways.Get
     , tvggRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.targetVpnGateways.get@ method which the
 -- 'TargetVPNGatewaysGet' request conforms to.
@@ -61,9 +61,9 @@ type TargetVPNGatewaysGetResource =
 --
 -- /See:/ 'targetVPNGatewaysGet' smart constructor.
 data TargetVPNGatewaysGet = TargetVPNGatewaysGet'
-    { _tvggProject          :: !Text
+    { _tvggProject :: !Text
     , _tvggTargetVPNGateway :: !Text
-    , _tvggRegion           :: !Text
+    , _tvggRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetVPNGatewaysGet' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ targetVPNGatewaysGet
     -> Text -- ^ 'tvggTargetVPNGateway'
     -> Text -- ^ 'tvggRegion'
     -> TargetVPNGatewaysGet
-targetVPNGatewaysGet pTvggProject_ pTvggTargetVPNGateway_ pTvggRegion_ =
+targetVPNGatewaysGet pTvggProject_ pTvggTargetVPNGateway_ pTvggRegion_ = 
     TargetVPNGatewaysGet'
     { _tvggProject = pTvggProject_
     , _tvggTargetVPNGateway = pTvggTargetVPNGateway_

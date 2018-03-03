@@ -57,8 +57,8 @@ module Network.Google.Resource.Slides.Presentations.BatchUpdate
     , pbuCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Slides.Types
+import Network.Google.Prelude
+import Network.Google.Slides.Types
 
 -- | A resource alias for @slides.presentations.batchUpdate@ method which the
 -- 'PresentationsBatchUpdate' request conforms to.
@@ -94,15 +94,15 @@ type PresentationsBatchUpdateResource =
 --
 -- /See:/ 'presentationsBatchUpdate' smart constructor.
 data PresentationsBatchUpdate = PresentationsBatchUpdate'
-    { _pbuXgafv          :: !(Maybe Xgafv)
+    { _pbuXgafv :: !(Maybe Xgafv)
     , _pbuUploadProtocol :: !(Maybe Text)
-    , _pbuPp             :: !Bool
-    , _pbuAccessToken    :: !(Maybe Text)
-    , _pbuUploadType     :: !(Maybe Text)
+    , _pbuPp :: !Bool
+    , _pbuAccessToken :: !(Maybe Text)
+    , _pbuUploadType :: !(Maybe Text)
     , _pbuPresentationId :: !Text
-    , _pbuPayload        :: !BatchUpdatePresentationRequest
-    , _pbuBearerToken    :: !(Maybe Text)
-    , _pbuCallback       :: !(Maybe Text)
+    , _pbuPayload :: !BatchUpdatePresentationRequest
+    , _pbuBearerToken :: !(Maybe Text)
+    , _pbuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PresentationsBatchUpdate' with the minimum fields required to make a request.
@@ -130,7 +130,7 @@ presentationsBatchUpdate
     :: Text -- ^ 'pbuPresentationId'
     -> BatchUpdatePresentationRequest -- ^ 'pbuPayload'
     -> PresentationsBatchUpdate
-presentationsBatchUpdate pPbuPresentationId_ pPbuPayload_ =
+presentationsBatchUpdate pPbuPresentationId_ pPbuPayload_ = 
     PresentationsBatchUpdate'
     { _pbuXgafv = Nothing
     , _pbuUploadProtocol = Nothing
@@ -196,6 +196,7 @@ instance GoogleRequest PresentationsBatchUpdate where
              BatchUpdatePresentationResponse
         type Scopes PresentationsBatchUpdate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/presentations",
                "https://www.googleapis.com/auth/spreadsheets",

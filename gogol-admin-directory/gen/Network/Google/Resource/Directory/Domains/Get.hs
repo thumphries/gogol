@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Domains.Get
     , dgDomainName
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.domains.get@ method which the
 -- 'DomainsGet' request conforms to.
@@ -56,7 +56,7 @@ type DomainsGetResource =
 --
 -- /See:/ 'domainsGet' smart constructor.
 data DomainsGet = DomainsGet'
-    { _dgCustomer   :: !Text
+    { _dgCustomer :: !Text
     , _dgDomainName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,13 +71,13 @@ domainsGet
     :: Text -- ^ 'dgCustomer'
     -> Text -- ^ 'dgDomainName'
     -> DomainsGet
-domainsGet pDgCustomer_ pDgDomainName_ =
+domainsGet pDgCustomer_ pDgDomainName_ = 
     DomainsGet'
     { _dgCustomer = pDgCustomer_
     , _dgDomainName = pDgDomainName_
     }
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 dgCustomer :: Lens' DomainsGet Text
 dgCustomer
   = lens _dgCustomer (\ s a -> s{_dgCustomer = a})

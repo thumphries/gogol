@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Details.Get
     , edgEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.details.get@ method which the
 -- 'EditsDetailsGet' request conforms to.
@@ -59,7 +59,7 @@ type EditsDetailsGetResource =
 -- /See:/ 'editsDetailsGet' smart constructor.
 data EditsDetailsGet = EditsDetailsGet'
     { _edgPackageName :: !Text
-    , _edgEditId      :: !Text
+    , _edgEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsDetailsGet' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ editsDetailsGet
     :: Text -- ^ 'edgPackageName'
     -> Text -- ^ 'edgEditId'
     -> EditsDetailsGet
-editsDetailsGet pEdgPackageName_ pEdgEditId_ =
+editsDetailsGet pEdgPackageName_ pEdgEditId_ = 
     EditsDetailsGet'
     { _edgPackageName = pEdgPackageName_
     , _edgEditId = pEdgEditId_

@@ -41,8 +41,8 @@ module Network.Google.Resource.YouTube.LiveStreams.Update
     , lsuOnBehalfOfContentOwnerChannel
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveStreams.update@ method which the
 -- 'LiveStreamsUpdate' request conforms to.
@@ -62,9 +62,9 @@ type LiveStreamsUpdateResource =
 --
 -- /See:/ 'liveStreamsUpdate' smart constructor.
 data LiveStreamsUpdate = LiveStreamsUpdate'
-    { _lsuPart                          :: !Text
-    , _lsuPayload                       :: !LiveStream
-    , _lsuOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _lsuPart :: !Text
+    , _lsuPayload :: !LiveStream
+    , _lsuOnBehalfOfContentOwner :: !(Maybe Text)
     , _lsuOnBehalfOfContentOwnerChannel :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ liveStreamsUpdate
     :: Text -- ^ 'lsuPart'
     -> LiveStream -- ^ 'lsuPayload'
     -> LiveStreamsUpdate
-liveStreamsUpdate pLsuPart_ pLsuPayload_ =
+liveStreamsUpdate pLsuPart_ pLsuPayload_ = 
     LiveStreamsUpdate'
     { _lsuPart = pLsuPart_
     , _lsuPayload = pLsuPayload_

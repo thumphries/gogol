@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve Organization Unit
+-- Retrieve organizational unit
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.orgunits.get@.
 module Network.Google.Resource.Directory.OrgUnits.Get
@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.OrgUnits.Get
     , ougCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.orgunits.get@ method which the
 -- 'OrgUnitsGet' request conforms to.
@@ -52,12 +52,12 @@ type OrgUnitsGetResource =
                  Captures "orgUnitPath" Text :>
                    QueryParam "alt" AltJSON :> Get '[JSON] OrgUnit
 
--- | Retrieve Organization Unit
+-- | Retrieve organizational unit
 --
 -- /See:/ 'orgUnitsGet' smart constructor.
 data OrgUnitsGet = OrgUnitsGet'
     { _ougOrgUnitPath :: ![Text]
-    , _ougCustomerId  :: !Text
+    , _ougCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrgUnitsGet' with the minimum fields required to make a request.
@@ -71,20 +71,20 @@ orgUnitsGet
     :: [Text] -- ^ 'ougOrgUnitPath'
     -> Text -- ^ 'ougCustomerId'
     -> OrgUnitsGet
-orgUnitsGet pOugOrgUnitPath_ pOugCustomerId_ =
+orgUnitsGet pOugOrgUnitPath_ pOugCustomerId_ = 
     OrgUnitsGet'
     { _ougOrgUnitPath = _Coerce # pOugOrgUnitPath_
     , _ougCustomerId = pOugCustomerId_
     }
 
--- | Full path of the organization unit or its Id
+-- | Full path of the organizational unit or its ID
 ougOrgUnitPath :: Lens' OrgUnitsGet [Text]
 ougOrgUnitPath
   = lens _ougOrgUnitPath
       (\ s a -> s{_ougOrgUnitPath = a})
       . _Coerce
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 ougCustomerId :: Lens' OrgUnitsGet Text
 ougCustomerId
   = lens _ougCustomerId

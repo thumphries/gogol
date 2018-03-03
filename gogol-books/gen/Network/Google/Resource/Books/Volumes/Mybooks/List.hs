@@ -42,8 +42,8 @@ module Network.Google.Resource.Books.Volumes.Mybooks.List
     , vmlMaxResults
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.volumes.mybooks.list@ method which the
 -- 'VolumesMybooksList' request conforms to.
@@ -70,12 +70,12 @@ type VolumesMybooksListResource =
 -- /See:/ 'volumesMybooksList' smart constructor.
 data VolumesMybooksList = VolumesMybooksList'
     { _vmlProcessingState :: !(Maybe [VolumesMybooksListProcessingState])
-    , _vmlAcquireMethod   :: !(Maybe [VolumesMybooksListAcquireMethod])
-    , _vmlCountry         :: !(Maybe Text)
-    , _vmlLocale          :: !(Maybe Text)
-    , _vmlSource          :: !(Maybe Text)
-    , _vmlStartIndex      :: !(Maybe (Textual Word32))
-    , _vmlMaxResults      :: !(Maybe (Textual Word32))
+    , _vmlAcquireMethod :: !(Maybe [VolumesMybooksListAcquireMethod])
+    , _vmlCountry :: !(Maybe Text)
+    , _vmlLocale :: !(Maybe Text)
+    , _vmlSource :: !(Maybe Text)
+    , _vmlStartIndex :: !(Maybe (Textual Word32))
+    , _vmlMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VolumesMybooksList' with the minimum fields required to make a request.
@@ -97,7 +97,7 @@ data VolumesMybooksList = VolumesMybooksList'
 -- * 'vmlMaxResults'
 volumesMybooksList
     :: VolumesMybooksList
-volumesMybooksList =
+volumesMybooksList = 
     VolumesMybooksList'
     { _vmlProcessingState = Nothing
     , _vmlAcquireMethod = Nothing

@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.Uploads.DeleteUploadData
     , mududAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.uploads.deleteUploadData@ method which the
 -- 'ManagementUploadsDeleteUploadData' request conforms to.
@@ -64,10 +64,10 @@ type ManagementUploadsDeleteUploadDataResource =
 --
 -- /See:/ 'managementUploadsDeleteUploadData' smart constructor.
 data ManagementUploadsDeleteUploadData = ManagementUploadsDeleteUploadData'
-    { _mududWebPropertyId      :: !Text
+    { _mududWebPropertyId :: !Text
     , _mududCustomDataSourceId :: !Text
-    , _mududPayload            :: !AnalyticsDataimportDeleteUploadDataRequest
-    , _mududAccountId          :: !Text
+    , _mududPayload :: !AnalyticsDataimportDeleteUploadDataRequest
+    , _mududAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementUploadsDeleteUploadData' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ managementUploadsDeleteUploadData
     -> AnalyticsDataimportDeleteUploadDataRequest -- ^ 'mududPayload'
     -> Text -- ^ 'mududAccountId'
     -> ManagementUploadsDeleteUploadData
-managementUploadsDeleteUploadData pMududWebPropertyId_ pMududCustomDataSourceId_ pMududPayload_ pMududAccountId_ =
+managementUploadsDeleteUploadData pMududWebPropertyId_ pMududCustomDataSourceId_ pMududPayload_ pMududAccountId_ = 
     ManagementUploadsDeleteUploadData'
     { _mududWebPropertyId = pMududWebPropertyId_
     , _mududCustomDataSourceId = pMududCustomDataSourceId_

@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Experiments.List
     , melMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.experiments.list@ method which the
 -- 'ManagementExperimentsList' request conforms to.
@@ -65,10 +65,10 @@ type ManagementExperimentsListResource =
 -- /See:/ 'managementExperimentsList' smart constructor.
 data ManagementExperimentsList = ManagementExperimentsList'
     { _melWebPropertyId :: !Text
-    , _melProFileId     :: !Text
-    , _melAccountId     :: !Text
-    , _melStartIndex    :: !(Maybe (Textual Int32))
-    , _melMaxResults    :: !(Maybe (Textual Int32))
+    , _melProFileId :: !Text
+    , _melAccountId :: !Text
+    , _melStartIndex :: !(Maybe (Textual Int32))
+    , _melMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementExperimentsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ managementExperimentsList
     -> Text -- ^ 'melProFileId'
     -> Text -- ^ 'melAccountId'
     -> ManagementExperimentsList
-managementExperimentsList pMelWebPropertyId_ pMelProFileId_ pMelAccountId_ =
+managementExperimentsList pMelWebPropertyId_ pMelProFileId_ pMelAccountId_ = 
     ManagementExperimentsList'
     { _melWebPropertyId = pMelWebPropertyId_
     , _melProFileId = pMelProFileId_

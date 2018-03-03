@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.CompleteSignup
     , ecsEnterpriseToken
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.completeSignup@ method which the
 -- 'EnterprisesCompleteSignup' request conforms to.
@@ -72,7 +72,7 @@ data EnterprisesCompleteSignup = EnterprisesCompleteSignup'
 -- * 'ecsEnterpriseToken'
 enterprisesCompleteSignup
     :: EnterprisesCompleteSignup
-enterprisesCompleteSignup =
+enterprisesCompleteSignup = 
     EnterprisesCompleteSignup'
     { _ecsCompletionToken = Nothing
     , _ecsEnterpriseToken = Nothing

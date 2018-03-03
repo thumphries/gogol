@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Labels.Patch
     , ulpId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.patch@ method which the
 -- 'UsersLabelsPatch' request conforms to.
@@ -58,8 +58,8 @@ type UsersLabelsPatchResource =
 -- /See:/ 'usersLabelsPatch' smart constructor.
 data UsersLabelsPatch = UsersLabelsPatch'
     { _ulpPayload :: !Label
-    , _ulpUserId  :: !Text
-    , _ulpId      :: !Text
+    , _ulpUserId :: !Text
+    , _ulpId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersLabelsPatch' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ usersLabelsPatch
     :: Label -- ^ 'ulpPayload'
     -> Text -- ^ 'ulpId'
     -> UsersLabelsPatch
-usersLabelsPatch pUlpPayload_ pUlpId_ =
+usersLabelsPatch pUlpPayload_ pUlpId_ = 
     UsersLabelsPatch'
     { _ulpPayload = pUlpPayload_
     , _ulpUserId = "me"

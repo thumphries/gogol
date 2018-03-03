@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Videos.Delete
     , vdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.videos.delete@ method which the
 -- 'VideosDelete' request conforms to.
@@ -55,7 +55,7 @@ type VideosDeleteResource =
 -- /See:/ 'videosDelete' smart constructor.
 data VideosDelete = VideosDelete'
     { _vdOnBehalfOfContentOwner :: !(Maybe Text)
-    , _vdId                     :: !Text
+    , _vdId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VideosDelete' with the minimum fields required to make a request.
@@ -68,7 +68,7 @@ data VideosDelete = VideosDelete'
 videosDelete
     :: Text -- ^ 'vdId'
     -> VideosDelete
-videosDelete pVdId_ =
+videosDelete pVdId_ = 
     VideosDelete'
     { _vdOnBehalfOfContentOwner = Nothing
     , _vdId = pVdId_

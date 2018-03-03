@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeBuyer.Creatives.RemoveDeal
     , crdAccountId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.creatives.removeDeal@ method which the
 -- 'CreativesRemoveDeal' request conforms to.
@@ -58,8 +58,8 @@ type CreativesRemoveDealResource =
 -- /See:/ 'creativesRemoveDeal' smart constructor.
 data CreativesRemoveDeal = CreativesRemoveDeal'
     { _crdBuyerCreativeId :: !Text
-    , _crdDealId          :: !(Textual Int64)
-    , _crdAccountId       :: !(Textual Int32)
+    , _crdDealId :: !(Textual Int64)
+    , _crdAccountId :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesRemoveDeal' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ creativesRemoveDeal
     -> Int64 -- ^ 'crdDealId'
     -> Int32 -- ^ 'crdAccountId'
     -> CreativesRemoveDeal
-creativesRemoveDeal pCrdBuyerCreativeId_ pCrdDealId_ pCrdAccountId_ =
+creativesRemoveDeal pCrdBuyerCreativeId_ pCrdDealId_ pCrdAccountId_ = 
     CreativesRemoveDeal'
     { _crdBuyerCreativeId = pCrdBuyerCreativeId_
     , _crdDealId = _Coerce # pCrdDealId_

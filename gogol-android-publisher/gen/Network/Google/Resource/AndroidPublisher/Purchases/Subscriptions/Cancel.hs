@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Purchases.Subscriptions.Cancel
     , pscSubscriptionId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.purchases.subscriptions.cancel@ method which the
 -- 'PurchasesSubscriptionsCancel' request conforms to.
@@ -61,8 +61,8 @@ type PurchasesSubscriptionsCancelResource =
 --
 -- /See:/ 'purchasesSubscriptionsCancel' smart constructor.
 data PurchasesSubscriptionsCancel = PurchasesSubscriptionsCancel'
-    { _pscPackageName    :: !Text
-    , _pscToken          :: !Text
+    { _pscPackageName :: !Text
+    , _pscToken :: !Text
     , _pscSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ purchasesSubscriptionsCancel
     -> Text -- ^ 'pscToken'
     -> Text -- ^ 'pscSubscriptionId'
     -> PurchasesSubscriptionsCancel
-purchasesSubscriptionsCancel pPscPackageName_ pPscToken_ pPscSubscriptionId_ =
+purchasesSubscriptionsCancel pPscPackageName_ pPscToken_ pPscSubscriptionId_ = 
     PurchasesSubscriptionsCancel'
     { _pscPackageName = pPscPackageName_
     , _pscToken = pPscToken_

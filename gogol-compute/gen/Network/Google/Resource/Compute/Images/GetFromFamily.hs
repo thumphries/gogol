@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Images.GetFromFamily
     , igffFamily
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.images.getFromFamily@ method which the
 -- 'ImagesGetFromFamily' request conforms to.
@@ -60,7 +60,7 @@ type ImagesGetFromFamilyResource =
 -- /See:/ 'imagesGetFromFamily' smart constructor.
 data ImagesGetFromFamily = ImagesGetFromFamily'
     { _igffProject :: !Text
-    , _igffFamily  :: !Text
+    , _igffFamily :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImagesGetFromFamily' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ imagesGetFromFamily
     :: Text -- ^ 'igffProject'
     -> Text -- ^ 'igffFamily'
     -> ImagesGetFromFamily
-imagesGetFromFamily pIgffProject_ pIgffFamily_ =
+imagesGetFromFamily pIgffProject_ pIgffFamily_ = 
     ImagesGetFromFamily'
     { _igffProject = pIgffProject_
     , _igffFamily = pIgffFamily_

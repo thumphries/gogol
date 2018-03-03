@@ -37,8 +37,8 @@ module Network.Google.Resource.GamesConfiguration.LeaderboardConfigurations.Inse
     , lciApplicationId
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.leaderboardConfigurations.insert@ method which the
 -- 'LeaderboardConfigurationsInsert' request conforms to.
@@ -56,7 +56,7 @@ type LeaderboardConfigurationsInsertResource =
 --
 -- /See:/ 'leaderboardConfigurationsInsert' smart constructor.
 data LeaderboardConfigurationsInsert = LeaderboardConfigurationsInsert'
-    { _lciPayload       :: !LeaderboardConfiguration
+    { _lciPayload :: !LeaderboardConfiguration
     , _lciApplicationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ leaderboardConfigurationsInsert
     :: LeaderboardConfiguration -- ^ 'lciPayload'
     -> Text -- ^ 'lciApplicationId'
     -> LeaderboardConfigurationsInsert
-leaderboardConfigurationsInsert pLciPayload_ pLciApplicationId_ =
+leaderboardConfigurationsInsert pLciPayload_ pLciApplicationId_ = 
     LeaderboardConfigurationsInsert'
     { _lciPayload = pLciPayload_
     , _lciApplicationId = pLciApplicationId_

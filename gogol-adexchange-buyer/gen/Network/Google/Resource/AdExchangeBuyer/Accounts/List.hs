@@ -34,8 +34,8 @@ module Network.Google.Resource.AdExchangeBuyer.Accounts.List
 
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.accounts.list@ method which the
 -- 'AccountsList'' request conforms to.
@@ -49,7 +49,7 @@ type AccountsListResource =
 --
 -- /See:/ 'accountsList'' smart constructor.
 data AccountsList' =
-    AccountsList''
+    AccountsList'' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsList'' with the minimum fields required to make a request.

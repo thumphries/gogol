@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Template.Get
     , temeTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.template.get@ method which the
 -- 'TemplateGet' request conforms to.
@@ -56,7 +56,7 @@ type TemplateGetResource =
 -- /See:/ 'templateGet' smart constructor.
 data TemplateGet = TemplateGet'
     { _temeTemplateId :: !(Textual Int32)
-    , _temeTableId    :: !Text
+    , _temeTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TemplateGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ templateGet
     :: Int32 -- ^ 'temeTemplateId'
     -> Text -- ^ 'temeTableId'
     -> TemplateGet
-templateGet pTemeTemplateId_ pTemeTableId_ =
+templateGet pTemeTemplateId_ pTemeTableId_ = 
     TemplateGet'
     { _temeTemplateId = _Coerce # pTemeTemplateId_
     , _temeTableId = pTemeTableId_

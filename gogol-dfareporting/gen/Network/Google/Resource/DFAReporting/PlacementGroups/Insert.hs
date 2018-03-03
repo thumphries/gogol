@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PlacementGroups.Insert
     , pgiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementGroups.insert@ method which the
 -- 'PlacementGroupsInsert' request conforms to.
 type PlacementGroupsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementGroups" :>
@@ -57,7 +57,7 @@ type PlacementGroupsInsertResource =
 -- /See:/ 'placementGroupsInsert' smart constructor.
 data PlacementGroupsInsert = PlacementGroupsInsert'
     { _pgiProFileId :: !(Textual Int64)
-    , _pgiPayload   :: !PlacementGroup
+    , _pgiPayload :: !PlacementGroup
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementGroupsInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ placementGroupsInsert
     :: Int64 -- ^ 'pgiProFileId'
     -> PlacementGroup -- ^ 'pgiPayload'
     -> PlacementGroupsInsert
-placementGroupsInsert pPgiProFileId_ pPgiPayload_ =
+placementGroupsInsert pPgiProFileId_ pPgiPayload_ = 
     PlacementGroupsInsert'
     { _pgiProFileId = _Coerce # pPgiProFileId_
     , _pgiPayload = pPgiPayload_

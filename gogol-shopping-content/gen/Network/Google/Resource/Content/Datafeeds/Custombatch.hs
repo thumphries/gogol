@@ -35,8 +35,8 @@ module Network.Google.Resource.Content.Datafeeds.Custombatch
     , dDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeeds.custombatch@ method which the
 -- 'DatafeedsCustombatch' request conforms to.
@@ -54,7 +54,7 @@ type DatafeedsCustombatchResource =
 -- /See:/ 'datafeedsCustombatch' smart constructor.
 data DatafeedsCustombatch = DatafeedsCustombatch'
     { _dPayload :: !DatafeedsCustomBatchRequest
-    , _dDryRun  :: !(Maybe Bool)
+    , _dDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DatafeedsCustombatch' with the minimum fields required to make a request.
@@ -67,7 +67,7 @@ data DatafeedsCustombatch = DatafeedsCustombatch'
 datafeedsCustombatch
     :: DatafeedsCustomBatchRequest -- ^ 'dPayload'
     -> DatafeedsCustombatch
-datafeedsCustombatch pDPayload_ =
+datafeedsCustombatch pDPayload_ = 
     DatafeedsCustombatch'
     { _dPayload = pDPayload_
     , _dDryRun = Nothing

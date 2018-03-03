@@ -22,7 +22,7 @@
 --
 -- Get encoded debug configuration for component. Not cacheable.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.debug.getConfig@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.debug.getConfig@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.Debug.GetConfig
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.Debug.GetConfig
     , pjdgcCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.debug.getConfig@ method which the
 -- 'ProjectsJobsDebugGetConfig' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsJobsDebugGetConfigResource =
              Capture "jobId" Text :>
                "debug" :>
                  "getConfig" :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -73,16 +73,16 @@ type ProjectsJobsDebugGetConfigResource =
 --
 -- /See:/ 'projectsJobsDebugGetConfig' smart constructor.
 data ProjectsJobsDebugGetConfig = ProjectsJobsDebugGetConfig'
-    { _pjdgcXgafv          :: !(Maybe Text)
-    , _pjdgcJobId          :: !Text
+    { _pjdgcXgafv :: !(Maybe Xgafv)
+    , _pjdgcJobId :: !Text
     , _pjdgcUploadProtocol :: !(Maybe Text)
-    , _pjdgcPp             :: !Bool
-    , _pjdgcAccessToken    :: !(Maybe Text)
-    , _pjdgcUploadType     :: !(Maybe Text)
-    , _pjdgcPayload        :: !GetDebugConfigRequest
-    , _pjdgcBearerToken    :: !(Maybe Text)
-    , _pjdgcProjectId      :: !Text
-    , _pjdgcCallback       :: !(Maybe Text)
+    , _pjdgcPp :: !Bool
+    , _pjdgcAccessToken :: !(Maybe Text)
+    , _pjdgcUploadType :: !(Maybe Text)
+    , _pjdgcPayload :: !GetDebugConfigRequest
+    , _pjdgcBearerToken :: !(Maybe Text)
+    , _pjdgcProjectId :: !Text
+    , _pjdgcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsDebugGetConfig' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ projectsJobsDebugGetConfig
     -> GetDebugConfigRequest -- ^ 'pjdgcPayload'
     -> Text -- ^ 'pjdgcProjectId'
     -> ProjectsJobsDebugGetConfig
-projectsJobsDebugGetConfig pPjdgcJobId_ pPjdgcPayload_ pPjdgcProjectId_ =
+projectsJobsDebugGetConfig pPjdgcJobId_ pPjdgcPayload_ pPjdgcProjectId_ = 
     ProjectsJobsDebugGetConfig'
     { _pjdgcXgafv = Nothing
     , _pjdgcJobId = pPjdgcJobId_
@@ -128,7 +128,7 @@ projectsJobsDebugGetConfig pPjdgcJobId_ pPjdgcPayload_ pPjdgcProjectId_ =
     }
 
 -- | V1 error format.
-pjdgcXgafv :: Lens' ProjectsJobsDebugGetConfig (Maybe Text)
+pjdgcXgafv :: Lens' ProjectsJobsDebugGetConfig (Maybe Xgafv)
 pjdgcXgafv
   = lens _pjdgcXgafv (\ s a -> s{_pjdgcXgafv = a})
 
@@ -188,6 +188,8 @@ instance GoogleRequest ProjectsJobsDebugGetConfig
              GetDebugConfigResponse
         type Scopes ProjectsJobsDebugGetConfig =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsDebugGetConfig'{..}
           = go _pjdgcProjectId _pjdgcJobId _pjdgcXgafv

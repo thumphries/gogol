@@ -38,8 +38,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.AddMember
     , gamGroupName
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.addMember@ method which the
 -- 'GroupsAddMember' request conforms to.
@@ -60,8 +60,8 @@ type GroupsAddMemberResource =
 --
 -- /See:/ 'groupsAddMember' smart constructor.
 data GroupsAddMember = GroupsAddMember'
-    { _gamProject   :: !Text
-    , _gamPayload   :: !GroupsAddMemberRequest
+    { _gamProject :: !Text
+    , _gamPayload :: !GroupsAddMemberRequest
     , _gamGroupName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ groupsAddMember
     -> GroupsAddMemberRequest -- ^ 'gamPayload'
     -> Text -- ^ 'gamGroupName'
     -> GroupsAddMember
-groupsAddMember pGamProject_ pGamPayload_ pGamGroupName_ =
+groupsAddMember pGamProject_ pGamPayload_ pGamGroupName_ = 
     GroupsAddMember'
     { _gamProject = pGamProject_
     , _gamPayload = pGamPayload_

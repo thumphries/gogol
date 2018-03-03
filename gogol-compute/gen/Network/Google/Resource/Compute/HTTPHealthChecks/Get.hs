@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.HTTPHealthChecks.Get
     , httphcgHTTPHealthCheck
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.httpHealthChecks.get@ method which the
 -- 'HTTPHealthChecksGet' request conforms to.
@@ -59,7 +59,7 @@ type HTTPHealthChecksGetResource =
 --
 -- /See:/ 'hTTPHealthChecksGet' smart constructor.
 data HTTPHealthChecksGet = HTTPHealthChecksGet'
-    { _httphcgProject         :: !Text
+    { _httphcgProject :: !Text
     , _httphcgHTTPHealthCheck :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ hTTPHealthChecksGet
     :: Text -- ^ 'httphcgProject'
     -> Text -- ^ 'httphcgHTTPHealthCheck'
     -> HTTPHealthChecksGet
-hTTPHealthChecksGet pHttphcgProject_ pHttphcgHTTPHealthCheck_ =
+hTTPHealthChecksGet pHttphcgProject_ pHttphcgHTTPHealthCheck_ = 
     HTTPHealthChecksGet'
     { _httphcgProject = pHttphcgProject_
     , _httphcgHTTPHealthCheck = pHttphcgHTTPHealthCheck_

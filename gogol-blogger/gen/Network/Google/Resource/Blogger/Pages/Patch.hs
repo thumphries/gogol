@@ -40,8 +40,8 @@ module Network.Google.Resource.Blogger.Pages.Patch
     , ppPublish
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.pages.patch@ method which the
 -- 'PagesPatch' request conforms to.
@@ -61,10 +61,10 @@ type PagesPatchResource =
 --
 -- /See:/ 'pagesPatch' smart constructor.
 data PagesPatch = PagesPatch'
-    { _ppBlogId  :: !Text
-    , _ppPageId  :: !Text
+    { _ppBlogId :: !Text
+    , _ppPageId :: !Text
     , _ppPayload :: !Page
-    , _ppRevert  :: !(Maybe Bool)
+    , _ppRevert :: !(Maybe Bool)
     , _ppPublish :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ pagesPatch
     -> Text -- ^ 'ppPageId'
     -> Page -- ^ 'ppPayload'
     -> PagesPatch
-pagesPatch pPpBlogId_ pPpPageId_ pPpPayload_ =
+pagesPatch pPpBlogId_ pPpPageId_ pPpPayload_ = 
     PagesPatch'
     { _ppBlogId = pPpBlogId_
     , _ppPageId = pPpPageId_

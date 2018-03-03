@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Validate
     , evEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.validate@ method which the
 -- 'EditsValidate' request conforms to.
@@ -58,7 +58,7 @@ type EditsValidateResource =
 -- /See:/ 'editsValidate' smart constructor.
 data EditsValidate = EditsValidate'
     { _evPackageName :: !Text
-    , _evEditId      :: !Text
+    , _evEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsValidate' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ editsValidate
     :: Text -- ^ 'evPackageName'
     -> Text -- ^ 'evEditId'
     -> EditsValidate
-editsValidate pEvPackageName_ pEvEditId_ =
+editsValidate pEvPackageName_ pEvEditId_ = 
     EditsValidate'
     { _evPackageName = pEvPackageName_
     , _evEditId = pEvEditId_

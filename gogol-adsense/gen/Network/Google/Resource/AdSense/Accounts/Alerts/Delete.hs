@@ -38,8 +38,8 @@ module Network.Google.Resource.AdSense.Accounts.Alerts.Delete
     , aadAccountId
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.accounts.alerts.delete@ method which the
 -- 'AccountsAlertsDelete' request conforms to.
@@ -57,7 +57,7 @@ type AccountsAlertsDeleteResource =
 --
 -- /See:/ 'accountsAlertsDelete' smart constructor.
 data AccountsAlertsDelete = AccountsAlertsDelete'
-    { _aadAlertId   :: !Text
+    { _aadAlertId :: !Text
     , _aadAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ accountsAlertsDelete
     :: Text -- ^ 'aadAlertId'
     -> Text -- ^ 'aadAccountId'
     -> AccountsAlertsDelete
-accountsAlertsDelete pAadAlertId_ pAadAccountId_ =
+accountsAlertsDelete pAadAlertId_ pAadAccountId_ = 
     AccountsAlertsDelete'
     { _aadAlertId = pAadAlertId_
     , _aadAccountId = pAadAccountId_

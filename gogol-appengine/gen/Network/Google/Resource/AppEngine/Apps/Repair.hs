@@ -25,7 +25,7 @@
 -- account. Use this method if you receive an error message about a missing
 -- feature, for example, Error retrieving the App Engine service account.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.repair@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.repair@.
 module Network.Google.Resource.AppEngine.Apps.Repair
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.AppEngine.Apps.Repair
     , arCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.repair@ method which the
 -- 'AppsRepair' request conforms to.
@@ -56,7 +56,7 @@ type AppsRepairResource =
      "v1" :>
        "apps" :>
          CaptureMode "appsId" "repair" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -74,15 +74,15 @@ type AppsRepairResource =
 --
 -- /See:/ 'appsRepair' smart constructor.
 data AppsRepair = AppsRepair'
-    { _arXgafv          :: !(Maybe Text)
+    { _arXgafv :: !(Maybe Xgafv)
     , _arUploadProtocol :: !(Maybe Text)
-    , _arPp             :: !Bool
-    , _arAccessToken    :: !(Maybe Text)
-    , _arUploadType     :: !(Maybe Text)
-    , _arPayload        :: !RepairApplicationRequest
-    , _arBearerToken    :: !(Maybe Text)
-    , _arAppsId         :: !Text
-    , _arCallback       :: !(Maybe Text)
+    , _arPp :: !Bool
+    , _arAccessToken :: !(Maybe Text)
+    , _arUploadType :: !(Maybe Text)
+    , _arPayload :: !RepairApplicationRequest
+    , _arBearerToken :: !(Maybe Text)
+    , _arAppsId :: !Text
+    , _arCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsRepair' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ appsRepair
     :: RepairApplicationRequest -- ^ 'arPayload'
     -> Text -- ^ 'arAppsId'
     -> AppsRepair
-appsRepair pArPayload_ pArAppsId_ =
+appsRepair pArPayload_ pArAppsId_ = 
     AppsRepair'
     { _arXgafv = Nothing
     , _arUploadProtocol = Nothing
@@ -124,7 +124,7 @@ appsRepair pArPayload_ pArAppsId_ =
     }
 
 -- | V1 error format.
-arXgafv :: Lens' AppsRepair (Maybe Text)
+arXgafv :: Lens' AppsRepair (Maybe Xgafv)
 arXgafv = lens _arXgafv (\ s a -> s{_arXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

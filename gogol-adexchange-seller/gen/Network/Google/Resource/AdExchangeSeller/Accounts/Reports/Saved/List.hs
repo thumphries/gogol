@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeSeller.Accounts.Reports.Saved.List
     , arslMaxResults
     ) where
 
-import           Network.Google.AdExchangeSeller.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeSeller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangeseller.accounts.reports.saved.list@ method which the
 -- 'AccountsReportsSavedList' request conforms to.
@@ -58,8 +58,8 @@ type AccountsReportsSavedListResource =
 --
 -- /See:/ 'accountsReportsSavedList' smart constructor.
 data AccountsReportsSavedList = AccountsReportsSavedList'
-    { _arslAccountId  :: !Text
-    , _arslPageToken  :: !(Maybe Text)
+    { _arslAccountId :: !Text
+    , _arslPageToken :: !(Maybe Text)
     , _arslMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ data AccountsReportsSavedList = AccountsReportsSavedList'
 accountsReportsSavedList
     :: Text -- ^ 'arslAccountId'
     -> AccountsReportsSavedList
-accountsReportsSavedList pArslAccountId_ =
+accountsReportsSavedList pArslAccountId_ = 
     AccountsReportsSavedList'
     { _arslAccountId = pArslAccountId_
     , _arslPageToken = Nothing

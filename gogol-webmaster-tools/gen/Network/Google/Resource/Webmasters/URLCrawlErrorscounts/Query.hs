@@ -40,8 +40,8 @@ module Network.Google.Resource.Webmasters.URLCrawlErrorscounts.Query
     , uceqLatestCountsOnly
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.urlcrawlerrorscounts.query@ method which the
 -- 'URLCrawlErrorscountsQuery' request conforms to.
@@ -67,9 +67,9 @@ type URLCrawlErrorscountsQueryResource =
 --
 -- /See:/ 'urlCrawlErrorscountsQuery' smart constructor.
 data URLCrawlErrorscountsQuery = URLCrawlErrorscountsQuery'
-    { _uceqPlatform         :: !(Maybe URLCrawlErrorscountsQueryPlatform)
-    , _uceqCategory         :: !(Maybe URLCrawlErrorscountsQueryCategory)
-    , _uceqSiteURL          :: !Text
+    { _uceqPlatform :: !(Maybe URLCrawlErrorscountsQueryPlatform)
+    , _uceqCategory :: !(Maybe URLCrawlErrorscountsQueryCategory)
+    , _uceqSiteURL :: !Text
     , _uceqLatestCountsOnly :: !Bool
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -87,7 +87,7 @@ data URLCrawlErrorscountsQuery = URLCrawlErrorscountsQuery'
 urlCrawlErrorscountsQuery
     :: Text -- ^ 'uceqSiteURL'
     -> URLCrawlErrorscountsQuery
-urlCrawlErrorscountsQuery pUceqSiteURL_ =
+urlCrawlErrorscountsQuery pUceqSiteURL_ = 
     URLCrawlErrorscountsQuery'
     { _uceqPlatform = Nothing
     , _uceqCategory = Nothing

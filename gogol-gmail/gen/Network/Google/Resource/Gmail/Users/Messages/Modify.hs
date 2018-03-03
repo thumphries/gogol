@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Modify
     , ummId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.modify@ method which the
 -- 'UsersMessagesModify' request conforms to.
@@ -60,8 +60,8 @@ type UsersMessagesModifyResource =
 -- /See:/ 'usersMessagesModify' smart constructor.
 data UsersMessagesModify = UsersMessagesModify'
     { _ummPayload :: !ModifyMessageRequest
-    , _ummUserId  :: !Text
-    , _ummId      :: !Text
+    , _ummUserId :: !Text
+    , _ummId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersMessagesModify' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ usersMessagesModify
     :: ModifyMessageRequest -- ^ 'ummPayload'
     -> Text -- ^ 'ummId'
     -> UsersMessagesModify
-usersMessagesModify pUmmPayload_ pUmmId_ =
+usersMessagesModify pUmmPayload_ pUmmId_ = 
     UsersMessagesModify'
     { _ummPayload = pUmmPayload_
     , _ummUserId = "me"

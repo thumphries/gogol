@@ -41,8 +41,8 @@ module Network.Google.Resource.Books.Volumes.UserUploaded.List
     , vuulMaxResults
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.volumes.useruploaded.list@ method which the
 -- 'VolumesUserUploadedList' request conforms to.
@@ -66,11 +66,11 @@ type VolumesUserUploadedListResource =
 -- /See:/ 'volumesUserUploadedList' smart constructor.
 data VolumesUserUploadedList = VolumesUserUploadedList'
     { _vuulProcessingState :: !(Maybe [VolumesUserUploadedListProcessingState])
-    , _vuulLocale          :: !(Maybe Text)
-    , _vuulVolumeId        :: !(Maybe [Text])
-    , _vuulSource          :: !(Maybe Text)
-    , _vuulStartIndex      :: !(Maybe (Textual Word32))
-    , _vuulMaxResults      :: !(Maybe (Textual Word32))
+    , _vuulLocale :: !(Maybe Text)
+    , _vuulVolumeId :: !(Maybe [Text])
+    , _vuulSource :: !(Maybe Text)
+    , _vuulStartIndex :: !(Maybe (Textual Word32))
+    , _vuulMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VolumesUserUploadedList' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ data VolumesUserUploadedList = VolumesUserUploadedList'
 -- * 'vuulMaxResults'
 volumesUserUploadedList
     :: VolumesUserUploadedList
-volumesUserUploadedList =
+volumesUserUploadedList = 
     VolumesUserUploadedList'
     { _vuulProcessingState = Nothing
     , _vuulLocale = Nothing

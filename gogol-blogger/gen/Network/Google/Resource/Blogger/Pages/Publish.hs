@@ -37,8 +37,8 @@ module Network.Google.Resource.Blogger.Pages.Publish
     , pagaPageId
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.pages.publish@ method which the
 -- 'PagesPublish' request conforms to.
@@ -71,7 +71,7 @@ pagesPublish
     :: Text -- ^ 'pagaBlogId'
     -> Text -- ^ 'pagaPageId'
     -> PagesPublish
-pagesPublish pPagaBlogId_ pPagaPageId_ =
+pagesPublish pPagaBlogId_ pPagaPageId_ = 
     PagesPublish'
     { _pagaBlogId = pPagaBlogId_
     , _pagaPageId = pPagaPageId_

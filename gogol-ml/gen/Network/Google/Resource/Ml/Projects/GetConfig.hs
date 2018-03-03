@@ -25,7 +25,7 @@
 -- for the Google Cloud Storage location where you put your model training
 -- code for training the model with Google Cloud Machine Learning.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.getConfig@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.getConfig@.
 module Network.Google.Resource.Ml.Projects.GetConfig
     (
     -- * REST Resource
@@ -46,13 +46,13 @@ module Network.Google.Resource.Ml.Projects.GetConfig
     , pgcCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.getConfig@ method which the
 -- 'ProjectsGetConfig' request conforms to.
 type ProjectsGetConfigResource =
-     "v1beta1" :>
+     "v1" :>
        CaptureMode "name" "getConfig" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
@@ -62,7 +62,7 @@ type ProjectsGetConfigResource =
                    QueryParam "bearer_token" Text :>
                      QueryParam "callback" Text :>
                        QueryParam "alt" AltJSON :>
-                         Get '[JSON] GoogleCloudMlV1beta1__GetConfigResponse
+                         Get '[JSON] GoogleCloudMlV1__GetConfigResponse
 
 -- | Get the service account information associated with your project. You
 -- need this information in order to grant the service account persmissions
@@ -71,14 +71,14 @@ type ProjectsGetConfigResource =
 --
 -- /See:/ 'projectsGetConfig' smart constructor.
 data ProjectsGetConfig = ProjectsGetConfig'
-    { _pgcXgafv          :: !(Maybe Xgafv)
+    { _pgcXgafv :: !(Maybe Xgafv)
     , _pgcUploadProtocol :: !(Maybe Text)
-    , _pgcPp             :: !Bool
-    , _pgcAccessToken    :: !(Maybe Text)
-    , _pgcUploadType     :: !(Maybe Text)
-    , _pgcBearerToken    :: !(Maybe Text)
-    , _pgcName           :: !Text
-    , _pgcCallback       :: !(Maybe Text)
+    , _pgcPp :: !Bool
+    , _pgcAccessToken :: !(Maybe Text)
+    , _pgcUploadType :: !(Maybe Text)
+    , _pgcBearerToken :: !(Maybe Text)
+    , _pgcName :: !Text
+    , _pgcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGetConfig' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data ProjectsGetConfig = ProjectsGetConfig'
 projectsGetConfig
     :: Text -- ^ 'pgcName'
     -> ProjectsGetConfig
-projectsGetConfig pPgcName_ =
+projectsGetConfig pPgcName_ = 
     ProjectsGetConfig'
     { _pgcXgafv = Nothing
     , _pgcUploadProtocol = Nothing
@@ -147,8 +147,7 @@ pgcBearerToken
   = lens _pgcBearerToken
       (\ s a -> s{_pgcBearerToken = a})
 
--- | Required. The project name. Authorization: requires \`Viewer\` role on
--- the specified project.
+-- | Required. The project name.
 pgcName :: Lens' ProjectsGetConfig Text
 pgcName = lens _pgcName (\ s a -> s{_pgcName = a})
 
@@ -159,7 +158,7 @@ pgcCallback
 
 instance GoogleRequest ProjectsGetConfig where
         type Rs ProjectsGetConfig =
-             GoogleCloudMlV1beta1__GetConfigResponse
+             GoogleCloudMlV1__GetConfigResponse
         type Scopes ProjectsGetConfig =
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsGetConfig'{..}

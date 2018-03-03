@@ -41,8 +41,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Patch
     , tpNewLeaseSeconds
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.patch@ method which the
 -- 'TasksPatch' request conforms to.
@@ -64,10 +64,10 @@ type TasksPatchResource =
 --
 -- /See:/ 'tasksPatch' smart constructor.
 data TasksPatch = TasksPatch'
-    { _tpTaskQueue       :: !Text
-    , _tpProject         :: !Text
-    , _tpPayload         :: !Task
-    , _tpTask            :: !Text
+    { _tpTaskQueue :: !Text
+    , _tpProject :: !Text
+    , _tpPayload :: !Task
+    , _tpTask :: !Text
     , _tpNewLeaseSeconds :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -91,7 +91,7 @@ tasksPatch
     -> Text -- ^ 'tpTask'
     -> Int32 -- ^ 'tpNewLeaseSeconds'
     -> TasksPatch
-tasksPatch pTpTaskQueue_ pTpProject_ pTpPayload_ pTpTask_ pTpNewLeaseSeconds_ =
+tasksPatch pTpTaskQueue_ pTpProject_ pTpPayload_ pTpTask_ pTpNewLeaseSeconds_ = 
     TasksPatch'
     { _tpTaskQueue = pTpTaskQueue_
     , _tpProject = pTpProject_

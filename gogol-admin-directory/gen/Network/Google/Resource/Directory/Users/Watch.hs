@@ -48,8 +48,8 @@ module Network.Google.Resource.Directory.Users.Watch
     , uwMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.watch@ method which the
 -- 'UsersWatch' request conforms to.
@@ -79,19 +79,19 @@ type UsersWatchResource =
 --
 -- /See:/ 'usersWatch' smart constructor.
 data UsersWatch = UsersWatch'
-    { _uwEvent           :: !(Maybe UsersWatchEvent)
-    , _uwOrderBy         :: !(Maybe UsersWatchOrderBy)
-    , _uwViewType        :: !UsersWatchViewType
+    { _uwEvent :: !(Maybe UsersWatchEvent)
+    , _uwOrderBy :: !(Maybe UsersWatchOrderBy)
+    , _uwViewType :: !UsersWatchViewType
     , _uwCustomFieldMask :: !(Maybe Text)
-    , _uwDomain          :: !(Maybe Text)
-    , _uwShowDeleted     :: !(Maybe Text)
-    , _uwPayload         :: !Channel
-    , _uwSortOrder       :: !(Maybe UsersWatchSortOrder)
-    , _uwCustomer        :: !(Maybe Text)
-    , _uwQuery           :: !(Maybe Text)
-    , _uwProjection      :: !UsersWatchProjection
-    , _uwPageToken       :: !(Maybe Text)
-    , _uwMaxResults      :: !(Maybe (Textual Int32))
+    , _uwDomain :: !(Maybe Text)
+    , _uwShowDeleted :: !(Maybe Text)
+    , _uwPayload :: !Channel
+    , _uwSortOrder :: !(Maybe UsersWatchSortOrder)
+    , _uwCustomer :: !(Maybe Text)
+    , _uwQuery :: !(Maybe Text)
+    , _uwProjection :: !UsersWatchProjection
+    , _uwPageToken :: !(Maybe Text)
+    , _uwMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersWatch' with the minimum fields required to make a request.
@@ -126,7 +126,7 @@ data UsersWatch = UsersWatch'
 usersWatch
     :: Channel -- ^ 'uwPayload'
     -> UsersWatch
-usersWatch pUwPayload_ =
+usersWatch pUwPayload_ = 
     UsersWatch'
     { _uwEvent = Nothing
     , _uwOrderBy = Nothing
@@ -185,8 +185,8 @@ uwSortOrder :: Lens' UsersWatch (Maybe UsersWatchSortOrder)
 uwSortOrder
   = lens _uwSortOrder (\ s a -> s{_uwSortOrder = a})
 
--- | Immutable id of the Google Apps account. In case of multi-domain, to
--- fetch all users for a customer, fill this field instead of domain.
+-- | Immutable ID of the G Suite account. In case of multi-domain, to fetch
+-- all users for a customer, fill this field instead of domain.
 uwCustomer :: Lens' UsersWatch (Maybe Text)
 uwCustomer
   = lens _uwCustomer (\ s a -> s{_uwCustomer = a})

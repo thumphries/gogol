@@ -36,8 +36,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.SignOutUser
     , rpsouPayload
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.signOutUser@ method which the
 -- 'RelyingPartySignOutUser' request conforms to.
@@ -68,7 +68,7 @@ newtype RelyingPartySignOutUser = RelyingPartySignOutUser'
 relyingPartySignOutUser
     :: IdentitytoolkitRelyingPartySignOutUserRequest -- ^ 'rpsouPayload'
     -> RelyingPartySignOutUser
-relyingPartySignOutUser pRpsouPayload_ =
+relyingPartySignOutUser pRpsouPayload_ = 
     RelyingPartySignOutUser'
     { _rpsouPayload = pRpsouPayload_
     }

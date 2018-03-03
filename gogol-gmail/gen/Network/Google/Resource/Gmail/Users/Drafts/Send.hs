@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.Send
     , udsUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.send@ method which the
 -- 'UsersDraftsSend' request conforms to.
@@ -71,7 +71,7 @@ type UsersDraftsSendResource =
 -- /See:/ 'usersDraftsSend' smart constructor.
 data UsersDraftsSend = UsersDraftsSend'
     { _udsPayload :: !Draft
-    , _udsUserId  :: !Text
+    , _udsUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsSend' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ data UsersDraftsSend = UsersDraftsSend'
 usersDraftsSend
     :: Draft -- ^ 'udsPayload'
     -> UsersDraftsSend
-usersDraftsSend pUdsPayload_ =
+usersDraftsSend pUdsPayload_ = 
     UsersDraftsSend'
     { _udsPayload = pUdsPayload_
     , _udsUserId = "me"

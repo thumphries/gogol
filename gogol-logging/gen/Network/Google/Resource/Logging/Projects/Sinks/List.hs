@@ -45,8 +45,8 @@ module Network.Google.Resource.Logging.Projects.Sinks.List
     , pslCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.sinks.list@ method which the
 -- 'ProjectsSinksList' request conforms to.
@@ -70,16 +70,16 @@ type ProjectsSinksListResource =
 --
 -- /See:/ 'projectsSinksList' smart constructor.
 data ProjectsSinksList = ProjectsSinksList'
-    { _pslParent         :: !Text
-    , _pslXgafv          :: !(Maybe Xgafv)
+    { _pslParent :: !Text
+    , _pslXgafv :: !(Maybe Xgafv)
     , _pslUploadProtocol :: !(Maybe Text)
-    , _pslPp             :: !Bool
-    , _pslAccessToken    :: !(Maybe Text)
-    , _pslUploadType     :: !(Maybe Text)
-    , _pslBearerToken    :: !(Maybe Text)
-    , _pslPageToken      :: !(Maybe Text)
-    , _pslPageSize       :: !(Maybe (Textual Int32))
-    , _pslCallback       :: !(Maybe Text)
+    , _pslPp :: !Bool
+    , _pslAccessToken :: !(Maybe Text)
+    , _pslUploadType :: !(Maybe Text)
+    , _pslBearerToken :: !(Maybe Text)
+    , _pslPageToken :: !(Maybe Text)
+    , _pslPageSize :: !(Maybe (Textual Int32))
+    , _pslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSinksList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data ProjectsSinksList = ProjectsSinksList'
 projectsSinksList
     :: Text -- ^ 'pslParent'
     -> ProjectsSinksList
-projectsSinksList pPslParent_ =
+projectsSinksList pPslParent_ = 
     ProjectsSinksList'
     { _pslParent = pPslParent_
     , _pslXgafv = Nothing
@@ -122,8 +122,9 @@ projectsSinksList pPslParent_ =
     , _pslCallback = Nothing
     }
 
--- | Required. The parent resource whose sinks are to be listed. Examples:
--- \"projects\/my-logging-project\", \"organizations\/123456789\".
+-- | Required. The parent resource whose sinks are to be listed:
+-- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 pslParent :: Lens' ProjectsSinksList Text
 pslParent
   = lens _pslParent (\ s a -> s{_pslParent = a})

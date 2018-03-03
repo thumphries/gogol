@@ -30,7 +30,7 @@
 -- the project\'s global metadata indicating which CIDR range is being used
 -- by the cluster.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.clusters.create@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.clusters.create@.
 module Network.Google.Resource.Container.Projects.Zones.Clusters.Create
     (
     -- * REST Resource
@@ -53,8 +53,8 @@ module Network.Google.Resource.Container.Projects.Zones.Clusters.Create
     , pzccCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.clusters.create@ method which the
 -- 'ProjectsZonesClustersCreate' request conforms to.
@@ -65,7 +65,7 @@ type ProjectsZonesClustersCreateResource =
            "zones" :>
              Capture "zone" Text :>
                "clusters" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -88,16 +88,16 @@ type ProjectsZonesClustersCreateResource =
 --
 -- /See:/ 'projectsZonesClustersCreate' smart constructor.
 data ProjectsZonesClustersCreate = ProjectsZonesClustersCreate'
-    { _pzccXgafv          :: !(Maybe Text)
+    { _pzccXgafv :: !(Maybe Xgafv)
     , _pzccUploadProtocol :: !(Maybe Text)
-    , _pzccPp             :: !Bool
-    , _pzccAccessToken    :: !(Maybe Text)
-    , _pzccUploadType     :: !(Maybe Text)
-    , _pzccZone           :: !Text
-    , _pzccPayload        :: !CreateClusterRequest
-    , _pzccBearerToken    :: !(Maybe Text)
-    , _pzccProjectId      :: !Text
-    , _pzccCallback       :: !(Maybe Text)
+    , _pzccPp :: !Bool
+    , _pzccAccessToken :: !(Maybe Text)
+    , _pzccUploadType :: !(Maybe Text)
+    , _pzccZone :: !Text
+    , _pzccPayload :: !CreateClusterRequest
+    , _pzccBearerToken :: !(Maybe Text)
+    , _pzccProjectId :: !Text
+    , _pzccCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesClustersCreate' with the minimum fields required to make a request.
@@ -128,7 +128,7 @@ projectsZonesClustersCreate
     -> CreateClusterRequest -- ^ 'pzccPayload'
     -> Text -- ^ 'pzccProjectId'
     -> ProjectsZonesClustersCreate
-projectsZonesClustersCreate pPzccZone_ pPzccPayload_ pPzccProjectId_ =
+projectsZonesClustersCreate pPzccZone_ pPzccPayload_ pPzccProjectId_ = 
     ProjectsZonesClustersCreate'
     { _pzccXgafv = Nothing
     , _pzccUploadProtocol = Nothing
@@ -143,7 +143,7 @@ projectsZonesClustersCreate pPzccZone_ pPzccPayload_ pPzccProjectId_ =
     }
 
 -- | V1 error format.
-pzccXgafv :: Lens' ProjectsZonesClustersCreate (Maybe Text)
+pzccXgafv :: Lens' ProjectsZonesClustersCreate (Maybe Xgafv)
 pzccXgafv
   = lens _pzccXgafv (\ s a -> s{_pzccXgafv = a})
 

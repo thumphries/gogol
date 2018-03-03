@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Exports a Google Doc to the requested MIME type and returns the exported
--- content.
+-- content. Please note that the exported content is limited to 10MB.
 --
 -- /See:/ <https://developers.google.com/drive/ Drive API Reference> for @drive.files.export@.
 module Network.Google.Resource.Drive.Files.Export
@@ -38,8 +38,8 @@ module Network.Google.Resource.Drive.Files.Export
     , feFileId
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.files.export@ method which the
 -- 'FilesExport' request conforms to.
@@ -62,12 +62,12 @@ type FilesExportResource =
                      Get '[OctetStream] Stream
 
 -- | Exports a Google Doc to the requested MIME type and returns the exported
--- content.
+-- content. Please note that the exported content is limited to 10MB.
 --
 -- /See:/ 'filesExport' smart constructor.
 data FilesExport = FilesExport'
     { _feMimeType :: !Text
-    , _feFileId   :: !Text
+    , _feFileId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FilesExport' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ filesExport
     :: Text -- ^ 'feMimeType'
     -> Text -- ^ 'feFileId'
     -> FilesExport
-filesExport pFeMimeType_ pFeFileId_ =
+filesExport pFeMimeType_ pFeFileId_ = 
     FilesExport'
     { _feMimeType = pFeMimeType_
     , _feFileId = pFeFileId_

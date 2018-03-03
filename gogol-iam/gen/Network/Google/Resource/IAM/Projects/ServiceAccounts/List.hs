@@ -45,8 +45,8 @@ module Network.Google.Resource.IAM.Projects.ServiceAccounts.List
     , psalCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.projects.serviceAccounts.list@ method which the
 -- 'ProjectsServiceAccountsList' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsServiceAccountsListResource =
      "v1" :>
        Capture "name" Text :>
          "serviceAccounts" :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -70,16 +70,16 @@ type ProjectsServiceAccountsListResource =
 --
 -- /See:/ 'projectsServiceAccountsList' smart constructor.
 data ProjectsServiceAccountsList = ProjectsServiceAccountsList'
-    { _psalXgafv          :: !(Maybe Text)
+    { _psalXgafv :: !(Maybe Xgafv)
     , _psalUploadProtocol :: !(Maybe Text)
-    , _psalPp             :: !Bool
-    , _psalAccessToken    :: !(Maybe Text)
-    , _psalUploadType     :: !(Maybe Text)
-    , _psalBearerToken    :: !(Maybe Text)
-    , _psalName           :: !Text
-    , _psalPageToken      :: !(Maybe Text)
-    , _psalPageSize       :: !(Maybe (Textual Int32))
-    , _psalCallback       :: !(Maybe Text)
+    , _psalPp :: !Bool
+    , _psalAccessToken :: !(Maybe Text)
+    , _psalUploadType :: !(Maybe Text)
+    , _psalBearerToken :: !(Maybe Text)
+    , _psalName :: !Text
+    , _psalPageToken :: !(Maybe Text)
+    , _psalPageSize :: !(Maybe (Textual Int32))
+    , _psalCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsServiceAccountsList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data ProjectsServiceAccountsList = ProjectsServiceAccountsList'
 projectsServiceAccountsList
     :: Text -- ^ 'psalName'
     -> ProjectsServiceAccountsList
-projectsServiceAccountsList pPsalName_ =
+projectsServiceAccountsList pPsalName_ = 
     ProjectsServiceAccountsList'
     { _psalXgafv = Nothing
     , _psalUploadProtocol = Nothing
@@ -123,7 +123,7 @@ projectsServiceAccountsList pPsalName_ =
     }
 
 -- | V1 error format.
-psalXgafv :: Lens' ProjectsServiceAccountsList (Maybe Text)
+psalXgafv :: Lens' ProjectsServiceAccountsList (Maybe Xgafv)
 psalXgafv
   = lens _psalXgafv (\ s a -> s{_psalXgafv = a})
 

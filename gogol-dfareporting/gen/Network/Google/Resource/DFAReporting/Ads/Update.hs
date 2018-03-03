@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Ads.Update
     , aPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.ads.update@ method which the
 -- 'AdsUpdate' request conforms to.
 type AdsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "ads" :>
@@ -56,7 +56,7 @@ type AdsUpdateResource =
 -- /See:/ 'adsUpdate' smart constructor.
 data AdsUpdate = AdsUpdate'
     { _aProFileId :: !(Textual Int64)
-    , _aPayload   :: !Ad
+    , _aPayload :: !Ad
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ adsUpdate
     :: Int64 -- ^ 'aProFileId'
     -> Ad -- ^ 'aPayload'
     -> AdsUpdate
-adsUpdate pAProFileId_ pAPayload_ =
+adsUpdate pAProFileId_ pAPayload_ = 
     AdsUpdate'
     { _aProFileId = _Coerce # pAProFileId_
     , _aPayload = pAPayload_

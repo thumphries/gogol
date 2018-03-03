@@ -38,8 +38,8 @@ module Network.Google.Resource.Books.MyConfig.UpdateUserSettings
     , mcuusPayload
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.myconfig.updateUserSettings@ method which the
 -- 'MyConfigUpdateUserSettings' request conforms to.
@@ -69,7 +69,7 @@ newtype MyConfigUpdateUserSettings = MyConfigUpdateUserSettings'
 myConfigUpdateUserSettings
     :: UserSettings -- ^ 'mcuusPayload'
     -> MyConfigUpdateUserSettings
-myConfigUpdateUserSettings pMcuusPayload_ =
+myConfigUpdateUserSettings pMcuusPayload_ = 
     MyConfigUpdateUserSettings'
     { _mcuusPayload = pMcuusPayload_
     }

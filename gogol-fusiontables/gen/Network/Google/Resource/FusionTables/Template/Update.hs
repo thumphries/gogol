@@ -38,8 +38,8 @@ module Network.Google.Resource.FusionTables.Template.Update
     , tuTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.template.update@ method which the
 -- 'TemplateUpdate' request conforms to.
@@ -58,8 +58,8 @@ type TemplateUpdateResource =
 -- /See:/ 'templateUpdate' smart constructor.
 data TemplateUpdate = TemplateUpdate'
     { _tuTemplateId :: !(Textual Int32)
-    , _tuPayload    :: !Template
-    , _tuTableId    :: !Text
+    , _tuPayload :: !Template
+    , _tuTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TemplateUpdate' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ templateUpdate
     -> Template -- ^ 'tuPayload'
     -> Text -- ^ 'tuTableId'
     -> TemplateUpdate
-templateUpdate pTuTemplateId_ pTuPayload_ pTuTableId_ =
+templateUpdate pTuTemplateId_ pTuPayload_ pTuTableId_ = 
     TemplateUpdate'
     { _tuTemplateId = _Coerce # pTuTemplateId_
     , _tuPayload = pTuPayload_

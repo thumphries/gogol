@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutclusters.List
     , sllPageId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutclusters.list@ method which the
 -- 'StorelayoutclustersList' request conforms to.
@@ -59,7 +59,7 @@ type StorelayoutclustersListResource =
 -- /See:/ 'storelayoutclustersList' smart constructor.
 data StorelayoutclustersList = StorelayoutclustersList'
     { _sllEnterpriseId :: !Text
-    , _sllPageId       :: !Text
+    , _sllPageId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutclustersList' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ storelayoutclustersList
     :: Text -- ^ 'sllEnterpriseId'
     -> Text -- ^ 'sllPageId'
     -> StorelayoutclustersList
-storelayoutclustersList pSllEnterpriseId_ pSllPageId_ =
+storelayoutclustersList pSllEnterpriseId_ pSllPageId_ = 
     StorelayoutclustersList'
     { _sllEnterpriseId = pSllEnterpriseId_
     , _sllPageId = pSllPageId_

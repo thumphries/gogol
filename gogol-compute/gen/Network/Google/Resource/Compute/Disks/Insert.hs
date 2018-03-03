@@ -37,14 +37,15 @@ module Network.Google.Resource.Compute.Disks.Insert
     , DisksInsert
 
     -- * Request Lenses
+    , diRequestId
     , diSourceImage
     , diProject
     , diZone
     , diPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.disks.insert@ method which the
 -- 'DisksInsert' request conforms to.
@@ -56,9 +57,10 @@ type DisksInsertResource =
              "zones" :>
                Capture "zone" Text :>
                  "disks" :>
-                   QueryParam "sourceImage" Text :>
-                     QueryParam "alt" AltJSON :>
-                       ReqBody '[JSON] Disk :> Post '[JSON] Operation
+                   QueryParam "requestId" Text :>
+                     QueryParam "sourceImage" Text :>
+                       QueryParam "alt" AltJSON :>
+                         ReqBody '[JSON] Disk :> Post '[JSON] Operation
 
 -- | Creates a persistent disk in the specified project using the data in the
 -- request. You can create a disk with a sourceImage, a sourceSnapshot, or
@@ -68,15 +70,18 @@ type DisksInsertResource =
 --
 -- /See:/ 'disksInsert' smart constructor.
 data DisksInsert = DisksInsert'
-    { _diSourceImage :: !(Maybe Text)
-    , _diProject     :: !Text
-    , _diZone        :: !Text
-    , _diPayload     :: !Disk
+    { _diRequestId :: !(Maybe Text)
+    , _diSourceImage :: !(Maybe Text)
+    , _diProject :: !Text
+    , _diZone :: !Text
+    , _diPayload :: !Disk
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisksInsert' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diRequestId'
 --
 -- * 'diSourceImage'
 --
@@ -90,13 +95,28 @@ disksInsert
     -> Text -- ^ 'diZone'
     -> Disk -- ^ 'diPayload'
     -> DisksInsert
-disksInsert pDiProject_ pDiZone_ pDiPayload_ =
+disksInsert pDiProject_ pDiZone_ pDiPayload_ = 
     DisksInsert'
-    { _diSourceImage = Nothing
+    { _diRequestId = Nothing
+    , _diSourceImage = Nothing
     , _diProject = pDiProject_
     , _diZone = pDiZone_
     , _diPayload = pDiPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+diRequestId :: Lens' DisksInsert (Maybe Text)
+diRequestId
+  = lens _diRequestId (\ s a -> s{_diRequestId = a})
 
 -- | Optional. Source image to restore onto a disk.
 diSourceImage :: Lens' DisksInsert (Maybe Text)
@@ -124,7 +144,8 @@ instance GoogleRequest DisksInsert where
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient DisksInsert'{..}
-          = go _diProject _diZone _diSourceImage (Just AltJSON)
+          = go _diProject _diZone _diRequestId _diSourceImage
+              (Just AltJSON)
               _diPayload
               computeService
           where go

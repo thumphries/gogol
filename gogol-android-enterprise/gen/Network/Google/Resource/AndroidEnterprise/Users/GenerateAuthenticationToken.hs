@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.GenerateAuthenticationTok
     , ugatUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.generateAuthenticationToken@ method which the
 -- 'UsersGenerateAuthenticationToken' request conforms to.
@@ -64,7 +64,7 @@ type UsersGenerateAuthenticationTokenResource =
 -- /See:/ 'usersGenerateAuthenticationToken' smart constructor.
 data UsersGenerateAuthenticationToken = UsersGenerateAuthenticationToken'
     { _ugatEnterpriseId :: !Text
-    , _ugatUserId       :: !Text
+    , _ugatUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersGenerateAuthenticationToken' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ usersGenerateAuthenticationToken
     :: Text -- ^ 'ugatEnterpriseId'
     -> Text -- ^ 'ugatUserId'
     -> UsersGenerateAuthenticationToken
-usersGenerateAuthenticationToken pUgatEnterpriseId_ pUgatUserId_ =
+usersGenerateAuthenticationToken pUgatEnterpriseId_ pUgatUserId_ = 
     UsersGenerateAuthenticationToken'
     { _ugatEnterpriseId = pUgatEnterpriseId_
     , _ugatUserId = pUgatUserId_

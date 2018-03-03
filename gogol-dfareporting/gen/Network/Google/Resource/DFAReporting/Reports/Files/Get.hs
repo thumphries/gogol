@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a report file.
+-- Retrieves a report file. This method supports media download.
 --
 -- /See:/ <https://developers.google.com/doubleclick-advertisers/ DCM/DFA Reporting And Trafficking API Reference> for @dfareporting.reports.files.get@.
 module Network.Google.Resource.DFAReporting.Reports.Files.Get
@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Reports.Files.Get
     , rfgFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.files.get@ method which the
 -- 'ReportsFilesGet' request conforms to.
 type ReportsFilesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -55,7 +55,7 @@ type ReportsFilesGetResource =
                      QueryParam "alt" AltJSON :> Get '[JSON] File
        :<|>
        "dfareporting" :>
-         "v2.7" :>
+         "v3.0" :>
            "userprofiles" :>
              Capture "profileId" (Textual Int64) :>
                "reports" :>
@@ -65,13 +65,13 @@ type ReportsFilesGetResource =
                        QueryParam "alt" AltMedia :>
                          Get '[OctetStream] Stream
 
--- | Retrieves a report file.
+-- | Retrieves a report file. This method supports media download.
 --
 -- /See:/ 'reportsFilesGet' smart constructor.
 data ReportsFilesGet = ReportsFilesGet'
-    { _rfgReportId  :: !(Textual Int64)
+    { _rfgReportId :: !(Textual Int64)
     , _rfgProFileId :: !(Textual Int64)
-    , _rfgFileId    :: !(Textual Int64)
+    , _rfgFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsFilesGet' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ reportsFilesGet
     -> Int64 -- ^ 'rfgProFileId'
     -> Int64 -- ^ 'rfgFileId'
     -> ReportsFilesGet
-reportsFilesGet pRfgReportId_ pRfgProFileId_ pRfgFileId_ =
+reportsFilesGet pRfgReportId_ pRfgProFileId_ pRfgFileId_ = 
     ReportsFilesGet'
     { _rfgReportId = _Coerce # pRfgReportId_
     , _rfgProFileId = _Coerce # pRfgProFileId_

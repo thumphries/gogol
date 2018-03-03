@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a test push notification to validate the EMM integration with the
+-- Sends a test notification to validate the EMM integration with the
 -- Google Cloud Pub\/Sub service for this enterprise.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.enterprises.sendTestPushNotification@.
@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.SendTestPushNotific
     , estpnEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.sendTestPushNotification@ method which the
 -- 'EnterprisesSendTestPushNotification' request conforms to.
@@ -52,7 +52,7 @@ type EnterprisesSendTestPushNotificationResource =
                  Post '[JSON]
                    EnterprisesSendTestPushNotificationResponse
 
--- | Sends a test push notification to validate the EMM integration with the
+-- | Sends a test notification to validate the EMM integration with the
 -- Google Cloud Pub\/Sub service for this enterprise.
 --
 -- /See:/ 'enterprisesSendTestPushNotification' smart constructor.
@@ -68,7 +68,7 @@ newtype EnterprisesSendTestPushNotification = EnterprisesSendTestPushNotificatio
 enterprisesSendTestPushNotification
     :: Text -- ^ 'estpnEnterpriseId'
     -> EnterprisesSendTestPushNotification
-enterprisesSendTestPushNotification pEstpnEnterpriseId_ =
+enterprisesSendTestPushNotification pEstpnEnterpriseId_ = 
     EnterprisesSendTestPushNotification'
     { _estpnEnterpriseId = pEstpnEnterpriseId_
     }

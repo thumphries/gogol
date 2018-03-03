@@ -40,8 +40,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.SetInstanceTemp
     , igmsitPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.setInstanceTemplate@ method which the
 -- 'InstanceGroupManagersSetInstanceTemplate' request conforms to.
@@ -66,10 +66,10 @@ type InstanceGroupManagersSetInstanceTemplateResource
 --
 -- /See:/ 'instanceGroupManagersSetInstanceTemplate' smart constructor.
 data InstanceGroupManagersSetInstanceTemplate = InstanceGroupManagersSetInstanceTemplate'
-    { _igmsitProject              :: !Text
+    { _igmsitProject :: !Text
     , _igmsitInstanceGroupManager :: !Text
-    , _igmsitZone                 :: !Text
-    , _igmsitPayload              :: !InstanceGroupManagersSetInstanceTemplateRequest
+    , _igmsitZone :: !Text
+    , _igmsitPayload :: !InstanceGroupManagersSetInstanceTemplateRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersSetInstanceTemplate' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ instanceGroupManagersSetInstanceTemplate
     -> Text -- ^ 'igmsitZone'
     -> InstanceGroupManagersSetInstanceTemplateRequest -- ^ 'igmsitPayload'
     -> InstanceGroupManagersSetInstanceTemplate
-instanceGroupManagersSetInstanceTemplate pIgmsitProject_ pIgmsitInstanceGroupManager_ pIgmsitZone_ pIgmsitPayload_ =
+instanceGroupManagersSetInstanceTemplate pIgmsitProject_ pIgmsitInstanceGroupManager_ pIgmsitZone_ pIgmsitPayload_ = 
     InstanceGroupManagersSetInstanceTemplate'
     { _igmsitProject = pIgmsitProject_
     , _igmsitInstanceGroupManager = pIgmsitInstanceGroupManager_

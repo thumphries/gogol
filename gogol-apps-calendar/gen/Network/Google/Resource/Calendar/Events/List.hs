@@ -53,8 +53,8 @@ module Network.Google.Resource.Calendar.Events.List
     , elTimeMax
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.list@ method which the
 -- 'EventsList' request conforms to.
@@ -93,24 +93,24 @@ type EventsListResource =
 --
 -- /See:/ 'eventsList' smart constructor.
 data EventsList = EventsList'
-    { _elSyncToken               :: !(Maybe Text)
-    , _elCalendarId              :: !Text
-    , _elTimeMin                 :: !(Maybe DateTime')
-    , _elOrderBy                 :: !(Maybe EventsListOrderBy)
-    , _elSingleEvents            :: !(Maybe Bool)
+    { _elSyncToken :: !(Maybe Text)
+    , _elCalendarId :: !Text
+    , _elTimeMin :: !(Maybe DateTime')
+    , _elOrderBy :: !(Maybe EventsListOrderBy)
+    , _elSingleEvents :: !(Maybe Bool)
     , _elPrivateExtendedProperty :: !(Maybe [Text])
-    , _elShowDeleted             :: !(Maybe Bool)
-    , _elQ                       :: !(Maybe Text)
-    , _elSharedExtendedProperty  :: !(Maybe [Text])
-    , _elMaxAttendees            :: !(Maybe (Textual Int32))
-    , _elICalUId                 :: !(Maybe Text)
-    , _elUpdatedMin              :: !(Maybe DateTime')
-    , _elPageToken               :: !(Maybe Text)
-    , _elTimeZone                :: !(Maybe Text)
-    , _elShowHiddenInvitations   :: !(Maybe Bool)
-    , _elMaxResults              :: !(Textual Int32)
-    , _elAlwaysIncludeEmail      :: !(Maybe Bool)
-    , _elTimeMax                 :: !(Maybe DateTime')
+    , _elShowDeleted :: !(Maybe Bool)
+    , _elQ :: !(Maybe Text)
+    , _elSharedExtendedProperty :: !(Maybe [Text])
+    , _elMaxAttendees :: !(Maybe (Textual Int32))
+    , _elICalUId :: !(Maybe Text)
+    , _elUpdatedMin :: !(Maybe DateTime')
+    , _elPageToken :: !(Maybe Text)
+    , _elTimeZone :: !(Maybe Text)
+    , _elShowHiddenInvitations :: !(Maybe Bool)
+    , _elMaxResults :: !(Textual Int32)
+    , _elAlwaysIncludeEmail :: !(Maybe Bool)
+    , _elTimeMax :: !(Maybe DateTime')
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsList' with the minimum fields required to make a request.
@@ -155,7 +155,7 @@ data EventsList = EventsList'
 eventsList
     :: Text -- ^ 'elCalendarId'
     -> EventsList
-eventsList pElCalendarId_ =
+eventsList pElCalendarId_ = 
     EventsList'
     { _elSyncToken = Nothing
     , _elCalendarId = pElCalendarId_
@@ -205,6 +205,7 @@ elCalendarId
 -- The default is not to filter by end time. Must be an RFC3339 timestamp
 -- with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
 -- 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
+-- If timeMax is set, timeMin must be smaller than timeMax.
 elTimeMin :: Lens' EventsList (Maybe UTCTime)
 elTimeMin
   = lens _elTimeMin (\ s a -> s{_elTimeMin = a}) .
@@ -302,9 +303,12 @@ elShowHiddenInvitations
   = lens _elShowHiddenInvitations
       (\ s a -> s{_elShowHiddenInvitations = a})
 
--- | Maximum number of events returned on one result page. By default the
--- value is 250 events. The page size can never be larger than 2500 events.
--- Optional.
+-- | Maximum number of events returned on one result page. The number of
+-- events in the resulting page may be less than this value, or none at
+-- all, even if there are more events matching the query. Incomplete pages
+-- can be detected by a non-empty nextPageToken field in the response. By
+-- default the value is 250 events. The page size can never be larger than
+-- 2500 events. Optional.
 elMaxResults :: Lens' EventsList Int32
 elMaxResults
   = lens _elMaxResults (\ s a -> s{_elMaxResults = a})
@@ -325,7 +329,8 @@ elAlwaysIncludeEmail
 -- Optional. The default is not to filter by start time. Must be an RFC3339
 -- timestamp with mandatory time zone offset, e.g.,
 -- 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be
--- provided but will be ignored.
+-- provided but will be ignored. If timeMin is set, timeMax must be greater
+-- than timeMin.
 elTimeMax :: Lens' EventsList (Maybe UTCTime)
 elTimeMax
   = lens _elTimeMax (\ s a -> s{_elTimeMax = a}) .

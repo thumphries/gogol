@@ -38,8 +38,8 @@ module Network.Google.Resource.SQL.Instances.RestoreBackup
     , irbInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.instances.restoreBackup@ method which the
 -- 'InstancesRestoreBackup' request conforms to.
@@ -59,8 +59,8 @@ type InstancesRestoreBackupResource =
 --
 -- /See:/ 'instancesRestoreBackup' smart constructor.
 data InstancesRestoreBackup = InstancesRestoreBackup'
-    { _irbProject  :: !Text
-    , _irbPayload  :: !InstancesRestoreBackupRequest
+    { _irbProject :: !Text
+    , _irbPayload :: !InstancesRestoreBackupRequest
     , _irbInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ instancesRestoreBackup
     -> InstancesRestoreBackupRequest -- ^ 'irbPayload'
     -> Text -- ^ 'irbInstance'
     -> InstancesRestoreBackup
-instancesRestoreBackup pIrbProject_ pIrbPayload_ pIrbInstance_ =
+instancesRestoreBackup pIrbProject_ pIrbPayload_ pIrbInstance_ = 
     InstancesRestoreBackup'
     { _irbProject = pIrbProject_
     , _irbPayload = pIrbPayload_

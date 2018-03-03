@@ -38,8 +38,8 @@ module Network.Google.Resource.SiteVerification.WebResource.Patch
     , wrpId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SiteVerification.Types
+import Network.Google.Prelude
+import Network.Google.SiteVerification.Types
 
 -- | A resource alias for @siteVerification.webResource.patch@ method which the
 -- 'WebResourcePatch' request conforms to.
@@ -58,7 +58,7 @@ type WebResourcePatchResource =
 -- /See:/ 'webResourcePatch' smart constructor.
 data WebResourcePatch = WebResourcePatch'
     { _wrpPayload :: !SiteVerificationWebResourceResource
-    , _wrpId      :: !Text
+    , _wrpId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WebResourcePatch' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ webResourcePatch
     :: SiteVerificationWebResourceResource -- ^ 'wrpPayload'
     -> Text -- ^ 'wrpId'
     -> WebResourcePatch
-webResourcePatch pWrpPayload_ pWrpId_ =
+webResourcePatch pWrpPayload_ pWrpId_ = 
     WebResourcePatch'
     { _wrpPayload = pWrpPayload_
     , _wrpId = pWrpId_

@@ -36,8 +36,8 @@ module Network.Google.Resource.Admin.Channels.Stop
     , csPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Reports.Types
+import Network.Google.Prelude
+import Network.Google.Reports.Types
 
 -- | A resource alias for @admin.channels.stop@ method which the
 -- 'ChannelsStop' request conforms to.
@@ -67,7 +67,7 @@ newtype ChannelsStop = ChannelsStop'
 channelsStop
     :: Channel -- ^ 'csPayload'
     -> ChannelsStop
-channelsStop pCsPayload_ =
+channelsStop pCsPayload_ = 
     ChannelsStop'
     { _csPayload = pCsPayload_
     }

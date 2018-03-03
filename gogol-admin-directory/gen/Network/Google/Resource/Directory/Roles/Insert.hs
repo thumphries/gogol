@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Roles.Insert
     , riCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.insert@ method which the
 -- 'RolesInsert' request conforms to.
@@ -56,7 +56,7 @@ type RolesInsertResource =
 --
 -- /See:/ 'rolesInsert' smart constructor.
 data RolesInsert = RolesInsert'
-    { _riPayload  :: !Role
+    { _riPayload :: !Role
     , _riCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ rolesInsert
     :: Role -- ^ 'riPayload'
     -> Text -- ^ 'riCustomer'
     -> RolesInsert
-rolesInsert pRiPayload_ pRiCustomer_ =
+rolesInsert pRiPayload_ pRiCustomer_ = 
     RolesInsert'
     { _riPayload = pRiPayload_
     , _riCustomer = pRiCustomer_
@@ -82,7 +82,7 @@ riPayload :: Lens' RolesInsert Role
 riPayload
   = lens _riPayload (\ s a -> s{_riPayload = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 riCustomer :: Lens' RolesInsert Text
 riCustomer
   = lens _riCustomer (\ s a -> s{_riCustomer = a})

@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKListings.List
     , eapkllEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apklistings.list@ method which the
 -- 'EditsAPKListingsList' request conforms to.
@@ -60,9 +60,9 @@ type EditsAPKListingsListResource =
 --
 -- /See:/ 'editsAPKListingsList' smart constructor.
 data EditsAPKListingsList = EditsAPKListingsList'
-    { _eapkllPackageName    :: !Text
+    { _eapkllPackageName :: !Text
     , _eapkllAPKVersionCode :: !(Textual Int32)
-    , _eapkllEditId         :: !Text
+    , _eapkllEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKListingsList' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ editsAPKListingsList
     -> Int32 -- ^ 'eapkllAPKVersionCode'
     -> Text -- ^ 'eapkllEditId'
     -> EditsAPKListingsList
-editsAPKListingsList pEapkllPackageName_ pEapkllAPKVersionCode_ pEapkllEditId_ =
+editsAPKListingsList pEapkllPackageName_ pEapkllAPKVersionCode_ pEapkllEditId_ = 
     EditsAPKListingsList'
     { _eapkllPackageName = pEapkllPackageName_
     , _eapkllAPKVersionCode = _Coerce # pEapkllAPKVersionCode_

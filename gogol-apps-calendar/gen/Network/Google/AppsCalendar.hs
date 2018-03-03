@@ -147,6 +147,7 @@ module Network.Google.AppsCalendar
     , CalendarListEntry
     , calendarListEntry
     , cleSummary
+    , cleConferenceProperties
     , cleEtag
     , cleLocation
     , cleKind
@@ -164,6 +165,11 @@ module Network.Google.AppsCalendar
     , cleColorId
     , cleTimeZone
     , cleDescription
+
+    -- ** ConferenceParameters
+    , ConferenceParameters
+    , conferenceParameters
+    , cpAddOnParameters
 
     -- ** Event
     , Event
@@ -186,6 +192,7 @@ module Network.Google.AppsCalendar
     , eStart
     , ePrivateCopy
     , eEndTimeUnspecified
+    , eConferenceData
     , eExtendedProperties
     , eVisibility
     , eGuestsCanInviteOthers
@@ -210,6 +217,18 @@ module Network.Google.AppsCalendar
     , CalendarListEntryNotificationSettings
     , calendarListEntryNotificationSettings
     , clensNotifications
+
+    -- ** ConferenceProperties
+    , ConferenceProperties
+    , conferenceProperties
+    , cpAllowedConferenceSolutionTypes
+
+    -- ** ConferenceSolution
+    , ConferenceSolution
+    , conferenceSolution
+    , csIconURI
+    , csKey
+    , csName
 
     -- ** ACLRuleScope
     , ACLRuleScope
@@ -245,11 +264,28 @@ module Network.Google.AppsCalendar
     , eaTitle
     , eaFileId
 
+    -- ** EntryPoint
+    , EntryPoint
+    , entryPoint
+    , epPasscode
+    , epURI
+    , epMeetingCode
+    , epPassword
+    , epPin
+    , epEntryPointType
+    , epLabel
+    , epAccessCode
+
     -- ** TimePeriod
     , TimePeriod
     , timePeriod
     , tpStart
     , tpEnd
+
+    -- ** ConferenceSolutionKey
+    , ConferenceSolutionKey
+    , conferenceSolutionKey
+    , cskType
 
     -- ** EventCreator
     , EventCreator
@@ -288,11 +324,27 @@ module Network.Google.AppsCalendar
     , cId
     , cType
 
+    -- ** ConferenceRequestStatus
+    , ConferenceRequestStatus
+    , conferenceRequestStatus
+    , crsStatusCode
+
     -- ** FreeBusyCalendar
     , FreeBusyCalendar
     , freeBusyCalendar
     , fbcBusy
     , fbcErrors
+
+    -- ** ConferenceData
+    , ConferenceData
+    , conferenceData
+    , cdSignature
+    , cdConferenceSolution
+    , cdCreateRequest
+    , cdConferenceId
+    , cdParameters
+    , cdNotes
+    , cdEntryPoints
 
     -- ** Setting
     , Setting
@@ -317,6 +369,11 @@ module Network.Google.AppsCalendar
     , ColorsCalendar
     , colorsCalendar
     , ccAddtional
+
+    -- ** ConferenceParametersAddOnParametersParameters
+    , ConferenceParametersAddOnParametersParameters
+    , conferenceParametersAddOnParametersParameters
+    , cpaoppAddtional
 
     -- ** CalendarNotification
     , CalendarNotification
@@ -367,6 +424,7 @@ module Network.Google.AppsCalendar
     , Calendar
     , calendar
     , calSummary
+    , calConferenceProperties
     , calEtag
     , calLocation
     , calKind
@@ -461,6 +519,13 @@ module Network.Google.AppsCalendar
     -- ** EventsWatchOrderBy
     , EventsWatchOrderBy (..)
 
+    -- ** CreateConferenceRequest
+    , CreateConferenceRequest
+    , createConferenceRequest
+    , ccrStatus
+    , ccrRequestId
+    , ccrConferenceSolutionKey
+
     -- ** EventExtendedPropertiesShared
     , EventExtendedPropertiesShared
     , eventExtendedPropertiesShared
@@ -497,6 +562,11 @@ module Network.Google.AppsCalendar
     , fbgCalendars
     , fbgErrors
 
+    -- ** ConferenceParametersAddOnParameters
+    , ConferenceParametersAddOnParameters
+    , conferenceParametersAddOnParameters
+    , cpaopParameters
+
     -- ** EventSource
     , EventSource
     , eventSource
@@ -504,45 +574,45 @@ module Network.Google.AppsCalendar
     , esTitle
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
-import           Network.Google.Resource.Calendar.ACL.Delete
-import           Network.Google.Resource.Calendar.ACL.Get
-import           Network.Google.Resource.Calendar.ACL.Insert
-import           Network.Google.Resource.Calendar.ACL.List
-import           Network.Google.Resource.Calendar.ACL.Patch
-import           Network.Google.Resource.Calendar.ACL.Update
-import           Network.Google.Resource.Calendar.ACL.Watch
-import           Network.Google.Resource.Calendar.CalendarList.Delete
-import           Network.Google.Resource.Calendar.CalendarList.Get
-import           Network.Google.Resource.Calendar.CalendarList.Insert
-import           Network.Google.Resource.Calendar.CalendarList.List
-import           Network.Google.Resource.Calendar.CalendarList.Patch
-import           Network.Google.Resource.Calendar.CalendarList.Update
-import           Network.Google.Resource.Calendar.CalendarList.Watch
-import           Network.Google.Resource.Calendar.Calendars.Clear
-import           Network.Google.Resource.Calendar.Calendars.Delete
-import           Network.Google.Resource.Calendar.Calendars.Get
-import           Network.Google.Resource.Calendar.Calendars.Insert
-import           Network.Google.Resource.Calendar.Calendars.Patch
-import           Network.Google.Resource.Calendar.Calendars.Update
-import           Network.Google.Resource.Calendar.Channels.Stop
-import           Network.Google.Resource.Calendar.Colors.Get
-import           Network.Google.Resource.Calendar.Events.Delete
-import           Network.Google.Resource.Calendar.Events.Get
-import           Network.Google.Resource.Calendar.Events.Import
-import           Network.Google.Resource.Calendar.Events.Insert
-import           Network.Google.Resource.Calendar.Events.Instances
-import           Network.Google.Resource.Calendar.Events.List
-import           Network.Google.Resource.Calendar.Events.Move
-import           Network.Google.Resource.Calendar.Events.Patch
-import           Network.Google.Resource.Calendar.Events.QuickAdd
-import           Network.Google.Resource.Calendar.Events.Update
-import           Network.Google.Resource.Calendar.Events.Watch
-import           Network.Google.Resource.Calendar.FreeBusy.Query
-import           Network.Google.Resource.Calendar.Settings.Get
-import           Network.Google.Resource.Calendar.Settings.List
-import           Network.Google.Resource.Calendar.Settings.Watch
+import Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Resource.Calendar.ACL.Delete
+import Network.Google.Resource.Calendar.ACL.Get
+import Network.Google.Resource.Calendar.ACL.Insert
+import Network.Google.Resource.Calendar.ACL.List
+import Network.Google.Resource.Calendar.ACL.Patch
+import Network.Google.Resource.Calendar.ACL.Update
+import Network.Google.Resource.Calendar.ACL.Watch
+import Network.Google.Resource.Calendar.CalendarList.Delete
+import Network.Google.Resource.Calendar.CalendarList.Get
+import Network.Google.Resource.Calendar.CalendarList.Insert
+import Network.Google.Resource.Calendar.CalendarList.List
+import Network.Google.Resource.Calendar.CalendarList.Patch
+import Network.Google.Resource.Calendar.CalendarList.Update
+import Network.Google.Resource.Calendar.CalendarList.Watch
+import Network.Google.Resource.Calendar.Calendars.Clear
+import Network.Google.Resource.Calendar.Calendars.Delete
+import Network.Google.Resource.Calendar.Calendars.Get
+import Network.Google.Resource.Calendar.Calendars.Insert
+import Network.Google.Resource.Calendar.Calendars.Patch
+import Network.Google.Resource.Calendar.Calendars.Update
+import Network.Google.Resource.Calendar.Channels.Stop
+import Network.Google.Resource.Calendar.Colors.Get
+import Network.Google.Resource.Calendar.Events.Delete
+import Network.Google.Resource.Calendar.Events.Get
+import Network.Google.Resource.Calendar.Events.Import
+import Network.Google.Resource.Calendar.Events.Insert
+import Network.Google.Resource.Calendar.Events.Instances
+import Network.Google.Resource.Calendar.Events.List
+import Network.Google.Resource.Calendar.Events.Move
+import Network.Google.Resource.Calendar.Events.Patch
+import Network.Google.Resource.Calendar.Events.QuickAdd
+import Network.Google.Resource.Calendar.Events.Update
+import Network.Google.Resource.Calendar.Events.Watch
+import Network.Google.Resource.Calendar.FreeBusy.Query
+import Network.Google.Resource.Calendar.Settings.Get
+import Network.Google.Resource.Calendar.Settings.List
+import Network.Google.Resource.Calendar.Settings.Watch
 
 {- $resources
 TODO

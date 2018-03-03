@@ -39,8 +39,8 @@ module Network.Google.Resource.DeploymentManager.Deployments.Insert
     , diPreview
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.deployments.insert@ method which the
 -- 'DeploymentsInsert' request conforms to.
@@ -78,7 +78,7 @@ deploymentsInsert
     :: Text -- ^ 'diProject'
     -> Deployment -- ^ 'diPayload'
     -> DeploymentsInsert
-deploymentsInsert pDiProject_ pDiPayload_ =
+deploymentsInsert pDiProject_ pDiPayload_ = 
     DeploymentsInsert'
     { _diProject = pDiProject_
     , _diPayload = pDiPayload_

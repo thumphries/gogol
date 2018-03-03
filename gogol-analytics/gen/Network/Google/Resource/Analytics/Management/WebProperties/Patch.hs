@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.WebProperties.Patch
     , mwppAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webproperties.patch@ method which the
 -- 'ManagementWebPropertiesPatch' request conforms to.
@@ -60,8 +60,8 @@ type ManagementWebPropertiesPatchResource =
 -- /See:/ 'managementWebPropertiesPatch' smart constructor.
 data ManagementWebPropertiesPatch = ManagementWebPropertiesPatch'
     { _mwppWebPropertyId :: !Text
-    , _mwppPayload       :: !WebProperty
-    , _mwppAccountId     :: !Text
+    , _mwppPayload :: !WebProperty
+    , _mwppAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertiesPatch' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ managementWebPropertiesPatch
     -> WebProperty -- ^ 'mwppPayload'
     -> Text -- ^ 'mwppAccountId'
     -> ManagementWebPropertiesPatch
-managementWebPropertiesPatch pMwppWebPropertyId_ pMwppPayload_ pMwppAccountId_ =
+managementWebPropertiesPatch pMwppWebPropertyId_ pMwppPayload_ pMwppAccountId_ = 
     ManagementWebPropertiesPatch'
     { _mwppWebPropertyId = pMwppWebPropertyId_
     , _mwppPayload = pMwppPayload_

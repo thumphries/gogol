@@ -22,7 +22,7 @@
 --
 -- Updates the state of an existing Cloud Dataflow job.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.locations.jobs.update@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.locations.jobs.update@.
 module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.Update
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.Update
     , pljuCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.locations.jobs.update@ method which the
 -- 'ProjectsLocationsJobsUpdate' request conforms to.
@@ -59,7 +59,7 @@ type ProjectsLocationsJobsUpdateResource =
              Capture "location" Text :>
                "jobs" :>
                  Capture "jobId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -73,17 +73,17 @@ type ProjectsLocationsJobsUpdateResource =
 --
 -- /See:/ 'projectsLocationsJobsUpdate' smart constructor.
 data ProjectsLocationsJobsUpdate = ProjectsLocationsJobsUpdate'
-    { _pljuXgafv          :: !(Maybe Text)
-    , _pljuJobId          :: !Text
+    { _pljuXgafv :: !(Maybe Xgafv)
+    , _pljuJobId :: !Text
     , _pljuUploadProtocol :: !(Maybe Text)
-    , _pljuLocation       :: !Text
-    , _pljuPp             :: !Bool
-    , _pljuAccessToken    :: !(Maybe Text)
-    , _pljuUploadType     :: !(Maybe Text)
-    , _pljuPayload        :: !Job
-    , _pljuBearerToken    :: !(Maybe Text)
-    , _pljuProjectId      :: !Text
-    , _pljuCallback       :: !(Maybe Text)
+    , _pljuLocation :: !Text
+    , _pljuPp :: !Bool
+    , _pljuAccessToken :: !(Maybe Text)
+    , _pljuUploadType :: !(Maybe Text)
+    , _pljuPayload :: !Job
+    , _pljuBearerToken :: !(Maybe Text)
+    , _pljuProjectId :: !Text
+    , _pljuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLocationsJobsUpdate' with the minimum fields required to make a request.
@@ -117,7 +117,7 @@ projectsLocationsJobsUpdate
     -> Job -- ^ 'pljuPayload'
     -> Text -- ^ 'pljuProjectId'
     -> ProjectsLocationsJobsUpdate
-projectsLocationsJobsUpdate pPljuJobId_ pPljuLocation_ pPljuPayload_ pPljuProjectId_ =
+projectsLocationsJobsUpdate pPljuJobId_ pPljuLocation_ pPljuPayload_ pPljuProjectId_ = 
     ProjectsLocationsJobsUpdate'
     { _pljuXgafv = Nothing
     , _pljuJobId = pPljuJobId_
@@ -133,7 +133,7 @@ projectsLocationsJobsUpdate pPljuJobId_ pPljuLocation_ pPljuPayload_ pPljuProjec
     }
 
 -- | V1 error format.
-pljuXgafv :: Lens' ProjectsLocationsJobsUpdate (Maybe Text)
+pljuXgafv :: Lens' ProjectsLocationsJobsUpdate (Maybe Xgafv)
 pljuXgafv
   = lens _pljuXgafv (\ s a -> s{_pljuXgafv = a})
 
@@ -196,6 +196,8 @@ instance GoogleRequest ProjectsLocationsJobsUpdate
         type Rs ProjectsLocationsJobsUpdate = Job
         type Scopes ProjectsLocationsJobsUpdate =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsLocationsJobsUpdate'{..}
           = go _pljuProjectId _pljuLocation _pljuJobId

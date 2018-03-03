@@ -34,12 +34,11 @@ module Network.Google.Resource.Games.TurnBasedMatches.Dismiss
     , TurnBasedMatchesDismiss
 
     -- * Request Lenses
-    , tbmdsConsistencyToken
-    , tbmdsMatchId
+    , tMatchId
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.turnBasedMatches.dismiss@ method which the
 -- 'TurnBasedMatchesDismiss' request conforms to.
@@ -49,45 +48,32 @@ type TurnBasedMatchesDismissResource =
          "turnbasedmatches" :>
            Capture "matchId" Text :>
              "dismiss" :>
-               QueryParam "consistencyToken" (Textual Int64) :>
-                 QueryParam "alt" AltJSON :> Put '[JSON] ()
+               QueryParam "alt" AltJSON :> Put '[JSON] ()
 
 -- | Dismiss a turn-based match from the match list. The match will no longer
 -- show up in the list and will not generate notifications.
 --
 -- /See:/ 'turnBasedMatchesDismiss' smart constructor.
-data TurnBasedMatchesDismiss = TurnBasedMatchesDismiss'
-    { _tbmdsConsistencyToken :: !(Maybe (Textual Int64))
-    , _tbmdsMatchId          :: !Text
+newtype TurnBasedMatchesDismiss = TurnBasedMatchesDismiss'
+    { _tMatchId :: Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TurnBasedMatchesDismiss' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tbmdsConsistencyToken'
---
--- * 'tbmdsMatchId'
+-- * 'tMatchId'
 turnBasedMatchesDismiss
-    :: Text -- ^ 'tbmdsMatchId'
+    :: Text -- ^ 'tMatchId'
     -> TurnBasedMatchesDismiss
-turnBasedMatchesDismiss pTbmdsMatchId_ =
+turnBasedMatchesDismiss pTMatchId_ = 
     TurnBasedMatchesDismiss'
-    { _tbmdsConsistencyToken = Nothing
-    , _tbmdsMatchId = pTbmdsMatchId_
+    { _tMatchId = pTMatchId_
     }
 
--- | The last-seen mutation timestamp.
-tbmdsConsistencyToken :: Lens' TurnBasedMatchesDismiss (Maybe Int64)
-tbmdsConsistencyToken
-  = lens _tbmdsConsistencyToken
-      (\ s a -> s{_tbmdsConsistencyToken = a})
-      . mapping _Coerce
-
 -- | The ID of the match.
-tbmdsMatchId :: Lens' TurnBasedMatchesDismiss Text
-tbmdsMatchId
-  = lens _tbmdsMatchId (\ s a -> s{_tbmdsMatchId = a})
+tMatchId :: Lens' TurnBasedMatchesDismiss Text
+tMatchId = lens _tMatchId (\ s a -> s{_tMatchId = a})
 
 instance GoogleRequest TurnBasedMatchesDismiss where
         type Rs TurnBasedMatchesDismiss = ()
@@ -95,9 +81,7 @@ instance GoogleRequest TurnBasedMatchesDismiss where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient TurnBasedMatchesDismiss'{..}
-          = go _tbmdsMatchId _tbmdsConsistencyToken
-              (Just AltJSON)
-              gamesService
+          = go _tMatchId (Just AltJSON) gamesService
           where go
                   = buildClient
                       (Proxy :: Proxy TurnBasedMatchesDismissResource)

@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Labels.Get
     , ulgId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.get@ method which the
 -- 'UsersLabelsGet' request conforms to.
@@ -56,7 +56,7 @@ type UsersLabelsGetResource =
 -- /See:/ 'usersLabelsGet' smart constructor.
 data UsersLabelsGet = UsersLabelsGet'
     { _ulgUserId :: !Text
-    , _ulgId     :: !Text
+    , _ulgId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersLabelsGet' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data UsersLabelsGet = UsersLabelsGet'
 usersLabelsGet
     :: Text -- ^ 'ulgId'
     -> UsersLabelsGet
-usersLabelsGet pUlgId_ =
+usersLabelsGet pUlgId_ = 
     UsersLabelsGet'
     { _ulgUserId = "me"
     , _ulgId = pUlgId_

@@ -39,8 +39,8 @@ module Network.Google.Resource.Plus.People.Search
     , psMaxResults
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.people.search@ method which the
 -- 'PeopleSearch' request conforms to.
@@ -58,9 +58,9 @@ type PeopleSearchResource =
 --
 -- /See:/ 'peopleSearch' smart constructor.
 data PeopleSearch = PeopleSearch'
-    { _psQuery      :: !Text
-    , _psLanguage   :: !Text
-    , _psPageToken  :: !(Maybe Text)
+    { _psQuery :: !Text
+    , _psLanguage :: !Text
+    , _psPageToken :: !(Maybe Text)
     , _psMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ data PeopleSearch = PeopleSearch'
 peopleSearch
     :: Text -- ^ 'psQuery'
     -> PeopleSearch
-peopleSearch pPsQuery_ =
+peopleSearch pPsQuery_ = 
     PeopleSearch'
     { _psQuery = pPsQuery_
     , _psLanguage = "en-US"

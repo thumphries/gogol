@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.OperatingSystemVersions.List
     , osvlProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.operatingSystemVersions.list@ method which the
 -- 'OperatingSystemVersionsList' request conforms to.
 type OperatingSystemVersionsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "operatingSystemVersions" :>
@@ -65,7 +65,7 @@ newtype OperatingSystemVersionsList = OperatingSystemVersionsList'
 operatingSystemVersionsList
     :: Int64 -- ^ 'osvlProFileId'
     -> OperatingSystemVersionsList
-operatingSystemVersionsList pOsvlProFileId_ =
+operatingSystemVersionsList pOsvlProFileId_ = 
     OperatingSystemVersionsList'
     { _osvlProFileId = _Coerce # pOsvlProFileId_
     }

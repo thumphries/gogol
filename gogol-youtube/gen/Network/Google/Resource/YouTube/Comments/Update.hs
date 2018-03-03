@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Comments.Update
     , cuPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.update@ method which the
 -- 'CommentsUpdate' request conforms to.
@@ -54,7 +54,7 @@ type CommentsUpdateResource =
 --
 -- /See:/ 'commentsUpdate' smart constructor.
 data CommentsUpdate = CommentsUpdate'
-    { _cuPart    :: !Text
+    { _cuPart :: !Text
     , _cuPayload :: !Comment
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ commentsUpdate
     :: Text -- ^ 'cuPart'
     -> Comment -- ^ 'cuPayload'
     -> CommentsUpdate
-commentsUpdate pCuPart_ pCuPayload_ =
+commentsUpdate pCuPart_ pCuPayload_ = 
     CommentsUpdate'
     { _cuPart = pCuPart_
     , _cuPayload = pCuPayload_

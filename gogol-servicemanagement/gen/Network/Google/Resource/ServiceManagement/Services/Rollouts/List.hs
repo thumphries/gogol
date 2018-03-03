@@ -41,13 +41,14 @@ module Network.Google.Resource.ServiceManagement.Services.Rollouts.List
     , srlUploadType
     , srlBearerToken
     , srlServiceName
+    , srlFilter
     , srlPageToken
     , srlPageSize
     , srlCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.rollouts.list@ method which the
 -- 'ServicesRolloutsList' request conforms to.
@@ -62,27 +63,29 @@ type ServicesRolloutsListResource =
                    QueryParam "access_token" Text :>
                      QueryParam "uploadType" Text :>
                        QueryParam "bearer_token" Text :>
-                         QueryParam "pageToken" Text :>
-                           QueryParam "pageSize" (Textual Int32) :>
-                             QueryParam "callback" Text :>
-                               QueryParam "alt" AltJSON :>
-                                 Get '[JSON] ListServiceRolloutsResponse
+                         QueryParam "filter" Text :>
+                           QueryParam "pageToken" Text :>
+                             QueryParam "pageSize" (Textual Int32) :>
+                               QueryParam "callback" Text :>
+                                 QueryParam "alt" AltJSON :>
+                                   Get '[JSON] ListServiceRolloutsResponse
 
 -- | Lists the history of the service configuration rollouts for a managed
 -- service, from the newest to the oldest.
 --
 -- /See:/ 'servicesRolloutsList' smart constructor.
 data ServicesRolloutsList = ServicesRolloutsList'
-    { _srlXgafv          :: !(Maybe Xgafv)
+    { _srlXgafv :: !(Maybe Xgafv)
     , _srlUploadProtocol :: !(Maybe Text)
-    , _srlPp             :: !Bool
-    , _srlAccessToken    :: !(Maybe Text)
-    , _srlUploadType     :: !(Maybe Text)
-    , _srlBearerToken    :: !(Maybe Text)
-    , _srlServiceName    :: !Text
-    , _srlPageToken      :: !(Maybe Text)
-    , _srlPageSize       :: !(Maybe (Textual Int32))
-    , _srlCallback       :: !(Maybe Text)
+    , _srlPp :: !Bool
+    , _srlAccessToken :: !(Maybe Text)
+    , _srlUploadType :: !(Maybe Text)
+    , _srlBearerToken :: !(Maybe Text)
+    , _srlServiceName :: !Text
+    , _srlFilter :: !(Maybe Text)
+    , _srlPageToken :: !(Maybe Text)
+    , _srlPageSize :: !(Maybe (Textual Int32))
+    , _srlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesRolloutsList' with the minimum fields required to make a request.
@@ -103,6 +106,8 @@ data ServicesRolloutsList = ServicesRolloutsList'
 --
 -- * 'srlServiceName'
 --
+-- * 'srlFilter'
+--
 -- * 'srlPageToken'
 --
 -- * 'srlPageSize'
@@ -111,7 +116,7 @@ data ServicesRolloutsList = ServicesRolloutsList'
 servicesRolloutsList
     :: Text -- ^ 'srlServiceName'
     -> ServicesRolloutsList
-servicesRolloutsList pSrlServiceName_ =
+servicesRolloutsList pSrlServiceName_ = 
     ServicesRolloutsList'
     { _srlXgafv = Nothing
     , _srlUploadProtocol = Nothing
@@ -120,6 +125,7 @@ servicesRolloutsList pSrlServiceName_ =
     , _srlUploadType = Nothing
     , _srlBearerToken = Nothing
     , _srlServiceName = pSrlServiceName_
+    , _srlFilter = Nothing
     , _srlPageToken = Nothing
     , _srlPageSize = Nothing
     , _srlCallback = Nothing
@@ -165,6 +171,16 @@ srlServiceName
   = lens _srlServiceName
       (\ s a -> s{_srlServiceName = a})
 
+-- | Use \`filter\` to return subset of rollouts. The following filters are
+-- supported: -- To limit the results to only those in
+-- [status](google.api.servicemanagement.v1.RolloutStatus) \'SUCCESS\', use
+-- filter=\'status=SUCCESS\' -- To limit the results to those in
+-- [status](google.api.servicemanagement.v1.RolloutStatus) \'CANCELLED\' or
+-- \'FAILED\', use filter=\'status=CANCELLED OR status=FAILED\'
+srlFilter :: Lens' ServicesRolloutsList (Maybe Text)
+srlFilter
+  = lens _srlFilter (\ s a -> s{_srlFilter = a})
+
 -- | The token of the page to retrieve.
 srlPageToken :: Lens' ServicesRolloutsList (Maybe Text)
 srlPageToken
@@ -195,6 +211,7 @@ instance GoogleRequest ServicesRolloutsList where
               _srlAccessToken
               _srlUploadType
               _srlBearerToken
+              _srlFilter
               _srlPageToken
               _srlPageSize
               _srlCallback

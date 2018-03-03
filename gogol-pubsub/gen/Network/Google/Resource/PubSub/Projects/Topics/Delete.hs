@@ -48,8 +48,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.Delete
     , ptdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.delete@ method which the
 -- 'ProjectsTopicsDelete' request conforms to.
@@ -74,14 +74,14 @@ type ProjectsTopicsDeleteResource =
 --
 -- /See:/ 'projectsTopicsDelete' smart constructor.
 data ProjectsTopicsDelete = ProjectsTopicsDelete'
-    { _ptdXgafv          :: !(Maybe Xgafv)
+    { _ptdXgafv :: !(Maybe Xgafv)
     , _ptdUploadProtocol :: !(Maybe Text)
-    , _ptdPp             :: !Bool
-    , _ptdAccessToken    :: !(Maybe Text)
-    , _ptdUploadType     :: !(Maybe Text)
-    , _ptdTopic          :: !Text
-    , _ptdBearerToken    :: !(Maybe Text)
-    , _ptdCallback       :: !(Maybe Text)
+    , _ptdPp :: !Bool
+    , _ptdAccessToken :: !(Maybe Text)
+    , _ptdUploadType :: !(Maybe Text)
+    , _ptdTopic :: !Text
+    , _ptdBearerToken :: !(Maybe Text)
+    , _ptdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsDelete' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ data ProjectsTopicsDelete = ProjectsTopicsDelete'
 projectsTopicsDelete
     :: Text -- ^ 'ptdTopic'
     -> ProjectsTopicsDelete
-projectsTopicsDelete pPtdTopic_ =
+projectsTopicsDelete pPtdTopic_ = 
     ProjectsTopicsDelete'
     { _ptdXgafv = Nothing
     , _ptdUploadProtocol = Nothing

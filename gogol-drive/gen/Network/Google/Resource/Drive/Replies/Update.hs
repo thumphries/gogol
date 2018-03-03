@@ -39,8 +39,8 @@ module Network.Google.Resource.Drive.Replies.Update
     , ruCommentId
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.replies.update@ method which the
 -- 'RepliesUpdate' request conforms to.
@@ -60,9 +60,9 @@ type RepliesUpdateResource =
 --
 -- /See:/ 'repliesUpdate' smart constructor.
 data RepliesUpdate = RepliesUpdate'
-    { _ruPayload   :: !Reply
-    , _ruReplyId   :: !Text
-    , _ruFileId    :: !Text
+    { _ruPayload :: !Reply
+    , _ruReplyId :: !Text
+    , _ruFileId :: !Text
     , _ruCommentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ repliesUpdate
     -> Text -- ^ 'ruFileId'
     -> Text -- ^ 'ruCommentId'
     -> RepliesUpdate
-repliesUpdate pRuPayload_ pRuReplyId_ pRuFileId_ pRuCommentId_ =
+repliesUpdate pRuPayload_ pRuReplyId_ pRuFileId_ pRuCommentId_ = 
     RepliesUpdate'
     { _ruPayload = pRuPayload_
     , _ruReplyId = pRuReplyId_

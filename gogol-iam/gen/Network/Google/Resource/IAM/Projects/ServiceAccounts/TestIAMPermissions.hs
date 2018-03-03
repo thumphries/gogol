@@ -45,8 +45,8 @@ module Network.Google.Resource.IAM.Projects.ServiceAccounts.TestIAMPermissions
     , psatipCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.projects.serviceAccounts.testIamPermissions@ method which the
 -- 'ProjectsServiceAccountsTestIAMPermissions' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsServiceAccountsTestIAMPermissionsResource
      =
      "v1" :>
        CaptureMode "resource" "testIamPermissions" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -70,15 +70,15 @@ type ProjectsServiceAccountsTestIAMPermissionsResource
 --
 -- /See:/ 'projectsServiceAccountsTestIAMPermissions' smart constructor.
 data ProjectsServiceAccountsTestIAMPermissions = ProjectsServiceAccountsTestIAMPermissions'
-    { _psatipXgafv          :: !(Maybe Text)
+    { _psatipXgafv :: !(Maybe Xgafv)
     , _psatipUploadProtocol :: !(Maybe Text)
-    , _psatipPp             :: !Bool
-    , _psatipAccessToken    :: !(Maybe Text)
-    , _psatipUploadType     :: !(Maybe Text)
-    , _psatipPayload        :: !TestIAMPermissionsRequest
-    , _psatipBearerToken    :: !(Maybe Text)
-    , _psatipResource       :: !Text
-    , _psatipCallback       :: !(Maybe Text)
+    , _psatipPp :: !Bool
+    , _psatipAccessToken :: !(Maybe Text)
+    , _psatipUploadType :: !(Maybe Text)
+    , _psatipPayload :: !TestIAMPermissionsRequest
+    , _psatipBearerToken :: !(Maybe Text)
+    , _psatipResource :: !Text
+    , _psatipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsServiceAccountsTestIAMPermissions' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsServiceAccountsTestIAMPermissions
     :: TestIAMPermissionsRequest -- ^ 'psatipPayload'
     -> Text -- ^ 'psatipResource'
     -> ProjectsServiceAccountsTestIAMPermissions
-projectsServiceAccountsTestIAMPermissions pPsatipPayload_ pPsatipResource_ =
+projectsServiceAccountsTestIAMPermissions pPsatipPayload_ pPsatipResource_ = 
     ProjectsServiceAccountsTestIAMPermissions'
     { _psatipXgafv = Nothing
     , _psatipUploadProtocol = Nothing
@@ -120,7 +120,7 @@ projectsServiceAccountsTestIAMPermissions pPsatipPayload_ pPsatipResource_ =
     }
 
 -- | V1 error format.
-psatipXgafv :: Lens' ProjectsServiceAccountsTestIAMPermissions (Maybe Text)
+psatipXgafv :: Lens' ProjectsServiceAccountsTestIAMPermissions (Maybe Xgafv)
 psatipXgafv
   = lens _psatipXgafv (\ s a -> s{_psatipXgafv = a})
 
@@ -159,8 +159,8 @@ psatipBearerToken
       (\ s a -> s{_psatipBearerToken = a})
 
 -- | REQUIRED: The resource for which the policy detail is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- See the operation documentation for the appropriate value for this
+-- field.
 psatipResource :: Lens' ProjectsServiceAccountsTestIAMPermissions Text
 psatipResource
   = lens _psatipResource

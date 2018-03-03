@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforDevice.
     , mcdpManagedConfigurationForDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsfordevice.patch@ method which the
 -- 'ManagedConfigurationsforDevicePatch' request conforms to.
@@ -66,10 +66,10 @@ type ManagedConfigurationsforDevicePatchResource =
 --
 -- /See:/ 'managedConfigurationsforDevicePatch' smart constructor.
 data ManagedConfigurationsforDevicePatch = ManagedConfigurationsforDevicePatch'
-    { _mcdpEnterpriseId                    :: !Text
-    , _mcdpPayload                         :: !ManagedConfiguration
-    , _mcdpUserId                          :: !Text
-    , _mcdpDeviceId                        :: !Text
+    { _mcdpEnterpriseId :: !Text
+    , _mcdpPayload :: !ManagedConfiguration
+    , _mcdpUserId :: !Text
+    , _mcdpDeviceId :: !Text
     , _mcdpManagedConfigurationForDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -93,7 +93,7 @@ managedConfigurationsforDevicePatch
     -> Text -- ^ 'mcdpDeviceId'
     -> Text -- ^ 'mcdpManagedConfigurationForDeviceId'
     -> ManagedConfigurationsforDevicePatch
-managedConfigurationsforDevicePatch pMcdpEnterpriseId_ pMcdpPayload_ pMcdpUserId_ pMcdpDeviceId_ pMcdpManagedConfigurationForDeviceId_ =
+managedConfigurationsforDevicePatch pMcdpEnterpriseId_ pMcdpPayload_ pMcdpUserId_ pMcdpDeviceId_ pMcdpManagedConfigurationForDeviceId_ = 
     ManagedConfigurationsforDevicePatch'
     { _mcdpEnterpriseId = pMcdpEnterpriseId_
     , _mcdpPayload = pMcdpPayload_

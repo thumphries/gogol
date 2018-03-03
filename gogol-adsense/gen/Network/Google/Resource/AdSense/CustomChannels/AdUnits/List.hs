@@ -40,8 +40,8 @@ module Network.Google.Resource.AdSense.CustomChannels.AdUnits.List
     , ccaulMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.customchannels.adunits.list@ method which the
 -- 'CustomChannelsAdUnitsList' request conforms to.
@@ -64,9 +64,9 @@ type CustomChannelsAdUnitsListResource =
 data CustomChannelsAdUnitsList = CustomChannelsAdUnitsList'
     { _ccaulIncludeInactive :: !(Maybe Bool)
     , _ccaulCustomChannelId :: !Text
-    , _ccaulAdClientId      :: !Text
-    , _ccaulPageToken       :: !(Maybe Text)
-    , _ccaulMaxResults      :: !(Maybe (Textual Int32))
+    , _ccaulAdClientId :: !Text
+    , _ccaulPageToken :: !(Maybe Text)
+    , _ccaulMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomChannelsAdUnitsList' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ customChannelsAdUnitsList
     :: Text -- ^ 'ccaulCustomChannelId'
     -> Text -- ^ 'ccaulAdClientId'
     -> CustomChannelsAdUnitsList
-customChannelsAdUnitsList pCcaulCustomChannelId_ pCcaulAdClientId_ =
+customChannelsAdUnitsList pCcaulCustomChannelId_ pCcaulAdClientId_ = 
     CustomChannelsAdUnitsList'
     { _ccaulIncludeInactive = Nothing
     , _ccaulCustomChannelId = pCcaulCustomChannelId_

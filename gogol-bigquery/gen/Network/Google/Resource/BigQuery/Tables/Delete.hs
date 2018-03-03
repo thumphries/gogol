@@ -39,8 +39,8 @@ module Network.Google.Resource.BigQuery.Tables.Delete
     , tdTableId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.tables.delete@ method which the
 -- 'TablesDelete' request conforms to.
@@ -62,7 +62,7 @@ type TablesDeleteResource =
 data TablesDelete = TablesDelete'
     { _tdDataSetId :: !Text
     , _tdProjectId :: !Text
-    , _tdTableId   :: !Text
+    , _tdTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TablesDelete' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ tablesDelete
     -> Text -- ^ 'tdProjectId'
     -> Text -- ^ 'tdTableId'
     -> TablesDelete
-tablesDelete pTdDataSetId_ pTdProjectId_ pTdTableId_ =
+tablesDelete pTdDataSetId_ pTdProjectId_ pTdTableId_ = 
     TablesDelete'
     { _tdDataSetId = pTdDataSetId_
     , _tdProjectId = pTdProjectId_

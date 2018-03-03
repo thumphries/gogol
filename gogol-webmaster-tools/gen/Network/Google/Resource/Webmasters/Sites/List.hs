@@ -34,8 +34,8 @@ module Network.Google.Resource.Webmasters.Sites.List
 
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sites.list@ method which the
 -- 'SitesList' request conforms to.
@@ -50,7 +50,7 @@ type SitesListResource =
 --
 -- /See:/ 'sitesList' smart constructor.
 data SitesList =
-    SitesList'
+    SitesList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitesList' with the minimum fields required to make a request.

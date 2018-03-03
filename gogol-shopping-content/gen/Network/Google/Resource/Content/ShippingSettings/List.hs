@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the shipping settings of the sub-accounts in your Merchant Center
--- account. This method can only be called for multi-client accounts.
+-- account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.shippingsettings.list@.
 module Network.Google.Resource.Content.ShippingSettings.List
@@ -39,8 +39,8 @@ module Network.Google.Resource.Content.ShippingSettings.List
     , sslMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.shippingsettings.list@ method which the
 -- 'ShippingSettingsList' request conforms to.
@@ -55,12 +55,12 @@ type ShippingSettingsListResource =
                    Get '[JSON] ShippingSettingsListResponse
 
 -- | Lists the shipping settings of the sub-accounts in your Merchant Center
--- account. This method can only be called for multi-client accounts.
+-- account.
 --
 -- /See:/ 'shippingSettingsList' smart constructor.
 data ShippingSettingsList = ShippingSettingsList'
     { _sslMerchantId :: !(Textual Word64)
-    , _sslPageToken  :: !(Maybe Text)
+    , _sslPageToken :: !(Maybe Text)
     , _sslMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,14 +76,14 @@ data ShippingSettingsList = ShippingSettingsList'
 shippingSettingsList
     :: Word64 -- ^ 'sslMerchantId'
     -> ShippingSettingsList
-shippingSettingsList pSslMerchantId_ =
+shippingSettingsList pSslMerchantId_ = 
     ShippingSettingsList'
     { _sslMerchantId = _Coerce # pSslMerchantId_
     , _sslPageToken = Nothing
     , _sslMaxResults = Nothing
     }
 
--- | The ID of the managing account.
+-- | The ID of the managing account. This must be a multi-client account.
 sslMerchantId :: Lens' ShippingSettingsList Word64
 sslMerchantId
   = lens _sslMerchantId

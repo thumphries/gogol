@@ -58,8 +58,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.P
     , ccwsspCourseWorkId
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.studentSubmissions.patch@ method which the
 -- 'CoursesCourseWorkStudentSubmissionsPatch' request conforms to.
@@ -72,9 +72,9 @@ type CoursesCourseWorkStudentSubmissionsPatchResource
              Capture "courseWorkId" Text :>
                "studentSubmissions" :>
                  Capture "id" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
-                       QueryParam "updateMask" Text :>
+                       QueryParam "updateMask" FieldMask :>
                          QueryParam "pp" Bool :>
                            QueryParam "access_token" Text :>
                              QueryParam "uploadType" Text :>
@@ -99,18 +99,18 @@ type CoursesCourseWorkStudentSubmissionsPatchResource
 --
 -- /See:/ 'coursesCourseWorkStudentSubmissionsPatch' smart constructor.
 data CoursesCourseWorkStudentSubmissionsPatch = CoursesCourseWorkStudentSubmissionsPatch'
-    { _ccwsspXgafv          :: !(Maybe Text)
+    { _ccwsspXgafv :: !(Maybe Xgafv)
     , _ccwsspUploadProtocol :: !(Maybe Text)
-    , _ccwsspUpdateMask     :: !(Maybe Text)
-    , _ccwsspPp             :: !Bool
-    , _ccwsspCourseId       :: !Text
-    , _ccwsspAccessToken    :: !(Maybe Text)
-    , _ccwsspUploadType     :: !(Maybe Text)
-    , _ccwsspPayload        :: !StudentSubmission
-    , _ccwsspBearerToken    :: !(Maybe Text)
-    , _ccwsspId             :: !Text
-    , _ccwsspCallback       :: !(Maybe Text)
-    , _ccwsspCourseWorkId   :: !Text
+    , _ccwsspUpdateMask :: !(Maybe FieldMask)
+    , _ccwsspPp :: !Bool
+    , _ccwsspCourseId :: !Text
+    , _ccwsspAccessToken :: !(Maybe Text)
+    , _ccwsspUploadType :: !(Maybe Text)
+    , _ccwsspPayload :: !StudentSubmission
+    , _ccwsspBearerToken :: !(Maybe Text)
+    , _ccwsspId :: !Text
+    , _ccwsspCallback :: !(Maybe Text)
+    , _ccwsspCourseWorkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkStudentSubmissionsPatch' with the minimum fields required to make a request.
@@ -146,7 +146,7 @@ coursesCourseWorkStudentSubmissionsPatch
     -> Text -- ^ 'ccwsspId'
     -> Text -- ^ 'ccwsspCourseWorkId'
     -> CoursesCourseWorkStudentSubmissionsPatch
-coursesCourseWorkStudentSubmissionsPatch pCcwsspCourseId_ pCcwsspPayload_ pCcwsspId_ pCcwsspCourseWorkId_ =
+coursesCourseWorkStudentSubmissionsPatch pCcwsspCourseId_ pCcwsspPayload_ pCcwsspId_ pCcwsspCourseWorkId_ = 
     CoursesCourseWorkStudentSubmissionsPatch'
     { _ccwsspXgafv = Nothing
     , _ccwsspUploadProtocol = Nothing
@@ -163,7 +163,7 @@ coursesCourseWorkStudentSubmissionsPatch pCcwsspCourseId_ pCcwsspPayload_ pCcwss
     }
 
 -- | V1 error format.
-ccwsspXgafv :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe Text)
+ccwsspXgafv :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe Xgafv)
 ccwsspXgafv
   = lens _ccwsspXgafv (\ s a -> s{_ccwsspXgafv = a})
 
@@ -177,7 +177,7 @@ ccwsspUploadProtocol
 -- This field is required to do an update. The update fails if invalid
 -- fields are specified. The following fields may be specified by teachers:
 -- * \`draft_grade\` * \`assigned_grade\`
-ccwsspUpdateMask :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe Text)
+ccwsspUpdateMask :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe FieldMask)
 ccwsspUpdateMask
   = lens _ccwsspUpdateMask
       (\ s a -> s{_ccwsspUpdateMask = a})

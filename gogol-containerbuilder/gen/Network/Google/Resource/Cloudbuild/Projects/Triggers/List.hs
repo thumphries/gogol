@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists existing BuildTrigger. This API is experimental.
+-- Lists existing \`BuildTrigger\`s. This API is experimental.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.list@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.list@.
 module Network.Google.Resource.Cloudbuild.Projects.Triggers.List
     (
     -- * REST Resource
@@ -43,8 +43,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Triggers.List
     , ptlCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.triggers.list@ method which the
 -- 'ProjectsTriggersList' request conforms to.
@@ -63,18 +63,18 @@ type ProjectsTriggersListResource =
                            QueryParam "alt" AltJSON :>
                              Get '[JSON] ListBuildTriggersResponse
 
--- | Lists existing BuildTrigger. This API is experimental.
+-- | Lists existing \`BuildTrigger\`s. This API is experimental.
 --
 -- /See:/ 'projectsTriggersList' smart constructor.
 data ProjectsTriggersList = ProjectsTriggersList'
-    { _ptlXgafv          :: !(Maybe Xgafv)
+    { _ptlXgafv :: !(Maybe Xgafv)
     , _ptlUploadProtocol :: !(Maybe Text)
-    , _ptlPp             :: !Bool
-    , _ptlAccessToken    :: !(Maybe Text)
-    , _ptlUploadType     :: !(Maybe Text)
-    , _ptlBearerToken    :: !(Maybe Text)
-    , _ptlProjectId      :: !Text
-    , _ptlCallback       :: !(Maybe Text)
+    , _ptlPp :: !Bool
+    , _ptlAccessToken :: !(Maybe Text)
+    , _ptlUploadType :: !(Maybe Text)
+    , _ptlBearerToken :: !(Maybe Text)
+    , _ptlProjectId :: !Text
+    , _ptlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTriggersList' with the minimum fields required to make a request.
@@ -99,7 +99,7 @@ data ProjectsTriggersList = ProjectsTriggersList'
 projectsTriggersList
     :: Text -- ^ 'ptlProjectId'
     -> ProjectsTriggersList
-projectsTriggersList pPtlProjectId_ =
+projectsTriggersList pPtlProjectId_ = 
     ProjectsTriggersList'
     { _ptlXgafv = Nothing
     , _ptlUploadProtocol = Nothing

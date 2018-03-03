@@ -45,15 +45,15 @@ module Network.Google.Resource.Partners.ClientMessages.Log
     , cmlCallback
     ) where
 
-import           Network.Google.Partners.Types
-import           Network.Google.Prelude
+import Network.Google.Partners.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @partners.clientMessages.log@ method which the
 -- 'ClientMessagesLog' request conforms to.
 type ClientMessagesLogResource =
      "v2" :>
        "clientMessages:log" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -70,14 +70,14 @@ type ClientMessagesLogResource =
 --
 -- /See:/ 'clientMessagesLog' smart constructor.
 data ClientMessagesLog = ClientMessagesLog'
-    { _cmlXgafv          :: !(Maybe Text)
+    { _cmlXgafv :: !(Maybe Xgafv)
     , _cmlUploadProtocol :: !(Maybe Text)
-    , _cmlPp             :: !Bool
-    , _cmlAccessToken    :: !(Maybe Text)
-    , _cmlUploadType     :: !(Maybe Text)
-    , _cmlPayload        :: !LogMessageRequest
-    , _cmlBearerToken    :: !(Maybe Text)
-    , _cmlCallback       :: !(Maybe Text)
+    , _cmlPp :: !Bool
+    , _cmlAccessToken :: !(Maybe Text)
+    , _cmlUploadType :: !(Maybe Text)
+    , _cmlPayload :: !LogMessageRequest
+    , _cmlBearerToken :: !(Maybe Text)
+    , _cmlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ClientMessagesLog' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data ClientMessagesLog = ClientMessagesLog'
 clientMessagesLog
     :: LogMessageRequest -- ^ 'cmlPayload'
     -> ClientMessagesLog
-clientMessagesLog pCmlPayload_ =
+clientMessagesLog pCmlPayload_ = 
     ClientMessagesLog'
     { _cmlXgafv = Nothing
     , _cmlUploadProtocol = Nothing
@@ -115,7 +115,7 @@ clientMessagesLog pCmlPayload_ =
     }
 
 -- | V1 error format.
-cmlXgafv :: Lens' ClientMessagesLog (Maybe Text)
+cmlXgafv :: Lens' ClientMessagesLog (Maybe Xgafv)
 cmlXgafv = lens _cmlXgafv (\ s a -> s{_cmlXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

@@ -44,8 +44,8 @@ module Network.Google.Resource.YouTubeReporting.Media.Download
     , mdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.media.download@ method which the
 -- 'MediaDownload'' request conforms to.
@@ -60,7 +60,7 @@ type MediaDownloadResource =
                    QueryParam "uploadType" Text :>
                      QueryParam "bearer_token" Text :>
                        QueryParam "callback" Text :>
-                         QueryParam "alt" AltJSON :> Get '[JSON] Media
+                         QueryParam "alt" AltJSON :> Get '[JSON] GDataMedia
        :<|>
        "v1" :>
          "media" :>
@@ -80,14 +80,14 @@ type MediaDownloadResource =
 --
 -- /See:/ 'mediaDownload' smart constructor.
 data MediaDownload' = MediaDownload''
-    { _mdXgafv          :: !(Maybe Xgafv)
+    { _mdXgafv :: !(Maybe Xgafv)
     , _mdUploadProtocol :: !(Maybe Text)
-    , _mdResourceName   :: !Text
-    , _mdPp             :: !Bool
-    , _mdAccessToken    :: !(Maybe Text)
-    , _mdUploadType     :: !(Maybe Text)
-    , _mdBearerToken    :: !(Maybe Text)
-    , _mdCallback       :: !(Maybe Text)
+    , _mdResourceName :: !Text
+    , _mdPp :: !Bool
+    , _mdAccessToken :: !(Maybe Text)
+    , _mdUploadType :: !(Maybe Text)
+    , _mdBearerToken :: !(Maybe Text)
+    , _mdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MediaDownload' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ data MediaDownload' = MediaDownload''
 mediaDownload
     :: Text -- ^ 'mdResourceName'
     -> MediaDownload'
-mediaDownload pMdResourceName_ =
+mediaDownload pMdResourceName_ = 
     MediaDownload''
     { _mdXgafv = Nothing
     , _mdUploadProtocol = Nothing
@@ -134,8 +134,7 @@ mdUploadProtocol
   = lens _mdUploadProtocol
       (\ s a -> s{_mdUploadProtocol = a})
 
--- | Name of the media that is being downloaded. See
--- ReadRequest.resource_name.
+-- | Name of the media that is being downloaded.
 mdResourceName :: Lens' MediaDownload' Text
 mdResourceName
   = lens _mdResourceName
@@ -168,7 +167,7 @@ mdCallback
   = lens _mdCallback (\ s a -> s{_mdCallback = a})
 
 instance GoogleRequest MediaDownload' where
-        type Rs MediaDownload' = Media
+        type Rs MediaDownload' = GDataMedia
         type Scopes MediaDownload' =
              '["https://www.googleapis.com/auth/yt-analytics-monetary.readonly",
                "https://www.googleapis.com/auth/yt-analytics.readonly"]

@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.WebProperties.Update
     , mwpuAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webproperties.update@ method which the
 -- 'ManagementWebPropertiesUpdate' request conforms to.
@@ -60,8 +60,8 @@ type ManagementWebPropertiesUpdateResource =
 -- /See:/ 'managementWebPropertiesUpdate' smart constructor.
 data ManagementWebPropertiesUpdate = ManagementWebPropertiesUpdate'
     { _mwpuWebPropertyId :: !Text
-    , _mwpuPayload       :: !WebProperty
-    , _mwpuAccountId     :: !Text
+    , _mwpuPayload :: !WebProperty
+    , _mwpuAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertiesUpdate' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ managementWebPropertiesUpdate
     -> WebProperty -- ^ 'mwpuPayload'
     -> Text -- ^ 'mwpuAccountId'
     -> ManagementWebPropertiesUpdate
-managementWebPropertiesUpdate pMwpuWebPropertyId_ pMwpuPayload_ pMwpuAccountId_ =
+managementWebPropertiesUpdate pMwpuWebPropertyId_ pMwpuPayload_ pMwpuAccountId_ = 
     ManagementWebPropertiesUpdate'
     { _mwpuWebPropertyId = pMwpuWebPropertyId_
     , _mwpuPayload = pMwpuPayload_

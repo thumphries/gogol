@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -48,6 +48,17 @@ module Network.Google.Directory.Types
     , adminDirectoryDeviceMobileScope
     , adminDirectoryDeviceMobileReadOnlyScope
 
+    -- * UserLocation
+    , UserLocation
+    , userLocation
+    , ulArea
+    , ulBuildingId
+    , ulDeskCode
+    , ulFloorName
+    , ulType
+    , ulCustomType
+    , ulFloorSection
+
     -- * VerificationCode
     , VerificationCode
     , verificationCode
@@ -55,6 +66,13 @@ module Network.Google.Directory.Types
     , vcEtag
     , vcKind
     , vcUserId
+
+    -- * Feature
+    , Feature
+    , feature
+    , fEtags
+    , fKind
+    , fName
 
     -- * OrgUnit
     , OrgUnit
@@ -209,8 +227,10 @@ module Network.Google.Directory.Types
     , codModel
     , codWillAutoRenew
     , codMeid
+    , codDeviceFiles
     , codDeviceId
     , codBootMode
+    , codTpmVersionInfo
     , codOrderNumber
     , codAnnotatedAssetId
     , codNotes
@@ -251,8 +271,24 @@ module Network.Google.Directory.Types
     , sSchemas
     , sKind
 
+    -- * ChromeOSDeviceDeviceFilesItem
+    , ChromeOSDeviceDeviceFilesItem
+    , chromeOSDeviceDeviceFilesItem
+    , coddfiName
+    , coddfiDownloadURL
+    , coddfiType
+    , coddfiCreateTime
+
     -- * UsersListViewType
     , UsersListViewType (..)
+
+    -- * Buildings
+    , Buildings
+    , buildings
+    , bEtag
+    , bNextPageToken
+    , bBuildings
+    , bKind
 
     -- * OrgUnitsListType
     , OrgUnitsListType (..)
@@ -297,6 +333,13 @@ module Network.Google.Directory.Types
     , userCustomSchemas
     , ucsAddtional
 
+    -- * UserKeyword
+    , UserKeyword
+    , userKeyword
+    , ukValue
+    , ukType
+    , ukCustomType
+
     -- * DomainAliases
     , DomainAliases
     , domainAliases
@@ -319,8 +362,16 @@ module Network.Google.Directory.Types
     , crResourceType
     , crResourceName
     , crKind
+    , crBuildingId
+    , crFeatureInstances
     , crResourceEmail
+    , crCapacity
     , crResourceDescription
+    , crFloorName
+    , crGeneratedResourceName
+    , crResourceCategory
+    , crFloorSection
+    , crUserVisibleDescription
 
     -- * UserUndelete
     , UserUndelete
@@ -379,6 +430,17 @@ module Network.Google.Directory.Types
     -- * UsersWatchViewType
     , UsersWatchViewType (..)
 
+    -- * Building
+    , Building
+    , building
+    , buiEtags
+    , buiKind
+    , buiBuildingId
+    , buiCoordinates
+    , buiBuildingName
+    , buiFloorNames
+    , buiDescription
+
     -- * ChromeOSDeviceRecentUsersItem
     , ChromeOSDeviceRecentUsersItem
     , chromeOSDeviceRecentUsersItem
@@ -394,6 +456,13 @@ module Network.Google.Directory.Types
     , dVerified
     , dDomainAliasName
     , dParentDomainName
+
+    -- * UserGender
+    , UserGender
+    , userGender
+    , ugAddressMeAs
+    , ugCustomGender
+    , ugType
 
     -- * Alias
     , Alias
@@ -416,6 +485,11 @@ module Network.Google.Directory.Types
     , schSchemaId
     , schFields
 
+    -- * ChromeOSMoveDevicesToOu
+    , ChromeOSMoveDevicesToOu
+    , chromeOSMoveDevicesToOu
+    , comdtoDeviceIds
+
     -- * User
     , User
     , user
@@ -423,8 +497,10 @@ module Network.Google.Directory.Types
     , useLastLoginTime
     , useThumbnailPhotoEtag
     , useEtag
+    , usePosixAccounts
     , useIPWhiteListed
     , useRelations
+    , useSSHPublicKeys
     , useHashFunction
     , useKind
     , useChangePasswordAtNextLogin
@@ -439,12 +515,15 @@ module Network.Google.Directory.Types
     , useNonEditableAliases
     , useOrgUnitPath
     , useCustomerId
+    , useLanguages
     , useIncludeInGlobalAddressList
+    , useGender
     , usePhones
     , useName
     , usePassword
     , useEmails
     , useIms
+    , useKeywords
     , useIsAdmin
     , useIsEnrolledIn2Sv
     , useId
@@ -453,6 +532,7 @@ module Network.Google.Directory.Types
     , useIsEnforcedIn2Sv
     , useNotes
     , useIsDelegatedAdmin
+    , useLocations
     , useIsMailboxSetup
     , useCustomSchemas
     , useSuspensionReason
@@ -465,6 +545,11 @@ module Network.Google.Directory.Types
     , chromeOSDeviceAction
     , codaAction
     , codaDeprovisionReason
+
+    -- * FeatureRename
+    , FeatureRename
+    , featureRename
+    , frNewName
 
     -- * Role
     , Role
@@ -513,12 +598,25 @@ module Network.Google.Directory.Types
     , oKind
     , oOrganizationUnits
 
+    -- * UserSSHPublicKey
+    , UserSSHPublicKey
+    , userSSHPublicKey
+    , uspkFingerprint
+    , uspkKey
+    , uspkExpirationTimeUsec
+
     -- * VerificationCodes
     , VerificationCodes
     , verificationCodes
     , vEtag
     , vKind
     , vItems
+
+    -- * BuildingCoordinates
+    , BuildingCoordinates
+    , buildingCoordinates
+    , bcLatitude
+    , bcLongitude
 
     -- * ChromeosDevicesListSortOrder
     , ChromeosDevicesListSortOrder (..)
@@ -530,13 +628,39 @@ module Network.Google.Directory.Types
     , urType
     , urCustomType
 
+    -- * TrustedApps
+    , TrustedApps
+    , trustedApps
+    , taEtag
+    , taNextPageToken
+    , taKind
+    , taTrustedApps
+
     -- * UsersWatchSortOrder
     , UsersWatchSortOrder (..)
+
+    -- * Features
+    , Features
+    , features
+    , feaEtag
+    , feaNextPageToken
+    , feaKind
+    , feaFeatures
 
     -- * ChannelParams
     , ChannelParams
     , channelParams
     , cpAddtional
+
+    -- * ChromeOSDeviceTpmVersionInfo
+    , ChromeOSDeviceTpmVersionInfo
+    , chromeOSDeviceTpmVersionInfo
+    , codtviVendorSpecific
+    , codtviManufacturer
+    , codtviSpecLevel
+    , codtviTpmModel
+    , codtviFamily
+    , codtviFirmwareVersion
 
     -- * UserOrganization
     , UserOrganization
@@ -548,6 +672,7 @@ module Network.Google.Directory.Types
     , uoSymbol
     , uoPrimary
     , uoName
+    , uoFullTimeEquivalent
     , uoTitle
     , uoType
     , uoCustomType
@@ -595,8 +720,26 @@ module Network.Google.Directory.Types
     , upId
     , upPrimaryEmail
 
+    -- * UserPosixAccount
+    , UserPosixAccount
+    , userPosixAccount
+    , upaGecos
+    , upaUid
+    , upaUsername
+    , upaShell
+    , upaPrimary
+    , upaAccountId
+    , upaGid
+    , upaSystemId
+    , upaHomeDirectory
+
     -- * UsersListProjection
     , UsersListProjection (..)
+
+    -- * FeatureInstance
+    , FeatureInstance
+    , featureInstance
+    , fiFeature
 
     -- * ChromeosDevicesUpdateProjection
     , ChromeosDevicesUpdateProjection (..)
@@ -659,10 +802,28 @@ module Network.Google.Directory.Types
     , memId
     , memType
 
+    -- * AppAccessCollections
+    , AppAccessCollections
+    , appAccessCollections
+    , aacEtag
+    , aacResourceId
+    , aacEnforceSettingsForAndroidDrive
+    , aacResourceName
+    , aacKind
+    , aacTrustDomainOwnedApps
+    , aacBlockedAPIAccessBuckets
+    , aacErrorMessage
+
     -- * UserCustomProperties
     , UserCustomProperties
     , userCustomProperties
     , ucpAddtional
+
+    -- * UserLanguage
+    , UserLanguage
+    , userLanguage
+    , ulLanguageCode
+    , ulCustomLanguage
 
     -- * Domains
     , Domains
@@ -736,6 +897,20 @@ module Network.Google.Directory.Types
     , cosdKind
     , cosdChromeosDevices
 
+    -- * MembersHasMember
+    , MembersHasMember
+    , membersHasMember
+    , mhmIsMember
+
+    -- * TrustedAppId
+    , TrustedAppId
+    , trustedAppId
+    , taiCertificateHashSHA256
+    , taiEtag
+    , taiKind
+    , taiCertificateHashSHA1
+    , taiAndroidPackageName
+
     -- * UserExternalId
     , UserExternalId
     , userExternalId
@@ -767,9 +942,9 @@ module Network.Google.Directory.Types
     , ddDomains
     ) where
 
-import           Network.Google.Directory.Types.Product
-import           Network.Google.Directory.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.Directory.Types.Product
+import Network.Google.Directory.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'directory_v1' of the Admin Directory API. This contains the host and root path used as a starting point for constructing service requests.
 directoryService :: ServiceConfig

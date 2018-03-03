@@ -38,8 +38,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Delete
     , tdTask
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.delete@ method which the
 -- 'TasksDelete' request conforms to.
@@ -59,8 +59,8 @@ type TasksDeleteResource =
 -- /See:/ 'tasksDelete' smart constructor.
 data TasksDelete = TasksDelete'
     { _tdTaskQueue :: !Text
-    , _tdProject   :: !Text
-    , _tdTask      :: !Text
+    , _tdProject :: !Text
+    , _tdTask :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksDelete' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ tasksDelete
     -> Text -- ^ 'tdProject'
     -> Text -- ^ 'tdTask'
     -> TasksDelete
-tasksDelete pTdTaskQueue_ pTdProject_ pTdTask_ =
+tasksDelete pTdTaskQueue_ pTdProject_ pTdTask_ = 
     TasksDelete'
     { _tdTaskQueue = pTdTaskQueue_
     , _tdProject = pTdProject_

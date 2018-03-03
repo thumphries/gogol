@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.MobileCarriers.List
     , mclProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.mobileCarriers.list@ method which the
 -- 'MobileCarriersList' request conforms to.
 type MobileCarriersListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "mobileCarriers" :>
@@ -65,7 +65,7 @@ newtype MobileCarriersList = MobileCarriersList'
 mobileCarriersList
     :: Int64 -- ^ 'mclProFileId'
     -> MobileCarriersList
-mobileCarriersList pMclProFileId_ =
+mobileCarriersList pMclProFileId_ = 
     MobileCarriersList'
     { _mclProFileId = _Coerce # pMclProFileId_
     }

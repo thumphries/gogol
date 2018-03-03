@@ -36,8 +36,8 @@ module Network.Google.Resource.SiteVerification.WebResource.Delete
     , wrdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SiteVerification.Types
+import Network.Google.Prelude
+import Network.Google.SiteVerification.Types
 
 -- | A resource alias for @siteVerification.webResource.delete@ method which the
 -- 'WebResourceDelete' request conforms to.
@@ -63,7 +63,7 @@ newtype WebResourceDelete = WebResourceDelete'
 webResourceDelete
     :: Text -- ^ 'wrdId'
     -> WebResourceDelete
-webResourceDelete pWrdId_ =
+webResourceDelete pWrdId_ = 
     WebResourceDelete'
     { _wrdId = pWrdId_
     }

@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Marks line item(s) as shipped. This method can only be called for
--- non-multi-client accounts.
+-- Marks line item(s) as shipped.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.shiplineitems@.
 module Network.Google.Resource.Content.Orders.Shiplineitems
@@ -39,8 +38,8 @@ module Network.Google.Resource.Content.Orders.Shiplineitems
     , osOrderId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.shiplineitems@ method which the
 -- 'OrdersShiplineitems' request conforms to.
@@ -55,14 +54,13 @@ type OrdersShiplineitemsResource =
                    ReqBody '[JSON] OrdersShipLineItemsRequest :>
                      Post '[JSON] OrdersShipLineItemsResponse
 
--- | Marks line item(s) as shipped. This method can only be called for
--- non-multi-client accounts.
+-- | Marks line item(s) as shipped.
 --
 -- /See:/ 'ordersShiplineitems' smart constructor.
 data OrdersShiplineitems = OrdersShiplineitems'
     { _osMerchantId :: !(Textual Word64)
-    , _osPayload    :: !OrdersShipLineItemsRequest
-    , _osOrderId    :: !Text
+    , _osPayload :: !OrdersShipLineItemsRequest
+    , _osOrderId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrdersShiplineitems' with the minimum fields required to make a request.
@@ -79,14 +77,15 @@ ordersShiplineitems
     -> OrdersShipLineItemsRequest -- ^ 'osPayload'
     -> Text -- ^ 'osOrderId'
     -> OrdersShiplineitems
-ordersShiplineitems pOsMerchantId_ pOsPayload_ pOsOrderId_ =
+ordersShiplineitems pOsMerchantId_ pOsPayload_ pOsOrderId_ = 
     OrdersShiplineitems'
     { _osMerchantId = _Coerce # pOsMerchantId_
     , _osPayload = pOsPayload_
     , _osOrderId = pOsOrderId_
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that manages the order. This cannot be a
+-- multi-client account.
 osMerchantId :: Lens' OrdersShiplineitems Word64
 osMerchantId
   = lens _osMerchantId (\ s a -> s{_osMerchantId = a})

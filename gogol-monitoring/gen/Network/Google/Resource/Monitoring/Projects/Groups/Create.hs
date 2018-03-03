@@ -45,8 +45,8 @@ module Network.Google.Resource.Monitoring.Projects.Groups.Create
     , pgcCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.groups.create@ method which the
 -- 'ProjectsGroupsCreate' request conforms to.
@@ -69,16 +69,16 @@ type ProjectsGroupsCreateResource =
 --
 -- /See:/ 'projectsGroupsCreate' smart constructor.
 data ProjectsGroupsCreate = ProjectsGroupsCreate'
-    { _pgcXgafv          :: !(Maybe Xgafv)
-    , _pgcValidateOnly   :: !(Maybe Bool)
+    { _pgcXgafv :: !(Maybe Xgafv)
+    , _pgcValidateOnly :: !(Maybe Bool)
     , _pgcUploadProtocol :: !(Maybe Text)
-    , _pgcPp             :: !Bool
-    , _pgcAccessToken    :: !(Maybe Text)
-    , _pgcUploadType     :: !(Maybe Text)
-    , _pgcPayload        :: !Group
-    , _pgcBearerToken    :: !(Maybe Text)
-    , _pgcName           :: !Text
-    , _pgcCallback       :: !(Maybe Text)
+    , _pgcPp :: !Bool
+    , _pgcAccessToken :: !(Maybe Text)
+    , _pgcUploadType :: !(Maybe Text)
+    , _pgcPayload :: !Group
+    , _pgcBearerToken :: !(Maybe Text)
+    , _pgcName :: !Text
+    , _pgcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGroupsCreate' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ projectsGroupsCreate
     :: Group -- ^ 'pgcPayload'
     -> Text -- ^ 'pgcName'
     -> ProjectsGroupsCreate
-projectsGroupsCreate pPgcPayload_ pPgcName_ =
+projectsGroupsCreate pPgcPayload_ pPgcName_ = 
     ProjectsGroupsCreate'
     { _pgcXgafv = Nothing
     , _pgcValidateOnly = Nothing

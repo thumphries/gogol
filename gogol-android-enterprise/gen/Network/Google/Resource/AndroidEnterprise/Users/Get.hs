@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.Get
     , ugUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.get@ method which the
 -- 'UsersGet' request conforms to.
@@ -56,7 +56,7 @@ type UsersGetResource =
 -- /See:/ 'usersGet' smart constructor.
 data UsersGet = UsersGet'
     { _ugEnterpriseId :: !Text
-    , _ugUserId       :: !Text
+    , _ugUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ usersGet
     :: Text -- ^ 'ugEnterpriseId'
     -> Text -- ^ 'ugUserId'
     -> UsersGet
-usersGet pUgEnterpriseId_ pUgUserId_ =
+usersGet pUgEnterpriseId_ pUgUserId_ = 
     UsersGet'
     { _ugEnterpriseId = pUgEnterpriseId_
     , _ugUserId = pUgUserId_

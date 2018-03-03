@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Threads.Delete
     , utdId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.threads.delete@ method which the
 -- 'UsersThreadsDelete' request conforms to.
@@ -58,7 +58,7 @@ type UsersThreadsDeleteResource =
 -- /See:/ 'usersThreadsDelete' smart constructor.
 data UsersThreadsDelete = UsersThreadsDelete'
     { _utdUserId :: !Text
-    , _utdId     :: !Text
+    , _utdId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersThreadsDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersThreadsDelete = UsersThreadsDelete'
 usersThreadsDelete
     :: Text -- ^ 'utdId'
     -> UsersThreadsDelete
-usersThreadsDelete pUtdId_ =
+usersThreadsDelete pUtdId_ = 
     UsersThreadsDelete'
     { _utdUserId = "me"
     , _utdId = pUtdId_

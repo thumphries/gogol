@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.Videos.Update
     , vuOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.videos.update@ method which the
 -- 'VideosUpdate' request conforms to.
@@ -56,8 +56,8 @@ type VideosUpdateResource =
 --
 -- /See:/ 'videosUpdate' smart constructor.
 data VideosUpdate = VideosUpdate'
-    { _vuPart                   :: !Text
-    , _vuPayload                :: !Video
+    { _vuPart :: !Text
+    , _vuPayload :: !Video
     , _vuOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ videosUpdate
     :: Text -- ^ 'vuPart'
     -> Video -- ^ 'vuPayload'
     -> VideosUpdate
-videosUpdate pVuPart_ pVuPayload_ =
+videosUpdate pVuPart_ pVuPayload_ = 
     VideosUpdate'
     { _vuPart = pVuPart_
     , _vuPayload = pVuPayload_

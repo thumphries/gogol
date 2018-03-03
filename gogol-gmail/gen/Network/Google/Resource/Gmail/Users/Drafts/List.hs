@@ -40,8 +40,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.List
     , udlMaxResults
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.list@ method which the
 -- 'UsersDraftsList' request conforms to.
@@ -62,11 +62,11 @@ type UsersDraftsListResource =
 --
 -- /See:/ 'usersDraftsList' smart constructor.
 data UsersDraftsList = UsersDraftsList'
-    { _udlQ                :: !(Maybe Text)
-    , _udlUserId           :: !Text
+    { _udlQ :: !(Maybe Text)
+    , _udlUserId :: !Text
     , _udlIncludeSpamTrash :: !Bool
-    , _udlPageToken        :: !(Maybe Text)
-    , _udlMaxResults       :: !(Textual Word32)
+    , _udlPageToken :: !(Maybe Text)
+    , _udlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsList' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ data UsersDraftsList = UsersDraftsList'
 -- * 'udlMaxResults'
 usersDraftsList
     :: UsersDraftsList
-usersDraftsList =
+usersDraftsList = 
     UsersDraftsList'
     { _udlQ = Nothing
     , _udlUserId = "me"

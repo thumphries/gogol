@@ -35,8 +35,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKs.Upload
     , eapkuEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apks.upload@ method which the
 -- 'EditsAPKsUpload' request conforms to.
@@ -66,7 +66,7 @@ type EditsAPKsUploadResource =
 -- /See:/ 'editsAPKsUpload' smart constructor.
 data EditsAPKsUpload = EditsAPKsUpload'
     { _eapkuPackageName :: !Text
-    , _eapkuEditId      :: !Text
+    , _eapkuEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKsUpload' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ editsAPKsUpload
     :: Text -- ^ 'eapkuPackageName'
     -> Text -- ^ 'eapkuEditId'
     -> EditsAPKsUpload
-editsAPKsUpload pEapkuPackageName_ pEapkuEditId_ =
+editsAPKsUpload pEapkuPackageName_ pEapkuEditId_ = 
     EditsAPKsUpload'
     { _eapkuPackageName = pEapkuPackageName_
     , _eapkuEditId = pEapkuEditId_

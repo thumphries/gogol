@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Goals.Update
     , mguAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.goals.update@ method which the
 -- 'ManagementGoalsUpdate' request conforms to.
@@ -65,10 +65,10 @@ type ManagementGoalsUpdateResource =
 -- /See:/ 'managementGoalsUpdate' smart constructor.
 data ManagementGoalsUpdate = ManagementGoalsUpdate'
     { _mguWebPropertyId :: !Text
-    , _mguGoalId        :: !Text
-    , _mguProFileId     :: !Text
-    , _mguPayload       :: !Goal
-    , _mguAccountId     :: !Text
+    , _mguGoalId :: !Text
+    , _mguProFileId :: !Text
+    , _mguPayload :: !Goal
+    , _mguAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementGoalsUpdate' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ managementGoalsUpdate
     -> Goal -- ^ 'mguPayload'
     -> Text -- ^ 'mguAccountId'
     -> ManagementGoalsUpdate
-managementGoalsUpdate pMguWebPropertyId_ pMguGoalId_ pMguProFileId_ pMguPayload_ pMguAccountId_ =
+managementGoalsUpdate pMguWebPropertyId_ pMguGoalId_ pMguProFileId_ pMguPayload_ pMguAccountId_ = 
     ManagementGoalsUpdate'
     { _mguWebPropertyId = pMguWebPropertyId_
     , _mguGoalId = pMguGoalId_

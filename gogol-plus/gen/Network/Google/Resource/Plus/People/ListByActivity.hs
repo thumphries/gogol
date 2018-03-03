@@ -40,8 +40,8 @@ module Network.Google.Resource.Plus.People.ListByActivity
     , plbaMaxResults
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.people.listByActivity@ method which the
 -- 'PeopleListByActivity' request conforms to.
@@ -64,7 +64,7 @@ type PeopleListByActivityResource =
 data PeopleListByActivity = PeopleListByActivity'
     { _plbaActivityId :: !Text
     , _plbaCollection :: !PeopleListByActivityCollection
-    , _plbaPageToken  :: !(Maybe Text)
+    , _plbaPageToken :: !(Maybe Text)
     , _plbaMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ peopleListByActivity
     :: Text -- ^ 'plbaActivityId'
     -> PeopleListByActivityCollection -- ^ 'plbaCollection'
     -> PeopleListByActivity
-peopleListByActivity pPlbaActivityId_ pPlbaCollection_ =
+peopleListByActivity pPlbaActivityId_ pPlbaCollection_ = 
     PeopleListByActivity'
     { _plbaActivityId = pPlbaActivityId_
     , _plbaCollection = pPlbaCollection_

@@ -37,8 +37,8 @@ module Network.Google.Resource.GamesConfiguration.ImageConfigurations.Upload
     , icuImageType
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.imageConfigurations.upload@ method which the
 -- 'ImageConfigurationsUpload' request conforms to.
@@ -72,7 +72,7 @@ type ImageConfigurationsUploadResource =
 -- /See:/ 'imageConfigurationsUpload' smart constructor.
 data ImageConfigurationsUpload = ImageConfigurationsUpload'
     { _icuResourceId :: !Text
-    , _icuImageType  :: !ImageConfigurationsUploadImageType
+    , _icuImageType :: !ImageConfigurationsUploadImageType
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImageConfigurationsUpload' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ imageConfigurationsUpload
     :: Text -- ^ 'icuResourceId'
     -> ImageConfigurationsUploadImageType -- ^ 'icuImageType'
     -> ImageConfigurationsUpload
-imageConfigurationsUpload pIcuResourceId_ pIcuImageType_ =
+imageConfigurationsUpload pIcuResourceId_ pIcuImageType_ = 
     ImageConfigurationsUpload'
     { _icuResourceId = pIcuResourceId_
     , _icuImageType = pIcuImageType_

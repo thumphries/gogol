@@ -40,14 +40,14 @@ module Network.Google.Resource.DFAReporting.CampaignCreativeAssociations.Insert
     , ccaiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.campaignCreativeAssociations.insert@ method which the
 -- 'CampaignCreativeAssociationsInsert' request conforms to.
 type CampaignCreativeAssociationsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "campaigns" :>
@@ -64,8 +64,8 @@ type CampaignCreativeAssociationsInsertResource =
 -- /See:/ 'campaignCreativeAssociationsInsert' smart constructor.
 data CampaignCreativeAssociationsInsert = CampaignCreativeAssociationsInsert'
     { _ccaiCampaignId :: !(Textual Int64)
-    , _ccaiProFileId  :: !(Textual Int64)
-    , _ccaiPayload    :: !CampaignCreativeAssociation
+    , _ccaiProFileId :: !(Textual Int64)
+    , _ccaiPayload :: !CampaignCreativeAssociation
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CampaignCreativeAssociationsInsert' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ campaignCreativeAssociationsInsert
     -> Int64 -- ^ 'ccaiProFileId'
     -> CampaignCreativeAssociation -- ^ 'ccaiPayload'
     -> CampaignCreativeAssociationsInsert
-campaignCreativeAssociationsInsert pCcaiCampaignId_ pCcaiProFileId_ pCcaiPayload_ =
+campaignCreativeAssociationsInsert pCcaiCampaignId_ pCcaiProFileId_ pCcaiPayload_ = 
     CampaignCreativeAssociationsInsert'
     { _ccaiCampaignId = _Coerce # pCcaiCampaignId_
     , _ccaiProFileId = _Coerce # pCcaiProFileId_

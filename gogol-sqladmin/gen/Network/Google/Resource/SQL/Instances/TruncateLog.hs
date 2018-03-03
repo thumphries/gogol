@@ -38,8 +38,8 @@ module Network.Google.Resource.SQL.Instances.TruncateLog
     , itlInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.instances.truncateLog@ method which the
 -- 'InstancesTruncateLog' request conforms to.
@@ -59,8 +59,8 @@ type InstancesTruncateLogResource =
 --
 -- /See:/ 'instancesTruncateLog' smart constructor.
 data InstancesTruncateLog = InstancesTruncateLog'
-    { _itlProject  :: !Text
-    , _itlPayload  :: !InstancesTruncateLogRequest
+    { _itlProject :: !Text
+    , _itlPayload :: !InstancesTruncateLogRequest
     , _itlInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ instancesTruncateLog
     -> InstancesTruncateLogRequest -- ^ 'itlPayload'
     -> Text -- ^ 'itlInstance'
     -> InstancesTruncateLog
-instancesTruncateLog pItlProject_ pItlPayload_ pItlInstance_ =
+instancesTruncateLog pItlProject_ pItlPayload_ pItlInstance_ = 
     InstancesTruncateLog'
     { _itlProject = pItlProject_
     , _itlPayload = pItlPayload_

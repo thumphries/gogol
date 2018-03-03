@@ -39,8 +39,8 @@ module Network.Google.Resource.FusionTables.Table.Update
     , tabTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.table.update@ method which the
 -- 'TableUpdate' request conforms to.
@@ -58,9 +58,9 @@ type TableUpdateResource =
 --
 -- /See:/ 'tableUpdate' smart constructor.
 data TableUpdate = TableUpdate'
-    { _tabPayload               :: !Table
+    { _tabPayload :: !Table
     , _tabReplaceViewDefinition :: !(Maybe Bool)
-    , _tabTableId               :: !Text
+    , _tabTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableUpdate' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ tableUpdate
     :: Table -- ^ 'tabPayload'
     -> Text -- ^ 'tabTableId'
     -> TableUpdate
-tableUpdate pTabPayload_ pTabTableId_ =
+tableUpdate pTabPayload_ pTabTableId_ = 
     TableUpdate'
     { _tabPayload = pTabPayload_
     , _tabReplaceViewDefinition = Nothing

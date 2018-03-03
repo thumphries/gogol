@@ -35,14 +35,13 @@ module Network.Google.Resource.Games.TurnBasedMatches.Finish
     , TurnBasedMatchesFinish
 
     -- * Request Lenses
-    , tbmfConsistencyToken
     , tbmfPayload
     , tbmfLanguage
     , tbmfMatchId
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.turnBasedMatches.finish@ method which the
 -- 'TurnBasedMatchesFinish' request conforms to.
@@ -52,11 +51,10 @@ type TurnBasedMatchesFinishResource =
          "turnbasedmatches" :>
            Capture "matchId" Text :>
              "finish" :>
-               QueryParam "consistencyToken" (Textual Int64) :>
-                 QueryParam "language" Text :>
-                   QueryParam "alt" AltJSON :>
-                     ReqBody '[JSON] TurnBasedMatchResults :>
-                       Put '[JSON] TurnBasedMatch
+               QueryParam "language" Text :>
+                 QueryParam "alt" AltJSON :>
+                   ReqBody '[JSON] TurnBasedMatchResults :>
+                     Put '[JSON] TurnBasedMatch
 
 -- | Finish a turn-based match. Each player should make this call once, after
 -- all results are in. Only the player whose turn it is may make the first
@@ -64,17 +62,14 @@ type TurnBasedMatchesFinishResource =
 --
 -- /See:/ 'turnBasedMatchesFinish' smart constructor.
 data TurnBasedMatchesFinish = TurnBasedMatchesFinish'
-    { _tbmfConsistencyToken :: !(Maybe (Textual Int64))
-    , _tbmfPayload          :: !TurnBasedMatchResults
-    , _tbmfLanguage         :: !(Maybe Text)
-    , _tbmfMatchId          :: !Text
+    { _tbmfPayload :: !TurnBasedMatchResults
+    , _tbmfLanguage :: !(Maybe Text)
+    , _tbmfMatchId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TurnBasedMatchesFinish' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'tbmfConsistencyToken'
 --
 -- * 'tbmfPayload'
 --
@@ -85,20 +80,12 @@ turnBasedMatchesFinish
     :: TurnBasedMatchResults -- ^ 'tbmfPayload'
     -> Text -- ^ 'tbmfMatchId'
     -> TurnBasedMatchesFinish
-turnBasedMatchesFinish pTbmfPayload_ pTbmfMatchId_ =
+turnBasedMatchesFinish pTbmfPayload_ pTbmfMatchId_ = 
     TurnBasedMatchesFinish'
-    { _tbmfConsistencyToken = Nothing
-    , _tbmfPayload = pTbmfPayload_
+    { _tbmfPayload = pTbmfPayload_
     , _tbmfLanguage = Nothing
     , _tbmfMatchId = pTbmfMatchId_
     }
-
--- | The last-seen mutation timestamp.
-tbmfConsistencyToken :: Lens' TurnBasedMatchesFinish (Maybe Int64)
-tbmfConsistencyToken
-  = lens _tbmfConsistencyToken
-      (\ s a -> s{_tbmfConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Multipart request metadata.
 tbmfPayload :: Lens' TurnBasedMatchesFinish TurnBasedMatchResults
@@ -121,8 +108,7 @@ instance GoogleRequest TurnBasedMatchesFinish where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient TurnBasedMatchesFinish'{..}
-          = go _tbmfMatchId _tbmfConsistencyToken _tbmfLanguage
-              (Just AltJSON)
+          = go _tbmfMatchId _tbmfLanguage (Just AltJSON)
               _tbmfPayload
               gamesService
           where go

@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTubeAnalytics.GroupItems.Delete
     , gidId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groupItems.delete@ method which the
 -- 'GroupItemsDelete' request conforms to.
@@ -56,7 +56,7 @@ type GroupItemsDeleteResource =
 -- /See:/ 'groupItemsDelete' smart constructor.
 data GroupItemsDelete = GroupItemsDelete'
     { _gidOnBehalfOfContentOwner :: !(Maybe Text)
-    , _gidId                     :: !Text
+    , _gidId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupItemsDelete' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data GroupItemsDelete = GroupItemsDelete'
 groupItemsDelete
     :: Text -- ^ 'gidId'
     -> GroupItemsDelete
-groupItemsDelete pGidId_ =
+groupItemsDelete pGidId_ = 
     GroupItemsDelete'
     { _gidOnBehalfOfContentOwner = Nothing
     , _gidId = pGidId_

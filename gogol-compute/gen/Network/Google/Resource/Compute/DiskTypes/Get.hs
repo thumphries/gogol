@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.DiskTypes.Get
     , dtgDiskType
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.diskTypes.get@ method which the
 -- 'DiskTypesGet' request conforms to.
@@ -60,8 +60,8 @@ type DiskTypesGetResource =
 --
 -- /See:/ 'diskTypesGet' smart constructor.
 data DiskTypesGet = DiskTypesGet'
-    { _dtgProject  :: !Text
-    , _dtgZone     :: !Text
+    { _dtgProject :: !Text
+    , _dtgZone :: !Text
     , _dtgDiskType :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ diskTypesGet
     -> Text -- ^ 'dtgZone'
     -> Text -- ^ 'dtgDiskType'
     -> DiskTypesGet
-diskTypesGet pDtgProject_ pDtgZone_ pDtgDiskType_ =
+diskTypesGet pDtgProject_ pDtgZone_ pDtgDiskType_ = 
     DiskTypesGet'
     { _dtgProject = pDtgProject_
     , _dtgZone = pDtgZone_

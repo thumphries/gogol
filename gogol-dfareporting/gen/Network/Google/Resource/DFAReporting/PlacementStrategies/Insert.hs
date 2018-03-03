@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PlacementStrategies.Insert
     , psiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementStrategies.insert@ method which the
 -- 'PlacementStrategiesInsert' request conforms to.
 type PlacementStrategiesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementStrategies" :>
@@ -57,7 +57,7 @@ type PlacementStrategiesInsertResource =
 -- /See:/ 'placementStrategiesInsert' smart constructor.
 data PlacementStrategiesInsert = PlacementStrategiesInsert'
     { _psiProFileId :: !(Textual Int64)
-    , _psiPayload   :: !PlacementStrategy
+    , _psiPayload :: !PlacementStrategy
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementStrategiesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ placementStrategiesInsert
     :: Int64 -- ^ 'psiProFileId'
     -> PlacementStrategy -- ^ 'psiPayload'
     -> PlacementStrategiesInsert
-placementStrategiesInsert pPsiProFileId_ pPsiPayload_ =
+placementStrategiesInsert pPsiProFileId_ pPsiPayload_ = 
     PlacementStrategiesInsert'
     { _psiProFileId = _Coerce # pPsiProFileId_
     , _psiPayload = pPsiPayload_

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.Update
     , ccuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.update@ method which the
 -- 'ContentCategoriesUpdate' request conforms to.
 type ContentCategoriesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -57,7 +57,7 @@ type ContentCategoriesUpdateResource =
 -- /See:/ 'contentCategoriesUpdate' smart constructor.
 data ContentCategoriesUpdate = ContentCategoriesUpdate'
     { _ccuProFileId :: !(Textual Int64)
-    , _ccuPayload   :: !ContentCategory
+    , _ccuPayload :: !ContentCategory
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ contentCategoriesUpdate
     :: Int64 -- ^ 'ccuProFileId'
     -> ContentCategory -- ^ 'ccuPayload'
     -> ContentCategoriesUpdate
-contentCategoriesUpdate pCcuProFileId_ pCcuPayload_ =
+contentCategoriesUpdate pCcuProFileId_ pCcuPayload_ = 
     ContentCategoriesUpdate'
     { _ccuProFileId = _Coerce # pCcuProFileId_
     , _ccuPayload = pCcuPayload_

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Requests to install the latest version of an app to a device. If the app
--- is already installed then it is updated to the latest version if
+-- is already installed, then it is updated to the latest version if
 -- necessary.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.installs.update@.
@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidEnterprise.Installs.Update
     , iuDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.installs.update@ method which the
 -- 'InstallsUpdate' request conforms to.
@@ -62,16 +62,16 @@ type InstallsUpdateResource =
                            ReqBody '[JSON] Install :> Put '[JSON] Install
 
 -- | Requests to install the latest version of an app to a device. If the app
--- is already installed then it is updated to the latest version if
+-- is already installed, then it is updated to the latest version if
 -- necessary.
 --
 -- /See:/ 'installsUpdate' smart constructor.
 data InstallsUpdate = InstallsUpdate'
     { _iuEnterpriseId :: !Text
-    , _iuPayload      :: !Install
-    , _iuUserId       :: !Text
-    , _iuInstallId    :: !Text
-    , _iuDeviceId     :: !Text
+    , _iuPayload :: !Install
+    , _iuUserId :: !Text
+    , _iuInstallId :: !Text
+    , _iuDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstallsUpdate' with the minimum fields required to make a request.
@@ -94,7 +94,7 @@ installsUpdate
     -> Text -- ^ 'iuInstallId'
     -> Text -- ^ 'iuDeviceId'
     -> InstallsUpdate
-installsUpdate pIuEnterpriseId_ pIuPayload_ pIuUserId_ pIuInstallId_ pIuDeviceId_ =
+installsUpdate pIuEnterpriseId_ pIuPayload_ pIuUserId_ pIuInstallId_ pIuDeviceId_ = 
     InstallsUpdate'
     { _iuEnterpriseId = pIuEnterpriseId_
     , _iuPayload = pIuPayload_

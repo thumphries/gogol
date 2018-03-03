@@ -38,8 +38,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.Get
     , zvgZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.get@ method which the
 -- 'ZoneViewsGet' request conforms to.
@@ -59,8 +59,8 @@ type ZoneViewsGetResource =
 -- /See:/ 'zoneViewsGet' smart constructor.
 data ZoneViewsGet = ZoneViewsGet'
     { _zvgResourceView :: !Text
-    , _zvgProject      :: !Text
-    , _zvgZone         :: !Text
+    , _zvgProject :: !Text
+    , _zvgZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ zoneViewsGet
     -> Text -- ^ 'zvgProject'
     -> Text -- ^ 'zvgZone'
     -> ZoneViewsGet
-zoneViewsGet pZvgResourceView_ pZvgProject_ pZvgZone_ =
+zoneViewsGet pZvgResourceView_ pZvgProject_ pZvgZone_ = 
     ZoneViewsGet'
     { _zvgResourceView = pZvgResourceView_
     , _zvgProject = pZvgProject_

@@ -55,8 +55,8 @@ module Network.Google.Resource.PlayMoviesPartner.Accounts.StoreInfos.List
     , asilCallback
     ) where
 
-import           Network.Google.PlayMoviesPartner.Types
-import           Network.Google.Prelude
+import Network.Google.PlayMoviesPartner.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @playmoviespartner.accounts.storeInfos.list@ method which the
 -- 'AccountsStoreInfosList' request conforms to.
@@ -66,7 +66,7 @@ type AccountsStoreInfosListResource =
          Capture "accountId" Text :>
            "storeInfos" :>
              QueryParams "pphNames" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParams "studioNames" Text :>
                    QueryParams "videoIds" Text :>
                      QueryParam "upload_protocol" Text :>
@@ -93,24 +93,24 @@ type AccountsStoreInfosListResource =
 --
 -- /See:/ 'accountsStoreInfosList' smart constructor.
 data AccountsStoreInfosList = AccountsStoreInfosList'
-    { _asilPphNames       :: !(Maybe [Text])
-    , _asilXgafv          :: !(Maybe Text)
-    , _asilStudioNames    :: !(Maybe [Text])
-    , _asilVideoIds       :: !(Maybe [Text])
+    { _asilPphNames :: !(Maybe [Text])
+    , _asilXgafv :: !(Maybe Xgafv)
+    , _asilStudioNames :: !(Maybe [Text])
+    , _asilVideoIds :: !(Maybe [Text])
     , _asilUploadProtocol :: !(Maybe Text)
-    , _asilPp             :: !Bool
-    , _asilAccessToken    :: !(Maybe Text)
-    , _asilSeasonIds      :: !(Maybe [Text])
-    , _asilMids           :: !(Maybe [Text])
-    , _asilUploadType     :: !(Maybe Text)
-    , _asilCountries      :: !(Maybe [Text])
-    , _asilVideoId        :: !(Maybe Text)
-    , _asilAccountId      :: !Text
-    , _asilBearerToken    :: !(Maybe Text)
-    , _asilName           :: !(Maybe Text)
-    , _asilPageToken      :: !(Maybe Text)
-    , _asilPageSize       :: !(Maybe (Textual Int32))
-    , _asilCallback       :: !(Maybe Text)
+    , _asilPp :: !Bool
+    , _asilAccessToken :: !(Maybe Text)
+    , _asilSeasonIds :: !(Maybe [Text])
+    , _asilMids :: !(Maybe [Text])
+    , _asilUploadType :: !(Maybe Text)
+    , _asilCountries :: !(Maybe [Text])
+    , _asilVideoId :: !(Maybe Text)
+    , _asilAccountId :: !Text
+    , _asilBearerToken :: !(Maybe Text)
+    , _asilName :: !(Maybe Text)
+    , _asilPageToken :: !(Maybe Text)
+    , _asilPageSize :: !(Maybe (Textual Int32))
+    , _asilCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsStoreInfosList' with the minimum fields required to make a request.
@@ -155,7 +155,7 @@ data AccountsStoreInfosList = AccountsStoreInfosList'
 accountsStoreInfosList
     :: Text -- ^ 'asilAccountId'
     -> AccountsStoreInfosList
-accountsStoreInfosList pAsilAccountId_ =
+accountsStoreInfosList pAsilAccountId_ = 
     AccountsStoreInfosList'
     { _asilPphNames = Nothing
     , _asilXgafv = Nothing
@@ -185,7 +185,7 @@ asilPphNames
       . _Coerce
 
 -- | V1 error format.
-asilXgafv :: Lens' AccountsStoreInfosList (Maybe Text)
+asilXgafv :: Lens' AccountsStoreInfosList (Maybe Xgafv)
 asilXgafv
   = lens _asilXgafv (\ s a -> s{_asilXgafv = a})
 

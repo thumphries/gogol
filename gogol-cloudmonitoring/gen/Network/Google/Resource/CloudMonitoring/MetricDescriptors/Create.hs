@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudMonitoring.MetricDescriptors.Create
     , mdcPayload
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.metricDescriptors.create@ method which the
 -- 'MetricDescriptorsCreate' request conforms to.
@@ -71,7 +71,7 @@ metricDescriptorsCreate
     :: Text -- ^ 'mdcProject'
     -> MetricDescriptor -- ^ 'mdcPayload'
     -> MetricDescriptorsCreate
-metricDescriptorsCreate pMdcProject_ pMdcPayload_ =
+metricDescriptorsCreate pMdcProject_ pMdcPayload_ = 
     MetricDescriptorsCreate'
     { _mdcProject = pMdcProject_
     , _mdcPayload = pMdcPayload_

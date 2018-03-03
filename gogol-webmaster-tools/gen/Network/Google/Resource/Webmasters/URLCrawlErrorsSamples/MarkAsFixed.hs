@@ -40,8 +40,8 @@ module Network.Google.Resource.Webmasters.URLCrawlErrorsSamples.MarkAsFixed
     , ucesmafURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.urlcrawlerrorssamples.markAsFixed@ method which the
 -- 'URLCrawlErrorsSamplesMarkAsFixed' request conforms to.
@@ -66,8 +66,8 @@ type URLCrawlErrorsSamplesMarkAsFixedResource =
 data URLCrawlErrorsSamplesMarkAsFixed = URLCrawlErrorsSamplesMarkAsFixed'
     { _ucesmafPlatform :: !URLCrawlErrorsSamplesMarkAsFixedPlatform
     , _ucesmafCategory :: !URLCrawlErrorsSamplesMarkAsFixedCategory
-    , _ucesmafSiteURL  :: !Text
-    , _ucesmafURL      :: !Text
+    , _ucesmafSiteURL :: !Text
+    , _ucesmafURL :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'URLCrawlErrorsSamplesMarkAsFixed' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ urlCrawlErrorsSamplesMarkAsFixed
     -> Text -- ^ 'ucesmafSiteURL'
     -> Text -- ^ 'ucesmafURL'
     -> URLCrawlErrorsSamplesMarkAsFixed
-urlCrawlErrorsSamplesMarkAsFixed pUcesmafPlatform_ pUcesmafCategory_ pUcesmafSiteURL_ pUcesmafURL_ =
+urlCrawlErrorsSamplesMarkAsFixed pUcesmafPlatform_ pUcesmafCategory_ pUcesmafSiteURL_ pUcesmafURL_ = 
     URLCrawlErrorsSamplesMarkAsFixed'
     { _ucesmafPlatform = pUcesmafPlatform_
     , _ucesmafCategory = pUcesmafCategory_

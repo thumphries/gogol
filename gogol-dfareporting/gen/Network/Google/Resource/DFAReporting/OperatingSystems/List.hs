@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.OperatingSystems.List
     , oslProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.operatingSystems.list@ method which the
 -- 'OperatingSystemsList' request conforms to.
 type OperatingSystemsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "operatingSystems" :>
@@ -65,7 +65,7 @@ newtype OperatingSystemsList = OperatingSystemsList'
 operatingSystemsList
     :: Int64 -- ^ 'oslProFileId'
     -> OperatingSystemsList
-operatingSystemsList pOslProFileId_ =
+operatingSystemsList pOslProFileId_ = 
     OperatingSystemsList'
     { _oslProFileId = _Coerce # pOslProFileId_
     }

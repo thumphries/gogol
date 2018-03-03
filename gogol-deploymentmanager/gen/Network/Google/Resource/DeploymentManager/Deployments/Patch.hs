@@ -42,8 +42,8 @@ module Network.Google.Resource.DeploymentManager.Deployments.Patch
     , dpDeployment
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.deployments.patch@ method which the
 -- 'DeploymentsPatch' request conforms to.
@@ -71,11 +71,11 @@ type DeploymentsPatchResource =
 -- /See:/ 'deploymentsPatch' smart constructor.
 data DeploymentsPatch = DeploymentsPatch'
     { _dpCreatePolicy :: !DeploymentsPatchCreatePolicy
-    , _dpProject      :: !Text
-    , _dpPayload      :: !Deployment
+    , _dpProject :: !Text
+    , _dpPayload :: !Deployment
     , _dpDeletePolicy :: !DeploymentsPatchDeletePolicy
-    , _dpPreview      :: !Bool
-    , _dpDeployment   :: !Text
+    , _dpPreview :: !Bool
+    , _dpDeployment :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeploymentsPatch' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ deploymentsPatch
     -> Deployment -- ^ 'dpPayload'
     -> Text -- ^ 'dpDeployment'
     -> DeploymentsPatch
-deploymentsPatch pDpProject_ pDpPayload_ pDpDeployment_ =
+deploymentsPatch pDpProject_ pDpPayload_ pDpDeployment_ = 
     DeploymentsPatch'
     { _dpCreatePolicy = DPCPCreateOrAcquire
     , _dpProject = pDpProject_

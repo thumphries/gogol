@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutpages.Get
     , sgPageId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutpages.get@ method which the
 -- 'StorelayoutpagesGet' request conforms to.
@@ -57,7 +57,7 @@ type StorelayoutpagesGetResource =
 -- /See:/ 'storelayoutpagesGet' smart constructor.
 data StorelayoutpagesGet = StorelayoutpagesGet'
     { _sgEnterpriseId :: !Text
-    , _sgPageId       :: !Text
+    , _sgPageId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutpagesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ storelayoutpagesGet
     :: Text -- ^ 'sgEnterpriseId'
     -> Text -- ^ 'sgPageId'
     -> StorelayoutpagesGet
-storelayoutpagesGet pSgEnterpriseId_ pSgPageId_ =
+storelayoutpagesGet pSgEnterpriseId_ pSgPageId_ = 
     StorelayoutpagesGet'
     { _sgEnterpriseId = pSgEnterpriseId_
     , _sgPageId = pSgPageId_

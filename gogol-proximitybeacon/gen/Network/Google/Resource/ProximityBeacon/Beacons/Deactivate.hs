@@ -51,15 +51,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Deactivate
     , bdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.deactivate@ method which the
 -- 'BeaconsDeactivate' request conforms to.
 type BeaconsDeactivateResource =
      "v1beta1" :>
        CaptureMode "beaconName" "deactivate" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -80,15 +80,15 @@ type BeaconsDeactivateResource =
 --
 -- /See:/ 'beaconsDeactivate' smart constructor.
 data BeaconsDeactivate = BeaconsDeactivate'
-    { _bdXgafv          :: !(Maybe Text)
+    { _bdXgafv :: !(Maybe Xgafv)
     , _bdUploadProtocol :: !(Maybe Text)
-    , _bdPp             :: !Bool
-    , _bdAccessToken    :: !(Maybe Text)
-    , _bdBeaconName     :: !Text
-    , _bdUploadType     :: !(Maybe Text)
-    , _bdBearerToken    :: !(Maybe Text)
-    , _bdProjectId      :: !(Maybe Text)
-    , _bdCallback       :: !(Maybe Text)
+    , _bdPp :: !Bool
+    , _bdAccessToken :: !(Maybe Text)
+    , _bdBeaconName :: !Text
+    , _bdUploadType :: !(Maybe Text)
+    , _bdBearerToken :: !(Maybe Text)
+    , _bdProjectId :: !(Maybe Text)
+    , _bdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsDeactivate' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data BeaconsDeactivate = BeaconsDeactivate'
 beaconsDeactivate
     :: Text -- ^ 'bdBeaconName'
     -> BeaconsDeactivate
-beaconsDeactivate pBdBeaconName_ =
+beaconsDeactivate pBdBeaconName_ = 
     BeaconsDeactivate'
     { _bdXgafv = Nothing
     , _bdUploadProtocol = Nothing
@@ -129,7 +129,7 @@ beaconsDeactivate pBdBeaconName_ =
     }
 
 -- | V1 error format.
-bdXgafv :: Lens' BeaconsDeactivate (Maybe Text)
+bdXgafv :: Lens' BeaconsDeactivate (Maybe Xgafv)
 bdXgafv = lens _bdXgafv (\ s a -> s{_bdXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

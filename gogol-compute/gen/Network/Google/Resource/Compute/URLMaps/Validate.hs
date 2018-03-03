@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.URLMaps.Validate
     , umvPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.urlMaps.validate@ method which the
 -- 'URLMapsValidate' request conforms to.
@@ -64,7 +64,7 @@ type URLMapsValidateResource =
 --
 -- /See:/ 'urlMapsValidate' smart constructor.
 data URLMapsValidate = URLMapsValidate'
-    { _umvURLMap  :: !Text
+    { _umvURLMap :: !Text
     , _umvProject :: !Text
     , _umvPayload :: !URLMapsValidateRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -83,7 +83,7 @@ urlMapsValidate
     -> Text -- ^ 'umvProject'
     -> URLMapsValidateRequest -- ^ 'umvPayload'
     -> URLMapsValidate
-urlMapsValidate pUmvURLMap_ pUmvProject_ pUmvPayload_ =
+urlMapsValidate pUmvURLMap_ pUmvProject_ pUmvPayload_ = 
     URLMapsValidate'
     { _umvURLMap = pUmvURLMap_
     , _umvProject = pUmvProject_

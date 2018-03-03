@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AdvertiserGroups.Delete
     , agdId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertiserGroups.delete@ method which the
 -- 'AdvertiserGroupsDelete' request conforms to.
 type AdvertiserGroupsDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertiserGroups" :>
@@ -56,7 +56,7 @@ type AdvertiserGroupsDeleteResource =
 -- /See:/ 'advertiserGroupsDelete' smart constructor.
 data AdvertiserGroupsDelete = AdvertiserGroupsDelete'
     { _agdProFileId :: !(Textual Int64)
-    , _agdId        :: !(Textual Int64)
+    , _agdId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertiserGroupsDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ advertiserGroupsDelete
     :: Int64 -- ^ 'agdProFileId'
     -> Int64 -- ^ 'agdId'
     -> AdvertiserGroupsDelete
-advertiserGroupsDelete pAgdProFileId_ pAgdId_ =
+advertiserGroupsDelete pAgdProFileId_ pAgdId_ = 
     AdvertiserGroupsDelete'
     { _agdProFileId = _Coerce # pAgdProFileId_
     , _agdId = _Coerce # pAgdId_

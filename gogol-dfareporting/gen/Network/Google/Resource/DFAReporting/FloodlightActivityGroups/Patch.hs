@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivityGroups.Patch
     , fagpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivityGroups.patch@ method which the
 -- 'FloodlightActivityGroupsPatch' request conforms to.
 type FloodlightActivityGroupsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivityGroups" :>
@@ -61,8 +61,8 @@ type FloodlightActivityGroupsPatchResource =
 -- /See:/ 'floodlightActivityGroupsPatch' smart constructor.
 data FloodlightActivityGroupsPatch = FloodlightActivityGroupsPatch'
     { _fagpProFileId :: !(Textual Int64)
-    , _fagpPayload   :: !FloodlightActivityGroup
-    , _fagpId        :: !(Textual Int64)
+    , _fagpPayload :: !FloodlightActivityGroup
+    , _fagpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivityGroupsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ floodlightActivityGroupsPatch
     -> FloodlightActivityGroup -- ^ 'fagpPayload'
     -> Int64 -- ^ 'fagpId'
     -> FloodlightActivityGroupsPatch
-floodlightActivityGroupsPatch pFagpProFileId_ pFagpPayload_ pFagpId_ =
+floodlightActivityGroupsPatch pFagpProFileId_ pFagpPayload_ pFagpId_ = 
     FloodlightActivityGroupsPatch'
     { _fagpProFileId = _Coerce # pFagpProFileId_
     , _fagpPayload = pFagpPayload_

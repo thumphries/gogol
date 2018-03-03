@@ -33,6 +33,7 @@ module Network.Google.Resource.Compute.Instances.AddAccessConfig
     , InstancesAddAccessConfig
 
     -- * Request Lenses
+    , iaacRequestId
     , iaacProject
     , iaacNetworkInterface
     , iaacZone
@@ -40,8 +41,8 @@ module Network.Google.Resource.Compute.Instances.AddAccessConfig
     , iaacInstance
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.instances.addAccessConfig@ method which the
 -- 'InstancesAddAccessConfig' request conforms to.
@@ -56,24 +57,28 @@ type InstancesAddAccessConfigResource =
                    Capture "instance" Text :>
                      "addAccessConfig" :>
                        QueryParam "networkInterface" Text :>
-                         QueryParam "alt" AltJSON :>
-                           ReqBody '[JSON] AccessConfig :>
-                             Post '[JSON] Operation
+                         QueryParam "requestId" Text :>
+                           QueryParam "alt" AltJSON :>
+                             ReqBody '[JSON] AccessConfig :>
+                               Post '[JSON] Operation
 
 -- | Adds an access config to an instance\'s network interface.
 --
 -- /See:/ 'instancesAddAccessConfig' smart constructor.
 data InstancesAddAccessConfig = InstancesAddAccessConfig'
-    { _iaacProject          :: !Text
+    { _iaacRequestId :: !(Maybe Text)
+    , _iaacProject :: !Text
     , _iaacNetworkInterface :: !Text
-    , _iaacZone             :: !Text
-    , _iaacPayload          :: !AccessConfig
-    , _iaacInstance         :: !Text
+    , _iaacZone :: !Text
+    , _iaacPayload :: !AccessConfig
+    , _iaacInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstancesAddAccessConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iaacRequestId'
 --
 -- * 'iaacProject'
 --
@@ -91,14 +96,30 @@ instancesAddAccessConfig
     -> AccessConfig -- ^ 'iaacPayload'
     -> Text -- ^ 'iaacInstance'
     -> InstancesAddAccessConfig
-instancesAddAccessConfig pIaacProject_ pIaacNetworkInterface_ pIaacZone_ pIaacPayload_ pIaacInstance_ =
+instancesAddAccessConfig pIaacProject_ pIaacNetworkInterface_ pIaacZone_ pIaacPayload_ pIaacInstance_ = 
     InstancesAddAccessConfig'
-    { _iaacProject = pIaacProject_
+    { _iaacRequestId = Nothing
+    , _iaacProject = pIaacProject_
     , _iaacNetworkInterface = pIaacNetworkInterface_
     , _iaacZone = pIaacZone_
     , _iaacPayload = pIaacPayload_
     , _iaacInstance = pIaacInstance_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+iaacRequestId :: Lens' InstancesAddAccessConfig (Maybe Text)
+iaacRequestId
+  = lens _iaacRequestId
+      (\ s a -> s{_iaacRequestId = a})
 
 -- | Project ID for this request.
 iaacProject :: Lens' InstancesAddAccessConfig Text
@@ -133,6 +154,7 @@ instance GoogleRequest InstancesAddAccessConfig where
         requestClient InstancesAddAccessConfig'{..}
           = go _iaacProject _iaacZone _iaacInstance
               (Just _iaacNetworkInterface)
+              _iaacRequestId
               (Just AltJSON)
               _iaacPayload
               computeService

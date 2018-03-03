@@ -35,13 +35,14 @@ module Network.Google.Resource.Storage.ObjectAccessControls.Delete
 
     -- * Request Lenses
     , oacdBucket
+    , oacdUserProject
     , oacdObject
     , oacdEntity
     , oacdGeneration
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Storage.Types
+import Network.Google.Prelude
+import Network.Google.Storage.Types
 
 -- | A resource alias for @storage.objectAccessControls.delete@ method which the
 -- 'ObjectAccessControlsDelete' request conforms to.
@@ -54,17 +55,19 @@ type ObjectAccessControlsDeleteResource =
                Capture "object" Text :>
                  "acl" :>
                    Capture "entity" Text :>
-                     QueryParam "generation" (Textual Int64) :>
-                       QueryParam "alt" AltJSON :> Delete '[JSON] ()
+                     QueryParam "userProject" Text :>
+                       QueryParam "generation" (Textual Int64) :>
+                         QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
 -- | Permanently deletes the ACL entry for the specified entity on the
 -- specified object.
 --
 -- /See:/ 'objectAccessControlsDelete' smart constructor.
 data ObjectAccessControlsDelete = ObjectAccessControlsDelete'
-    { _oacdBucket     :: !Text
-    , _oacdObject     :: !Text
-    , _oacdEntity     :: !Text
+    { _oacdBucket :: !Text
+    , _oacdUserProject :: !(Maybe Text)
+    , _oacdObject :: !Text
+    , _oacdEntity :: !Text
     , _oacdGeneration :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -73,6 +76,8 @@ data ObjectAccessControlsDelete = ObjectAccessControlsDelete'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'oacdBucket'
+--
+-- * 'oacdUserProject'
 --
 -- * 'oacdObject'
 --
@@ -84,9 +89,10 @@ objectAccessControlsDelete
     -> Text -- ^ 'oacdObject'
     -> Text -- ^ 'oacdEntity'
     -> ObjectAccessControlsDelete
-objectAccessControlsDelete pOacdBucket_ pOacdObject_ pOacdEntity_ =
+objectAccessControlsDelete pOacdBucket_ pOacdObject_ pOacdEntity_ = 
     ObjectAccessControlsDelete'
     { _oacdBucket = pOacdBucket_
+    , _oacdUserProject = Nothing
     , _oacdObject = pOacdObject_
     , _oacdEntity = pOacdEntity_
     , _oacdGeneration = Nothing
@@ -96,6 +102,13 @@ objectAccessControlsDelete pOacdBucket_ pOacdObject_ pOacdEntity_ =
 oacdBucket :: Lens' ObjectAccessControlsDelete Text
 oacdBucket
   = lens _oacdBucket (\ s a -> s{_oacdBucket = a})
+
+-- | The project to be billed for this request. Required for Requester Pays
+-- buckets.
+oacdUserProject :: Lens' ObjectAccessControlsDelete (Maybe Text)
+oacdUserProject
+  = lens _oacdUserProject
+      (\ s a -> s{_oacdUserProject = a})
 
 -- | Name of the object. For information about how to URL encode object names
 -- to be path safe, see Encoding URI Path Parts.
@@ -126,6 +139,7 @@ instance GoogleRequest ObjectAccessControlsDelete
                "https://www.googleapis.com/auth/devstorage.full_control"]
         requestClient ObjectAccessControlsDelete'{..}
           = go _oacdBucket _oacdObject _oacdEntity
+              _oacdUserProject
               _oacdGeneration
               (Just AltJSON)
               storageService

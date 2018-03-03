@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Details.Update
     , eduEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.details.update@ method which the
 -- 'EditsDetailsUpdate' request conforms to.
@@ -59,8 +59,8 @@ type EditsDetailsUpdateResource =
 -- /See:/ 'editsDetailsUpdate' smart constructor.
 data EditsDetailsUpdate = EditsDetailsUpdate'
     { _eduPackageName :: !Text
-    , _eduPayload     :: !AppDetails
-    , _eduEditId      :: !Text
+    , _eduPayload :: !AppDetails
+    , _eduEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsDetailsUpdate' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ editsDetailsUpdate
     -> AppDetails -- ^ 'eduPayload'
     -> Text -- ^ 'eduEditId'
     -> EditsDetailsUpdate
-editsDetailsUpdate pEduPackageName_ pEduPayload_ pEduEditId_ =
+editsDetailsUpdate pEduPackageName_ pEduPayload_ pEduEditId_ = 
     EditsDetailsUpdate'
     { _eduPackageName = pEduPackageName_
     , _eduPayload = pEduPayload_

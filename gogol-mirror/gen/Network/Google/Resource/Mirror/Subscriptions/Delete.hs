@@ -36,8 +36,8 @@ module Network.Google.Resource.Mirror.Subscriptions.Delete
     , sdId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.subscriptions.delete@ method which the
 -- 'SubscriptionsDelete' request conforms to.
@@ -63,7 +63,7 @@ newtype SubscriptionsDelete = SubscriptionsDelete'
 subscriptionsDelete
     :: Text -- ^ 'sdId'
     -> SubscriptionsDelete
-subscriptionsDelete pSdId_ =
+subscriptionsDelete pSdId_ = 
     SubscriptionsDelete'
     { _sdId = pSdId_
     }

@@ -46,8 +46,8 @@ module Network.Google.Resource.ServiceManagement.Services.Delete
     , sdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.delete@ method which the
 -- 'ServicesDelete' request conforms to.
@@ -71,14 +71,14 @@ type ServicesDeleteResource =
 --
 -- /See:/ 'servicesDelete' smart constructor.
 data ServicesDelete = ServicesDelete'
-    { _sdXgafv          :: !(Maybe Xgafv)
+    { _sdXgafv :: !(Maybe Xgafv)
     , _sdUploadProtocol :: !(Maybe Text)
-    , _sdPp             :: !Bool
-    , _sdAccessToken    :: !(Maybe Text)
-    , _sdUploadType     :: !(Maybe Text)
-    , _sdBearerToken    :: !(Maybe Text)
-    , _sdServiceName    :: !Text
-    , _sdCallback       :: !(Maybe Text)
+    , _sdPp :: !Bool
+    , _sdAccessToken :: !(Maybe Text)
+    , _sdUploadType :: !(Maybe Text)
+    , _sdBearerToken :: !(Maybe Text)
+    , _sdServiceName :: !Text
+    , _sdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesDelete' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data ServicesDelete = ServicesDelete'
 servicesDelete
     :: Text -- ^ 'sdServiceName'
     -> ServicesDelete
-servicesDelete pSdServiceName_ =
+servicesDelete pSdServiceName_ = 
     ServicesDelete'
     { _sdXgafv = Nothing
     , _sdUploadProtocol = Nothing

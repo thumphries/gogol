@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.CreativeGroups.Insert
     , cgiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeGroups.insert@ method which the
 -- 'CreativeGroupsInsert' request conforms to.
 type CreativeGroupsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeGroups" :>
@@ -57,7 +57,7 @@ type CreativeGroupsInsertResource =
 -- /See:/ 'creativeGroupsInsert' smart constructor.
 data CreativeGroupsInsert = CreativeGroupsInsert'
     { _cgiProFileId :: !(Textual Int64)
-    , _cgiPayload   :: !CreativeGroup
+    , _cgiPayload :: !CreativeGroup
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeGroupsInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ creativeGroupsInsert
     :: Int64 -- ^ 'cgiProFileId'
     -> CreativeGroup -- ^ 'cgiPayload'
     -> CreativeGroupsInsert
-creativeGroupsInsert pCgiProFileId_ pCgiPayload_ =
+creativeGroupsInsert pCgiProFileId_ pCgiPayload_ = 
     CreativeGroupsInsert'
     { _cgiProFileId = _Coerce # pCgiProFileId_
     , _cgiPayload = pCgiPayload_

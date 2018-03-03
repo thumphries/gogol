@@ -43,8 +43,8 @@ module Network.Google.Resource.Logging.BillingAccounts.Sinks.Get
     , basgCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.billingAccounts.sinks.get@ method which the
 -- 'BillingAccountsSinksGet' request conforms to.
@@ -64,14 +64,14 @@ type BillingAccountsSinksGetResource =
 --
 -- /See:/ 'billingAccountsSinksGet' smart constructor.
 data BillingAccountsSinksGet = BillingAccountsSinksGet'
-    { _basgXgafv          :: !(Maybe Xgafv)
+    { _basgXgafv :: !(Maybe Xgafv)
     , _basgUploadProtocol :: !(Maybe Text)
-    , _basgPp             :: !Bool
-    , _basgAccessToken    :: !(Maybe Text)
-    , _basgUploadType     :: !(Maybe Text)
-    , _basgBearerToken    :: !(Maybe Text)
-    , _basgSinkName       :: !Text
-    , _basgCallback       :: !(Maybe Text)
+    , _basgPp :: !Bool
+    , _basgAccessToken :: !(Maybe Text)
+    , _basgUploadType :: !(Maybe Text)
+    , _basgBearerToken :: !(Maybe Text)
+    , _basgSinkName :: !Text
+    , _basgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsSinksGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data BillingAccountsSinksGet = BillingAccountsSinksGet'
 billingAccountsSinksGet
     :: Text -- ^ 'basgSinkName'
     -> BillingAccountsSinksGet
-billingAccountsSinksGet pBasgSinkName_ =
+billingAccountsSinksGet pBasgSinkName_ = 
     BillingAccountsSinksGet'
     { _basgXgafv = Nothing
     , _basgUploadProtocol = Nothing
@@ -141,9 +141,11 @@ basgBearerToken
   = lens _basgBearerToken
       (\ s a -> s{_basgBearerToken = a})
 
--- | Required. The parent resource name of the sink:
+-- | Required. The resource name of the sink:
 -- \"projects\/[PROJECT_ID]\/sinks\/[SINK_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\" Example:
+-- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/sinks\/[SINK_ID]\"
+-- \"folders\/[FOLDER_ID]\/sinks\/[SINK_ID]\" Example:
 -- \"projects\/my-project-id\/sinks\/my-sink-id\".
 basgSinkName :: Lens' BillingAccountsSinksGet Text
 basgSinkName

@@ -36,8 +36,8 @@ module Network.Google.Resource.YouTube.LiveChatMessages.Delete
     , lId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveChatMessages.delete@ method which the
 -- 'LiveChatMessagesDelete' request conforms to.
@@ -64,7 +64,7 @@ newtype LiveChatMessagesDelete = LiveChatMessagesDelete'
 liveChatMessagesDelete
     :: Text -- ^ 'lId'
     -> LiveChatMessagesDelete
-liveChatMessagesDelete pLId_ =
+liveChatMessagesDelete pLId_ = 
     LiveChatMessagesDelete'
     { _lId = pLId_
     }

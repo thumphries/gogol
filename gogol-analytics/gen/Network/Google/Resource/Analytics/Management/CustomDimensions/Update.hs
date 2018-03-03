@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.CustomDimensions.Update
     , mcduCustomDimensionId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customDimensions.update@ method which the
 -- 'ManagementCustomDimensionsUpdate' request conforms to.
@@ -64,11 +64,11 @@ type ManagementCustomDimensionsUpdateResource =
 --
 -- /See:/ 'managementCustomDimensionsUpdate' smart constructor.
 data ManagementCustomDimensionsUpdate = ManagementCustomDimensionsUpdate'
-    { _mcduWebPropertyId               :: !Text
+    { _mcduWebPropertyId :: !Text
     , _mcduIgnoreCustomDataSourceLinks :: !Bool
-    , _mcduPayload                     :: !CustomDimension
-    , _mcduAccountId                   :: !Text
-    , _mcduCustomDimensionId           :: !Text
+    , _mcduPayload :: !CustomDimension
+    , _mcduAccountId :: !Text
+    , _mcduCustomDimensionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomDimensionsUpdate' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ managementCustomDimensionsUpdate
     -> Text -- ^ 'mcduAccountId'
     -> Text -- ^ 'mcduCustomDimensionId'
     -> ManagementCustomDimensionsUpdate
-managementCustomDimensionsUpdate pMcduWebPropertyId_ pMcduPayload_ pMcduAccountId_ pMcduCustomDimensionId_ =
+managementCustomDimensionsUpdate pMcduWebPropertyId_ pMcduPayload_ pMcduAccountId_ pMcduCustomDimensionId_ = 
     ManagementCustomDimensionsUpdate'
     { _mcduWebPropertyId = pMcduWebPropertyId_
     , _mcduIgnoreCustomDataSourceLinks = False

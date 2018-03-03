@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.EventTags.Patch
     , etpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.eventTags.patch@ method which the
 -- 'EventTagsPatch' request conforms to.
 type EventTagsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "eventTags" :>
@@ -58,8 +58,8 @@ type EventTagsPatchResource =
 -- /See:/ 'eventTagsPatch' smart constructor.
 data EventTagsPatch = EventTagsPatch'
     { _etpProFileId :: !(Textual Int64)
-    , _etpPayload   :: !EventTag
-    , _etpId        :: !(Textual Int64)
+    , _etpPayload :: !EventTag
+    , _etpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventTagsPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ eventTagsPatch
     -> EventTag -- ^ 'etpPayload'
     -> Int64 -- ^ 'etpId'
     -> EventTagsPatch
-eventTagsPatch pEtpProFileId_ pEtpPayload_ pEtpId_ =
+eventTagsPatch pEtpProFileId_ pEtpPayload_ pEtpId_ = 
     EventTagsPatch'
     { _etpProFileId = _Coerce # pEtpProFileId_
     , _etpPayload = pEtpPayload_

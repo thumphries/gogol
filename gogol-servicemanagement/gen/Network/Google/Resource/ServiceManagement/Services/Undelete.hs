@@ -46,8 +46,8 @@ module Network.Google.Resource.ServiceManagement.Services.Undelete
     , suCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.undelete@ method which the
 -- 'ServicesUndelete' request conforms to.
@@ -71,14 +71,14 @@ type ServicesUndeleteResource =
 --
 -- /See:/ 'servicesUndelete' smart constructor.
 data ServicesUndelete = ServicesUndelete'
-    { _suXgafv          :: !(Maybe Xgafv)
+    { _suXgafv :: !(Maybe Xgafv)
     , _suUploadProtocol :: !(Maybe Text)
-    , _suPp             :: !Bool
-    , _suAccessToken    :: !(Maybe Text)
-    , _suUploadType     :: !(Maybe Text)
-    , _suBearerToken    :: !(Maybe Text)
-    , _suServiceName    :: !Text
-    , _suCallback       :: !(Maybe Text)
+    , _suPp :: !Bool
+    , _suAccessToken :: !(Maybe Text)
+    , _suUploadType :: !(Maybe Text)
+    , _suBearerToken :: !(Maybe Text)
+    , _suServiceName :: !Text
+    , _suCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesUndelete' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data ServicesUndelete = ServicesUndelete'
 servicesUndelete
     :: Text -- ^ 'suServiceName'
     -> ServicesUndelete
-servicesUndelete pSuServiceName_ =
+servicesUndelete pSuServiceName_ = 
     ServicesUndelete'
     { _suXgafv = Nothing
     , _suUploadProtocol = Nothing

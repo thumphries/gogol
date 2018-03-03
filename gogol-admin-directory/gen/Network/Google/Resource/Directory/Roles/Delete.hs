@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Roles.Delete
     , rdCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.delete@ method which the
 -- 'RolesDelete' request conforms to.
@@ -56,7 +56,7 @@ type RolesDeleteResource =
 --
 -- /See:/ 'rolesDelete' smart constructor.
 data RolesDelete = RolesDelete'
-    { _rdRoleId   :: !Text
+    { _rdRoleId :: !Text
     , _rdCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ rolesDelete
     :: Text -- ^ 'rdRoleId'
     -> Text -- ^ 'rdCustomer'
     -> RolesDelete
-rolesDelete pRdRoleId_ pRdCustomer_ =
+rolesDelete pRdRoleId_ pRdCustomer_ = 
     RolesDelete'
     { _rdRoleId = pRdRoleId_
     , _rdCustomer = pRdCustomer_
@@ -81,7 +81,7 @@ rolesDelete pRdRoleId_ pRdCustomer_ =
 rdRoleId :: Lens' RolesDelete Text
 rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 rdCustomer :: Lens' RolesDelete Text
 rdCustomer
   = lens _rdCustomer (\ s a -> s{_rdCustomer = a})

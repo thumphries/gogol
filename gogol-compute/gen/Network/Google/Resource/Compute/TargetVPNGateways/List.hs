@@ -42,8 +42,8 @@ module Network.Google.Resource.Compute.TargetVPNGateways.List
     , tvglMaxResults
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.targetVpnGateways.list@ method which the
 -- 'TargetVPNGatewaysList' request conforms to.
@@ -67,11 +67,11 @@ type TargetVPNGatewaysListResource =
 --
 -- /See:/ 'targetVPNGatewaysList' smart constructor.
 data TargetVPNGatewaysList = TargetVPNGatewaysList'
-    { _tvglOrderBy    :: !(Maybe Text)
-    , _tvglProject    :: !Text
-    , _tvglFilter     :: !(Maybe Text)
-    , _tvglRegion     :: !Text
-    , _tvglPageToken  :: !(Maybe Text)
+    { _tvglOrderBy :: !(Maybe Text)
+    , _tvglProject :: !Text
+    , _tvglFilter :: !(Maybe Text)
+    , _tvglRegion :: !Text
+    , _tvglPageToken :: !(Maybe Text)
     , _tvglMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -94,7 +94,7 @@ targetVPNGatewaysList
     :: Text -- ^ 'tvglProject'
     -> Text -- ^ 'tvglRegion'
     -> TargetVPNGatewaysList
-targetVPNGatewaysList pTvglProject_ pTvglRegion_ =
+targetVPNGatewaysList pTvglProject_ pTvglRegion_ = 
     TargetVPNGatewaysList'
     { _tvglOrderBy = Nothing
     , _tvglProject = pTvglProject_
@@ -121,26 +121,25 @@ tvglProject :: Lens' TargetVPNGatewaysList Text
 tvglProject
   = lens _tvglProject (\ s a -> s{_tvglProject = a})
 
--- | Sets a filter expression for filtering listed resources, in the form
--- filter={expression}. Your {expression} must be in the format: field_name
--- comparison_string literal_string. The field_name is the name of the
--- field you want to compare. Only atomic field types are supported
--- (string, number, boolean). The comparison_string must be either eq
--- (equals) or ne (not equals). The literal_string is the string value to
--- filter to. The literal value must be valid for the type of field you are
--- filtering by (string, number, boolean). For string fields, the literal
--- value is interpreted as a regular expression using RE2 syntax. The
--- literal value must match the entire field. For example, to filter for
--- instances that do not have a name of example-instance, you would use
--- filter=name ne example-instance. You can filter on nested fields. For
--- example, you could filter on instances that have set the
--- scheduling.automaticRestart field to true. Use filtering on nested
--- fields to take advantage of labels to organize and search for results
--- based on label values. To filter on multiple expressions, provide each
--- separate expression within parentheses. For example,
--- (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
--- expressions are treated as AND expressions, meaning that resources must
--- match all expressions to pass the filters.
+-- | Sets a filter {expression} for filtering listed resources. Your
+-- {expression} must be in the format: field_name comparison_string
+-- literal_string. The field_name is the name of the field you want to
+-- compare. Only atomic field types are supported (string, number,
+-- boolean). The comparison_string must be either eq (equals) or ne (not
+-- equals). The literal_string is the string value to filter to. The
+-- literal value must be valid for the type of field you are filtering by
+-- (string, number, boolean). For string fields, the literal value is
+-- interpreted as a regular expression using RE2 syntax. The literal value
+-- must match the entire field. For example, to filter for instances that
+-- do not have a name of example-instance, you would use name ne
+-- example-instance. You can filter on nested fields. For example, you
+-- could filter on instances that have set the scheduling.automaticRestart
+-- field to true. Use filtering on nested fields to take advantage of
+-- labels to organize and search for results based on label values. To
+-- filter on multiple expressions, provide each separate expression within
+-- parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+-- us-central1-f). Multiple expressions are treated as AND expressions,
+-- meaning that resources must match all expressions to pass the filters.
 tvglFilter :: Lens' TargetVPNGatewaysList (Maybe Text)
 tvglFilter
   = lens _tvglFilter (\ s a -> s{_tvglFilter = a})
@@ -160,7 +159,8 @@ tvglPageToken
 -- | The maximum number of results per page that should be returned. If the
 -- number of available results is larger than maxResults, Compute Engine
 -- returns a nextPageToken that can be used to get the next page of results
--- in subsequent list requests.
+-- in subsequent list requests. Acceptable values are 0 to 500, inclusive.
+-- (Default: 500)
 tvglMaxResults :: Lens' TargetVPNGatewaysList Word32
 tvglMaxResults
   = lens _tvglMaxResults

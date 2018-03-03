@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Settings.UpdateImap
     , usuiUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.updateImap@ method which the
 -- 'UsersSettingsUpdateImap' request conforms to.
@@ -58,7 +58,7 @@ type UsersSettingsUpdateImapResource =
 -- /See:/ 'usersSettingsUpdateImap' smart constructor.
 data UsersSettingsUpdateImap = UsersSettingsUpdateImap'
     { _usuiPayload :: !ImapSettings
-    , _usuiUserId  :: !Text
+    , _usuiUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsUpdateImap' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersSettingsUpdateImap = UsersSettingsUpdateImap'
 usersSettingsUpdateImap
     :: ImapSettings -- ^ 'usuiPayload'
     -> UsersSettingsUpdateImap
-usersSettingsUpdateImap pUsuiPayload_ =
+usersSettingsUpdateImap pUsuiPayload_ = 
     UsersSettingsUpdateImap'
     { _usuiPayload = pUsuiPayload_
     , _usuiUserId = "me"

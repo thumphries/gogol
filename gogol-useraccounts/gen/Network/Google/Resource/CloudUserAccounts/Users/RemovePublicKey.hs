@@ -38,8 +38,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.RemovePublicKey
     , urpkUser
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.removePublicKey@ method which the
 -- 'UsersRemovePublicKey' request conforms to.
@@ -59,9 +59,9 @@ type UsersRemovePublicKeyResource =
 --
 -- /See:/ 'usersRemovePublicKey' smart constructor.
 data UsersRemovePublicKey = UsersRemovePublicKey'
-    { _urpkProject     :: !Text
+    { _urpkProject :: !Text
     , _urpkFingerprint :: !Text
-    , _urpkUser        :: !Text
+    , _urpkUser :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersRemovePublicKey' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ usersRemovePublicKey
     -> Text -- ^ 'urpkFingerprint'
     -> Text -- ^ 'urpkUser'
     -> UsersRemovePublicKey
-usersRemovePublicKey pUrpkProject_ pUrpkFingerprint_ pUrpkUser_ =
+usersRemovePublicKey pUrpkProject_ pUrpkFingerprint_ pUrpkUser_ = 
     UsersRemovePublicKey'
     { _urpkProject = pUrpkProject_
     , _urpkFingerprint = pUrpkFingerprint_

@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.DomainAliases.Insert
     , daiCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.domainAliases.insert@ method which the
 -- 'DomainAliasesInsert' request conforms to.
@@ -57,7 +57,7 @@ type DomainAliasesInsertResource =
 --
 -- /See:/ 'domainAliasesInsert' smart constructor.
 data DomainAliasesInsert = DomainAliasesInsert'
-    { _daiPayload  :: !DomainAlias
+    { _daiPayload :: !DomainAlias
     , _daiCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ domainAliasesInsert
     :: DomainAlias -- ^ 'daiPayload'
     -> Text -- ^ 'daiCustomer'
     -> DomainAliasesInsert
-domainAliasesInsert pDaiPayload_ pDaiCustomer_ =
+domainAliasesInsert pDaiPayload_ pDaiCustomer_ = 
     DomainAliasesInsert'
     { _daiPayload = pDaiPayload_
     , _daiCustomer = pDaiCustomer_
@@ -83,7 +83,7 @@ daiPayload :: Lens' DomainAliasesInsert DomainAlias
 daiPayload
   = lens _daiPayload (\ s a -> s{_daiPayload = a})
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 daiCustomer :: Lens' DomainAliasesInsert Text
 daiCustomer
   = lens _daiCustomer (\ s a -> s{_daiCustomer = a})

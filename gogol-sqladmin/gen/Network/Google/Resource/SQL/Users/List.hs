@@ -37,8 +37,8 @@ module Network.Google.Resource.SQL.Users.List
     , ulInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.users.list@ method which the
 -- 'UsersList' request conforms to.
@@ -57,7 +57,7 @@ type UsersListResource =
 --
 -- /See:/ 'usersList' smart constructor.
 data UsersList = UsersList'
-    { _ulProject  :: !Text
+    { _ulProject :: !Text
     , _ulInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ usersList
     :: Text -- ^ 'ulProject'
     -> Text -- ^ 'ulInstance'
     -> UsersList
-usersList pUlProject_ pUlInstance_ =
+usersList pUlProject_ pUlInstance_ = 
     UsersList'
     { _ulProject = pUlProject_
     , _ulInstance = pUlInstance_

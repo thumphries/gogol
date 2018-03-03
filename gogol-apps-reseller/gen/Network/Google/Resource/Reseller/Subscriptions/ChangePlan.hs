@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the plan of a subscription
+-- Update a subscription plan. Use this method to update a plan for a
+-- 30-day trial or a flexible plan subscription to an annual commitment
+-- plan with monthly or yearly payments.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.subscriptions.changePlan@.
 module Network.Google.Resource.Reseller.Subscriptions.ChangePlan
@@ -38,8 +40,8 @@ module Network.Google.Resource.Reseller.Subscriptions.ChangePlan
     , scpSubscriptionId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.subscriptions.changePlan@ method which the
 -- 'SubscriptionsChangePlan' request conforms to.
@@ -56,12 +58,14 @@ type SubscriptionsChangePlanResource =
                        ReqBody '[JSON] ChangePlanRequest :>
                          Post '[JSON] Subscription
 
--- | Changes the plan of a subscription
+-- | Update a subscription plan. Use this method to update a plan for a
+-- 30-day trial or a flexible plan subscription to an annual commitment
+-- plan with monthly or yearly payments.
 --
 -- /See:/ 'subscriptionsChangePlan' smart constructor.
 data SubscriptionsChangePlan = SubscriptionsChangePlan'
-    { _scpPayload        :: !ChangePlanRequest
-    , _scpCustomerId     :: !Text
+    { _scpPayload :: !ChangePlanRequest
+    , _scpCustomerId :: !Text
     , _scpSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +83,7 @@ subscriptionsChangePlan
     -> Text -- ^ 'scpCustomerId'
     -> Text -- ^ 'scpSubscriptionId'
     -> SubscriptionsChangePlan
-subscriptionsChangePlan pScpPayload_ pScpCustomerId_ pScpSubscriptionId_ =
+subscriptionsChangePlan pScpPayload_ pScpCustomerId_ pScpSubscriptionId_ = 
     SubscriptionsChangePlan'
     { _scpPayload = pScpPayload_
     , _scpCustomerId = pScpCustomerId_
@@ -91,13 +95,20 @@ scpPayload :: Lens' SubscriptionsChangePlan ChangePlanRequest
 scpPayload
   = lens _scpPayload (\ s a -> s{_scpPayload = a})
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 scpCustomerId :: Lens' SubscriptionsChangePlan Text
 scpCustomerId
   = lens _scpCustomerId
       (\ s a -> s{_scpCustomerId = a})
 
--- | Id of the subscription, which is unique for a customer
+-- | This is a required property. The subscriptionId is the subscription
+-- identifier and is unique for each customer. Since a subscriptionId
+-- changes when a subscription is updated, we recommend to not use this ID
+-- as a key for persistent data. And the subscriptionId can be found using
+-- the retrieve all reseller subscriptions method.
 scpSubscriptionId :: Lens' SubscriptionsChangePlan Text
 scpSubscriptionId
   = lens _scpSubscriptionId

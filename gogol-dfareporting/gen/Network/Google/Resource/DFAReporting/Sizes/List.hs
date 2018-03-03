@@ -40,14 +40,14 @@ module Network.Google.Resource.DFAReporting.Sizes.List
     , slIabStandard
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sizes.list@ method which the
 -- 'SizesList' request conforms to.
 type SizesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sizes" :>
@@ -62,10 +62,10 @@ type SizesListResource =
 --
 -- /See:/ 'sizesList' smart constructor.
 data SizesList = SizesList'
-    { _slHeight      :: !(Maybe (Textual Int32))
-    , _slIds         :: !(Maybe [Textual Int64])
-    , _slWidth       :: !(Maybe (Textual Int32))
-    , _slProFileId   :: !(Textual Int64)
+    { _slHeight :: !(Maybe (Textual Int32))
+    , _slIds :: !(Maybe [Textual Int64])
+    , _slWidth :: !(Maybe (Textual Int32))
+    , _slProFileId :: !(Textual Int64)
     , _slIabStandard :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ data SizesList = SizesList'
 sizesList
     :: Int64 -- ^ 'slProFileId'
     -> SizesList
-sizesList pSlProFileId_ =
+sizesList pSlProFileId_ = 
     SizesList'
     { _slHeight = Nothing
     , _slIds = Nothing

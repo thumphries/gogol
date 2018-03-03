@@ -43,8 +43,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Import
     , umiInternalDateSource
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.import@ method which the
 -- 'UsersMessagesImport' request conforms to.
@@ -88,11 +88,11 @@ type UsersMessagesImportResource =
 --
 -- /See:/ 'usersMessagesImport' smart constructor.
 data UsersMessagesImport = UsersMessagesImport'
-    { _umiPayload            :: !Message
-    , _umiUserId             :: !Text
+    { _umiPayload :: !Message
+    , _umiUserId :: !Text
     , _umiProcessForCalendar :: !Bool
-    , _umiDeleted            :: !Bool
-    , _umiNeverMarkSpam      :: !Bool
+    , _umiDeleted :: !Bool
+    , _umiNeverMarkSpam :: !Bool
     , _umiInternalDateSource :: !UsersMessagesImportInternalDateSource
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -114,7 +114,7 @@ data UsersMessagesImport = UsersMessagesImport'
 usersMessagesImport
     :: Message -- ^ 'umiPayload'
     -> UsersMessagesImport
-usersMessagesImport pUmiPayload_ =
+usersMessagesImport pUmiPayload_ = 
     UsersMessagesImport'
     { _umiPayload = pUmiPayload_
     , _umiUserId = "me"
@@ -143,8 +143,7 @@ umiProcessForCalendar
       (\ s a -> s{_umiProcessForCalendar = a})
 
 -- | Mark the email as permanently deleted (not TRASH) and only visible in
--- Google Apps Vault to a Vault administrator. Only used for Google Apps
--- for Work accounts.
+-- Google Vault to a Vault administrator. Only used for G Suite accounts.
 umiDeleted :: Lens' UsersMessagesImport Bool
 umiDeleted
   = lens _umiDeleted (\ s a -> s{_umiDeleted = a})

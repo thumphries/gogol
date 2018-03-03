@@ -40,8 +40,8 @@ module Network.Google.Resource.Books.Layers.VolumeAnnotations.Get
     , lvagLayerId
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.layers.volumeAnnotations.get@ method which the
 -- 'LayersVolumeAnnotationsGet' request conforms to.
@@ -63,11 +63,11 @@ type LayersVolumeAnnotationsGetResource =
 --
 -- /See:/ 'layersVolumeAnnotationsGet' smart constructor.
 data LayersVolumeAnnotationsGet = LayersVolumeAnnotationsGet'
-    { _lvagLocale       :: !(Maybe Text)
+    { _lvagLocale :: !(Maybe Text)
     , _lvagAnnotationId :: !Text
-    , _lvagVolumeId     :: !Text
-    , _lvagSource       :: !(Maybe Text)
-    , _lvagLayerId      :: !Text
+    , _lvagVolumeId :: !Text
+    , _lvagSource :: !(Maybe Text)
+    , _lvagLayerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LayersVolumeAnnotationsGet' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ layersVolumeAnnotationsGet
     -> Text -- ^ 'lvagVolumeId'
     -> Text -- ^ 'lvagLayerId'
     -> LayersVolumeAnnotationsGet
-layersVolumeAnnotationsGet pLvagAnnotationId_ pLvagVolumeId_ pLvagLayerId_ =
+layersVolumeAnnotationsGet pLvagAnnotationId_ pLvagVolumeId_ pLvagLayerId_ = 
     LayersVolumeAnnotationsGet'
     { _lvagLocale = Nothing
     , _lvagAnnotationId = pLvagAnnotationId_

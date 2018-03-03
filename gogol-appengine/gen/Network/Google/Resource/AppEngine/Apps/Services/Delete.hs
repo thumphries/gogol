@@ -22,7 +22,7 @@
 --
 -- Deletes the specified service and all enclosed versions.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.delete@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.delete@.
 module Network.Google.Resource.AppEngine.Apps.Services.Delete
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Delete
     , asdCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.delete@ method which the
 -- 'AppsServicesDelete' request conforms to.
@@ -55,7 +55,7 @@ type AppsServicesDeleteResource =
          Capture "appsId" Text :>
            "services" :>
              Capture "servicesId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -69,15 +69,15 @@ type AppsServicesDeleteResource =
 --
 -- /See:/ 'appsServicesDelete' smart constructor.
 data AppsServicesDelete = AppsServicesDelete'
-    { _asdXgafv          :: !(Maybe Text)
+    { _asdXgafv :: !(Maybe Xgafv)
     , _asdUploadProtocol :: !(Maybe Text)
-    , _asdPp             :: !Bool
-    , _asdAccessToken    :: !(Maybe Text)
-    , _asdUploadType     :: !(Maybe Text)
-    , _asdBearerToken    :: !(Maybe Text)
-    , _asdAppsId         :: !Text
-    , _asdServicesId     :: !Text
-    , _asdCallback       :: !(Maybe Text)
+    , _asdPp :: !Bool
+    , _asdAccessToken :: !(Maybe Text)
+    , _asdUploadType :: !(Maybe Text)
+    , _asdBearerToken :: !(Maybe Text)
+    , _asdAppsId :: !Text
+    , _asdServicesId :: !Text
+    , _asdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesDelete' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ appsServicesDelete
     :: Text -- ^ 'asdAppsId'
     -> Text -- ^ 'asdServicesId'
     -> AppsServicesDelete
-appsServicesDelete pAsdAppsId_ pAsdServicesId_ =
+appsServicesDelete pAsdAppsId_ pAsdServicesId_ = 
     AppsServicesDelete'
     { _asdXgafv = Nothing
     , _asdUploadProtocol = Nothing
@@ -119,7 +119,7 @@ appsServicesDelete pAsdAppsId_ pAsdServicesId_ =
     }
 
 -- | V1 error format.
-asdXgafv :: Lens' AppsServicesDelete (Maybe Text)
+asdXgafv :: Lens' AppsServicesDelete (Maybe Xgafv)
 asdXgafv = lens _asdXgafv (\ s a -> s{_asdXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

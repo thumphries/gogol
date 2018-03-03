@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.HealthChecks.Get
     , hcgProject
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.healthChecks.get@ method which the
 -- 'HealthChecksGet' request conforms to.
@@ -59,7 +59,7 @@ type HealthChecksGetResource =
 -- /See:/ 'healthChecksGet' smart constructor.
 data HealthChecksGet = HealthChecksGet'
     { _hcgHealthCheck :: !Text
-    , _hcgProject     :: !Text
+    , _hcgProject :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HealthChecksGet' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ healthChecksGet
     :: Text -- ^ 'hcgHealthCheck'
     -> Text -- ^ 'hcgProject'
     -> HealthChecksGet
-healthChecksGet pHcgHealthCheck_ pHcgProject_ =
+healthChecksGet pHcgHealthCheck_ pHcgProject_ = 
     HealthChecksGet'
     { _hcgHealthCheck = pHcgHealthCheck_
     , _hcgProject = pHcgProject_

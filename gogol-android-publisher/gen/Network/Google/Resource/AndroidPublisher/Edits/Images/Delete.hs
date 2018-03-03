@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Images.Delete
     , eidEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.images.delete@ method which the
 -- 'EditsImagesDelete' request conforms to.
@@ -63,10 +63,10 @@ type EditsImagesDeleteResource =
 -- /See:/ 'editsImagesDelete' smart constructor.
 data EditsImagesDelete = EditsImagesDelete'
     { _eidPackageName :: !Text
-    , _eidImageType   :: !EditsImagesDeleteImageType
-    , _eidImageId     :: !Text
-    , _eidLanguage    :: !Text
-    , _eidEditId      :: !Text
+    , _eidImageType :: !EditsImagesDeleteImageType
+    , _eidImageId :: !Text
+    , _eidLanguage :: !Text
+    , _eidEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsImagesDelete' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ editsImagesDelete
     -> Text -- ^ 'eidLanguage'
     -> Text -- ^ 'eidEditId'
     -> EditsImagesDelete
-editsImagesDelete pEidPackageName_ pEidImageType_ pEidImageId_ pEidLanguage_ pEidEditId_ =
+editsImagesDelete pEidPackageName_ pEidImageType_ pEidImageId_ pEidLanguage_ pEidEditId_ = 
     EditsImagesDelete'
     { _eidPackageName = pEidPackageName_
     , _eidImageType = pEidImageType_

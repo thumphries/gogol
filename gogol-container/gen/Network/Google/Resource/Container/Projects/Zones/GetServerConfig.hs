@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns configuration info about the Container Engine service.
+-- Returns configuration info about the Kubernetes Engine service.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.getServerconfig@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.getServerconfig@.
 module Network.Google.Resource.Container.Projects.Zones.GetServerConfig
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Container.Projects.Zones.GetServerConfig
     , pzgscCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.getServerconfig@ method which the
 -- 'ProjectsZonesGetServerConfig' request conforms to.
@@ -56,7 +56,7 @@ type ProjectsZonesGetServerConfigResource =
            "zones" :>
              Capture "zone" Text :>
                "serverconfig" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -66,19 +66,19 @@ type ProjectsZonesGetServerConfigResource =
                                QueryParam "alt" AltJSON :>
                                  Get '[JSON] ServerConfig
 
--- | Returns configuration info about the Container Engine service.
+-- | Returns configuration info about the Kubernetes Engine service.
 --
 -- /See:/ 'projectsZonesGetServerConfig' smart constructor.
 data ProjectsZonesGetServerConfig = ProjectsZonesGetServerConfig'
-    { _pzgscXgafv          :: !(Maybe Text)
+    { _pzgscXgafv :: !(Maybe Xgafv)
     , _pzgscUploadProtocol :: !(Maybe Text)
-    , _pzgscPp             :: !Bool
-    , _pzgscAccessToken    :: !(Maybe Text)
-    , _pzgscUploadType     :: !(Maybe Text)
-    , _pzgscZone           :: !Text
-    , _pzgscBearerToken    :: !(Maybe Text)
-    , _pzgscProjectId      :: !Text
-    , _pzgscCallback       :: !(Maybe Text)
+    , _pzgscPp :: !Bool
+    , _pzgscAccessToken :: !(Maybe Text)
+    , _pzgscUploadType :: !(Maybe Text)
+    , _pzgscZone :: !Text
+    , _pzgscBearerToken :: !(Maybe Text)
+    , _pzgscProjectId :: !Text
+    , _pzgscCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesGetServerConfig' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsZonesGetServerConfig
     :: Text -- ^ 'pzgscZone'
     -> Text -- ^ 'pzgscProjectId'
     -> ProjectsZonesGetServerConfig
-projectsZonesGetServerConfig pPzgscZone_ pPzgscProjectId_ =
+projectsZonesGetServerConfig pPzgscZone_ pPzgscProjectId_ = 
     ProjectsZonesGetServerConfig'
     { _pzgscXgafv = Nothing
     , _pzgscUploadProtocol = Nothing
@@ -120,7 +120,7 @@ projectsZonesGetServerConfig pPzgscZone_ pPzgscProjectId_ =
     }
 
 -- | V1 error format.
-pzgscXgafv :: Lens' ProjectsZonesGetServerConfig (Maybe Text)
+pzgscXgafv :: Lens' ProjectsZonesGetServerConfig (Maybe Xgafv)
 pzgscXgafv
   = lens _pzgscXgafv (\ s a -> s{_pzgscXgafv = a})
 

@@ -43,8 +43,8 @@ module Network.Google.Resource.CloudMonitoring.Timeseries.Write
     , twPayload
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.timeseries.write@ method which the
 -- 'TimeseriesWrite' request conforms to.
@@ -83,7 +83,7 @@ timeseriesWrite
     :: Text -- ^ 'twProject'
     -> WriteTimeseriesRequest -- ^ 'twPayload'
     -> TimeseriesWrite
-timeseriesWrite pTwProject_ pTwPayload_ =
+timeseriesWrite pTwProject_ pTwPayload_ = 
     TimeseriesWrite'
     { _twProject = pTwProject_
     , _twPayload = pTwPayload_

@@ -39,8 +39,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.List
     , zvlMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.list@ method which the
 -- 'ZoneViewsList'' request conforms to.
@@ -60,9 +60,9 @@ type ZoneViewsListResource =
 --
 -- /See:/ 'zoneViewsList'' smart constructor.
 data ZoneViewsList' = ZoneViewsList''
-    { _zvlProject    :: !Text
-    , _zvlZone       :: !Text
-    , _zvlPageToken  :: !(Maybe Text)
+    { _zvlProject :: !Text
+    , _zvlZone :: !Text
+    , _zvlPageToken :: !(Maybe Text)
     , _zvlMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -81,7 +81,7 @@ zoneViewsList'
     :: Text -- ^ 'zvlProject'
     -> Text -- ^ 'zvlZone'
     -> ZoneViewsList'
-zoneViewsList' pZvlProject_ pZvlZone_ =
+zoneViewsList' pZvlProject_ pZvlZone_ = 
     ZoneViewsList''
     { _zvlProject = pZvlProject_
     , _zvlZone = pZvlZone_

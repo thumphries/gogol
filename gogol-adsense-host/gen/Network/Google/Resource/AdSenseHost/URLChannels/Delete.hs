@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSenseHost.URLChannels.Delete
     , ucdAdClientId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.urlchannels.delete@ method which the
 -- 'URLChannelsDelete' request conforms to.
@@ -56,7 +56,7 @@ type URLChannelsDeleteResource =
 -- /See:/ 'urlChannelsDelete' smart constructor.
 data URLChannelsDelete = URLChannelsDelete'
     { _ucdURLChannelId :: !Text
-    , _ucdAdClientId   :: !Text
+    , _ucdAdClientId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'URLChannelsDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ urlChannelsDelete
     :: Text -- ^ 'ucdURLChannelId'
     -> Text -- ^ 'ucdAdClientId'
     -> URLChannelsDelete
-urlChannelsDelete pUcdURLChannelId_ pUcdAdClientId_ =
+urlChannelsDelete pUcdURLChannelId_ pUcdAdClientId_ = 
     URLChannelsDelete'
     { _ucdURLChannelId = pUcdURLChannelId_
     , _ucdAdClientId = pUcdAdClientId_

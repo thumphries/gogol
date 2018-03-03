@@ -22,7 +22,10 @@
 --
 -- Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ <https://cloud.google.com/pubsub/docs Google Cloud Pub/Sub API Reference> for @pubsub.projects.snapshots.testIamPermissions@.
 module Network.Google.Resource.PubSub.Projects.Snapshots.TestIAMPermissions
@@ -46,8 +49,8 @@ module Network.Google.Resource.PubSub.Projects.Snapshots.TestIAMPermissions
     , pstipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.snapshots.testIamPermissions@ method which the
 -- 'ProjectsSnapshotsTestIAMPermissions' request conforms to.
@@ -67,19 +70,22 @@ type ProjectsSnapshotsTestIAMPermissionsResource =
 
 -- | Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ 'projectsSnapshotsTestIAMPermissions' smart constructor.
 data ProjectsSnapshotsTestIAMPermissions = ProjectsSnapshotsTestIAMPermissions'
-    { _pstipXgafv          :: !(Maybe Xgafv)
+    { _pstipXgafv :: !(Maybe Xgafv)
     , _pstipUploadProtocol :: !(Maybe Text)
-    , _pstipPp             :: !Bool
-    , _pstipAccessToken    :: !(Maybe Text)
-    , _pstipUploadType     :: !(Maybe Text)
-    , _pstipPayload        :: !TestIAMPermissionsRequest
-    , _pstipBearerToken    :: !(Maybe Text)
-    , _pstipResource       :: !Text
-    , _pstipCallback       :: !(Maybe Text)
+    , _pstipPp :: !Bool
+    , _pstipAccessToken :: !(Maybe Text)
+    , _pstipUploadType :: !(Maybe Text)
+    , _pstipPayload :: !TestIAMPermissionsRequest
+    , _pstipBearerToken :: !(Maybe Text)
+    , _pstipResource :: !Text
+    , _pstipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSnapshotsTestIAMPermissions' with the minimum fields required to make a request.
@@ -107,7 +113,7 @@ projectsSnapshotsTestIAMPermissions
     :: TestIAMPermissionsRequest -- ^ 'pstipPayload'
     -> Text -- ^ 'pstipResource'
     -> ProjectsSnapshotsTestIAMPermissions
-projectsSnapshotsTestIAMPermissions pPstipPayload_ pPstipResource_ =
+projectsSnapshotsTestIAMPermissions pPstipPayload_ pPstipResource_ = 
     ProjectsSnapshotsTestIAMPermissions'
     { _pstipXgafv = Nothing
     , _pstipUploadProtocol = Nothing
@@ -159,8 +165,8 @@ pstipBearerToken
       (\ s a -> s{_pstipBearerToken = a})
 
 -- | REQUIRED: The resource for which the policy detail is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- See the operation documentation for the appropriate value for this
+-- field.
 pstipResource :: Lens' ProjectsSnapshotsTestIAMPermissions Text
 pstipResource
   = lens _pstipResource

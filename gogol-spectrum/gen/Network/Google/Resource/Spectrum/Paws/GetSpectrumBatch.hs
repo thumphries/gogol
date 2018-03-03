@@ -37,8 +37,8 @@ module Network.Google.Resource.Spectrum.Paws.GetSpectrumBatch
     , pgsbPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Spectrum.Types
+import Network.Google.Prelude
+import Network.Google.Spectrum.Types
 
 -- | A resource alias for @spectrum.paws.getSpectrumBatch@ method which the
 -- 'PawsGetSpectrumBatch' request conforms to.
@@ -67,7 +67,7 @@ newtype PawsGetSpectrumBatch = PawsGetSpectrumBatch'
 pawsGetSpectrumBatch
     :: PawsGetSpectrumBatchRequest -- ^ 'pgsbPayload'
     -> PawsGetSpectrumBatch
-pawsGetSpectrumBatch pPgsbPayload_ =
+pawsGetSpectrumBatch pPgsbPayload_ = 
     PawsGetSpectrumBatch'
     { _pgsbPayload = pPgsbPayload_
     }

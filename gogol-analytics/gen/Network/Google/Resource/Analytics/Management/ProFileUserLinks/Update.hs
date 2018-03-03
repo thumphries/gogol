@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.ProFileUserLinks.Update
     , mpfuluLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileUserLinks.update@ method which the
 -- 'ManagementProFileUserLinksUpdate' request conforms to.
@@ -66,10 +66,10 @@ type ManagementProFileUserLinksUpdateResource =
 -- /See:/ 'managementProFileUserLinksUpdate' smart constructor.
 data ManagementProFileUserLinksUpdate = ManagementProFileUserLinksUpdate'
     { _mpfuluWebPropertyId :: !Text
-    , _mpfuluProFileId     :: !Text
-    , _mpfuluPayload       :: !EntityUserLink
-    , _mpfuluAccountId     :: !Text
-    , _mpfuluLinkId        :: !Text
+    , _mpfuluProFileId :: !Text
+    , _mpfuluPayload :: !EntityUserLink
+    , _mpfuluAccountId :: !Text
+    , _mpfuluLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileUserLinksUpdate' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ managementProFileUserLinksUpdate
     -> Text -- ^ 'mpfuluAccountId'
     -> Text -- ^ 'mpfuluLinkId'
     -> ManagementProFileUserLinksUpdate
-managementProFileUserLinksUpdate pMpfuluWebPropertyId_ pMpfuluProFileId_ pMpfuluPayload_ pMpfuluAccountId_ pMpfuluLinkId_ =
+managementProFileUserLinksUpdate pMpfuluWebPropertyId_ pMpfuluProFileId_ pMpfuluPayload_ pMpfuluAccountId_ pMpfuluLinkId_ = 
     ManagementProFileUserLinksUpdate'
     { _mpfuluWebPropertyId = pMpfuluWebPropertyId_
     , _mpfuluProFileId = pMpfuluProFileId_

@@ -70,11 +70,16 @@ library
         , Network.Google.Resource.Drive.Revisions.Get
         , Network.Google.Resource.Drive.Revisions.List
         , Network.Google.Resource.Drive.Revisions.Update
+        , Network.Google.Resource.Drive.Teamdrives.Create
+        , Network.Google.Resource.Drive.Teamdrives.Delete
+        , Network.Google.Resource.Drive.Teamdrives.Get
+        , Network.Google.Resource.Drive.Teamdrives.List
+        , Network.Google.Resource.Drive.Teamdrives.Update
 
     other-modules:
           Network.Google.Drive.Types.Product
         , Network.Google.Drive.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

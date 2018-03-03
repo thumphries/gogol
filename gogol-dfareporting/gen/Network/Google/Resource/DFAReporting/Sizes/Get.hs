@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Sizes.Get
     , sgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sizes.get@ method which the
 -- 'SizesGet' request conforms to.
 type SizesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sizes" :>
@@ -56,7 +56,7 @@ type SizesGetResource =
 -- /See:/ 'sizesGet' smart constructor.
 data SizesGet = SizesGet'
     { _sgProFileId :: !(Textual Int64)
-    , _sgId        :: !(Textual Int64)
+    , _sgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SizesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sizesGet
     :: Int64 -- ^ 'sgProFileId'
     -> Int64 -- ^ 'sgId'
     -> SizesGet
-sizesGet pSgProFileId_ pSgId_ =
+sizesGet pSgProFileId_ pSgId_ = 
     SizesGet'
     { _sgProFileId = _Coerce # pSgProFileId_
     , _sgId = _Coerce # pSgId_

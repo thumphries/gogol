@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Settings.UpdateVacation
     , usuvUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.updateVacation@ method which the
 -- 'UsersSettingsUpdateVacation' request conforms to.
@@ -58,7 +58,7 @@ type UsersSettingsUpdateVacationResource =
 -- /See:/ 'usersSettingsUpdateVacation' smart constructor.
 data UsersSettingsUpdateVacation = UsersSettingsUpdateVacation'
     { _usuvPayload :: !VacationSettings
-    , _usuvUserId  :: !Text
+    , _usuvUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsUpdateVacation' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersSettingsUpdateVacation = UsersSettingsUpdateVacation'
 usersSettingsUpdateVacation
     :: VacationSettings -- ^ 'usuvPayload'
     -> UsersSettingsUpdateVacation
-usersSettingsUpdateVacation pUsuvPayload_ =
+usersSettingsUpdateVacation pUsuvPayload_ = 
     UsersSettingsUpdateVacation'
     { _usuvPayload = pUsuvPayload_
     , _usuvUserId = "me"

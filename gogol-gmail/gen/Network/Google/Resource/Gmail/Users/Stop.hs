@@ -36,8 +36,8 @@ module Network.Google.Resource.Gmail.Users.Stop
     , usUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.stop@ method which the
 -- 'UsersStop' request conforms to.
@@ -62,7 +62,7 @@ newtype UsersStop = UsersStop'
 -- * 'usUserId'
 usersStop
     :: UsersStop
-usersStop =
+usersStop = 
     UsersStop'
     { _usUserId = "me"
     }

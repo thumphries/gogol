@@ -34,13 +34,12 @@ module Network.Google.Resource.Games.Rooms.Decline
     , RoomsDecline
 
     -- * Request Lenses
-    , rooConsistencyToken
     , rooRoomId
     , rooLanguage
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.rooms.decline@ method which the
 -- 'RoomsDecline' request conforms to.
@@ -50,25 +49,21 @@ type RoomsDeclineResource =
          "rooms" :>
            Capture "roomId" Text :>
              "decline" :>
-               QueryParam "consistencyToken" (Textual Int64) :>
-                 QueryParam "language" Text :>
-                   QueryParam "alt" AltJSON :> Post '[JSON] Room
+               QueryParam "language" Text :>
+                 QueryParam "alt" AltJSON :> Post '[JSON] Room
 
 -- | Decline an invitation to join a room. For internal use by the Games SDK
 -- only. Calling this method directly is unsupported.
 --
 -- /See:/ 'roomsDecline' smart constructor.
 data RoomsDecline = RoomsDecline'
-    { _rooConsistencyToken :: !(Maybe (Textual Int64))
-    , _rooRoomId           :: !Text
-    , _rooLanguage         :: !(Maybe Text)
+    { _rooRoomId :: !Text
+    , _rooLanguage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoomsDecline' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'rooConsistencyToken'
 --
 -- * 'rooRoomId'
 --
@@ -76,19 +71,11 @@ data RoomsDecline = RoomsDecline'
 roomsDecline
     :: Text -- ^ 'rooRoomId'
     -> RoomsDecline
-roomsDecline pRooRoomId_ =
+roomsDecline pRooRoomId_ = 
     RoomsDecline'
-    { _rooConsistencyToken = Nothing
-    , _rooRoomId = pRooRoomId_
+    { _rooRoomId = pRooRoomId_
     , _rooLanguage = Nothing
     }
-
--- | The last-seen mutation timestamp.
-rooConsistencyToken :: Lens' RoomsDecline (Maybe Int64)
-rooConsistencyToken
-  = lens _rooConsistencyToken
-      (\ s a -> s{_rooConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The ID of the room.
 rooRoomId :: Lens' RoomsDecline Text
@@ -106,8 +93,7 @@ instance GoogleRequest RoomsDecline where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient RoomsDecline'{..}
-          = go _rooRoomId _rooConsistencyToken _rooLanguage
-              (Just AltJSON)
+          = go _rooRoomId _rooLanguage (Just AltJSON)
               gamesService
           where go
                   = buildClient (Proxy :: Proxy RoomsDeclineResource)

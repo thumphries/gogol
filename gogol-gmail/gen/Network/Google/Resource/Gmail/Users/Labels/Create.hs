@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Labels.Create
     , ulcUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.create@ method which the
 -- 'UsersLabelsCreate' request conforms to.
@@ -56,7 +56,7 @@ type UsersLabelsCreateResource =
 -- /See:/ 'usersLabelsCreate' smart constructor.
 data UsersLabelsCreate = UsersLabelsCreate'
     { _ulcPayload :: !Label
-    , _ulcUserId  :: !Text
+    , _ulcUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersLabelsCreate' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data UsersLabelsCreate = UsersLabelsCreate'
 usersLabelsCreate
     :: Label -- ^ 'ulcPayload'
     -> UsersLabelsCreate
-usersLabelsCreate pUlcPayload_ =
+usersLabelsCreate pUlcPayload_ = 
     UsersLabelsCreate'
     { _ulcPayload = pUlcPayload_
     , _ulcUserId = "me"

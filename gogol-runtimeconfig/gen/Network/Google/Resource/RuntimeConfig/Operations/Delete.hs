@@ -25,7 +25,7 @@
 -- operation. If the server doesn\'t support this method, it returns
 -- \`google.rpc.Code.UNIMPLEMENTED\`.
 --
--- /See:/ <https://cloud.google.com/deployment-manager/runtime-configurator/ Google Cloud RuntimeConfig API Reference> for @runtimeconfig.operations.delete@.
+-- /See:/ <https://cloud.google.com/deployment-manager/runtime-configurator/ Google Cloud Runtime Configuration API Reference> for @runtimeconfig.operations.delete@.
 module Network.Google.Resource.RuntimeConfig.Operations.Delete
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.RuntimeConfig.Operations.Delete
     , odCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.RuntimeConfig.Types
+import Network.Google.Prelude
+import Network.Google.RuntimeConfig.Types
 
 -- | A resource alias for @runtimeconfig.operations.delete@ method which the
 -- 'OperationsDelete' request conforms to.
@@ -70,14 +70,14 @@ type OperationsDeleteResource =
 --
 -- /See:/ 'operationsDelete' smart constructor.
 data OperationsDelete = OperationsDelete'
-    { _odXgafv          :: !(Maybe Xgafv)
+    { _odXgafv :: !(Maybe Xgafv)
     , _odUploadProtocol :: !(Maybe Text)
-    , _odPp             :: !Bool
-    , _odAccessToken    :: !(Maybe Text)
-    , _odUploadType     :: !(Maybe Text)
-    , _odBearerToken    :: !(Maybe Text)
-    , _odName           :: !Text
-    , _odCallback       :: !(Maybe Text)
+    , _odPp :: !Bool
+    , _odAccessToken :: !(Maybe Text)
+    , _odUploadType :: !(Maybe Text)
+    , _odBearerToken :: !(Maybe Text)
+    , _odName :: !Text
+    , _odCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperationsDelete' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data OperationsDelete = OperationsDelete'
 operationsDelete
     :: Text -- ^ 'odName'
     -> OperationsDelete
-operationsDelete pOdName_ =
+operationsDelete pOdName_ = 
     OperationsDelete'
     { _odXgafv = Nothing
     , _odUploadProtocol = Nothing

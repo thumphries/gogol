@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTubeAnalytics.Groups.Delete
     , gdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groups.delete@ method which the
 -- 'GroupsDelete' request conforms to.
@@ -56,7 +56,7 @@ type GroupsDeleteResource =
 -- /See:/ 'groupsDelete' smart constructor.
 data GroupsDelete = GroupsDelete'
     { _gdOnBehalfOfContentOwner :: !(Maybe Text)
-    , _gdId                     :: !Text
+    , _gdId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupsDelete' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data GroupsDelete = GroupsDelete'
 groupsDelete
     :: Text -- ^ 'gdId'
     -> GroupsDelete
-groupsDelete pGdId_ =
+groupsDelete pGdId_ = 
     GroupsDelete'
     { _gdOnBehalfOfContentOwner = Nothing
     , _gdId = pGdId_

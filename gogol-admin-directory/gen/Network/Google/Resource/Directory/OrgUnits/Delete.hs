@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Remove Organization Unit
+-- Remove organizational unit
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.orgunits.delete@.
 module Network.Google.Resource.Directory.OrgUnits.Delete
@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.OrgUnits.Delete
     , oudCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.orgunits.delete@ method which the
 -- 'OrgUnitsDelete' request conforms to.
@@ -52,12 +52,12 @@ type OrgUnitsDeleteResource =
                  Captures "orgUnitPath" Text :>
                    QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
--- | Remove Organization Unit
+-- | Remove organizational unit
 --
 -- /See:/ 'orgUnitsDelete' smart constructor.
 data OrgUnitsDelete = OrgUnitsDelete'
     { _oudOrgUnitPath :: ![Text]
-    , _oudCustomerId  :: !Text
+    , _oudCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrgUnitsDelete' with the minimum fields required to make a request.
@@ -71,20 +71,20 @@ orgUnitsDelete
     :: [Text] -- ^ 'oudOrgUnitPath'
     -> Text -- ^ 'oudCustomerId'
     -> OrgUnitsDelete
-orgUnitsDelete pOudOrgUnitPath_ pOudCustomerId_ =
+orgUnitsDelete pOudOrgUnitPath_ pOudCustomerId_ = 
     OrgUnitsDelete'
     { _oudOrgUnitPath = _Coerce # pOudOrgUnitPath_
     , _oudCustomerId = pOudCustomerId_
     }
 
--- | Full path of the organization unit or its Id
+-- | Full path of the organizational unit or its ID
 oudOrgUnitPath :: Lens' OrgUnitsDelete [Text]
 oudOrgUnitPath
   = lens _oudOrgUnitPath
       (\ s a -> s{_oudOrgUnitPath = a})
       . _Coerce
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 oudCustomerId :: Lens' OrgUnitsDelete Text
 oudCustomerId
   = lens _oudCustomerId

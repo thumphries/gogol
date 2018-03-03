@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Users.Aliases.Watch
     , uawUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.aliases.watch@ method which the
 -- 'UsersAliasesWatch' request conforms to.
@@ -59,7 +59,7 @@ type UsersAliasesWatchResource =
 --
 -- /See:/ 'usersAliasesWatch' smart constructor.
 data UsersAliasesWatch = UsersAliasesWatch'
-    { _uawEvent   :: !(Maybe UsersAliasesWatchEvent)
+    { _uawEvent :: !(Maybe UsersAliasesWatchEvent)
     , _uawPayload :: !Channel
     , _uawUserKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -77,7 +77,7 @@ usersAliasesWatch
     :: Channel -- ^ 'uawPayload'
     -> Text -- ^ 'uawUserKey'
     -> UsersAliasesWatch
-usersAliasesWatch pUawPayload_ pUawUserKey_ =
+usersAliasesWatch pUawPayload_ pUawUserKey_ = 
     UsersAliasesWatch'
     { _uawEvent = Nothing
     , _uawPayload = pUawPayload_
@@ -93,7 +93,7 @@ uawPayload :: Lens' UsersAliasesWatch Channel
 uawPayload
   = lens _uawPayload (\ s a -> s{_uawPayload = a})
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 uawUserKey :: Lens' UsersAliasesWatch Text
 uawUserKey
   = lens _uawUserKey (\ s a -> s{_uawUserKey = a})

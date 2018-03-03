@@ -36,8 +36,8 @@ module Network.Google.Resource.DataTransfer.Transfers.Get
     , tgDataTransferId
     ) where
 
-import           Network.Google.DataTransfer.Types
-import           Network.Google.Prelude
+import Network.Google.DataTransfer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datatransfer.transfers.get@ method which the
 -- 'TransfersGet' request conforms to.
@@ -64,7 +64,7 @@ newtype TransfersGet = TransfersGet'
 transfersGet
     :: Text -- ^ 'tgDataTransferId'
     -> TransfersGet
-transfersGet pTgDataTransferId_ =
+transfersGet pTgDataTransferId_ = 
     TransfersGet'
     { _tgDataTransferId = pTgDataTransferId_
     }

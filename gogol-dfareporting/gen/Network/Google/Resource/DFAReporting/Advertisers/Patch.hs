@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Advertisers.Patch
     , apId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertisers.patch@ method which the
 -- 'AdvertisersPatch' request conforms to.
 type AdvertisersPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertisers" :>
@@ -59,8 +59,8 @@ type AdvertisersPatchResource =
 -- /See:/ 'advertisersPatch' smart constructor.
 data AdvertisersPatch = AdvertisersPatch'
     { _apProFileId :: !(Textual Int64)
-    , _apPayload   :: !Advertiser
-    , _apId        :: !(Textual Int64)
+    , _apPayload :: !Advertiser
+    , _apId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertisersPatch' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ advertisersPatch
     -> Advertiser -- ^ 'apPayload'
     -> Int64 -- ^ 'apId'
     -> AdvertisersPatch
-advertisersPatch pApProFileId_ pApPayload_ pApId_ =
+advertisersPatch pApProFileId_ pApPayload_ pApId_ = 
     AdvertisersPatch'
     { _apProFileId = _Coerce # pApProFileId_
     , _apPayload = pApPayload_

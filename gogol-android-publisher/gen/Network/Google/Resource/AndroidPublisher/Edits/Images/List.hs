@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Images.List
     , eilEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.images.list@ method which the
 -- 'EditsImagesList' request conforms to.
@@ -62,9 +62,9 @@ type EditsImagesListResource =
 -- /See:/ 'editsImagesList' smart constructor.
 data EditsImagesList = EditsImagesList'
     { _eilPackageName :: !Text
-    , _eilImageType   :: !EditsImagesListImageType
-    , _eilLanguage    :: !Text
-    , _eilEditId      :: !Text
+    , _eilImageType :: !EditsImagesListImageType
+    , _eilLanguage :: !Text
+    , _eilEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsImagesList' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ editsImagesList
     -> Text -- ^ 'eilLanguage'
     -> Text -- ^ 'eilEditId'
     -> EditsImagesList
-editsImagesList pEilPackageName_ pEilImageType_ pEilLanguage_ pEilEditId_ =
+editsImagesList pEilPackageName_ pEilImageType_ pEilLanguage_ pEilEditId_ = 
     EditsImagesList'
     { _eilPackageName = pEilPackageName_
     , _eilImageType = pEilImageType_

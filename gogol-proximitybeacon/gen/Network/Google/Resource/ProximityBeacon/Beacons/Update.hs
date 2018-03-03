@@ -54,15 +54,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Update
     , buCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.update@ method which the
 -- 'BeaconsUpdate' request conforms to.
 type BeaconsUpdateResource =
      "v1beta1" :>
        Capture "beaconName" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -86,16 +86,16 @@ type BeaconsUpdateResource =
 --
 -- /See:/ 'beaconsUpdate' smart constructor.
 data BeaconsUpdate = BeaconsUpdate'
-    { _buXgafv          :: !(Maybe Text)
+    { _buXgafv :: !(Maybe Xgafv)
     , _buUploadProtocol :: !(Maybe Text)
-    , _buPp             :: !Bool
-    , _buAccessToken    :: !(Maybe Text)
-    , _buBeaconName     :: !Text
-    , _buUploadType     :: !(Maybe Text)
-    , _buPayload        :: !Beacon
-    , _buBearerToken    :: !(Maybe Text)
-    , _buProjectId      :: !(Maybe Text)
-    , _buCallback       :: !(Maybe Text)
+    , _buPp :: !Bool
+    , _buAccessToken :: !(Maybe Text)
+    , _buBeaconName :: !Text
+    , _buUploadType :: !(Maybe Text)
+    , _buPayload :: !Beacon
+    , _buBearerToken :: !(Maybe Text)
+    , _buProjectId :: !(Maybe Text)
+    , _buCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsUpdate' with the minimum fields required to make a request.
@@ -125,7 +125,7 @@ beaconsUpdate
     :: Text -- ^ 'buBeaconName'
     -> Beacon -- ^ 'buPayload'
     -> BeaconsUpdate
-beaconsUpdate pBuBeaconName_ pBuPayload_ =
+beaconsUpdate pBuBeaconName_ pBuPayload_ = 
     BeaconsUpdate'
     { _buXgafv = Nothing
     , _buUploadProtocol = Nothing
@@ -140,7 +140,7 @@ beaconsUpdate pBuBeaconName_ pBuPayload_ =
     }
 
 -- | V1 error format.
-buXgafv :: Lens' BeaconsUpdate (Maybe Text)
+buXgafv :: Lens' BeaconsUpdate (Maybe Xgafv)
 buXgafv = lens _buXgafv (\ s a -> s{_buXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

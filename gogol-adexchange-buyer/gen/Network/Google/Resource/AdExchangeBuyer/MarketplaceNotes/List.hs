@@ -37,8 +37,8 @@ module Network.Google.Resource.AdExchangeBuyer.MarketplaceNotes.List
     , mnlPqlQuery
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.marketplacenotes.list@ method which the
 -- 'MarketplaceNotesList' request conforms to.
@@ -57,7 +57,7 @@ type MarketplaceNotesListResource =
 -- /See:/ 'marketplaceNotesList' smart constructor.
 data MarketplaceNotesList = MarketplaceNotesList'
     { _mnlProposalId :: !Text
-    , _mnlPqlQuery   :: !(Maybe Text)
+    , _mnlPqlQuery :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MarketplaceNotesList' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data MarketplaceNotesList = MarketplaceNotesList'
 marketplaceNotesList
     :: Text -- ^ 'mnlProposalId'
     -> MarketplaceNotesList
-marketplaceNotesList pMnlProposalId_ =
+marketplaceNotesList pMnlProposalId_ = 
     MarketplaceNotesList'
     { _mnlProposalId = pMnlProposalId_
     , _mnlPqlQuery = Nothing

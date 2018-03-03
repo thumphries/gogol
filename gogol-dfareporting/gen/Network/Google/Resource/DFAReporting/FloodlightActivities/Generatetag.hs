@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Generatetag
     , fagProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.generatetag@ method which the
 -- 'FloodlightActivitiesGeneratetag' request conforms to.
 type FloodlightActivitiesGeneratetagResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -58,7 +58,7 @@ type FloodlightActivitiesGeneratetagResource =
 -- /See:/ 'floodlightActivitiesGeneratetag' smart constructor.
 data FloodlightActivitiesGeneratetag = FloodlightActivitiesGeneratetag'
     { _fagFloodlightActivityId :: !(Maybe (Textual Int64))
-    , _fagProFileId            :: !(Textual Int64)
+    , _fagProFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesGeneratetag' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data FloodlightActivitiesGeneratetag = FloodlightActivitiesGeneratetag'
 floodlightActivitiesGeneratetag
     :: Int64 -- ^ 'fagProFileId'
     -> FloodlightActivitiesGeneratetag
-floodlightActivitiesGeneratetag pFagProFileId_ =
+floodlightActivitiesGeneratetag pFagProFileId_ = 
     FloodlightActivitiesGeneratetag'
     { _fagFloodlightActivityId = Nothing
     , _fagProFileId = _Coerce # pFagProFileId_

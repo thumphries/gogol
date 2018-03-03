@@ -40,8 +40,8 @@ module Network.Google.Resource.AdExchangeBuyer.PerformanceReport.List
     , prlStartDateTime
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.performanceReport.list@ method which the
 -- 'PerformanceReportList'' request conforms to.
@@ -61,10 +61,10 @@ type PerformanceReportListResource =
 --
 -- /See:/ 'performanceReportList'' smart constructor.
 data PerformanceReportList' = PerformanceReportList''
-    { _prlAccountId     :: !(Textual Int64)
-    , _prlPageToken     :: !(Maybe Text)
-    , _prlEndDateTime   :: !Text
-    , _prlMaxResults    :: !(Maybe (Textual Word32))
+    { _prlAccountId :: !(Textual Int64)
+    , _prlPageToken :: !(Maybe Text)
+    , _prlEndDateTime :: !Text
+    , _prlMaxResults :: !(Maybe (Textual Word32))
     , _prlStartDateTime :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ performanceReportList'
     -> Text -- ^ 'prlEndDateTime'
     -> Text -- ^ 'prlStartDateTime'
     -> PerformanceReportList'
-performanceReportList' pPrlAccountId_ pPrlEndDateTime_ pPrlStartDateTime_ =
+performanceReportList' pPrlAccountId_ pPrlEndDateTime_ pPrlStartDateTime_ = 
     PerformanceReportList''
     { _prlAccountId = _Coerce # pPrlAccountId_
     , _prlPageToken = Nothing

@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -458,6 +458,7 @@ module Network.Google.Analytics.Types
     , cKind
     , cCreated
     , cUploadType
+    , cSchema
     , cImportBehavior
     , cSelfLink
     , cAccountId
@@ -467,6 +468,17 @@ module Network.Google.Analytics.Types
     , cType
     , cDescription
     , cProFilesLinked
+
+    -- * AccountTreeRequest
+    , AccountTreeRequest
+    , accountTreeRequest
+    , atrAccountSettings
+    , atrWebPropertyName
+    , atrKind
+    , atrAccountName
+    , atrProFileName
+    , atrWebsiteURL
+    , atrTimezone
 
     -- * WebPropertyRef
     , WebPropertyRef
@@ -641,6 +653,15 @@ module Network.Google.Analytics.Types
     , fadFieldBRequired
     , fadOverrideOutputField
 
+    -- * AccountTreeResponse
+    , AccountTreeResponse
+    , accountTreeResponse
+    , atrtAccountSettings
+    , atrtKind
+    , atrtProFile
+    , atrtAccount
+    , atrtWebProperty
+
     -- * FilterUppercaseDetails
     , FilterUppercaseDetails
     , filterUppercaseDetails
@@ -768,6 +789,16 @@ module Network.Google.Analytics.Types
     , gedeciComparisonValue
     , gedeciType
     , gedeciComparisonType
+
+    -- * AccountTreeRequestAccountSettings
+    , AccountTreeRequestAccountSettings
+    , accountTreeRequestAccountSettings
+    , atrasSharingWithOthers
+    , atrasADMobReporting
+    , atrasSharingWithGoogleSales
+    , atrasSharingWithGoogleSupport
+    , atrasSharingWithGoogleAnySales
+    , atrasSharingWithGoogleProducts
 
     -- * McfDataQuery
     , McfDataQuery
@@ -921,6 +952,16 @@ module Network.Google.Analytics.Types
     , rasbadExcludeConditions
     , rasbadIncludeConditions
 
+    -- * AccountTreeResponseAccountSettings
+    , AccountTreeResponseAccountSettings
+    , accountTreeResponseAccountSettings
+    , aSharingWithOthers
+    , aADMobReporting
+    , aSharingWithGoogleSales
+    , aSharingWithGoogleSupport
+    , aSharingWithGoogleAnySales
+    , aSharingWithGoogleProducts
+
     -- * GoalURLDestinationDetails
     , GoalURLDestinationDetails
     , goalURLDestinationDetails
@@ -964,6 +1005,7 @@ module Network.Google.Analytics.Types
     , uuStatus
     , uuKind
     , uuCustomDataSourceId
+    , uuUploadTime
     , uuAccountId
     , uuId
     , uuErrors
@@ -1092,9 +1134,9 @@ module Network.Google.Analytics.Types
     , caAddtional
     ) where
 
-import           Network.Google.Analytics.Types.Product
-import           Network.Google.Analytics.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types.Product
+import Network.Google.Analytics.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v3' of the Google Analytics API. This contains the host and root path used as a starting point for constructing service requests.
 analyticsService :: ServiceConfig

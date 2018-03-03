@@ -39,8 +39,8 @@ module Network.Google.Resource.Mirror.Accounts.Insert
     , aiAccountType
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.accounts.insert@ method which the
 -- 'AccountsInsert' request conforms to.
@@ -59,8 +59,8 @@ type AccountsInsertResource =
 -- /See:/ 'accountsInsert' smart constructor.
 data AccountsInsert = AccountsInsert'
     { _aiAccountName :: !Text
-    , _aiPayload     :: !Account
-    , _aiUserToken   :: !Text
+    , _aiPayload :: !Account
+    , _aiUserToken :: !Text
     , _aiAccountType :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -81,7 +81,7 @@ accountsInsert
     -> Text -- ^ 'aiUserToken'
     -> Text -- ^ 'aiAccountType'
     -> AccountsInsert
-accountsInsert pAiAccountName_ pAiPayload_ pAiUserToken_ pAiAccountType_ =
+accountsInsert pAiAccountName_ pAiPayload_ pAiUserToken_ pAiAccountType_ = 
     AccountsInsert'
     { _aiAccountName = pAiAccountName_
     , _aiPayload = pAiPayload_

@@ -36,8 +36,8 @@ module Network.Google.Resource.PlusDomains.Activities.Get
     , agActivityId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.activities.get@ method which the
 -- 'ActivitiesGet' request conforms to.
@@ -63,7 +63,7 @@ newtype ActivitiesGet = ActivitiesGet'
 activitiesGet
     :: Text -- ^ 'agActivityId'
     -> ActivitiesGet
-activitiesGet pAgActivityId_ =
+activitiesGet pAgActivityId_ = 
     ActivitiesGet'
     { _agActivityId = pAgActivityId_
     }

@@ -45,8 +45,8 @@ module Network.Google.Resource.YouTube.LiveBroadcasts.Transition
     , lbtId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveBroadcasts.transition@ method which the
 -- 'LiveBroadcastsTransition' request conforms to.
@@ -74,11 +74,11 @@ type LiveBroadcastsTransitionResource =
 --
 -- /See:/ 'liveBroadcastsTransition' smart constructor.
 data LiveBroadcastsTransition = LiveBroadcastsTransition'
-    { _lbtPart                          :: !Text
-    , _lbtBroadcastStatus               :: !LiveBroadcastsTransitionBroadcastStatus
-    , _lbtOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _lbtPart :: !Text
+    , _lbtBroadcastStatus :: !LiveBroadcastsTransitionBroadcastStatus
+    , _lbtOnBehalfOfContentOwner :: !(Maybe Text)
     , _lbtOnBehalfOfContentOwnerChannel :: !(Maybe Text)
-    , _lbtId                            :: !Text
+    , _lbtId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LiveBroadcastsTransition' with the minimum fields required to make a request.
@@ -99,7 +99,7 @@ liveBroadcastsTransition
     -> LiveBroadcastsTransitionBroadcastStatus -- ^ 'lbtBroadcastStatus'
     -> Text -- ^ 'lbtId'
     -> LiveBroadcastsTransition
-liveBroadcastsTransition pLbtPart_ pLbtBroadcastStatus_ pLbtId_ =
+liveBroadcastsTransition pLbtPart_ pLbtBroadcastStatus_ pLbtId_ = 
     LiveBroadcastsTransition'
     { _lbtPart = pLbtPart_
     , _lbtBroadcastStatus = pLbtBroadcastStatus_

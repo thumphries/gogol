@@ -36,8 +36,8 @@ module Network.Google.Resource.Mirror.Timeline.Insert
     , tiPayload
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.timeline.insert@ method which the
 -- 'TimelineInsert' request conforms to.
@@ -73,7 +73,7 @@ newtype TimelineInsert = TimelineInsert'
 timelineInsert
     :: TimelineItem -- ^ 'tiPayload'
     -> TimelineInsert
-timelineInsert pTiPayload_ =
+timelineInsert pTiPayload_ = 
     TimelineInsert'
     { _tiPayload = pTiPayload_
     }

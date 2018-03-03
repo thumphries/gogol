@@ -41,8 +41,8 @@ module Network.Google.Resource.Gmail.Users.Threads.List
     , utlMaxResults
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.threads.list@ method which the
 -- 'UsersThreadsList' request conforms to.
@@ -64,12 +64,12 @@ type UsersThreadsListResource =
 --
 -- /See:/ 'usersThreadsList' smart constructor.
 data UsersThreadsList = UsersThreadsList'
-    { _utlQ                :: !(Maybe Text)
-    , _utlUserId           :: !Text
+    { _utlQ :: !(Maybe Text)
+    , _utlUserId :: !Text
     , _utlIncludeSpamTrash :: !Bool
-    , _utlLabelIds         :: !(Maybe [Text])
-    , _utlPageToken        :: !(Maybe Text)
-    , _utlMaxResults       :: !(Textual Word32)
+    , _utlLabelIds :: !(Maybe [Text])
+    , _utlPageToken :: !(Maybe Text)
+    , _utlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersThreadsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ data UsersThreadsList = UsersThreadsList'
 -- * 'utlMaxResults'
 usersThreadsList
     :: UsersThreadsList
-usersThreadsList =
+usersThreadsList = 
     UsersThreadsList'
     { _utlQ = Nothing
     , _utlUserId = "me"

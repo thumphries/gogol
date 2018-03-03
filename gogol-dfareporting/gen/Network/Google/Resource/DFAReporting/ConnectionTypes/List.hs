@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.ConnectionTypes.List
     , ctlProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.connectionTypes.list@ method which the
 -- 'ConnectionTypesList' request conforms to.
 type ConnectionTypesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "connectionTypes" :>
@@ -65,7 +65,7 @@ newtype ConnectionTypesList = ConnectionTypesList'
 connectionTypesList
     :: Int64 -- ^ 'ctlProFileId'
     -> ConnectionTypesList
-connectionTypesList pCtlProFileId_ =
+connectionTypesList pCtlProFileId_ = 
     ConnectionTypesList'
     { _ctlProFileId = _Coerce # pCtlProFileId_
     }

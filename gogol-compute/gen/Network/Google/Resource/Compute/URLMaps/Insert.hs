@@ -34,12 +34,13 @@ module Network.Google.Resource.Compute.URLMaps.Insert
     , URLMapsInsert
 
     -- * Request Lenses
+    , umiRequestId
     , umiProject
     , umiPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.urlMaps.insert@ method which the
 -- 'URLMapsInsert' request conforms to.
@@ -50,21 +51,25 @@ type URLMapsInsertResource =
            Capture "project" Text :>
              "global" :>
                "urlMaps" :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] URLMap :> Post '[JSON] Operation
+                 QueryParam "requestId" Text :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] URLMap :> Post '[JSON] Operation
 
 -- | Creates a UrlMap resource in the specified project using the data
 -- included in the request.
 --
 -- /See:/ 'urlMapsInsert' smart constructor.
 data URLMapsInsert = URLMapsInsert'
-    { _umiProject :: !Text
+    { _umiRequestId :: !(Maybe Text)
+    , _umiProject :: !Text
     , _umiPayload :: !URLMap
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'URLMapsInsert' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umiRequestId'
 --
 -- * 'umiProject'
 --
@@ -73,11 +78,26 @@ urlMapsInsert
     :: Text -- ^ 'umiProject'
     -> URLMap -- ^ 'umiPayload'
     -> URLMapsInsert
-urlMapsInsert pUmiProject_ pUmiPayload_ =
+urlMapsInsert pUmiProject_ pUmiPayload_ = 
     URLMapsInsert'
-    { _umiProject = pUmiProject_
+    { _umiRequestId = Nothing
+    , _umiProject = pUmiProject_
     , _umiPayload = pUmiPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+umiRequestId :: Lens' URLMapsInsert (Maybe Text)
+umiRequestId
+  = lens _umiRequestId (\ s a -> s{_umiRequestId = a})
 
 -- | Project ID for this request.
 umiProject :: Lens' URLMapsInsert Text
@@ -95,7 +115,8 @@ instance GoogleRequest URLMapsInsert where
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient URLMapsInsert'{..}
-          = go _umiProject (Just AltJSON) _umiPayload
+          = go _umiProject _umiRequestId (Just AltJSON)
+              _umiPayload
               computeService
           where go
                   = buildClient (Proxy :: Proxy URLMapsInsertResource)

@@ -43,8 +43,8 @@ module Network.Google.Resource.Logging.Projects.Metrics.Delete
     , pmdCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.metrics.delete@ method which the
 -- 'ProjectsMetricsDelete' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsMetricsDeleteResource =
 --
 -- /See:/ 'projectsMetricsDelete' smart constructor.
 data ProjectsMetricsDelete = ProjectsMetricsDelete'
-    { _pmdXgafv          :: !(Maybe Xgafv)
+    { _pmdXgafv :: !(Maybe Xgafv)
     , _pmdUploadProtocol :: !(Maybe Text)
-    , _pmdPp             :: !Bool
-    , _pmdAccessToken    :: !(Maybe Text)
-    , _pmdMetricName     :: !Text
-    , _pmdUploadType     :: !(Maybe Text)
-    , _pmdBearerToken    :: !(Maybe Text)
-    , _pmdCallback       :: !(Maybe Text)
+    , _pmdPp :: !Bool
+    , _pmdAccessToken :: !(Maybe Text)
+    , _pmdMetricName :: !Text
+    , _pmdUploadType :: !(Maybe Text)
+    , _pmdBearerToken :: !(Maybe Text)
+    , _pmdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMetricsDelete' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsMetricsDelete = ProjectsMetricsDelete'
 projectsMetricsDelete
     :: Text -- ^ 'pmdMetricName'
     -> ProjectsMetricsDelete
-projectsMetricsDelete pPmdMetricName_ =
+projectsMetricsDelete pPmdMetricName_ = 
     ProjectsMetricsDelete'
     { _pmdXgafv = Nothing
     , _pmdUploadProtocol = Nothing

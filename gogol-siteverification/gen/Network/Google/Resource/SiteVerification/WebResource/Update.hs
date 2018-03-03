@@ -37,8 +37,8 @@ module Network.Google.Resource.SiteVerification.WebResource.Update
     , wruId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SiteVerification.Types
+import Network.Google.Prelude
+import Network.Google.SiteVerification.Types
 
 -- | A resource alias for @siteVerification.webResource.update@ method which the
 -- 'WebResourceUpdate' request conforms to.
@@ -56,7 +56,7 @@ type WebResourceUpdateResource =
 -- /See:/ 'webResourceUpdate' smart constructor.
 data WebResourceUpdate = WebResourceUpdate'
     { _wruPayload :: !SiteVerificationWebResourceResource
-    , _wruId      :: !Text
+    , _wruId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WebResourceUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ webResourceUpdate
     :: SiteVerificationWebResourceResource -- ^ 'wruPayload'
     -> Text -- ^ 'wruId'
     -> WebResourceUpdate
-webResourceUpdate pWruPayload_ pWruId_ =
+webResourceUpdate pWruPayload_ pWruId_ = 
     WebResourceUpdate'
     { _wruPayload = pWruPayload_
     , _wruId = pWruId_

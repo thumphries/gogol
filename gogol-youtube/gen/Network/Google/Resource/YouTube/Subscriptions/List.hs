@@ -47,8 +47,8 @@ module Network.Google.Resource.YouTube.Subscriptions.List
     , subMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.subscriptions.list@ method which the
 -- 'SubscriptionsList' request conforms to.
@@ -75,18 +75,18 @@ type SubscriptionsListResource =
 --
 -- /See:/ 'subscriptionsList' smart constructor.
 data SubscriptionsList = SubscriptionsList'
-    { _subPart                          :: !Text
-    , _subMine                          :: !(Maybe Bool)
-    , _subChannelId                     :: !(Maybe Text)
-    , _subMyRecentSubscribers           :: !(Maybe Bool)
-    , _subOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _subPart :: !Text
+    , _subMine :: !(Maybe Bool)
+    , _subChannelId :: !(Maybe Text)
+    , _subMyRecentSubscribers :: !(Maybe Bool)
+    , _subOnBehalfOfContentOwner :: !(Maybe Text)
     , _subOnBehalfOfContentOwnerChannel :: !(Maybe Text)
-    , _subId                            :: !(Maybe Text)
-    , _subMySubscribers                 :: !(Maybe Bool)
-    , _subForChannelId                  :: !(Maybe Text)
-    , _subPageToken                     :: !(Maybe Text)
-    , _subOrder                         :: !SubscriptionsListOrder
-    , _subMaxResults                    :: !(Textual Word32)
+    , _subId :: !(Maybe Text)
+    , _subMySubscribers :: !(Maybe Bool)
+    , _subForChannelId :: !(Maybe Text)
+    , _subPageToken :: !(Maybe Text)
+    , _subOrder :: !SubscriptionsListOrder
+    , _subMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubscriptionsList' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ data SubscriptionsList = SubscriptionsList'
 subscriptionsList
     :: Text -- ^ 'subPart'
     -> SubscriptionsList
-subscriptionsList pSubPart_ =
+subscriptionsList pSubPart_ = 
     SubscriptionsList'
     { _subPart = pSubPart_
     , _subMine = Nothing

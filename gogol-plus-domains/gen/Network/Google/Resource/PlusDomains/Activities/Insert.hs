@@ -38,8 +38,8 @@ module Network.Google.Resource.PlusDomains.Activities.Insert
     , aiPreview
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.activities.insert@ method which the
 -- 'ActivitiesInsert' request conforms to.
@@ -58,7 +58,7 @@ type ActivitiesInsertResource =
 -- /See:/ 'activitiesInsert' smart constructor.
 data ActivitiesInsert = ActivitiesInsert'
     { _aiPayload :: !Activity
-    , _aiUserId  :: !Text
+    , _aiUserId :: !Text
     , _aiPreview :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ activitiesInsert
     :: Activity -- ^ 'aiPayload'
     -> Text -- ^ 'aiUserId'
     -> ActivitiesInsert
-activitiesInsert pAiPayload_ pAiUserId_ =
+activitiesInsert pAiPayload_ pAiUserId_ = 
     ActivitiesInsert'
     { _aiPayload = pAiPayload_
     , _aiUserId = pAiUserId_

@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickSearch.Reports.Get
     , rgReportId
     ) where
 
-import           Network.Google.DoubleClickSearch.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickSearch.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclicksearch.reports.get@ method which the
 -- 'ReportsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype ReportsGet = ReportsGet'
 reportsGet
     :: Text -- ^ 'rgReportId'
     -> ReportsGet
-reportsGet pRgReportId_ =
+reportsGet pRgReportId_ = 
     ReportsGet'
     { _rgReportId = pRgReportId_
     }

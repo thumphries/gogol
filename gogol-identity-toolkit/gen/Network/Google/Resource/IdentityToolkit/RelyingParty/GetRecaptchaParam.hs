@@ -34,8 +34,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.GetRecaptchaParam
 
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.getRecaptchaParam@ method which the
 -- 'RelyingPartyGetRecaptchaParam' request conforms to.
@@ -51,7 +51,7 @@ type RelyingPartyGetRecaptchaParamResource =
 --
 -- /See:/ 'relyingPartyGetRecaptchaParam' smart constructor.
 data RelyingPartyGetRecaptchaParam =
-    RelyingPartyGetRecaptchaParam'
+    RelyingPartyGetRecaptchaParam' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RelyingPartyGetRecaptchaParam' with the minimum fields required to make a request.

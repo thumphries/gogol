@@ -34,8 +34,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.Google.Resource.StorageTransfer.GetGoogleServiceAccount
-        , Network.Google.Resource.StorageTransfer.GoogleServiceAccounts.Get
+          Network.Google.Resource.StorageTransfer.GoogleServiceAccounts.Get
         , Network.Google.Resource.StorageTransfer.TransferJobs.Create
         , Network.Google.Resource.StorageTransfer.TransferJobs.Get
         , Network.Google.Resource.StorageTransfer.TransferJobs.List
@@ -54,5 +53,5 @@ library
         , Network.Google.StorageTransfer.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Settings.Filters.Get
     , usfgId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.filters.get@ method which the
 -- 'UsersSettingsFiltersGet' request conforms to.
@@ -57,7 +57,7 @@ type UsersSettingsFiltersGetResource =
 -- /See:/ 'usersSettingsFiltersGet' smart constructor.
 data UsersSettingsFiltersGet = UsersSettingsFiltersGet'
     { _usfgUserId :: !Text
-    , _usfgId     :: !Text
+    , _usfgId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsFiltersGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data UsersSettingsFiltersGet = UsersSettingsFiltersGet'
 usersSettingsFiltersGet
     :: Text -- ^ 'usfgId'
     -> UsersSettingsFiltersGet
-usersSettingsFiltersGet pUsfgId_ =
+usersSettingsFiltersGet pUsfgId_ = 
     UsersSettingsFiltersGet'
     { _usfgUserId = "me"
     , _usfgId = pUsfgId_

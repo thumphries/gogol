@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.InAppProducts.Insert
     , iapiPayload
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.inappproducts.insert@ method which the
 -- 'InAppProductsInsert' request conforms to.
@@ -59,8 +59,8 @@ type InAppProductsInsertResource =
 -- /See:/ 'inAppProductsInsert' smart constructor.
 data InAppProductsInsert = InAppProductsInsert'
     { _iapiAutoConvertMissingPrices :: !(Maybe Bool)
-    , _iapiPackageName              :: !Text
-    , _iapiPayload                  :: !InAppProduct
+    , _iapiPackageName :: !Text
+    , _iapiPayload :: !InAppProduct
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InAppProductsInsert' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ inAppProductsInsert
     :: Text -- ^ 'iapiPackageName'
     -> InAppProduct -- ^ 'iapiPayload'
     -> InAppProductsInsert
-inAppProductsInsert pIapiPackageName_ pIapiPayload_ =
+inAppProductsInsert pIapiPackageName_ pIapiPayload_ = 
     InAppProductsInsert'
     { _iapiAutoConvertMissingPrices = Nothing
     , _iapiPackageName = pIapiPackageName_

@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKListings.Deleteall
     , eapkldaEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apklistings.deleteall@ method which the
 -- 'EditsAPKListingsDeleteall' request conforms to.
@@ -59,9 +59,9 @@ type EditsAPKListingsDeleteallResource =
 --
 -- /See:/ 'editsAPKListingsDeleteall' smart constructor.
 data EditsAPKListingsDeleteall = EditsAPKListingsDeleteall'
-    { _eapkldaPackageName    :: !Text
+    { _eapkldaPackageName :: !Text
     , _eapkldaAPKVersionCode :: !(Textual Int32)
-    , _eapkldaEditId         :: !Text
+    , _eapkldaEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKListingsDeleteall' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ editsAPKListingsDeleteall
     -> Int32 -- ^ 'eapkldaAPKVersionCode'
     -> Text -- ^ 'eapkldaEditId'
     -> EditsAPKListingsDeleteall
-editsAPKListingsDeleteall pEapkldaPackageName_ pEapkldaAPKVersionCode_ pEapkldaEditId_ =
+editsAPKListingsDeleteall pEapkldaPackageName_ pEapkldaAPKVersionCode_ pEapkldaEditId_ = 
     EditsAPKListingsDeleteall'
     { _eapkldaPackageName = pEapkldaPackageName_
     , _eapkldaAPKVersionCode = _Coerce # pEapkldaAPKVersionCode_

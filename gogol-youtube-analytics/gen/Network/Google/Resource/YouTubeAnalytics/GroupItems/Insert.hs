@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTubeAnalytics.GroupItems.Insert
     , giiOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groupItems.insert@ method which the
 -- 'GroupItemsInsert' request conforms to.
@@ -55,7 +55,7 @@ type GroupItemsInsertResource =
 --
 -- /See:/ 'groupItemsInsert' smart constructor.
 data GroupItemsInsert = GroupItemsInsert'
-    { _giiPayload                :: !GroupItem
+    { _giiPayload :: !GroupItem
     , _giiOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data GroupItemsInsert = GroupItemsInsert'
 groupItemsInsert
     :: GroupItem -- ^ 'giiPayload'
     -> GroupItemsInsert
-groupItemsInsert pGiiPayload_ =
+groupItemsInsert pGiiPayload_ = 
     GroupItemsInsert'
     { _giiPayload = pGiiPayload_
     , _giiOnBehalfOfContentOwner = Nothing

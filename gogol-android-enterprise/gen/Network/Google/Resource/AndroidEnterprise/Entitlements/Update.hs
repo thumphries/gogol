@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidEnterprise.Entitlements.Update
     , euUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.entitlements.update@ method which the
 -- 'EntitlementsUpdate' request conforms to.
@@ -64,10 +64,10 @@ type EntitlementsUpdateResource =
 -- /See:/ 'entitlementsUpdate' smart constructor.
 data EntitlementsUpdate = EntitlementsUpdate'
     { _euEntitlementId :: !Text
-    , _euEnterpriseId  :: !Text
-    , _euPayload       :: !Entitlement
-    , _euInstall       :: !(Maybe Bool)
-    , _euUserId        :: !Text
+    , _euEnterpriseId :: !Text
+    , _euPayload :: !Entitlement
+    , _euInstall :: !(Maybe Bool)
+    , _euUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsUpdate' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ entitlementsUpdate
     -> Entitlement -- ^ 'euPayload'
     -> Text -- ^ 'euUserId'
     -> EntitlementsUpdate
-entitlementsUpdate pEuEntitlementId_ pEuEnterpriseId_ pEuPayload_ pEuUserId_ =
+entitlementsUpdate pEuEntitlementId_ pEuEnterpriseId_ pEuPayload_ pEuUserId_ = 
     EntitlementsUpdate'
     { _euEntitlementId = pEuEntitlementId_
     , _euEnterpriseId = pEuEnterpriseId_

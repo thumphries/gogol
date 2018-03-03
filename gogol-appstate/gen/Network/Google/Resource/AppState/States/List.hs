@@ -36,8 +36,8 @@ module Network.Google.Resource.AppState.States.List
     , slIncludeData
     ) where
 
-import           Network.Google.AppState.Types
-import           Network.Google.Prelude
+import Network.Google.AppState.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appstate.states.list@ method which the
 -- 'StatesList' request conforms to.
@@ -62,7 +62,7 @@ newtype StatesList = StatesList'
 -- * 'slIncludeData'
 statesList
     :: StatesList
-statesList =
+statesList = 
     StatesList'
     { _slIncludeData = False
     }

@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.ProFileUserLinks.Insert
     , mpfuliAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileUserLinks.insert@ method which the
 -- 'ManagementProFileUserLinksInsert' request conforms to.
@@ -64,9 +64,9 @@ type ManagementProFileUserLinksInsertResource =
 -- /See:/ 'managementProFileUserLinksInsert' smart constructor.
 data ManagementProFileUserLinksInsert = ManagementProFileUserLinksInsert'
     { _mpfuliWebPropertyId :: !Text
-    , _mpfuliProFileId     :: !Text
-    , _mpfuliPayload       :: !EntityUserLink
-    , _mpfuliAccountId     :: !Text
+    , _mpfuliProFileId :: !Text
+    , _mpfuliPayload :: !EntityUserLink
+    , _mpfuliAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileUserLinksInsert' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ managementProFileUserLinksInsert
     -> EntityUserLink -- ^ 'mpfuliPayload'
     -> Text -- ^ 'mpfuliAccountId'
     -> ManagementProFileUserLinksInsert
-managementProFileUserLinksInsert pMpfuliWebPropertyId_ pMpfuliProFileId_ pMpfuliPayload_ pMpfuliAccountId_ =
+managementProFileUserLinksInsert pMpfuliWebPropertyId_ pMpfuliProFileId_ pMpfuliPayload_ pMpfuliAccountId_ = 
     ManagementProFileUserLinksInsert'
     { _mpfuliWebPropertyId = pMpfuliWebPropertyId_
     , _mpfuliProFileId = pMpfuliProFileId_

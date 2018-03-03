@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -54,11 +54,17 @@ module Network.Google.CustomSearch.Types
     , suType
     , suTemplate
 
+    -- * CSESiterestrictListFilter
+    , CSESiterestrictListFilter (..)
+
     -- * SearchSpelling
     , SearchSpelling
     , searchSpelling
     , ssCorrectedQuery
     , ssHTMLCorrectedQuery
+
+    -- * CSESiterestrictListImgType
+    , CSESiterestrictListImgType (..)
 
     -- * CSEListImgDominantColor
     , CSEListImgDominantColor (..)
@@ -77,13 +83,22 @@ module Network.Google.CustomSearch.Types
     -- * CSEListSafe
     , CSEListSafe (..)
 
+    -- * CSESiterestrictListImgSize
+    , CSESiterestrictListImgSize (..)
+
     -- * ResultPagemap
     , ResultPagemap
     , resultPagemap
     , rpAddtional
 
+    -- * CSESiterestrictListImgColorType
+    , CSESiterestrictListImgColorType (..)
+
     -- * CSEListImgColorType
     , CSEListImgColorType (..)
+
+    -- * CSESiterestrictListSafe
+    , CSESiterestrictListSafe (..)
 
     -- * Result
     , Result
@@ -110,6 +125,9 @@ module Network.Google.CustomSearch.Types
     , rliName
     , rliDisplayName
     , rliLabelWithOp
+
+    -- * CSESiterestrictListImgDominantColor
+    , CSESiterestrictListImgDominantColor (..)
 
     -- * SearchSearchInformation
     , SearchSearchInformation
@@ -141,7 +159,6 @@ module Network.Google.CustomSearch.Types
     , qDisableCnTwTranslation
     , qRelatedSite
     , qHl
-    , qCref
     , qSort
     , qLanguage
     , qSiteSearch
@@ -163,6 +180,9 @@ module Network.Google.CustomSearch.Types
     , qHq
     , qHighRange
 
+    -- * CSESiterestrictListSiteSearchFilter
+    , CSESiterestrictListSiteSearchFilter (..)
+
     -- * PromotionBodyLinesItem
     , PromotionBodyLinesItem
     , promotionBodyLinesItem
@@ -180,6 +200,12 @@ module Network.Google.CustomSearch.Types
     , pLink
     , pHTMLTitle
     , pTitle
+
+    -- * CSESiterestrictListLr
+    , CSESiterestrictListLr (..)
+
+    -- * CSESiterestrictListSearchType
+    , CSESiterestrictListSearchType (..)
 
     -- * Search
     , Search
@@ -210,9 +236,9 @@ module Network.Google.CustomSearch.Types
     , CSEListImgSize (..)
     ) where
 
-import           Network.Google.CustomSearch.Types.Product
-import           Network.Google.CustomSearch.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.CustomSearch.Types.Product
+import Network.Google.CustomSearch.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v1' of the CustomSearch API. This contains the host and root path used as a starting point for constructing service requests.
 customSearchService :: ServiceConfig

@@ -44,8 +44,8 @@ module Network.Google.Resource.Datastore.Projects.Rollback
     , prCallback
     ) where
 
-import           Network.Google.Datastore.Types
-import           Network.Google.Prelude
+import Network.Google.Datastore.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datastore.projects.rollback@ method which the
 -- 'ProjectsRollback' request conforms to.
@@ -68,15 +68,15 @@ type ProjectsRollbackResource =
 --
 -- /See:/ 'projectsRollback' smart constructor.
 data ProjectsRollback = ProjectsRollback'
-    { _prXgafv          :: !(Maybe Xgafv)
+    { _prXgafv :: !(Maybe Xgafv)
     , _prUploadProtocol :: !(Maybe Text)
-    , _prPp             :: !Bool
-    , _prAccessToken    :: !(Maybe Text)
-    , _prUploadType     :: !(Maybe Text)
-    , _prPayload        :: !RollbackRequest
-    , _prBearerToken    :: !(Maybe Text)
-    , _prProjectId      :: !Text
-    , _prCallback       :: !(Maybe Text)
+    , _prPp :: !Bool
+    , _prAccessToken :: !(Maybe Text)
+    , _prUploadType :: !(Maybe Text)
+    , _prPayload :: !RollbackRequest
+    , _prBearerToken :: !(Maybe Text)
+    , _prProjectId :: !Text
+    , _prCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRollback' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ projectsRollback
     :: RollbackRequest -- ^ 'prPayload'
     -> Text -- ^ 'prProjectId'
     -> ProjectsRollback
-projectsRollback pPrPayload_ pPrProjectId_ =
+projectsRollback pPrPayload_ pPrProjectId_ = 
     ProjectsRollback'
     { _prXgafv = Nothing
     , _prUploadProtocol = Nothing

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AccountActiveAdSummaries.Get
     , aaasgSummaryAccountId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountActiveAdSummaries.get@ method which the
 -- 'AccountActiveAdSummariesGet' request conforms to.
 type AccountActiveAdSummariesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountActiveAdSummaries" :>
@@ -56,7 +56,7 @@ type AccountActiveAdSummariesGetResource =
 --
 -- /See:/ 'accountActiveAdSummariesGet' smart constructor.
 data AccountActiveAdSummariesGet = AccountActiveAdSummariesGet'
-    { _aaasgProFileId        :: !(Textual Int64)
+    { _aaasgProFileId :: !(Textual Int64)
     , _aaasgSummaryAccountId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ accountActiveAdSummariesGet
     :: Int64 -- ^ 'aaasgProFileId'
     -> Int64 -- ^ 'aaasgSummaryAccountId'
     -> AccountActiveAdSummariesGet
-accountActiveAdSummariesGet pAaasgProFileId_ pAaasgSummaryAccountId_ =
+accountActiveAdSummariesGet pAaasgProFileId_ pAaasgSummaryAccountId_ = 
     AccountActiveAdSummariesGet'
     { _aaasgProFileId = _Coerce # pAaasgProFileId_
     , _aaasgSummaryAccountId = _Coerce # pAaasgSummaryAccountId_

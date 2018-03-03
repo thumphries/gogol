@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Reports.Insert
     , riPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.insert@ method which the
 -- 'ReportsInsert' request conforms to.
 type ReportsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -56,7 +56,7 @@ type ReportsInsertResource =
 -- /See:/ 'reportsInsert' smart constructor.
 data ReportsInsert = ReportsInsert'
     { _riProFileId :: !(Textual Int64)
-    , _riPayload   :: !Report
+    , _riPayload :: !Report
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ reportsInsert
     :: Int64 -- ^ 'riProFileId'
     -> Report -- ^ 'riPayload'
     -> ReportsInsert
-reportsInsert pRiProFileId_ pRiPayload_ =
+reportsInsert pRiProFileId_ pRiPayload_ = 
     ReportsInsert'
     { _riProFileId = _Coerce # pRiProFileId_
     , _riPayload = pRiPayload_

@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.ForwardingRules.Get
     , frgRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.forwardingRules.get@ method which the
 -- 'ForwardingRulesGet' request conforms to.
@@ -59,9 +59,9 @@ type ForwardingRulesGetResource =
 --
 -- /See:/ 'forwardingRulesGet' smart constructor.
 data ForwardingRulesGet = ForwardingRulesGet'
-    { _frgProject        :: !Text
+    { _frgProject :: !Text
     , _frgForwardingRule :: !Text
-    , _frgRegion         :: !Text
+    , _frgRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ForwardingRulesGet' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ forwardingRulesGet
     -> Text -- ^ 'frgForwardingRule'
     -> Text -- ^ 'frgRegion'
     -> ForwardingRulesGet
-forwardingRulesGet pFrgProject_ pFrgForwardingRule_ pFrgRegion_ =
+forwardingRulesGet pFrgProject_ pFrgForwardingRule_ pFrgRegion_ = 
     ForwardingRulesGet'
     { _frgProject = pFrgProject_
     , _frgForwardingRule = pFrgForwardingRule_

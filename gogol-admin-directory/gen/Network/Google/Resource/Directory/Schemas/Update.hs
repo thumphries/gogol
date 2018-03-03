@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Schemas.Update
     , suSchemaKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.update@ method which the
 -- 'SchemasUpdate' request conforms to.
@@ -58,9 +58,9 @@ type SchemasUpdateResource =
 --
 -- /See:/ 'schemasUpdate' smart constructor.
 data SchemasUpdate = SchemasUpdate'
-    { _suPayload    :: !Schema
+    { _suPayload :: !Schema
     , _suCustomerId :: !Text
-    , _suSchemaKey  :: !Text
+    , _suSchemaKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SchemasUpdate' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ schemasUpdate
     -> Text -- ^ 'suCustomerId'
     -> Text -- ^ 'suSchemaKey'
     -> SchemasUpdate
-schemasUpdate pSuPayload_ pSuCustomerId_ pSuSchemaKey_ =
+schemasUpdate pSuPayload_ pSuCustomerId_ pSuSchemaKey_ = 
     SchemasUpdate'
     { _suPayload = pSuPayload_
     , _suCustomerId = pSuCustomerId_
@@ -89,12 +89,12 @@ suPayload :: Lens' SchemasUpdate Schema
 suPayload
   = lens _suPayload (\ s a -> s{_suPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 suCustomerId :: Lens' SchemasUpdate Text
 suCustomerId
   = lens _suCustomerId (\ s a -> s{_suCustomerId = a})
 
--- | Name or immutable Id of the schema.
+-- | Name or immutable ID of the schema.
 suSchemaKey :: Lens' SchemasUpdate Text
 suSchemaKey
   = lens _suSchemaKey (\ s a -> s{_suSchemaKey = a})

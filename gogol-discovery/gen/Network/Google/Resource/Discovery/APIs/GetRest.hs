@@ -37,8 +37,8 @@ module Network.Google.Resource.Discovery.APIs.GetRest
     , agrAPI
     ) where
 
-import           Network.Google.Discovery.Types
-import           Network.Google.Prelude
+import Network.Google.Discovery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @discovery.apis.getRest@ method which the
 -- 'APIsGetRest' request conforms to.
@@ -57,7 +57,7 @@ type APIsGetRestResource =
 -- /See:/ 'apisGetRest' smart constructor.
 data APIsGetRest = APIsGetRest'
     { _agrVersion :: !Text
-    , _agrAPI     :: !Text
+    , _agrAPI :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'APIsGetRest' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ apisGetRest
     :: Text -- ^ 'agrVersion'
     -> Text -- ^ 'agrAPI'
     -> APIsGetRest
-apisGetRest pAgrVersion_ pAgrAPI_ =
+apisGetRest pAgrVersion_ pAgrAPI_ = 
     APIsGetRest'
     { _agrVersion = pAgrVersion_
     , _agrAPI = pAgrAPI_

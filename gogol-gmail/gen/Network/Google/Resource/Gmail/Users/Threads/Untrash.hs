@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Threads.Untrash
     , utuId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.threads.untrash@ method which the
 -- 'UsersThreadsUntrash' request conforms to.
@@ -57,7 +57,7 @@ type UsersThreadsUntrashResource =
 -- /See:/ 'usersThreadsUntrash' smart constructor.
 data UsersThreadsUntrash = UsersThreadsUntrash'
     { _utuUserId :: !Text
-    , _utuId     :: !Text
+    , _utuId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersThreadsUntrash' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data UsersThreadsUntrash = UsersThreadsUntrash'
 usersThreadsUntrash
     :: Text -- ^ 'utuId'
     -> UsersThreadsUntrash
-usersThreadsUntrash pUtuId_ =
+usersThreadsUntrash pUtuId_ = 
     UsersThreadsUntrash'
     { _utuUserId = "me"
     , _utuId = pUtuId_

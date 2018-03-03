@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Placements.Insert
     , piPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.insert@ method which the
 -- 'PlacementsInsert' request conforms to.
 type PlacementsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -56,7 +56,7 @@ type PlacementsInsertResource =
 -- /See:/ 'placementsInsert' smart constructor.
 data PlacementsInsert = PlacementsInsert'
     { _piProFileId :: !(Textual Int64)
-    , _piPayload   :: !Placement
+    , _piPayload :: !Placement
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ placementsInsert
     :: Int64 -- ^ 'piProFileId'
     -> Placement -- ^ 'piPayload'
     -> PlacementsInsert
-placementsInsert pPiProFileId_ pPiPayload_ =
+placementsInsert pPiProFileId_ pPiPayload_ = 
     PlacementsInsert'
     { _piProFileId = _Coerce # pPiProFileId_
     , _piPayload = pPiPayload_

@@ -48,8 +48,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.ModifyAckDeadline
     , psmadCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.modifyAckDeadline@ method which the
 -- 'ProjectsSubscriptionsModifyAckDeadline' request conforms to.
@@ -76,15 +76,15 @@ type ProjectsSubscriptionsModifyAckDeadlineResource =
 --
 -- /See:/ 'projectsSubscriptionsModifyAckDeadline' smart constructor.
 data ProjectsSubscriptionsModifyAckDeadline = ProjectsSubscriptionsModifyAckDeadline'
-    { _psmadXgafv          :: !(Maybe Xgafv)
+    { _psmadXgafv :: !(Maybe Xgafv)
     , _psmadUploadProtocol :: !(Maybe Text)
-    , _psmadPp             :: !Bool
-    , _psmadAccessToken    :: !(Maybe Text)
-    , _psmadUploadType     :: !(Maybe Text)
-    , _psmadPayload        :: !ModifyAckDeadlineRequest
-    , _psmadBearerToken    :: !(Maybe Text)
-    , _psmadSubscription   :: !Text
-    , _psmadCallback       :: !(Maybe Text)
+    , _psmadPp :: !Bool
+    , _psmadAccessToken :: !(Maybe Text)
+    , _psmadUploadType :: !(Maybe Text)
+    , _psmadPayload :: !ModifyAckDeadlineRequest
+    , _psmadBearerToken :: !(Maybe Text)
+    , _psmadSubscription :: !Text
+    , _psmadCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsModifyAckDeadline' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ projectsSubscriptionsModifyAckDeadline
     :: ModifyAckDeadlineRequest -- ^ 'psmadPayload'
     -> Text -- ^ 'psmadSubscription'
     -> ProjectsSubscriptionsModifyAckDeadline
-projectsSubscriptionsModifyAckDeadline pPsmadPayload_ pPsmadSubscription_ =
+projectsSubscriptionsModifyAckDeadline pPsmadPayload_ pPsmadSubscription_ = 
     ProjectsSubscriptionsModifyAckDeadline'
     { _psmadXgafv = Nothing
     , _psmadUploadProtocol = Nothing

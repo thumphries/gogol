@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSense.CustomChannels.Get
     , ccgAdClientId
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.customchannels.get@ method which the
 -- 'CustomChannelsGet' request conforms to.
@@ -56,7 +56,7 @@ type CustomChannelsGetResource =
 -- /See:/ 'customChannelsGet' smart constructor.
 data CustomChannelsGet = CustomChannelsGet'
     { _ccgCustomChannelId :: !Text
-    , _ccgAdClientId      :: !Text
+    , _ccgAdClientId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomChannelsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ customChannelsGet
     :: Text -- ^ 'ccgCustomChannelId'
     -> Text -- ^ 'ccgAdClientId'
     -> CustomChannelsGet
-customChannelsGet pCcgCustomChannelId_ pCcgAdClientId_ =
+customChannelsGet pCcgCustomChannelId_ pCcgAdClientId_ = 
     CustomChannelsGet'
     { _ccgCustomChannelId = pCcgCustomChannelId_
     , _ccgAdClientId = pCcgAdClientId_

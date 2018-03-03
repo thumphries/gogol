@@ -46,8 +46,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Sheets.CopyTo
     , ssctCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.sheets.copyTo@ method which the
 -- 'SpreadsheetsSheetsCopyTo' request conforms to.
@@ -74,16 +74,16 @@ type SpreadsheetsSheetsCopyToResource =
 --
 -- /See:/ 'spreadsheetsSheetsCopyTo' smart constructor.
 data SpreadsheetsSheetsCopyTo = SpreadsheetsSheetsCopyTo'
-    { _ssctXgafv          :: !(Maybe Xgafv)
+    { _ssctXgafv :: !(Maybe Xgafv)
     , _ssctUploadProtocol :: !(Maybe Text)
-    , _ssctPp             :: !Bool
-    , _ssctAccessToken    :: !(Maybe Text)
-    , _ssctSpreadsheetId  :: !Text
-    , _ssctUploadType     :: !(Maybe Text)
-    , _ssctPayload        :: !CopySheetToAnotherSpreadsheetRequest
-    , _ssctBearerToken    :: !(Maybe Text)
-    , _ssctSheetId        :: !(Textual Int32)
-    , _ssctCallback       :: !(Maybe Text)
+    , _ssctPp :: !Bool
+    , _ssctAccessToken :: !(Maybe Text)
+    , _ssctSpreadsheetId :: !Text
+    , _ssctUploadType :: !(Maybe Text)
+    , _ssctPayload :: !CopySheetToAnotherSpreadsheetRequest
+    , _ssctBearerToken :: !(Maybe Text)
+    , _ssctSheetId :: !(Textual Int32)
+    , _ssctCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsSheetsCopyTo' with the minimum fields required to make a request.
@@ -114,7 +114,7 @@ spreadsheetsSheetsCopyTo
     -> CopySheetToAnotherSpreadsheetRequest -- ^ 'ssctPayload'
     -> Int32 -- ^ 'ssctSheetId'
     -> SpreadsheetsSheetsCopyTo
-spreadsheetsSheetsCopyTo pSsctSpreadsheetId_ pSsctPayload_ pSsctSheetId_ =
+spreadsheetsSheetsCopyTo pSsctSpreadsheetId_ pSsctPayload_ pSsctSheetId_ = 
     SpreadsheetsSheetsCopyTo'
     { _ssctXgafv = Nothing
     , _ssctUploadProtocol = Nothing
@@ -187,6 +187,7 @@ instance GoogleRequest SpreadsheetsSheetsCopyTo where
         type Rs SpreadsheetsSheetsCopyTo = SheetProperties
         type Scopes SpreadsheetsSheetsCopyTo =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsSheetsCopyTo'{..}
           = go _ssctSpreadsheetId _ssctSheetId _ssctXgafv

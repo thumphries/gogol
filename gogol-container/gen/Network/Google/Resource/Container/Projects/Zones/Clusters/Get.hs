@@ -22,7 +22,7 @@
 --
 -- Gets the details of a specific cluster.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.clusters.get@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.clusters.get@.
 module Network.Google.Resource.Container.Projects.Zones.Clusters.Get
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Container.Projects.Zones.Clusters.Get
     , pzcgCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.clusters.get@ method which the
 -- 'ProjectsZonesClustersGet' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsZonesClustersGetResource =
              Capture "zone" Text :>
                "clusters" :>
                  Capture "clusterId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -71,16 +71,16 @@ type ProjectsZonesClustersGetResource =
 --
 -- /See:/ 'projectsZonesClustersGet' smart constructor.
 data ProjectsZonesClustersGet = ProjectsZonesClustersGet'
-    { _pzcgXgafv          :: !(Maybe Text)
+    { _pzcgXgafv :: !(Maybe Xgafv)
     , _pzcgUploadProtocol :: !(Maybe Text)
-    , _pzcgPp             :: !Bool
-    , _pzcgAccessToken    :: !(Maybe Text)
-    , _pzcgUploadType     :: !(Maybe Text)
-    , _pzcgZone           :: !Text
-    , _pzcgBearerToken    :: !(Maybe Text)
-    , _pzcgClusterId      :: !Text
-    , _pzcgProjectId      :: !Text
-    , _pzcgCallback       :: !(Maybe Text)
+    , _pzcgPp :: !Bool
+    , _pzcgAccessToken :: !(Maybe Text)
+    , _pzcgUploadType :: !(Maybe Text)
+    , _pzcgZone :: !Text
+    , _pzcgBearerToken :: !(Maybe Text)
+    , _pzcgClusterId :: !Text
+    , _pzcgProjectId :: !Text
+    , _pzcgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesClustersGet' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ projectsZonesClustersGet
     -> Text -- ^ 'pzcgClusterId'
     -> Text -- ^ 'pzcgProjectId'
     -> ProjectsZonesClustersGet
-projectsZonesClustersGet pPzcgZone_ pPzcgClusterId_ pPzcgProjectId_ =
+projectsZonesClustersGet pPzcgZone_ pPzcgClusterId_ pPzcgProjectId_ = 
     ProjectsZonesClustersGet'
     { _pzcgXgafv = Nothing
     , _pzcgUploadProtocol = Nothing
@@ -126,7 +126,7 @@ projectsZonesClustersGet pPzcgZone_ pPzcgClusterId_ pPzcgProjectId_ =
     }
 
 -- | V1 error format.
-pzcgXgafv :: Lens' ProjectsZonesClustersGet (Maybe Text)
+pzcgXgafv :: Lens' ProjectsZonesClustersGet (Maybe Xgafv)
 pzcgXgafv
   = lens _pzcgXgafv (\ s a -> s{_pzcgXgafv = a})
 

@@ -39,8 +39,8 @@ module Network.Google.Resource.Fitness.Users.Sessions.Update
     , usuSessionId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.sessions.update@ method which the
 -- 'UsersSessionsUpdate' request conforms to.
@@ -59,10 +59,10 @@ type UsersSessionsUpdateResource =
 --
 -- /See:/ 'usersSessionsUpdate' smart constructor.
 data UsersSessionsUpdate = UsersSessionsUpdate'
-    { _usuPayload           :: !Session
-    , _usuUserId            :: !Text
+    { _usuPayload :: !Session
+    , _usuUserId :: !Text
     , _usuCurrentTimeMillis :: !(Maybe (Textual Int64))
-    , _usuSessionId         :: !Text
+    , _usuSessionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSessionsUpdate' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ usersSessionsUpdate
     -> Text -- ^ 'usuUserId'
     -> Text -- ^ 'usuSessionId'
     -> UsersSessionsUpdate
-usersSessionsUpdate pUsuPayload_ pUsuUserId_ pUsuSessionId_ =
+usersSessionsUpdate pUsuPayload_ pUsuUserId_ pUsuSessionId_ = 
     UsersSessionsUpdate'
     { _usuPayload = pUsuPayload_
     , _usuUserId = pUsuUserId_

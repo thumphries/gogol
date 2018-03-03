@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Advertisers.Insert
     , aiiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertisers.insert@ method which the
 -- 'AdvertisersInsert' request conforms to.
 type AdvertisersInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertisers" :>
@@ -56,7 +56,7 @@ type AdvertisersInsertResource =
 -- /See:/ 'advertisersInsert' smart constructor.
 data AdvertisersInsert = AdvertisersInsert'
     { _aiiProFileId :: !(Textual Int64)
-    , _aiiPayload   :: !Advertiser
+    , _aiiPayload :: !Advertiser
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertisersInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ advertisersInsert
     :: Int64 -- ^ 'aiiProFileId'
     -> Advertiser -- ^ 'aiiPayload'
     -> AdvertisersInsert
-advertisersInsert pAiiProFileId_ pAiiPayload_ =
+advertisersInsert pAiiProFileId_ pAiiPayload_ = 
     AdvertisersInsert'
     { _aiiProFileId = _Coerce # pAiiProFileId_
     , _aiiPayload = pAiiPayload_

@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.AdvertiserGroups.Patch
     , agpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertiserGroups.patch@ method which the
 -- 'AdvertiserGroupsPatch' request conforms to.
 type AdvertiserGroupsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertiserGroups" :>
@@ -61,8 +61,8 @@ type AdvertiserGroupsPatchResource =
 -- /See:/ 'advertiserGroupsPatch' smart constructor.
 data AdvertiserGroupsPatch = AdvertiserGroupsPatch'
     { _agpProFileId :: !(Textual Int64)
-    , _agpPayload   :: !AdvertiserGroup
-    , _agpId        :: !(Textual Int64)
+    , _agpPayload :: !AdvertiserGroup
+    , _agpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertiserGroupsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ advertiserGroupsPatch
     -> AdvertiserGroup -- ^ 'agpPayload'
     -> Int64 -- ^ 'agpId'
     -> AdvertiserGroupsPatch
-advertiserGroupsPatch pAgpProFileId_ pAgpPayload_ pAgpId_ =
+advertiserGroupsPatch pAgpProFileId_ pAgpPayload_ pAgpId_ = 
     AdvertiserGroupsPatch'
     { _agpProFileId = _Coerce # pAgpProFileId_
     , _agpPayload = pAgpPayload_

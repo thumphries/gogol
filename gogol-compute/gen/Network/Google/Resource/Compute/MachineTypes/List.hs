@@ -41,8 +41,8 @@ module Network.Google.Resource.Compute.MachineTypes.List
     , mtlMaxResults
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.machineTypes.list@ method which the
 -- 'MachineTypesList' request conforms to.
@@ -65,11 +65,11 @@ type MachineTypesListResource =
 --
 -- /See:/ 'machineTypesList' smart constructor.
 data MachineTypesList = MachineTypesList'
-    { _mtlOrderBy    :: !(Maybe Text)
-    , _mtlProject    :: !Text
-    , _mtlZone       :: !Text
-    , _mtlFilter     :: !(Maybe Text)
-    , _mtlPageToken  :: !(Maybe Text)
+    { _mtlOrderBy :: !(Maybe Text)
+    , _mtlProject :: !Text
+    , _mtlZone :: !Text
+    , _mtlFilter :: !(Maybe Text)
+    , _mtlPageToken :: !(Maybe Text)
     , _mtlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -92,7 +92,7 @@ machineTypesList
     :: Text -- ^ 'mtlProject'
     -> Text -- ^ 'mtlZone'
     -> MachineTypesList
-machineTypesList pMtlProject_ pMtlZone_ =
+machineTypesList pMtlProject_ pMtlZone_ = 
     MachineTypesList'
     { _mtlOrderBy = Nothing
     , _mtlProject = pMtlProject_
@@ -123,26 +123,25 @@ mtlProject
 mtlZone :: Lens' MachineTypesList Text
 mtlZone = lens _mtlZone (\ s a -> s{_mtlZone = a})
 
--- | Sets a filter expression for filtering listed resources, in the form
--- filter={expression}. Your {expression} must be in the format: field_name
--- comparison_string literal_string. The field_name is the name of the
--- field you want to compare. Only atomic field types are supported
--- (string, number, boolean). The comparison_string must be either eq
--- (equals) or ne (not equals). The literal_string is the string value to
--- filter to. The literal value must be valid for the type of field you are
--- filtering by (string, number, boolean). For string fields, the literal
--- value is interpreted as a regular expression using RE2 syntax. The
--- literal value must match the entire field. For example, to filter for
--- instances that do not have a name of example-instance, you would use
--- filter=name ne example-instance. You can filter on nested fields. For
--- example, you could filter on instances that have set the
--- scheduling.automaticRestart field to true. Use filtering on nested
--- fields to take advantage of labels to organize and search for results
--- based on label values. To filter on multiple expressions, provide each
--- separate expression within parentheses. For example,
--- (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
--- expressions are treated as AND expressions, meaning that resources must
--- match all expressions to pass the filters.
+-- | Sets a filter {expression} for filtering listed resources. Your
+-- {expression} must be in the format: field_name comparison_string
+-- literal_string. The field_name is the name of the field you want to
+-- compare. Only atomic field types are supported (string, number,
+-- boolean). The comparison_string must be either eq (equals) or ne (not
+-- equals). The literal_string is the string value to filter to. The
+-- literal value must be valid for the type of field you are filtering by
+-- (string, number, boolean). For string fields, the literal value is
+-- interpreted as a regular expression using RE2 syntax. The literal value
+-- must match the entire field. For example, to filter for instances that
+-- do not have a name of example-instance, you would use name ne
+-- example-instance. You can filter on nested fields. For example, you
+-- could filter on instances that have set the scheduling.automaticRestart
+-- field to true. Use filtering on nested fields to take advantage of
+-- labels to organize and search for results based on label values. To
+-- filter on multiple expressions, provide each separate expression within
+-- parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+-- us-central1-f). Multiple expressions are treated as AND expressions,
+-- meaning that resources must match all expressions to pass the filters.
 mtlFilter :: Lens' MachineTypesList (Maybe Text)
 mtlFilter
   = lens _mtlFilter (\ s a -> s{_mtlFilter = a})
@@ -156,7 +155,8 @@ mtlPageToken
 -- | The maximum number of results per page that should be returned. If the
 -- number of available results is larger than maxResults, Compute Engine
 -- returns a nextPageToken that can be used to get the next page of results
--- in subsequent list requests.
+-- in subsequent list requests. Acceptable values are 0 to 500, inclusive.
+-- (Default: 500)
 mtlMaxResults :: Lens' MachineTypesList Word32
 mtlMaxResults
   = lens _mtlMaxResults

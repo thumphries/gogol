@@ -38,8 +38,8 @@ module Network.Google.Resource.Webmasters.Sitemaps.List
     , slSitemapIndex
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sitemaps.list@ method which the
 -- 'SitemapsList' request conforms to.
@@ -58,7 +58,7 @@ type SitemapsListResource =
 --
 -- /See:/ 'sitemapsList' smart constructor.
 data SitemapsList = SitemapsList'
-    { _slSiteURL      :: !Text
+    { _slSiteURL :: !Text
     , _slSitemapIndex :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ data SitemapsList = SitemapsList'
 sitemapsList
     :: Text -- ^ 'slSiteURL'
     -> SitemapsList
-sitemapsList pSlSiteURL_ =
+sitemapsList pSlSiteURL_ = 
     SitemapsList'
     { _slSiteURL = pSlSiteURL_
     , _slSitemapIndex = Nothing

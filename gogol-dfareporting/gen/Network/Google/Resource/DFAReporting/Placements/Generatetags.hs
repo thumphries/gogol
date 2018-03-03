@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.Placements.Generatetags
     , pgsPlacementIds
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.generatetags@ method which the
 -- 'PlacementsGeneratetags' request conforms to.
 type PlacementsGeneratetagsResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -63,9 +63,9 @@ type PlacementsGeneratetagsResource =
 --
 -- /See:/ 'placementsGeneratetags' smart constructor.
 data PlacementsGeneratetags = PlacementsGeneratetags'
-    { _pgsTagFormats   :: !(Maybe [PlacementsGeneratetagsTagFormats])
-    , _pgsCampaignId   :: !(Maybe (Textual Int64))
-    , _pgsProFileId    :: !(Textual Int64)
+    { _pgsTagFormats :: !(Maybe [PlacementsGeneratetagsTagFormats])
+    , _pgsCampaignId :: !(Maybe (Textual Int64))
+    , _pgsProFileId :: !(Textual Int64)
     , _pgsPlacementIds :: !(Maybe [Textual Int64])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ data PlacementsGeneratetags = PlacementsGeneratetags'
 placementsGeneratetags
     :: Int64 -- ^ 'pgsProFileId'
     -> PlacementsGeneratetags
-placementsGeneratetags pPgsProFileId_ =
+placementsGeneratetags pPgsProFileId_ = 
     PlacementsGeneratetags'
     { _pgsTagFormats = Nothing
     , _pgsCampaignId = Nothing
@@ -91,7 +91,8 @@ placementsGeneratetags pPgsProFileId_ =
     , _pgsPlacementIds = Nothing
     }
 
--- | Tag formats to generate for these placements.
+-- | Tag formats to generate for these placements. Note:
+-- PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements.
 pgsTagFormats :: Lens' PlacementsGeneratetags [PlacementsGeneratetagsTagFormats]
 pgsTagFormats
   = lens _pgsTagFormats

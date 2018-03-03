@@ -37,8 +37,8 @@ module Network.Google.Resource.SQL.Instances.Insert
     , insPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.instances.insert@ method which the
 -- 'InstancesInsert' request conforms to.
@@ -71,7 +71,7 @@ instancesInsert
     :: Text -- ^ 'insProject'
     -> DatabaseInstance -- ^ 'insPayload'
     -> InstancesInsert
-instancesInsert pInsProject_ pInsPayload_ =
+instancesInsert pInsProject_ pInsPayload_ = 
     InstancesInsert'
     { _insProject = pInsProject_
     , _insPayload = pInsPayload_

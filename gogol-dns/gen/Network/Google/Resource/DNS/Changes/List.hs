@@ -41,8 +41,8 @@ module Network.Google.Resource.DNS.Changes.List
     , clSortBy
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.changes.list@ method which the
 -- 'ChangesList' request conforms to.
@@ -65,12 +65,12 @@ type ChangesListResource =
 --
 -- /See:/ 'changesList' smart constructor.
 data ChangesList = ChangesList'
-    { _clProject     :: !Text
-    , _clSortOrder   :: !(Maybe Text)
-    , _clPageToken   :: !(Maybe Text)
+    { _clProject :: !Text
+    , _clSortOrder :: !(Maybe Text)
+    , _clPageToken :: !(Maybe Text)
     , _clManagedZone :: !Text
-    , _clMaxResults  :: !(Maybe (Textual Int32))
-    , _clSortBy      :: !ChangesListSortBy
+    , _clMaxResults :: !(Maybe (Textual Int32))
+    , _clSortBy :: !ChangesListSortBy
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangesList' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ changesList
     :: Text -- ^ 'clProject'
     -> Text -- ^ 'clManagedZone'
     -> ChangesList
-changesList pClProject_ pClManagedZone_ =
+changesList pClProject_ pClManagedZone_ = 
     ChangesList'
     { _clProject = pClProject_
     , _clSortOrder = Nothing

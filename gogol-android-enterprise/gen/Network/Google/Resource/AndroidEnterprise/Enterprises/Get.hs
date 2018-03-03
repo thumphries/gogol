@@ -36,8 +36,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.Get
     , eEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.get@ method which the
 -- 'EnterprisesGet' request conforms to.
@@ -63,7 +63,7 @@ newtype EnterprisesGet = EnterprisesGet'
 enterprisesGet
     :: Text -- ^ 'eEnterpriseId'
     -> EnterprisesGet
-enterprisesGet pEEnterpriseId_ =
+enterprisesGet pEEnterpriseId_ = 
     EnterprisesGet'
     { _eEnterpriseId = pEEnterpriseId_
     }

@@ -39,8 +39,8 @@ module Network.Google.Resource.Books.MyLibrary.Bookshelves.RemoveVolume
     , mlbrvSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.bookshelves.removeVolume@ method which the
 -- 'MyLibraryBookshelvesRemoveVolume' request conforms to.
@@ -62,10 +62,10 @@ type MyLibraryBookshelvesRemoveVolumeResource =
 --
 -- /See:/ 'myLibraryBookshelvesRemoveVolume' smart constructor.
 data MyLibraryBookshelvesRemoveVolume = MyLibraryBookshelvesRemoveVolume'
-    { _mlbrvReason   :: !(Maybe MyLibraryBookshelvesRemoveVolumeReason)
-    , _mlbrvShelf    :: !Text
+    { _mlbrvReason :: !(Maybe MyLibraryBookshelvesRemoveVolumeReason)
+    , _mlbrvShelf :: !Text
     , _mlbrvVolumeId :: !Text
-    , _mlbrvSource   :: !(Maybe Text)
+    , _mlbrvSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MyLibraryBookshelvesRemoveVolume' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ myLibraryBookshelvesRemoveVolume
     :: Text -- ^ 'mlbrvShelf'
     -> Text -- ^ 'mlbrvVolumeId'
     -> MyLibraryBookshelvesRemoveVolume
-myLibraryBookshelvesRemoveVolume pMlbrvShelf_ pMlbrvVolumeId_ =
+myLibraryBookshelvesRemoveVolume pMlbrvShelf_ pMlbrvVolumeId_ = 
     MyLibraryBookshelvesRemoveVolume'
     { _mlbrvReason = Nothing
     , _mlbrvShelf = pMlbrvShelf_

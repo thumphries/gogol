@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Get
     , ussagSendAsEmail
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.get@ method which the
 -- 'UsersSettingsSendAsGet' request conforms to.
@@ -58,7 +58,7 @@ type UsersSettingsSendAsGetResource =
 --
 -- /See:/ 'usersSettingsSendAsGet' smart constructor.
 data UsersSettingsSendAsGet = UsersSettingsSendAsGet'
-    { _ussagUserId      :: !Text
+    { _ussagUserId :: !Text
     , _ussagSendAsEmail :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ data UsersSettingsSendAsGet = UsersSettingsSendAsGet'
 usersSettingsSendAsGet
     :: Text -- ^ 'ussagSendAsEmail'
     -> UsersSettingsSendAsGet
-usersSettingsSendAsGet pUssagSendAsEmail_ =
+usersSettingsSendAsGet pUssagSendAsEmail_ = 
     UsersSettingsSendAsGet'
     { _ussagUserId = "me"
     , _ussagSendAsEmail = pUssagSendAsEmail_

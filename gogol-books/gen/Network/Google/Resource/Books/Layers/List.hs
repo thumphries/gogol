@@ -40,8 +40,8 @@ module Network.Google.Resource.Books.Layers.List
     , llMaxResults
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.layers.list@ method which the
 -- 'LayersList' request conforms to.
@@ -63,10 +63,10 @@ type LayersListResource =
 -- /See:/ 'layersList' smart constructor.
 data LayersList = LayersList'
     { _llContentVersion :: !(Maybe Text)
-    , _llVolumeId       :: !Text
-    , _llSource         :: !(Maybe Text)
-    , _llPageToken      :: !(Maybe Text)
-    , _llMaxResults     :: !(Maybe (Textual Word32))
+    , _llVolumeId :: !Text
+    , _llSource :: !(Maybe Text)
+    , _llPageToken :: !(Maybe Text)
+    , _llMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LayersList' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data LayersList = LayersList'
 layersList
     :: Text -- ^ 'llVolumeId'
     -> LayersList
-layersList pLlVolumeId_ =
+layersList pLlVolumeId_ = 
     LayersList'
     { _llContentVersion = Nothing
     , _llVolumeId = pLlVolumeId_

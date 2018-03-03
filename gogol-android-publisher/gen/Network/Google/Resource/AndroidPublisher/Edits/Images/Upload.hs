@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Images.Upload
     , eiuEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.images.upload@ method which the
 -- 'EditsImagesUpload' request conforms to.
@@ -78,9 +78,9 @@ type EditsImagesUploadResource =
 -- /See:/ 'editsImagesUpload' smart constructor.
 data EditsImagesUpload = EditsImagesUpload'
     { _eiuPackageName :: !Text
-    , _eiuImageType   :: !EditsImagesUploadImageType
-    , _eiuLanguage    :: !Text
-    , _eiuEditId      :: !Text
+    , _eiuImageType :: !EditsImagesUploadImageType
+    , _eiuLanguage :: !Text
+    , _eiuEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsImagesUpload' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ editsImagesUpload
     -> Text -- ^ 'eiuLanguage'
     -> Text -- ^ 'eiuEditId'
     -> EditsImagesUpload
-editsImagesUpload pEiuPackageName_ pEiuImageType_ pEiuLanguage_ pEiuEditId_ =
+editsImagesUpload pEiuPackageName_ pEiuImageType_ pEiuLanguage_ pEiuEditId_ = 
     EditsImagesUpload'
     { _eiuPackageName = pEiuPackageName_
     , _eiuImageType = pEiuImageType_

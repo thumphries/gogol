@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Networks.Get
     , ngNetwork
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.networks.get@ method which the
 -- 'NetworksGet' request conforms to.
@@ -73,7 +73,7 @@ networksGet
     :: Text -- ^ 'ngProject'
     -> Text -- ^ 'ngNetwork'
     -> NetworksGet
-networksGet pNgProject_ pNgNetwork_ =
+networksGet pNgProject_ pNgNetwork_ = 
     NetworksGet'
     { _ngProject = pNgProject_
     , _ngNetwork = pNgNetwork_

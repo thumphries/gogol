@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Reviews.Reply
     , rrPayload
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.reviews.reply@ method which the
 -- 'ReviewsReply' request conforms to.
@@ -58,9 +58,9 @@ type ReviewsReplyResource =
 --
 -- /See:/ 'reviewsReply' smart constructor.
 data ReviewsReply = ReviewsReply'
-    { _rrReviewId    :: !Text
+    { _rrReviewId :: !Text
     , _rrPackageName :: !Text
-    , _rrPayload     :: !ReviewsReplyRequest
+    , _rrPayload :: !ReviewsReplyRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReviewsReply' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ reviewsReply
     -> Text -- ^ 'rrPackageName'
     -> ReviewsReplyRequest -- ^ 'rrPayload'
     -> ReviewsReply
-reviewsReply pRrReviewId_ pRrPackageName_ pRrPayload_ =
+reviewsReply pRrReviewId_ pRrPackageName_ pRrPayload_ = 
     ReviewsReply'
     { _rrReviewId = pRrReviewId_
     , _rrPackageName = pRrPackageName_

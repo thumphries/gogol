@@ -44,8 +44,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.GetIAMPolicy
     , ptgipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.getIamPolicy@ method which the
 -- 'ProjectsTopicsGetIAMPolicy' request conforms to.
@@ -66,14 +66,14 @@ type ProjectsTopicsGetIAMPolicyResource =
 --
 -- /See:/ 'projectsTopicsGetIAMPolicy' smart constructor.
 data ProjectsTopicsGetIAMPolicy = ProjectsTopicsGetIAMPolicy'
-    { _ptgipXgafv          :: !(Maybe Xgafv)
+    { _ptgipXgafv :: !(Maybe Xgafv)
     , _ptgipUploadProtocol :: !(Maybe Text)
-    , _ptgipPp             :: !Bool
-    , _ptgipAccessToken    :: !(Maybe Text)
-    , _ptgipUploadType     :: !(Maybe Text)
-    , _ptgipBearerToken    :: !(Maybe Text)
-    , _ptgipResource       :: !Text
-    , _ptgipCallback       :: !(Maybe Text)
+    , _ptgipPp :: !Bool
+    , _ptgipAccessToken :: !(Maybe Text)
+    , _ptgipUploadType :: !(Maybe Text)
+    , _ptgipBearerToken :: !(Maybe Text)
+    , _ptgipResource :: !Text
+    , _ptgipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsGetIAMPolicy' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ProjectsTopicsGetIAMPolicy = ProjectsTopicsGetIAMPolicy'
 projectsTopicsGetIAMPolicy
     :: Text -- ^ 'ptgipResource'
     -> ProjectsTopicsGetIAMPolicy
-projectsTopicsGetIAMPolicy pPtgipResource_ =
+projectsTopicsGetIAMPolicy pPtgipResource_ = 
     ProjectsTopicsGetIAMPolicy'
     { _ptgipXgafv = Nothing
     , _ptgipUploadProtocol = Nothing
@@ -143,9 +143,8 @@ ptgipBearerToken
   = lens _ptgipBearerToken
       (\ s a -> s{_ptgipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being requested. See the
+-- operation documentation for the appropriate value for this field.
 ptgipResource :: Lens' ProjectsTopicsGetIAMPolicy Text
 ptgipResource
   = lens _ptgipResource

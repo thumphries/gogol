@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.TargetingTemplates.Patch
     , ttpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.targetingTemplates.patch@ method which the
 -- 'TargetingTemplatesPatch' request conforms to.
 type TargetingTemplatesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "targetingTemplates" :>
@@ -61,8 +61,8 @@ type TargetingTemplatesPatchResource =
 -- /See:/ 'targetingTemplatesPatch' smart constructor.
 data TargetingTemplatesPatch = TargetingTemplatesPatch'
     { _ttpProFileId :: !(Textual Int64)
-    , _ttpPayload   :: !TargetingTemplate
-    , _ttpId        :: !(Textual Int64)
+    , _ttpPayload :: !TargetingTemplate
+    , _ttpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetingTemplatesPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ targetingTemplatesPatch
     -> TargetingTemplate -- ^ 'ttpPayload'
     -> Int64 -- ^ 'ttpId'
     -> TargetingTemplatesPatch
-targetingTemplatesPatch pTtpProFileId_ pTtpPayload_ pTtpId_ =
+targetingTemplatesPatch pTtpProFileId_ pTtpPayload_ pTtpId_ = 
     TargetingTemplatesPatch'
     { _ttpProFileId = _Coerce # pTtpProFileId_
     , _ttpPayload = pTtpPayload_

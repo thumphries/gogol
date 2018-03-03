@@ -39,8 +39,8 @@ module Network.Google.Resource.AdSense.AdUnits.List
     , aulMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.adunits.list@ method which the
 -- 'AdUnitsList' request conforms to.
@@ -60,9 +60,9 @@ type AdUnitsListResource =
 -- /See:/ 'adUnitsList' smart constructor.
 data AdUnitsList = AdUnitsList'
     { _aulIncludeInactive :: !(Maybe Bool)
-    , _aulAdClientId      :: !Text
-    , _aulPageToken       :: !(Maybe Text)
-    , _aulMaxResults      :: !(Maybe (Textual Int32))
+    , _aulAdClientId :: !Text
+    , _aulPageToken :: !(Maybe Text)
+    , _aulMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdUnitsList' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ data AdUnitsList = AdUnitsList'
 adUnitsList
     :: Text -- ^ 'aulAdClientId'
     -> AdUnitsList
-adUnitsList pAulAdClientId_ =
+adUnitsList pAulAdClientId_ = 
     AdUnitsList'
     { _aulIncludeInactive = Nothing
     , _aulAdClientId = pAulAdClientId_

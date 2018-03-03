@@ -36,8 +36,8 @@ module Network.Google.Resource.Analytics.Metadata.Columns.List
     , mclReportType
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.metadata.columns.list@ method which the
 -- 'MetadataColumnsList' request conforms to.
@@ -64,7 +64,7 @@ newtype MetadataColumnsList = MetadataColumnsList'
 metadataColumnsList
     :: Text -- ^ 'mclReportType'
     -> MetadataColumnsList
-metadataColumnsList pMclReportType_ =
+metadataColumnsList pMclReportType_ = 
     MetadataColumnsList'
     { _mclReportType = pMclReportType_
     }

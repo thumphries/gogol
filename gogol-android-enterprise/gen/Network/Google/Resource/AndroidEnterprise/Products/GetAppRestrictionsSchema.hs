@@ -43,8 +43,8 @@ module Network.Google.Resource.AndroidEnterprise.Products.GetAppRestrictionsSche
     , pgarsProductId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.products.getAppRestrictionsSchema@ method which the
 -- 'ProductsGetAppRestrictionsSchema' request conforms to.
@@ -70,8 +70,8 @@ type ProductsGetAppRestrictionsSchemaResource =
 -- /See:/ 'productsGetAppRestrictionsSchema' smart constructor.
 data ProductsGetAppRestrictionsSchema = ProductsGetAppRestrictionsSchema'
     { _pgarsEnterpriseId :: !Text
-    , _pgarsLanguage     :: !(Maybe Text)
-    , _pgarsProductId    :: !Text
+    , _pgarsLanguage :: !(Maybe Text)
+    , _pgarsProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductsGetAppRestrictionsSchema' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ productsGetAppRestrictionsSchema
     :: Text -- ^ 'pgarsEnterpriseId'
     -> Text -- ^ 'pgarsProductId'
     -> ProductsGetAppRestrictionsSchema
-productsGetAppRestrictionsSchema pPgarsEnterpriseId_ pPgarsProductId_ =
+productsGetAppRestrictionsSchema pPgarsEnterpriseId_ pPgarsProductId_ = 
     ProductsGetAppRestrictionsSchema'
     { _pgarsEnterpriseId = pPgarsEnterpriseId_
     , _pgarsLanguage = Nothing

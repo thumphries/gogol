@@ -45,8 +45,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.SetIAMPolicy
     , ptsipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.setIamPolicy@ method which the
 -- 'ProjectsTopicsSetIAMPolicy' request conforms to.
@@ -69,15 +69,15 @@ type ProjectsTopicsSetIAMPolicyResource =
 --
 -- /See:/ 'projectsTopicsSetIAMPolicy' smart constructor.
 data ProjectsTopicsSetIAMPolicy = ProjectsTopicsSetIAMPolicy'
-    { _ptsipXgafv          :: !(Maybe Xgafv)
+    { _ptsipXgafv :: !(Maybe Xgafv)
     , _ptsipUploadProtocol :: !(Maybe Text)
-    , _ptsipPp             :: !Bool
-    , _ptsipAccessToken    :: !(Maybe Text)
-    , _ptsipUploadType     :: !(Maybe Text)
-    , _ptsipPayload        :: !SetIAMPolicyRequest
-    , _ptsipBearerToken    :: !(Maybe Text)
-    , _ptsipResource       :: !Text
-    , _ptsipCallback       :: !(Maybe Text)
+    , _ptsipPp :: !Bool
+    , _ptsipAccessToken :: !(Maybe Text)
+    , _ptsipUploadType :: !(Maybe Text)
+    , _ptsipPayload :: !SetIAMPolicyRequest
+    , _ptsipBearerToken :: !(Maybe Text)
+    , _ptsipResource :: !Text
+    , _ptsipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsSetIAMPolicy' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsTopicsSetIAMPolicy
     :: SetIAMPolicyRequest -- ^ 'ptsipPayload'
     -> Text -- ^ 'ptsipResource'
     -> ProjectsTopicsSetIAMPolicy
-projectsTopicsSetIAMPolicy pPtsipPayload_ pPtsipResource_ =
+projectsTopicsSetIAMPolicy pPtsipPayload_ pPtsipResource_ = 
     ProjectsTopicsSetIAMPolicy'
     { _ptsipXgafv = Nothing
     , _ptsipUploadProtocol = Nothing
@@ -156,9 +156,8 @@ ptsipBearerToken
   = lens _ptsipBearerToken
       (\ s a -> s{_ptsipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being specified.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being specified. See the
+-- operation documentation for the appropriate value for this field.
 ptsipResource :: Lens' ProjectsTopicsSetIAMPolicy Text
 ptsipResource
   = lens _ptsipResource

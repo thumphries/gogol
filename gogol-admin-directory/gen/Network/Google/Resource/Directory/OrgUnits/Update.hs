@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update Organization Unit
+-- Update organizational unit
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.orgunits.update@.
 module Network.Google.Resource.Directory.OrgUnits.Update
@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.OrgUnits.Update
     , ouuCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.orgunits.update@ method which the
 -- 'OrgUnitsUpdate' request conforms to.
@@ -54,13 +54,13 @@ type OrgUnitsUpdateResource =
                    QueryParam "alt" AltJSON :>
                      ReqBody '[JSON] OrgUnit :> Put '[JSON] OrgUnit
 
--- | Update Organization Unit
+-- | Update organizational unit
 --
 -- /See:/ 'orgUnitsUpdate' smart constructor.
 data OrgUnitsUpdate = OrgUnitsUpdate'
-    { _ouuPayload     :: !OrgUnit
+    { _ouuPayload :: !OrgUnit
     , _ouuOrgUnitPath :: ![Text]
-    , _ouuCustomerId  :: !Text
+    , _ouuCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrgUnitsUpdate' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ orgUnitsUpdate
     -> [Text] -- ^ 'ouuOrgUnitPath'
     -> Text -- ^ 'ouuCustomerId'
     -> OrgUnitsUpdate
-orgUnitsUpdate pOuuPayload_ pOuuOrgUnitPath_ pOuuCustomerId_ =
+orgUnitsUpdate pOuuPayload_ pOuuOrgUnitPath_ pOuuCustomerId_ = 
     OrgUnitsUpdate'
     { _ouuPayload = pOuuPayload_
     , _ouuOrgUnitPath = _Coerce # pOuuOrgUnitPath_
@@ -89,14 +89,14 @@ ouuPayload :: Lens' OrgUnitsUpdate OrgUnit
 ouuPayload
   = lens _ouuPayload (\ s a -> s{_ouuPayload = a})
 
--- | Full path of the organization unit or its Id
+-- | Full path of the organizational unit or its ID
 ouuOrgUnitPath :: Lens' OrgUnitsUpdate [Text]
 ouuOrgUnitPath
   = lens _ouuOrgUnitPath
       (\ s a -> s{_ouuOrgUnitPath = a})
       . _Coerce
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 ouuCustomerId :: Lens' OrgUnitsUpdate Text
 ouuCustomerId
   = lens _ouuCustomerId

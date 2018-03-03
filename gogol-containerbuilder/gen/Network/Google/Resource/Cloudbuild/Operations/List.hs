@@ -22,11 +22,16 @@
 --
 -- Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- the \`name\` binding allows API services to override the binding to use
+-- different resource name schemes, such as \`users\/*\/operations\`. To
+-- override the binding, API services can add a binding such as
+-- \`\"\/v1\/{name=users\/*}\/operations\"\` to their service
+-- configuration. For backwards compatibility, the default name includes
+-- the operations collection id, however overriding users must ensure the
+-- name binding is the parent resource, without the operations collection
+-- id.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.operations.list@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.operations.list@.
 module Network.Google.Resource.Cloudbuild.Operations.List
     (
     -- * REST Resource
@@ -50,8 +55,8 @@ module Network.Google.Resource.Cloudbuild.Operations.List
     , olCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.operations.list@ method which the
 -- 'OperationsList' request conforms to.
@@ -73,23 +78,28 @@ type OperationsListResource =
 
 -- | Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- the \`name\` binding allows API services to override the binding to use
+-- different resource name schemes, such as \`users\/*\/operations\`. To
+-- override the binding, API services can add a binding such as
+-- \`\"\/v1\/{name=users\/*}\/operations\"\` to their service
+-- configuration. For backwards compatibility, the default name includes
+-- the operations collection id, however overriding users must ensure the
+-- name binding is the parent resource, without the operations collection
+-- id.
 --
 -- /See:/ 'operationsList' smart constructor.
 data OperationsList = OperationsList'
-    { _olXgafv          :: !(Maybe Xgafv)
+    { _olXgafv :: !(Maybe Xgafv)
     , _olUploadProtocol :: !(Maybe Text)
-    , _olPp             :: !Bool
-    , _olAccessToken    :: !(Maybe Text)
-    , _olUploadType     :: !(Maybe Text)
-    , _olBearerToken    :: !(Maybe Text)
-    , _olName           :: !Text
-    , _olFilter         :: !(Maybe Text)
-    , _olPageToken      :: !(Maybe Text)
-    , _olPageSize       :: !(Maybe (Textual Int32))
-    , _olCallback       :: !(Maybe Text)
+    , _olPp :: !Bool
+    , _olAccessToken :: !(Maybe Text)
+    , _olUploadType :: !(Maybe Text)
+    , _olBearerToken :: !(Maybe Text)
+    , _olName :: !Text
+    , _olFilter :: !(Maybe Text)
+    , _olPageToken :: !(Maybe Text)
+    , _olPageSize :: !(Maybe (Textual Int32))
+    , _olCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperationsList' with the minimum fields required to make a request.
@@ -120,7 +130,7 @@ data OperationsList = OperationsList'
 operationsList
     :: Text -- ^ 'olName'
     -> OperationsList
-operationsList pOlName_ =
+operationsList pOlName_ = 
     OperationsList'
     { _olXgafv = Nothing
     , _olUploadProtocol = Nothing
@@ -166,7 +176,7 @@ olBearerToken
   = lens _olBearerToken
       (\ s a -> s{_olBearerToken = a})
 
--- | The name of the operation collection.
+-- | The name of the operation\'s parent resource.
 olName :: Lens' OperationsList Text
 olName = lens _olName (\ s a -> s{_olName = a})
 

@@ -40,8 +40,8 @@ module Network.Google.Resource.SQL.SSLCerts.Insert
     , sciInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.sslCerts.insert@ method which the
 -- 'SSLCertsInsert' request conforms to.
@@ -63,8 +63,8 @@ type SSLCertsInsertResource =
 --
 -- /See:/ 'sslCertsInsert' smart constructor.
 data SSLCertsInsert = SSLCertsInsert'
-    { _sciProject  :: !Text
-    , _sciPayload  :: !SSLCertsInsertRequest
+    { _sciProject :: !Text
+    , _sciPayload :: !SSLCertsInsertRequest
     , _sciInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ sslCertsInsert
     -> SSLCertsInsertRequest -- ^ 'sciPayload'
     -> Text -- ^ 'sciInstance'
     -> SSLCertsInsert
-sslCertsInsert pSciProject_ pSciPayload_ pSciInstance_ =
+sslCertsInsert pSciProject_ pSciPayload_ pSciInstance_ = 
     SSLCertsInsert'
     { _sciProject = pSciProject_
     , _sciPayload = pSciPayload_

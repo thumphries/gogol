@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSense.Savedadstyles.List
     , slMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.savedadstyles.list@ method which the
 -- 'SavedadstylesList' request conforms to.
@@ -54,7 +54,7 @@ type SavedadstylesListResource =
 --
 -- /See:/ 'savedadstylesList' smart constructor.
 data SavedadstylesList = SavedadstylesList'
-    { _slPageToken  :: !(Maybe Text)
+    { _slPageToken :: !(Maybe Text)
     , _slMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -67,7 +67,7 @@ data SavedadstylesList = SavedadstylesList'
 -- * 'slMaxResults'
 savedadstylesList
     :: SavedadstylesList
-savedadstylesList =
+savedadstylesList = 
     SavedadstylesList'
     { _slPageToken = Nothing
     , _slMaxResults = Nothing

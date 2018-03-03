@@ -25,7 +25,7 @@
 -- operation. If the server doesn\'t support this method, it returns
 -- \`google.rpc.Code.UNIMPLEMENTED\`.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.operations.delete@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.operations.delete@.
 module Network.Google.Resource.Ml.Projects.Operations.Delete
     (
     -- * REST Resource
@@ -46,13 +46,13 @@ module Network.Google.Resource.Ml.Projects.Operations.Delete
     , podCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.operations.delete@ method which the
 -- 'ProjectsOperationsDelete' request conforms to.
 type ProjectsOperationsDeleteResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
@@ -71,14 +71,14 @@ type ProjectsOperationsDeleteResource =
 --
 -- /See:/ 'projectsOperationsDelete' smart constructor.
 data ProjectsOperationsDelete = ProjectsOperationsDelete'
-    { _podXgafv          :: !(Maybe Xgafv)
+    { _podXgafv :: !(Maybe Xgafv)
     , _podUploadProtocol :: !(Maybe Text)
-    , _podPp             :: !Bool
-    , _podAccessToken    :: !(Maybe Text)
-    , _podUploadType     :: !(Maybe Text)
-    , _podBearerToken    :: !(Maybe Text)
-    , _podName           :: !Text
-    , _podCallback       :: !(Maybe Text)
+    , _podPp :: !Bool
+    , _podAccessToken :: !(Maybe Text)
+    , _podUploadType :: !(Maybe Text)
+    , _podBearerToken :: !(Maybe Text)
+    , _podName :: !Text
+    , _podCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsOperationsDelete' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data ProjectsOperationsDelete = ProjectsOperationsDelete'
 projectsOperationsDelete
     :: Text -- ^ 'podName'
     -> ProjectsOperationsDelete
-projectsOperationsDelete pPodName_ =
+projectsOperationsDelete pPodName_ = 
     ProjectsOperationsDelete'
     { _podXgafv = Nothing
     , _podUploadProtocol = Nothing

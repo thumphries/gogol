@@ -71,6 +71,9 @@ module Network.Google.BigQuery
     -- ** bigquery.jobs.query
     , module Network.Google.Resource.BigQuery.Jobs.Query
 
+    -- ** bigquery.projects.getServiceAccount
+    , module Network.Google.Resource.BigQuery.Projects.GetServiceAccount
+
     -- ** bigquery.projects.list
     , module Network.Google.Resource.BigQuery.Projects.List
 
@@ -104,6 +107,7 @@ module Network.Google.BigQuery
     , JobReference
     , jobReference
     , jrJobId
+    , jrLocation
     , jrProjectId
 
     -- ** TableList
@@ -118,6 +122,7 @@ module Network.Google.BigQuery
     -- ** DataSetListDataSetsItem
     , DataSetListDataSetsItem
     , dataSetListDataSetsItem
+    , dsldsiLocation
     , dsldsiFriendlyName
     , dsldsiKind
     , dsldsiDataSetReference
@@ -141,16 +146,21 @@ module Network.Google.BigQuery
     , jctcSourceTables
     , jctcCreateDisPosition
     , jctcSourceTable
+    , jctcDestinationEncryptionConfiguration
 
     -- ** TableListTablesItem
     , TableListTablesItem
     , tableListTablesItem
+    , tltiCreationTime
     , tltiTableReference
     , tltiFriendlyName
     , tltiKind
+    , tltiTimePartitioning
+    , tltiView
     , tltiId
     , tltiLabels
     , tltiType
+    , tltiExpirationTime
 
     -- ** TableSchema
     , TableSchema
@@ -171,6 +181,15 @@ module Network.Google.BigQuery
     , explainQueryStep
     , eqsSubsteps
     , eqsKind
+
+    -- ** QueryTimelineSample
+    , QueryTimelineSample
+    , queryTimelineSample
+    , qtsPendingInputs
+    , qtsTotalSlotMs
+    , qtsElapsedMs
+    , qtsCompletedInputs
+    , qtsActiveInputs
 
     -- ** QueryParameterTypeStructTypesItem
     , QueryParameterTypeStructTypesItem
@@ -193,6 +212,7 @@ module Network.Google.BigQuery
     , jobStatistics
     , jsCreationTime
     , jsStartTime
+    , jsCompletionRatio
     , jsLoad
     , jsTotalBytesProcessed
     , jsEndTime
@@ -285,6 +305,7 @@ module Network.Google.BigQuery
     -- ** QueryRequest
     , QueryRequest
     , queryRequest
+    , qrLocation
     , qrUseQueryCache
     , qrPreserveNulls
     , qrKind
@@ -320,20 +341,35 @@ module Network.Google.BigQuery
     -- ** ExplainQueryStage
     , ExplainQueryStage
     , explainQueryStage
+    , eqsReadMsAvg
     , eqsStatus
+    , eqsShuffleOutputBytesSpilled
+    , eqsReadMsMax
+    , eqsCompletedParallelInputs
     , eqsWaitRatioMax
+    , eqsParallelInputs
+    , eqsShuffleOutputBytes
     , eqsRecordsWritten
     , eqsSteps
+    , eqsInputStages
     , eqsWriteRatioAvg
     , eqsRecordsRead
     , eqsComputeRatioAvg
     , eqsName
+    , eqsComputeMsMax
     , eqsReadRatioMax
+    , eqsWriteMsMax
     , eqsWaitRatioAvg
+    , eqsWaitMsAvg
     , eqsId
     , eqsComputeRatioMax
     , eqsWriteRatioMax
+    , eqsComputeMsAvg
     , eqsReadRatioAvg
+    , eqsWriteMsAvg
+    , eqsStartMs
+    , eqsEndMs
+    , eqsWaitMsMax
 
     -- ** JobConfigurationLoad
     , JobConfigurationLoad
@@ -351,11 +387,14 @@ module Network.Google.BigQuery
     , jclAllowQuotedNewlines
     , jclSourceFormat
     , jclSchema
+    , jclTimePartitioning
     , jclQuote
     , jclMaxBadRecords
     , jclAutodetect
     , jclSourceURIs
     , jclEncoding
+    , jclDestinationTableProperties
+    , jclDestinationEncryptionConfiguration
     , jclFieldDelimiter
     , jclNullMarker
 
@@ -376,6 +415,12 @@ module Network.Google.BigQuery
     , tdiarRows
     , tdiarTemplateSuffix
     , tdiarSkipInvalidRows
+
+    -- ** GetServiceAccountResponse
+    , GetServiceAccountResponse
+    , getServiceAccountResponse
+    , gsarEmail
+    , gsarKind
 
     -- ** ProjectListProjectsItem
     , ProjectListProjectsItem
@@ -424,7 +469,9 @@ module Network.Google.BigQuery
     -- ** TimePartitioning
     , TimePartitioning
     , timePartitioning
+    , tpField
     , tpExpirationMs
+    , tpRequirePartitionFilter
     , tpType
 
     -- ** QueryParameterValueStructValues
@@ -443,6 +490,7 @@ module Network.Google.BigQuery
     , jcCopy
     , jcLoad
     , jcQuery
+    , jcJobTimeoutMs
     , jcExtract
     , jcLabels
     , jcDryRun
@@ -459,6 +507,11 @@ module Network.Google.BigQuery
     , jId
     , jStatistics
     , jConfiguration
+
+    -- ** EncryptionConfiguration
+    , EncryptionConfiguration
+    , encryptionConfiguration
+    , ecKmsKeyName
 
     -- ** TableDataInsertAllResponseInsertErrorsItem
     , TableDataInsertAllResponseInsertErrorsItem
@@ -504,10 +557,12 @@ module Network.Google.BigQuery
     , jcqUserDefinedFunctionResources
     , jcqAllowLargeResults
     , jcqMaximumBillingTier
+    , jcqTimePartitioning
     , jcqQuery
     , jcqFlattenResults
     , jcqParameterMode
     , jcqUseLegacySQL
+    , jcqDestinationEncryptionConfiguration
     , jcqDefaultDataSet
 
     -- ** GoogleSheetsOptions
@@ -562,6 +617,9 @@ module Network.Google.BigQuery
     -- ** JobStatistics2
     , JobStatistics2
     , jobStatistics2
+    , jTotalSlotMs
+    , jDdlTargetTable
+    , jEstimatedBytesProcessed
     , jSchema
     , jTotalBytesProcessed
     , jBillingTier
@@ -569,9 +627,11 @@ module Network.Google.BigQuery
     , jReferencedTables
     , jStatementType
     , jNumDmlAffectedRows
+    , jTimeline
     , jQueryPlan
     , jCacheHit
     , jTotalBytesBilled
+    , jDdlOperationPerformed
 
     -- ** JobStatus
     , JobStatus
@@ -584,6 +644,12 @@ module Network.Google.BigQuery
     , TableLabels
     , tableLabels
     , tlAddtional
+
+    -- ** DestinationTableProperties
+    , DestinationTableProperties
+    , destinationTableProperties
+    , dtpFriendlyName
+    , dtpDescription
 
     -- ** DataSetAccessItem
     , DataSetAccessItem
@@ -623,6 +689,7 @@ module Network.Google.BigQuery
     , tabSchema
     , tabStreamingBuffer
     , tabSelfLink
+    , tabEncryptionConfiguration
     , tabTimePartitioning
     , tabNumRows
     , tabView
@@ -658,6 +725,7 @@ module Network.Google.BigQuery
     , jsOutputRows
     , jsOutputBytes
     , jsInputFileBytes
+    , jsBadRecords
 
     -- ** QueryResponse
     , QueryResponse
@@ -679,35 +747,41 @@ module Network.Google.BigQuery
     , dataSetListDataSetsItemLabels
     , dsldsilAddtional
 
+    -- ** TableListTablesItemView
+    , TableListTablesItemView
+    , tableListTablesItemView
+    , tltivUseLegacySQL
+
     -- ** TableListTablesItemLabels
     , TableListTablesItemLabels
     , tableListTablesItemLabels
     , tltilAddtional
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
-import           Network.Google.Resource.BigQuery.DataSets.Delete
-import           Network.Google.Resource.BigQuery.DataSets.Get
-import           Network.Google.Resource.BigQuery.DataSets.Insert
-import           Network.Google.Resource.BigQuery.DataSets.List
-import           Network.Google.Resource.BigQuery.DataSets.Patch
-import           Network.Google.Resource.BigQuery.DataSets.Update
-import           Network.Google.Resource.BigQuery.Jobs.Cancel
-import           Network.Google.Resource.BigQuery.Jobs.Get
-import           Network.Google.Resource.BigQuery.Jobs.GetQueryResults
-import           Network.Google.Resource.BigQuery.Jobs.Insert
-import           Network.Google.Resource.BigQuery.Jobs.List
-import           Network.Google.Resource.BigQuery.Jobs.Query
-import           Network.Google.Resource.BigQuery.Projects.List
-import           Network.Google.Resource.BigQuery.TableData.InsertAll
-import           Network.Google.Resource.BigQuery.TableData.List
-import           Network.Google.Resource.BigQuery.Tables.Delete
-import           Network.Google.Resource.BigQuery.Tables.Get
-import           Network.Google.Resource.BigQuery.Tables.Insert
-import           Network.Google.Resource.BigQuery.Tables.List
-import           Network.Google.Resource.BigQuery.Tables.Patch
-import           Network.Google.Resource.BigQuery.Tables.Update
+import Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Resource.BigQuery.DataSets.Delete
+import Network.Google.Resource.BigQuery.DataSets.Get
+import Network.Google.Resource.BigQuery.DataSets.Insert
+import Network.Google.Resource.BigQuery.DataSets.List
+import Network.Google.Resource.BigQuery.DataSets.Patch
+import Network.Google.Resource.BigQuery.DataSets.Update
+import Network.Google.Resource.BigQuery.Jobs.Cancel
+import Network.Google.Resource.BigQuery.Jobs.Get
+import Network.Google.Resource.BigQuery.Jobs.GetQueryResults
+import Network.Google.Resource.BigQuery.Jobs.Insert
+import Network.Google.Resource.BigQuery.Jobs.List
+import Network.Google.Resource.BigQuery.Jobs.Query
+import Network.Google.Resource.BigQuery.Projects.GetServiceAccount
+import Network.Google.Resource.BigQuery.Projects.List
+import Network.Google.Resource.BigQuery.TableData.InsertAll
+import Network.Google.Resource.BigQuery.TableData.List
+import Network.Google.Resource.BigQuery.Tables.Delete
+import Network.Google.Resource.BigQuery.Tables.Get
+import Network.Google.Resource.BigQuery.Tables.Insert
+import Network.Google.Resource.BigQuery.Tables.List
+import Network.Google.Resource.BigQuery.Tables.Patch
+import Network.Google.Resource.BigQuery.Tables.Update
 
 {- $resources
 TODO
@@ -728,6 +802,7 @@ type BigQueryAPI =
        :<|> TablesUpdateResource
        :<|> TableDataListResource
        :<|> TableDataInsertAllResource
+       :<|> ProjectsGetServiceAccountResource
        :<|> ProjectsListResource
        :<|> DataSetsInsertResource
        :<|> DataSetsListResource

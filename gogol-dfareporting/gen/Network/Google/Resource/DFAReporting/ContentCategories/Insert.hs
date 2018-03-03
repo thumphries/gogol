@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.Insert
     , cciPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.insert@ method which the
 -- 'ContentCategoriesInsert' request conforms to.
 type ContentCategoriesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -57,7 +57,7 @@ type ContentCategoriesInsertResource =
 -- /See:/ 'contentCategoriesInsert' smart constructor.
 data ContentCategoriesInsert = ContentCategoriesInsert'
     { _cciProFileId :: !(Textual Int64)
-    , _cciPayload   :: !ContentCategory
+    , _cciPayload :: !ContentCategory
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ contentCategoriesInsert
     :: Int64 -- ^ 'cciProFileId'
     -> ContentCategory -- ^ 'cciPayload'
     -> ContentCategoriesInsert
-contentCategoriesInsert pCciProFileId_ pCciPayload_ =
+contentCategoriesInsert pCciProFileId_ pCciPayload_ = 
     ContentCategoriesInsert'
     { _cciProFileId = _Coerce # pCciProFileId_
     , _cciPayload = pCciPayload_

@@ -57,8 +57,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.M
     , ccwssmaCourseWorkId
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.studentSubmissions.modifyAttachments@ method which the
 -- 'CoursesCourseWorkStudentSubmissionsModifyAttachments' request conforms to.
@@ -71,7 +71,7 @@ type CoursesCourseWorkStudentSubmissionsModifyAttachmentsResource
              Capture "courseWorkId" Text :>
                "studentSubmissions" :>
                  CaptureMode "id" "modifyAttachments" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -97,17 +97,17 @@ type CoursesCourseWorkStudentSubmissionsModifyAttachmentsResource
 --
 -- /See:/ 'coursesCourseWorkStudentSubmissionsModifyAttachments' smart constructor.
 data CoursesCourseWorkStudentSubmissionsModifyAttachments = CoursesCourseWorkStudentSubmissionsModifyAttachments'
-    { _ccwssmaXgafv          :: !(Maybe Text)
+    { _ccwssmaXgafv :: !(Maybe Xgafv)
     , _ccwssmaUploadProtocol :: !(Maybe Text)
-    , _ccwssmaPp             :: !Bool
-    , _ccwssmaCourseId       :: !Text
-    , _ccwssmaAccessToken    :: !(Maybe Text)
-    , _ccwssmaUploadType     :: !(Maybe Text)
-    , _ccwssmaPayload        :: !ModifyAttachmentsRequest
-    , _ccwssmaBearerToken    :: !(Maybe Text)
-    , _ccwssmaId             :: !Text
-    , _ccwssmaCallback       :: !(Maybe Text)
-    , _ccwssmaCourseWorkId   :: !Text
+    , _ccwssmaPp :: !Bool
+    , _ccwssmaCourseId :: !Text
+    , _ccwssmaAccessToken :: !(Maybe Text)
+    , _ccwssmaUploadType :: !(Maybe Text)
+    , _ccwssmaPayload :: !ModifyAttachmentsRequest
+    , _ccwssmaBearerToken :: !(Maybe Text)
+    , _ccwssmaId :: !Text
+    , _ccwssmaCallback :: !(Maybe Text)
+    , _ccwssmaCourseWorkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkStudentSubmissionsModifyAttachments' with the minimum fields required to make a request.
@@ -141,7 +141,7 @@ coursesCourseWorkStudentSubmissionsModifyAttachments
     -> Text -- ^ 'ccwssmaId'
     -> Text -- ^ 'ccwssmaCourseWorkId'
     -> CoursesCourseWorkStudentSubmissionsModifyAttachments
-coursesCourseWorkStudentSubmissionsModifyAttachments pCcwssmaCourseId_ pCcwssmaPayload_ pCcwssmaId_ pCcwssmaCourseWorkId_ =
+coursesCourseWorkStudentSubmissionsModifyAttachments pCcwssmaCourseId_ pCcwssmaPayload_ pCcwssmaId_ pCcwssmaCourseWorkId_ = 
     CoursesCourseWorkStudentSubmissionsModifyAttachments'
     { _ccwssmaXgafv = Nothing
     , _ccwssmaUploadProtocol = Nothing
@@ -157,7 +157,7 @@ coursesCourseWorkStudentSubmissionsModifyAttachments pCcwssmaCourseId_ pCcwssmaP
     }
 
 -- | V1 error format.
-ccwssmaXgafv :: Lens' CoursesCourseWorkStudentSubmissionsModifyAttachments (Maybe Text)
+ccwssmaXgafv :: Lens' CoursesCourseWorkStudentSubmissionsModifyAttachments (Maybe Xgafv)
 ccwssmaXgafv
   = lens _ccwssmaXgafv (\ s a -> s{_ccwssmaXgafv = a})
 

@@ -22,7 +22,7 @@
 --
 -- Finds the threat entries that match the Safe Browsing lists.
 --
--- /See:/ <https://developers.google.com/safe-browsing/ Safe Browsing APIs Reference> for @safebrowsing.threatMatches.find@.
+-- /See:/ <https://developers.google.com/safe-browsing/ Google Safe Browsing API Reference> for @safebrowsing.threatMatches.find@.
 module Network.Google.Resource.SafeBrowsing.ThreatMatches.Find
     (
     -- * REST Resource
@@ -43,15 +43,15 @@ module Network.Google.Resource.SafeBrowsing.ThreatMatches.Find
     , tmfCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SafeBrowsing.Types
+import Network.Google.Prelude
+import Network.Google.SafeBrowsing.Types
 
 -- | A resource alias for @safebrowsing.threatMatches.find@ method which the
 -- 'ThreatMatchesFind' request conforms to.
 type ThreatMatchesFindResource =
      "v4" :>
        "threatMatches:find" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -66,14 +66,14 @@ type ThreatMatchesFindResource =
 --
 -- /See:/ 'threatMatchesFind' smart constructor.
 data ThreatMatchesFind = ThreatMatchesFind'
-    { _tmfXgafv          :: !(Maybe Text)
+    { _tmfXgafv :: !(Maybe Xgafv)
     , _tmfUploadProtocol :: !(Maybe Text)
-    , _tmfPp             :: !Bool
-    , _tmfAccessToken    :: !(Maybe Text)
-    , _tmfUploadType     :: !(Maybe Text)
-    , _tmfPayload        :: !FindThreatMatchesRequest
-    , _tmfBearerToken    :: !(Maybe Text)
-    , _tmfCallback       :: !(Maybe Text)
+    , _tmfPp :: !Bool
+    , _tmfAccessToken :: !(Maybe Text)
+    , _tmfUploadType :: !(Maybe Text)
+    , _tmfPayload :: !FindThreatMatchesRequest
+    , _tmfBearerToken :: !(Maybe Text)
+    , _tmfCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThreatMatchesFind' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ThreatMatchesFind = ThreatMatchesFind'
 threatMatchesFind
     :: FindThreatMatchesRequest -- ^ 'tmfPayload'
     -> ThreatMatchesFind
-threatMatchesFind pTmfPayload_ =
+threatMatchesFind pTmfPayload_ = 
     ThreatMatchesFind'
     { _tmfXgafv = Nothing
     , _tmfUploadProtocol = Nothing
@@ -111,7 +111,7 @@ threatMatchesFind pTmfPayload_ =
     }
 
 -- | V1 error format.
-tmfXgafv :: Lens' ThreatMatchesFind (Maybe Text)
+tmfXgafv :: Lens' ThreatMatchesFind (Maybe Xgafv)
 tmfXgafv = lens _tmfXgafv (\ s a -> s{_tmfXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

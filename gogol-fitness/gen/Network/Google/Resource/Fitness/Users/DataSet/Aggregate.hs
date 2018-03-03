@@ -40,8 +40,8 @@ module Network.Google.Resource.Fitness.Users.DataSet.Aggregate
     , udsaUserId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataset.aggregate@ method which the
 -- 'UsersDataSetAggregate' request conforms to.
@@ -63,7 +63,7 @@ type UsersDataSetAggregateResource =
 -- /See:/ 'usersDataSetAggregate' smart constructor.
 data UsersDataSetAggregate = UsersDataSetAggregate'
     { _udsaPayload :: !AggregateRequest
-    , _udsaUserId  :: !Text
+    , _udsaUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSetAggregate' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ usersDataSetAggregate
     :: AggregateRequest -- ^ 'udsaPayload'
     -> Text -- ^ 'udsaUserId'
     -> UsersDataSetAggregate
-usersDataSetAggregate pUdsaPayload_ pUdsaUserId_ =
+usersDataSetAggregate pUdsaPayload_ pUdsaUserId_ = 
     UsersDataSetAggregate'
     { _udsaPayload = pUdsaPayload_
     , _udsaUserId = pUdsaUserId_

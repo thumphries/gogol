@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKListings.Delete
     , eapkldEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apklistings.delete@ method which the
 -- 'EditsAPKListingsDelete' request conforms to.
@@ -63,10 +63,10 @@ type EditsAPKListingsDeleteResource =
 --
 -- /See:/ 'editsAPKListingsDelete' smart constructor.
 data EditsAPKListingsDelete = EditsAPKListingsDelete'
-    { _eapkldPackageName    :: !Text
+    { _eapkldPackageName :: !Text
     , _eapkldAPKVersionCode :: !(Textual Int32)
-    , _eapkldLanguage       :: !Text
-    , _eapkldEditId         :: !Text
+    , _eapkldLanguage :: !Text
+    , _eapkldEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKListingsDelete' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ editsAPKListingsDelete
     -> Text -- ^ 'eapkldLanguage'
     -> Text -- ^ 'eapkldEditId'
     -> EditsAPKListingsDelete
-editsAPKListingsDelete pEapkldPackageName_ pEapkldAPKVersionCode_ pEapkldLanguage_ pEapkldEditId_ =
+editsAPKListingsDelete pEapkldPackageName_ pEapkldAPKVersionCode_ pEapkldLanguage_ pEapkldEditId_ = 
     EditsAPKListingsDelete'
     { _eapkldPackageName = pEapkldPackageName_
     , _eapkldAPKVersionCode = _Coerce # pEapkldAPKVersionCode_

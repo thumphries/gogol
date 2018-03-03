@@ -53,15 +53,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Get
     , bgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.get@ method which the
 -- 'BeaconsGet' request conforms to.
 type BeaconsGetResource =
      "v1beta1" :>
        Capture "beaconName" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -84,15 +84,15 @@ type BeaconsGetResource =
 --
 -- /See:/ 'beaconsGet' smart constructor.
 data BeaconsGet = BeaconsGet'
-    { _bgXgafv          :: !(Maybe Text)
+    { _bgXgafv :: !(Maybe Xgafv)
     , _bgUploadProtocol :: !(Maybe Text)
-    , _bgPp             :: !Bool
-    , _bgAccessToken    :: !(Maybe Text)
-    , _bgBeaconName     :: !Text
-    , _bgUploadType     :: !(Maybe Text)
-    , _bgBearerToken    :: !(Maybe Text)
-    , _bgProjectId      :: !(Maybe Text)
-    , _bgCallback       :: !(Maybe Text)
+    , _bgPp :: !Bool
+    , _bgAccessToken :: !(Maybe Text)
+    , _bgBeaconName :: !Text
+    , _bgUploadType :: !(Maybe Text)
+    , _bgBearerToken :: !(Maybe Text)
+    , _bgProjectId :: !(Maybe Text)
+    , _bgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsGet' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ data BeaconsGet = BeaconsGet'
 beaconsGet
     :: Text -- ^ 'bgBeaconName'
     -> BeaconsGet
-beaconsGet pBgBeaconName_ =
+beaconsGet pBgBeaconName_ = 
     BeaconsGet'
     { _bgXgafv = Nothing
     , _bgUploadProtocol = Nothing
@@ -133,7 +133,7 @@ beaconsGet pBgBeaconName_ =
     }
 
 -- | V1 error format.
-bgXgafv :: Lens' BeaconsGet (Maybe Text)
+bgXgafv :: Lens' BeaconsGet (Maybe Xgafv)
 bgXgafv = lens _bgXgafv (\ s a -> s{_bgXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

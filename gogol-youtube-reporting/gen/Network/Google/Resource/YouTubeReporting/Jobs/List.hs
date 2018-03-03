@@ -46,8 +46,8 @@ module Network.Google.Resource.YouTubeReporting.Jobs.List
     , jlCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.jobs.list@ method which the
 -- 'JobsList' request conforms to.
@@ -72,17 +72,17 @@ type JobsListResource =
 --
 -- /See:/ 'jobsList' smart constructor.
 data JobsList = JobsList'
-    { _jlXgafv                  :: !(Maybe Xgafv)
-    , _jlUploadProtocol         :: !(Maybe Text)
-    , _jlPp                     :: !Bool
-    , _jlAccessToken            :: !(Maybe Text)
-    , _jlUploadType             :: !(Maybe Text)
-    , _jlIncludeSystemManaged   :: !(Maybe Bool)
+    { _jlXgafv :: !(Maybe Xgafv)
+    , _jlUploadProtocol :: !(Maybe Text)
+    , _jlPp :: !Bool
+    , _jlAccessToken :: !(Maybe Text)
+    , _jlUploadType :: !(Maybe Text)
+    , _jlIncludeSystemManaged :: !(Maybe Bool)
     , _jlOnBehalfOfContentOwner :: !(Maybe Text)
-    , _jlBearerToken            :: !(Maybe Text)
-    , _jlPageToken              :: !(Maybe Text)
-    , _jlPageSize               :: !(Maybe (Textual Int32))
-    , _jlCallback               :: !(Maybe Text)
+    , _jlBearerToken :: !(Maybe Text)
+    , _jlPageToken :: !(Maybe Text)
+    , _jlPageSize :: !(Maybe (Textual Int32))
+    , _jlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobsList' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ data JobsList = JobsList'
 -- * 'jlCallback'
 jobsList
     :: JobsList
-jobsList =
+jobsList = 
     JobsList'
     { _jlXgafv = Nothing
     , _jlUploadProtocol = Nothing

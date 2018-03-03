@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -32,6 +32,7 @@ module Network.Google.BigQuery.Types
     , JobReference
     , jobReference
     , jrJobId
+    , jrLocation
     , jrProjectId
 
     -- * TableList
@@ -46,6 +47,7 @@ module Network.Google.BigQuery.Types
     -- * DataSetListDataSetsItem
     , DataSetListDataSetsItem
     , dataSetListDataSetsItem
+    , dsldsiLocation
     , dsldsiFriendlyName
     , dsldsiKind
     , dsldsiDataSetReference
@@ -69,16 +71,21 @@ module Network.Google.BigQuery.Types
     , jctcSourceTables
     , jctcCreateDisPosition
     , jctcSourceTable
+    , jctcDestinationEncryptionConfiguration
 
     -- * TableListTablesItem
     , TableListTablesItem
     , tableListTablesItem
+    , tltiCreationTime
     , tltiTableReference
     , tltiFriendlyName
     , tltiKind
+    , tltiTimePartitioning
+    , tltiView
     , tltiId
     , tltiLabels
     , tltiType
+    , tltiExpirationTime
 
     -- * TableSchema
     , TableSchema
@@ -99,6 +106,15 @@ module Network.Google.BigQuery.Types
     , explainQueryStep
     , eqsSubsteps
     , eqsKind
+
+    -- * QueryTimelineSample
+    , QueryTimelineSample
+    , queryTimelineSample
+    , qtsPendingInputs
+    , qtsTotalSlotMs
+    , qtsElapsedMs
+    , qtsCompletedInputs
+    , qtsActiveInputs
 
     -- * QueryParameterTypeStructTypesItem
     , QueryParameterTypeStructTypesItem
@@ -121,6 +137,7 @@ module Network.Google.BigQuery.Types
     , jobStatistics
     , jsCreationTime
     , jsStartTime
+    , jsCompletionRatio
     , jsLoad
     , jsTotalBytesProcessed
     , jsEndTime
@@ -213,6 +230,7 @@ module Network.Google.BigQuery.Types
     -- * QueryRequest
     , QueryRequest
     , queryRequest
+    , qrLocation
     , qrUseQueryCache
     , qrPreserveNulls
     , qrKind
@@ -248,20 +266,35 @@ module Network.Google.BigQuery.Types
     -- * ExplainQueryStage
     , ExplainQueryStage
     , explainQueryStage
+    , eqsReadMsAvg
     , eqsStatus
+    , eqsShuffleOutputBytesSpilled
+    , eqsReadMsMax
+    , eqsCompletedParallelInputs
     , eqsWaitRatioMax
+    , eqsParallelInputs
+    , eqsShuffleOutputBytes
     , eqsRecordsWritten
     , eqsSteps
+    , eqsInputStages
     , eqsWriteRatioAvg
     , eqsRecordsRead
     , eqsComputeRatioAvg
     , eqsName
+    , eqsComputeMsMax
     , eqsReadRatioMax
+    , eqsWriteMsMax
     , eqsWaitRatioAvg
+    , eqsWaitMsAvg
     , eqsId
     , eqsComputeRatioMax
     , eqsWriteRatioMax
+    , eqsComputeMsAvg
     , eqsReadRatioAvg
+    , eqsWriteMsAvg
+    , eqsStartMs
+    , eqsEndMs
+    , eqsWaitMsMax
 
     -- * JobConfigurationLoad
     , JobConfigurationLoad
@@ -279,11 +312,14 @@ module Network.Google.BigQuery.Types
     , jclAllowQuotedNewlines
     , jclSourceFormat
     , jclSchema
+    , jclTimePartitioning
     , jclQuote
     , jclMaxBadRecords
     , jclAutodetect
     , jclSourceURIs
     , jclEncoding
+    , jclDestinationTableProperties
+    , jclDestinationEncryptionConfiguration
     , jclFieldDelimiter
     , jclNullMarker
 
@@ -304,6 +340,12 @@ module Network.Google.BigQuery.Types
     , tdiarRows
     , tdiarTemplateSuffix
     , tdiarSkipInvalidRows
+
+    -- * GetServiceAccountResponse
+    , GetServiceAccountResponse
+    , getServiceAccountResponse
+    , gsarEmail
+    , gsarKind
 
     -- * ProjectListProjectsItem
     , ProjectListProjectsItem
@@ -352,7 +394,9 @@ module Network.Google.BigQuery.Types
     -- * TimePartitioning
     , TimePartitioning
     , timePartitioning
+    , tpField
     , tpExpirationMs
+    , tpRequirePartitionFilter
     , tpType
 
     -- * QueryParameterValueStructValues
@@ -371,6 +415,7 @@ module Network.Google.BigQuery.Types
     , jcCopy
     , jcLoad
     , jcQuery
+    , jcJobTimeoutMs
     , jcExtract
     , jcLabels
     , jcDryRun
@@ -387,6 +432,11 @@ module Network.Google.BigQuery.Types
     , jId
     , jStatistics
     , jConfiguration
+
+    -- * EncryptionConfiguration
+    , EncryptionConfiguration
+    , encryptionConfiguration
+    , ecKmsKeyName
 
     -- * TableDataInsertAllResponseInsertErrorsItem
     , TableDataInsertAllResponseInsertErrorsItem
@@ -432,10 +482,12 @@ module Network.Google.BigQuery.Types
     , jcqUserDefinedFunctionResources
     , jcqAllowLargeResults
     , jcqMaximumBillingTier
+    , jcqTimePartitioning
     , jcqQuery
     , jcqFlattenResults
     , jcqParameterMode
     , jcqUseLegacySQL
+    , jcqDestinationEncryptionConfiguration
     , jcqDefaultDataSet
 
     -- * GoogleSheetsOptions
@@ -490,6 +542,9 @@ module Network.Google.BigQuery.Types
     -- * JobStatistics2
     , JobStatistics2
     , jobStatistics2
+    , jTotalSlotMs
+    , jDdlTargetTable
+    , jEstimatedBytesProcessed
     , jSchema
     , jTotalBytesProcessed
     , jBillingTier
@@ -497,9 +552,11 @@ module Network.Google.BigQuery.Types
     , jReferencedTables
     , jStatementType
     , jNumDmlAffectedRows
+    , jTimeline
     , jQueryPlan
     , jCacheHit
     , jTotalBytesBilled
+    , jDdlOperationPerformed
 
     -- * JobStatus
     , JobStatus
@@ -512,6 +569,12 @@ module Network.Google.BigQuery.Types
     , TableLabels
     , tableLabels
     , tlAddtional
+
+    -- * DestinationTableProperties
+    , DestinationTableProperties
+    , destinationTableProperties
+    , dtpFriendlyName
+    , dtpDescription
 
     -- * DataSetAccessItem
     , DataSetAccessItem
@@ -551,6 +614,7 @@ module Network.Google.BigQuery.Types
     , tabSchema
     , tabStreamingBuffer
     , tabSelfLink
+    , tabEncryptionConfiguration
     , tabTimePartitioning
     , tabNumRows
     , tabView
@@ -586,6 +650,7 @@ module Network.Google.BigQuery.Types
     , jsOutputRows
     , jsOutputBytes
     , jsInputFileBytes
+    , jsBadRecords
 
     -- * QueryResponse
     , QueryResponse
@@ -607,15 +672,20 @@ module Network.Google.BigQuery.Types
     , dataSetListDataSetsItemLabels
     , dsldsilAddtional
 
+    -- * TableListTablesItemView
+    , TableListTablesItemView
+    , tableListTablesItemView
+    , tltivUseLegacySQL
+
     -- * TableListTablesItemLabels
     , TableListTablesItemLabels
     , tableListTablesItemLabels
     , tltilAddtional
     ) where
 
-import           Network.Google.BigQuery.Types.Product
-import           Network.Google.BigQuery.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types.Product
+import Network.Google.BigQuery.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v2' of the BigQuery API. This contains the host and root path used as a starting point for constructing service requests.
 bigQueryService :: ServiceConfig

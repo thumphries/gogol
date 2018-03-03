@@ -43,8 +43,8 @@ module Network.Google.Resource.Logging.Organizations.Sinks.Get
     , osgCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.organizations.sinks.get@ method which the
 -- 'OrganizationsSinksGet' request conforms to.
@@ -64,14 +64,14 @@ type OrganizationsSinksGetResource =
 --
 -- /See:/ 'organizationsSinksGet' smart constructor.
 data OrganizationsSinksGet = OrganizationsSinksGet'
-    { _osgXgafv          :: !(Maybe Xgafv)
+    { _osgXgafv :: !(Maybe Xgafv)
     , _osgUploadProtocol :: !(Maybe Text)
-    , _osgPp             :: !Bool
-    , _osgAccessToken    :: !(Maybe Text)
-    , _osgUploadType     :: !(Maybe Text)
-    , _osgBearerToken    :: !(Maybe Text)
-    , _osgSinkName       :: !Text
-    , _osgCallback       :: !(Maybe Text)
+    , _osgPp :: !Bool
+    , _osgAccessToken :: !(Maybe Text)
+    , _osgUploadType :: !(Maybe Text)
+    , _osgBearerToken :: !(Maybe Text)
+    , _osgSinkName :: !Text
+    , _osgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrganizationsSinksGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data OrganizationsSinksGet = OrganizationsSinksGet'
 organizationsSinksGet
     :: Text -- ^ 'osgSinkName'
     -> OrganizationsSinksGet
-organizationsSinksGet pOsgSinkName_ =
+organizationsSinksGet pOsgSinkName_ = 
     OrganizationsSinksGet'
     { _osgXgafv = Nothing
     , _osgUploadProtocol = Nothing
@@ -140,9 +140,11 @@ osgBearerToken
   = lens _osgBearerToken
       (\ s a -> s{_osgBearerToken = a})
 
--- | Required. The parent resource name of the sink:
+-- | Required. The resource name of the sink:
 -- \"projects\/[PROJECT_ID]\/sinks\/[SINK_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\" Example:
+-- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/sinks\/[SINK_ID]\"
+-- \"folders\/[FOLDER_ID]\/sinks\/[SINK_ID]\" Example:
 -- \"projects\/my-project-id\/sinks\/my-sink-id\".
 osgSinkName :: Lens' OrganizationsSinksGet Text
 osgSinkName

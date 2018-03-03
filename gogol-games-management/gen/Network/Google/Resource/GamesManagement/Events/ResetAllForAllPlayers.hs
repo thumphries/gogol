@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesManagement.Events.ResetAllForAllPlayers
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.events.resetAllForAllPlayers@ method which the
 -- 'EventsResetAllForAllPlayers' request conforms to.
@@ -54,7 +54,7 @@ type EventsResetAllForAllPlayersResource =
 --
 -- /See:/ 'eventsResetAllForAllPlayers' smart constructor.
 data EventsResetAllForAllPlayers =
-    EventsResetAllForAllPlayers'
+    EventsResetAllForAllPlayers' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsResetAllForAllPlayers' with the minimum fields required to make a request.

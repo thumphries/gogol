@@ -45,8 +45,8 @@ module Network.Google.Resource.PubSub.Projects.Snapshots.SetIAMPolicy
     , pssiampCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.snapshots.setIamPolicy@ method which the
 -- 'ProjectsSnapshotsSetIAMPolicy' request conforms to.
@@ -69,15 +69,15 @@ type ProjectsSnapshotsSetIAMPolicyResource =
 --
 -- /See:/ 'projectsSnapshotsSetIAMPolicy' smart constructor.
 data ProjectsSnapshotsSetIAMPolicy = ProjectsSnapshotsSetIAMPolicy'
-    { _pssiampXgafv          :: !(Maybe Xgafv)
+    { _pssiampXgafv :: !(Maybe Xgafv)
     , _pssiampUploadProtocol :: !(Maybe Text)
-    , _pssiampPp             :: !Bool
-    , _pssiampAccessToken    :: !(Maybe Text)
-    , _pssiampUploadType     :: !(Maybe Text)
-    , _pssiampPayload        :: !SetIAMPolicyRequest
-    , _pssiampBearerToken    :: !(Maybe Text)
-    , _pssiampResource       :: !Text
-    , _pssiampCallback       :: !(Maybe Text)
+    , _pssiampPp :: !Bool
+    , _pssiampAccessToken :: !(Maybe Text)
+    , _pssiampUploadType :: !(Maybe Text)
+    , _pssiampPayload :: !SetIAMPolicyRequest
+    , _pssiampBearerToken :: !(Maybe Text)
+    , _pssiampResource :: !Text
+    , _pssiampCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSnapshotsSetIAMPolicy' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsSnapshotsSetIAMPolicy
     :: SetIAMPolicyRequest -- ^ 'pssiampPayload'
     -> Text -- ^ 'pssiampResource'
     -> ProjectsSnapshotsSetIAMPolicy
-projectsSnapshotsSetIAMPolicy pPssiampPayload_ pPssiampResource_ =
+projectsSnapshotsSetIAMPolicy pPssiampPayload_ pPssiampResource_ = 
     ProjectsSnapshotsSetIAMPolicy'
     { _pssiampXgafv = Nothing
     , _pssiampUploadProtocol = Nothing
@@ -158,9 +158,8 @@ pssiampBearerToken
   = lens _pssiampBearerToken
       (\ s a -> s{_pssiampBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being specified.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being specified. See the
+-- operation documentation for the appropriate value for this field.
 pssiampResource :: Lens' ProjectsSnapshotsSetIAMPolicy Text
 pssiampResource
   = lens _pssiampResource

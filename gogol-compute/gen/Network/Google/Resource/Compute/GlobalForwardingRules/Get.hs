@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified ForwardingRule resource. Get a list of available
--- forwarding rules by making a list() request.
+-- Returns the specified GlobalForwardingRule resource. Get a list of
+-- available forwarding rules by making a list() request.
 --
 -- /See:/ <https://developers.google.com/compute/docs/reference/latest/ Compute Engine API Reference> for @compute.globalForwardingRules.get@.
 module Network.Google.Resource.Compute.GlobalForwardingRules.Get
@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.GlobalForwardingRules.Get
     , gfrgForwardingRule
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.globalForwardingRules.get@ method which the
 -- 'GlobalForwardingRulesGet' request conforms to.
@@ -54,12 +54,12 @@ type GlobalForwardingRulesGetResource =
                    QueryParam "alt" AltJSON :>
                      Get '[JSON] ForwardingRule
 
--- | Returns the specified ForwardingRule resource. Get a list of available
--- forwarding rules by making a list() request.
+-- | Returns the specified GlobalForwardingRule resource. Get a list of
+-- available forwarding rules by making a list() request.
 --
 -- /See:/ 'globalForwardingRulesGet' smart constructor.
 data GlobalForwardingRulesGet = GlobalForwardingRulesGet'
-    { _gfrgProject        :: !Text
+    { _gfrgProject :: !Text
     , _gfrgForwardingRule :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ globalForwardingRulesGet
     :: Text -- ^ 'gfrgProject'
     -> Text -- ^ 'gfrgForwardingRule'
     -> GlobalForwardingRulesGet
-globalForwardingRulesGet pGfrgProject_ pGfrgForwardingRule_ =
+globalForwardingRulesGet pGfrgProject_ pGfrgForwardingRule_ = 
     GlobalForwardingRulesGet'
     { _gfrgProject = pGfrgProject_
     , _gfrgForwardingRule = pGfrgForwardingRule_

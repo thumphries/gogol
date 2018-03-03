@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Videos.Rate
     , vrId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.videos.rate@ method which the
 -- 'VideosRate' request conforms to.
@@ -56,7 +56,7 @@ type VideosRateResource =
 -- /See:/ 'videosRate' smart constructor.
 data VideosRate = VideosRate'
     { _vrRating :: !VideosRateRating
-    , _vrId     :: !Text
+    , _vrId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VideosRate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ videosRate
     :: VideosRateRating -- ^ 'vrRating'
     -> Text -- ^ 'vrId'
     -> VideosRate
-videosRate pVrRating_ pVrId_ =
+videosRate pVrRating_ pVrId_ = 
     VideosRate'
     { _vrRating = pVrRating_
     , _vrId = pVrId_

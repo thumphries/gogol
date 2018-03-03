@@ -36,8 +36,8 @@ module Network.Google.Resource.AdExchangeBuyer.Accounts.Get
     , agId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.accounts.get@ method which the
 -- 'AccountsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype AccountsGet = AccountsGet'
 accountsGet
     :: Int32 -- ^ 'agId'
     -> AccountsGet
-accountsGet pAgId_ =
+accountsGet pAgId_ = 
     AccountsGet'
     { _agId = _Coerce # pAgId_
     }

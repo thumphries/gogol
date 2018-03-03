@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Delete
     , fadId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.delete@ method which the
 -- 'FloodlightActivitiesDelete' request conforms to.
 type FloodlightActivitiesDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -56,7 +56,7 @@ type FloodlightActivitiesDeleteResource =
 -- /See:/ 'floodlightActivitiesDelete' smart constructor.
 data FloodlightActivitiesDelete = FloodlightActivitiesDelete'
     { _fadProFileId :: !(Textual Int64)
-    , _fadId        :: !(Textual Int64)
+    , _fadId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ floodlightActivitiesDelete
     :: Int64 -- ^ 'fadProFileId'
     -> Int64 -- ^ 'fadId'
     -> FloodlightActivitiesDelete
-floodlightActivitiesDelete pFadProFileId_ pFadId_ =
+floodlightActivitiesDelete pFadProFileId_ pFadId_ = 
     FloodlightActivitiesDelete'
     { _fadProFileId = _Coerce # pFadProFileId_
     , _fadId = _Coerce # pFadId_

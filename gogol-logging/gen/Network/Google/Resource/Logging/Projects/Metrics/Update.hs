@@ -44,8 +44,8 @@ module Network.Google.Resource.Logging.Projects.Metrics.Update
     , pmuCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.metrics.update@ method which the
 -- 'ProjectsMetricsUpdate' request conforms to.
@@ -66,15 +66,15 @@ type ProjectsMetricsUpdateResource =
 --
 -- /See:/ 'projectsMetricsUpdate' smart constructor.
 data ProjectsMetricsUpdate = ProjectsMetricsUpdate'
-    { _pmuXgafv          :: !(Maybe Xgafv)
+    { _pmuXgafv :: !(Maybe Xgafv)
     , _pmuUploadProtocol :: !(Maybe Text)
-    , _pmuPp             :: !Bool
-    , _pmuAccessToken    :: !(Maybe Text)
-    , _pmuMetricName     :: !Text
-    , _pmuUploadType     :: !(Maybe Text)
-    , _pmuPayload        :: !LogMetric
-    , _pmuBearerToken    :: !(Maybe Text)
-    , _pmuCallback       :: !(Maybe Text)
+    , _pmuPp :: !Bool
+    , _pmuAccessToken :: !(Maybe Text)
+    , _pmuMetricName :: !Text
+    , _pmuUploadType :: !(Maybe Text)
+    , _pmuPayload :: !LogMetric
+    , _pmuBearerToken :: !(Maybe Text)
+    , _pmuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMetricsUpdate' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ projectsMetricsUpdate
     :: Text -- ^ 'pmuMetricName'
     -> LogMetric -- ^ 'pmuPayload'
     -> ProjectsMetricsUpdate
-projectsMetricsUpdate pPmuMetricName_ pPmuPayload_ =
+projectsMetricsUpdate pPmuMetricName_ pPmuPayload_ = 
     ProjectsMetricsUpdate'
     { _pmuXgafv = Nothing
     , _pmuUploadProtocol = Nothing

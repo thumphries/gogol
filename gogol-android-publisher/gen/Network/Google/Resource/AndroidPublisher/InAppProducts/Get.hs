@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.InAppProducts.Get
     , iapgSKU
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.inappproducts.get@ method which the
 -- 'InAppProductsGet' request conforms to.
@@ -56,7 +56,7 @@ type InAppProductsGetResource =
 -- /See:/ 'inAppProductsGet' smart constructor.
 data InAppProductsGet = InAppProductsGet'
     { _iapgPackageName :: !Text
-    , _iapgSKU         :: !Text
+    , _iapgSKU :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InAppProductsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ inAppProductsGet
     :: Text -- ^ 'iapgPackageName'
     -> Text -- ^ 'iapgSKU'
     -> InAppProductsGet
-inAppProductsGet pIapgPackageName_ pIapgSKU_ =
+inAppProductsGet pIapgPackageName_ pIapgSKU_ = 
     InAppProductsGet'
     { _iapgPackageName = pIapgPackageName_
     , _iapgSKU = pIapgSKU_

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.VideoFormats.Get
     , vfgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.videoFormats.get@ method which the
 -- 'VideoFormatsGet' request conforms to.
 type VideoFormatsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "videoFormats" :>
@@ -56,7 +56,7 @@ type VideoFormatsGetResource =
 -- /See:/ 'videoFormatsGet' smart constructor.
 data VideoFormatsGet = VideoFormatsGet'
     { _vfgProFileId :: !(Textual Int64)
-    , _vfgId        :: !(Textual Int32)
+    , _vfgId :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VideoFormatsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ videoFormatsGet
     :: Int64 -- ^ 'vfgProFileId'
     -> Int32 -- ^ 'vfgId'
     -> VideoFormatsGet
-videoFormatsGet pVfgProFileId_ pVfgId_ =
+videoFormatsGet pVfgProFileId_ pVfgId_ = 
     VideoFormatsGet'
     { _vfgProFileId = _Coerce # pVfgProFileId_
     , _vfgId = _Coerce # pVfgId_

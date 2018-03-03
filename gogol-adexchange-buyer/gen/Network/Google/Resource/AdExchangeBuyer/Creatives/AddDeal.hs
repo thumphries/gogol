@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeBuyer.Creatives.AddDeal
     , cadAccountId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.creatives.addDeal@ method which the
 -- 'CreativesAddDeal' request conforms to.
@@ -58,8 +58,8 @@ type CreativesAddDealResource =
 -- /See:/ 'creativesAddDeal' smart constructor.
 data CreativesAddDeal = CreativesAddDeal'
     { _cadBuyerCreativeId :: !Text
-    , _cadDealId          :: !(Textual Int64)
-    , _cadAccountId       :: !(Textual Int32)
+    , _cadDealId :: !(Textual Int64)
+    , _cadAccountId :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesAddDeal' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ creativesAddDeal
     -> Int64 -- ^ 'cadDealId'
     -> Int32 -- ^ 'cadAccountId'
     -> CreativesAddDeal
-creativesAddDeal pCadBuyerCreativeId_ pCadDealId_ pCadAccountId_ =
+creativesAddDeal pCadBuyerCreativeId_ pCadDealId_ pCadAccountId_ = 
     CreativesAddDeal'
     { _cadBuyerCreativeId = pCadBuyerCreativeId_
     , _cadDealId = _Coerce # pCadDealId_

@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Groups.Aliases.Insert
     , gaiPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.aliases.insert@ method which the
 -- 'GroupsAliasesInsert' request conforms to.
@@ -57,7 +57,7 @@ type GroupsAliasesInsertResource =
 -- /See:/ 'groupsAliasesInsert' smart constructor.
 data GroupsAliasesInsert = GroupsAliasesInsert'
     { _gaiGroupKey :: !Text
-    , _gaiPayload  :: !Alias
+    , _gaiPayload :: !Alias
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupsAliasesInsert' with the minimum fields required to make a request.
@@ -71,13 +71,13 @@ groupsAliasesInsert
     :: Text -- ^ 'gaiGroupKey'
     -> Alias -- ^ 'gaiPayload'
     -> GroupsAliasesInsert
-groupsAliasesInsert pGaiGroupKey_ pGaiPayload_ =
+groupsAliasesInsert pGaiGroupKey_ pGaiPayload_ = 
     GroupsAliasesInsert'
     { _gaiGroupKey = pGaiGroupKey_
     , _gaiPayload = pGaiPayload_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 gaiGroupKey :: Lens' GroupsAliasesInsert Text
 gaiGroupKey
   = lens _gaiGroupKey (\ s a -> s{_gaiGroupKey = a})

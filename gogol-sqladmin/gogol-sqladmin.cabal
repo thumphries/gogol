@@ -47,6 +47,7 @@ library
         , Network.Google.Resource.SQL.Flags.List
         , Network.Google.Resource.SQL.Instances.Clone
         , Network.Google.Resource.SQL.Instances.Delete
+        , Network.Google.Resource.SQL.Instances.DemoteMaster
         , Network.Google.Resource.SQL.Instances.Export
         , Network.Google.Resource.SQL.Instances.Failover
         , Network.Google.Resource.SQL.Instances.Get
@@ -82,5 +83,5 @@ library
         , Network.Google.SQLAdmin.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

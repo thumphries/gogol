@@ -44,8 +44,8 @@ module Network.Google.Resource.Monitoring.Projects.MetricDescriptors.Get
     , pmdgCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.metricDescriptors.get@ method which the
 -- 'ProjectsMetricDescriptorsGet' request conforms to.
@@ -67,14 +67,14 @@ type ProjectsMetricDescriptorsGetResource =
 --
 -- /See:/ 'projectsMetricDescriptorsGet' smart constructor.
 data ProjectsMetricDescriptorsGet = ProjectsMetricDescriptorsGet'
-    { _pmdgXgafv          :: !(Maybe Xgafv)
+    { _pmdgXgafv :: !(Maybe Xgafv)
     , _pmdgUploadProtocol :: !(Maybe Text)
-    , _pmdgPp             :: !Bool
-    , _pmdgAccessToken    :: !(Maybe Text)
-    , _pmdgUploadType     :: !(Maybe Text)
-    , _pmdgBearerToken    :: !(Maybe Text)
-    , _pmdgName           :: !Text
-    , _pmdgCallback       :: !(Maybe Text)
+    , _pmdgPp :: !Bool
+    , _pmdgAccessToken :: !(Maybe Text)
+    , _pmdgUploadType :: !(Maybe Text)
+    , _pmdgBearerToken :: !(Maybe Text)
+    , _pmdgName :: !Text
+    , _pmdgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMetricDescriptorsGet' with the minimum fields required to make a request.
@@ -99,7 +99,7 @@ data ProjectsMetricDescriptorsGet = ProjectsMetricDescriptorsGet'
 projectsMetricDescriptorsGet
     :: Text -- ^ 'pmdgName'
     -> ProjectsMetricDescriptorsGet
-projectsMetricDescriptorsGet pPmdgName_ =
+projectsMetricDescriptorsGet pPmdgName_ = 
     ProjectsMetricDescriptorsGet'
     { _pmdgXgafv = Nothing
     , _pmdgUploadProtocol = Nothing

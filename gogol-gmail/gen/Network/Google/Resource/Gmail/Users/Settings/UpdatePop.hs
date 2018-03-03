@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Settings.UpdatePop
     , usupUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.updatePop@ method which the
 -- 'UsersSettingsUpdatePop' request conforms to.
@@ -58,7 +58,7 @@ type UsersSettingsUpdatePopResource =
 -- /See:/ 'usersSettingsUpdatePop' smart constructor.
 data UsersSettingsUpdatePop = UsersSettingsUpdatePop'
     { _usupPayload :: !PopSettings
-    , _usupUserId  :: !Text
+    , _usupUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsUpdatePop' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersSettingsUpdatePop = UsersSettingsUpdatePop'
 usersSettingsUpdatePop
     :: PopSettings -- ^ 'usupPayload'
     -> UsersSettingsUpdatePop
-usersSettingsUpdatePop pUsupPayload_ =
+usersSettingsUpdatePop pUsupPayload_ = 
     UsersSettingsUpdatePop'
     { _usupPayload = pUsupPayload_
     , _usupUserId = "me"

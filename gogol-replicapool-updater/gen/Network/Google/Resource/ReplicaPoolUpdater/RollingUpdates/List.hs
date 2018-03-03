@@ -41,8 +41,8 @@ module Network.Google.Resource.ReplicaPoolUpdater.RollingUpdates.List
     , rulMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPoolUpdater.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPoolUpdater.Types
 
 -- | A resource alias for @replicapoolupdater.rollingUpdates.list@ method which the
 -- 'RollingUpdatesList' request conforms to.
@@ -65,10 +65,10 @@ type RollingUpdatesListResource =
 --
 -- /See:/ 'rollingUpdatesList' smart constructor.
 data RollingUpdatesList = RollingUpdatesList'
-    { _rulProject    :: !Text
-    , _rulZone       :: !Text
-    , _rulFilter     :: !(Maybe Text)
-    , _rulPageToken  :: !(Maybe Text)
+    { _rulProject :: !Text
+    , _rulZone :: !Text
+    , _rulFilter :: !(Maybe Text)
+    , _rulPageToken :: !(Maybe Text)
     , _rulMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ rollingUpdatesList
     :: Text -- ^ 'rulProject'
     -> Text -- ^ 'rulZone'
     -> RollingUpdatesList
-rollingUpdatesList pRulProject_ pRulZone_ =
+rollingUpdatesList pRulProject_ pRulZone_ = 
     RollingUpdatesList'
     { _rulProject = pRulProject_
     , _rulZone = pRulZone_

@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.InAppProducts.Delete
     , iapdSKU
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.inappproducts.delete@ method which the
 -- 'InAppProductsDelete' request conforms to.
@@ -56,7 +56,7 @@ type InAppProductsDeleteResource =
 -- /See:/ 'inAppProductsDelete' smart constructor.
 data InAppProductsDelete = InAppProductsDelete'
     { _iapdPackageName :: !Text
-    , _iapdSKU         :: !Text
+    , _iapdSKU :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InAppProductsDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ inAppProductsDelete
     :: Text -- ^ 'iapdPackageName'
     -> Text -- ^ 'iapdSKU'
     -> InAppProductsDelete
-inAppProductsDelete pIapdPackageName_ pIapdSKU_ =
+inAppProductsDelete pIapdPackageName_ pIapdSKU_ = 
     InAppProductsDelete'
     { _iapdPackageName = pIapdPackageName_
     , _iapdSKU = pIapdSKU_

@@ -40,8 +40,8 @@ module Network.Google.Resource.FusionTables.Table.Patch
     , tpTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.table.patch@ method which the
 -- 'TablePatch' request conforms to.
@@ -60,9 +60,9 @@ type TablePatchResource =
 --
 -- /See:/ 'tablePatch' smart constructor.
 data TablePatch = TablePatch'
-    { _tpPayload               :: !Table
+    { _tpPayload :: !Table
     , _tpReplaceViewDefinition :: !(Maybe Bool)
-    , _tpTableId               :: !Text
+    , _tpTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TablePatch' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ tablePatch
     :: Table -- ^ 'tpPayload'
     -> Text -- ^ 'tpTableId'
     -> TablePatch
-tablePatch pTpPayload_ pTpTableId_ =
+tablePatch pTpPayload_ pTpTableId_ = 
     TablePatch'
     { _tpPayload = pTpPayload_
     , _tpReplaceViewDefinition = Nothing

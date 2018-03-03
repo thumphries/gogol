@@ -50,8 +50,8 @@ module Network.Google.Resource.CloudMonitoring.TimeseriesDescriptors.List
     , tdlYoungest
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.timeseriesDescriptors.list@ method which the
 -- 'TimeseriesDescriptorsList' request conforms to.
@@ -87,17 +87,17 @@ type TimeseriesDescriptorsListResource =
 --
 -- /See:/ 'timeseriesDescriptorsList' smart constructor.
 data TimeseriesDescriptorsList = TimeseriesDescriptorsList'
-    { _tdlWindow     :: !(Maybe Text)
-    , _tdlProject    :: !Text
-    , _tdlCount      :: !(Textual Int32)
-    , _tdlPayload    :: !ListTimeseriesDescriptorsRequest
+    { _tdlWindow :: !(Maybe Text)
+    , _tdlProject :: !Text
+    , _tdlCount :: !(Textual Int32)
+    , _tdlPayload :: !ListTimeseriesDescriptorsRequest
     , _tdlAggregator :: !(Maybe TimeseriesDescriptorsListAggregator)
-    , _tdlTimespan   :: !(Maybe Text)
-    , _tdlMetric     :: !Text
-    , _tdlOldest     :: !(Maybe Text)
-    , _tdlLabels     :: !(Maybe [Text])
-    , _tdlPageToken  :: !(Maybe Text)
-    , _tdlYoungest   :: !Text
+    , _tdlTimespan :: !(Maybe Text)
+    , _tdlMetric :: !Text
+    , _tdlOldest :: !(Maybe Text)
+    , _tdlLabels :: !(Maybe [Text])
+    , _tdlPageToken :: !(Maybe Text)
+    , _tdlYoungest :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TimeseriesDescriptorsList' with the minimum fields required to make a request.
@@ -131,7 +131,7 @@ timeseriesDescriptorsList
     -> Text -- ^ 'tdlMetric'
     -> Text -- ^ 'tdlYoungest'
     -> TimeseriesDescriptorsList
-timeseriesDescriptorsList pTdlProject_ pTdlPayload_ pTdlMetric_ pTdlYoungest_ =
+timeseriesDescriptorsList pTdlProject_ pTdlPayload_ pTdlMetric_ pTdlYoungest_ = 
     TimeseriesDescriptorsList'
     { _tdlWindow = Nothing
     , _tdlProject = pTdlProject_

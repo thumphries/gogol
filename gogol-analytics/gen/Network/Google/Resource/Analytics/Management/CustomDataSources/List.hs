@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.CustomDataSources.List
     , mcdslMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customDataSources.list@ method which the
 -- 'ManagementCustomDataSourcesList' request conforms to.
@@ -63,9 +63,9 @@ type ManagementCustomDataSourcesListResource =
 -- /See:/ 'managementCustomDataSourcesList' smart constructor.
 data ManagementCustomDataSourcesList = ManagementCustomDataSourcesList'
     { _mcdslWebPropertyId :: !Text
-    , _mcdslAccountId     :: !Text
-    , _mcdslStartIndex    :: !(Maybe (Textual Int32))
-    , _mcdslMaxResults    :: !(Maybe (Textual Int32))
+    , _mcdslAccountId :: !Text
+    , _mcdslStartIndex :: !(Maybe (Textual Int32))
+    , _mcdslMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomDataSourcesList' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ managementCustomDataSourcesList
     :: Text -- ^ 'mcdslWebPropertyId'
     -> Text -- ^ 'mcdslAccountId'
     -> ManagementCustomDataSourcesList
-managementCustomDataSourcesList pMcdslWebPropertyId_ pMcdslAccountId_ =
+managementCustomDataSourcesList pMcdslWebPropertyId_ pMcdslAccountId_ = 
     ManagementCustomDataSourcesList'
     { _mcdslWebPropertyId = pMcdslWebPropertyId_
     , _mcdslAccountId = pMcdslAccountId_

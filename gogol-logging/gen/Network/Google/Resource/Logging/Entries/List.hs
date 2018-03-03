@@ -44,8 +44,8 @@ module Network.Google.Resource.Logging.Entries.List
     , elCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.entries.list@ method which the
 -- 'EntriesList' request conforms to.
@@ -68,14 +68,14 @@ type EntriesListResource =
 --
 -- /See:/ 'entriesList' smart constructor.
 data EntriesList = EntriesList'
-    { _elXgafv          :: !(Maybe Xgafv)
+    { _elXgafv :: !(Maybe Xgafv)
     , _elUploadProtocol :: !(Maybe Text)
-    , _elPp             :: !Bool
-    , _elAccessToken    :: !(Maybe Text)
-    , _elUploadType     :: !(Maybe Text)
-    , _elPayload        :: !ListLogEntriesRequest
-    , _elBearerToken    :: !(Maybe Text)
-    , _elCallback       :: !(Maybe Text)
+    , _elPp :: !Bool
+    , _elAccessToken :: !(Maybe Text)
+    , _elUploadType :: !(Maybe Text)
+    , _elPayload :: !ListLogEntriesRequest
+    , _elBearerToken :: !(Maybe Text)
+    , _elCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntriesList' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data EntriesList = EntriesList'
 entriesList
     :: ListLogEntriesRequest -- ^ 'elPayload'
     -> EntriesList
-entriesList pElPayload_ =
+entriesList pElPayload_ = 
     EntriesList'
     { _elXgafv = Nothing
     , _elUploadProtocol = Nothing

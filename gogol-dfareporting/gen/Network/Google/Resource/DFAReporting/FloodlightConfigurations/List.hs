@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightConfigurations.List
     , fclProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightConfigurations.list@ method which the
 -- 'FloodlightConfigurationsList' request conforms to.
 type FloodlightConfigurationsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightConfigurations" :>
@@ -56,7 +56,7 @@ type FloodlightConfigurationsListResource =
 --
 -- /See:/ 'floodlightConfigurationsList' smart constructor.
 data FloodlightConfigurationsList = FloodlightConfigurationsList'
-    { _fclIds       :: !(Maybe [Textual Int64])
+    { _fclIds :: !(Maybe [Textual Int64])
     , _fclProFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ data FloodlightConfigurationsList = FloodlightConfigurationsList'
 floodlightConfigurationsList
     :: Int64 -- ^ 'fclProFileId'
     -> FloodlightConfigurationsList
-floodlightConfigurationsList pFclProFileId_ =
+floodlightConfigurationsList pFclProFileId_ = 
     FloodlightConfigurationsList'
     { _fclIds = Nothing
     , _fclProFileId = _Coerce # pFclProFileId_

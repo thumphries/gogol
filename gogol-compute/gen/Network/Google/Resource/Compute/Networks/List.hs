@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.Networks.List
     , nlMaxResults
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.networks.list@ method which the
 -- 'NetworksList' request conforms to.
@@ -62,10 +62,10 @@ type NetworksListResource =
 --
 -- /See:/ 'networksList' smart constructor.
 data NetworksList = NetworksList'
-    { _nlOrderBy    :: !(Maybe Text)
-    , _nlProject    :: !Text
-    , _nlFilter     :: !(Maybe Text)
-    , _nlPageToken  :: !(Maybe Text)
+    { _nlOrderBy :: !(Maybe Text)
+    , _nlProject :: !Text
+    , _nlFilter :: !(Maybe Text)
+    , _nlPageToken :: !(Maybe Text)
     , _nlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ data NetworksList = NetworksList'
 networksList
     :: Text -- ^ 'nlProject'
     -> NetworksList
-networksList pNlProject_ =
+networksList pNlProject_ = 
     NetworksList'
     { _nlOrderBy = Nothing
     , _nlProject = pNlProject_
@@ -111,26 +111,25 @@ nlProject :: Lens' NetworksList Text
 nlProject
   = lens _nlProject (\ s a -> s{_nlProject = a})
 
--- | Sets a filter expression for filtering listed resources, in the form
--- filter={expression}. Your {expression} must be in the format: field_name
--- comparison_string literal_string. The field_name is the name of the
--- field you want to compare. Only atomic field types are supported
--- (string, number, boolean). The comparison_string must be either eq
--- (equals) or ne (not equals). The literal_string is the string value to
--- filter to. The literal value must be valid for the type of field you are
--- filtering by (string, number, boolean). For string fields, the literal
--- value is interpreted as a regular expression using RE2 syntax. The
--- literal value must match the entire field. For example, to filter for
--- instances that do not have a name of example-instance, you would use
--- filter=name ne example-instance. You can filter on nested fields. For
--- example, you could filter on instances that have set the
--- scheduling.automaticRestart field to true. Use filtering on nested
--- fields to take advantage of labels to organize and search for results
--- based on label values. To filter on multiple expressions, provide each
--- separate expression within parentheses. For example,
--- (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
--- expressions are treated as AND expressions, meaning that resources must
--- match all expressions to pass the filters.
+-- | Sets a filter {expression} for filtering listed resources. Your
+-- {expression} must be in the format: field_name comparison_string
+-- literal_string. The field_name is the name of the field you want to
+-- compare. Only atomic field types are supported (string, number,
+-- boolean). The comparison_string must be either eq (equals) or ne (not
+-- equals). The literal_string is the string value to filter to. The
+-- literal value must be valid for the type of field you are filtering by
+-- (string, number, boolean). For string fields, the literal value is
+-- interpreted as a regular expression using RE2 syntax. The literal value
+-- must match the entire field. For example, to filter for instances that
+-- do not have a name of example-instance, you would use name ne
+-- example-instance. You can filter on nested fields. For example, you
+-- could filter on instances that have set the scheduling.automaticRestart
+-- field to true. Use filtering on nested fields to take advantage of
+-- labels to organize and search for results based on label values. To
+-- filter on multiple expressions, provide each separate expression within
+-- parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+-- us-central1-f). Multiple expressions are treated as AND expressions,
+-- meaning that resources must match all expressions to pass the filters.
 nlFilter :: Lens' NetworksList (Maybe Text)
 nlFilter = lens _nlFilter (\ s a -> s{_nlFilter = a})
 
@@ -143,7 +142,8 @@ nlPageToken
 -- | The maximum number of results per page that should be returned. If the
 -- number of available results is larger than maxResults, Compute Engine
 -- returns a nextPageToken that can be used to get the next page of results
--- in subsequent list requests.
+-- in subsequent list requests. Acceptable values are 0 to 500, inclusive.
+-- (Default: 500)
 nlMaxResults :: Lens' NetworksList Word32
 nlMaxResults
   = lens _nlMaxResults (\ s a -> s{_nlMaxResults = a})

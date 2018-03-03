@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.FloodlightConfigurations.Patch
     , fcpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightConfigurations.patch@ method which the
 -- 'FloodlightConfigurationsPatch' request conforms to.
 type FloodlightConfigurationsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightConfigurations" :>
@@ -61,8 +61,8 @@ type FloodlightConfigurationsPatchResource =
 -- /See:/ 'floodlightConfigurationsPatch' smart constructor.
 data FloodlightConfigurationsPatch = FloodlightConfigurationsPatch'
     { _fcpProFileId :: !(Textual Int64)
-    , _fcpPayload   :: !FloodlightConfiguration
-    , _fcpId        :: !(Textual Int64)
+    , _fcpPayload :: !FloodlightConfiguration
+    , _fcpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightConfigurationsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ floodlightConfigurationsPatch
     -> FloodlightConfiguration -- ^ 'fcpPayload'
     -> Int64 -- ^ 'fcpId'
     -> FloodlightConfigurationsPatch
-floodlightConfigurationsPatch pFcpProFileId_ pFcpPayload_ pFcpId_ =
+floodlightConfigurationsPatch pFcpProFileId_ pFcpPayload_ pFcpId_ = 
     FloodlightConfigurationsPatch'
     { _fcpProFileId = _Coerce # pFcpProFileId_
     , _fcpPayload = pFcpPayload_

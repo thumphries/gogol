@@ -40,8 +40,8 @@ module Network.Google.Resource.Plus.People.List
     , plMaxResults
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.people.list@ method which the
 -- 'PeopleList' request conforms to.
@@ -61,10 +61,10 @@ type PeopleListResource =
 --
 -- /See:/ 'peopleList' smart constructor.
 data PeopleList = PeopleList'
-    { _plOrderBy    :: !(Maybe PeopleListOrderBy)
+    { _plOrderBy :: !(Maybe PeopleListOrderBy)
     , _plCollection :: !PeopleListCollection
-    , _plUserId     :: !Text
-    , _plPageToken  :: !(Maybe Text)
+    , _plUserId :: !Text
+    , _plPageToken :: !(Maybe Text)
     , _plMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ peopleList
     :: PeopleListCollection -- ^ 'plCollection'
     -> Text -- ^ 'plUserId'
     -> PeopleList
-peopleList pPlCollection_ pPlUserId_ =
+peopleList pPlCollection_ pPlUserId_ = 
     PeopleList'
     { _plOrderBy = Nothing
     , _plCollection = pPlCollection_

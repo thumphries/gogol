@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Schemas.Insert
     , siCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.insert@ method which the
 -- 'SchemasInsert' request conforms to.
@@ -56,7 +56,7 @@ type SchemasInsertResource =
 --
 -- /See:/ 'schemasInsert' smart constructor.
 data SchemasInsert = SchemasInsert'
-    { _siPayload    :: !Schema
+    { _siPayload :: !Schema
     , _siCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ schemasInsert
     :: Schema -- ^ 'siPayload'
     -> Text -- ^ 'siCustomerId'
     -> SchemasInsert
-schemasInsert pSiPayload_ pSiCustomerId_ =
+schemasInsert pSiPayload_ pSiCustomerId_ = 
     SchemasInsert'
     { _siPayload = pSiPayload_
     , _siCustomerId = pSiCustomerId_
@@ -82,7 +82,7 @@ siPayload :: Lens' SchemasInsert Schema
 siPayload
   = lens _siPayload (\ s a -> s{_siPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 siCustomerId :: Lens' SchemasInsert Text
 siCustomerId
   = lens _siCustomerId (\ s a -> s{_siCustomerId = a})

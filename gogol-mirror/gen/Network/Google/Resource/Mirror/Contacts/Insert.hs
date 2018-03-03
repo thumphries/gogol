@@ -36,8 +36,8 @@ module Network.Google.Resource.Mirror.Contacts.Insert
     , ciPayload
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.contacts.insert@ method which the
 -- 'ContactsInsert' request conforms to.
@@ -63,7 +63,7 @@ newtype ContactsInsert = ContactsInsert'
 contactsInsert
     :: Contact -- ^ 'ciPayload'
     -> ContactsInsert
-contactsInsert pCiPayload_ =
+contactsInsert pCiPayload_ = 
     ContactsInsert'
     { _ciPayload = pCiPayload_
     }

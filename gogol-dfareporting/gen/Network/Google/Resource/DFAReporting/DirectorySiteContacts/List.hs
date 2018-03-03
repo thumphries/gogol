@@ -44,14 +44,14 @@ module Network.Google.Resource.DFAReporting.DirectorySiteContacts.List
     , dsclMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.directorySiteContacts.list@ method which the
 -- 'DirectorySiteContactsList' request conforms to.
 type DirectorySiteContactsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "directorySiteContacts" :>
@@ -74,14 +74,14 @@ type DirectorySiteContactsListResource =
 --
 -- /See:/ 'directorySiteContactsList' smart constructor.
 data DirectorySiteContactsList = DirectorySiteContactsList'
-    { _dsclSearchString     :: !(Maybe Text)
-    , _dsclIds              :: !(Maybe [Textual Int64])
-    , _dsclProFileId        :: !(Textual Int64)
+    { _dsclSearchString :: !(Maybe Text)
+    , _dsclIds :: !(Maybe [Textual Int64])
+    , _dsclProFileId :: !(Textual Int64)
     , _dsclDirectorySiteIds :: !(Maybe [Textual Int64])
-    , _dsclSortOrder        :: !(Maybe DirectorySiteContactsListSortOrder)
-    , _dsclPageToken        :: !(Maybe Text)
-    , _dsclSortField        :: !(Maybe DirectorySiteContactsListSortField)
-    , _dsclMaxResults       :: !(Maybe (Textual Int32))
+    , _dsclSortOrder :: !DirectorySiteContactsListSortOrder
+    , _dsclPageToken :: !(Maybe Text)
+    , _dsclSortField :: !DirectorySiteContactsListSortField
+    , _dsclMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DirectorySiteContactsList' with the minimum fields required to make a request.
@@ -106,16 +106,16 @@ data DirectorySiteContactsList = DirectorySiteContactsList'
 directorySiteContactsList
     :: Int64 -- ^ 'dsclProFileId'
     -> DirectorySiteContactsList
-directorySiteContactsList pDsclProFileId_ =
+directorySiteContactsList pDsclProFileId_ = 
     DirectorySiteContactsList'
     { _dsclSearchString = Nothing
     , _dsclIds = Nothing
     , _dsclProFileId = _Coerce # pDsclProFileId_
     , _dsclDirectorySiteIds = Nothing
-    , _dsclSortOrder = Nothing
+    , _dsclSortOrder = DSCLSOAscending
     , _dsclPageToken = Nothing
-    , _dsclSortField = Nothing
-    , _dsclMaxResults = Nothing
+    , _dsclSortField = DSCLSFID
+    , _dsclMaxResults = 1000
     }
 
 -- | Allows searching for objects by name, ID or email. Wildcards (*) are
@@ -154,8 +154,8 @@ dsclDirectorySiteIds
       . _Default
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-dsclSortOrder :: Lens' DirectorySiteContactsList (Maybe DirectorySiteContactsListSortOrder)
+-- | Order of sorted results.
+dsclSortOrder :: Lens' DirectorySiteContactsList DirectorySiteContactsListSortOrder
 dsclSortOrder
   = lens _dsclSortOrder
       (\ s a -> s{_dsclSortOrder = a})
@@ -167,17 +167,17 @@ dsclPageToken
       (\ s a -> s{_dsclPageToken = a})
 
 -- | Field by which to sort the list.
-dsclSortField :: Lens' DirectorySiteContactsList (Maybe DirectorySiteContactsListSortField)
+dsclSortField :: Lens' DirectorySiteContactsList DirectorySiteContactsListSortField
 dsclSortField
   = lens _dsclSortField
       (\ s a -> s{_dsclSortField = a})
 
 -- | Maximum number of results to return.
-dsclMaxResults :: Lens' DirectorySiteContactsList (Maybe Int32)
+dsclMaxResults :: Lens' DirectorySiteContactsList Int32
 dsclMaxResults
   = lens _dsclMaxResults
       (\ s a -> s{_dsclMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest DirectorySiteContactsList
          where
@@ -189,10 +189,10 @@ instance GoogleRequest DirectorySiteContactsList
           = go _dsclProFileId _dsclSearchString
               (_dsclIds ^. _Default)
               (_dsclDirectorySiteIds ^. _Default)
-              _dsclSortOrder
+              (Just _dsclSortOrder)
               _dsclPageToken
-              _dsclSortField
-              _dsclMaxResults
+              (Just _dsclSortField)
+              (Just _dsclMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

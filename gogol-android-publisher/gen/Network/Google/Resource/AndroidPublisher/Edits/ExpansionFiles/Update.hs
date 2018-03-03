@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.ExpansionFiles.Update
     , eefuEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.expansionfiles.update@ method which the
 -- 'EditsExpansionFilesUpdate' request conforms to.
@@ -70,11 +70,11 @@ type EditsExpansionFilesUpdateResource =
 --
 -- /See:/ 'editsExpansionFilesUpdate' smart constructor.
 data EditsExpansionFilesUpdate = EditsExpansionFilesUpdate'
-    { _eefuPackageName       :: !Text
-    , _eefuAPKVersionCode    :: !(Textual Int32)
-    , _eefuPayload           :: !ExpansionFile
+    { _eefuPackageName :: !Text
+    , _eefuAPKVersionCode :: !(Textual Int32)
+    , _eefuPayload :: !ExpansionFile
     , _eefuExpansionFileType :: !EditsExpansionFilesUpdateExpansionFileType
-    , _eefuEditId            :: !Text
+    , _eefuEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsExpansionFilesUpdate' with the minimum fields required to make a request.
@@ -97,7 +97,7 @@ editsExpansionFilesUpdate
     -> EditsExpansionFilesUpdateExpansionFileType -- ^ 'eefuExpansionFileType'
     -> Text -- ^ 'eefuEditId'
     -> EditsExpansionFilesUpdate
-editsExpansionFilesUpdate pEefuPackageName_ pEefuAPKVersionCode_ pEefuPayload_ pEefuExpansionFileType_ pEefuEditId_ =
+editsExpansionFilesUpdate pEefuPackageName_ pEefuAPKVersionCode_ pEefuPayload_ pEefuExpansionFileType_ pEefuEditId_ = 
     EditsExpansionFilesUpdate'
     { _eefuPackageName = pEefuPackageName_
     , _eefuAPKVersionCode = _Coerce # pEefuAPKVersionCode_

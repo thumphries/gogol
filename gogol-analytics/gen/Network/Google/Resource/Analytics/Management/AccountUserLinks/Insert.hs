@@ -37,8 +37,8 @@ module Network.Google.Resource.Analytics.Management.AccountUserLinks.Insert
     , mauliAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.accountUserLinks.insert@ method which the
 -- 'ManagementAccountUserLinksInsert' request conforms to.
@@ -57,7 +57,7 @@ type ManagementAccountUserLinksInsertResource =
 --
 -- /See:/ 'managementAccountUserLinksInsert' smart constructor.
 data ManagementAccountUserLinksInsert = ManagementAccountUserLinksInsert'
-    { _mauliPayload   :: !EntityUserLink
+    { _mauliPayload :: !EntityUserLink
     , _mauliAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ managementAccountUserLinksInsert
     :: EntityUserLink -- ^ 'mauliPayload'
     -> Text -- ^ 'mauliAccountId'
     -> ManagementAccountUserLinksInsert
-managementAccountUserLinksInsert pMauliPayload_ pMauliAccountId_ =
+managementAccountUserLinksInsert pMauliPayload_ pMauliAccountId_ = 
     ManagementAccountUserLinksInsert'
     { _mauliPayload = pMauliPayload_
     , _mauliAccountId = pMauliAccountId_

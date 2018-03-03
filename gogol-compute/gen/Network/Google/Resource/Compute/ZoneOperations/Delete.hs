@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.ZoneOperations.Delete
     , zodZone
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.zoneOperations.delete@ method which the
 -- 'ZoneOperationsDelete' request conforms to.
@@ -58,9 +58,9 @@ type ZoneOperationsDeleteResource =
 --
 -- /See:/ 'zoneOperationsDelete' smart constructor.
 data ZoneOperationsDelete = ZoneOperationsDelete'
-    { _zodProject   :: !Text
+    { _zodProject :: !Text
     , _zodOperation :: !Text
-    , _zodZone      :: !Text
+    , _zodZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneOperationsDelete' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ zoneOperationsDelete
     -> Text -- ^ 'zodOperation'
     -> Text -- ^ 'zodZone'
     -> ZoneOperationsDelete
-zoneOperationsDelete pZodProject_ pZodOperation_ pZodZone_ =
+zoneOperationsDelete pZodProject_ pZodOperation_ pZodZone_ = 
     ZoneOperationsDelete'
     { _zodProject = pZodProject_
     , _zodOperation = pZodOperation_

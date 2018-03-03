@@ -40,8 +40,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.List
     , udslUserId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.list@ method which the
 -- 'UsersDataSourcesList' request conforms to.
@@ -63,7 +63,7 @@ type UsersDataSourcesListResource =
 -- /See:/ 'usersDataSourcesList' smart constructor.
 data UsersDataSourcesList = UsersDataSourcesList'
     { _udslDataTypeName :: !(Maybe [Text])
-    , _udslUserId       :: !Text
+    , _udslUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSourcesList' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ data UsersDataSourcesList = UsersDataSourcesList'
 usersDataSourcesList
     :: Text -- ^ 'udslUserId'
     -> UsersDataSourcesList
-usersDataSourcesList pUdslUserId_ =
+usersDataSourcesList pUdslUserId_ = 
     UsersDataSourcesList'
     { _udslDataTypeName = Nothing
     , _udslUserId = pUdslUserId_

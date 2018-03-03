@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AccountUserProFiles.Insert
     , aupfiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountUserProfiles.insert@ method which the
 -- 'AccountUserProFilesInsert' request conforms to.
 type AccountUserProFilesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountUserProfiles" :>
@@ -57,7 +57,7 @@ type AccountUserProFilesInsertResource =
 -- /See:/ 'accountUserProFilesInsert' smart constructor.
 data AccountUserProFilesInsert = AccountUserProFilesInsert'
     { _aupfiProFileId :: !(Textual Int64)
-    , _aupfiPayload   :: !AccountUserProFile
+    , _aupfiPayload :: !AccountUserProFile
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountUserProFilesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ accountUserProFilesInsert
     :: Int64 -- ^ 'aupfiProFileId'
     -> AccountUserProFile -- ^ 'aupfiPayload'
     -> AccountUserProFilesInsert
-accountUserProFilesInsert pAupfiProFileId_ pAupfiPayload_ =
+accountUserProFilesInsert pAupfiProFileId_ pAupfiPayload_ = 
     AccountUserProFilesInsert'
     { _aupfiProFileId = _Coerce # pAupfiProFileId_
     , _aupfiPayload = pAupfiPayload_

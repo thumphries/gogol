@@ -41,8 +41,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.AbandonInstance
     , igmaiPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.abandonInstances@ method which the
 -- 'InstanceGroupManagersAbandonInstances' request conforms to.
@@ -67,10 +67,10 @@ type InstanceGroupManagersAbandonInstancesResource =
 --
 -- /See:/ 'instanceGroupManagersAbandonInstances' smart constructor.
 data InstanceGroupManagersAbandonInstances = InstanceGroupManagersAbandonInstances'
-    { _igmaiProject              :: !Text
+    { _igmaiProject :: !Text
     , _igmaiInstanceGroupManager :: !Text
-    , _igmaiZone                 :: !Text
-    , _igmaiPayload              :: !InstanceGroupManagersAbandonInstancesRequest
+    , _igmaiZone :: !Text
+    , _igmaiPayload :: !InstanceGroupManagersAbandonInstancesRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersAbandonInstances' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ instanceGroupManagersAbandonInstances
     -> Text -- ^ 'igmaiZone'
     -> InstanceGroupManagersAbandonInstancesRequest -- ^ 'igmaiPayload'
     -> InstanceGroupManagersAbandonInstances
-instanceGroupManagersAbandonInstances pIgmaiProject_ pIgmaiInstanceGroupManager_ pIgmaiZone_ pIgmaiPayload_ =
+instanceGroupManagersAbandonInstances pIgmaiProject_ pIgmaiInstanceGroupManager_ pIgmaiZone_ pIgmaiPayload_ = 
     InstanceGroupManagersAbandonInstances'
     { _igmaiProject = pIgmaiProject_
     , _igmaiInstanceGroupManager = pIgmaiInstanceGroupManager_

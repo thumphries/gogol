@@ -40,8 +40,8 @@ module Network.Google.Resource.CloudUserAccounts.Linux.GetAuthorizedKeysView
     , lgakvInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.linux.getAuthorizedKeysView@ method which the
 -- 'LinuxGetAuthorizedKeysView' request conforms to.
@@ -63,10 +63,10 @@ type LinuxGetAuthorizedKeysViewResource =
 --
 -- /See:/ 'linuxGetAuthorizedKeysView' smart constructor.
 data LinuxGetAuthorizedKeysView = LinuxGetAuthorizedKeysView'
-    { _lgakvProject  :: !Text
-    , _lgakvZone     :: !Text
-    , _lgakvUser     :: !Text
-    , _lgakvLogin    :: !(Maybe Bool)
+    { _lgakvProject :: !Text
+    , _lgakvZone :: !Text
+    , _lgakvUser :: !Text
+    , _lgakvLogin :: !(Maybe Bool)
     , _lgakvInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ linuxGetAuthorizedKeysView
     -> Text -- ^ 'lgakvUser'
     -> Text -- ^ 'lgakvInstance'
     -> LinuxGetAuthorizedKeysView
-linuxGetAuthorizedKeysView pLgakvProject_ pLgakvZone_ pLgakvUser_ pLgakvInstance_ =
+linuxGetAuthorizedKeysView pLgakvProject_ pLgakvZone_ pLgakvUser_ pLgakvInstance_ = 
     LinuxGetAuthorizedKeysView'
     { _lgakvProject = pLgakvProject_
     , _lgakvZone = pLgakvZone_

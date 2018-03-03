@@ -38,8 +38,8 @@ module Network.Google.Resource.Tasks.Tasks.Update
     , tuTask
     ) where
 
-import           Network.Google.AppsTasks.Types
-import           Network.Google.Prelude
+import Network.Google.AppsTasks.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @tasks.tasks.update@ method which the
 -- 'TasksUpdate' request conforms to.
@@ -57,9 +57,9 @@ type TasksUpdateResource =
 --
 -- /See:/ 'tasksUpdate' smart constructor.
 data TasksUpdate = TasksUpdate'
-    { _tuPayload  :: !Task
+    { _tuPayload :: !Task
     , _tuTaskList :: !Text
-    , _tuTask     :: !Text
+    , _tuTask :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksUpdate' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ tasksUpdate
     -> Text -- ^ 'tuTaskList'
     -> Text -- ^ 'tuTask'
     -> TasksUpdate
-tasksUpdate pTuPayload_ pTuTaskList_ pTuTask_ =
+tasksUpdate pTuPayload_ pTuTaskList_ pTuTask_ = 
     TasksUpdate'
     { _tuPayload = pTuPayload_
     , _tuTaskList = pTuTaskList_

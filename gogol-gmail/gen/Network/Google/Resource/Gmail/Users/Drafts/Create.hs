@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.Create
     , udcUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.create@ method which the
 -- 'UsersDraftsCreate' request conforms to.
@@ -66,7 +66,7 @@ type UsersDraftsCreateResource =
 -- /See:/ 'usersDraftsCreate' smart constructor.
 data UsersDraftsCreate = UsersDraftsCreate'
     { _udcPayload :: !Draft
-    , _udcUserId  :: !Text
+    , _udcUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsCreate' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ data UsersDraftsCreate = UsersDraftsCreate'
 usersDraftsCreate
     :: Draft -- ^ 'udcPayload'
     -> UsersDraftsCreate
-usersDraftsCreate pUdcPayload_ =
+usersDraftsCreate pUdcPayload_ = 
     UsersDraftsCreate'
     { _udcPayload = pUdcPayload_
     , _udcUserId = "me"

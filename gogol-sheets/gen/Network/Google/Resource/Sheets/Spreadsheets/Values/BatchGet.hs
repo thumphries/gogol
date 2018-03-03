@@ -48,8 +48,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Values.BatchGet
     , svbgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.values.batchGet@ method which the
 -- 'SpreadsheetsValuesBatchGet' request conforms to.
@@ -77,18 +77,18 @@ type SpreadsheetsValuesBatchGetResource =
 --
 -- /See:/ 'spreadsheetsValuesBatchGet' smart constructor.
 data SpreadsheetsValuesBatchGet = SpreadsheetsValuesBatchGet'
-    { _svbgXgafv                :: !(Maybe Xgafv)
-    , _svbgValueRenderOption    :: !(Maybe Text)
-    , _svbgUploadProtocol       :: !(Maybe Text)
-    , _svbgPp                   :: !Bool
-    , _svbgAccessToken          :: !(Maybe Text)
-    , _svbgSpreadsheetId        :: !Text
-    , _svbgUploadType           :: !(Maybe Text)
-    , _svbgRanges               :: !(Maybe [Text])
-    , _svbgBearerToken          :: !(Maybe Text)
+    { _svbgXgafv :: !(Maybe Xgafv)
+    , _svbgValueRenderOption :: !(Maybe Text)
+    , _svbgUploadProtocol :: !(Maybe Text)
+    , _svbgPp :: !Bool
+    , _svbgAccessToken :: !(Maybe Text)
+    , _svbgSpreadsheetId :: !Text
+    , _svbgUploadType :: !(Maybe Text)
+    , _svbgRanges :: !(Maybe [Text])
+    , _svbgBearerToken :: !(Maybe Text)
     , _svbgDateTimeRenderOption :: !(Maybe Text)
-    , _svbgMajorDimension       :: !(Maybe Text)
-    , _svbgCallback             :: !(Maybe Text)
+    , _svbgMajorDimension :: !(Maybe Text)
+    , _svbgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsValuesBatchGet' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ data SpreadsheetsValuesBatchGet = SpreadsheetsValuesBatchGet'
 spreadsheetsValuesBatchGet
     :: Text -- ^ 'svbgSpreadsheetId'
     -> SpreadsheetsValuesBatchGet
-spreadsheetsValuesBatchGet pSvbgSpreadsheetId_ =
+spreadsheetsValuesBatchGet pSvbgSpreadsheetId_ = 
     SpreadsheetsValuesBatchGet'
     { _svbgXgafv = Nothing
     , _svbgValueRenderOption = Nothing
@@ -219,6 +219,7 @@ instance GoogleRequest SpreadsheetsValuesBatchGet
              BatchGetValuesResponse
         type Scopes SpreadsheetsValuesBatchGet =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/spreadsheets",
                "https://www.googleapis.com/auth/spreadsheets.readonly"]

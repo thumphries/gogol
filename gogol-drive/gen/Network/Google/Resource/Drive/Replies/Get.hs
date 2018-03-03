@@ -39,8 +39,8 @@ module Network.Google.Resource.Drive.Replies.Get
     , rgIncludeDeleted
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.replies.get@ method which the
 -- 'RepliesGet' request conforms to.
@@ -60,9 +60,9 @@ type RepliesGetResource =
 --
 -- /See:/ 'repliesGet' smart constructor.
 data RepliesGet = RepliesGet'
-    { _rgReplyId        :: !Text
-    , _rgFileId         :: !Text
-    , _rgCommentId      :: !Text
+    { _rgReplyId :: !Text
+    , _rgFileId :: !Text
+    , _rgCommentId :: !Text
     , _rgIncludeDeleted :: !Bool
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ repliesGet
     -> Text -- ^ 'rgFileId'
     -> Text -- ^ 'rgCommentId'
     -> RepliesGet
-repliesGet pRgReplyId_ pRgFileId_ pRgCommentId_ =
+repliesGet pRgReplyId_ pRgFileId_ pRgCommentId_ = 
     RepliesGet'
     { _rgReplyId = pRgReplyId_
     , _rgFileId = pRgFileId_

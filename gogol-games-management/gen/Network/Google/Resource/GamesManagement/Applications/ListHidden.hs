@@ -39,8 +39,8 @@ module Network.Google.Resource.GamesManagement.Applications.ListHidden
     , alhMaxResults
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.applications.listHidden@ method which the
 -- 'ApplicationsListHidden' request conforms to.
@@ -62,8 +62,8 @@ type ApplicationsListHiddenResource =
 -- /See:/ 'applicationsListHidden' smart constructor.
 data ApplicationsListHidden = ApplicationsListHidden'
     { _alhApplicationId :: !Text
-    , _alhPageToken     :: !(Maybe Text)
-    , _alhMaxResults    :: !(Maybe (Textual Int32))
+    , _alhPageToken :: !(Maybe Text)
+    , _alhMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationsListHidden' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ data ApplicationsListHidden = ApplicationsListHidden'
 applicationsListHidden
     :: Text -- ^ 'alhApplicationId'
     -> ApplicationsListHidden
-applicationsListHidden pAlhApplicationId_ =
+applicationsListHidden pAlhApplicationId_ = 
     ApplicationsListHidden'
     { _alhApplicationId = pAlhApplicationId_
     , _alhPageToken = Nothing

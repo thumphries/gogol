@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Members.Update
     , muPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.update@ method which the
 -- 'MembersUpdate' request conforms to.
@@ -59,8 +59,8 @@ type MembersUpdateResource =
 -- /See:/ 'membersUpdate' smart constructor.
 data MembersUpdate = MembersUpdate'
     { _muMemberKey :: !Text
-    , _muGroupKey  :: !Text
-    , _muPayload   :: !Member
+    , _muGroupKey :: !Text
+    , _muPayload :: !Member
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MembersUpdate' with the minimum fields required to make a request.
@@ -77,20 +77,20 @@ membersUpdate
     -> Text -- ^ 'muGroupKey'
     -> Member -- ^ 'muPayload'
     -> MembersUpdate
-membersUpdate pMuMemberKey_ pMuGroupKey_ pMuPayload_ =
+membersUpdate pMuMemberKey_ pMuGroupKey_ pMuPayload_ = 
     MembersUpdate'
     { _muMemberKey = pMuMemberKey_
     , _muGroupKey = pMuGroupKey_
     , _muPayload = pMuPayload_
     }
 
--- | Email or immutable Id of the user. If Id, it should match with id of
+-- | Email or immutable ID of the user. If ID, it should match with id of
 -- member object
 muMemberKey :: Lens' MembersUpdate Text
 muMemberKey
   = lens _muMemberKey (\ s a -> s{_muMemberKey = a})
 
--- | Email or immutable Id of the group. If Id, it should match with id of
+-- | Email or immutable ID of the group. If ID, it should match with id of
 -- group object
 muGroupKey :: Lens' MembersUpdate Text
 muGroupKey

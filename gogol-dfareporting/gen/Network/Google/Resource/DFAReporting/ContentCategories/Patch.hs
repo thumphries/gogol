@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.Patch
     , ccpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.patch@ method which the
 -- 'ContentCategoriesPatch' request conforms to.
 type ContentCategoriesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -61,8 +61,8 @@ type ContentCategoriesPatchResource =
 -- /See:/ 'contentCategoriesPatch' smart constructor.
 data ContentCategoriesPatch = ContentCategoriesPatch'
     { _ccpProFileId :: !(Textual Int64)
-    , _ccpPayload   :: !ContentCategory
-    , _ccpId        :: !(Textual Int64)
+    , _ccpPayload :: !ContentCategory
+    , _ccpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ contentCategoriesPatch
     -> ContentCategory -- ^ 'ccpPayload'
     -> Int64 -- ^ 'ccpId'
     -> ContentCategoriesPatch
-contentCategoriesPatch pCcpProFileId_ pCcpPayload_ pCcpId_ =
+contentCategoriesPatch pCcpProFileId_ pCcpPayload_ pCcpId_ = 
     ContentCategoriesPatch'
     { _ccpProFileId = _Coerce # pCcpProFileId_
     , _ccpPayload = pCcpPayload_

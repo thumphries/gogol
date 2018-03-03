@@ -34,13 +34,12 @@ module Network.Google.Resource.Games.Events.Record
     , EventsRecord
 
     -- * Request Lenses
-    , erConsistencyToken
     , erPayload
     , erLanguage
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.events.record@ method which the
 -- 'EventsRecord' request conforms to.
@@ -48,27 +47,23 @@ type EventsRecordResource =
      "games" :>
        "v1" :>
          "events" :>
-           QueryParam "consistencyToken" (Textual Int64) :>
-             QueryParam "language" Text :>
-               QueryParam "alt" AltJSON :>
-                 ReqBody '[JSON] EventRecordRequest :>
-                   Post '[JSON] EventUpdateResponse
+           QueryParam "language" Text :>
+             QueryParam "alt" AltJSON :>
+               ReqBody '[JSON] EventRecordRequest :>
+                 Post '[JSON] EventUpdateResponse
 
 -- | Records a batch of changes to the number of times events have occurred
 -- for the currently authenticated user of this application.
 --
 -- /See:/ 'eventsRecord' smart constructor.
 data EventsRecord = EventsRecord'
-    { _erConsistencyToken :: !(Maybe (Textual Int64))
-    , _erPayload          :: !EventRecordRequest
-    , _erLanguage         :: !(Maybe Text)
+    { _erPayload :: !EventRecordRequest
+    , _erLanguage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsRecord' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'erConsistencyToken'
 --
 -- * 'erPayload'
 --
@@ -76,19 +71,11 @@ data EventsRecord = EventsRecord'
 eventsRecord
     :: EventRecordRequest -- ^ 'erPayload'
     -> EventsRecord
-eventsRecord pErPayload_ =
+eventsRecord pErPayload_ = 
     EventsRecord'
-    { _erConsistencyToken = Nothing
-    , _erPayload = pErPayload_
+    { _erPayload = pErPayload_
     , _erLanguage = Nothing
     }
-
--- | The last-seen mutation timestamp.
-erConsistencyToken :: Lens' EventsRecord (Maybe Int64)
-erConsistencyToken
-  = lens _erConsistencyToken
-      (\ s a -> s{_erConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Multipart request metadata.
 erPayload :: Lens' EventsRecord EventRecordRequest
@@ -106,8 +93,7 @@ instance GoogleRequest EventsRecord where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient EventsRecord'{..}
-          = go _erConsistencyToken _erLanguage (Just AltJSON)
-              _erPayload
+          = go _erLanguage (Just AltJSON) _erPayload
               gamesService
           where go
                   = buildClient (Proxy :: Proxy EventsRecordResource)

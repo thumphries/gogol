@@ -40,8 +40,8 @@ module Network.Google.Resource.Directory.RoleAssignments.List
     , ralMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roleAssignments.list@ method which the
 -- 'RoleAssignmentsList' request conforms to.
@@ -63,10 +63,10 @@ type RoleAssignmentsListResource =
 --
 -- /See:/ 'roleAssignmentsList' smart constructor.
 data RoleAssignmentsList = RoleAssignmentsList'
-    { _ralRoleId     :: !(Maybe Text)
-    , _ralCustomer   :: !Text
-    , _ralPageToken  :: !(Maybe Text)
-    , _ralUserKey    :: !(Maybe Text)
+    { _ralRoleId :: !(Maybe Text)
+    , _ralCustomer :: !Text
+    , _ralPageToken :: !(Maybe Text)
+    , _ralUserKey :: !(Maybe Text)
     , _ralMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ data RoleAssignmentsList = RoleAssignmentsList'
 roleAssignmentsList
     :: Text -- ^ 'ralCustomer'
     -> RoleAssignmentsList
-roleAssignmentsList pRalCustomer_ =
+roleAssignmentsList pRalCustomer_ = 
     RoleAssignmentsList'
     { _ralRoleId = Nothing
     , _ralCustomer = pRalCustomer_
@@ -101,7 +101,7 @@ ralRoleId :: Lens' RoleAssignmentsList (Maybe Text)
 ralRoleId
   = lens _ralRoleId (\ s a -> s{_ralRoleId = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 ralCustomer :: Lens' RoleAssignmentsList Text
 ralCustomer
   = lens _ralCustomer (\ s a -> s{_ralCustomer = a})

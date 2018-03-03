@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Resources.Calendars.Delete
     , rcdCalendarResourceId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.resources.calendars.delete@ method which the
 -- 'ResourcesCalendarsDelete' request conforms to.
@@ -57,7 +57,7 @@ type ResourcesCalendarsDeleteResource =
 --
 -- /See:/ 'resourcesCalendarsDelete' smart constructor.
 data ResourcesCalendarsDelete = ResourcesCalendarsDelete'
-    { _rcdCustomer           :: !Text
+    { _rcdCustomer :: !Text
     , _rcdCalendarResourceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,13 +72,13 @@ resourcesCalendarsDelete
     :: Text -- ^ 'rcdCustomer'
     -> Text -- ^ 'rcdCalendarResourceId'
     -> ResourcesCalendarsDelete
-resourcesCalendarsDelete pRcdCustomer_ pRcdCalendarResourceId_ =
+resourcesCalendarsDelete pRcdCustomer_ pRcdCalendarResourceId_ = 
     ResourcesCalendarsDelete'
     { _rcdCustomer = pRcdCustomer_
     , _rcdCalendarResourceId = pRcdCalendarResourceId_
     }
 
--- | The unique ID for the customer\'s Google account. As an account
+-- | The unique ID for the customer\'s G Suite account. As an account
 -- administrator, you can also use the my_customer alias to represent your
 -- account\'s customer ID.
 rcdCustomer :: Lens' ResourcesCalendarsDelete Text

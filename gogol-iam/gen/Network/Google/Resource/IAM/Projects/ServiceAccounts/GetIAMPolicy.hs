@@ -43,15 +43,15 @@ module Network.Google.Resource.IAM.Projects.ServiceAccounts.GetIAMPolicy
     , psagipCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.projects.serviceAccounts.getIamPolicy@ method which the
 -- 'ProjectsServiceAccountsGetIAMPolicy' request conforms to.
 type ProjectsServiceAccountsGetIAMPolicyResource =
      "v1" :>
        CaptureMode "resource" "getIamPolicy" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -64,14 +64,14 @@ type ProjectsServiceAccountsGetIAMPolicyResource =
 --
 -- /See:/ 'projectsServiceAccountsGetIAMPolicy' smart constructor.
 data ProjectsServiceAccountsGetIAMPolicy = ProjectsServiceAccountsGetIAMPolicy'
-    { _psagipXgafv          :: !(Maybe Text)
+    { _psagipXgafv :: !(Maybe Xgafv)
     , _psagipUploadProtocol :: !(Maybe Text)
-    , _psagipPp             :: !Bool
-    , _psagipAccessToken    :: !(Maybe Text)
-    , _psagipUploadType     :: !(Maybe Text)
-    , _psagipBearerToken    :: !(Maybe Text)
-    , _psagipResource       :: !Text
-    , _psagipCallback       :: !(Maybe Text)
+    , _psagipPp :: !Bool
+    , _psagipAccessToken :: !(Maybe Text)
+    , _psagipUploadType :: !(Maybe Text)
+    , _psagipBearerToken :: !(Maybe Text)
+    , _psagipResource :: !Text
+    , _psagipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsServiceAccountsGetIAMPolicy' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsServiceAccountsGetIAMPolicy = ProjectsServiceAccountsGetIAMPolicy'
 projectsServiceAccountsGetIAMPolicy
     :: Text -- ^ 'psagipResource'
     -> ProjectsServiceAccountsGetIAMPolicy
-projectsServiceAccountsGetIAMPolicy pPsagipResource_ =
+projectsServiceAccountsGetIAMPolicy pPsagipResource_ = 
     ProjectsServiceAccountsGetIAMPolicy'
     { _psagipXgafv = Nothing
     , _psagipUploadProtocol = Nothing
@@ -109,7 +109,7 @@ projectsServiceAccountsGetIAMPolicy pPsagipResource_ =
     }
 
 -- | V1 error format.
-psagipXgafv :: Lens' ProjectsServiceAccountsGetIAMPolicy (Maybe Text)
+psagipXgafv :: Lens' ProjectsServiceAccountsGetIAMPolicy (Maybe Xgafv)
 psagipXgafv
   = lens _psagipXgafv (\ s a -> s{_psagipXgafv = a})
 
@@ -141,9 +141,8 @@ psagipBearerToken
   = lens _psagipBearerToken
       (\ s a -> s{_psagipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being requested. See the
+-- operation documentation for the appropriate value for this field.
 psagipResource :: Lens' ProjectsServiceAccountsGetIAMPolicy Text
 psagipResource
   = lens _psagipResource

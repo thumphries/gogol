@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutclusters.Insert
     , sPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutclusters.insert@ method which the
 -- 'StorelayoutclustersInsert' request conforms to.
@@ -61,8 +61,8 @@ type StorelayoutclustersInsertResource =
 -- /See:/ 'storelayoutclustersInsert' smart constructor.
 data StorelayoutclustersInsert = StorelayoutclustersInsert'
     { _sEnterpriseId :: !Text
-    , _sPageId       :: !Text
-    , _sPayload      :: !StoreCluster
+    , _sPageId :: !Text
+    , _sPayload :: !StoreCluster
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutclustersInsert' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ storelayoutclustersInsert
     -> Text -- ^ 'sPageId'
     -> StoreCluster -- ^ 'sPayload'
     -> StorelayoutclustersInsert
-storelayoutclustersInsert pSEnterpriseId_ pSPageId_ pSPayload_ =
+storelayoutclustersInsert pSEnterpriseId_ pSPageId_ pSPayload_ = 
     StorelayoutclustersInsert'
     { _sEnterpriseId = pSEnterpriseId_
     , _sPageId = pSPageId_

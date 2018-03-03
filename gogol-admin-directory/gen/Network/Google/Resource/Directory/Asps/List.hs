@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Asps.List
     , alUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.asps.list@ method which the
 -- 'AspsList' request conforms to.
@@ -65,7 +65,7 @@ newtype AspsList = AspsList'
 aspsList
     :: Text -- ^ 'alUserKey'
     -> AspsList
-aspsList pAlUserKey_ =
+aspsList pAlUserKey_ = 
     AspsList'
     { _alUserKey = pAlUserKey_
     }

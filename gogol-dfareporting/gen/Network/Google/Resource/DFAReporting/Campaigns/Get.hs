@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Campaigns.Get
     , cggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.campaigns.get@ method which the
 -- 'CampaignsGet' request conforms to.
 type CampaignsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "campaigns" :>
@@ -56,7 +56,7 @@ type CampaignsGetResource =
 -- /See:/ 'campaignsGet' smart constructor.
 data CampaignsGet = CampaignsGet'
     { _cggProFileId :: !(Textual Int64)
-    , _cggId        :: !(Textual Int64)
+    , _cggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CampaignsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ campaignsGet
     :: Int64 -- ^ 'cggProFileId'
     -> Int64 -- ^ 'cggId'
     -> CampaignsGet
-campaignsGet pCggProFileId_ pCggId_ =
+campaignsGet pCggProFileId_ pCggId_ = 
     CampaignsGet'
     { _cggProFileId = _Coerce # pCggProFileId_
     , _cggId = _Coerce # pCggId_

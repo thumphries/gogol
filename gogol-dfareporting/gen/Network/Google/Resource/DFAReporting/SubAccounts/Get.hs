@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.SubAccounts.Get
     , sagId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.subaccounts.get@ method which the
 -- 'SubAccountsGet' request conforms to.
 type SubAccountsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "subaccounts" :>
@@ -56,7 +56,7 @@ type SubAccountsGetResource =
 -- /See:/ 'subAccountsGet' smart constructor.
 data SubAccountsGet = SubAccountsGet'
     { _sagProFileId :: !(Textual Int64)
-    , _sagId        :: !(Textual Int64)
+    , _sagId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubAccountsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ subAccountsGet
     :: Int64 -- ^ 'sagProFileId'
     -> Int64 -- ^ 'sagId'
     -> SubAccountsGet
-subAccountsGet pSagProFileId_ pSagId_ =
+subAccountsGet pSagProFileId_ pSagId_ = 
     SubAccountsGet'
     { _sagProFileId = _Coerce # pSagProFileId_
     , _sagId = _Coerce # pSagId_

@@ -39,8 +39,8 @@ module Network.Google.Resource.Books.MyLibrary.Bookshelves.MoveVolume
     , mlbmvVolumePosition
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.bookshelves.moveVolume@ method which the
 -- 'MyLibraryBookshelvesMoveVolume' request conforms to.
@@ -60,9 +60,9 @@ type MyLibraryBookshelvesMoveVolumeResource =
 --
 -- /See:/ 'myLibraryBookshelvesMoveVolume' smart constructor.
 data MyLibraryBookshelvesMoveVolume = MyLibraryBookshelvesMoveVolume'
-    { _mlbmvShelf          :: !Text
-    , _mlbmvVolumeId       :: !Text
-    , _mlbmvSource         :: !(Maybe Text)
+    { _mlbmvShelf :: !Text
+    , _mlbmvVolumeId :: !Text
+    , _mlbmvSource :: !(Maybe Text)
     , _mlbmvVolumePosition :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ myLibraryBookshelvesMoveVolume
     -> Text -- ^ 'mlbmvVolumeId'
     -> Int32 -- ^ 'mlbmvVolumePosition'
     -> MyLibraryBookshelvesMoveVolume
-myLibraryBookshelvesMoveVolume pMlbmvShelf_ pMlbmvVolumeId_ pMlbmvVolumePosition_ =
+myLibraryBookshelvesMoveVolume pMlbmvShelf_ pMlbmvVolumeId_ pMlbmvVolumePosition_ = 
     MyLibraryBookshelvesMoveVolume'
     { _mlbmvShelf = pMlbmvShelf_
     , _mlbmvVolumeId = pMlbmvVolumeId_

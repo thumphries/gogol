@@ -39,8 +39,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.SetService
     , zvssPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.setService@ method which the
 -- 'ZoneViewsSetService' request conforms to.
@@ -63,9 +63,9 @@ type ZoneViewsSetServiceResource =
 -- /See:/ 'zoneViewsSetService' smart constructor.
 data ZoneViewsSetService = ZoneViewsSetService'
     { _zvssResourceView :: !Text
-    , _zvssProject      :: !Text
-    , _zvssZone         :: !Text
-    , _zvssPayload      :: !ZoneViewsSetServiceRequest
+    , _zvssProject :: !Text
+    , _zvssZone :: !Text
+    , _zvssPayload :: !ZoneViewsSetServiceRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsSetService' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ zoneViewsSetService
     -> Text -- ^ 'zvssZone'
     -> ZoneViewsSetServiceRequest -- ^ 'zvssPayload'
     -> ZoneViewsSetService
-zoneViewsSetService pZvssResourceView_ pZvssProject_ pZvssZone_ pZvssPayload_ =
+zoneViewsSetService pZvssResourceView_ pZvssProject_ pZvssZone_ pZvssPayload_ = 
     ZoneViewsSetService'
     { _zvssResourceView = pZvssResourceView_
     , _zvssProject = pZvssProject_

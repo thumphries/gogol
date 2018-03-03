@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.Update
     , uuUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.update@ method which the
 -- 'UsersUpdate' request conforms to.
@@ -64,8 +64,8 @@ type UsersUpdateResource =
 -- /See:/ 'usersUpdate' smart constructor.
 data UsersUpdate = UsersUpdate'
     { _uuEnterpriseId :: !Text
-    , _uuPayload      :: !User
-    , _uuUserId       :: !Text
+    , _uuPayload :: !User
+    , _uuUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersUpdate' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ usersUpdate
     -> User -- ^ 'uuPayload'
     -> Text -- ^ 'uuUserId'
     -> UsersUpdate
-usersUpdate pUuEnterpriseId_ pUuPayload_ pUuUserId_ =
+usersUpdate pUuEnterpriseId_ pUuPayload_ pUuUserId_ = 
     UsersUpdate'
     { _uuEnterpriseId = pUuEnterpriseId_
     , _uuPayload = pUuPayload_

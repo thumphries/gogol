@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutclusters.Delete
     , sddClusterId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutclusters.delete@ method which the
 -- 'StorelayoutclustersDelete' request conforms to.
@@ -60,8 +60,8 @@ type StorelayoutclustersDeleteResource =
 -- /See:/ 'storelayoutclustersDelete' smart constructor.
 data StorelayoutclustersDelete = StorelayoutclustersDelete'
     { _sddEnterpriseId :: !Text
-    , _sddPageId       :: !Text
-    , _sddClusterId    :: !Text
+    , _sddPageId :: !Text
+    , _sddClusterId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutclustersDelete' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ storelayoutclustersDelete
     -> Text -- ^ 'sddPageId'
     -> Text -- ^ 'sddClusterId'
     -> StorelayoutclustersDelete
-storelayoutclustersDelete pSddEnterpriseId_ pSddPageId_ pSddClusterId_ =
+storelayoutclustersDelete pSddEnterpriseId_ pSddPageId_ pSddClusterId_ = 
     StorelayoutclustersDelete'
     { _sddEnterpriseId = pSddEnterpriseId_
     , _sddPageId = pSddPageId_

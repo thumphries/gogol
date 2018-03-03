@@ -23,12 +23,12 @@
 -- Starts asynchronous cancellation on a long-running operation. The server
 -- makes a best effort to cancel the operation, but success is not
 -- guaranteed. If the server doesn\'t support this method, it returns
--- \`google.rpc.Code.UNIMPLEMENTED\`. Clients can use
--- Operations.GetOperation or other methods to check whether the
--- cancellation succeeded or whether the operation completed despite
--- cancellation. On successful cancellation, the operation is not deleted;
--- instead, it becomes an operation with an Operation.error value with a
--- google.rpc.Status.code of 1, corresponding to \`Code.CANCELLED\`.
+-- google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation
+-- or other methods to check whether the cancellation succeeded or whether
+-- the operation completed despite cancellation. On successful
+-- cancellation, the operation is not deleted; instead, it becomes an
+-- operation with an Operation.error value with a google.rpc.Status.code of
+-- 1, corresponding to Code.CANCELLED.
 --
 -- /See:/ <https://cloud.google.com/dataproc/ Google Cloud Dataproc API Reference> for @dataproc.projects.regions.operations.cancel@.
 module Network.Google.Resource.Dataproc.Projects.Regions.Operations.Cancel
@@ -51,15 +51,15 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Operations.Cancel
     , procCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.operations.cancel@ method which the
 -- 'ProjectsRegionsOperationsCancel' request conforms to.
 type ProjectsRegionsOperationsCancelResource =
      "v1" :>
        CaptureMode "name" "cancel" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -71,23 +71,23 @@ type ProjectsRegionsOperationsCancelResource =
 -- | Starts asynchronous cancellation on a long-running operation. The server
 -- makes a best effort to cancel the operation, but success is not
 -- guaranteed. If the server doesn\'t support this method, it returns
--- \`google.rpc.Code.UNIMPLEMENTED\`. Clients can use
--- Operations.GetOperation or other methods to check whether the
--- cancellation succeeded or whether the operation completed despite
--- cancellation. On successful cancellation, the operation is not deleted;
--- instead, it becomes an operation with an Operation.error value with a
--- google.rpc.Status.code of 1, corresponding to \`Code.CANCELLED\`.
+-- google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation
+-- or other methods to check whether the cancellation succeeded or whether
+-- the operation completed despite cancellation. On successful
+-- cancellation, the operation is not deleted; instead, it becomes an
+-- operation with an Operation.error value with a google.rpc.Status.code of
+-- 1, corresponding to Code.CANCELLED.
 --
 -- /See:/ 'projectsRegionsOperationsCancel' smart constructor.
 data ProjectsRegionsOperationsCancel = ProjectsRegionsOperationsCancel'
-    { _procXgafv          :: !(Maybe Text)
+    { _procXgafv :: !(Maybe Xgafv)
     , _procUploadProtocol :: !(Maybe Text)
-    , _procPp             :: !Bool
-    , _procAccessToken    :: !(Maybe Text)
-    , _procUploadType     :: !(Maybe Text)
-    , _procBearerToken    :: !(Maybe Text)
-    , _procName           :: !Text
-    , _procCallback       :: !(Maybe Text)
+    , _procPp :: !Bool
+    , _procAccessToken :: !(Maybe Text)
+    , _procUploadType :: !(Maybe Text)
+    , _procBearerToken :: !(Maybe Text)
+    , _procName :: !Text
+    , _procCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsOperationsCancel' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ data ProjectsRegionsOperationsCancel = ProjectsRegionsOperationsCancel'
 projectsRegionsOperationsCancel
     :: Text -- ^ 'procName'
     -> ProjectsRegionsOperationsCancel
-projectsRegionsOperationsCancel pProcName_ =
+projectsRegionsOperationsCancel pProcName_ = 
     ProjectsRegionsOperationsCancel'
     { _procXgafv = Nothing
     , _procUploadProtocol = Nothing
@@ -125,7 +125,7 @@ projectsRegionsOperationsCancel pProcName_ =
     }
 
 -- | V1 error format.
-procXgafv :: Lens' ProjectsRegionsOperationsCancel (Maybe Text)
+procXgafv :: Lens' ProjectsRegionsOperationsCancel (Maybe Xgafv)
 procXgafv
   = lens _procXgafv (\ s a -> s{_procXgafv = a})
 

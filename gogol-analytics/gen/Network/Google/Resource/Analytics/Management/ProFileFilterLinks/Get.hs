@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.ProFileFilterLinks.Get
     , mpfflgLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileFilterLinks.get@ method which the
 -- 'ManagementProFileFilterLinksGet' request conforms to.
@@ -64,9 +64,9 @@ type ManagementProFileFilterLinksGetResource =
 -- /See:/ 'managementProFileFilterLinksGet' smart constructor.
 data ManagementProFileFilterLinksGet = ManagementProFileFilterLinksGet'
     { _mpfflgWebPropertyId :: !Text
-    , _mpfflgProFileId     :: !Text
-    , _mpfflgAccountId     :: !Text
-    , _mpfflgLinkId        :: !Text
+    , _mpfflgProFileId :: !Text
+    , _mpfflgAccountId :: !Text
+    , _mpfflgLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileFilterLinksGet' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ managementProFileFilterLinksGet
     -> Text -- ^ 'mpfflgAccountId'
     -> Text -- ^ 'mpfflgLinkId'
     -> ManagementProFileFilterLinksGet
-managementProFileFilterLinksGet pMpfflgWebPropertyId_ pMpfflgProFileId_ pMpfflgAccountId_ pMpfflgLinkId_ =
+managementProFileFilterLinksGet pMpfflgWebPropertyId_ pMpfflgProFileId_ pMpfflgAccountId_ pMpfflgLinkId_ = 
     ManagementProFileFilterLinksGet'
     { _mpfflgWebPropertyId = pMpfflgWebPropertyId_
     , _mpfflgProFileId = pMpfflgProFileId_

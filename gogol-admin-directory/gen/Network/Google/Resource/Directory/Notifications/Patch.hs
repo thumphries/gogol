@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Notifications.Patch
     , npNotificationId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.notifications.patch@ method which the
 -- 'NotificationsPatch' request conforms to.
@@ -59,8 +59,8 @@ type NotificationsPatchResource =
 --
 -- /See:/ 'notificationsPatch' smart constructor.
 data NotificationsPatch = NotificationsPatch'
-    { _npPayload        :: !Notification
-    , _npCustomer       :: !Text
+    { _npPayload :: !Notification
+    , _npCustomer :: !Text
     , _npNotificationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ notificationsPatch
     -> Text -- ^ 'npCustomer'
     -> Text -- ^ 'npNotificationId'
     -> NotificationsPatch
-notificationsPatch pNpPayload_ pNpCustomer_ pNpNotificationId_ =
+notificationsPatch pNpPayload_ pNpCustomer_ pNpNotificationId_ = 
     NotificationsPatch'
     { _npPayload = pNpPayload_
     , _npCustomer = pNpCustomer_
@@ -90,7 +90,7 @@ npPayload :: Lens' NotificationsPatch Notification
 npPayload
   = lens _npPayload (\ s a -> s{_npPayload = a})
 
--- | The unique ID for the customer\'s Google account.
+-- | The unique ID for the customer\'s G Suite account.
 npCustomer :: Lens' NotificationsPatch Text
 npCustomer
   = lens _npCustomer (\ s a -> s{_npCustomer = a})

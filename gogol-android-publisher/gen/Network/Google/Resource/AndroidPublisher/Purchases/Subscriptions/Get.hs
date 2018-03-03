@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Purchases.Subscriptions.Get
     , psgSubscriptionId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.purchases.subscriptions.get@ method which the
 -- 'PurchasesSubscriptionsGet' request conforms to.
@@ -62,8 +62,8 @@ type PurchasesSubscriptionsGetResource =
 --
 -- /See:/ 'purchasesSubscriptionsGet' smart constructor.
 data PurchasesSubscriptionsGet = PurchasesSubscriptionsGet'
-    { _psgPackageName    :: !Text
-    , _psgToken          :: !Text
+    { _psgPackageName :: !Text
+    , _psgToken :: !Text
     , _psgSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -81,7 +81,7 @@ purchasesSubscriptionsGet
     -> Text -- ^ 'psgToken'
     -> Text -- ^ 'psgSubscriptionId'
     -> PurchasesSubscriptionsGet
-purchasesSubscriptionsGet pPsgPackageName_ pPsgToken_ pPsgSubscriptionId_ =
+purchasesSubscriptionsGet pPsgPackageName_ pPsgToken_ pPsgSubscriptionId_ = 
     PurchasesSubscriptionsGet'
     { _psgPackageName = pPsgPackageName_
     , _psgToken = pPsgToken_

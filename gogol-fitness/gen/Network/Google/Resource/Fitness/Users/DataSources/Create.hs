@@ -44,8 +44,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.Create
     , udscUserId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.create@ method which the
 -- 'UsersDataSourcesCreate' request conforms to.
@@ -70,7 +70,7 @@ type UsersDataSourcesCreateResource =
 -- /See:/ 'usersDataSourcesCreate' smart constructor.
 data UsersDataSourcesCreate = UsersDataSourcesCreate'
     { _udscPayload :: !DataSource
-    , _udscUserId  :: !Text
+    , _udscUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSourcesCreate' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ usersDataSourcesCreate
     :: DataSource -- ^ 'udscPayload'
     -> Text -- ^ 'udscUserId'
     -> UsersDataSourcesCreate
-usersDataSourcesCreate pUdscPayload_ pUdscUserId_ =
+usersDataSourcesCreate pUdscPayload_ pUdscUserId_ = 
     UsersDataSourcesCreate'
     { _udscPayload = pUdscPayload_
     , _udscUserId = pUdscUserId_

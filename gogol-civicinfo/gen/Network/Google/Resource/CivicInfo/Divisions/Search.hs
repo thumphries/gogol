@@ -37,8 +37,8 @@ module Network.Google.Resource.CivicInfo.Divisions.Search
     , dsQuery
     ) where
 
-import           Network.Google.CivicInfo.Types
-import           Network.Google.Prelude
+import Network.Google.CivicInfo.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @civicinfo.divisions.search@ method which the
 -- 'DivisionsSearch' request conforms to.
@@ -56,7 +56,7 @@ type DivisionsSearchResource =
 -- /See:/ 'divisionsSearch' smart constructor.
 data DivisionsSearch = DivisionsSearch'
     { _dsPayload :: !DivisionSearchRequest
-    , _dsQuery   :: !(Maybe Text)
+    , _dsQuery :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DivisionsSearch' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data DivisionsSearch = DivisionsSearch'
 divisionsSearch
     :: DivisionSearchRequest -- ^ 'dsPayload'
     -> DivisionsSearch
-divisionsSearch pDsPayload_ =
+divisionsSearch pDsPayload_ = 
     DivisionsSearch'
     { _dsPayload = pDsPayload_
     , _dsQuery = Nothing

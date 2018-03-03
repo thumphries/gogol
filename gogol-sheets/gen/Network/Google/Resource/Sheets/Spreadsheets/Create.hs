@@ -43,8 +43,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Create
     , scCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.create@ method which the
 -- 'SpreadsheetsCreate' request conforms to.
@@ -66,14 +66,14 @@ type SpreadsheetsCreateResource =
 --
 -- /See:/ 'spreadsheetsCreate' smart constructor.
 data SpreadsheetsCreate = SpreadsheetsCreate'
-    { _scXgafv          :: !(Maybe Xgafv)
+    { _scXgafv :: !(Maybe Xgafv)
     , _scUploadProtocol :: !(Maybe Text)
-    , _scPp             :: !Bool
-    , _scAccessToken    :: !(Maybe Text)
-    , _scUploadType     :: !(Maybe Text)
-    , _scPayload        :: !Spreadsheet
-    , _scBearerToken    :: !(Maybe Text)
-    , _scCallback       :: !(Maybe Text)
+    , _scPp :: !Bool
+    , _scAccessToken :: !(Maybe Text)
+    , _scUploadType :: !(Maybe Text)
+    , _scPayload :: !Spreadsheet
+    , _scBearerToken :: !(Maybe Text)
+    , _scCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsCreate' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data SpreadsheetsCreate = SpreadsheetsCreate'
 spreadsheetsCreate
     :: Spreadsheet -- ^ 'scPayload'
     -> SpreadsheetsCreate
-spreadsheetsCreate pScPayload_ =
+spreadsheetsCreate pScPayload_ = 
     SpreadsheetsCreate'
     { _scXgafv = Nothing
     , _scUploadProtocol = Nothing
@@ -155,6 +155,7 @@ instance GoogleRequest SpreadsheetsCreate where
         type Rs SpreadsheetsCreate = Spreadsheet
         type Scopes SpreadsheetsCreate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsCreate'{..}
           = go _scXgafv _scUploadProtocol (Just _scPp)

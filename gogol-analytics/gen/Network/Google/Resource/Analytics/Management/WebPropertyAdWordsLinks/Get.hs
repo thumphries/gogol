@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.WebPropertyAdWordsLinks.Get
     , mwpawlgWebPropertyAdWordsLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webPropertyAdWordsLinks.get@ method which the
 -- 'ManagementWebPropertyAdWordsLinksGet' request conforms to.
@@ -60,8 +60,8 @@ type ManagementWebPropertyAdWordsLinksGetResource =
 --
 -- /See:/ 'managementWebPropertyAdWordsLinksGet' smart constructor.
 data ManagementWebPropertyAdWordsLinksGet = ManagementWebPropertyAdWordsLinksGet'
-    { _mwpawlgWebPropertyId            :: !Text
-    , _mwpawlgAccountId                :: !Text
+    { _mwpawlgWebPropertyId :: !Text
+    , _mwpawlgAccountId :: !Text
     , _mwpawlgWebPropertyAdWordsLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ managementWebPropertyAdWordsLinksGet
     -> Text -- ^ 'mwpawlgAccountId'
     -> Text -- ^ 'mwpawlgWebPropertyAdWordsLinkId'
     -> ManagementWebPropertyAdWordsLinksGet
-managementWebPropertyAdWordsLinksGet pMwpawlgWebPropertyId_ pMwpawlgAccountId_ pMwpawlgWebPropertyAdWordsLinkId_ =
+managementWebPropertyAdWordsLinksGet pMwpawlgWebPropertyId_ pMwpawlgAccountId_ pMwpawlgWebPropertyAdWordsLinkId_ = 
     ManagementWebPropertyAdWordsLinksGet'
     { _mwpawlgWebPropertyId = pMwpawlgWebPropertyId_
     , _mwpawlgAccountId = pMwpawlgAccountId_

@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.UnSampledReports.Get
     , musrgUnSampledReportId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.unsampledReports.get@ method which the
 -- 'ManagementUnSampledReportsGet' request conforms to.
@@ -63,9 +63,9 @@ type ManagementUnSampledReportsGetResource =
 --
 -- /See:/ 'managementUnSampledReportsGet' smart constructor.
 data ManagementUnSampledReportsGet = ManagementUnSampledReportsGet'
-    { _musrgWebPropertyId     :: !Text
-    , _musrgProFileId         :: !Text
-    , _musrgAccountId         :: !Text
+    { _musrgWebPropertyId :: !Text
+    , _musrgProFileId :: !Text
+    , _musrgAccountId :: !Text
     , _musrgUnSampledReportId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ managementUnSampledReportsGet
     -> Text -- ^ 'musrgAccountId'
     -> Text -- ^ 'musrgUnSampledReportId'
     -> ManagementUnSampledReportsGet
-managementUnSampledReportsGet pMusrgWebPropertyId_ pMusrgProFileId_ pMusrgAccountId_ pMusrgUnSampledReportId_ =
+managementUnSampledReportsGet pMusrgWebPropertyId_ pMusrgProFileId_ pMusrgAccountId_ pMusrgUnSampledReportId_ = 
     ManagementUnSampledReportsGet'
     { _musrgWebPropertyId = pMusrgWebPropertyId_
     , _musrgProFileId = pMusrgProFileId_

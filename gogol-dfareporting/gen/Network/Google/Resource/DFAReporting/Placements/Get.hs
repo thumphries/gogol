@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Placements.Get
     , pgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.get@ method which the
 -- 'PlacementsGet' request conforms to.
 type PlacementsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -56,7 +56,7 @@ type PlacementsGetResource =
 -- /See:/ 'placementsGet' smart constructor.
 data PlacementsGet = PlacementsGet'
     { _pgProFileId :: !(Textual Int64)
-    , _pgId        :: !(Textual Int64)
+    , _pgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ placementsGet
     :: Int64 -- ^ 'pgProFileId'
     -> Int64 -- ^ 'pgId'
     -> PlacementsGet
-placementsGet pPgProFileId_ pPgId_ =
+placementsGet pPgProFileId_ pPgId_ = 
     PlacementsGet'
     { _pgProFileId = _Coerce # pPgProFileId_
     , _pgId = _Coerce # pPgId_

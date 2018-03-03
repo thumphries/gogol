@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTubeAnalytics.Groups.Insert
     , giOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groups.insert@ method which the
 -- 'GroupsInsert' request conforms to.
@@ -55,7 +55,7 @@ type GroupsInsertResource =
 --
 -- /See:/ 'groupsInsert' smart constructor.
 data GroupsInsert = GroupsInsert'
-    { _giPayload                :: !Group
+    { _giPayload :: !Group
     , _giOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data GroupsInsert = GroupsInsert'
 groupsInsert
     :: Group -- ^ 'giPayload'
     -> GroupsInsert
-groupsInsert pGiPayload_ =
+groupsInsert pGiPayload_ = 
     GroupsInsert'
     { _giPayload = pGiPayload_
     , _giOnBehalfOfContentOwner = Nothing

@@ -59,8 +59,8 @@ module Network.Google.Resource.Classroom.UserProFiles.GuardianInvitations.Patch
     , upfgipCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.guardianInvitations.patch@ method which the
 -- 'UserProFilesGuardianInvitationsPatch' request conforms to.
@@ -70,9 +70,9 @@ type UserProFilesGuardianInvitationsPatchResource =
          Capture "studentId" Text :>
            "guardianInvitations" :>
              Capture "invitationId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" Text :>
+                   QueryParam "updateMask" FieldMask :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
                          QueryParam "uploadType" Text :>
@@ -99,17 +99,17 @@ type UserProFilesGuardianInvitationsPatchResource =
 --
 -- /See:/ 'userProFilesGuardianInvitationsPatch' smart constructor.
 data UserProFilesGuardianInvitationsPatch = UserProFilesGuardianInvitationsPatch'
-    { _upfgipStudentId      :: !Text
-    , _upfgipXgafv          :: !(Maybe Text)
+    { _upfgipStudentId :: !Text
+    , _upfgipXgafv :: !(Maybe Xgafv)
     , _upfgipUploadProtocol :: !(Maybe Text)
-    , _upfgipUpdateMask     :: !(Maybe Text)
-    , _upfgipPp             :: !Bool
-    , _upfgipAccessToken    :: !(Maybe Text)
-    , _upfgipUploadType     :: !(Maybe Text)
-    , _upfgipPayload        :: !GuardianInvitation
-    , _upfgipInvitationId   :: !Text
-    , _upfgipBearerToken    :: !(Maybe Text)
-    , _upfgipCallback       :: !(Maybe Text)
+    , _upfgipUpdateMask :: !(Maybe FieldMask)
+    , _upfgipPp :: !Bool
+    , _upfgipAccessToken :: !(Maybe Text)
+    , _upfgipUploadType :: !(Maybe Text)
+    , _upfgipPayload :: !GuardianInvitation
+    , _upfgipInvitationId :: !Text
+    , _upfgipBearerToken :: !(Maybe Text)
+    , _upfgipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGuardianInvitationsPatch' with the minimum fields required to make a request.
@@ -142,7 +142,7 @@ userProFilesGuardianInvitationsPatch
     -> GuardianInvitation -- ^ 'upfgipPayload'
     -> Text -- ^ 'upfgipInvitationId'
     -> UserProFilesGuardianInvitationsPatch
-userProFilesGuardianInvitationsPatch pUpfgipStudentId_ pUpfgipPayload_ pUpfgipInvitationId_ =
+userProFilesGuardianInvitationsPatch pUpfgipStudentId_ pUpfgipPayload_ pUpfgipInvitationId_ = 
     UserProFilesGuardianInvitationsPatch'
     { _upfgipStudentId = pUpfgipStudentId_
     , _upfgipXgafv = Nothing
@@ -164,7 +164,7 @@ upfgipStudentId
       (\ s a -> s{_upfgipStudentId = a})
 
 -- | V1 error format.
-upfgipXgafv :: Lens' UserProFilesGuardianInvitationsPatch (Maybe Text)
+upfgipXgafv :: Lens' UserProFilesGuardianInvitationsPatch (Maybe Xgafv)
 upfgipXgafv
   = lens _upfgipXgafv (\ s a -> s{_upfgipXgafv = a})
 
@@ -178,7 +178,7 @@ upfgipUploadProtocol
 -- required to do an update. The update will fail if invalid fields are
 -- specified. The following fields are valid: * \`state\` When set in a
 -- query parameter, this field should be specified as \`updateMask=,,...\`
-upfgipUpdateMask :: Lens' UserProFilesGuardianInvitationsPatch (Maybe Text)
+upfgipUpdateMask :: Lens' UserProFilesGuardianInvitationsPatch (Maybe FieldMask)
 upfgipUpdateMask
   = lens _upfgipUpdateMask
       (\ s a -> s{_upfgipUpdateMask = a})
@@ -228,7 +228,7 @@ instance GoogleRequest
         type Rs UserProFilesGuardianInvitationsPatch =
              GuardianInvitation
         type Scopes UserProFilesGuardianInvitationsPatch =
-             '[]
+             '["https://www.googleapis.com/auth/classroom.guardianlinks.students"]
         requestClient
           UserProFilesGuardianInvitationsPatch'{..}
           = go _upfgipStudentId _upfgipInvitationId

@@ -39,8 +39,8 @@ module Network.Google.Resource.ReplicaPoolUpdater.RollingUpdates.Resume
     , rZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPoolUpdater.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPoolUpdater.Types
 
 -- | A resource alias for @replicapoolupdater.rollingUpdates.resume@ method which the
 -- 'RollingUpdatesResume' request conforms to.
@@ -62,8 +62,8 @@ type RollingUpdatesResumeResource =
 -- /See:/ 'rollingUpdatesResume' smart constructor.
 data RollingUpdatesResume = RollingUpdatesResume'
     { _rRollingUpdate :: !Text
-    , _rProject       :: !Text
-    , _rZone          :: !Text
+    , _rProject :: !Text
+    , _rZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RollingUpdatesResume' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ rollingUpdatesResume
     -> Text -- ^ 'rProject'
     -> Text -- ^ 'rZone'
     -> RollingUpdatesResume
-rollingUpdatesResume pRRollingUpdate_ pRProject_ pRZone_ =
+rollingUpdatesResume pRRollingUpdate_ pRProject_ pRZone_ = 
     RollingUpdatesResume'
     { _rRollingUpdate = pRRollingUpdate_
     , _rProject = pRProject_

@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.CustomMetrics.List
     , mcmlMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customMetrics.list@ method which the
 -- 'ManagementCustomMetricsList' request conforms to.
@@ -62,9 +62,9 @@ type ManagementCustomMetricsListResource =
 -- /See:/ 'managementCustomMetricsList' smart constructor.
 data ManagementCustomMetricsList = ManagementCustomMetricsList'
     { _mcmlWebPropertyId :: !Text
-    , _mcmlAccountId     :: !Text
-    , _mcmlStartIndex    :: !(Maybe (Textual Int32))
-    , _mcmlMaxResults    :: !(Maybe (Textual Int32))
+    , _mcmlAccountId :: !Text
+    , _mcmlStartIndex :: !(Maybe (Textual Int32))
+    , _mcmlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomMetricsList' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ managementCustomMetricsList
     :: Text -- ^ 'mcmlWebPropertyId'
     -> Text -- ^ 'mcmlAccountId'
     -> ManagementCustomMetricsList
-managementCustomMetricsList pMcmlWebPropertyId_ pMcmlAccountId_ =
+managementCustomMetricsList pMcmlWebPropertyId_ pMcmlAccountId_ = 
     ManagementCustomMetricsList'
     { _mcmlWebPropertyId = pMcmlWebPropertyId_
     , _mcmlAccountId = pMcmlAccountId_

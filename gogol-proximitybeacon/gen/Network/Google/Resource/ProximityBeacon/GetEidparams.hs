@@ -48,15 +48,15 @@ module Network.Google.Resource.ProximityBeacon.GetEidparams
     , geCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.getEidparams@ method which the
 -- 'GetEidparams' request conforms to.
 type GetEidparamsResource =
      "v1beta1" :>
        "eidparams" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -76,13 +76,13 @@ type GetEidparamsResource =
 --
 -- /See:/ 'getEidparams' smart constructor.
 data GetEidparams = GetEidparams'
-    { _geXgafv          :: !(Maybe Text)
+    { _geXgafv :: !(Maybe Xgafv)
     , _geUploadProtocol :: !(Maybe Text)
-    , _gePp             :: !Bool
-    , _geAccessToken    :: !(Maybe Text)
-    , _geUploadType     :: !(Maybe Text)
-    , _geBearerToken    :: !(Maybe Text)
-    , _geCallback       :: !(Maybe Text)
+    , _gePp :: !Bool
+    , _geAccessToken :: !(Maybe Text)
+    , _geUploadType :: !(Maybe Text)
+    , _geBearerToken :: !(Maybe Text)
+    , _geCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetEidparams' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ data GetEidparams = GetEidparams'
 -- * 'geCallback'
 getEidparams
     :: GetEidparams
-getEidparams =
+getEidparams = 
     GetEidparams'
     { _geXgafv = Nothing
     , _geUploadProtocol = Nothing
@@ -116,7 +116,7 @@ getEidparams =
     }
 
 -- | V1 error format.
-geXgafv :: Lens' GetEidparams (Maybe Text)
+geXgafv :: Lens' GetEidparams (Maybe Xgafv)
 geXgafv = lens _geXgafv (\ s a -> s{_geXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

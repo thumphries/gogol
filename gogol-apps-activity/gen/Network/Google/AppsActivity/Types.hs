@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -20,11 +20,7 @@ module Network.Google.AppsActivity.Types
       appsActivityService
 
     -- * OAuth Scopes
-    , driveMetadataReadOnlyScope
     , activityScope
-    , driveReadOnlyScope
-    , driveScope
-    , driveMetadataScope
 
     -- * Parent
     , Parent
@@ -123,32 +119,16 @@ module Network.Google.AppsActivity.Types
     , mRemovedParents
     ) where
 
-import           Network.Google.AppsActivity.Types.Product
-import           Network.Google.AppsActivity.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.AppsActivity.Types.Product
+import Network.Google.AppsActivity.Types.Sum
+import Network.Google.Prelude
 
--- | Default request referring to version 'v1' of the Google Apps Activity API. This contains the host and root path used as a starting point for constructing service requests.
+-- | Default request referring to version 'v1' of the G Suite Activity API. This contains the host and root path used as a starting point for constructing service requests.
 appsActivityService :: ServiceConfig
 appsActivityService
   = defaultService (ServiceId "appsactivity:v1")
       "www.googleapis.com"
 
--- | View metadata for files in your Google Drive
-driveMetadataReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/drive.metadata.readonly"]
-driveMetadataReadOnlyScope = Proxy;
-
--- | View the activity history of your Google Apps
+-- | View the activity history of your Google apps
 activityScope :: Proxy '["https://www.googleapis.com/auth/activity"]
 activityScope = Proxy;
-
--- | View the files in your Google Drive
-driveReadOnlyScope :: Proxy '["https://www.googleapis.com/auth/drive.readonly"]
-driveReadOnlyScope = Proxy;
-
--- | View and manage the files in your Google Drive
-driveScope :: Proxy '["https://www.googleapis.com/auth/drive"]
-driveScope = Proxy;
-
--- | View and manage metadata of files in your Google Drive
-driveMetadataScope :: Proxy '["https://www.googleapis.com/auth/drive.metadata"]
-driveMetadataScope = Proxy;

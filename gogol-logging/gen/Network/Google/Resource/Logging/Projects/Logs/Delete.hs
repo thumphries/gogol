@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes all the log entries in a log. The log reappears if it receives
--- new entries.
+-- new entries. Log entries written shortly before the delete operation
+-- might not be deleted.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.projects.logs.delete@.
 module Network.Google.Resource.Logging.Projects.Logs.Delete
@@ -44,8 +45,8 @@ module Network.Google.Resource.Logging.Projects.Logs.Delete
     , pldCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.logs.delete@ method which the
 -- 'ProjectsLogsDelete' request conforms to.
@@ -62,18 +63,19 @@ type ProjectsLogsDeleteResource =
                        QueryParam "alt" AltJSON :> Delete '[JSON] Empty
 
 -- | Deletes all the log entries in a log. The log reappears if it receives
--- new entries.
+-- new entries. Log entries written shortly before the delete operation
+-- might not be deleted.
 --
 -- /See:/ 'projectsLogsDelete' smart constructor.
 data ProjectsLogsDelete = ProjectsLogsDelete'
-    { _pldXgafv          :: !(Maybe Xgafv)
+    { _pldXgafv :: !(Maybe Xgafv)
     , _pldUploadProtocol :: !(Maybe Text)
-    , _pldPp             :: !Bool
-    , _pldAccessToken    :: !(Maybe Text)
-    , _pldUploadType     :: !(Maybe Text)
-    , _pldBearerToken    :: !(Maybe Text)
-    , _pldLogName        :: !Text
-    , _pldCallback       :: !(Maybe Text)
+    , _pldPp :: !Bool
+    , _pldAccessToken :: !(Maybe Text)
+    , _pldUploadType :: !(Maybe Text)
+    , _pldBearerToken :: !(Maybe Text)
+    , _pldLogName :: !Text
+    , _pldCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLogsDelete' with the minimum fields required to make a request.
@@ -98,7 +100,7 @@ data ProjectsLogsDelete = ProjectsLogsDelete'
 projectsLogsDelete
     :: Text -- ^ 'pldLogName'
     -> ProjectsLogsDelete
-projectsLogsDelete pPldLogName_ =
+projectsLogsDelete pPldLogName_ = 
     ProjectsLogsDelete'
     { _pldXgafv = Nothing
     , _pldUploadProtocol = Nothing
@@ -144,8 +146,10 @@ pldBearerToken
 
 -- | Required. The resource name of the log to delete:
 -- \"projects\/[PROJECT_ID]\/logs\/[LOG_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/logs\/[LOG_ID]\" [LOG_ID] must be
--- URL-encoded. For example, \"projects\/my-project-id\/logs\/syslog\",
+-- \"organizations\/[ORGANIZATION_ID]\/logs\/[LOG_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/logs\/[LOG_ID]\"
+-- \"folders\/[FOLDER_ID]\/logs\/[LOG_ID]\" [LOG_ID] must be URL-encoded.
+-- For example, \"projects\/my-project-id\/logs\/syslog\",
 -- \"organizations\/1234567890\/logs\/cloudresourcemanager.googleapis.com%2Factivity\".
 -- For more information about log names, see LogEntry.
 pldLogName :: Lens' ProjectsLogsDelete Text

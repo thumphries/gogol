@@ -44,8 +44,8 @@ module Network.Google.Resource.ServiceManagement.Services.Rollouts.Get
     , srgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.rollouts.get@ method which the
 -- 'ServicesRolloutsGet' request conforms to.
@@ -68,15 +68,15 @@ type ServicesRolloutsGetResource =
 --
 -- /See:/ 'servicesRolloutsGet' smart constructor.
 data ServicesRolloutsGet = ServicesRolloutsGet'
-    { _srgXgafv          :: !(Maybe Xgafv)
+    { _srgXgafv :: !(Maybe Xgafv)
     , _srgUploadProtocol :: !(Maybe Text)
-    , _srgPp             :: !Bool
-    , _srgAccessToken    :: !(Maybe Text)
-    , _srgUploadType     :: !(Maybe Text)
-    , _srgBearerToken    :: !(Maybe Text)
-    , _srgServiceName    :: !Text
-    , _srgRolloutId      :: !Text
-    , _srgCallback       :: !(Maybe Text)
+    , _srgPp :: !Bool
+    , _srgAccessToken :: !(Maybe Text)
+    , _srgUploadType :: !(Maybe Text)
+    , _srgBearerToken :: !(Maybe Text)
+    , _srgServiceName :: !Text
+    , _srgRolloutId :: !Text
+    , _srgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesRolloutsGet' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ servicesRolloutsGet
     :: Text -- ^ 'srgServiceName'
     -> Text -- ^ 'srgRolloutId'
     -> ServicesRolloutsGet
-servicesRolloutsGet pSrgServiceName_ pSrgRolloutId_ =
+servicesRolloutsGet pSrgServiceName_ pSrgRolloutId_ = 
     ServicesRolloutsGet'
     { _srgXgafv = Nothing
     , _srgUploadProtocol = Nothing

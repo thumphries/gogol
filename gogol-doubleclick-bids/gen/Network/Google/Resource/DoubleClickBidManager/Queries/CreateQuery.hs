@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Queries.CreateQuery
     , qcqPayload
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.queries.createquery@ method which the
 -- 'QueriesCreateQuery' request conforms to.
@@ -63,7 +63,7 @@ newtype QueriesCreateQuery = QueriesCreateQuery'
 queriesCreateQuery
     :: Query -- ^ 'qcqPayload'
     -> QueriesCreateQuery
-queriesCreateQuery pQcqPayload_ =
+queriesCreateQuery pQcqPayload_ = 
     QueriesCreateQuery'
     { _qcqPayload = pQcqPayload_
     }
@@ -75,7 +75,8 @@ qcqPayload
 
 instance GoogleRequest QueriesCreateQuery where
         type Rs QueriesCreateQuery = Query
-        type Scopes QueriesCreateQuery = '[]
+        type Scopes QueriesCreateQuery =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient QueriesCreateQuery'{..}
           = go (Just AltJSON) _qcqPayload
               doubleClickBidsService

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.UserRoles.Get
     , urgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRoles.get@ method which the
 -- 'UserRolesGet' request conforms to.
 type UserRolesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRoles" :>
@@ -56,7 +56,7 @@ type UserRolesGetResource =
 -- /See:/ 'userRolesGet' smart constructor.
 data UserRolesGet = UserRolesGet'
     { _urgProFileId :: !(Textual Int64)
-    , _urgId        :: !(Textual Int64)
+    , _urgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserRolesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ userRolesGet
     :: Int64 -- ^ 'urgProFileId'
     -> Int64 -- ^ 'urgId'
     -> UserRolesGet
-userRolesGet pUrgProFileId_ pUrgId_ =
+userRolesGet pUrgProFileId_ pUrgId_ = 
     UserRolesGet'
     { _urgProFileId = _Coerce # pUrgProFileId_
     , _urgId = _Coerce # pUrgId_

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.organizations.logs.list@.
 module Network.Google.Resource.Logging.Organizations.Logs.List
@@ -46,8 +46,8 @@ module Network.Google.Resource.Logging.Organizations.Logs.List
     , ollCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.organizations.logs.list@ method which the
 -- 'OrganizationsLogsList' request conforms to.
@@ -67,21 +67,21 @@ type OrganizationsLogsListResource =
                              QueryParam "alt" AltJSON :>
                                Get '[JSON] ListLogsResponse
 
--- | Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- | Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ 'organizationsLogsList' smart constructor.
 data OrganizationsLogsList = OrganizationsLogsList'
-    { _ollParent         :: !Text
-    , _ollXgafv          :: !(Maybe Xgafv)
+    { _ollParent :: !Text
+    , _ollXgafv :: !(Maybe Xgafv)
     , _ollUploadProtocol :: !(Maybe Text)
-    , _ollPp             :: !Bool
-    , _ollAccessToken    :: !(Maybe Text)
-    , _ollUploadType     :: !(Maybe Text)
-    , _ollBearerToken    :: !(Maybe Text)
-    , _ollPageToken      :: !(Maybe Text)
-    , _ollPageSize       :: !(Maybe (Textual Int32))
-    , _ollCallback       :: !(Maybe Text)
+    , _ollPp :: !Bool
+    , _ollAccessToken :: !(Maybe Text)
+    , _ollUploadType :: !(Maybe Text)
+    , _ollBearerToken :: !(Maybe Text)
+    , _ollPageToken :: !(Maybe Text)
+    , _ollPageSize :: !(Maybe (Textual Int32))
+    , _ollCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrganizationsLogsList' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ data OrganizationsLogsList = OrganizationsLogsList'
 organizationsLogsList
     :: Text -- ^ 'ollParent'
     -> OrganizationsLogsList
-organizationsLogsList pOllParent_ =
+organizationsLogsList pOllParent_ = 
     OrganizationsLogsList'
     { _ollParent = pOllParent_
     , _ollXgafv = Nothing
@@ -126,6 +126,7 @@ organizationsLogsList pOllParent_ =
 
 -- | Required. The resource name that owns the logs:
 -- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 ollParent :: Lens' OrganizationsLogsList Text
 ollParent
   = lens _ollParent (\ s a -> s{_ollParent = a})

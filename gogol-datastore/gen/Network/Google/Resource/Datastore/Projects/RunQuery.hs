@@ -44,8 +44,8 @@ module Network.Google.Resource.Datastore.Projects.RunQuery
     , prqCallback
     ) where
 
-import           Network.Google.Datastore.Types
-import           Network.Google.Prelude
+import Network.Google.Datastore.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datastore.projects.runQuery@ method which the
 -- 'ProjectsRunQuery' request conforms to.
@@ -68,15 +68,15 @@ type ProjectsRunQueryResource =
 --
 -- /See:/ 'projectsRunQuery' smart constructor.
 data ProjectsRunQuery = ProjectsRunQuery'
-    { _prqXgafv          :: !(Maybe Xgafv)
+    { _prqXgafv :: !(Maybe Xgafv)
     , _prqUploadProtocol :: !(Maybe Text)
-    , _prqPp             :: !Bool
-    , _prqAccessToken    :: !(Maybe Text)
-    , _prqUploadType     :: !(Maybe Text)
-    , _prqPayload        :: !RunQueryRequest
-    , _prqBearerToken    :: !(Maybe Text)
-    , _prqProjectId      :: !Text
-    , _prqCallback       :: !(Maybe Text)
+    , _prqPp :: !Bool
+    , _prqAccessToken :: !(Maybe Text)
+    , _prqUploadType :: !(Maybe Text)
+    , _prqPayload :: !RunQueryRequest
+    , _prqBearerToken :: !(Maybe Text)
+    , _prqProjectId :: !Text
+    , _prqCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRunQuery' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ projectsRunQuery
     :: RunQueryRequest -- ^ 'prqPayload'
     -> Text -- ^ 'prqProjectId'
     -> ProjectsRunQuery
-projectsRunQuery pPrqPayload_ pPrqProjectId_ =
+projectsRunQuery pPrqPayload_ pPrqProjectId_ = 
     ProjectsRunQuery'
     { _prqXgafv = Nothing
     , _prqUploadProtocol = Nothing

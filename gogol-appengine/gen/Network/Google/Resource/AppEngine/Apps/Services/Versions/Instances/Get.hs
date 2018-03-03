@@ -22,7 +22,7 @@
 --
 -- Gets instance information.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.instances.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.instances.get@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Get
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Get
     , asvigCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.instances.get@ method which the
 -- 'AppsServicesVersionsInstancesGet' request conforms to.
@@ -61,7 +61,7 @@ type AppsServicesVersionsInstancesGetResource =
                  Capture "versionsId" Text :>
                    "instances" :>
                      Capture "instancesId" Text :>
-                       QueryParam "$.xgafv" Text :>
+                       QueryParam "$.xgafv" Xgafv :>
                          QueryParam "upload_protocol" Text :>
                            QueryParam "pp" Bool :>
                              QueryParam "access_token" Text :>
@@ -75,17 +75,17 @@ type AppsServicesVersionsInstancesGetResource =
 --
 -- /See:/ 'appsServicesVersionsInstancesGet' smart constructor.
 data AppsServicesVersionsInstancesGet = AppsServicesVersionsInstancesGet'
-    { _asvigXgafv          :: !(Maybe Text)
-    , _asvigInstancesId    :: !Text
+    { _asvigXgafv :: !(Maybe Xgafv)
+    , _asvigInstancesId :: !Text
     , _asvigUploadProtocol :: !(Maybe Text)
-    , _asvigPp             :: !Bool
-    , _asvigAccessToken    :: !(Maybe Text)
-    , _asvigUploadType     :: !(Maybe Text)
-    , _asvigVersionsId     :: !Text
-    , _asvigBearerToken    :: !(Maybe Text)
-    , _asvigAppsId         :: !Text
-    , _asvigServicesId     :: !Text
-    , _asvigCallback       :: !(Maybe Text)
+    , _asvigPp :: !Bool
+    , _asvigAccessToken :: !(Maybe Text)
+    , _asvigUploadType :: !(Maybe Text)
+    , _asvigVersionsId :: !Text
+    , _asvigBearerToken :: !(Maybe Text)
+    , _asvigAppsId :: !Text
+    , _asvigServicesId :: !Text
+    , _asvigCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsInstancesGet' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ appsServicesVersionsInstancesGet
     -> Text -- ^ 'asvigAppsId'
     -> Text -- ^ 'asvigServicesId'
     -> AppsServicesVersionsInstancesGet
-appsServicesVersionsInstancesGet pAsvigInstancesId_ pAsvigVersionsId_ pAsvigAppsId_ pAsvigServicesId_ =
+appsServicesVersionsInstancesGet pAsvigInstancesId_ pAsvigVersionsId_ pAsvigAppsId_ pAsvigServicesId_ = 
     AppsServicesVersionsInstancesGet'
     { _asvigXgafv = Nothing
     , _asvigInstancesId = pAsvigInstancesId_
@@ -135,7 +135,7 @@ appsServicesVersionsInstancesGet pAsvigInstancesId_ pAsvigVersionsId_ pAsvigApps
     }
 
 -- | V1 error format.
-asvigXgafv :: Lens' AppsServicesVersionsInstancesGet (Maybe Text)
+asvigXgafv :: Lens' AppsServicesVersionsInstancesGet (Maybe Xgafv)
 asvigXgafv
   = lens _asvigXgafv (\ s a -> s{_asvigXgafv = a})
 

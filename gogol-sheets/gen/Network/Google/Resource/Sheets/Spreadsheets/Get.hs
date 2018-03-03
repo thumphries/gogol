@@ -55,8 +55,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Get
     , sgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.get@ method which the
 -- 'SpreadsheetsGet' request conforms to.
@@ -89,16 +89,16 @@ type SpreadsheetsGetResource =
 --
 -- /See:/ 'spreadsheetsGet' smart constructor.
 data SpreadsheetsGet = SpreadsheetsGet'
-    { _sgXgafv           :: !(Maybe Xgafv)
-    , _sgUploadProtocol  :: !(Maybe Text)
-    , _sgPp              :: !Bool
-    , _sgAccessToken     :: !(Maybe Text)
-    , _sgSpreadsheetId   :: !Text
-    , _sgUploadType      :: !(Maybe Text)
-    , _sgRanges          :: !(Maybe [Text])
+    { _sgXgafv :: !(Maybe Xgafv)
+    , _sgUploadProtocol :: !(Maybe Text)
+    , _sgPp :: !Bool
+    , _sgAccessToken :: !(Maybe Text)
+    , _sgSpreadsheetId :: !Text
+    , _sgUploadType :: !(Maybe Text)
+    , _sgRanges :: !(Maybe [Text])
     , _sgIncludeGridData :: !(Maybe Bool)
-    , _sgBearerToken     :: !(Maybe Text)
-    , _sgCallback        :: !(Maybe Text)
+    , _sgBearerToken :: !(Maybe Text)
+    , _sgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsGet' with the minimum fields required to make a request.
@@ -127,7 +127,7 @@ data SpreadsheetsGet = SpreadsheetsGet'
 spreadsheetsGet
     :: Text -- ^ 'sgSpreadsheetId'
     -> SpreadsheetsGet
-spreadsheetsGet pSgSpreadsheetId_ =
+spreadsheetsGet pSgSpreadsheetId_ = 
     SpreadsheetsGet'
     { _sgXgafv = Nothing
     , _sgUploadProtocol = Nothing
@@ -201,6 +201,7 @@ instance GoogleRequest SpreadsheetsGet where
         type Rs SpreadsheetsGet = Spreadsheet
         type Scopes SpreadsheetsGet =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/spreadsheets",
                "https://www.googleapis.com/auth/spreadsheets.readonly"]

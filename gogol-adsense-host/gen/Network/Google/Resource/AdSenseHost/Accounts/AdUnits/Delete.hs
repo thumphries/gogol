@@ -39,8 +39,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.AdUnits.Delete
     , aaudAccountId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.adunits.delete@ method which the
 -- 'AccountsAdUnitsDelete' request conforms to.
@@ -60,9 +60,9 @@ type AccountsAdUnitsDeleteResource =
 --
 -- /See:/ 'accountsAdUnitsDelete' smart constructor.
 data AccountsAdUnitsDelete = AccountsAdUnitsDelete'
-    { _aaudAdUnitId   :: !Text
+    { _aaudAdUnitId :: !Text
     , _aaudAdClientId :: !Text
-    , _aaudAccountId  :: !Text
+    , _aaudAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsAdUnitsDelete' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ accountsAdUnitsDelete
     -> Text -- ^ 'aaudAdClientId'
     -> Text -- ^ 'aaudAccountId'
     -> AccountsAdUnitsDelete
-accountsAdUnitsDelete pAaudAdUnitId_ pAaudAdClientId_ pAaudAccountId_ =
+accountsAdUnitsDelete pAaudAdUnitId_ pAaudAdClientId_ pAaudAccountId_ = 
     AccountsAdUnitsDelete'
     { _aaudAdUnitId = pAaudAdUnitId_
     , _aaudAdClientId = pAaudAdClientId_

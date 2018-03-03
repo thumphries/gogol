@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.RemarketingLists.Patch
     , rlpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.remarketingLists.patch@ method which the
 -- 'RemarketingListsPatch' request conforms to.
 type RemarketingListsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "remarketingLists" :>
@@ -61,8 +61,8 @@ type RemarketingListsPatchResource =
 -- /See:/ 'remarketingListsPatch' smart constructor.
 data RemarketingListsPatch = RemarketingListsPatch'
     { _rlpProFileId :: !(Textual Int64)
-    , _rlpPayload   :: !RemarketingList
-    , _rlpId        :: !(Textual Int64)
+    , _rlpPayload :: !RemarketingList
+    , _rlpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemarketingListsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ remarketingListsPatch
     -> RemarketingList -- ^ 'rlpPayload'
     -> Int64 -- ^ 'rlpId'
     -> RemarketingListsPatch
-remarketingListsPatch pRlpProFileId_ pRlpPayload_ pRlpId_ =
+remarketingListsPatch pRlpProFileId_ pRlpPayload_ pRlpId_ = 
     RemarketingListsPatch'
     { _rlpProFileId = _Coerce # pRlpProFileId_
     , _rlpPayload = pRlpPayload_

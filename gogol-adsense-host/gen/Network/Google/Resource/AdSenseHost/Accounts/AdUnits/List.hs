@@ -40,8 +40,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.AdUnits.List
     , aaulMaxResults
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.adunits.list@ method which the
 -- 'AccountsAdUnitsList' request conforms to.
@@ -63,10 +63,10 @@ type AccountsAdUnitsListResource =
 -- /See:/ 'accountsAdUnitsList' smart constructor.
 data AccountsAdUnitsList = AccountsAdUnitsList'
     { _aaulIncludeInactive :: !(Maybe Bool)
-    , _aaulAdClientId      :: !Text
-    , _aaulAccountId       :: !Text
-    , _aaulPageToken       :: !(Maybe Text)
-    , _aaulMaxResults      :: !(Maybe (Textual Word32))
+    , _aaulAdClientId :: !Text
+    , _aaulAccountId :: !Text
+    , _aaulPageToken :: !(Maybe Text)
+    , _aaulMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsAdUnitsList' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ accountsAdUnitsList
     :: Text -- ^ 'aaulAdClientId'
     -> Text -- ^ 'aaulAccountId'
     -> AccountsAdUnitsList
-accountsAdUnitsList pAaulAdClientId_ pAaulAccountId_ =
+accountsAdUnitsList pAaulAdClientId_ pAaulAccountId_ = 
     AccountsAdUnitsList'
     { _aaulIncludeInactive = Nothing
     , _aaulAdClientId = pAaulAdClientId_

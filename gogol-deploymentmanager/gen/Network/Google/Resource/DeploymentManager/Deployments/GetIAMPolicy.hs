@@ -38,8 +38,8 @@ module Network.Google.Resource.DeploymentManager.Deployments.GetIAMPolicy
     , dgipResource
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.deployments.getIamPolicy@ method which the
 -- 'DeploymentsGetIAMPolicy' request conforms to.
@@ -59,7 +59,7 @@ type DeploymentsGetIAMPolicyResource =
 --
 -- /See:/ 'deploymentsGetIAMPolicy' smart constructor.
 data DeploymentsGetIAMPolicy = DeploymentsGetIAMPolicy'
-    { _dgipProject  :: !Text
+    { _dgipProject :: !Text
     , _dgipResource :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ deploymentsGetIAMPolicy
     :: Text -- ^ 'dgipProject'
     -> Text -- ^ 'dgipResource'
     -> DeploymentsGetIAMPolicy
-deploymentsGetIAMPolicy pDgipProject_ pDgipResource_ =
+deploymentsGetIAMPolicy pDgipProject_ pDgipResource_ = 
     DeploymentsGetIAMPolicy'
     { _dgipProject = pDgipProject_
     , _dgipResource = pDgipResource_

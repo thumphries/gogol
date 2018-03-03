@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Tracks.List
     , etlEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.tracks.list@ method which the
 -- 'EditsTracksList' request conforms to.
@@ -58,7 +58,7 @@ type EditsTracksListResource =
 -- /See:/ 'editsTracksList' smart constructor.
 data EditsTracksList = EditsTracksList'
     { _etlPackageName :: !Text
-    , _etlEditId      :: !Text
+    , _etlEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTracksList' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ editsTracksList
     :: Text -- ^ 'etlPackageName'
     -> Text -- ^ 'etlEditId'
     -> EditsTracksList
-editsTracksList pEtlPackageName_ pEtlEditId_ =
+editsTracksList pEtlPackageName_ pEtlEditId_ = 
     EditsTracksList'
     { _etlPackageName = pEtlPackageName_
     , _etlEditId = pEtlEditId_

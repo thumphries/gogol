@@ -14,8 +14,8 @@ cabal-version:         >= 1.10
 extra-source-files:    README.md src/.gitkeep
 
 description:
-    Retrieves Google Developers Console billing accounts and associates them
-    with projects.
+    Allows developers to manage billing for their Google Cloud Platform
+    projects programmatically.
     .
     /Warning:/ This is an experimental prototype/preview release which is still
     under exploratory development and not intended for public use, caveat emptor!
@@ -41,11 +41,13 @@ library
         , Network.Google.Resource.CloudBilling.BillingAccounts.Projects.List
         , Network.Google.Resource.CloudBilling.Projects.GetBillingInfo
         , Network.Google.Resource.CloudBilling.Projects.UpdateBillingInfo
+        , Network.Google.Resource.CloudBilling.Services.List
+        , Network.Google.Resource.CloudBilling.Services.SKUs.List
 
     other-modules:
           Network.Google.Billing.Types.Product
         , Network.Google.Billing.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

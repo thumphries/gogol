@@ -36,10 +36,11 @@ module Network.Google.Resource.Drive.Files.Watch
     , fwPayload
     , fwAcknowledgeAbuse
     , fwFileId
+    , fwSupportsTeamDrives
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.files.watch@ method which the
 -- 'FilesWatch' request conforms to.
@@ -50,8 +51,9 @@ type FilesWatchResource =
            Capture "fileId" Text :>
              "watch" :>
                QueryParam "acknowledgeAbuse" Bool :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] Channel :> Post '[JSON] Channel
+                 QueryParam "supportsTeamDrives" Bool :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] Channel :> Post '[JSON] Channel
        :<|>
        "drive" :>
          "v3" :>
@@ -59,16 +61,18 @@ type FilesWatchResource =
              Capture "fileId" Text :>
                "watch" :>
                  QueryParam "acknowledgeAbuse" Bool :>
-                   QueryParam "alt" AltMedia :>
-                     Post '[OctetStream] Stream
+                   QueryParam "supportsTeamDrives" Bool :>
+                     QueryParam "alt" AltMedia :>
+                       Post '[OctetStream] Stream
 
 -- | Subscribes to changes to a file
 --
 -- /See:/ 'filesWatch' smart constructor.
 data FilesWatch = FilesWatch'
-    { _fwPayload          :: !Channel
+    { _fwPayload :: !Channel
     , _fwAcknowledgeAbuse :: !Bool
-    , _fwFileId           :: !Text
+    , _fwFileId :: !Text
+    , _fwSupportsTeamDrives :: !Bool
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FilesWatch' with the minimum fields required to make a request.
@@ -80,15 +84,18 @@ data FilesWatch = FilesWatch'
 -- * 'fwAcknowledgeAbuse'
 --
 -- * 'fwFileId'
+--
+-- * 'fwSupportsTeamDrives'
 filesWatch
     :: Channel -- ^ 'fwPayload'
     -> Text -- ^ 'fwFileId'
     -> FilesWatch
-filesWatch pFwPayload_ pFwFileId_ =
+filesWatch pFwPayload_ pFwFileId_ = 
     FilesWatch'
     { _fwPayload = pFwPayload_
     , _fwAcknowledgeAbuse = False
     , _fwFileId = pFwFileId_
+    , _fwSupportsTeamDrives = False
     }
 
 -- | Multipart request metadata.
@@ -107,6 +114,12 @@ fwAcknowledgeAbuse
 fwFileId :: Lens' FilesWatch Text
 fwFileId = lens _fwFileId (\ s a -> s{_fwFileId = a})
 
+-- | Whether the requesting application supports Team Drives.
+fwSupportsTeamDrives :: Lens' FilesWatch Bool
+fwSupportsTeamDrives
+  = lens _fwSupportsTeamDrives
+      (\ s a -> s{_fwSupportsTeamDrives = a})
+
 instance GoogleRequest FilesWatch where
         type Rs FilesWatch = Channel
         type Scopes FilesWatch =
@@ -119,6 +132,7 @@ instance GoogleRequest FilesWatch where
                "https://www.googleapis.com/auth/drive.readonly"]
         requestClient FilesWatch'{..}
           = go _fwFileId (Just _fwAcknowledgeAbuse)
+              (Just _fwSupportsTeamDrives)
               (Just AltJSON)
               _fwPayload
               driveService
@@ -133,6 +147,7 @@ instance GoogleRequest (MediaDownload FilesWatch)
              Scopes FilesWatch
         requestClient (MediaDownload FilesWatch'{..})
           = go _fwFileId (Just _fwAcknowledgeAbuse)
+              (Just _fwSupportsTeamDrives)
               (Just AltMedia)
               driveService
           where _ :<|> go

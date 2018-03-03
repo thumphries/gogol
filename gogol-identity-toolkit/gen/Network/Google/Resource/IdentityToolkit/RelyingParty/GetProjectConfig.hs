@@ -37,8 +37,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.GetProjectConfig
     , rpgpcProjectNumber
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.getProjectConfig@ method which the
 -- 'RelyingPartyGetProjectConfig' request conforms to.
@@ -58,7 +58,7 @@ type RelyingPartyGetProjectConfigResource =
 -- /See:/ 'relyingPartyGetProjectConfig' smart constructor.
 data RelyingPartyGetProjectConfig = RelyingPartyGetProjectConfig'
     { _rpgpcDelegatedProjectNumber :: !(Maybe Text)
-    , _rpgpcProjectNumber          :: !(Maybe Text)
+    , _rpgpcProjectNumber :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RelyingPartyGetProjectConfig' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data RelyingPartyGetProjectConfig = RelyingPartyGetProjectConfig'
 -- * 'rpgpcProjectNumber'
 relyingPartyGetProjectConfig
     :: RelyingPartyGetProjectConfig
-relyingPartyGetProjectConfig =
+relyingPartyGetProjectConfig = 
     RelyingPartyGetProjectConfig'
     { _rpgpcDelegatedProjectNumber = Nothing
     , _rpgpcProjectNumber = Nothing

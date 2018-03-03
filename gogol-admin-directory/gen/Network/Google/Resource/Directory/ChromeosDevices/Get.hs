@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.ChromeosDevices.Get
     , cdgProjection
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.chromeosdevices.get@ method which the
 -- 'ChromeosDevicesGet' request conforms to.
@@ -62,7 +62,7 @@ type ChromeosDevicesGetResource =
 -- /See:/ 'chromeosDevicesGet' smart constructor.
 data ChromeosDevicesGet = ChromeosDevicesGet'
     { _cdgCustomerId :: !Text
-    , _cdgDeviceId   :: !Text
+    , _cdgDeviceId :: !Text
     , _cdgProjection :: !(Maybe ChromeosDevicesGetProjection)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,20 +79,20 @@ chromeosDevicesGet
     :: Text -- ^ 'cdgCustomerId'
     -> Text -- ^ 'cdgDeviceId'
     -> ChromeosDevicesGet
-chromeosDevicesGet pCdgCustomerId_ pCdgDeviceId_ =
+chromeosDevicesGet pCdgCustomerId_ pCdgDeviceId_ = 
     ChromeosDevicesGet'
     { _cdgCustomerId = pCdgCustomerId_
     , _cdgDeviceId = pCdgDeviceId_
     , _cdgProjection = Nothing
     }
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 cdgCustomerId :: Lens' ChromeosDevicesGet Text
 cdgCustomerId
   = lens _cdgCustomerId
       (\ s a -> s{_cdgCustomerId = a})
 
--- | Immutable id of Chrome OS Device
+-- | Immutable ID of Chrome OS Device
 cdgDeviceId :: Lens' ChromeosDevicesGet Text
 cdgDeviceId
   = lens _cdgDeviceId (\ s a -> s{_cdgDeviceId = a})

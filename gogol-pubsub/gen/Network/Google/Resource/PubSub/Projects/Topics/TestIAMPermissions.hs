@@ -22,7 +22,10 @@
 --
 -- Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ <https://cloud.google.com/pubsub/docs Google Cloud Pub/Sub API Reference> for @pubsub.projects.topics.testIamPermissions@.
 module Network.Google.Resource.PubSub.Projects.Topics.TestIAMPermissions
@@ -46,8 +49,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.TestIAMPermissions
     , pttipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.testIamPermissions@ method which the
 -- 'ProjectsTopicsTestIAMPermissions' request conforms to.
@@ -67,19 +70,22 @@ type ProjectsTopicsTestIAMPermissionsResource =
 
 -- | Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ 'projectsTopicsTestIAMPermissions' smart constructor.
 data ProjectsTopicsTestIAMPermissions = ProjectsTopicsTestIAMPermissions'
-    { _pttipXgafv          :: !(Maybe Xgafv)
+    { _pttipXgafv :: !(Maybe Xgafv)
     , _pttipUploadProtocol :: !(Maybe Text)
-    , _pttipPp             :: !Bool
-    , _pttipAccessToken    :: !(Maybe Text)
-    , _pttipUploadType     :: !(Maybe Text)
-    , _pttipPayload        :: !TestIAMPermissionsRequest
-    , _pttipBearerToken    :: !(Maybe Text)
-    , _pttipResource       :: !Text
-    , _pttipCallback       :: !(Maybe Text)
+    , _pttipPp :: !Bool
+    , _pttipAccessToken :: !(Maybe Text)
+    , _pttipUploadType :: !(Maybe Text)
+    , _pttipPayload :: !TestIAMPermissionsRequest
+    , _pttipBearerToken :: !(Maybe Text)
+    , _pttipResource :: !Text
+    , _pttipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsTestIAMPermissions' with the minimum fields required to make a request.
@@ -107,7 +113,7 @@ projectsTopicsTestIAMPermissions
     :: TestIAMPermissionsRequest -- ^ 'pttipPayload'
     -> Text -- ^ 'pttipResource'
     -> ProjectsTopicsTestIAMPermissions
-projectsTopicsTestIAMPermissions pPttipPayload_ pPttipResource_ =
+projectsTopicsTestIAMPermissions pPttipPayload_ pPttipResource_ = 
     ProjectsTopicsTestIAMPermissions'
     { _pttipXgafv = Nothing
     , _pttipUploadProtocol = Nothing
@@ -159,8 +165,8 @@ pttipBearerToken
       (\ s a -> s{_pttipBearerToken = a})
 
 -- | REQUIRED: The resource for which the policy detail is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- See the operation documentation for the appropriate value for this
+-- field.
 pttipResource :: Lens' ProjectsTopicsTestIAMPermissions Text
 pttipResource
   = lens _pttipResource

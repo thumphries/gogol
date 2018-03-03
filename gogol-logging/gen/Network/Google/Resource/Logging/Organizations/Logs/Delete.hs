@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes all the log entries in a log. The log reappears if it receives
--- new entries.
+-- new entries. Log entries written shortly before the delete operation
+-- might not be deleted.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.organizations.logs.delete@.
 module Network.Google.Resource.Logging.Organizations.Logs.Delete
@@ -44,8 +45,8 @@ module Network.Google.Resource.Logging.Organizations.Logs.Delete
     , oldCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.organizations.logs.delete@ method which the
 -- 'OrganizationsLogsDelete' request conforms to.
@@ -62,18 +63,19 @@ type OrganizationsLogsDeleteResource =
                        QueryParam "alt" AltJSON :> Delete '[JSON] Empty
 
 -- | Deletes all the log entries in a log. The log reappears if it receives
--- new entries.
+-- new entries. Log entries written shortly before the delete operation
+-- might not be deleted.
 --
 -- /See:/ 'organizationsLogsDelete' smart constructor.
 data OrganizationsLogsDelete = OrganizationsLogsDelete'
-    { _oldXgafv          :: !(Maybe Xgafv)
+    { _oldXgafv :: !(Maybe Xgafv)
     , _oldUploadProtocol :: !(Maybe Text)
-    , _oldPp             :: !Bool
-    , _oldAccessToken    :: !(Maybe Text)
-    , _oldUploadType     :: !(Maybe Text)
-    , _oldBearerToken    :: !(Maybe Text)
-    , _oldLogName        :: !Text
-    , _oldCallback       :: !(Maybe Text)
+    , _oldPp :: !Bool
+    , _oldAccessToken :: !(Maybe Text)
+    , _oldUploadType :: !(Maybe Text)
+    , _oldBearerToken :: !(Maybe Text)
+    , _oldLogName :: !Text
+    , _oldCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrganizationsLogsDelete' with the minimum fields required to make a request.
@@ -98,7 +100,7 @@ data OrganizationsLogsDelete = OrganizationsLogsDelete'
 organizationsLogsDelete
     :: Text -- ^ 'oldLogName'
     -> OrganizationsLogsDelete
-organizationsLogsDelete pOldLogName_ =
+organizationsLogsDelete pOldLogName_ = 
     OrganizationsLogsDelete'
     { _oldXgafv = Nothing
     , _oldUploadProtocol = Nothing
@@ -144,8 +146,10 @@ oldBearerToken
 
 -- | Required. The resource name of the log to delete:
 -- \"projects\/[PROJECT_ID]\/logs\/[LOG_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/logs\/[LOG_ID]\" [LOG_ID] must be
--- URL-encoded. For example, \"projects\/my-project-id\/logs\/syslog\",
+-- \"organizations\/[ORGANIZATION_ID]\/logs\/[LOG_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/logs\/[LOG_ID]\"
+-- \"folders\/[FOLDER_ID]\/logs\/[LOG_ID]\" [LOG_ID] must be URL-encoded.
+-- For example, \"projects\/my-project-id\/logs\/syslog\",
 -- \"organizations\/1234567890\/logs\/cloudresourcemanager.googleapis.com%2Factivity\".
 -- For more information about log names, see LogEntry.
 oldLogName :: Lens' OrganizationsLogsDelete Text

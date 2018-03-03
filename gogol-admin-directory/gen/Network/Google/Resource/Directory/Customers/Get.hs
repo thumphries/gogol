@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Customers.Get
     , cgCustomerKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.customers.get@ method which the
 -- 'CustomersGet' request conforms to.
@@ -64,7 +64,7 @@ newtype CustomersGet = CustomersGet'
 customersGet
     :: Text -- ^ 'cgCustomerKey'
     -> CustomersGet
-customersGet pCgCustomerKey_ =
+customersGet pCgCustomerKey_ = 
     CustomersGet'
     { _cgCustomerKey = pCgCustomerKey_
     }

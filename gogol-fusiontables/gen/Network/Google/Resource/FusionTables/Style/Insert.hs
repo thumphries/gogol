@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Style.Insert
     , siTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.style.insert@ method which the
 -- 'StyleInsert' request conforms to.
@@ -71,7 +71,7 @@ styleInsert
     :: StyleSetting -- ^ 'siPayload'
     -> Text -- ^ 'siTableId'
     -> StyleInsert
-styleInsert pSiPayload_ pSiTableId_ =
+styleInsert pSiPayload_ pSiTableId_ = 
     StyleInsert'
     { _siPayload = pSiPayload_
     , _siTableId = pSiTableId_

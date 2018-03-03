@@ -34,12 +34,12 @@ module Network.Google.Resource.Content.Accounts.Custombatch
     , AccountsCustombatch
 
     -- * Request Lenses
-    , aaPayload
-    , aaDryRun
+    , accPayload
+    , accDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.accounts.custombatch@ method which the
 -- 'AccountsCustombatch' request conforms to.
@@ -58,34 +58,35 @@ type AccountsCustombatchResource =
 --
 -- /See:/ 'accountsCustombatch' smart constructor.
 data AccountsCustombatch = AccountsCustombatch'
-    { _aaPayload :: !AccountsCustomBatchRequest
-    , _aaDryRun  :: !(Maybe Bool)
+    { _accPayload :: !AccountsCustomBatchRequest
+    , _accDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsCustombatch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaPayload'
+-- * 'accPayload'
 --
--- * 'aaDryRun'
+-- * 'accDryRun'
 accountsCustombatch
-    :: AccountsCustomBatchRequest -- ^ 'aaPayload'
+    :: AccountsCustomBatchRequest -- ^ 'accPayload'
     -> AccountsCustombatch
-accountsCustombatch pAaPayload_ =
+accountsCustombatch pAccPayload_ = 
     AccountsCustombatch'
-    { _aaPayload = pAaPayload_
-    , _aaDryRun = Nothing
+    { _accPayload = pAccPayload_
+    , _accDryRun = Nothing
     }
 
 -- | Multipart request metadata.
-aaPayload :: Lens' AccountsCustombatch AccountsCustomBatchRequest
-aaPayload
-  = lens _aaPayload (\ s a -> s{_aaPayload = a})
+accPayload :: Lens' AccountsCustombatch AccountsCustomBatchRequest
+accPayload
+  = lens _accPayload (\ s a -> s{_accPayload = a})
 
 -- | Flag to run the request in dry-run mode.
-aaDryRun :: Lens' AccountsCustombatch (Maybe Bool)
-aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a})
+accDryRun :: Lens' AccountsCustombatch (Maybe Bool)
+accDryRun
+  = lens _accDryRun (\ s a -> s{_accDryRun = a})
 
 instance GoogleRequest AccountsCustombatch where
         type Rs AccountsCustombatch =
@@ -93,7 +94,7 @@ instance GoogleRequest AccountsCustombatch where
         type Scopes AccountsCustombatch =
              '["https://www.googleapis.com/auth/content"]
         requestClient AccountsCustombatch'{..}
-          = go _aaDryRun (Just AltJSON) _aaPayload
+          = go _accDryRun (Just AltJSON) _accPayload
               shoppingContentService
           where go
                   = buildClient

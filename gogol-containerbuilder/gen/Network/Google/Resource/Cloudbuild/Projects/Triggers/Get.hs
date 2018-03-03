@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a BuildTrigger. This API is experimental.
+-- Returns information about a \`BuildTrigger\`. This API is experimental.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.get@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.get@.
 module Network.Google.Resource.Cloudbuild.Projects.Triggers.Get
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Triggers.Get
     , ptgCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.triggers.get@ method which the
 -- 'ProjectsTriggersGet' request conforms to.
@@ -65,19 +65,19 @@ type ProjectsTriggersGetResource =
                              QueryParam "alt" AltJSON :>
                                Get '[JSON] BuildTrigger
 
--- | Gets information about a BuildTrigger. This API is experimental.
+-- | Returns information about a \`BuildTrigger\`. This API is experimental.
 --
 -- /See:/ 'projectsTriggersGet' smart constructor.
 data ProjectsTriggersGet = ProjectsTriggersGet'
-    { _ptgXgafv          :: !(Maybe Xgafv)
+    { _ptgXgafv :: !(Maybe Xgafv)
     , _ptgUploadProtocol :: !(Maybe Text)
-    , _ptgTriggerId      :: !Text
-    , _ptgPp             :: !Bool
-    , _ptgAccessToken    :: !(Maybe Text)
-    , _ptgUploadType     :: !(Maybe Text)
-    , _ptgBearerToken    :: !(Maybe Text)
-    , _ptgProjectId      :: !Text
-    , _ptgCallback       :: !(Maybe Text)
+    , _ptgTriggerId :: !Text
+    , _ptgPp :: !Bool
+    , _ptgAccessToken :: !(Maybe Text)
+    , _ptgUploadType :: !(Maybe Text)
+    , _ptgBearerToken :: !(Maybe Text)
+    , _ptgProjectId :: !Text
+    , _ptgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTriggersGet' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsTriggersGet
     :: Text -- ^ 'ptgTriggerId'
     -> Text -- ^ 'ptgProjectId'
     -> ProjectsTriggersGet
-projectsTriggersGet pPtgTriggerId_ pPtgProjectId_ =
+projectsTriggersGet pPtgTriggerId_ pPtgProjectId_ = 
     ProjectsTriggersGet'
     { _ptgXgafv = Nothing
     , _ptgUploadProtocol = Nothing
@@ -128,7 +128,7 @@ ptgUploadProtocol
   = lens _ptgUploadProtocol
       (\ s a -> s{_ptgUploadProtocol = a})
 
--- | ID of the BuildTrigger to get.
+-- | ID of the \`BuildTrigger\` to get.
 ptgTriggerId :: Lens' ProjectsTriggersGet Text
 ptgTriggerId
   = lens _ptgTriggerId (\ s a -> s{_ptgTriggerId = a})

@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTubeAnalytics.GroupItems.List
     , gilGroupId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groupItems.list@ method which the
 -- 'GroupItemsList' request conforms to.
@@ -59,7 +59,7 @@ type GroupItemsListResource =
 -- /See:/ 'groupItemsList' smart constructor.
 data GroupItemsList = GroupItemsList'
     { _gilOnBehalfOfContentOwner :: !(Maybe Text)
-    , _gilGroupId                :: !Text
+    , _gilGroupId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupItemsList' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data GroupItemsList = GroupItemsList'
 groupItemsList
     :: Text -- ^ 'gilGroupId'
     -> GroupItemsList
-groupItemsList pGilGroupId_ =
+groupItemsList pGilGroupId_ = 
     GroupItemsList'
     { _gilOnBehalfOfContentOwner = Nothing
     , _gilGroupId = pGilGroupId_

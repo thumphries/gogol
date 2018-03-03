@@ -39,8 +39,8 @@ module Network.Google.Resource.YouTube.LiveBroadcasts.Insert
     , lbiOnBehalfOfContentOwnerChannel
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveBroadcasts.insert@ method which the
 -- 'LiveBroadcastsInsert' request conforms to.
@@ -59,9 +59,9 @@ type LiveBroadcastsInsertResource =
 --
 -- /See:/ 'liveBroadcastsInsert' smart constructor.
 data LiveBroadcastsInsert = LiveBroadcastsInsert'
-    { _lbiPart                          :: !Text
-    , _lbiPayload                       :: !LiveBroadcast
-    , _lbiOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _lbiPart :: !Text
+    , _lbiPayload :: !LiveBroadcast
+    , _lbiOnBehalfOfContentOwner :: !(Maybe Text)
     , _lbiOnBehalfOfContentOwnerChannel :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ liveBroadcastsInsert
     :: Text -- ^ 'lbiPart'
     -> LiveBroadcast -- ^ 'lbiPayload'
     -> LiveBroadcastsInsert
-liveBroadcastsInsert pLbiPart_ pLbiPayload_ =
+liveBroadcastsInsert pLbiPart_ pLbiPayload_ = 
     LiveBroadcastsInsert'
     { _lbiPart = pLbiPart_
     , _lbiPayload = pLbiPayload_

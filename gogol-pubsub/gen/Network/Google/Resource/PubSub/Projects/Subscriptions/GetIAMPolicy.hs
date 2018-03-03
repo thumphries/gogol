@@ -44,8 +44,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.GetIAMPolicy
     , psgiampCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.getIamPolicy@ method which the
 -- 'ProjectsSubscriptionsGetIAMPolicy' request conforms to.
@@ -66,14 +66,14 @@ type ProjectsSubscriptionsGetIAMPolicyResource =
 --
 -- /See:/ 'projectsSubscriptionsGetIAMPolicy' smart constructor.
 data ProjectsSubscriptionsGetIAMPolicy = ProjectsSubscriptionsGetIAMPolicy'
-    { _psgiampXgafv          :: !(Maybe Xgafv)
+    { _psgiampXgafv :: !(Maybe Xgafv)
     , _psgiampUploadProtocol :: !(Maybe Text)
-    , _psgiampPp             :: !Bool
-    , _psgiampAccessToken    :: !(Maybe Text)
-    , _psgiampUploadType     :: !(Maybe Text)
-    , _psgiampBearerToken    :: !(Maybe Text)
-    , _psgiampResource       :: !Text
-    , _psgiampCallback       :: !(Maybe Text)
+    , _psgiampPp :: !Bool
+    , _psgiampAccessToken :: !(Maybe Text)
+    , _psgiampUploadType :: !(Maybe Text)
+    , _psgiampBearerToken :: !(Maybe Text)
+    , _psgiampResource :: !Text
+    , _psgiampCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsGetIAMPolicy' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ProjectsSubscriptionsGetIAMPolicy = ProjectsSubscriptionsGetIAMPolicy'
 projectsSubscriptionsGetIAMPolicy
     :: Text -- ^ 'psgiampResource'
     -> ProjectsSubscriptionsGetIAMPolicy
-projectsSubscriptionsGetIAMPolicy pPsgiampResource_ =
+projectsSubscriptionsGetIAMPolicy pPsgiampResource_ = 
     ProjectsSubscriptionsGetIAMPolicy'
     { _psgiampXgafv = Nothing
     , _psgiampUploadProtocol = Nothing
@@ -144,9 +144,8 @@ psgiampBearerToken
   = lens _psgiampBearerToken
       (\ s a -> s{_psgiampBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being requested. See the
+-- operation documentation for the appropriate value for this field.
 psgiampResource :: Lens' ProjectsSubscriptionsGetIAMPolicy Text
 psgiampResource
   = lens _psgiampResource

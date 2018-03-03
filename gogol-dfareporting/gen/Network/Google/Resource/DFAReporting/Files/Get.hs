@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a report file by its report ID and file ID.
+-- Retrieves a report file by its report ID and file ID. This method
+-- supports media download.
 --
 -- /See:/ <https://developers.google.com/doubleclick-advertisers/ DCM/DFA Reporting And Trafficking API Reference> for @dfareporting.files.get@.
 module Network.Google.Resource.DFAReporting.Files.Get
@@ -37,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Files.Get
     , fgFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.files.get@ method which the
 -- 'FilesGet' request conforms to.
 type FilesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "reports" :>
            Capture "reportId" (Textual Int64) :>
              "files" :>
@@ -52,7 +53,7 @@ type FilesGetResource =
                  QueryParam "alt" AltJSON :> Get '[JSON] File
        :<|>
        "dfareporting" :>
-         "v2.7" :>
+         "v3.0" :>
            "reports" :>
              Capture "reportId" (Textual Int64) :>
                "files" :>
@@ -60,12 +61,13 @@ type FilesGetResource =
                    QueryParam "alt" AltMedia :>
                      Get '[OctetStream] Stream
 
--- | Retrieves a report file by its report ID and file ID.
+-- | Retrieves a report file by its report ID and file ID. This method
+-- supports media download.
 --
 -- /See:/ 'filesGet' smart constructor.
 data FilesGet = FilesGet'
     { _fgReportId :: !(Textual Int64)
-    , _fgFileId   :: !(Textual Int64)
+    , _fgFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FilesGet' with the minimum fields required to make a request.
@@ -79,7 +81,7 @@ filesGet
     :: Int64 -- ^ 'fgReportId'
     -> Int64 -- ^ 'fgFileId'
     -> FilesGet
-filesGet pFgReportId_ pFgFileId_ =
+filesGet pFgReportId_ pFgFileId_ = 
     FilesGet'
     { _fgReportId = _Coerce # pFgReportId_
     , _fgFileId = _Coerce # pFgFileId_

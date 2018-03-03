@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Customers.Update
     , cuPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.customers.update@ method which the
 -- 'CustomersUpdate' request conforms to.
@@ -56,7 +56,7 @@ type CustomersUpdateResource =
 -- /See:/ 'customersUpdate' smart constructor.
 data CustomersUpdate = CustomersUpdate'
     { _cuCustomerKey :: !Text
-    , _cuPayload     :: !Customer
+    , _cuPayload :: !Customer
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomersUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ customersUpdate
     :: Text -- ^ 'cuCustomerKey'
     -> Customer -- ^ 'cuPayload'
     -> CustomersUpdate
-customersUpdate pCuCustomerKey_ pCuPayload_ =
+customersUpdate pCuCustomerKey_ pCuPayload_ = 
     CustomersUpdate'
     { _cuCustomerKey = pCuCustomerKey_
     , _cuPayload = pCuPayload_

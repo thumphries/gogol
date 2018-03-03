@@ -34,12 +34,13 @@ module Network.Google.Resource.Compute.Projects.SetCommonInstanceMetadata
     , ProjectsSetCommonInstanceMetadata
 
     -- * Request Lenses
+    , pscimRequestId
     , pscimProject
     , pscimPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.projects.setCommonInstanceMetadata@ method which the
 -- 'ProjectsSetCommonInstanceMetadata' request conforms to.
@@ -49,21 +50,25 @@ type ProjectsSetCommonInstanceMetadataResource =
          "projects" :>
            Capture "project" Text :>
              "setCommonInstanceMetadata" :>
-               QueryParam "alt" AltJSON :>
-                 ReqBody '[JSON] Metadata :> Post '[JSON] Operation
+               QueryParam "requestId" Text :>
+                 QueryParam "alt" AltJSON :>
+                   ReqBody '[JSON] Metadata :> Post '[JSON] Operation
 
 -- | Sets metadata common to all instances within the specified project using
 -- the data included in the request.
 --
 -- /See:/ 'projectsSetCommonInstanceMetadata' smart constructor.
 data ProjectsSetCommonInstanceMetadata = ProjectsSetCommonInstanceMetadata'
-    { _pscimProject :: !Text
+    { _pscimRequestId :: !(Maybe Text)
+    , _pscimProject :: !Text
     , _pscimPayload :: !Metadata
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSetCommonInstanceMetadata' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pscimRequestId'
 --
 -- * 'pscimProject'
 --
@@ -72,11 +77,27 @@ projectsSetCommonInstanceMetadata
     :: Text -- ^ 'pscimProject'
     -> Metadata -- ^ 'pscimPayload'
     -> ProjectsSetCommonInstanceMetadata
-projectsSetCommonInstanceMetadata pPscimProject_ pPscimPayload_ =
+projectsSetCommonInstanceMetadata pPscimProject_ pPscimPayload_ = 
     ProjectsSetCommonInstanceMetadata'
-    { _pscimProject = pPscimProject_
+    { _pscimRequestId = Nothing
+    , _pscimProject = pPscimProject_
     , _pscimPayload = pPscimPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+pscimRequestId :: Lens' ProjectsSetCommonInstanceMetadata (Maybe Text)
+pscimRequestId
+  = lens _pscimRequestId
+      (\ s a -> s{_pscimRequestId = a})
 
 -- | Project ID for this request.
 pscimProject :: Lens' ProjectsSetCommonInstanceMetadata Text
@@ -95,7 +116,8 @@ instance GoogleRequest
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient ProjectsSetCommonInstanceMetadata'{..}
-          = go _pscimProject (Just AltJSON) _pscimPayload
+          = go _pscimProject _pscimRequestId (Just AltJSON)
+              _pscimPayload
               computeService
           where go
                   = buildClient

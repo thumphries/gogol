@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Products.GetPermissions
     , pgpProductId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.products.getPermissions@ method which the
 -- 'ProductsGetPermissions' request conforms to.
@@ -58,7 +58,7 @@ type ProductsGetPermissionsResource =
 -- /See:/ 'productsGetPermissions' smart constructor.
 data ProductsGetPermissions = ProductsGetPermissions'
     { _pgpEnterpriseId :: !Text
-    , _pgpProductId    :: !Text
+    , _pgpProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductsGetPermissions' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ productsGetPermissions
     :: Text -- ^ 'pgpEnterpriseId'
     -> Text -- ^ 'pgpProductId'
     -> ProductsGetPermissions
-productsGetPermissions pPgpEnterpriseId_ pPgpProductId_ =
+productsGetPermissions pPgpEnterpriseId_ pPgpProductId_ = 
     ProductsGetPermissions'
     { _pgpEnterpriseId = pPgpEnterpriseId_
     , _pgpProductId = pPgpProductId_

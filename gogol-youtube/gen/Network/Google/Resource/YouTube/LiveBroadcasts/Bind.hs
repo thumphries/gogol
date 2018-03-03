@@ -43,8 +43,8 @@ module Network.Google.Resource.YouTube.LiveBroadcasts.Bind
     , lbbStreamId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveBroadcasts.bind@ method which the
 -- 'LiveBroadcastsBind' request conforms to.
@@ -68,11 +68,11 @@ type LiveBroadcastsBindResource =
 --
 -- /See:/ 'liveBroadcastsBind' smart constructor.
 data LiveBroadcastsBind = LiveBroadcastsBind'
-    { _lbbPart                          :: !Text
-    , _lbbOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _lbbPart :: !Text
+    , _lbbOnBehalfOfContentOwner :: !(Maybe Text)
     , _lbbOnBehalfOfContentOwnerChannel :: !(Maybe Text)
-    , _lbbId                            :: !Text
-    , _lbbStreamId                      :: !(Maybe Text)
+    , _lbbId :: !Text
+    , _lbbStreamId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LiveBroadcastsBind' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ liveBroadcastsBind
     :: Text -- ^ 'lbbPart'
     -> Text -- ^ 'lbbId'
     -> LiveBroadcastsBind
-liveBroadcastsBind pLbbPart_ pLbbId_ =
+liveBroadcastsBind pLbbPart_ pLbbId_ = 
     LiveBroadcastsBind'
     { _lbbPart = pLbbPart_
     , _lbbOnBehalfOfContentOwner = Nothing

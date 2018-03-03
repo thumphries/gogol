@@ -37,8 +37,8 @@ module Network.Google.Resource.Webfonts.Webfonts.List
     , wlSort
     ) where
 
-import           Network.Google.Fonts.Types
-import           Network.Google.Prelude
+import Network.Google.Fonts.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @webfonts.webfonts.list@ method which the
 -- 'WebfontsList' request conforms to.
@@ -64,7 +64,7 @@ newtype WebfontsList = WebfontsList'
 -- * 'wlSort'
 webfontsList
     :: WebfontsList
-webfontsList =
+webfontsList = 
     WebfontsList'
     { _wlSort = Nothing
     }

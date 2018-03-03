@@ -53,8 +53,8 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Attachments.BatchDelete
     , babdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.attachments.batchDelete@ method which the
 -- 'BeaconsAttachmentsBatchDelete' request conforms to.
@@ -62,7 +62,7 @@ type BeaconsAttachmentsBatchDeleteResource =
      "v1beta1" :>
        Capture "beaconName" Text :>
          "attachments:batchDelete" :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -86,16 +86,16 @@ type BeaconsAttachmentsBatchDeleteResource =
 --
 -- /See:/ 'beaconsAttachmentsBatchDelete' smart constructor.
 data BeaconsAttachmentsBatchDelete = BeaconsAttachmentsBatchDelete'
-    { _babdXgafv          :: !(Maybe Text)
+    { _babdXgafv :: !(Maybe Xgafv)
     , _babdUploadProtocol :: !(Maybe Text)
-    , _babdPp             :: !Bool
-    , _babdAccessToken    :: !(Maybe Text)
-    , _babdBeaconName     :: !Text
-    , _babdUploadType     :: !(Maybe Text)
-    , _babdBearerToken    :: !(Maybe Text)
+    , _babdPp :: !Bool
+    , _babdAccessToken :: !(Maybe Text)
+    , _babdBeaconName :: !Text
+    , _babdUploadType :: !(Maybe Text)
+    , _babdBearerToken :: !(Maybe Text)
     , _babdNamespacedType :: !(Maybe Text)
-    , _babdProjectId      :: !(Maybe Text)
-    , _babdCallback       :: !(Maybe Text)
+    , _babdProjectId :: !(Maybe Text)
+    , _babdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsAttachmentsBatchDelete' with the minimum fields required to make a request.
@@ -124,7 +124,7 @@ data BeaconsAttachmentsBatchDelete = BeaconsAttachmentsBatchDelete'
 beaconsAttachmentsBatchDelete
     :: Text -- ^ 'babdBeaconName'
     -> BeaconsAttachmentsBatchDelete
-beaconsAttachmentsBatchDelete pBabdBeaconName_ =
+beaconsAttachmentsBatchDelete pBabdBeaconName_ = 
     BeaconsAttachmentsBatchDelete'
     { _babdXgafv = Nothing
     , _babdUploadProtocol = Nothing
@@ -139,7 +139,7 @@ beaconsAttachmentsBatchDelete pBabdBeaconName_ =
     }
 
 -- | V1 error format.
-babdXgafv :: Lens' BeaconsAttachmentsBatchDelete (Maybe Text)
+babdXgafv :: Lens' BeaconsAttachmentsBatchDelete (Maybe Xgafv)
 babdXgafv
   = lens _babdXgafv (\ s a -> s{_babdXgafv = a})
 

@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.ServiceAccountkeys.Delete
     , sadEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.serviceaccountkeys.delete@ method which the
 -- 'ServiceAccountkeysDelete' request conforms to.
@@ -63,7 +63,7 @@ type ServiceAccountkeysDeleteResource =
 --
 -- /See:/ 'serviceAccountkeysDelete' smart constructor.
 data ServiceAccountkeysDelete = ServiceAccountkeysDelete'
-    { _sadKeyId        :: !Text
+    { _sadKeyId :: !Text
     , _sadEnterpriseId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ serviceAccountkeysDelete
     :: Text -- ^ 'sadKeyId'
     -> Text -- ^ 'sadEnterpriseId'
     -> ServiceAccountkeysDelete
-serviceAccountkeysDelete pSadKeyId_ pSadEnterpriseId_ =
+serviceAccountkeysDelete pSadKeyId_ pSadEnterpriseId_ = 
     ServiceAccountkeysDelete'
     { _sadKeyId = pSadKeyId_
     , _sadEnterpriseId = pSadEnterpriseId_

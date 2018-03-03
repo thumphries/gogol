@@ -109,6 +109,7 @@ module Network.Google.PageSpeed
     , rVersion
     , rRuleGroups
     , rPageStats
+    , rCaptchaResult
     , rId
     , rTitle
 
@@ -164,9 +165,9 @@ module Network.Google.PageSpeed
     , rfrrraubiuiDetails
     ) where
 
-import           Network.Google.PageSpeed.Types
-import           Network.Google.Prelude
-import           Network.Google.Resource.PagespeedOnline.PagespeedAPI.RunPagespeed
+import Network.Google.Prelude
+import Network.Google.PageSpeed.Types
+import Network.Google.Resource.PagespeedOnline.PagespeedAPI.RunPagespeed
 
 {- $resources
 TODO

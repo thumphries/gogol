@@ -37,8 +37,8 @@ module Network.Google.Resource.Mirror.Timeline.Patch
     , tpId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.timeline.patch@ method which the
 -- 'TimelinePatch' request conforms to.
@@ -56,7 +56,7 @@ type TimelinePatchResource =
 -- /See:/ 'timelinePatch' smart constructor.
 data TimelinePatch = TimelinePatch'
     { _tpPayload :: !TimelineItem
-    , _tpId      :: !Text
+    , _tpId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TimelinePatch' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ timelinePatch
     :: TimelineItem -- ^ 'tpPayload'
     -> Text -- ^ 'tpId'
     -> TimelinePatch
-timelinePatch pTpPayload_ pTpId_ =
+timelinePatch pTpPayload_ pTpId_ = 
     TimelinePatch'
     { _tpPayload = pTpPayload_
     , _tpId = pTpId_

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Ads.Get
     , adsId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.ads.get@ method which the
 -- 'AdsGet' request conforms to.
 type AdsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "ads" :>
@@ -56,7 +56,7 @@ type AdsGetResource =
 -- /See:/ 'adsGet' smart constructor.
 data AdsGet = AdsGet'
     { _adsProFileId :: !(Textual Int64)
-    , _adsId        :: !(Textual Int64)
+    , _adsId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ adsGet
     :: Int64 -- ^ 'adsProFileId'
     -> Int64 -- ^ 'adsId'
     -> AdsGet
-adsGet pAdsProFileId_ pAdsId_ =
+adsGet pAdsProFileId_ pAdsId_ = 
     AdsGet'
     { _adsProFileId = _Coerce # pAdsProFileId_
     , _adsId = _Coerce # pAdsId_

@@ -67,8 +67,8 @@ module Network.Google.Resource.Classroom.UserProFiles.GuardianInvitations.Create
     , upfgicCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.guardianInvitations.create@ method which the
 -- 'UserProFilesGuardianInvitationsCreate' request conforms to.
@@ -77,7 +77,7 @@ type UserProFilesGuardianInvitationsCreateResource =
        "userProfiles" :>
          Capture "studentId" Text :>
            "guardianInvitations" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -115,15 +115,15 @@ type UserProFilesGuardianInvitationsCreateResource =
 --
 -- /See:/ 'userProFilesGuardianInvitationsCreate' smart constructor.
 data UserProFilesGuardianInvitationsCreate = UserProFilesGuardianInvitationsCreate'
-    { _upfgicStudentId      :: !Text
-    , _upfgicXgafv          :: !(Maybe Text)
+    { _upfgicStudentId :: !Text
+    , _upfgicXgafv :: !(Maybe Xgafv)
     , _upfgicUploadProtocol :: !(Maybe Text)
-    , _upfgicPp             :: !Bool
-    , _upfgicAccessToken    :: !(Maybe Text)
-    , _upfgicUploadType     :: !(Maybe Text)
-    , _upfgicPayload        :: !GuardianInvitation
-    , _upfgicBearerToken    :: !(Maybe Text)
-    , _upfgicCallback       :: !(Maybe Text)
+    , _upfgicPp :: !Bool
+    , _upfgicAccessToken :: !(Maybe Text)
+    , _upfgicUploadType :: !(Maybe Text)
+    , _upfgicPayload :: !GuardianInvitation
+    , _upfgicBearerToken :: !(Maybe Text)
+    , _upfgicCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGuardianInvitationsCreate' with the minimum fields required to make a request.
@@ -151,7 +151,7 @@ userProFilesGuardianInvitationsCreate
     :: Text -- ^ 'upfgicStudentId'
     -> GuardianInvitation -- ^ 'upfgicPayload'
     -> UserProFilesGuardianInvitationsCreate
-userProFilesGuardianInvitationsCreate pUpfgicStudentId_ pUpfgicPayload_ =
+userProFilesGuardianInvitationsCreate pUpfgicStudentId_ pUpfgicPayload_ = 
     UserProFilesGuardianInvitationsCreate'
     { _upfgicStudentId = pUpfgicStudentId_
     , _upfgicXgafv = Nothing
@@ -171,7 +171,7 @@ upfgicStudentId
       (\ s a -> s{_upfgicStudentId = a})
 
 -- | V1 error format.
-upfgicXgafv :: Lens' UserProFilesGuardianInvitationsCreate (Maybe Text)
+upfgicXgafv :: Lens' UserProFilesGuardianInvitationsCreate (Maybe Xgafv)
 upfgicXgafv
   = lens _upfgicXgafv (\ s a -> s{_upfgicXgafv = a})
 
@@ -220,7 +220,7 @@ instance GoogleRequest
         type Rs UserProFilesGuardianInvitationsCreate =
              GuardianInvitation
         type Scopes UserProFilesGuardianInvitationsCreate =
-             '[]
+             '["https://www.googleapis.com/auth/classroom.guardianlinks.students"]
         requestClient
           UserProFilesGuardianInvitationsCreate'{..}
           = go _upfgicStudentId _upfgicXgafv

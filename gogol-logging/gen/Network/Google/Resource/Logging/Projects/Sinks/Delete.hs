@@ -44,8 +44,8 @@ module Network.Google.Resource.Logging.Projects.Sinks.Delete
     , psdCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.sinks.delete@ method which the
 -- 'ProjectsSinksDelete' request conforms to.
@@ -66,14 +66,14 @@ type ProjectsSinksDeleteResource =
 --
 -- /See:/ 'projectsSinksDelete' smart constructor.
 data ProjectsSinksDelete = ProjectsSinksDelete'
-    { _psdXgafv          :: !(Maybe Xgafv)
+    { _psdXgafv :: !(Maybe Xgafv)
     , _psdUploadProtocol :: !(Maybe Text)
-    , _psdPp             :: !Bool
-    , _psdAccessToken    :: !(Maybe Text)
-    , _psdUploadType     :: !(Maybe Text)
-    , _psdBearerToken    :: !(Maybe Text)
-    , _psdSinkName       :: !Text
-    , _psdCallback       :: !(Maybe Text)
+    , _psdPp :: !Bool
+    , _psdAccessToken :: !(Maybe Text)
+    , _psdUploadType :: !(Maybe Text)
+    , _psdBearerToken :: !(Maybe Text)
+    , _psdSinkName :: !Text
+    , _psdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSinksDelete' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ProjectsSinksDelete = ProjectsSinksDelete'
 projectsSinksDelete
     :: Text -- ^ 'psdSinkName'
     -> ProjectsSinksDelete
-projectsSinksDelete pPsdSinkName_ =
+projectsSinksDelete pPsdSinkName_ = 
     ProjectsSinksDelete'
     { _psdXgafv = Nothing
     , _psdUploadProtocol = Nothing
@@ -145,10 +145,10 @@ psdBearerToken
 -- | Required. The full resource name of the sink to delete, including the
 -- parent resource and the sink identifier:
 -- \"projects\/[PROJECT_ID]\/sinks\/[SINK_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\" It is an error if
--- the sink does not exist. Example:
--- \"projects\/my-project-id\/sinks\/my-sink-id\". It is an error if the
--- sink does not exist.
+-- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/sinks\/[SINK_ID]\"
+-- \"folders\/[FOLDER_ID]\/sinks\/[SINK_ID]\" Example:
+-- \"projects\/my-project-id\/sinks\/my-sink-id\".
 psdSinkName :: Lens' ProjectsSinksDelete Text
 psdSinkName
   = lens _psdSinkName (\ s a -> s{_psdSinkName = a})

@@ -36,8 +36,8 @@ module Network.Google.Resource.AdExchangeBuyer.Proposals.Get
     , pgProposalId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.proposals.get@ method which the
 -- 'ProposalsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype ProposalsGet = ProposalsGet'
 proposalsGet
     :: Text -- ^ 'pgProposalId'
     -> ProposalsGet
-proposalsGet pPgProposalId_ =
+proposalsGet pPgProposalId_ = 
     ProposalsGet'
     { _pgProposalId = pPgProposalId_
     }

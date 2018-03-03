@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.Delete
     , udUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.delete@ method which the
 -- 'UsersDelete' request conforms to.
@@ -56,7 +56,7 @@ type UsersDeleteResource =
 -- /See:/ 'usersDelete' smart constructor.
 data UsersDelete = UsersDelete'
     { _udEnterpriseId :: !Text
-    , _udUserId       :: !Text
+    , _udUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ usersDelete
     :: Text -- ^ 'udEnterpriseId'
     -> Text -- ^ 'udUserId'
     -> UsersDelete
-usersDelete pUdEnterpriseId_ pUdUserId_ =
+usersDelete pUdEnterpriseId_ pUdUserId_ = 
     UsersDelete'
     { _udEnterpriseId = pUdEnterpriseId_
     , _udUserId = pUdUserId_

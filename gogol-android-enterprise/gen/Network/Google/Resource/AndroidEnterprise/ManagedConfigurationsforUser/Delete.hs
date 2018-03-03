@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforUser.De
     , mcudManagedConfigurationForUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsforuser.delete@ method which the
 -- 'ManagedConfigurationsforUserDelete' request conforms to.
@@ -60,8 +60,8 @@ type ManagedConfigurationsforUserDeleteResource =
 --
 -- /See:/ 'managedConfigurationsforUserDelete' smart constructor.
 data ManagedConfigurationsforUserDelete = ManagedConfigurationsforUserDelete'
-    { _mcudEnterpriseId                  :: !Text
-    , _mcudUserId                        :: !Text
+    { _mcudEnterpriseId :: !Text
+    , _mcudUserId :: !Text
     , _mcudManagedConfigurationForUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ managedConfigurationsforUserDelete
     -> Text -- ^ 'mcudUserId'
     -> Text -- ^ 'mcudManagedConfigurationForUserId'
     -> ManagedConfigurationsforUserDelete
-managedConfigurationsforUserDelete pMcudEnterpriseId_ pMcudUserId_ pMcudManagedConfigurationForUserId_ =
+managedConfigurationsforUserDelete pMcudEnterpriseId_ pMcudUserId_ pMcudManagedConfigurationForUserId_ = 
     ManagedConfigurationsforUserDelete'
     { _mcudEnterpriseId = pMcudEnterpriseId_
     , _mcudUserId = pMcudUserId_

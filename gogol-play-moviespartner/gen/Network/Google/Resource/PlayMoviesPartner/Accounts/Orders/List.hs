@@ -53,8 +53,8 @@ module Network.Google.Resource.PlayMoviesPartner.Accounts.Orders.List
     , aolCallback
     ) where
 
-import           Network.Google.PlayMoviesPartner.Types
-import           Network.Google.Prelude
+import Network.Google.PlayMoviesPartner.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @playmoviespartner.accounts.orders.list@ method which the
 -- 'AccountsOrdersList' request conforms to.
@@ -65,7 +65,7 @@ type AccountsOrdersListResource =
            "orders" :>
              QueryParams "status" Text :>
                QueryParams "pphNames" Text :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParams "studioNames" Text :>
                      QueryParams "videoIds" Text :>
                        QueryParam "upload_protocol" Text :>
@@ -87,22 +87,22 @@ type AccountsOrdersListResource =
 --
 -- /See:/ 'accountsOrdersList' smart constructor.
 data AccountsOrdersList = AccountsOrdersList'
-    { _aolStatus         :: !(Maybe [Text])
-    , _aolPphNames       :: !(Maybe [Text])
-    , _aolXgafv          :: !(Maybe Text)
-    , _aolStudioNames    :: !(Maybe [Text])
-    , _aolVideoIds       :: !(Maybe [Text])
+    { _aolStatus :: !(Maybe [Text])
+    , _aolPphNames :: !(Maybe [Text])
+    , _aolXgafv :: !(Maybe Xgafv)
+    , _aolStudioNames :: !(Maybe [Text])
+    , _aolVideoIds :: !(Maybe [Text])
     , _aolUploadProtocol :: !(Maybe Text)
-    , _aolPp             :: !Bool
-    , _aolAccessToken    :: !(Maybe Text)
-    , _aolUploadType     :: !(Maybe Text)
-    , _aolCustomId       :: !(Maybe Text)
-    , _aolAccountId      :: !Text
-    , _aolBearerToken    :: !(Maybe Text)
-    , _aolName           :: !(Maybe Text)
-    , _aolPageToken      :: !(Maybe Text)
-    , _aolPageSize       :: !(Maybe (Textual Int32))
-    , _aolCallback       :: !(Maybe Text)
+    , _aolPp :: !Bool
+    , _aolAccessToken :: !(Maybe Text)
+    , _aolUploadType :: !(Maybe Text)
+    , _aolCustomId :: !(Maybe Text)
+    , _aolAccountId :: !Text
+    , _aolBearerToken :: !(Maybe Text)
+    , _aolName :: !(Maybe Text)
+    , _aolPageToken :: !(Maybe Text)
+    , _aolPageSize :: !(Maybe (Textual Int32))
+    , _aolCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsOrdersList' with the minimum fields required to make a request.
@@ -143,7 +143,7 @@ data AccountsOrdersList = AccountsOrdersList'
 accountsOrdersList
     :: Text -- ^ 'aolAccountId'
     -> AccountsOrdersList
-accountsOrdersList pAolAccountId_ =
+accountsOrdersList pAolAccountId_ = 
     AccountsOrdersList'
     { _aolStatus = Nothing
     , _aolPphNames = Nothing
@@ -178,7 +178,7 @@ aolPphNames
       . _Coerce
 
 -- | V1 error format.
-aolXgafv :: Lens' AccountsOrdersList (Maybe Text)
+aolXgafv :: Lens' AccountsOrdersList (Maybe Xgafv)
 aolXgafv = lens _aolXgafv (\ s a -> s{_aolXgafv = a})
 
 -- | See _List methods rules_ for info about this field.

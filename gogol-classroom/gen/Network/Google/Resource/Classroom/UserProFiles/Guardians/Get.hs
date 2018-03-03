@@ -55,8 +55,8 @@ module Network.Google.Resource.Classroom.UserProFiles.Guardians.Get
     , upfggCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.guardians.get@ method which the
 -- 'UserProFilesGuardiansGet' request conforms to.
@@ -66,7 +66,7 @@ type UserProFilesGuardiansGetResource =
          Capture "studentId" Text :>
            "guardians" :>
              Capture "guardianId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -90,15 +90,15 @@ type UserProFilesGuardiansGetResource =
 --
 -- /See:/ 'userProFilesGuardiansGet' smart constructor.
 data UserProFilesGuardiansGet = UserProFilesGuardiansGet'
-    { _upfggStudentId      :: !Text
-    , _upfggXgafv          :: !(Maybe Text)
+    { _upfggStudentId :: !Text
+    , _upfggXgafv :: !(Maybe Xgafv)
     , _upfggUploadProtocol :: !(Maybe Text)
-    , _upfggPp             :: !Bool
-    , _upfggAccessToken    :: !(Maybe Text)
-    , _upfggUploadType     :: !(Maybe Text)
-    , _upfggGuardianId     :: !Text
-    , _upfggBearerToken    :: !(Maybe Text)
-    , _upfggCallback       :: !(Maybe Text)
+    , _upfggPp :: !Bool
+    , _upfggAccessToken :: !(Maybe Text)
+    , _upfggUploadType :: !(Maybe Text)
+    , _upfggGuardianId :: !Text
+    , _upfggBearerToken :: !(Maybe Text)
+    , _upfggCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGuardiansGet' with the minimum fields required to make a request.
@@ -126,7 +126,7 @@ userProFilesGuardiansGet
     :: Text -- ^ 'upfggStudentId'
     -> Text -- ^ 'upfggGuardianId'
     -> UserProFilesGuardiansGet
-userProFilesGuardiansGet pUpfggStudentId_ pUpfggGuardianId_ =
+userProFilesGuardiansGet pUpfggStudentId_ pUpfggGuardianId_ = 
     UserProFilesGuardiansGet'
     { _upfggStudentId = pUpfggStudentId_
     , _upfggXgafv = Nothing
@@ -148,7 +148,7 @@ upfggStudentId
       (\ s a -> s{_upfggStudentId = a})
 
 -- | V1 error format.
-upfggXgafv :: Lens' UserProFilesGuardiansGet (Maybe Text)
+upfggXgafv :: Lens' UserProFilesGuardiansGet (Maybe Xgafv)
 upfggXgafv
   = lens _upfggXgafv (\ s a -> s{_upfggXgafv = a})
 
@@ -194,7 +194,10 @@ upfggCallback
 
 instance GoogleRequest UserProFilesGuardiansGet where
         type Rs UserProFilesGuardiansGet = Guardian
-        type Scopes UserProFilesGuardiansGet = '[]
+        type Scopes UserProFilesGuardiansGet =
+             '["https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly",
+               "https://www.googleapis.com/auth/classroom.guardianlinks.students",
+               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"]
         requestClient UserProFilesGuardiansGet'{..}
           = go _upfggStudentId _upfggGuardianId _upfggXgafv
               _upfggUploadProtocol

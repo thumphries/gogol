@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Queries.DeleteQuery
     , qdqQueryId
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.queries.deletequery@ method which the
 -- 'QueriesDeleteQuery' request conforms to.
@@ -63,7 +63,7 @@ newtype QueriesDeleteQuery = QueriesDeleteQuery'
 queriesDeleteQuery
     :: Int64 -- ^ 'qdqQueryId'
     -> QueriesDeleteQuery
-queriesDeleteQuery pQdqQueryId_ =
+queriesDeleteQuery pQdqQueryId_ = 
     QueriesDeleteQuery'
     { _qdqQueryId = _Coerce # pQdqQueryId_
     }
@@ -76,7 +76,8 @@ qdqQueryId
 
 instance GoogleRequest QueriesDeleteQuery where
         type Rs QueriesDeleteQuery = ()
-        type Scopes QueriesDeleteQuery = '[]
+        type Scopes QueriesDeleteQuery =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient QueriesDeleteQuery'{..}
           = go _qdqQueryId (Just AltJSON)
               doubleClickBidsService

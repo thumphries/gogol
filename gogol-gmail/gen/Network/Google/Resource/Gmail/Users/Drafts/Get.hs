@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.Get
     , udgId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.get@ method which the
 -- 'UsersDraftsGet' request conforms to.
@@ -59,7 +59,7 @@ type UsersDraftsGetResource =
 data UsersDraftsGet = UsersDraftsGet'
     { _udgFormat :: !UsersDraftsGetFormat
     , _udgUserId :: !Text
-    , _udgId     :: !Text
+    , _udgId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsGet' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ data UsersDraftsGet = UsersDraftsGet'
 usersDraftsGet
     :: Text -- ^ 'udgId'
     -> UsersDraftsGet
-usersDraftsGet pUdgId_ =
+usersDraftsGet pUdgId_ = 
     UsersDraftsGet'
     { _udgFormat = UDGFFull
     , _udgUserId = "me"

@@ -38,10 +38,17 @@ library
         , Network.Google.Resource.Classroom.Courses.Aliases.Create
         , Network.Google.Resource.Classroom.Courses.Aliases.Delete
         , Network.Google.Resource.Classroom.Courses.Aliases.List
+        , Network.Google.Resource.Classroom.Courses.Announcements.Create
+        , Network.Google.Resource.Classroom.Courses.Announcements.Delete
+        , Network.Google.Resource.Classroom.Courses.Announcements.Get
+        , Network.Google.Resource.Classroom.Courses.Announcements.List
+        , Network.Google.Resource.Classroom.Courses.Announcements.ModifyAssignees
+        , Network.Google.Resource.Classroom.Courses.Announcements.Patch
         , Network.Google.Resource.Classroom.Courses.CourseWork.Create
         , Network.Google.Resource.Classroom.Courses.CourseWork.Delete
         , Network.Google.Resource.Classroom.Courses.CourseWork.Get
         , Network.Google.Resource.Classroom.Courses.CourseWork.List
+        , Network.Google.Resource.Classroom.Courses.CourseWork.ModifyAssignees
         , Network.Google.Resource.Classroom.Courses.CourseWork.Patch
         , Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.Get
         , Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.List
@@ -63,12 +70,16 @@ library
         , Network.Google.Resource.Classroom.Courses.Teachers.Delete
         , Network.Google.Resource.Classroom.Courses.Teachers.Get
         , Network.Google.Resource.Classroom.Courses.Teachers.List
+        , Network.Google.Resource.Classroom.Courses.Topics.Get
+        , Network.Google.Resource.Classroom.Courses.Topics.List
         , Network.Google.Resource.Classroom.Courses.Update
         , Network.Google.Resource.Classroom.Invitations.Accept
         , Network.Google.Resource.Classroom.Invitations.Create
         , Network.Google.Resource.Classroom.Invitations.Delete
         , Network.Google.Resource.Classroom.Invitations.Get
         , Network.Google.Resource.Classroom.Invitations.List
+        , Network.Google.Resource.Classroom.Registrations.Create
+        , Network.Google.Resource.Classroom.Registrations.Delete
         , Network.Google.Resource.Classroom.UserProFiles.Get
         , Network.Google.Resource.Classroom.UserProFiles.GuardianInvitations.Create
         , Network.Google.Resource.Classroom.UserProFiles.GuardianInvitations.Get
@@ -83,5 +94,5 @@ library
         , Network.Google.Classroom.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

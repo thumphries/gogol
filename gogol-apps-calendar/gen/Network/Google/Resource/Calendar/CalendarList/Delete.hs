@@ -36,8 +36,8 @@ module Network.Google.Resource.Calendar.CalendarList.Delete
     , cldCalendarId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.calendarList.delete@ method which the
 -- 'CalendarListDelete' request conforms to.
@@ -65,7 +65,7 @@ newtype CalendarListDelete = CalendarListDelete'
 calendarListDelete
     :: Text -- ^ 'cldCalendarId'
     -> CalendarListDelete
-calendarListDelete pCldCalendarId_ =
+calendarListDelete pCldCalendarId_ = 
     CalendarListDelete'
     { _cldCalendarId = pCldCalendarId_
     }

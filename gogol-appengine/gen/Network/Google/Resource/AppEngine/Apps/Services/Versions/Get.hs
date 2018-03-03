@@ -23,7 +23,7 @@
 -- Gets the specified Version resource. By default, only a BASIC_VIEW will
 -- be returned. Specify the FULL_VIEW parameter to get the full resource.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.get@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Get
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Get
     , asvgCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.get@ method which the
 -- 'AppsServicesVersionsGet' request conforms to.
@@ -60,7 +60,7 @@ type AppsServicesVersionsGetResource =
              Capture "servicesId" Text :>
                "versions" :>
                  Capture "versionsId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -76,17 +76,17 @@ type AppsServicesVersionsGetResource =
 --
 -- /See:/ 'appsServicesVersionsGet' smart constructor.
 data AppsServicesVersionsGet = AppsServicesVersionsGet'
-    { _asvgXgafv          :: !(Maybe Text)
+    { _asvgXgafv :: !(Maybe Xgafv)
     , _asvgUploadProtocol :: !(Maybe Text)
-    , _asvgPp             :: !Bool
-    , _asvgAccessToken    :: !(Maybe Text)
-    , _asvgUploadType     :: !(Maybe Text)
-    , _asvgVersionsId     :: !Text
-    , _asvgBearerToken    :: !(Maybe Text)
-    , _asvgAppsId         :: !Text
-    , _asvgView           :: !(Maybe Text)
-    , _asvgServicesId     :: !Text
-    , _asvgCallback       :: !(Maybe Text)
+    , _asvgPp :: !Bool
+    , _asvgAccessToken :: !(Maybe Text)
+    , _asvgUploadType :: !(Maybe Text)
+    , _asvgVersionsId :: !Text
+    , _asvgBearerToken :: !(Maybe Text)
+    , _asvgAppsId :: !Text
+    , _asvgView :: !(Maybe Text)
+    , _asvgServicesId :: !Text
+    , _asvgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsGet' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ appsServicesVersionsGet
     -> Text -- ^ 'asvgAppsId'
     -> Text -- ^ 'asvgServicesId'
     -> AppsServicesVersionsGet
-appsServicesVersionsGet pAsvgVersionsId_ pAsvgAppsId_ pAsvgServicesId_ =
+appsServicesVersionsGet pAsvgVersionsId_ pAsvgAppsId_ pAsvgServicesId_ = 
     AppsServicesVersionsGet'
     { _asvgXgafv = Nothing
     , _asvgUploadProtocol = Nothing
@@ -135,7 +135,7 @@ appsServicesVersionsGet pAsvgVersionsId_ pAsvgAppsId_ pAsvgServicesId_ =
     }
 
 -- | V1 error format.
-asvgXgafv :: Lens' AppsServicesVersionsGet (Maybe Text)
+asvgXgafv :: Lens' AppsServicesVersionsGet (Maybe Xgafv)
 asvgXgafv
   = lens _asvgXgafv (\ s a -> s{_asvgXgafv = a})
 

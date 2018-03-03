@@ -36,11 +36,12 @@ module Network.Google.Resource.Storage.DefaultObjectAccessControls.Patch
     -- * Request Lenses
     , doacpBucket
     , doacpPayload
+    , doacpUserProject
     , doacpEntity
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Storage.Types
+import Network.Google.Prelude
+import Network.Google.Storage.Types
 
 -- | A resource alias for @storage.defaultObjectAccessControls.patch@ method which the
 -- 'DefaultObjectAccessControlsPatch' request conforms to.
@@ -51,18 +52,20 @@ type DefaultObjectAccessControlsPatchResource =
            Capture "bucket" Text :>
              "defaultObjectAcl" :>
                Capture "entity" Text :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] ObjectAccessControl :>
-                     Patch '[JSON] ObjectAccessControl
+                 QueryParam "userProject" Text :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] ObjectAccessControl :>
+                       Patch '[JSON] ObjectAccessControl
 
 -- | Updates a default object ACL entry on the specified bucket. This method
 -- supports patch semantics.
 --
 -- /See:/ 'defaultObjectAccessControlsPatch' smart constructor.
 data DefaultObjectAccessControlsPatch = DefaultObjectAccessControlsPatch'
-    { _doacpBucket  :: !Text
+    { _doacpBucket :: !Text
     , _doacpPayload :: !ObjectAccessControl
-    , _doacpEntity  :: !Text
+    , _doacpUserProject :: !(Maybe Text)
+    , _doacpEntity :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DefaultObjectAccessControlsPatch' with the minimum fields required to make a request.
@@ -73,16 +76,19 @@ data DefaultObjectAccessControlsPatch = DefaultObjectAccessControlsPatch'
 --
 -- * 'doacpPayload'
 --
+-- * 'doacpUserProject'
+--
 -- * 'doacpEntity'
 defaultObjectAccessControlsPatch
     :: Text -- ^ 'doacpBucket'
     -> ObjectAccessControl -- ^ 'doacpPayload'
     -> Text -- ^ 'doacpEntity'
     -> DefaultObjectAccessControlsPatch
-defaultObjectAccessControlsPatch pDoacpBucket_ pDoacpPayload_ pDoacpEntity_ =
+defaultObjectAccessControlsPatch pDoacpBucket_ pDoacpPayload_ pDoacpEntity_ = 
     DefaultObjectAccessControlsPatch'
     { _doacpBucket = pDoacpBucket_
     , _doacpPayload = pDoacpPayload_
+    , _doacpUserProject = Nothing
     , _doacpEntity = pDoacpEntity_
     }
 
@@ -95,6 +101,13 @@ doacpBucket
 doacpPayload :: Lens' DefaultObjectAccessControlsPatch ObjectAccessControl
 doacpPayload
   = lens _doacpPayload (\ s a -> s{_doacpPayload = a})
+
+-- | The project to be billed for this request. Required for Requester Pays
+-- buckets.
+doacpUserProject :: Lens' DefaultObjectAccessControlsPatch (Maybe Text)
+doacpUserProject
+  = lens _doacpUserProject
+      (\ s a -> s{_doacpUserProject = a})
 
 -- | The entity holding the permission. Can be user-userId,
 -- user-emailAddress, group-groupId, group-emailAddress, allUsers, or
@@ -111,7 +124,8 @@ instance GoogleRequest
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/devstorage.full_control"]
         requestClient DefaultObjectAccessControlsPatch'{..}
-          = go _doacpBucket _doacpEntity (Just AltJSON)
+          = go _doacpBucket _doacpEntity _doacpUserProject
+              (Just AltJSON)
               _doacpPayload
               storageService
           where go

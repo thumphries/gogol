@@ -28,7 +28,7 @@
 -- be started.Only applicable for instances in App Engine flexible
 -- environment.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.instances.debug@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.instances.debug@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Debug
     (
     -- * REST Resource
@@ -53,8 +53,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Debug
     , asvidCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.instances.debug@ method which the
 -- 'AppsServicesVersionsInstancesDebug' request conforms to.
@@ -68,7 +68,7 @@ type AppsServicesVersionsInstancesDebugResource =
                  Capture "versionsId" Text :>
                    "instances" :>
                      CaptureMode "instancesId" "debug" Text :>
-                       QueryParam "$.xgafv" Text :>
+                       QueryParam "$.xgafv" Xgafv :>
                          QueryParam "upload_protocol" Text :>
                            QueryParam "pp" Bool :>
                              QueryParam "access_token" Text :>
@@ -89,18 +89,18 @@ type AppsServicesVersionsInstancesDebugResource =
 --
 -- /See:/ 'appsServicesVersionsInstancesDebug' smart constructor.
 data AppsServicesVersionsInstancesDebug = AppsServicesVersionsInstancesDebug'
-    { _asvidXgafv          :: !(Maybe Text)
-    , _asvidInstancesId    :: !Text
+    { _asvidXgafv :: !(Maybe Xgafv)
+    , _asvidInstancesId :: !Text
     , _asvidUploadProtocol :: !(Maybe Text)
-    , _asvidPp             :: !Bool
-    , _asvidAccessToken    :: !(Maybe Text)
-    , _asvidUploadType     :: !(Maybe Text)
-    , _asvidPayload        :: !DebugInstanceRequest
-    , _asvidVersionsId     :: !Text
-    , _asvidBearerToken    :: !(Maybe Text)
-    , _asvidAppsId         :: !Text
-    , _asvidServicesId     :: !Text
-    , _asvidCallback       :: !(Maybe Text)
+    , _asvidPp :: !Bool
+    , _asvidAccessToken :: !(Maybe Text)
+    , _asvidUploadType :: !(Maybe Text)
+    , _asvidPayload :: !DebugInstanceRequest
+    , _asvidVersionsId :: !Text
+    , _asvidBearerToken :: !(Maybe Text)
+    , _asvidAppsId :: !Text
+    , _asvidServicesId :: !Text
+    , _asvidCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsInstancesDebug' with the minimum fields required to make a request.
@@ -137,7 +137,7 @@ appsServicesVersionsInstancesDebug
     -> Text -- ^ 'asvidAppsId'
     -> Text -- ^ 'asvidServicesId'
     -> AppsServicesVersionsInstancesDebug
-appsServicesVersionsInstancesDebug pAsvidInstancesId_ pAsvidPayload_ pAsvidVersionsId_ pAsvidAppsId_ pAsvidServicesId_ =
+appsServicesVersionsInstancesDebug pAsvidInstancesId_ pAsvidPayload_ pAsvidVersionsId_ pAsvidAppsId_ pAsvidServicesId_ = 
     AppsServicesVersionsInstancesDebug'
     { _asvidXgafv = Nothing
     , _asvidInstancesId = pAsvidInstancesId_
@@ -154,7 +154,7 @@ appsServicesVersionsInstancesDebug pAsvidInstancesId_ pAsvidPayload_ pAsvidVersi
     }
 
 -- | V1 error format.
-asvidXgafv :: Lens' AppsServicesVersionsInstancesDebug (Maybe Text)
+asvidXgafv :: Lens' AppsServicesVersionsInstancesDebug (Maybe Xgafv)
 asvidXgafv
   = lens _asvidXgafv (\ s a -> s{_asvidXgafv = a})
 

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Creatives.Update
     , crePayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creatives.update@ method which the
 -- 'CreativesUpdate' request conforms to.
 type CreativesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creatives" :>
@@ -56,7 +56,7 @@ type CreativesUpdateResource =
 -- /See:/ 'creativesUpdate' smart constructor.
 data CreativesUpdate = CreativesUpdate'
     { _creProFileId :: !(Textual Int64)
-    , _crePayload   :: !Creative
+    , _crePayload :: !Creative
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ creativesUpdate
     :: Int64 -- ^ 'creProFileId'
     -> Creative -- ^ 'crePayload'
     -> CreativesUpdate
-creativesUpdate pCreProFileId_ pCrePayload_ =
+creativesUpdate pCreProFileId_ pCrePayload_ = 
     CreativesUpdate'
     { _creProFileId = _Coerce # pCreProFileId_
     , _crePayload = pCrePayload_

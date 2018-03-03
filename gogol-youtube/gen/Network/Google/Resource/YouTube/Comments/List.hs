@@ -41,8 +41,8 @@ module Network.Google.Resource.YouTube.Comments.List
     , cllParentId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.list@ method which the
 -- 'CommentsList' request conforms to.
@@ -63,12 +63,12 @@ type CommentsListResource =
 --
 -- /See:/ 'commentsList' smart constructor.
 data CommentsList = CommentsList'
-    { _cllPart       :: !Text
-    , _cllId         :: !(Maybe Text)
-    , _cllPageToken  :: !(Maybe Text)
+    { _cllPart :: !Text
+    , _cllId :: !(Maybe Text)
+    , _cllPageToken :: !(Maybe Text)
     , _cllTextFormat :: !CommentsListTextFormat
     , _cllMaxResults :: !(Textual Word32)
-    , _cllParentId   :: !(Maybe Text)
+    , _cllParentId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommentsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ data CommentsList = CommentsList'
 commentsList
     :: Text -- ^ 'cllPart'
     -> CommentsList
-commentsList pCllPart_ =
+commentsList pCllPart_ = 
     CommentsList'
     { _cllPart = pCllPart_
     , _cllId = Nothing

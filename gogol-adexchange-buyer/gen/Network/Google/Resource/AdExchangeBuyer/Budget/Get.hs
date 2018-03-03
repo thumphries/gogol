@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeBuyer.Budget.Get
     , bgBillingId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.budget.get@ method which the
 -- 'BudgetGet' request conforms to.
@@ -71,7 +71,7 @@ budgetGet
     :: Int64 -- ^ 'bgAccountId'
     -> Int64 -- ^ 'bgBillingId'
     -> BudgetGet
-budgetGet pBgAccountId_ pBgBillingId_ =
+budgetGet pBgAccountId_ pBgBillingId_ = 
     BudgetGet'
     { _bgAccountId = _Coerce # pBgAccountId_
     , _bgBillingId = _Coerce # pBgBillingId_

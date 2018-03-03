@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PostalCodes.Get
     , pcgCode
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.postalCodes.get@ method which the
 -- 'PostalCodesGet' request conforms to.
 type PostalCodesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "postalCodes" :>
@@ -56,7 +56,7 @@ type PostalCodesGetResource =
 -- /See:/ 'postalCodesGet' smart constructor.
 data PostalCodesGet = PostalCodesGet'
     { _pcgProFileId :: !(Textual Int64)
-    , _pcgCode      :: !Text
+    , _pcgCode :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PostalCodesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ postalCodesGet
     :: Int64 -- ^ 'pcgProFileId'
     -> Text -- ^ 'pcgCode'
     -> PostalCodesGet
-postalCodesGet pPcgProFileId_ pPcgCode_ =
+postalCodesGet pPcgProFileId_ pPcgCode_ = 
     PostalCodesGet'
     { _pcgProFileId = _Coerce # pPcgProFileId_
     , _pcgCode = pPcgCode_

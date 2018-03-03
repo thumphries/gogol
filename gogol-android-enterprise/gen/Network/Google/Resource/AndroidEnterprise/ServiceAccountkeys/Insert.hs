@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.ServiceAccountkeys.Insert
     , saiPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.serviceaccountkeys.insert@ method which the
 -- 'ServiceAccountkeysInsert' request conforms to.
@@ -65,7 +65,7 @@ type ServiceAccountkeysInsertResource =
 -- /See:/ 'serviceAccountkeysInsert' smart constructor.
 data ServiceAccountkeysInsert = ServiceAccountkeysInsert'
     { _saiEnterpriseId :: !Text
-    , _saiPayload      :: !ServiceAccountKey
+    , _saiPayload :: !ServiceAccountKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServiceAccountkeysInsert' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ serviceAccountkeysInsert
     :: Text -- ^ 'saiEnterpriseId'
     -> ServiceAccountKey -- ^ 'saiPayload'
     -> ServiceAccountkeysInsert
-serviceAccountkeysInsert pSaiEnterpriseId_ pSaiPayload_ =
+serviceAccountkeysInsert pSaiEnterpriseId_ pSaiPayload_ = 
     ServiceAccountkeysInsert'
     { _saiEnterpriseId = pSaiEnterpriseId_
     , _saiPayload = pSaiPayload_

@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an order from your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- Retrieves an order from your Merchant Center account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.get@.
 module Network.Google.Resource.Content.Orders.Get
@@ -38,8 +37,8 @@ module Network.Google.Resource.Content.Orders.Get
     , ogOrderId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.get@ method which the
 -- 'OrdersGet' request conforms to.
@@ -51,13 +50,12 @@ type OrdersGetResource =
              Capture "orderId" Text :>
                QueryParam "alt" AltJSON :> Get '[JSON] Order
 
--- | Retrieves an order from your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- | Retrieves an order from your Merchant Center account.
 --
 -- /See:/ 'ordersGet' smart constructor.
 data OrdersGet = OrdersGet'
     { _ogMerchantId :: !(Textual Word64)
-    , _ogOrderId    :: !Text
+    , _ogOrderId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrdersGet' with the minimum fields required to make a request.
@@ -71,13 +69,14 @@ ordersGet
     :: Word64 -- ^ 'ogMerchantId'
     -> Text -- ^ 'ogOrderId'
     -> OrdersGet
-ordersGet pOgMerchantId_ pOgOrderId_ =
+ordersGet pOgMerchantId_ pOgOrderId_ = 
     OrdersGet'
     { _ogMerchantId = _Coerce # pOgMerchantId_
     , _ogOrderId = pOgOrderId_
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that manages the order. This cannot be a
+-- multi-client account.
 ogMerchantId :: Lens' OrdersGet Word64
 ogMerchantId
   = lens _ogMerchantId (\ s a -> s{_ogMerchantId = a})

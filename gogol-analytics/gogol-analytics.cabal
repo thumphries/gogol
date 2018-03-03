@@ -88,6 +88,7 @@ library
         , Network.Google.Resource.Analytics.Management.ProFiles.List
         , Network.Google.Resource.Analytics.Management.ProFiles.Patch
         , Network.Google.Resource.Analytics.Management.ProFiles.Update
+        , Network.Google.Resource.Analytics.Management.RemarketingAudience.Delete
         , Network.Google.Resource.Analytics.Management.RemarketingAudience.Get
         , Network.Google.Resource.Analytics.Management.RemarketingAudience.Insert
         , Network.Google.Resource.Analytics.Management.RemarketingAudience.List
@@ -119,11 +120,12 @@ library
         , Network.Google.Resource.Analytics.Management.WebPropertyUserLinks.Update
         , Network.Google.Resource.Analytics.Metadata.Columns.List
         , Network.Google.Resource.Analytics.Provisioning.CreateAccountTicket
+        , Network.Google.Resource.Analytics.Provisioning.CreateAccountTree
 
     other-modules:
           Network.Google.Analytics.Types.Product
         , Network.Google.Analytics.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

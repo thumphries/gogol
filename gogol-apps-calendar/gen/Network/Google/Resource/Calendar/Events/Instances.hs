@@ -46,8 +46,8 @@ module Network.Google.Resource.Calendar.Events.Instances
     , eEventId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.instances@ method which the
 -- 'EventsInstances' request conforms to.
@@ -75,17 +75,17 @@ type EventsInstancesResource =
 --
 -- /See:/ 'eventsInstances' smart constructor.
 data EventsInstances = EventsInstances'
-    { _eCalendarId         :: !Text
-    , _eTimeMin            :: !(Maybe DateTime')
-    , _eShowDeleted        :: !(Maybe Bool)
-    , _eOriginalStart      :: !(Maybe Text)
-    , _eMaxAttendees       :: !(Maybe (Textual Int32))
-    , _ePageToken          :: !(Maybe Text)
-    , _eTimeZone           :: !(Maybe Text)
-    , _eMaxResults         :: !(Maybe (Textual Int32))
+    { _eCalendarId :: !Text
+    , _eTimeMin :: !(Maybe DateTime')
+    , _eShowDeleted :: !(Maybe Bool)
+    , _eOriginalStart :: !(Maybe Text)
+    , _eMaxAttendees :: !(Maybe (Textual Int32))
+    , _ePageToken :: !(Maybe Text)
+    , _eTimeZone :: !(Maybe Text)
+    , _eMaxResults :: !(Maybe (Textual Int32))
     , _eAlwaysIncludeEmail :: !(Maybe Bool)
-    , _eTimeMax            :: !(Maybe DateTime')
-    , _eEventId            :: !Text
+    , _eTimeMax :: !(Maybe DateTime')
+    , _eEventId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsInstances' with the minimum fields required to make a request.
@@ -117,7 +117,7 @@ eventsInstances
     :: Text -- ^ 'eCalendarId'
     -> Text -- ^ 'eEventId'
     -> EventsInstances
-eventsInstances pECalendarId_ pEEventId_ =
+eventsInstances pECalendarId_ pEEventId_ = 
     EventsInstances'
     { _eCalendarId = pECalendarId_
     , _eTimeMin = Nothing

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.Get
     , ccgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.get@ method which the
 -- 'ContentCategoriesGet' request conforms to.
 type ContentCategoriesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -57,7 +57,7 @@ type ContentCategoriesGetResource =
 -- /See:/ 'contentCategoriesGet' smart constructor.
 data ContentCategoriesGet = ContentCategoriesGet'
     { _ccgProFileId :: !(Textual Int64)
-    , _ccgId        :: !(Textual Int64)
+    , _ccgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ contentCategoriesGet
     :: Int64 -- ^ 'ccgProFileId'
     -> Int64 -- ^ 'ccgId'
     -> ContentCategoriesGet
-contentCategoriesGet pCcgProFileId_ pCcgId_ =
+contentCategoriesGet pCcgProFileId_ pCcgId_ = 
     ContentCategoriesGet'
     { _ccgProFileId = _Coerce # pCcgProFileId_
     , _ccgId = _Coerce # pCcgId_

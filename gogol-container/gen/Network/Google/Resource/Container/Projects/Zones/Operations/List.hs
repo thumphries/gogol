@@ -22,7 +22,7 @@
 --
 -- Lists all operations in a project in a specific zone or all zones.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.operations.list@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.operations.list@.
 module Network.Google.Resource.Container.Projects.Zones.Operations.List
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Container.Projects.Zones.Operations.List
     , pzolCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.operations.list@ method which the
 -- 'ProjectsZonesOperationsList' request conforms to.
@@ -56,7 +56,7 @@ type ProjectsZonesOperationsListResource =
            "zones" :>
              Capture "zone" Text :>
                "operations" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -70,15 +70,15 @@ type ProjectsZonesOperationsListResource =
 --
 -- /See:/ 'projectsZonesOperationsList' smart constructor.
 data ProjectsZonesOperationsList = ProjectsZonesOperationsList'
-    { _pzolXgafv          :: !(Maybe Text)
+    { _pzolXgafv :: !(Maybe Xgafv)
     , _pzolUploadProtocol :: !(Maybe Text)
-    , _pzolPp             :: !Bool
-    , _pzolAccessToken    :: !(Maybe Text)
-    , _pzolUploadType     :: !(Maybe Text)
-    , _pzolZone           :: !Text
-    , _pzolBearerToken    :: !(Maybe Text)
-    , _pzolProjectId      :: !Text
-    , _pzolCallback       :: !(Maybe Text)
+    , _pzolPp :: !Bool
+    , _pzolAccessToken :: !(Maybe Text)
+    , _pzolUploadType :: !(Maybe Text)
+    , _pzolZone :: !Text
+    , _pzolBearerToken :: !(Maybe Text)
+    , _pzolProjectId :: !Text
+    , _pzolCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesOperationsList' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsZonesOperationsList
     :: Text -- ^ 'pzolZone'
     -> Text -- ^ 'pzolProjectId'
     -> ProjectsZonesOperationsList
-projectsZonesOperationsList pPzolZone_ pPzolProjectId_ =
+projectsZonesOperationsList pPzolZone_ pPzolProjectId_ = 
     ProjectsZonesOperationsList'
     { _pzolXgafv = Nothing
     , _pzolUploadProtocol = Nothing
@@ -120,7 +120,7 @@ projectsZonesOperationsList pPzolZone_ pPzolProjectId_ =
     }
 
 -- | V1 error format.
-pzolXgafv :: Lens' ProjectsZonesOperationsList (Maybe Text)
+pzolXgafv :: Lens' ProjectsZonesOperationsList (Maybe Xgafv)
 pzolXgafv
   = lens _pzolXgafv (\ s a -> s{_pzolXgafv = a})
 

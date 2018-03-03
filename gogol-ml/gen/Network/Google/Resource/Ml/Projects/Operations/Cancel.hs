@@ -30,7 +30,7 @@
 -- instead, it becomes an operation with an Operation.error value with a
 -- google.rpc.Status.code of 1, corresponding to \`Code.CANCELLED\`.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.operations.cancel@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.operations.cancel@.
 module Network.Google.Resource.Ml.Projects.Operations.Cancel
     (
     -- * REST Resource
@@ -51,13 +51,13 @@ module Network.Google.Resource.Ml.Projects.Operations.Cancel
     , pocCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.operations.cancel@ method which the
 -- 'ProjectsOperationsCancel' request conforms to.
 type ProjectsOperationsCancelResource =
-     "v1beta1" :>
+     "v1" :>
        CaptureMode "name" "cancel" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
@@ -81,14 +81,14 @@ type ProjectsOperationsCancelResource =
 --
 -- /See:/ 'projectsOperationsCancel' smart constructor.
 data ProjectsOperationsCancel = ProjectsOperationsCancel'
-    { _pocXgafv          :: !(Maybe Xgafv)
+    { _pocXgafv :: !(Maybe Xgafv)
     , _pocUploadProtocol :: !(Maybe Text)
-    , _pocPp             :: !Bool
-    , _pocAccessToken    :: !(Maybe Text)
-    , _pocUploadType     :: !(Maybe Text)
-    , _pocBearerToken    :: !(Maybe Text)
-    , _pocName           :: !Text
-    , _pocCallback       :: !(Maybe Text)
+    , _pocPp :: !Bool
+    , _pocAccessToken :: !(Maybe Text)
+    , _pocUploadType :: !(Maybe Text)
+    , _pocBearerToken :: !(Maybe Text)
+    , _pocName :: !Text
+    , _pocCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsOperationsCancel' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ data ProjectsOperationsCancel = ProjectsOperationsCancel'
 projectsOperationsCancel
     :: Text -- ^ 'pocName'
     -> ProjectsOperationsCancel
-projectsOperationsCancel pPocName_ =
+projectsOperationsCancel pPocName_ = 
     ProjectsOperationsCancel'
     { _pocXgafv = Nothing
     , _pocUploadProtocol = Nothing

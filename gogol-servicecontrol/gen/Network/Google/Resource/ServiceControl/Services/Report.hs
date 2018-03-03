@@ -26,8 +26,8 @@
 -- to reduce API traffic. Limiting aggregation to 5 seconds is to reduce
 -- data loss during client crashes. Clients should carefully choose the
 -- aggregation time window to avoid data loss risk more than 0.01% for
--- business and compliance reasons. NOTE: the \`ReportRequest\` has the
--- size limit of 1MB. This method requires the
+-- business and compliance reasons. NOTE: the ReportRequest has the size
+-- limit of 1MB. This method requires the
 -- \`servicemanagement.services.report\` permission on the specified
 -- service. For more information, see [Google Cloud
 -- IAM](https:\/\/cloud.google.com\/iam).
@@ -54,8 +54,8 @@ module Network.Google.Resource.ServiceControl.Services.Report
     , srCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceControl.Types
+import Network.Google.Prelude
+import Network.Google.ServiceControl.Types
 
 -- | A resource alias for @servicecontrol.services.report@ method which the
 -- 'ServicesReport' request conforms to.
@@ -80,23 +80,23 @@ type ServicesReportResource =
 -- to reduce API traffic. Limiting aggregation to 5 seconds is to reduce
 -- data loss during client crashes. Clients should carefully choose the
 -- aggregation time window to avoid data loss risk more than 0.01% for
--- business and compliance reasons. NOTE: the \`ReportRequest\` has the
--- size limit of 1MB. This method requires the
+-- business and compliance reasons. NOTE: the ReportRequest has the size
+-- limit of 1MB. This method requires the
 -- \`servicemanagement.services.report\` permission on the specified
 -- service. For more information, see [Google Cloud
 -- IAM](https:\/\/cloud.google.com\/iam).
 --
 -- /See:/ 'servicesReport' smart constructor.
 data ServicesReport = ServicesReport'
-    { _srXgafv          :: !(Maybe Xgafv)
+    { _srXgafv :: !(Maybe Xgafv)
     , _srUploadProtocol :: !(Maybe Text)
-    , _srPp             :: !Bool
-    , _srAccessToken    :: !(Maybe Text)
-    , _srUploadType     :: !(Maybe Text)
-    , _srPayload        :: !ReportRequest
-    , _srBearerToken    :: !(Maybe Text)
-    , _srServiceName    :: !Text
-    , _srCallback       :: !(Maybe Text)
+    , _srPp :: !Bool
+    , _srAccessToken :: !(Maybe Text)
+    , _srUploadType :: !(Maybe Text)
+    , _srPayload :: !ReportRequest
+    , _srBearerToken :: !(Maybe Text)
+    , _srServiceName :: !Text
+    , _srCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesReport' with the minimum fields required to make a request.
@@ -124,7 +124,7 @@ servicesReport
     :: ReportRequest -- ^ 'srPayload'
     -> Text -- ^ 'srServiceName'
     -> ServicesReport
-servicesReport pSrPayload_ pSrServiceName_ =
+servicesReport pSrPayload_ pSrServiceName_ = 
     ServicesReport'
     { _srXgafv = Nothing
     , _srUploadProtocol = Nothing
@@ -174,8 +174,9 @@ srBearerToken
       (\ s a -> s{_srBearerToken = a})
 
 -- | The service name as specified in its service configuration. For example,
--- \`\"pubsub.googleapis.com\"\`. See google.api.Service for the definition
--- of a service name.
+-- \`\"pubsub.googleapis.com\"\`. See
+-- [google.api.Service](https:\/\/cloud.google.com\/service-management\/reference\/rpc\/google.api#google.api.Service)
+-- for the definition of a service name.
 srServiceName :: Lens' ServicesReport Text
 srServiceName
   = lens _srServiceName

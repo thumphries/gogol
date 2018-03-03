@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.projects.logs.list@.
 module Network.Google.Resource.Logging.Projects.Logs.List
@@ -46,8 +46,8 @@ module Network.Google.Resource.Logging.Projects.Logs.List
     , pllCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.logs.list@ method which the
 -- 'ProjectsLogsList' request conforms to.
@@ -67,21 +67,21 @@ type ProjectsLogsListResource =
                              QueryParam "alt" AltJSON :>
                                Get '[JSON] ListLogsResponse
 
--- | Lists the logs in projects or organizations. Only logs that have entries
--- are listed.
+-- | Lists the logs in projects, organizations, folders, or billing accounts.
+-- Only logs that have entries are listed.
 --
 -- /See:/ 'projectsLogsList' smart constructor.
 data ProjectsLogsList = ProjectsLogsList'
-    { _pllParent         :: !Text
-    , _pllXgafv          :: !(Maybe Xgafv)
+    { _pllParent :: !Text
+    , _pllXgafv :: !(Maybe Xgafv)
     , _pllUploadProtocol :: !(Maybe Text)
-    , _pllPp             :: !Bool
-    , _pllAccessToken    :: !(Maybe Text)
-    , _pllUploadType     :: !(Maybe Text)
-    , _pllBearerToken    :: !(Maybe Text)
-    , _pllPageToken      :: !(Maybe Text)
-    , _pllPageSize       :: !(Maybe (Textual Int32))
-    , _pllCallback       :: !(Maybe Text)
+    , _pllPp :: !Bool
+    , _pllAccessToken :: !(Maybe Text)
+    , _pllUploadType :: !(Maybe Text)
+    , _pllBearerToken :: !(Maybe Text)
+    , _pllPageToken :: !(Maybe Text)
+    , _pllPageSize :: !(Maybe (Textual Int32))
+    , _pllCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLogsList' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ data ProjectsLogsList = ProjectsLogsList'
 projectsLogsList
     :: Text -- ^ 'pllParent'
     -> ProjectsLogsList
-projectsLogsList pPllParent_ =
+projectsLogsList pPllParent_ = 
     ProjectsLogsList'
     { _pllParent = pPllParent_
     , _pllXgafv = Nothing
@@ -126,6 +126,7 @@ projectsLogsList pPllParent_ =
 
 -- | Required. The resource name that owns the logs:
 -- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 pllParent :: Lens' ProjectsLogsList Text
 pllParent
   = lens _pllParent (\ s a -> s{_pllParent = a})

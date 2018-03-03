@@ -36,13 +36,14 @@ module Network.Google.Resource.Storage.ObjectAccessControls.Patch
     -- * Request Lenses
     , oacpBucket
     , oacpPayload
+    , oacpUserProject
     , oacpObject
     , oacpEntity
     , oacpGeneration
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Storage.Types
+import Network.Google.Prelude
+import Network.Google.Storage.Types
 
 -- | A resource alias for @storage.objectAccessControls.patch@ method which the
 -- 'ObjectAccessControlsPatch' request conforms to.
@@ -55,20 +56,22 @@ type ObjectAccessControlsPatchResource =
                Capture "object" Text :>
                  "acl" :>
                    Capture "entity" Text :>
-                     QueryParam "generation" (Textual Int64) :>
-                       QueryParam "alt" AltJSON :>
-                         ReqBody '[JSON] ObjectAccessControl :>
-                           Patch '[JSON] ObjectAccessControl
+                     QueryParam "userProject" Text :>
+                       QueryParam "generation" (Textual Int64) :>
+                         QueryParam "alt" AltJSON :>
+                           ReqBody '[JSON] ObjectAccessControl :>
+                             Patch '[JSON] ObjectAccessControl
 
 -- | Updates an ACL entry on the specified object. This method supports patch
 -- semantics.
 --
 -- /See:/ 'objectAccessControlsPatch' smart constructor.
 data ObjectAccessControlsPatch = ObjectAccessControlsPatch'
-    { _oacpBucket     :: !Text
-    , _oacpPayload    :: !ObjectAccessControl
-    , _oacpObject     :: !Text
-    , _oacpEntity     :: !Text
+    { _oacpBucket :: !Text
+    , _oacpPayload :: !ObjectAccessControl
+    , _oacpUserProject :: !(Maybe Text)
+    , _oacpObject :: !Text
+    , _oacpEntity :: !Text
     , _oacpGeneration :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,6 +82,8 @@ data ObjectAccessControlsPatch = ObjectAccessControlsPatch'
 -- * 'oacpBucket'
 --
 -- * 'oacpPayload'
+--
+-- * 'oacpUserProject'
 --
 -- * 'oacpObject'
 --
@@ -91,10 +96,11 @@ objectAccessControlsPatch
     -> Text -- ^ 'oacpObject'
     -> Text -- ^ 'oacpEntity'
     -> ObjectAccessControlsPatch
-objectAccessControlsPatch pOacpBucket_ pOacpPayload_ pOacpObject_ pOacpEntity_ =
+objectAccessControlsPatch pOacpBucket_ pOacpPayload_ pOacpObject_ pOacpEntity_ = 
     ObjectAccessControlsPatch'
     { _oacpBucket = pOacpBucket_
     , _oacpPayload = pOacpPayload_
+    , _oacpUserProject = Nothing
     , _oacpObject = pOacpObject_
     , _oacpEntity = pOacpEntity_
     , _oacpGeneration = Nothing
@@ -109,6 +115,13 @@ oacpBucket
 oacpPayload :: Lens' ObjectAccessControlsPatch ObjectAccessControl
 oacpPayload
   = lens _oacpPayload (\ s a -> s{_oacpPayload = a})
+
+-- | The project to be billed for this request. Required for Requester Pays
+-- buckets.
+oacpUserProject :: Lens' ObjectAccessControlsPatch (Maybe Text)
+oacpUserProject
+  = lens _oacpUserProject
+      (\ s a -> s{_oacpUserProject = a})
 
 -- | Name of the object. For information about how to URL encode object names
 -- to be path safe, see Encoding URI Path Parts.
@@ -140,6 +153,7 @@ instance GoogleRequest ObjectAccessControlsPatch
                "https://www.googleapis.com/auth/devstorage.full_control"]
         requestClient ObjectAccessControlsPatch'{..}
           = go _oacpBucket _oacpObject _oacpEntity
+              _oacpUserProject
               _oacpGeneration
               (Just AltJSON)
               _oacpPayload

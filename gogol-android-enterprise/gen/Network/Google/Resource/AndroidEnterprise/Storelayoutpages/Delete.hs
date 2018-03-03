@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutpages.Delete
     , sdPageId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutpages.delete@ method which the
 -- 'StorelayoutpagesDelete' request conforms to.
@@ -57,7 +57,7 @@ type StorelayoutpagesDeleteResource =
 -- /See:/ 'storelayoutpagesDelete' smart constructor.
 data StorelayoutpagesDelete = StorelayoutpagesDelete'
     { _sdEnterpriseId :: !Text
-    , _sdPageId       :: !Text
+    , _sdPageId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutpagesDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ storelayoutpagesDelete
     :: Text -- ^ 'sdEnterpriseId'
     -> Text -- ^ 'sdPageId'
     -> StorelayoutpagesDelete
-storelayoutpagesDelete pSdEnterpriseId_ pSdPageId_ =
+storelayoutpagesDelete pSdEnterpriseId_ pSdPageId_ = 
     StorelayoutpagesDelete'
     { _sdEnterpriseId = pSdEnterpriseId_
     , _sdPageId = pSdPageId_

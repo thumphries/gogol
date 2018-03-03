@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.WebPropertyAdWordsLinks.Inse
     , mwpawliAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webPropertyAdWordsLinks.insert@ method which the
 -- 'ManagementWebPropertyAdWordsLinksInsert' request conforms to.
@@ -62,8 +62,8 @@ type ManagementWebPropertyAdWordsLinksInsertResource
 -- /See:/ 'managementWebPropertyAdWordsLinksInsert' smart constructor.
 data ManagementWebPropertyAdWordsLinksInsert = ManagementWebPropertyAdWordsLinksInsert'
     { _mwpawliWebPropertyId :: !Text
-    , _mwpawliPayload       :: !EntityAdWordsLink
-    , _mwpawliAccountId     :: !Text
+    , _mwpawliPayload :: !EntityAdWordsLink
+    , _mwpawliAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertyAdWordsLinksInsert' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ managementWebPropertyAdWordsLinksInsert
     -> EntityAdWordsLink -- ^ 'mwpawliPayload'
     -> Text -- ^ 'mwpawliAccountId'
     -> ManagementWebPropertyAdWordsLinksInsert
-managementWebPropertyAdWordsLinksInsert pMwpawliWebPropertyId_ pMwpawliPayload_ pMwpawliAccountId_ =
+managementWebPropertyAdWordsLinksInsert pMwpawliWebPropertyId_ pMwpawliPayload_ pMwpawliAccountId_ = 
     ManagementWebPropertyAdWordsLinksInsert'
     { _mwpawliWebPropertyId = pMwpawliWebPropertyId_
     , _mwpawliPayload = pMwpawliPayload_

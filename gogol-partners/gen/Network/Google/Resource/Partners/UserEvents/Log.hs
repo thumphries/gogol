@@ -43,15 +43,15 @@ module Network.Google.Resource.Partners.UserEvents.Log
     , uelCallback
     ) where
 
-import           Network.Google.Partners.Types
-import           Network.Google.Prelude
+import Network.Google.Partners.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @partners.userEvents.log@ method which the
 -- 'UserEventsLog' request conforms to.
 type UserEventsLogResource =
      "v2" :>
        "userEvents:log" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -66,14 +66,14 @@ type UserEventsLogResource =
 --
 -- /See:/ 'userEventsLog' smart constructor.
 data UserEventsLog = UserEventsLog'
-    { _uelXgafv          :: !(Maybe Text)
+    { _uelXgafv :: !(Maybe Xgafv)
     , _uelUploadProtocol :: !(Maybe Text)
-    , _uelPp             :: !Bool
-    , _uelAccessToken    :: !(Maybe Text)
-    , _uelUploadType     :: !(Maybe Text)
-    , _uelPayload        :: !LogUserEventRequest
-    , _uelBearerToken    :: !(Maybe Text)
-    , _uelCallback       :: !(Maybe Text)
+    , _uelPp :: !Bool
+    , _uelAccessToken :: !(Maybe Text)
+    , _uelUploadType :: !(Maybe Text)
+    , _uelPayload :: !LogUserEventRequest
+    , _uelBearerToken :: !(Maybe Text)
+    , _uelCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserEventsLog' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data UserEventsLog = UserEventsLog'
 userEventsLog
     :: LogUserEventRequest -- ^ 'uelPayload'
     -> UserEventsLog
-userEventsLog pUelPayload_ =
+userEventsLog pUelPayload_ = 
     UserEventsLog'
     { _uelXgafv = Nothing
     , _uelUploadProtocol = Nothing
@@ -111,7 +111,7 @@ userEventsLog pUelPayload_ =
     }
 
 -- | V1 error format.
-uelXgafv :: Lens' UserEventsLog (Maybe Text)
+uelXgafv :: Lens' UserEventsLog (Maybe Xgafv)
 uelXgafv = lens _uelXgafv (\ s a -> s{_uelXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

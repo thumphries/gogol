@@ -22,9 +22,8 @@
 --
 -- Creates a sink that exports specified log entries to a destination. The
 -- export of newly-ingested log entries begins immediately, unless the
--- current time is outside the sink\'s start and end times or the sink\'s
--- writer_identity is not permitted to write to the destination. A sink can
--- export log entries only from the resource owning the sink.
+-- sink\'s writer_identity is not permitted to write to the destination. A
+-- sink can export log entries only from the resource owning the sink.
 --
 -- /See:/ <https://cloud.google.com/logging/docs/ Stackdriver Logging API Reference> for @logging.billingAccounts.sinks.create@.
 module Network.Google.Resource.Logging.BillingAccounts.Sinks.Create
@@ -49,8 +48,8 @@ module Network.Google.Resource.Logging.BillingAccounts.Sinks.Create
     , bascCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.billingAccounts.sinks.create@ method which the
 -- 'BillingAccountsSinksCreate' request conforms to.
@@ -71,22 +70,21 @@ type BillingAccountsSinksCreateResource =
 
 -- | Creates a sink that exports specified log entries to a destination. The
 -- export of newly-ingested log entries begins immediately, unless the
--- current time is outside the sink\'s start and end times or the sink\'s
--- writer_identity is not permitted to write to the destination. A sink can
--- export log entries only from the resource owning the sink.
+-- sink\'s writer_identity is not permitted to write to the destination. A
+-- sink can export log entries only from the resource owning the sink.
 --
 -- /See:/ 'billingAccountsSinksCreate' smart constructor.
 data BillingAccountsSinksCreate = BillingAccountsSinksCreate'
-    { _bascParent               :: !Text
-    , _bascXgafv                :: !(Maybe Xgafv)
+    { _bascParent :: !Text
+    , _bascXgafv :: !(Maybe Xgafv)
     , _bascUniqueWriterIdentity :: !(Maybe Bool)
-    , _bascUploadProtocol       :: !(Maybe Text)
-    , _bascPp                   :: !Bool
-    , _bascAccessToken          :: !(Maybe Text)
-    , _bascUploadType           :: !(Maybe Text)
-    , _bascPayload              :: !LogSink
-    , _bascBearerToken          :: !(Maybe Text)
-    , _bascCallback             :: !(Maybe Text)
+    , _bascUploadProtocol :: !(Maybe Text)
+    , _bascPp :: !Bool
+    , _bascAccessToken :: !(Maybe Text)
+    , _bascUploadType :: !(Maybe Text)
+    , _bascPayload :: !LogSink
+    , _bascBearerToken :: !(Maybe Text)
+    , _bascCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsSinksCreate' with the minimum fields required to make a request.
@@ -116,7 +114,7 @@ billingAccountsSinksCreate
     :: Text -- ^ 'bascParent'
     -> LogSink -- ^ 'bascPayload'
     -> BillingAccountsSinksCreate
-billingAccountsSinksCreate pBascParent_ pBascPayload_ =
+billingAccountsSinksCreate pBascParent_ pBascPayload_ = 
     BillingAccountsSinksCreate'
     { _bascParent = pBascParent_
     , _bascXgafv = Nothing
@@ -132,6 +130,7 @@ billingAccountsSinksCreate pBascParent_ pBascPayload_ =
 
 -- | Required. The resource in which to create the sink:
 -- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 -- Examples: \"projects\/my-logging-project\",
 -- \"organizations\/123456789\".
 bascParent :: Lens' BillingAccountsSinksCreate Text
@@ -146,13 +145,13 @@ bascXgafv
 -- | Optional. Determines the kind of IAM identity returned as
 -- writer_identity in the new sink. If this value is omitted or set to
 -- false, and if the sink\'s parent is a project, then the value returned
--- as writer_identity is cloud-logs\'google.com, the same identity used
--- before the addition of writer identities to this API. The sink\'s
--- destination must be in the same project as the sink itself.If this field
--- is set to true, or if the sink is owned by a non-project resource such
--- as an organization, then the value of writer_identity will be a unique
--- service account used only for exports from the new sink. For more
--- information, see writer_identity in LogSink.
+-- as writer_identity is the same group or service account used by
+-- Stackdriver Logging before the addition of writer identities to this
+-- API. The sink\'s destination must be in the same project as the sink
+-- itself.If this field is set to true, or if the sink is owned by a
+-- non-project resource such as an organization, then the value of
+-- writer_identity will be a unique service account used only for exports
+-- from the new sink. For more information, see writer_identity in LogSink.
 bascUniqueWriterIdentity :: Lens' BillingAccountsSinksCreate (Maybe Bool)
 bascUniqueWriterIdentity
   = lens _bascUniqueWriterIdentity

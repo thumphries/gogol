@@ -36,8 +36,8 @@ module Network.Google.Resource.Plus.Comments.Get
     , cgCommentId
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.comments.get@ method which the
 -- 'CommentsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype CommentsGet = CommentsGet'
 commentsGet
     :: Text -- ^ 'cgCommentId'
     -> CommentsGet
-commentsGet pCgCommentId_ =
+commentsGet pCgCommentId_ = 
     CommentsGet'
     { _cgCommentId = pCgCommentId_
     }

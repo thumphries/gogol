@@ -46,8 +46,8 @@ module Network.Google.Resource.Monitoring.Projects.Groups.Update
     , pguCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.groups.update@ method which the
 -- 'ProjectsGroupsUpdate' request conforms to.
@@ -70,16 +70,16 @@ type ProjectsGroupsUpdateResource =
 --
 -- /See:/ 'projectsGroupsUpdate' smart constructor.
 data ProjectsGroupsUpdate = ProjectsGroupsUpdate'
-    { _pguXgafv          :: !(Maybe Xgafv)
-    , _pguValidateOnly   :: !(Maybe Bool)
+    { _pguXgafv :: !(Maybe Xgafv)
+    , _pguValidateOnly :: !(Maybe Bool)
     , _pguUploadProtocol :: !(Maybe Text)
-    , _pguPp             :: !Bool
-    , _pguAccessToken    :: !(Maybe Text)
-    , _pguUploadType     :: !(Maybe Text)
-    , _pguPayload        :: !Group
-    , _pguBearerToken    :: !(Maybe Text)
-    , _pguName           :: !Text
-    , _pguCallback       :: !(Maybe Text)
+    , _pguPp :: !Bool
+    , _pguAccessToken :: !(Maybe Text)
+    , _pguUploadType :: !(Maybe Text)
+    , _pguPayload :: !Group
+    , _pguBearerToken :: !(Maybe Text)
+    , _pguName :: !Text
+    , _pguCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGroupsUpdate' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ projectsGroupsUpdate
     :: Group -- ^ 'pguPayload'
     -> Text -- ^ 'pguName'
     -> ProjectsGroupsUpdate
-projectsGroupsUpdate pPguPayload_ pPguName_ =
+projectsGroupsUpdate pPguPayload_ pPguName_ = 
     ProjectsGroupsUpdate'
     { _pguXgafv = Nothing
     , _pguValidateOnly = Nothing

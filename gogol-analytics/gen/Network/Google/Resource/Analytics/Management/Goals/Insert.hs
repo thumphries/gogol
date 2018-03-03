@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.Goals.Insert
     , mgiAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.goals.insert@ method which the
 -- 'ManagementGoalsInsert' request conforms to.
@@ -63,9 +63,9 @@ type ManagementGoalsInsertResource =
 -- /See:/ 'managementGoalsInsert' smart constructor.
 data ManagementGoalsInsert = ManagementGoalsInsert'
     { _mgiWebPropertyId :: !Text
-    , _mgiProFileId     :: !Text
-    , _mgiPayload       :: !Goal
-    , _mgiAccountId     :: !Text
+    , _mgiProFileId :: !Text
+    , _mgiPayload :: !Goal
+    , _mgiAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementGoalsInsert' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ managementGoalsInsert
     -> Goal -- ^ 'mgiPayload'
     -> Text -- ^ 'mgiAccountId'
     -> ManagementGoalsInsert
-managementGoalsInsert pMgiWebPropertyId_ pMgiProFileId_ pMgiPayload_ pMgiAccountId_ =
+managementGoalsInsert pMgiWebPropertyId_ pMgiProFileId_ pMgiPayload_ pMgiAccountId_ = 
     ManagementGoalsInsert'
     { _mgiWebPropertyId = pMgiWebPropertyId_
     , _mgiProFileId = pMgiProFileId_

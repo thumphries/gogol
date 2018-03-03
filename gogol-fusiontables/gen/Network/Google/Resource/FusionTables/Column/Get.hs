@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Column.Get
     , cgColumnId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.column.get@ method which the
 -- 'ColumnGet' request conforms to.
@@ -55,7 +55,7 @@ type ColumnGetResource =
 --
 -- /See:/ 'columnGet' smart constructor.
 data ColumnGet = ColumnGet'
-    { _cgTableId  :: !Text
+    { _cgTableId :: !Text
     , _cgColumnId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ columnGet
     :: Text -- ^ 'cgTableId'
     -> Text -- ^ 'cgColumnId'
     -> ColumnGet
-columnGet pCgTableId_ pCgColumnId_ =
+columnGet pCgTableId_ pCgColumnId_ = 
     ColumnGet'
     { _cgTableId = pCgTableId_
     , _cgColumnId = pCgColumnId_

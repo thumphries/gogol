@@ -48,8 +48,8 @@ module Network.Google.Resource.Classroom.Courses.Students.List
     , cslCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.students.list@ method which the
 -- 'CoursesStudentsList' request conforms to.
@@ -58,7 +58,7 @@ type CoursesStudentsListResource =
        "courses" :>
          Capture "courseId" Text :>
            "students" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -77,16 +77,16 @@ type CoursesStudentsListResource =
 --
 -- /See:/ 'coursesStudentsList' smart constructor.
 data CoursesStudentsList = CoursesStudentsList'
-    { _cslXgafv          :: !(Maybe Text)
+    { _cslXgafv :: !(Maybe Xgafv)
     , _cslUploadProtocol :: !(Maybe Text)
-    , _cslPp             :: !Bool
-    , _cslCourseId       :: !Text
-    , _cslAccessToken    :: !(Maybe Text)
-    , _cslUploadType     :: !(Maybe Text)
-    , _cslBearerToken    :: !(Maybe Text)
-    , _cslPageToken      :: !(Maybe Text)
-    , _cslPageSize       :: !(Maybe (Textual Int32))
-    , _cslCallback       :: !(Maybe Text)
+    , _cslPp :: !Bool
+    , _cslCourseId :: !Text
+    , _cslAccessToken :: !(Maybe Text)
+    , _cslUploadType :: !(Maybe Text)
+    , _cslBearerToken :: !(Maybe Text)
+    , _cslPageToken :: !(Maybe Text)
+    , _cslPageSize :: !(Maybe (Textual Int32))
+    , _cslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesStudentsList' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data CoursesStudentsList = CoursesStudentsList'
 coursesStudentsList
     :: Text -- ^ 'cslCourseId'
     -> CoursesStudentsList
-coursesStudentsList pCslCourseId_ =
+coursesStudentsList pCslCourseId_ = 
     CoursesStudentsList'
     { _cslXgafv = Nothing
     , _cslUploadProtocol = Nothing
@@ -130,7 +130,7 @@ coursesStudentsList pCslCourseId_ =
     }
 
 -- | V1 error format.
-cslXgafv :: Lens' CoursesStudentsList (Maybe Text)
+cslXgafv :: Lens' CoursesStudentsList (Maybe Xgafv)
 cslXgafv = lens _cslXgafv (\ s a -> s{_cslXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

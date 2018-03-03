@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.GenerateToken
     , ugtUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.generateToken@ method which the
 -- 'UsersGenerateToken' request conforms to.
@@ -63,7 +63,7 @@ type UsersGenerateTokenResource =
 -- /See:/ 'usersGenerateToken' smart constructor.
 data UsersGenerateToken = UsersGenerateToken'
     { _ugtEnterpriseId :: !Text
-    , _ugtUserId       :: !Text
+    , _ugtUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersGenerateToken' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ usersGenerateToken
     :: Text -- ^ 'ugtEnterpriseId'
     -> Text -- ^ 'ugtUserId'
     -> UsersGenerateToken
-usersGenerateToken pUgtEnterpriseId_ pUgtUserId_ =
+usersGenerateToken pUgtEnterpriseId_ pUgtUserId_ = 
     UsersGenerateToken'
     { _ugtEnterpriseId = pUgtEnterpriseId_
     , _ugtUserId = pUgtUserId_

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.TargetingTemplates.Insert
     , ttiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.targetingTemplates.insert@ method which the
 -- 'TargetingTemplatesInsert' request conforms to.
 type TargetingTemplatesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "targetingTemplates" :>
@@ -57,7 +57,7 @@ type TargetingTemplatesInsertResource =
 -- /See:/ 'targetingTemplatesInsert' smart constructor.
 data TargetingTemplatesInsert = TargetingTemplatesInsert'
     { _ttiProFileId :: !(Textual Int64)
-    , _ttiPayload   :: !TargetingTemplate
+    , _ttiPayload :: !TargetingTemplate
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetingTemplatesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ targetingTemplatesInsert
     :: Int64 -- ^ 'ttiProFileId'
     -> TargetingTemplate -- ^ 'ttiPayload'
     -> TargetingTemplatesInsert
-targetingTemplatesInsert pTtiProFileId_ pTtiPayload_ =
+targetingTemplatesInsert pTtiProFileId_ pTtiPayload_ = 
     TargetingTemplatesInsert'
     { _ttiProFileId = _Coerce # pTtiProFileId_
     , _ttiPayload = pTtiPayload_

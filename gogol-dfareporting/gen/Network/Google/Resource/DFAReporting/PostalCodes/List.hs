@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.PostalCodes.List
     , pclProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.postalCodes.list@ method which the
 -- 'PostalCodesList' request conforms to.
 type PostalCodesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "postalCodes" :>
@@ -65,7 +65,7 @@ newtype PostalCodesList = PostalCodesList'
 postalCodesList
     :: Int64 -- ^ 'pclProFileId'
     -> PostalCodesList
-postalCodesList pPclProFileId_ =
+postalCodesList pPclProFileId_ = 
     PostalCodesList'
     { _pclProFileId = _Coerce # pPclProFileId_
     }

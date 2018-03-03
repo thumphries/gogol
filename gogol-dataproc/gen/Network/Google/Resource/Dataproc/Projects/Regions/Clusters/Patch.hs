@@ -34,6 +34,7 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Patch
 
     -- * Request Lenses
     , prcpXgafv
+    , prcpRequestId
     , prcpUploadProtocol
     , prcpUpdateMask
     , prcpPp
@@ -41,14 +42,15 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Patch
     , prcpUploadType
     , prcpPayload
     , prcpBearerToken
+    , prcpGracefulDecommissionTimeout
     , prcpClusterName
     , prcpRegion
     , prcpProjectId
     , prcpCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.clusters.patch@ method which the
 -- 'ProjectsRegionsClustersPatch' request conforms to.
@@ -60,34 +62,40 @@ type ProjectsRegionsClustersPatchResource =
              Capture "region" Text :>
                "clusters" :>
                  Capture "clusterName" Text :>
-                   QueryParam "$.xgafv" Text :>
-                     QueryParam "upload_protocol" Text :>
-                       QueryParam "updateMask" Text :>
-                         QueryParam "pp" Bool :>
-                           QueryParam "access_token" Text :>
-                             QueryParam "uploadType" Text :>
-                               QueryParam "bearer_token" Text :>
-                                 QueryParam "callback" Text :>
-                                   QueryParam "alt" AltJSON :>
-                                     ReqBody '[JSON] Cluster :>
-                                       Patch '[JSON] Operation
+                   QueryParam "$.xgafv" Xgafv :>
+                     QueryParam "requestId" Text :>
+                       QueryParam "upload_protocol" Text :>
+                         QueryParam "updateMask" FieldMask :>
+                           QueryParam "pp" Bool :>
+                             QueryParam "access_token" Text :>
+                               QueryParam "uploadType" Text :>
+                                 QueryParam "bearer_token" Text :>
+                                   QueryParam "gracefulDecommissionTimeout"
+                                     Duration
+                                     :>
+                                     QueryParam "callback" Text :>
+                                       QueryParam "alt" AltJSON :>
+                                         ReqBody '[JSON] Cluster :>
+                                           Patch '[JSON] Operation
 
 -- | Updates a cluster in a project.
 --
 -- /See:/ 'projectsRegionsClustersPatch' smart constructor.
 data ProjectsRegionsClustersPatch = ProjectsRegionsClustersPatch'
-    { _prcpXgafv          :: !(Maybe Text)
+    { _prcpXgafv :: !(Maybe Xgafv)
+    , _prcpRequestId :: !(Maybe Text)
     , _prcpUploadProtocol :: !(Maybe Text)
-    , _prcpUpdateMask     :: !(Maybe Text)
-    , _prcpPp             :: !Bool
-    , _prcpAccessToken    :: !(Maybe Text)
-    , _prcpUploadType     :: !(Maybe Text)
-    , _prcpPayload        :: !Cluster
-    , _prcpBearerToken    :: !(Maybe Text)
-    , _prcpClusterName    :: !Text
-    , _prcpRegion         :: !Text
-    , _prcpProjectId      :: !Text
-    , _prcpCallback       :: !(Maybe Text)
+    , _prcpUpdateMask :: !(Maybe FieldMask)
+    , _prcpPp :: !Bool
+    , _prcpAccessToken :: !(Maybe Text)
+    , _prcpUploadType :: !(Maybe Text)
+    , _prcpPayload :: !Cluster
+    , _prcpBearerToken :: !(Maybe Text)
+    , _prcpGracefulDecommissionTimeout :: !(Maybe Duration)
+    , _prcpClusterName :: !Text
+    , _prcpRegion :: !Text
+    , _prcpProjectId :: !Text
+    , _prcpCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsClustersPatch' with the minimum fields required to make a request.
@@ -95,6 +103,8 @@ data ProjectsRegionsClustersPatch = ProjectsRegionsClustersPatch'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prcpXgafv'
+--
+-- * 'prcpRequestId'
 --
 -- * 'prcpUploadProtocol'
 --
@@ -110,6 +120,8 @@ data ProjectsRegionsClustersPatch = ProjectsRegionsClustersPatch'
 --
 -- * 'prcpBearerToken'
 --
+-- * 'prcpGracefulDecommissionTimeout'
+--
 -- * 'prcpClusterName'
 --
 -- * 'prcpRegion'
@@ -123,9 +135,10 @@ projectsRegionsClustersPatch
     -> Text -- ^ 'prcpRegion'
     -> Text -- ^ 'prcpProjectId'
     -> ProjectsRegionsClustersPatch
-projectsRegionsClustersPatch pPrcpPayload_ pPrcpClusterName_ pPrcpRegion_ pPrcpProjectId_ =
+projectsRegionsClustersPatch pPrcpPayload_ pPrcpClusterName_ pPrcpRegion_ pPrcpProjectId_ = 
     ProjectsRegionsClustersPatch'
     { _prcpXgafv = Nothing
+    , _prcpRequestId = Nothing
     , _prcpUploadProtocol = Nothing
     , _prcpUpdateMask = Nothing
     , _prcpPp = True
@@ -133,6 +146,7 @@ projectsRegionsClustersPatch pPrcpPayload_ pPrcpClusterName_ pPrcpRegion_ pPrcpP
     , _prcpUploadType = Nothing
     , _prcpPayload = pPrcpPayload_
     , _prcpBearerToken = Nothing
+    , _prcpGracefulDecommissionTimeout = Nothing
     , _prcpClusterName = pPrcpClusterName_
     , _prcpRegion = pPrcpRegion_
     , _prcpProjectId = pPrcpProjectId_
@@ -140,9 +154,22 @@ projectsRegionsClustersPatch pPrcpPayload_ pPrcpClusterName_ pPrcpRegion_ pPrcpP
     }
 
 -- | V1 error format.
-prcpXgafv :: Lens' ProjectsRegionsClustersPatch (Maybe Text)
+prcpXgafv :: Lens' ProjectsRegionsClustersPatch (Maybe Xgafv)
 prcpXgafv
   = lens _prcpXgafv (\ s a -> s{_prcpXgafv = a})
+
+-- | Optional. A unique id used to identify the request. If the server
+-- receives two UpdateClusterRequest requests with the same id, then the
+-- second request will be ignored and the first
+-- google.longrunning.Operation created and stored in the backend is
+-- returned.It is recommended to always set this value to a UUID
+-- (https:\/\/en.wikipedia.org\/wiki\/Universally_unique_identifier).The id
+-- must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
+-- and hyphens (-). The maximum length is 40 characters.
+prcpRequestId :: Lens' ProjectsRegionsClustersPatch (Maybe Text)
+prcpRequestId
+  = lens _prcpRequestId
+      (\ s a -> s{_prcpRequestId = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
 prcpUploadProtocol :: Lens' ProjectsRegionsClustersPatch (Maybe Text)
@@ -150,20 +177,24 @@ prcpUploadProtocol
   = lens _prcpUploadProtocol
       (\ s a -> s{_prcpUploadProtocol = a})
 
--- | [Required] Specifies the path, relative to Cluster, of the field to
+-- | Required. Specifies the path, relative to Cluster, of the field to
 -- update. For example, to change the number of workers in a cluster to 5,
 -- the update_mask parameter would be specified as
--- config.worker_config.num_instances, and the \`PATCH\` request body would
+-- config.worker_config.num_instances, and the PATCH request body would
 -- specify the new value, as follows: { \"config\":{ \"workerConfig\":{
 -- \"numInstances\":\"5\" } } } Similarly, to change the number of
 -- preemptible workers in a cluster to 5, the update_mask parameter would
--- be config.secondary_worker_config.num_instances, and the \`PATCH\`
--- request body would be set as follows: { \"config\":{
--- \"secondaryWorkerConfig\":{ \"numInstances\":\"5\" } } } Note:
--- Currently, config.worker_config.num_instances and
--- config.secondary_worker_config.num_instances are the only fields that
--- can be updated.
-prcpUpdateMask :: Lens' ProjectsRegionsClustersPatch (Maybe Text)
+-- be config.secondary_worker_config.num_instances, and the PATCH request
+-- body would be set as follows: { \"config\":{ \"secondaryWorkerConfig\":{
+-- \"numInstances\":\"5\" } } } __Note:__ Currently, only the following
+-- fields can be updated:
+-- >   ---------------------------------------------------- -------------------------------
+-- >   __Mask__                                             __Purpose__
+-- >   __/labels/__                                         Update labels
+-- >   __/config.worker_config.num_instances/__             Resize primary worker group
+-- >   __/config.secondary_worker_config.num_instances/__   Resize secondary worker group
+-- >   ---------------------------------------------------- -------------------------------
+prcpUpdateMask :: Lens' ProjectsRegionsClustersPatch (Maybe FieldMask)
 prcpUpdateMask
   = lens _prcpUpdateMask
       (\ s a -> s{_prcpUpdateMask = a})
@@ -195,18 +226,31 @@ prcpBearerToken
   = lens _prcpBearerToken
       (\ s a -> s{_prcpBearerToken = a})
 
--- | [Required] The cluster name.
+-- | Optional. Timeout for graceful YARN decomissioning. Graceful
+-- decommissioning allows removing nodes from the cluster without
+-- interrupting jobs in progress. Timeout specifies how long to wait for
+-- jobs in progress to finish before forcefully removing nodes (and
+-- potentially interrupting jobs). Default timeout is 0 (for forceful
+-- decommission), and the maximum allowed timeout is 1 day.Only supported
+-- on Dataproc image versions 1.2 and higher.
+prcpGracefulDecommissionTimeout :: Lens' ProjectsRegionsClustersPatch (Maybe Scientific)
+prcpGracefulDecommissionTimeout
+  = lens _prcpGracefulDecommissionTimeout
+      (\ s a -> s{_prcpGracefulDecommissionTimeout = a})
+      . mapping _Duration
+
+-- | Required. The cluster name.
 prcpClusterName :: Lens' ProjectsRegionsClustersPatch Text
 prcpClusterName
   = lens _prcpClusterName
       (\ s a -> s{_prcpClusterName = a})
 
--- | [Required] The Cloud Dataproc region in which to handle the request.
+-- | Required. The Cloud Dataproc region in which to handle the request.
 prcpRegion :: Lens' ProjectsRegionsClustersPatch Text
 prcpRegion
   = lens _prcpRegion (\ s a -> s{_prcpRegion = a})
 
--- | [Required] The ID of the Google Cloud Platform project the cluster
+-- | Required. The ID of the Google Cloud Platform project the cluster
 -- belongs to.
 prcpProjectId :: Lens' ProjectsRegionsClustersPatch Text
 prcpProjectId
@@ -226,12 +270,14 @@ instance GoogleRequest ProjectsRegionsClustersPatch
         requestClient ProjectsRegionsClustersPatch'{..}
           = go _prcpProjectId _prcpRegion _prcpClusterName
               _prcpXgafv
+              _prcpRequestId
               _prcpUploadProtocol
               _prcpUpdateMask
               (Just _prcpPp)
               _prcpAccessToken
               _prcpUploadType
               _prcpBearerToken
+              _prcpGracefulDecommissionTimeout
               _prcpCallback
               (Just AltJSON)
               _prcpPayload

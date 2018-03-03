@@ -37,8 +37,8 @@ module Network.Google.Resource.Calendar.Calendars.Update
     , cuPayload
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.calendars.update@ method which the
 -- 'CalendarsUpdate' request conforms to.
@@ -55,7 +55,7 @@ type CalendarsUpdateResource =
 -- /See:/ 'calendarsUpdate' smart constructor.
 data CalendarsUpdate = CalendarsUpdate'
     { _cuCalendarId :: !Text
-    , _cuPayload    :: !Calendar
+    , _cuPayload :: !Calendar
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CalendarsUpdate' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ calendarsUpdate
     :: Text -- ^ 'cuCalendarId'
     -> Calendar -- ^ 'cuPayload'
     -> CalendarsUpdate
-calendarsUpdate pCuCalendarId_ pCuPayload_ =
+calendarsUpdate pCuCalendarId_ pCuPayload_ = 
     CalendarsUpdate'
     { _cuCalendarId = pCuCalendarId_
     , _cuPayload = pCuPayload_

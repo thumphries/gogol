@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.ChannelSections.Update
     , csuOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.channelSections.update@ method which the
 -- 'ChannelSectionsUpdate' request conforms to.
@@ -57,8 +57,8 @@ type ChannelSectionsUpdateResource =
 --
 -- /See:/ 'channelSectionsUpdate' smart constructor.
 data ChannelSectionsUpdate = ChannelSectionsUpdate'
-    { _csuPart                   :: !Text
-    , _csuPayload                :: !ChannelSection
+    { _csuPart :: !Text
+    , _csuPayload :: !ChannelSection
     , _csuOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ channelSectionsUpdate
     :: Text -- ^ 'csuPart'
     -> ChannelSection -- ^ 'csuPayload'
     -> ChannelSectionsUpdate
-channelSectionsUpdate pCsuPart_ pCsuPayload_ =
+channelSectionsUpdate pCsuPart_ pCsuPayload_ = 
     ChannelSectionsUpdate'
     { _csuPart = pCsuPart_
     , _csuPayload = pCsuPayload_

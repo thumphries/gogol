@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.CustomMetrics.Get
     , mcmgAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customMetrics.get@ method which the
 -- 'ManagementCustomMetricsGet' request conforms to.
@@ -60,8 +60,8 @@ type ManagementCustomMetricsGetResource =
 -- /See:/ 'managementCustomMetricsGet' smart constructor.
 data ManagementCustomMetricsGet = ManagementCustomMetricsGet'
     { _mcmgCustomMetricId :: !Text
-    , _mcmgWebPropertyId  :: !Text
-    , _mcmgAccountId      :: !Text
+    , _mcmgWebPropertyId :: !Text
+    , _mcmgAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomMetricsGet' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ managementCustomMetricsGet
     -> Text -- ^ 'mcmgWebPropertyId'
     -> Text -- ^ 'mcmgAccountId'
     -> ManagementCustomMetricsGet
-managementCustomMetricsGet pMcmgCustomMetricId_ pMcmgWebPropertyId_ pMcmgAccountId_ =
+managementCustomMetricsGet pMcmgCustomMetricId_ pMcmgWebPropertyId_ pMcmgAccountId_ = 
     ManagementCustomMetricsGet'
     { _mcmgCustomMetricId = pMcmgCustomMetricId_
     , _mcmgWebPropertyId = pMcmgWebPropertyId_

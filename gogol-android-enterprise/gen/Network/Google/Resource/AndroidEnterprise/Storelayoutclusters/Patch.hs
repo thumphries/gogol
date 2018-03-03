@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutclusters.Patch
     , sppClusterId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutclusters.patch@ method which the
 -- 'StorelayoutclustersPatch' request conforms to.
@@ -63,9 +63,9 @@ type StorelayoutclustersPatchResource =
 -- /See:/ 'storelayoutclustersPatch' smart constructor.
 data StorelayoutclustersPatch = StorelayoutclustersPatch'
     { _sppEnterpriseId :: !Text
-    , _sppPageId       :: !Text
-    , _sppPayload      :: !StoreCluster
-    , _sppClusterId    :: !Text
+    , _sppPageId :: !Text
+    , _sppPayload :: !StoreCluster
+    , _sppClusterId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutclustersPatch' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ storelayoutclustersPatch
     -> StoreCluster -- ^ 'sppPayload'
     -> Text -- ^ 'sppClusterId'
     -> StorelayoutclustersPatch
-storelayoutclustersPatch pSppEnterpriseId_ pSppPageId_ pSppPayload_ pSppClusterId_ =
+storelayoutclustersPatch pSppEnterpriseId_ pSppPageId_ pSppPayload_ pSppClusterId_ = 
     StorelayoutclustersPatch'
     { _sppEnterpriseId = pSppEnterpriseId_
     , _sppPageId = pSppPageId_

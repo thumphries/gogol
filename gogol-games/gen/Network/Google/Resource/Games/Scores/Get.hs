@@ -37,7 +37,6 @@ module Network.Google.Resource.Games.Scores.Get
     , ScoresGet
 
     -- * Request Lenses
-    , sgConsistencyToken
     , sgTimeSpan
     , sgLeaderboardId
     , sgIncludeRankType
@@ -47,8 +46,8 @@ module Network.Google.Resource.Games.Scores.Get
     , sgMaxResults
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.scores.get@ method which the
 -- 'ScoresGet' request conforms to.
@@ -61,14 +60,13 @@ type ScoresGetResource =
                Capture "leaderboardId" Text :>
                  "scores" :>
                    Capture "timeSpan" ScoresGetTimeSpan :>
-                     QueryParam "consistencyToken" (Textual Int64) :>
-                       QueryParam "includeRankType" ScoresGetIncludeRankType
-                         :>
-                         QueryParam "language" Text :>
-                           QueryParam "pageToken" Text :>
-                             QueryParam "maxResults" (Textual Int32) :>
-                               QueryParam "alt" AltJSON :>
-                                 Get '[JSON] PlayerLeaderboardScoreListResponse
+                     QueryParam "includeRankType" ScoresGetIncludeRankType
+                       :>
+                       QueryParam "language" Text :>
+                         QueryParam "pageToken" Text :>
+                           QueryParam "maxResults" (Textual Int32) :>
+                             QueryParam "alt" AltJSON :>
+                               Get '[JSON] PlayerLeaderboardScoreListResponse
 
 -- | Get high scores, and optionally ranks, in leaderboards for the currently
 -- authenticated player. For a specific time span, leaderboardId can be set
@@ -78,21 +76,18 @@ type ScoresGetResource =
 --
 -- /See:/ 'scoresGet' smart constructor.
 data ScoresGet = ScoresGet'
-    { _sgConsistencyToken :: !(Maybe (Textual Int64))
-    , _sgTimeSpan         :: !ScoresGetTimeSpan
-    , _sgLeaderboardId    :: !Text
-    , _sgIncludeRankType  :: !(Maybe ScoresGetIncludeRankType)
-    , _sgLanguage         :: !(Maybe Text)
-    , _sgPageToken        :: !(Maybe Text)
-    , _sgPlayerId         :: !Text
-    , _sgMaxResults       :: !(Maybe (Textual Int32))
+    { _sgTimeSpan :: !ScoresGetTimeSpan
+    , _sgLeaderboardId :: !Text
+    , _sgIncludeRankType :: !(Maybe ScoresGetIncludeRankType)
+    , _sgLanguage :: !(Maybe Text)
+    , _sgPageToken :: !(Maybe Text)
+    , _sgPlayerId :: !Text
+    , _sgMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScoresGet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgConsistencyToken'
 --
 -- * 'sgTimeSpan'
 --
@@ -112,10 +107,9 @@ scoresGet
     -> Text -- ^ 'sgLeaderboardId'
     -> Text -- ^ 'sgPlayerId'
     -> ScoresGet
-scoresGet pSgTimeSpan_ pSgLeaderboardId_ pSgPlayerId_ =
+scoresGet pSgTimeSpan_ pSgLeaderboardId_ pSgPlayerId_ = 
     ScoresGet'
-    { _sgConsistencyToken = Nothing
-    , _sgTimeSpan = pSgTimeSpan_
+    { _sgTimeSpan = pSgTimeSpan_
     , _sgLeaderboardId = pSgLeaderboardId_
     , _sgIncludeRankType = Nothing
     , _sgLanguage = Nothing
@@ -123,13 +117,6 @@ scoresGet pSgTimeSpan_ pSgLeaderboardId_ pSgPlayerId_ =
     , _sgPlayerId = pSgPlayerId_
     , _sgMaxResults = Nothing
     }
-
--- | The last-seen mutation timestamp.
-sgConsistencyToken :: Lens' ScoresGet (Maybe Int64)
-sgConsistencyToken
-  = lens _sgConsistencyToken
-      (\ s a -> s{_sgConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The time span for the scores and ranks you\'re requesting.
 sgTimeSpan :: Lens' ScoresGet ScoresGetTimeSpan
@@ -182,7 +169,6 @@ instance GoogleRequest ScoresGet where
                "https://www.googleapis.com/auth/plus.login"]
         requestClient ScoresGet'{..}
           = go _sgPlayerId _sgLeaderboardId _sgTimeSpan
-              _sgConsistencyToken
               _sgIncludeRankType
               _sgLanguage
               _sgPageToken

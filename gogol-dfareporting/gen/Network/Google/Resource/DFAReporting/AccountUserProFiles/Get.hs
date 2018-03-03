@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AccountUserProFiles.Get
     , aupfgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountUserProfiles.get@ method which the
 -- 'AccountUserProFilesGet' request conforms to.
 type AccountUserProFilesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountUserProfiles" :>
@@ -57,7 +57,7 @@ type AccountUserProFilesGetResource =
 -- /See:/ 'accountUserProFilesGet' smart constructor.
 data AccountUserProFilesGet = AccountUserProFilesGet'
     { _aupfgProFileId :: !(Textual Int64)
-    , _aupfgId        :: !(Textual Int64)
+    , _aupfgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountUserProFilesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ accountUserProFilesGet
     :: Int64 -- ^ 'aupfgProFileId'
     -> Int64 -- ^ 'aupfgId'
     -> AccountUserProFilesGet
-accountUserProFilesGet pAupfgProFileId_ pAupfgId_ =
+accountUserProFilesGet pAupfgProFileId_ pAupfgId_ = 
     AccountUserProFilesGet'
     { _aupfgProFileId = _Coerce # pAupfgProFileId_
     , _aupfgId = _Coerce # pAupfgId_

@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.Disks.Get
     , dgZone
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.disks.get@ method which the
 -- 'DisksGet' request conforms to.
@@ -61,8 +61,8 @@ type DisksGetResource =
 -- /See:/ 'disksGet' smart constructor.
 data DisksGet = DisksGet'
     { _dgProject :: !Text
-    , _dgDisk    :: !Text
-    , _dgZone    :: !Text
+    , _dgDisk :: !Text
+    , _dgZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisksGet' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ disksGet
     -> Text -- ^ 'dgDisk'
     -> Text -- ^ 'dgZone'
     -> DisksGet
-disksGet pDgProject_ pDgDisk_ pDgZone_ =
+disksGet pDgProject_ pDgDisk_ pDgZone_ = 
     DisksGet'
     { _dgProject = pDgProject_
     , _dgDisk = pDgDisk_

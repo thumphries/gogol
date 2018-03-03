@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified send-as alias. Revokes any verification that may
--- have been required for using it.
+-- have been required for using it. This method is only available to
+-- service account clients that have been delegated domain-wide authority.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.sendAs.delete@.
 module Network.Google.Resource.Gmail.Users.Settings.SendAs.Delete
@@ -38,8 +39,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Delete
     , ussadSendAsEmail
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.delete@ method which the
 -- 'UsersSettingsSendAsDelete' request conforms to.
@@ -54,11 +55,12 @@ type UsersSettingsSendAsDeleteResource =
                    QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
 -- | Deletes the specified send-as alias. Revokes any verification that may
--- have been required for using it.
+-- have been required for using it. This method is only available to
+-- service account clients that have been delegated domain-wide authority.
 --
 -- /See:/ 'usersSettingsSendAsDelete' smart constructor.
 data UsersSettingsSendAsDelete = UsersSettingsSendAsDelete'
-    { _ussadUserId      :: !Text
+    { _ussadUserId :: !Text
     , _ussadSendAsEmail :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +74,7 @@ data UsersSettingsSendAsDelete = UsersSettingsSendAsDelete'
 usersSettingsSendAsDelete
     :: Text -- ^ 'ussadSendAsEmail'
     -> UsersSettingsSendAsDelete
-usersSettingsSendAsDelete pUssadSendAsEmail_ =
+usersSettingsSendAsDelete pUssadSendAsEmail_ = 
     UsersSettingsSendAsDelete'
     { _ussadUserId = "me"
     , _ussadSendAsEmail = pUssadSendAsEmail_

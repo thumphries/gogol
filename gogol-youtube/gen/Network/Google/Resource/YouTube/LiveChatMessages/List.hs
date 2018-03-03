@@ -41,8 +41,8 @@ module Network.Google.Resource.YouTube.LiveChatMessages.List
     , lcmlProFileImageSize
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveChatMessages.list@ method which the
 -- 'LiveChatMessagesList' request conforms to.
@@ -64,11 +64,11 @@ type LiveChatMessagesListResource =
 --
 -- /See:/ 'liveChatMessagesList' smart constructor.
 data LiveChatMessagesList = LiveChatMessagesList'
-    { _lcmlPart             :: !Text
-    , _lcmlLiveChatId       :: !Text
-    , _lcmlHl               :: !(Maybe Text)
-    , _lcmlPageToken        :: !(Maybe Text)
-    , _lcmlMaxResults       :: !(Textual Word32)
+    { _lcmlPart :: !Text
+    , _lcmlLiveChatId :: !Text
+    , _lcmlHl :: !(Maybe Text)
+    , _lcmlPageToken :: !(Maybe Text)
+    , _lcmlMaxResults :: !(Textual Word32)
     , _lcmlProFileImageSize :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -91,7 +91,7 @@ liveChatMessagesList
     :: Text -- ^ 'lcmlPart'
     -> Text -- ^ 'lcmlLiveChatId'
     -> LiveChatMessagesList
-liveChatMessagesList pLcmlPart_ pLcmlLiveChatId_ =
+liveChatMessagesList pLcmlPart_ pLcmlLiveChatId_ = 
     LiveChatMessagesList'
     { _lcmlPart = pLcmlPart_
     , _lcmlLiveChatId = pLcmlLiveChatId_

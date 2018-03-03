@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.UserRolePermissionGroups.List
     , urpglProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRolePermissionGroups.list@ method which the
 -- 'UserRolePermissionGroupsList' request conforms to.
 type UserRolePermissionGroupsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRolePermissionGroups" :>
@@ -65,7 +65,7 @@ newtype UserRolePermissionGroupsList = UserRolePermissionGroupsList'
 userRolePermissionGroupsList
     :: Int64 -- ^ 'urpglProFileId'
     -> UserRolePermissionGroupsList
-userRolePermissionGroupsList pUrpglProFileId_ =
+userRolePermissionGroupsList pUrpglProFileId_ = 
     UserRolePermissionGroupsList'
     { _urpglProFileId = _Coerce # pUrpglProFileId_
     }

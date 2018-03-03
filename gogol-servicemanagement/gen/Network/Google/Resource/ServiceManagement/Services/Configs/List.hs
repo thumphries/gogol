@@ -46,8 +46,8 @@ module Network.Google.Resource.ServiceManagement.Services.Configs.List
     , sclCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.configs.list@ method which the
 -- 'ServicesConfigsList' request conforms to.
@@ -73,16 +73,16 @@ type ServicesConfigsListResource =
 --
 -- /See:/ 'servicesConfigsList' smart constructor.
 data ServicesConfigsList = ServicesConfigsList'
-    { _sclXgafv          :: !(Maybe Xgafv)
+    { _sclXgafv :: !(Maybe Xgafv)
     , _sclUploadProtocol :: !(Maybe Text)
-    , _sclPp             :: !Bool
-    , _sclAccessToken    :: !(Maybe Text)
-    , _sclUploadType     :: !(Maybe Text)
-    , _sclBearerToken    :: !(Maybe Text)
-    , _sclServiceName    :: !Text
-    , _sclPageToken      :: !(Maybe Text)
-    , _sclPageSize       :: !(Maybe (Textual Int32))
-    , _sclCallback       :: !(Maybe Text)
+    , _sclPp :: !Bool
+    , _sclAccessToken :: !(Maybe Text)
+    , _sclUploadType :: !(Maybe Text)
+    , _sclBearerToken :: !(Maybe Text)
+    , _sclServiceName :: !Text
+    , _sclPageToken :: !(Maybe Text)
+    , _sclPageSize :: !(Maybe (Textual Int32))
+    , _sclCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesConfigsList' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ data ServicesConfigsList = ServicesConfigsList'
 servicesConfigsList
     :: Text -- ^ 'sclServiceName'
     -> ServicesConfigsList
-servicesConfigsList pSclServiceName_ =
+servicesConfigsList pSclServiceName_ = 
     ServicesConfigsList'
     { _sclXgafv = Nothing
     , _sclUploadProtocol = Nothing

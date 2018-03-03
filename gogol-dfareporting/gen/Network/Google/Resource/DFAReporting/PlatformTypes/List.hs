@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.PlatformTypes.List
     , ptlProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.platformTypes.list@ method which the
 -- 'PlatformTypesList' request conforms to.
 type PlatformTypesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "platformTypes" :>
@@ -65,7 +65,7 @@ newtype PlatformTypesList = PlatformTypesList'
 platformTypesList
     :: Int64 -- ^ 'ptlProFileId'
     -> PlatformTypesList
-platformTypesList pPtlProFileId_ =
+platformTypesList pPtlProFileId_ = 
     PlatformTypesList'
     { _ptlProFileId = _Coerce # pPtlProFileId_
     }

@@ -55,8 +55,8 @@ module Network.Google.Resource.Classroom.UserProFiles.Guardians.Delete
     , upfgdCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.guardians.delete@ method which the
 -- 'UserProFilesGuardiansDelete' request conforms to.
@@ -66,7 +66,7 @@ type UserProFilesGuardiansDeleteResource =
          Capture "studentId" Text :>
            "guardians" :>
              Capture "guardianId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -90,15 +90,15 @@ type UserProFilesGuardiansDeleteResource =
 --
 -- /See:/ 'userProFilesGuardiansDelete' smart constructor.
 data UserProFilesGuardiansDelete = UserProFilesGuardiansDelete'
-    { _upfgdStudentId      :: !Text
-    , _upfgdXgafv          :: !(Maybe Text)
+    { _upfgdStudentId :: !Text
+    , _upfgdXgafv :: !(Maybe Xgafv)
     , _upfgdUploadProtocol :: !(Maybe Text)
-    , _upfgdPp             :: !Bool
-    , _upfgdAccessToken    :: !(Maybe Text)
-    , _upfgdUploadType     :: !(Maybe Text)
-    , _upfgdGuardianId     :: !Text
-    , _upfgdBearerToken    :: !(Maybe Text)
-    , _upfgdCallback       :: !(Maybe Text)
+    , _upfgdPp :: !Bool
+    , _upfgdAccessToken :: !(Maybe Text)
+    , _upfgdUploadType :: !(Maybe Text)
+    , _upfgdGuardianId :: !Text
+    , _upfgdBearerToken :: !(Maybe Text)
+    , _upfgdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGuardiansDelete' with the minimum fields required to make a request.
@@ -126,7 +126,7 @@ userProFilesGuardiansDelete
     :: Text -- ^ 'upfgdStudentId'
     -> Text -- ^ 'upfgdGuardianId'
     -> UserProFilesGuardiansDelete
-userProFilesGuardiansDelete pUpfgdStudentId_ pUpfgdGuardianId_ =
+userProFilesGuardiansDelete pUpfgdStudentId_ pUpfgdGuardianId_ = 
     UserProFilesGuardiansDelete'
     { _upfgdStudentId = pUpfgdStudentId_
     , _upfgdXgafv = Nothing
@@ -148,7 +148,7 @@ upfgdStudentId
       (\ s a -> s{_upfgdStudentId = a})
 
 -- | V1 error format.
-upfgdXgafv :: Lens' UserProFilesGuardiansDelete (Maybe Text)
+upfgdXgafv :: Lens' UserProFilesGuardiansDelete (Maybe Xgafv)
 upfgdXgafv
   = lens _upfgdXgafv (\ s a -> s{_upfgdXgafv = a})
 
@@ -195,7 +195,8 @@ upfgdCallback
 instance GoogleRequest UserProFilesGuardiansDelete
          where
         type Rs UserProFilesGuardiansDelete = Empty
-        type Scopes UserProFilesGuardiansDelete = '[]
+        type Scopes UserProFilesGuardiansDelete =
+             '["https://www.googleapis.com/auth/classroom.guardianlinks.students"]
         requestClient UserProFilesGuardiansDelete'{..}
           = go _upfgdStudentId _upfgdGuardianId _upfgdXgafv
               _upfgdUploadProtocol

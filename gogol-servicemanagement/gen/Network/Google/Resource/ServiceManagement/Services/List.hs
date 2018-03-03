@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists managed services. If called without any authentication, it returns
--- only the public services. If called with authentication, it returns all
--- services that the caller has \"servicemanagement.services.get\"
--- permission for. **BETA:** If the caller specifies the \`consumer_id\`,
--- it returns only the services enabled on the consumer. The
--- \`consumer_id\` must have the format of \"project:{PROJECT-ID}\".
+-- Lists managed services. Returns all public services. For authenticated
+-- users, also returns all services the calling user has
+-- \"servicemanagement.services.get\" permission for. **BETA:** If the
+-- caller specifies the \`consumer_id\`, it returns only the services
+-- enabled on the consumer. The \`consumer_id\` must have the format of
+-- \"project:{PROJECT-ID}\".
 --
 -- /See:/ <https://cloud.google.com/service-management/ Google Service Management API Reference> for @servicemanagement.services.list@.
 module Network.Google.Resource.ServiceManagement.Services.List
@@ -51,8 +51,8 @@ module Network.Google.Resource.ServiceManagement.Services.List
     , slCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.list@ method which the
 -- 'ServicesList' request conforms to.
@@ -73,26 +73,26 @@ type ServicesListResource =
                                QueryParam "alt" AltJSON :>
                                  Get '[JSON] ListServicesResponse
 
--- | Lists managed services. If called without any authentication, it returns
--- only the public services. If called with authentication, it returns all
--- services that the caller has \"servicemanagement.services.get\"
--- permission for. **BETA:** If the caller specifies the \`consumer_id\`,
--- it returns only the services enabled on the consumer. The
--- \`consumer_id\` must have the format of \"project:{PROJECT-ID}\".
+-- | Lists managed services. Returns all public services. For authenticated
+-- users, also returns all services the calling user has
+-- \"servicemanagement.services.get\" permission for. **BETA:** If the
+-- caller specifies the \`consumer_id\`, it returns only the services
+-- enabled on the consumer. The \`consumer_id\` must have the format of
+-- \"project:{PROJECT-ID}\".
 --
 -- /See:/ 'servicesList' smart constructor.
 data ServicesList = ServicesList'
-    { _slXgafv             :: !(Maybe Xgafv)
-    , _slUploadProtocol    :: !(Maybe Text)
-    , _slPp                :: !Bool
-    , _slAccessToken       :: !(Maybe Text)
-    , _slUploadType        :: !(Maybe Text)
-    , _slBearerToken       :: !(Maybe Text)
-    , _slPageToken         :: !(Maybe Text)
+    { _slXgafv :: !(Maybe Xgafv)
+    , _slUploadProtocol :: !(Maybe Text)
+    , _slPp :: !Bool
+    , _slAccessToken :: !(Maybe Text)
+    , _slUploadType :: !(Maybe Text)
+    , _slBearerToken :: !(Maybe Text)
+    , _slPageToken :: !(Maybe Text)
     , _slProducerProjectId :: !(Maybe Text)
-    , _slConsumerId        :: !(Maybe Text)
-    , _slPageSize          :: !(Maybe (Textual Int32))
-    , _slCallback          :: !(Maybe Text)
+    , _slConsumerId :: !(Maybe Text)
+    , _slPageSize :: !(Maybe (Textual Int32))
+    , _slCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesList' with the minimum fields required to make a request.
@@ -122,7 +122,7 @@ data ServicesList = ServicesList'
 -- * 'slCallback'
 servicesList
     :: ServicesList
-servicesList =
+servicesList = 
     ServicesList'
     { _slXgafv = Nothing
     , _slUploadProtocol = Nothing

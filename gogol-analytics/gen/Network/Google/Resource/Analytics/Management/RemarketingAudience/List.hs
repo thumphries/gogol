@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.RemarketingAudience.List
     , mralMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.remarketingAudience.list@ method which the
 -- 'ManagementRemarketingAudienceList' request conforms to.
@@ -65,10 +65,10 @@ type ManagementRemarketingAudienceListResource =
 -- /See:/ 'managementRemarketingAudienceList' smart constructor.
 data ManagementRemarketingAudienceList = ManagementRemarketingAudienceList'
     { _mralWebPropertyId :: !Text
-    , _mralAccountId     :: !Text
-    , _mralType          :: !Text
-    , _mralStartIndex    :: !(Maybe (Textual Int32))
-    , _mralMaxResults    :: !(Maybe (Textual Int32))
+    , _mralAccountId :: !Text
+    , _mralType :: !Text
+    , _mralStartIndex :: !(Maybe (Textual Int32))
+    , _mralMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementRemarketingAudienceList' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ managementRemarketingAudienceList
     :: Text -- ^ 'mralWebPropertyId'
     -> Text -- ^ 'mralAccountId'
     -> ManagementRemarketingAudienceList
-managementRemarketingAudienceList pMralWebPropertyId_ pMralAccountId_ =
+managementRemarketingAudienceList pMralWebPropertyId_ pMralAccountId_ = 
     ManagementRemarketingAudienceList'
     { _mralWebPropertyId = pMralWebPropertyId_
     , _mralAccountId = pMralAccountId_

@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.Delete
     , uddId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.delete@ method which the
 -- 'UsersDraftsDelete' request conforms to.
@@ -58,7 +58,7 @@ type UsersDraftsDeleteResource =
 -- /See:/ 'usersDraftsDelete' smart constructor.
 data UsersDraftsDelete = UsersDraftsDelete'
     { _uddUserId :: !Text
-    , _uddId     :: !Text
+    , _uddId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersDraftsDelete = UsersDraftsDelete'
 usersDraftsDelete
     :: Text -- ^ 'uddId'
     -> UsersDraftsDelete
-usersDraftsDelete pUddId_ =
+usersDraftsDelete pUddId_ = 
     UsersDraftsDelete'
     { _uddUserId = "me"
     , _uddId = pUddId_

@@ -36,8 +36,8 @@ module Network.Google.Resource.PlusDomains.Circles.Remove
     , crCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.remove@ method which the
 -- 'CirclesRemove' request conforms to.
@@ -63,7 +63,7 @@ newtype CirclesRemove = CirclesRemove'
 circlesRemove
     :: Text -- ^ 'crCircleId'
     -> CirclesRemove
-circlesRemove pCrCircleId_ =
+circlesRemove pCrCircleId_ = 
     CirclesRemove'
     { _crCircleId = pCrCircleId_
     }

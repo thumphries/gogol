@@ -33,13 +33,14 @@ module Network.Google.Resource.Compute.TargetPools.Delete
     , TargetPoolsDelete
 
     -- * Request Lenses
+    , tpdRequestId
     , tpdProject
     , tpdTargetPool
     , tpdRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.targetPools.delete@ method which the
 -- 'TargetPoolsDelete' request conforms to.
@@ -52,20 +53,24 @@ type TargetPoolsDeleteResource =
                Capture "region" Text :>
                  "targetPools" :>
                    Capture "targetPool" Text :>
-                     QueryParam "alt" AltJSON :> Delete '[JSON] Operation
+                     QueryParam "requestId" Text :>
+                       QueryParam "alt" AltJSON :> Delete '[JSON] Operation
 
 -- | Deletes the specified target pool.
 --
 -- /See:/ 'targetPoolsDelete' smart constructor.
 data TargetPoolsDelete = TargetPoolsDelete'
-    { _tpdProject    :: !Text
+    { _tpdRequestId :: !(Maybe Text)
+    , _tpdProject :: !Text
     , _tpdTargetPool :: !Text
-    , _tpdRegion     :: !Text
+    , _tpdRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetPoolsDelete' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tpdRequestId'
 --
 -- * 'tpdProject'
 --
@@ -77,12 +82,27 @@ targetPoolsDelete
     -> Text -- ^ 'tpdTargetPool'
     -> Text -- ^ 'tpdRegion'
     -> TargetPoolsDelete
-targetPoolsDelete pTpdProject_ pTpdTargetPool_ pTpdRegion_ =
+targetPoolsDelete pTpdProject_ pTpdTargetPool_ pTpdRegion_ = 
     TargetPoolsDelete'
-    { _tpdProject = pTpdProject_
+    { _tpdRequestId = Nothing
+    , _tpdProject = pTpdProject_
     , _tpdTargetPool = pTpdTargetPool_
     , _tpdRegion = pTpdRegion_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+tpdRequestId :: Lens' TargetPoolsDelete (Maybe Text)
+tpdRequestId
+  = lens _tpdRequestId (\ s a -> s{_tpdRequestId = a})
 
 -- | Project ID for this request.
 tpdProject :: Lens' TargetPoolsDelete Text
@@ -107,6 +127,7 @@ instance GoogleRequest TargetPoolsDelete where
                "https://www.googleapis.com/auth/compute"]
         requestClient TargetPoolsDelete'{..}
           = go _tpdProject _tpdRegion _tpdTargetPool
+              _tpdRequestId
               (Just AltJSON)
               computeService
           where go

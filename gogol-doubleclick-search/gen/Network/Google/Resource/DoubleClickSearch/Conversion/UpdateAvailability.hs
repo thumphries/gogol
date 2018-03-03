@@ -37,8 +37,8 @@ module Network.Google.Resource.DoubleClickSearch.Conversion.UpdateAvailability
     , cuaPayload
     ) where
 
-import           Network.Google.DoubleClickSearch.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickSearch.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclicksearch.conversion.updateAvailability@ method which the
 -- 'ConversionUpdateAvailability' request conforms to.
@@ -67,7 +67,7 @@ newtype ConversionUpdateAvailability = ConversionUpdateAvailability'
 conversionUpdateAvailability
     :: UpdateAvailabilityRequest -- ^ 'cuaPayload'
     -> ConversionUpdateAvailability
-conversionUpdateAvailability pCuaPayload_ =
+conversionUpdateAvailability pCuaPayload_ = 
     ConversionUpdateAvailability'
     { _cuaPayload = pCuaPayload_
     }

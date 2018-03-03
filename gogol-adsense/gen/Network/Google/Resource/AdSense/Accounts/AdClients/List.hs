@@ -38,8 +38,8 @@ module Network.Google.Resource.AdSense.Accounts.AdClients.List
     , aaclMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.accounts.adclients.list@ method which the
 -- 'AccountsAdClientsList' request conforms to.
@@ -57,8 +57,8 @@ type AccountsAdClientsListResource =
 --
 -- /See:/ 'accountsAdClientsList' smart constructor.
 data AccountsAdClientsList = AccountsAdClientsList'
-    { _aaclAccountId  :: !Text
-    , _aaclPageToken  :: !(Maybe Text)
+    { _aaclAccountId :: !Text
+    , _aaclPageToken :: !(Maybe Text)
     , _aaclMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data AccountsAdClientsList = AccountsAdClientsList'
 accountsAdClientsList
     :: Text -- ^ 'aaclAccountId'
     -> AccountsAdClientsList
-accountsAdClientsList pAaclAccountId_ =
+accountsAdClientsList pAaclAccountId_ = 
     AccountsAdClientsList'
     { _aaclAccountId = pAaclAccountId_
     , _aaclPageToken = Nothing

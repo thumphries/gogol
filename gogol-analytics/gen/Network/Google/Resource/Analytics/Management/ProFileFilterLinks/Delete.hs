@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.ProFileFilterLinks.Delete
     , mpffldLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profileFilterLinks.delete@ method which the
 -- 'ManagementProFileFilterLinksDelete' request conforms to.
@@ -63,9 +63,9 @@ type ManagementProFileFilterLinksDeleteResource =
 -- /See:/ 'managementProFileFilterLinksDelete' smart constructor.
 data ManagementProFileFilterLinksDelete = ManagementProFileFilterLinksDelete'
     { _mpffldWebPropertyId :: !Text
-    , _mpffldProFileId     :: !Text
-    , _mpffldAccountId     :: !Text
-    , _mpffldLinkId        :: !Text
+    , _mpffldProFileId :: !Text
+    , _mpffldAccountId :: !Text
+    , _mpffldLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFileFilterLinksDelete' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ managementProFileFilterLinksDelete
     -> Text -- ^ 'mpffldAccountId'
     -> Text -- ^ 'mpffldLinkId'
     -> ManagementProFileFilterLinksDelete
-managementProFileFilterLinksDelete pMpffldWebPropertyId_ pMpffldProFileId_ pMpffldAccountId_ pMpffldLinkId_ =
+managementProFileFilterLinksDelete pMpffldWebPropertyId_ pMpffldProFileId_ pMpffldAccountId_ pMpffldLinkId_ = 
     ManagementProFileFilterLinksDelete'
     { _mpffldWebPropertyId = pMpffldWebPropertyId_
     , _mpffldProFileId = pMpffldProFileId_

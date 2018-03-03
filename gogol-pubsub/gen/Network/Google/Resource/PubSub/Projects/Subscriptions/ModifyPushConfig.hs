@@ -49,8 +49,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.ModifyPushConfig
     , psmpcCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.modifyPushConfig@ method which the
 -- 'ProjectsSubscriptionsModifyPushConfig' request conforms to.
@@ -77,15 +77,15 @@ type ProjectsSubscriptionsModifyPushConfigResource =
 --
 -- /See:/ 'projectsSubscriptionsModifyPushConfig' smart constructor.
 data ProjectsSubscriptionsModifyPushConfig = ProjectsSubscriptionsModifyPushConfig'
-    { _psmpcXgafv          :: !(Maybe Xgafv)
+    { _psmpcXgafv :: !(Maybe Xgafv)
     , _psmpcUploadProtocol :: !(Maybe Text)
-    , _psmpcPp             :: !Bool
-    , _psmpcAccessToken    :: !(Maybe Text)
-    , _psmpcUploadType     :: !(Maybe Text)
-    , _psmpcPayload        :: !ModifyPushConfigRequest
-    , _psmpcBearerToken    :: !(Maybe Text)
-    , _psmpcSubscription   :: !Text
-    , _psmpcCallback       :: !(Maybe Text)
+    , _psmpcPp :: !Bool
+    , _psmpcAccessToken :: !(Maybe Text)
+    , _psmpcUploadType :: !(Maybe Text)
+    , _psmpcPayload :: !ModifyPushConfigRequest
+    , _psmpcBearerToken :: !(Maybe Text)
+    , _psmpcSubscription :: !Text
+    , _psmpcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsModifyPushConfig' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ projectsSubscriptionsModifyPushConfig
     :: ModifyPushConfigRequest -- ^ 'psmpcPayload'
     -> Text -- ^ 'psmpcSubscription'
     -> ProjectsSubscriptionsModifyPushConfig
-projectsSubscriptionsModifyPushConfig pPsmpcPayload_ pPsmpcSubscription_ =
+projectsSubscriptionsModifyPushConfig pPsmpcPayload_ pPsmpcSubscription_ = 
     ProjectsSubscriptionsModifyPushConfig'
     { _psmpcXgafv = Nothing
     , _psmpcUploadProtocol = Nothing

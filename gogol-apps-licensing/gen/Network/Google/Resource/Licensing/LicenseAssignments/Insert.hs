@@ -38,8 +38,8 @@ module Network.Google.Resource.Licensing.LicenseAssignments.Insert
     , laiProductId
     ) where
 
-import           Network.Google.AppsLicensing.Types
-import           Network.Google.Prelude
+import Network.Google.AppsLicensing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @licensing.licenseAssignments.insert@ method which the
 -- 'LicenseAssignmentsInsert' request conforms to.
@@ -60,8 +60,8 @@ type LicenseAssignmentsInsertResource =
 --
 -- /See:/ 'licenseAssignmentsInsert' smart constructor.
 data LicenseAssignmentsInsert = LicenseAssignmentsInsert'
-    { _laiSKUId     :: !Text
-    , _laiPayload   :: !LicenseAssignmentInsert
+    { _laiSKUId :: !Text
+    , _laiPayload :: !LicenseAssignmentInsert
     , _laiProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ licenseAssignmentsInsert
     -> LicenseAssignmentInsert -- ^ 'laiPayload'
     -> Text -- ^ 'laiProductId'
     -> LicenseAssignmentsInsert
-licenseAssignmentsInsert pLaiSKUId_ pLaiPayload_ pLaiProductId_ =
+licenseAssignmentsInsert pLaiSKUId_ pLaiPayload_ pLaiProductId_ = 
     LicenseAssignmentsInsert'
     { _laiSKUId = pLaiSKUId_
     , _laiPayload = pLaiPayload_

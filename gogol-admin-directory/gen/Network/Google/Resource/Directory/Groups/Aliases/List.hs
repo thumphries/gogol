@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Groups.Aliases.List
     , galGroupKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.aliases.list@ method which the
 -- 'GroupsAliasesList' request conforms to.
@@ -65,12 +65,12 @@ newtype GroupsAliasesList = GroupsAliasesList'
 groupsAliasesList
     :: Text -- ^ 'galGroupKey'
     -> GroupsAliasesList
-groupsAliasesList pGalGroupKey_ =
+groupsAliasesList pGalGroupKey_ = 
     GroupsAliasesList'
     { _galGroupKey = pGalGroupKey_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 galGroupKey :: Lens' GroupsAliasesList Text
 galGroupKey
   = lens _galGroupKey (\ s a -> s{_galGroupKey = a})

@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.Delete
     , gdGroupName
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.delete@ method which the
 -- 'GroupsDelete' request conforms to.
@@ -56,7 +56,7 @@ type GroupsDeleteResource =
 --
 -- /See:/ 'groupsDelete' smart constructor.
 data GroupsDelete = GroupsDelete'
-    { _gdProject   :: !Text
+    { _gdProject :: !Text
     , _gdGroupName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ groupsDelete
     :: Text -- ^ 'gdProject'
     -> Text -- ^ 'gdGroupName'
     -> GroupsDelete
-groupsDelete pGdProject_ pGdGroupName_ =
+groupsDelete pGdProject_ pGdGroupName_ = 
     GroupsDelete'
     { _gdProject = pGdProject_
     , _gdGroupName = pGdGroupName_

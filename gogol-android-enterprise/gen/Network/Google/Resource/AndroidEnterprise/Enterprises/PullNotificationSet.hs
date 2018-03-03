@@ -24,7 +24,7 @@
 -- the service account authenticated for the request. The notification set
 -- may be empty if no notification are pending. A notification set returned
 -- needs to be acknowledged within 20 seconds by calling
--- Enterprises​.AcknowledgeNotificationSet, unless the notification set is
+-- Enterprises.AcknowledgeNotificationSet, unless the notification set is
 -- empty. Notifications that are not acknowledged within the 20 seconds
 -- will eventually be included again in the response to another
 -- PullNotificationSet request, and those that are never acknowledged will
@@ -49,8 +49,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.PullNotificationSet
     , epnsRequestMode
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.pullNotificationSet@ method which the
 -- 'EnterprisesPullNotificationSet' request conforms to.
@@ -69,7 +69,7 @@ type EnterprisesPullNotificationSetResource =
 -- the service account authenticated for the request. The notification set
 -- may be empty if no notification are pending. A notification set returned
 -- needs to be acknowledged within 20 seconds by calling
--- Enterprises​.AcknowledgeNotificationSet, unless the notification set is
+-- Enterprises.AcknowledgeNotificationSet, unless the notification set is
 -- empty. Notifications that are not acknowledged within the 20 seconds
 -- will eventually be included again in the response to another
 -- PullNotificationSet request, and those that are never acknowledged will
@@ -92,7 +92,7 @@ newtype EnterprisesPullNotificationSet = EnterprisesPullNotificationSet'
 -- * 'epnsRequestMode'
 enterprisesPullNotificationSet
     :: EnterprisesPullNotificationSet
-enterprisesPullNotificationSet =
+enterprisesPullNotificationSet = 
     EnterprisesPullNotificationSet'
     { _epnsRequestMode = Nothing
     }

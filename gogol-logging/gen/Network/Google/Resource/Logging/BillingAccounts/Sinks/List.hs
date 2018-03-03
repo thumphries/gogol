@@ -45,8 +45,8 @@ module Network.Google.Resource.Logging.BillingAccounts.Sinks.List
     , baslCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.billingAccounts.sinks.list@ method which the
 -- 'BillingAccountsSinksList' request conforms to.
@@ -70,16 +70,16 @@ type BillingAccountsSinksListResource =
 --
 -- /See:/ 'billingAccountsSinksList' smart constructor.
 data BillingAccountsSinksList = BillingAccountsSinksList'
-    { _baslParent         :: !Text
-    , _baslXgafv          :: !(Maybe Xgafv)
+    { _baslParent :: !Text
+    , _baslXgafv :: !(Maybe Xgafv)
     , _baslUploadProtocol :: !(Maybe Text)
-    , _baslPp             :: !Bool
-    , _baslAccessToken    :: !(Maybe Text)
-    , _baslUploadType     :: !(Maybe Text)
-    , _baslBearerToken    :: !(Maybe Text)
-    , _baslPageToken      :: !(Maybe Text)
-    , _baslPageSize       :: !(Maybe (Textual Int32))
-    , _baslCallback       :: !(Maybe Text)
+    , _baslPp :: !Bool
+    , _baslAccessToken :: !(Maybe Text)
+    , _baslUploadType :: !(Maybe Text)
+    , _baslBearerToken :: !(Maybe Text)
+    , _baslPageToken :: !(Maybe Text)
+    , _baslPageSize :: !(Maybe (Textual Int32))
+    , _baslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsSinksList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data BillingAccountsSinksList = BillingAccountsSinksList'
 billingAccountsSinksList
     :: Text -- ^ 'baslParent'
     -> BillingAccountsSinksList
-billingAccountsSinksList pBaslParent_ =
+billingAccountsSinksList pBaslParent_ = 
     BillingAccountsSinksList'
     { _baslParent = pBaslParent_
     , _baslXgafv = Nothing
@@ -122,8 +122,9 @@ billingAccountsSinksList pBaslParent_ =
     , _baslCallback = Nothing
     }
 
--- | Required. The parent resource whose sinks are to be listed. Examples:
--- \"projects\/my-logging-project\", \"organizations\/123456789\".
+-- | Required. The parent resource whose sinks are to be listed:
+-- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 baslParent :: Lens' BillingAccountsSinksList Text
 baslParent
   = lens _baslParent (\ s a -> s{_baslParent = a})

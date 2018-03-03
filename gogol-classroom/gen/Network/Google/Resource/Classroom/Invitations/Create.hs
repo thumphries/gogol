@@ -51,15 +51,15 @@ module Network.Google.Resource.Classroom.Invitations.Create
     , icCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.invitations.create@ method which the
 -- 'InvitationsCreate' request conforms to.
 type InvitationsCreateResource =
      "v1" :>
        "invitations" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -81,14 +81,14 @@ type InvitationsCreateResource =
 --
 -- /See:/ 'invitationsCreate' smart constructor.
 data InvitationsCreate = InvitationsCreate'
-    { _icXgafv          :: !(Maybe Text)
+    { _icXgafv :: !(Maybe Xgafv)
     , _icUploadProtocol :: !(Maybe Text)
-    , _icPp             :: !Bool
-    , _icAccessToken    :: !(Maybe Text)
-    , _icUploadType     :: !(Maybe Text)
-    , _icPayload        :: !Invitation
-    , _icBearerToken    :: !(Maybe Text)
-    , _icCallback       :: !(Maybe Text)
+    , _icPp :: !Bool
+    , _icAccessToken :: !(Maybe Text)
+    , _icUploadType :: !(Maybe Text)
+    , _icPayload :: !Invitation
+    , _icBearerToken :: !(Maybe Text)
+    , _icCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvitationsCreate' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ data InvitationsCreate = InvitationsCreate'
 invitationsCreate
     :: Invitation -- ^ 'icPayload'
     -> InvitationsCreate
-invitationsCreate pIcPayload_ =
+invitationsCreate pIcPayload_ = 
     InvitationsCreate'
     { _icXgafv = Nothing
     , _icUploadProtocol = Nothing
@@ -126,7 +126,7 @@ invitationsCreate pIcPayload_ =
     }
 
 -- | V1 error format.
-icXgafv :: Lens' InvitationsCreate (Maybe Text)
+icXgafv :: Lens' InvitationsCreate (Maybe Xgafv)
 icXgafv = lens _icXgafv (\ s a -> s{_icXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

@@ -47,8 +47,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.Reports.Generate
     , argMaxResults
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.reports.generate@ method which the
 -- 'AccountsReportsGenerate' request conforms to.
@@ -75,14 +75,14 @@ type AccountsReportsGenerateResource =
 --
 -- /See:/ 'accountsReportsGenerate' smart constructor.
 data AccountsReportsGenerate = AccountsReportsGenerate'
-    { _argDimension  :: !(Maybe [Text])
-    , _argLocale     :: !(Maybe Text)
-    , _argEndDate    :: !Text
-    , _argStartDate  :: !Text
-    , _argAccountId  :: !Text
-    , _argMetric     :: !(Maybe [Text])
-    , _argSort       :: !(Maybe [Text])
-    , _argFilter     :: !(Maybe [Text])
+    { _argDimension :: !(Maybe [Text])
+    , _argLocale :: !(Maybe Text)
+    , _argEndDate :: !Text
+    , _argStartDate :: !Text
+    , _argAccountId :: !Text
+    , _argMetric :: !(Maybe [Text])
+    , _argSort :: !(Maybe [Text])
+    , _argFilter :: !(Maybe [Text])
     , _argStartIndex :: !(Maybe (Textual Word32))
     , _argMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -115,7 +115,7 @@ accountsReportsGenerate
     -> Text -- ^ 'argStartDate'
     -> Text -- ^ 'argAccountId'
     -> AccountsReportsGenerate
-accountsReportsGenerate pArgEndDate_ pArgStartDate_ pArgAccountId_ =
+accountsReportsGenerate pArgEndDate_ pArgStartDate_ pArgAccountId_ = 
     AccountsReportsGenerate'
     { _argDimension = Nothing
     , _argLocale = Nothing

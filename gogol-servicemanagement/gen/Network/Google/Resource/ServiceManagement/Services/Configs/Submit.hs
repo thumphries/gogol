@@ -49,8 +49,8 @@ module Network.Google.Resource.ServiceManagement.Services.Configs.Submit
     , scsCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.configs.submit@ method which the
 -- 'ServicesConfigsSubmit' request conforms to.
@@ -79,15 +79,15 @@ type ServicesConfigsSubmitResource =
 --
 -- /See:/ 'servicesConfigsSubmit' smart constructor.
 data ServicesConfigsSubmit = ServicesConfigsSubmit'
-    { _scsXgafv          :: !(Maybe Xgafv)
+    { _scsXgafv :: !(Maybe Xgafv)
     , _scsUploadProtocol :: !(Maybe Text)
-    , _scsPp             :: !Bool
-    , _scsAccessToken    :: !(Maybe Text)
-    , _scsUploadType     :: !(Maybe Text)
-    , _scsPayload        :: !SubmitConfigSourceRequest
-    , _scsBearerToken    :: !(Maybe Text)
-    , _scsServiceName    :: !Text
-    , _scsCallback       :: !(Maybe Text)
+    , _scsPp :: !Bool
+    , _scsAccessToken :: !(Maybe Text)
+    , _scsUploadType :: !(Maybe Text)
+    , _scsPayload :: !SubmitConfigSourceRequest
+    , _scsBearerToken :: !(Maybe Text)
+    , _scsServiceName :: !Text
+    , _scsCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesConfigsSubmit' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ servicesConfigsSubmit
     :: SubmitConfigSourceRequest -- ^ 'scsPayload'
     -> Text -- ^ 'scsServiceName'
     -> ServicesConfigsSubmit
-servicesConfigsSubmit pScsPayload_ pScsServiceName_ =
+servicesConfigsSubmit pScsPayload_ pScsServiceName_ = 
     ServicesConfigsSubmit'
     { _scsXgafv = Nothing
     , _scsUploadProtocol = Nothing

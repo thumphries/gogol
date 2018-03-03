@@ -36,8 +36,8 @@ module Network.Google.Resource.AdExchangeSeller.Accounts.Metadata.Metrics.List
     , ammlAccountId
     ) where
 
-import           Network.Google.AdExchangeSeller.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeSeller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangeseller.accounts.metadata.metrics.list@ method which the
 -- 'AccountsMetadataMetricsList' request conforms to.
@@ -65,7 +65,7 @@ newtype AccountsMetadataMetricsList = AccountsMetadataMetricsList'
 accountsMetadataMetricsList
     :: Text -- ^ 'ammlAccountId'
     -> AccountsMetadataMetricsList
-accountsMetadataMetricsList pAmmlAccountId_ =
+accountsMetadataMetricsList pAmmlAccountId_ = 
     AccountsMetadataMetricsList'
     { _ammlAccountId = pAmmlAccountId_
     }

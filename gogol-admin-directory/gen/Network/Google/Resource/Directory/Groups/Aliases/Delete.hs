@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Groups.Aliases.Delete
     , gadAlias
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.aliases.delete@ method which the
 -- 'GroupsAliasesDelete' request conforms to.
@@ -57,7 +57,7 @@ type GroupsAliasesDeleteResource =
 -- /See:/ 'groupsAliasesDelete' smart constructor.
 data GroupsAliasesDelete = GroupsAliasesDelete'
     { _gadGroupKey :: !Text
-    , _gadAlias    :: !Text
+    , _gadAlias :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupsAliasesDelete' with the minimum fields required to make a request.
@@ -71,13 +71,13 @@ groupsAliasesDelete
     :: Text -- ^ 'gadGroupKey'
     -> Text -- ^ 'gadAlias'
     -> GroupsAliasesDelete
-groupsAliasesDelete pGadGroupKey_ pGadAlias_ =
+groupsAliasesDelete pGadGroupKey_ pGadAlias_ = 
     GroupsAliasesDelete'
     { _gadGroupKey = pGadGroupKey_
     , _gadAlias = pGadAlias_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 gadGroupKey :: Lens' GroupsAliasesDelete Text
 gadGroupKey
   = lens _gadGroupKey (\ s a -> s{_gadGroupKey = a})

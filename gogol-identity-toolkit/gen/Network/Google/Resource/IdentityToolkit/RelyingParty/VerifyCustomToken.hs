@@ -36,8 +36,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.VerifyCustomToken
     , rpvctPayload
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.verifyCustomToken@ method which the
 -- 'RelyingPartyVerifyCustomToken' request conforms to.
@@ -66,7 +66,7 @@ newtype RelyingPartyVerifyCustomToken = RelyingPartyVerifyCustomToken'
 relyingPartyVerifyCustomToken
     :: IdentitytoolkitRelyingPartyVerifyCustomTokenRequest -- ^ 'rpvctPayload'
     -> RelyingPartyVerifyCustomToken
-relyingPartyVerifyCustomToken pRpvctPayload_ =
+relyingPartyVerifyCustomToken pRpvctPayload_ = 
     RelyingPartyVerifyCustomToken'
     { _rpvctPayload = pRpvctPayload_
     }

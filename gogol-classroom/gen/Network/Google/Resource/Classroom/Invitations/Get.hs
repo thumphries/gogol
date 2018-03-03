@@ -46,8 +46,8 @@ module Network.Google.Resource.Classroom.Invitations.Get
     , igCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.invitations.get@ method which the
 -- 'InvitationsGet' request conforms to.
@@ -55,7 +55,7 @@ type InvitationsGetResource =
      "v1" :>
        "invitations" :>
          Capture "id" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -71,14 +71,14 @@ type InvitationsGetResource =
 --
 -- /See:/ 'invitationsGet' smart constructor.
 data InvitationsGet = InvitationsGet'
-    { _igXgafv          :: !(Maybe Text)
+    { _igXgafv :: !(Maybe Xgafv)
     , _igUploadProtocol :: !(Maybe Text)
-    , _igPp             :: !Bool
-    , _igAccessToken    :: !(Maybe Text)
-    , _igUploadType     :: !(Maybe Text)
-    , _igBearerToken    :: !(Maybe Text)
-    , _igId             :: !Text
-    , _igCallback       :: !(Maybe Text)
+    , _igPp :: !Bool
+    , _igAccessToken :: !(Maybe Text)
+    , _igUploadType :: !(Maybe Text)
+    , _igBearerToken :: !(Maybe Text)
+    , _igId :: !Text
+    , _igCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvitationsGet' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data InvitationsGet = InvitationsGet'
 invitationsGet
     :: Text -- ^ 'igId'
     -> InvitationsGet
-invitationsGet pIgId_ =
+invitationsGet pIgId_ = 
     InvitationsGet'
     { _igXgafv = Nothing
     , _igUploadProtocol = Nothing
@@ -116,7 +116,7 @@ invitationsGet pIgId_ =
     }
 
 -- | V1 error format.
-igXgafv :: Lens' InvitationsGet (Maybe Text)
+igXgafv :: Lens' InvitationsGet (Maybe Xgafv)
 igXgafv = lens _igXgafv (\ s a -> s{_igXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

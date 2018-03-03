@@ -22,7 +22,7 @@
 --
 -- Deletes an existing Version resource.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.delete@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.delete@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Delete
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Delete
     , asvdCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.delete@ method which the
 -- 'AppsServicesVersionsDelete' request conforms to.
@@ -58,7 +58,7 @@ type AppsServicesVersionsDeleteResource =
              Capture "servicesId" Text :>
                "versions" :>
                  Capture "versionsId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -72,16 +72,16 @@ type AppsServicesVersionsDeleteResource =
 --
 -- /See:/ 'appsServicesVersionsDelete' smart constructor.
 data AppsServicesVersionsDelete = AppsServicesVersionsDelete'
-    { _asvdXgafv          :: !(Maybe Text)
+    { _asvdXgafv :: !(Maybe Xgafv)
     , _asvdUploadProtocol :: !(Maybe Text)
-    , _asvdPp             :: !Bool
-    , _asvdAccessToken    :: !(Maybe Text)
-    , _asvdUploadType     :: !(Maybe Text)
-    , _asvdVersionsId     :: !Text
-    , _asvdBearerToken    :: !(Maybe Text)
-    , _asvdAppsId         :: !Text
-    , _asvdServicesId     :: !Text
-    , _asvdCallback       :: !(Maybe Text)
+    , _asvdPp :: !Bool
+    , _asvdAccessToken :: !(Maybe Text)
+    , _asvdUploadType :: !(Maybe Text)
+    , _asvdVersionsId :: !Text
+    , _asvdBearerToken :: !(Maybe Text)
+    , _asvdAppsId :: !Text
+    , _asvdServicesId :: !Text
+    , _asvdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsDelete' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ appsServicesVersionsDelete
     -> Text -- ^ 'asvdAppsId'
     -> Text -- ^ 'asvdServicesId'
     -> AppsServicesVersionsDelete
-appsServicesVersionsDelete pAsvdVersionsId_ pAsvdAppsId_ pAsvdServicesId_ =
+appsServicesVersionsDelete pAsvdVersionsId_ pAsvdAppsId_ pAsvdServicesId_ = 
     AppsServicesVersionsDelete'
     { _asvdXgafv = Nothing
     , _asvdUploadProtocol = Nothing
@@ -127,7 +127,7 @@ appsServicesVersionsDelete pAsvdVersionsId_ pAsvdAppsId_ pAsvdServicesId_ =
     }
 
 -- | V1 error format.
-asvdXgafv :: Lens' AppsServicesVersionsDelete (Maybe Text)
+asvdXgafv :: Lens' AppsServicesVersionsDelete (Maybe Xgafv)
 asvdXgafv
   = lens _asvdXgafv (\ s a -> s{_asvdXgafv = a})
 

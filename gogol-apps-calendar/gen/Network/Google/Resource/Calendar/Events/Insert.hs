@@ -33,6 +33,7 @@ module Network.Google.Resource.Calendar.Events.Insert
     , EventsInsert
 
     -- * Request Lenses
+    , eveConferenceDataVersion
     , eveCalendarId
     , evePayload
     , eveMaxAttendees
@@ -40,8 +41,8 @@ module Network.Google.Resource.Calendar.Events.Insert
     , eveSupportsAttachments
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.insert@ method which the
 -- 'EventsInsert' request conforms to.
@@ -51,26 +52,30 @@ type EventsInsertResource =
          "calendars" :>
            Capture "calendarId" Text :>
              "events" :>
-               QueryParam "maxAttendees" (Textual Int32) :>
-                 QueryParam "sendNotifications" Bool :>
-                   QueryParam "supportsAttachments" Bool :>
-                     QueryParam "alt" AltJSON :>
-                       ReqBody '[JSON] Event :> Post '[JSON] Event
+               QueryParam "conferenceDataVersion" (Textual Int32) :>
+                 QueryParam "maxAttendees" (Textual Int32) :>
+                   QueryParam "sendNotifications" Bool :>
+                     QueryParam "supportsAttachments" Bool :>
+                       QueryParam "alt" AltJSON :>
+                         ReqBody '[JSON] Event :> Post '[JSON] Event
 
 -- | Creates an event.
 --
 -- /See:/ 'eventsInsert' smart constructor.
 data EventsInsert = EventsInsert'
-    { _eveCalendarId          :: !Text
-    , _evePayload             :: !Event
-    , _eveMaxAttendees        :: !(Maybe (Textual Int32))
-    , _eveSendNotifications   :: !(Maybe Bool)
+    { _eveConferenceDataVersion :: !(Maybe (Textual Int32))
+    , _eveCalendarId :: !Text
+    , _evePayload :: !Event
+    , _eveMaxAttendees :: !(Maybe (Textual Int32))
+    , _eveSendNotifications :: !(Maybe Bool)
     , _eveSupportsAttachments :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsInsert' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eveConferenceDataVersion'
 --
 -- * 'eveCalendarId'
 --
@@ -85,14 +90,26 @@ eventsInsert
     :: Text -- ^ 'eveCalendarId'
     -> Event -- ^ 'evePayload'
     -> EventsInsert
-eventsInsert pEveCalendarId_ pEvePayload_ =
+eventsInsert pEveCalendarId_ pEvePayload_ = 
     EventsInsert'
-    { _eveCalendarId = pEveCalendarId_
+    { _eveConferenceDataVersion = Nothing
+    , _eveCalendarId = pEveCalendarId_
     , _evePayload = pEvePayload_
     , _eveMaxAttendees = Nothing
     , _eveSendNotifications = Nothing
     , _eveSupportsAttachments = Nothing
     }
+
+-- | Version number of conference data supported by the API client. Version 0
+-- assumes no conference data support and ignores conference data in the
+-- event\'s body. Version 1 enables support for copying of ConferenceData
+-- as well as for creating new conferences using the createRequest field of
+-- conferenceData. The default is 0.
+eveConferenceDataVersion :: Lens' EventsInsert (Maybe Int32)
+eveConferenceDataVersion
+  = lens _eveConferenceDataVersion
+      (\ s a -> s{_eveConferenceDataVersion = a})
+      . mapping _Coerce
 
 -- | Calendar identifier. To retrieve calendar IDs call the calendarList.list
 -- method. If you want to access the primary calendar of the currently
@@ -135,7 +152,8 @@ instance GoogleRequest EventsInsert where
         type Scopes EventsInsert =
              '["https://www.googleapis.com/auth/calendar"]
         requestClient EventsInsert'{..}
-          = go _eveCalendarId _eveMaxAttendees
+          = go _eveCalendarId _eveConferenceDataVersion
+              _eveMaxAttendees
               _eveSendNotifications
               _eveSupportsAttachments
               (Just AltJSON)

@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Experiments.Update
     , meuExperimentId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.experiments.update@ method which the
 -- 'ManagementExperimentsUpdate' request conforms to.
@@ -66,10 +66,10 @@ type ManagementExperimentsUpdateResource =
 -- /See:/ 'managementExperimentsUpdate' smart constructor.
 data ManagementExperimentsUpdate = ManagementExperimentsUpdate'
     { _meuWebPropertyId :: !Text
-    , _meuProFileId     :: !Text
-    , _meuPayload       :: !Experiment
-    , _meuAccountId     :: !Text
-    , _meuExperimentId  :: !Text
+    , _meuProFileId :: !Text
+    , _meuPayload :: !Experiment
+    , _meuAccountId :: !Text
+    , _meuExperimentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementExperimentsUpdate' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ managementExperimentsUpdate
     -> Text -- ^ 'meuAccountId'
     -> Text -- ^ 'meuExperimentId'
     -> ManagementExperimentsUpdate
-managementExperimentsUpdate pMeuWebPropertyId_ pMeuProFileId_ pMeuPayload_ pMeuAccountId_ pMeuExperimentId_ =
+managementExperimentsUpdate pMeuWebPropertyId_ pMeuProFileId_ pMeuPayload_ pMeuAccountId_ pMeuExperimentId_ = 
     ManagementExperimentsUpdate'
     { _meuWebPropertyId = pMeuWebPropertyId_
     , _meuProFileId = pMeuProFileId_

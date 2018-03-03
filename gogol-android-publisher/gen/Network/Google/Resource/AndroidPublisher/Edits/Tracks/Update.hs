@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Tracks.Update
     , etuEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.tracks.update@ method which the
 -- 'EditsTracksUpdate' request conforms to.
@@ -54,7 +54,7 @@ type EditsTracksUpdateResource =
              "edits" :>
                Capture "editId" Text :>
                  "tracks" :>
-                   Capture "track" EditsTracksUpdateTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :>
                        ReqBody '[JSON] Track :> Put '[JSON] Track
 
@@ -64,10 +64,10 @@ type EditsTracksUpdateResource =
 --
 -- /See:/ 'editsTracksUpdate' smart constructor.
 data EditsTracksUpdate = EditsTracksUpdate'
-    { _etuTrack       :: !EditsTracksUpdateTrack
+    { _etuTrack :: !Text
     , _etuPackageName :: !Text
-    , _etuPayload     :: !Track
-    , _etuEditId      :: !Text
+    , _etuPayload :: !Track
+    , _etuEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTracksUpdate' with the minimum fields required to make a request.
@@ -82,12 +82,12 @@ data EditsTracksUpdate = EditsTracksUpdate'
 --
 -- * 'etuEditId'
 editsTracksUpdate
-    :: EditsTracksUpdateTrack -- ^ 'etuTrack'
+    :: Text -- ^ 'etuTrack'
     -> Text -- ^ 'etuPackageName'
     -> Track -- ^ 'etuPayload'
     -> Text -- ^ 'etuEditId'
     -> EditsTracksUpdate
-editsTracksUpdate pEtuTrack_ pEtuPackageName_ pEtuPayload_ pEtuEditId_ =
+editsTracksUpdate pEtuTrack_ pEtuPackageName_ pEtuPayload_ pEtuEditId_ = 
     EditsTracksUpdate'
     { _etuTrack = pEtuTrack_
     , _etuPackageName = pEtuPackageName_
@@ -95,8 +95,9 @@ editsTracksUpdate pEtuTrack_ pEtuPackageName_ pEtuPayload_ pEtuEditId_ =
     , _etuEditId = pEtuEditId_
     }
 
--- | The track type to read or modify.
-etuTrack :: Lens' EditsTracksUpdate EditsTracksUpdateTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etuTrack :: Lens' EditsTracksUpdate Text
 etuTrack = lens _etuTrack (\ s a -> s{_etuTrack = a})
 
 -- | Unique identifier for the Android app that is being updated; for

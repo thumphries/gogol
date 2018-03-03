@@ -38,8 +38,8 @@ module Network.Google.Resource.AdExchangeBuyer.Accounts.Update
     , auId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.accounts.update@ method which the
 -- 'AccountsUpdate' request conforms to.
@@ -56,9 +56,9 @@ type AccountsUpdateResource =
 --
 -- /See:/ 'accountsUpdate' smart constructor.
 data AccountsUpdate = AccountsUpdate'
-    { _auPayload                    :: !Account
+    { _auPayload :: !Account
     , _auConfirmUnsafeAccountChange :: !(Maybe Bool)
-    , _auId                         :: !(Textual Int32)
+    , _auId :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsUpdate' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ accountsUpdate
     :: Account -- ^ 'auPayload'
     -> Int32 -- ^ 'auId'
     -> AccountsUpdate
-accountsUpdate pAuPayload_ pAuId_ =
+accountsUpdate pAuPayload_ pAuId_ = 
     AccountsUpdate'
     { _auPayload = pAuPayload_
     , _auConfirmUnsafeAccountChange = Nothing

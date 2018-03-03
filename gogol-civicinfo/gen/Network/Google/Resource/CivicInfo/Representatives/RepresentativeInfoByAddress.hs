@@ -41,8 +41,8 @@ module Network.Google.Resource.CivicInfo.Representatives.RepresentativeInfoByAdd
     , rribaLevels
     ) where
 
-import           Network.Google.CivicInfo.Types
-import           Network.Google.Prelude
+import Network.Google.CivicInfo.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @civicinfo.representatives.representativeInfoByAddress@ method which the
 -- 'RepresentativesRepresentativeInfoByAddress' request conforms to.
@@ -68,11 +68,11 @@ type RepresentativesRepresentativeInfoByAddressResource
 --
 -- /See:/ 'representativesRepresentativeInfoByAddress' smart constructor.
 data RepresentativesRepresentativeInfoByAddress = RepresentativesRepresentativeInfoByAddress'
-    { _rribaRoles          :: !(Maybe [RepresentativesRepresentativeInfoByAddressRoles])
-    , _rribaAddress        :: !(Maybe Text)
-    , _rribaPayload        :: !RepresentativeInfoRequest
+    { _rribaRoles :: !(Maybe [RepresentativesRepresentativeInfoByAddressRoles])
+    , _rribaAddress :: !(Maybe Text)
+    , _rribaPayload :: !RepresentativeInfoRequest
     , _rribaIncludeOffices :: !Bool
-    , _rribaLevels         :: !(Maybe [RepresentativesRepresentativeInfoByAddressLevels])
+    , _rribaLevels :: !(Maybe [RepresentativesRepresentativeInfoByAddressLevels])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RepresentativesRepresentativeInfoByAddress' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ data RepresentativesRepresentativeInfoByAddress = RepresentativesRepresentativeI
 representativesRepresentativeInfoByAddress
     :: RepresentativeInfoRequest -- ^ 'rribaPayload'
     -> RepresentativesRepresentativeInfoByAddress
-representativesRepresentativeInfoByAddress pRribaPayload_ =
+representativesRepresentativeInfoByAddress pRribaPayload_ = 
     RepresentativesRepresentativeInfoByAddress'
     { _rribaRoles = Nothing
     , _rribaAddress = Nothing

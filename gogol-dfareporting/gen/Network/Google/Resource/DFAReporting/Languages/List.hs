@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.Languages.List
     , llProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.languages.list@ method which the
 -- 'LanguagesList' request conforms to.
 type LanguagesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "languages" :>
@@ -65,7 +65,7 @@ newtype LanguagesList = LanguagesList'
 languagesList
     :: Int64 -- ^ 'llProFileId'
     -> LanguagesList
-languagesList pLlProFileId_ =
+languagesList pLlProFileId_ = 
     LanguagesList'
     { _llProFileId = _Coerce # pLlProFileId_
     }

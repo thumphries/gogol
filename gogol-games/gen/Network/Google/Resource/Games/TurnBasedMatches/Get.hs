@@ -33,14 +33,13 @@ module Network.Google.Resource.Games.TurnBasedMatches.Get
     , TurnBasedMatchesGet
 
     -- * Request Lenses
-    , tbmgConsistencyToken
     , tbmgIncludeMatchData
     , tbmgLanguage
     , tbmgMatchId
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.turnBasedMatches.get@ method which the
 -- 'TurnBasedMatchesGet' request conforms to.
@@ -49,27 +48,23 @@ type TurnBasedMatchesGetResource =
        "v1" :>
          "turnbasedmatches" :>
            Capture "matchId" Text :>
-             QueryParam "consistencyToken" (Textual Int64) :>
-               QueryParam "includeMatchData" Bool :>
-                 QueryParam "language" Text :>
-                   QueryParam "alt" AltJSON :>
-                     Get '[JSON] TurnBasedMatch
+             QueryParam "includeMatchData" Bool :>
+               QueryParam "language" Text :>
+                 QueryParam "alt" AltJSON :>
+                   Get '[JSON] TurnBasedMatch
 
 -- | Get the data for a turn-based match.
 --
 -- /See:/ 'turnBasedMatchesGet' smart constructor.
 data TurnBasedMatchesGet = TurnBasedMatchesGet'
-    { _tbmgConsistencyToken :: !(Maybe (Textual Int64))
-    , _tbmgIncludeMatchData :: !(Maybe Bool)
-    , _tbmgLanguage         :: !(Maybe Text)
-    , _tbmgMatchId          :: !Text
+    { _tbmgIncludeMatchData :: !(Maybe Bool)
+    , _tbmgLanguage :: !(Maybe Text)
+    , _tbmgMatchId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TurnBasedMatchesGet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'tbmgConsistencyToken'
 --
 -- * 'tbmgIncludeMatchData'
 --
@@ -79,20 +74,12 @@ data TurnBasedMatchesGet = TurnBasedMatchesGet'
 turnBasedMatchesGet
     :: Text -- ^ 'tbmgMatchId'
     -> TurnBasedMatchesGet
-turnBasedMatchesGet pTbmgMatchId_ =
+turnBasedMatchesGet pTbmgMatchId_ = 
     TurnBasedMatchesGet'
-    { _tbmgConsistencyToken = Nothing
-    , _tbmgIncludeMatchData = Nothing
+    { _tbmgIncludeMatchData = Nothing
     , _tbmgLanguage = Nothing
     , _tbmgMatchId = pTbmgMatchId_
     }
-
--- | The last-seen mutation timestamp.
-tbmgConsistencyToken :: Lens' TurnBasedMatchesGet (Maybe Int64)
-tbmgConsistencyToken
-  = lens _tbmgConsistencyToken
-      (\ s a -> s{_tbmgConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Get match data along with metadata.
 tbmgIncludeMatchData :: Lens' TurnBasedMatchesGet (Maybe Bool)
@@ -116,9 +103,7 @@ instance GoogleRequest TurnBasedMatchesGet where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient TurnBasedMatchesGet'{..}
-          = go _tbmgMatchId _tbmgConsistencyToken
-              _tbmgIncludeMatchData
-              _tbmgLanguage
+          = go _tbmgMatchId _tbmgIncludeMatchData _tbmgLanguage
               (Just AltJSON)
               gamesService
           where go

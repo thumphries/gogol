@@ -39,8 +39,8 @@ module Network.Google.Resource.DNS.Changes.Get
     , cgClientOperationId
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.changes.get@ method which the
 -- 'ChangesGet' request conforms to.
@@ -60,9 +60,9 @@ type ChangesGetResource =
 --
 -- /See:/ 'changesGet' smart constructor.
 data ChangesGet = ChangesGet'
-    { _cgProject           :: !Text
-    , _cgChangeId          :: !Text
-    , _cgManagedZone       :: !Text
+    { _cgProject :: !Text
+    , _cgChangeId :: !Text
+    , _cgManagedZone :: !Text
     , _cgClientOperationId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ changesGet
     -> Text -- ^ 'cgChangeId'
     -> Text -- ^ 'cgManagedZone'
     -> ChangesGet
-changesGet pCgProject_ pCgChangeId_ pCgManagedZone_ =
+changesGet pCgProject_ pCgChangeId_ pCgManagedZone_ = 
     ChangesGet'
     { _cgProject = pCgProject_
     , _cgChangeId = pCgChangeId_

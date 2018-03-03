@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.CreativeFields.Update
     , cfuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeFields.update@ method which the
 -- 'CreativeFieldsUpdate' request conforms to.
 type CreativeFieldsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeFields" :>
@@ -57,7 +57,7 @@ type CreativeFieldsUpdateResource =
 -- /See:/ 'creativeFieldsUpdate' smart constructor.
 data CreativeFieldsUpdate = CreativeFieldsUpdate'
     { _cfuProFileId :: !(Textual Int64)
-    , _cfuPayload   :: !CreativeField
+    , _cfuPayload :: !CreativeField
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeFieldsUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ creativeFieldsUpdate
     :: Int64 -- ^ 'cfuProFileId'
     -> CreativeField -- ^ 'cfuPayload'
     -> CreativeFieldsUpdate
-creativeFieldsUpdate pCfuProFileId_ pCfuPayload_ =
+creativeFieldsUpdate pCfuProFileId_ pCfuPayload_ = 
     CreativeFieldsUpdate'
     { _cfuProFileId = _Coerce # pCfuProFileId_
     , _cfuPayload = pCfuPayload_

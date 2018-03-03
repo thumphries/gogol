@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Task.Get
     , tggTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.task.get@ method which the
 -- 'TaskGet' request conforms to.
@@ -55,7 +55,7 @@ type TaskGetResource =
 --
 -- /See:/ 'taskGet' smart constructor.
 data TaskGet = TaskGet'
-    { _tggTaskId  :: !Text
+    { _tggTaskId :: !Text
     , _tggTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ taskGet
     :: Text -- ^ 'tggTaskId'
     -> Text -- ^ 'tggTableId'
     -> TaskGet
-taskGet pTggTaskId_ pTggTableId_ =
+taskGet pTggTaskId_ pTggTableId_ = 
     TaskGet'
     { _tggTaskId = pTggTaskId_
     , _tggTableId = pTggTableId_

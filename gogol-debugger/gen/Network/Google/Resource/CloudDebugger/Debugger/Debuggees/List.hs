@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the debuggees that the user can set breakpoints to.
+-- Lists all the debuggees that the user has access to.
 --
 -- /See:/ <http://cloud.google.com/debugger Stackdriver Debugger API Reference> for @clouddebugger.debugger.debuggees.list@.
 module Network.Google.Resource.CloudDebugger.Debugger.Debuggees.List
@@ -45,8 +45,8 @@ module Network.Google.Resource.CloudDebugger.Debugger.Debuggees.List
     , ddlCallback
     ) where
 
-import           Network.Google.Debugger.Types
-import           Network.Google.Prelude
+import Network.Google.Debugger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @clouddebugger.debugger.debuggees.list@ method which the
 -- 'DebuggerDebuggeesList' request conforms to.
@@ -67,20 +67,20 @@ type DebuggerDebuggeesListResource =
                                QueryParam "alt" AltJSON :>
                                  Get '[JSON] ListDebuggeesResponse
 
--- | Lists all the debuggees that the user can set breakpoints to.
+-- | Lists all the debuggees that the user has access to.
 --
 -- /See:/ 'debuggerDebuggeesList' smart constructor.
 data DebuggerDebuggeesList = DebuggerDebuggeesList'
-    { _ddlXgafv           :: !(Maybe Xgafv)
+    { _ddlXgafv :: !(Maybe Xgafv)
     , _ddlIncludeInactive :: !(Maybe Bool)
-    , _ddlUploadProtocol  :: !(Maybe Text)
-    , _ddlProject         :: !(Maybe Text)
-    , _ddlPp              :: !Bool
-    , _ddlAccessToken     :: !(Maybe Text)
-    , _ddlUploadType      :: !(Maybe Text)
-    , _ddlBearerToken     :: !(Maybe Text)
-    , _ddlClientVersion   :: !(Maybe Text)
-    , _ddlCallback        :: !(Maybe Text)
+    , _ddlUploadProtocol :: !(Maybe Text)
+    , _ddlProject :: !(Maybe Text)
+    , _ddlPp :: !Bool
+    , _ddlAccessToken :: !(Maybe Text)
+    , _ddlUploadType :: !(Maybe Text)
+    , _ddlBearerToken :: !(Maybe Text)
+    , _ddlClientVersion :: !(Maybe Text)
+    , _ddlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DebuggerDebuggeesList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data DebuggerDebuggeesList = DebuggerDebuggeesList'
 -- * 'ddlCallback'
 debuggerDebuggeesList
     :: DebuggerDebuggeesList
-debuggerDebuggeesList =
+debuggerDebuggeesList = 
     DebuggerDebuggeesList'
     { _ddlXgafv = Nothing
     , _ddlIncludeInactive = Nothing
@@ -166,7 +166,7 @@ ddlBearerToken
   = lens _ddlBearerToken
       (\ s a -> s{_ddlBearerToken = a})
 
--- | The client version making the call. Following: \`domain\/type\/version\`
+-- | The client version making the call. Schema: \`domain\/type\/version\`
 -- (e.g., \`google.com\/intellij\/v1\`).
 ddlClientVersion :: Lens' DebuggerDebuggeesList (Maybe Text)
 ddlClientVersion

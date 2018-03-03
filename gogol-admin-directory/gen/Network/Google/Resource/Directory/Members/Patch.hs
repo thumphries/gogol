@@ -39,8 +39,8 @@ module Network.Google.Resource.Directory.Members.Patch
     , mpPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.patch@ method which the
 -- 'MembersPatch' request conforms to.
@@ -61,8 +61,8 @@ type MembersPatchResource =
 -- /See:/ 'membersPatch' smart constructor.
 data MembersPatch = MembersPatch'
     { _mpMemberKey :: !Text
-    , _mpGroupKey  :: !Text
-    , _mpPayload   :: !Member
+    , _mpGroupKey :: !Text
+    , _mpPayload :: !Member
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MembersPatch' with the minimum fields required to make a request.
@@ -79,20 +79,20 @@ membersPatch
     -> Text -- ^ 'mpGroupKey'
     -> Member -- ^ 'mpPayload'
     -> MembersPatch
-membersPatch pMpMemberKey_ pMpGroupKey_ pMpPayload_ =
+membersPatch pMpMemberKey_ pMpGroupKey_ pMpPayload_ = 
     MembersPatch'
     { _mpMemberKey = pMpMemberKey_
     , _mpGroupKey = pMpGroupKey_
     , _mpPayload = pMpPayload_
     }
 
--- | Email or immutable Id of the user. If Id, it should match with id of
+-- | Email or immutable ID of the user. If ID, it should match with id of
 -- member object
 mpMemberKey :: Lens' MembersPatch Text
 mpMemberKey
   = lens _mpMemberKey (\ s a -> s{_mpMemberKey = a})
 
--- | Email or immutable Id of the group. If Id, it should match with id of
+-- | Email or immutable ID of the group. If ID, it should match with id of
 -- group object
 mpGroupKey :: Lens' MembersPatch Text
 mpGroupKey

@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.Routers.Preview
     , rppRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.routers.preview@ method which the
 -- 'RoutersPreview' request conforms to.
@@ -65,9 +65,9 @@ type RoutersPreviewResource =
 -- /See:/ 'routersPreview' smart constructor.
 data RoutersPreview = RoutersPreview'
     { _rppProject :: !Text
-    , _rppRouter  :: !Text
+    , _rppRouter :: !Text
     , _rppPayload :: !Router
-    , _rppRegion  :: !Text
+    , _rppRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoutersPreview' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ routersPreview
     -> Router -- ^ 'rppPayload'
     -> Text -- ^ 'rppRegion'
     -> RoutersPreview
-routersPreview pRppProject_ pRppRouter_ pRppPayload_ pRppRegion_ =
+routersPreview pRppProject_ pRppRouter_ pRppPayload_ pRppRegion_ = 
     RoutersPreview'
     { _rppProject = pRppProject_
     , _rppRouter = pRppRouter_

@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.GetAvailableProductSet
     , ugapsUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.getAvailableProductSet@ method which the
 -- 'UsersGetAvailableProductSet' request conforms to.
@@ -57,7 +57,7 @@ type UsersGetAvailableProductSetResource =
 -- /See:/ 'usersGetAvailableProductSet' smart constructor.
 data UsersGetAvailableProductSet = UsersGetAvailableProductSet'
     { _ugapsEnterpriseId :: !Text
-    , _ugapsUserId       :: !Text
+    , _ugapsUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersGetAvailableProductSet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ usersGetAvailableProductSet
     :: Text -- ^ 'ugapsEnterpriseId'
     -> Text -- ^ 'ugapsUserId'
     -> UsersGetAvailableProductSet
-usersGetAvailableProductSet pUgapsEnterpriseId_ pUgapsUserId_ =
+usersGetAvailableProductSet pUgapsEnterpriseId_ pUgapsUserId_ = 
     UsersGetAvailableProductSet'
     { _ugapsEnterpriseId = pUgapsEnterpriseId_
     , _ugapsUserId = pUgapsUserId_

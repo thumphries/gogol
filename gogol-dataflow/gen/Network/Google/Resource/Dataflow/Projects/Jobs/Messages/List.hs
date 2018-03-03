@@ -22,7 +22,7 @@
 --
 -- Request the job status.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.messages.list@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.messages.list@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.Messages.List
     (
     -- * REST Resource
@@ -50,8 +50,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.Messages.List
     , pjmlCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.messages.list@ method which the
 -- 'ProjectsJobsMessagesList' request conforms to.
@@ -62,15 +62,15 @@ type ProjectsJobsMessagesListResource =
            "jobs" :>
              Capture "jobId" Text :>
                "messages" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "location" Text :>
-                       QueryParam "startTime" Text :>
+                       QueryParam "startTime" DateTime' :>
                          QueryParam "pp" Bool :>
                            QueryParam "access_token" Text :>
                              QueryParam "uploadType" Text :>
                                QueryParam "bearer_token" Text :>
-                                 QueryParam "endTime" Text :>
+                                 QueryParam "endTime" DateTime' :>
                                    QueryParam "minimumImportance" Text :>
                                      QueryParam "pageToken" Text :>
                                        QueryParam "pageSize" (Textual Int32) :>
@@ -82,21 +82,21 @@ type ProjectsJobsMessagesListResource =
 --
 -- /See:/ 'projectsJobsMessagesList' smart constructor.
 data ProjectsJobsMessagesList = ProjectsJobsMessagesList'
-    { _pjmlXgafv             :: !(Maybe Text)
-    , _pjmlJobId             :: !Text
-    , _pjmlUploadProtocol    :: !(Maybe Text)
-    , _pjmlLocation          :: !(Maybe Text)
-    , _pjmlStartTime         :: !(Maybe Text)
-    , _pjmlPp                :: !Bool
-    , _pjmlAccessToken       :: !(Maybe Text)
-    , _pjmlUploadType        :: !(Maybe Text)
-    , _pjmlBearerToken       :: !(Maybe Text)
-    , _pjmlEndTime           :: !(Maybe Text)
+    { _pjmlXgafv :: !(Maybe Xgafv)
+    , _pjmlJobId :: !Text
+    , _pjmlUploadProtocol :: !(Maybe Text)
+    , _pjmlLocation :: !(Maybe Text)
+    , _pjmlStartTime :: !(Maybe DateTime')
+    , _pjmlPp :: !Bool
+    , _pjmlAccessToken :: !(Maybe Text)
+    , _pjmlUploadType :: !(Maybe Text)
+    , _pjmlBearerToken :: !(Maybe Text)
+    , _pjmlEndTime :: !(Maybe DateTime')
     , _pjmlMinimumImportance :: !(Maybe Text)
-    , _pjmlPageToken         :: !(Maybe Text)
-    , _pjmlProjectId         :: !Text
-    , _pjmlPageSize          :: !(Maybe (Textual Int32))
-    , _pjmlCallback          :: !(Maybe Text)
+    , _pjmlPageToken :: !(Maybe Text)
+    , _pjmlProjectId :: !Text
+    , _pjmlPageSize :: !(Maybe (Textual Int32))
+    , _pjmlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsMessagesList' with the minimum fields required to make a request.
@@ -136,7 +136,7 @@ projectsJobsMessagesList
     :: Text -- ^ 'pjmlJobId'
     -> Text -- ^ 'pjmlProjectId'
     -> ProjectsJobsMessagesList
-projectsJobsMessagesList pPjmlJobId_ pPjmlProjectId_ =
+projectsJobsMessagesList pPjmlJobId_ pPjmlProjectId_ = 
     ProjectsJobsMessagesList'
     { _pjmlXgafv = Nothing
     , _pjmlJobId = pPjmlJobId_
@@ -156,7 +156,7 @@ projectsJobsMessagesList pPjmlJobId_ pPjmlProjectId_ =
     }
 
 -- | V1 error format.
-pjmlXgafv :: Lens' ProjectsJobsMessagesList (Maybe Text)
+pjmlXgafv :: Lens' ProjectsJobsMessagesList (Maybe Xgafv)
 pjmlXgafv
   = lens _pjmlXgafv (\ s a -> s{_pjmlXgafv = a})
 
@@ -178,10 +178,11 @@ pjmlLocation
 
 -- | If specified, return only messages with timestamps >= start_time. The
 -- default is the job creation time (i.e. beginning of messages).
-pjmlStartTime :: Lens' ProjectsJobsMessagesList (Maybe Text)
+pjmlStartTime :: Lens' ProjectsJobsMessagesList (Maybe UTCTime)
 pjmlStartTime
   = lens _pjmlStartTime
       (\ s a -> s{_pjmlStartTime = a})
+      . mapping _DateTime
 
 -- | Pretty-print response.
 pjmlPp :: Lens' ProjectsJobsMessagesList Bool
@@ -207,9 +208,10 @@ pjmlBearerToken
 
 -- | Return only messages with timestamps \< end_time. The default is now
 -- (i.e. return up to the latest messages available).
-pjmlEndTime :: Lens' ProjectsJobsMessagesList (Maybe Text)
+pjmlEndTime :: Lens' ProjectsJobsMessagesList (Maybe UTCTime)
 pjmlEndTime
-  = lens _pjmlEndTime (\ s a -> s{_pjmlEndTime = a})
+  = lens _pjmlEndTime (\ s a -> s{_pjmlEndTime = a}) .
+      mapping _DateTime
 
 -- | Filter to only get messages with importance >= level
 pjmlMinimumImportance :: Lens' ProjectsJobsMessagesList (Maybe Text)
@@ -248,6 +250,8 @@ instance GoogleRequest ProjectsJobsMessagesList where
              ListJobMessagesResponse
         type Scopes ProjectsJobsMessagesList =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsMessagesList'{..}
           = go _pjmlProjectId _pjmlJobId _pjmlXgafv

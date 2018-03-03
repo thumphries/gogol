@@ -42,8 +42,8 @@ module Network.Google.Resource.Webmasters.Searchanalytics.Query
     , sqPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.searchanalytics.query@ method which the
 -- 'SearchanalyticsQuery' request conforms to.
@@ -82,7 +82,7 @@ searchanalyticsQuery
     :: Text -- ^ 'sqSiteURL'
     -> SearchAnalyticsQueryRequest -- ^ 'sqPayload'
     -> SearchanalyticsQuery
-searchanalyticsQuery pSqSiteURL_ pSqPayload_ =
+searchanalyticsQuery pSqSiteURL_ pSqPayload_ = 
     SearchanalyticsQuery'
     { _sqSiteURL = pSqSiteURL_
     , _sqPayload = pSqPayload_

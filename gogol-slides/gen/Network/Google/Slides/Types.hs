@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -24,6 +24,7 @@ module Network.Google.Slides.Types
     , presentationsScope
     , driveReadOnlyScope
     , driveScope
+    , driveFileScope
     , spreadsheetsScope
     , presentationsReadOnlyScope
 
@@ -38,6 +39,19 @@ module Network.Google.Slides.Types
     , deleteTableRowRequest
     , dtrrCellLocation
     , dtrrTableObjectId
+
+    -- * Thumbnail
+    , Thumbnail
+    , thumbnail
+    , tHeight
+    , tWidth
+    , tContentURL
+
+    -- * TableBOrderCell
+    , TableBOrderCell
+    , tableBOrderCell
+    , tbocLocation
+    , tbocTableBOrderProperties
 
     -- * ParagraphStyleDirection
     , ParagraphStyleDirection (..)
@@ -57,6 +71,9 @@ module Network.Google.Slides.Types
     , replaceAllShapesWithImageResponse
     , raswirOccurrencesChanged
 
+    -- * TableCellPropertiesContentAlignment
+    , TableCellPropertiesContentAlignment (..)
+
     -- * RangeType
     , RangeType (..)
 
@@ -70,6 +87,7 @@ module Network.Google.Slides.Types
     , image
     , iImageProperties
     , iContentURL
+    , iSourceURL
 
     -- * UpdateLinePropertiesRequest
     , UpdateLinePropertiesRequest
@@ -102,10 +120,18 @@ module Network.Google.Slides.Types
     , group'
     , gChildren
 
+    -- * ReplaceImageRequest
+    , ReplaceImageRequest
+    , replaceImageRequest
+    , rirImageReplaceMethod
+    , rirImageObjectId
+    , rirURL
+
     -- * BatchUpdatePresentationRequest
     , BatchUpdatePresentationRequest
     , batchUpdatePresentationRequest
     , buprRequests
+    , buprWriteControl
 
     -- * CreateShapeRequest
     , CreateShapeRequest
@@ -124,11 +150,30 @@ module Network.Google.Slides.Types
     , atContent
     , atType
 
+    -- * ReplaceAllShapesWithSheetsChartRequest
+    , ReplaceAllShapesWithSheetsChartRequest
+    , replaceAllShapesWithSheetsChartRequest
+    , raswscrPageObjectIds
+    , raswscrSpreadsheetId
+    , raswscrLinkingMode
+    , raswscrContainsText
+    , raswscrChartId
+
     -- * List
     , List
     , list
     , lListId
     , lNestingLevel
+
+    -- * NotesProperties
+    , NotesProperties
+    , notesProperties
+    , npSpeakerNotesObjectId
+
+    -- * GroupObjectsResponse
+    , GroupObjectsResponse
+    , groupObjectsResponse
+    , gorObjectId
 
     -- * RgbColor
     , RgbColor
@@ -153,6 +198,22 @@ module Network.Google.Slides.Types
     , cscrElementProperties
     , cscrChartId
 
+    -- * TableRowProperties
+    , TableRowProperties
+    , tableRowProperties
+    , trpMinRowHeight
+
+    -- * UpdateTableRowPropertiesRequest
+    , UpdateTableRowPropertiesRequest
+    , updateTableRowPropertiesRequest
+    , utrprTableRowProperties
+    , utrprRowIndices
+    , utrprObjectId
+    , utrprFields
+
+    -- * RecolorName
+    , RecolorName (..)
+
     -- * CreateParagraphBulletsRequestBulletPreset
     , CreateParagraphBulletsRequestBulletPreset (..)
 
@@ -161,6 +222,11 @@ module Network.Google.Slides.Types
 
     -- * LayoutReferencePredefinedLayout
     , LayoutReferencePredefinedLayout (..)
+
+    -- * MasterProperties
+    , MasterProperties
+    , masterProperties
+    , mpDisplayName
 
     -- * DeleteTextRequest
     , DeleteTextRequest
@@ -197,6 +263,11 @@ module Network.Google.Slides.Types
     -- * CreateLineRequestLineCategory
     , CreateLineRequestLineCategory (..)
 
+    -- * TableBOrderFill
+    , TableBOrderFill
+    , tableBOrderFill
+    , tbofSolidFill
+
     -- * SheetsChart
     , SheetsChart
     , sheetsChart
@@ -216,8 +287,16 @@ module Network.Google.Slides.Types
     , dtcrCellLocation
     , dtcrTableObjectId
 
+    -- * TableBOrderRow
+    , TableBOrderRow
+    , tableBOrderRow
+    , tborTableBOrderCells
+
     -- * ShapeShapeType
     , ShapeShapeType (..)
+
+    -- * ShapePropertiesContentAlignment
+    , ShapePropertiesContentAlignment (..)
 
     -- * OutlinePropertyState
     , OutlinePropertyState (..)
@@ -230,6 +309,12 @@ module Network.Google.Slides.Types
     , lRelativeLink
     , lSlideIndex
 
+    -- * GroupObjectsRequest
+    , GroupObjectsRequest
+    , groupObjectsRequest
+    , gorGroupObjectId
+    , gorChildrenObjectIds
+
     -- * Dimension
     , Dimension
     , dimension
@@ -239,13 +324,19 @@ module Network.Google.Slides.Types
     -- * BatchUpdatePresentationResponse
     , BatchUpdatePresentationResponse
     , batchUpdatePresentationResponse
-    , buprPresentationId
-    , buprReplies
+    , bPresentationId
+    , bReplies
+    , bWriteControl
 
     -- * DuplicateObjectRequestObjectIds
     , DuplicateObjectRequestObjectIds
     , duplicateObjectRequestObjectIds
     , doroiAddtional
+
+    -- * ReplaceAllShapesWithSheetsChartResponse
+    , ReplaceAllShapesWithSheetsChartResponse
+    , replaceAllShapesWithSheetsChartResponse
+    , raswscrOccurrencesChanged
 
     -- * CreateTableRequest
     , CreateTableRequest
@@ -255,13 +346,22 @@ module Network.Google.Slides.Types
     , ctrElementProperties
     , ctrColumns
 
+    -- * TableBOrderProperties
+    , TableBOrderProperties
+    , tableBOrderProperties
+    , tbopTableBOrderFill
+    , tbopWeight
+    , tbopDashStyle
+
     -- * Response
     , Response
     , response
     , rReplaceAllShapesWithImage
     , rCreateLine
     , rReplaceAllText
+    , rReplaceAllShapesWithSheetsChart
     , rCreateShape
+    , rGroupObjects
     , rCreateSheetsChart
     , rDuplicateObject
     , rCreateTable
@@ -283,15 +383,23 @@ module Network.Google.Slides.Types
     -- * PlaceholderType
     , PlaceholderType (..)
 
+    -- * UnGroupObjectsRequest
+    , UnGroupObjectsRequest
+    , unGroupObjectsRequest
+    , ugorObjectIds
+
     -- * Page
     , Page
     , page
+    , pNotesProperties
+    , pMasterProperties
     , pObjectId
     , pPageElements
     , pSlideProperties
     , pPageProperties
     , pLayoutProperties
     , pPageType
+    , pRevisionId
 
     -- * ReplaceAllTextResponse
     , ReplaceAllTextResponse
@@ -324,17 +432,20 @@ module Network.Google.Slides.Types
     , slideProperties
     , spLayoutObjectId
     , spMasterObjectId
+    , spNotesPage
 
     -- * Presentation
     , Presentation
     , presentation
-    , pSlides
-    , pMasters
-    , pLocale
-    , pPresentationId
-    , pTitle
-    , pPageSize
-    , pLayouts
+    , preSlides
+    , preNotesMaster
+    , preMasters
+    , preLocale
+    , prePresentationId
+    , preTitle
+    , preRevisionId
+    , prePageSize
+    , preLayouts
 
     -- * ThemeColorPair
     , ThemeColorPair
@@ -389,6 +500,9 @@ module Network.Google.Slides.Types
     , createVideoResponse
     , cvrObjectId
 
+    -- * UpdateTableBOrderPropertiesRequestBOrderPosition
+    , UpdateTableBOrderPropertiesRequestBOrderPosition (..)
+
     -- * LayoutReference
     , LayoutReference
     , layoutReference
@@ -418,6 +532,15 @@ module Network.Google.Slides.Types
     , itrrCellLocation
     , itrrTableObjectId
 
+    -- * ReplaceAllShapesWithSheetsChartRequestLinkingMode
+    , ReplaceAllShapesWithSheetsChartRequestLinkingMode (..)
+
+    -- * UnmergeTableCellsRequest
+    , UnmergeTableCellsRequest
+    , unmergeTableCellsRequest
+    , utcrObjectId
+    , utcrTableRange
+
     -- * LinePropertiesEndArrow
     , LinePropertiesEndArrow (..)
 
@@ -435,10 +558,19 @@ module Network.Google.Slides.Types
     -- * CreateVideoRequestSource
     , CreateVideoRequestSource (..)
 
+    -- * UpdateTableColumnPropertiesRequest
+    , UpdateTableColumnPropertiesRequest
+    , updateTableColumnPropertiesRequest
+    , utcprObjectId
+    , utcprTableColumnProperties
+    , utcprFields
+    , utcprColumnIndices
+
     -- * TableCellProperties
     , TableCellProperties
     , tableCellProperties
     , tcpTableCellBackgRoundFill
+    , tcpContentAlignment
 
     -- * CreateLineResponse
     , CreateLineResponse
@@ -476,8 +608,15 @@ module Network.Google.Slides.Types
     -- * TableRow
     , TableRow
     , tableRow
+    , trTableRowProperties
     , trTableCells
     , trRowHeight
+
+    -- * WeightedFontFamily
+    , WeightedFontFamily
+    , weightedFontFamily
+    , wffFontFamily
+    , wffWeight
 
     -- * CreateVideoRequest
     , CreateVideoRequest
@@ -531,11 +670,22 @@ module Network.Google.Slides.Types
     , cirURL
     , cirElementProperties
 
+    -- * MergeTableCellsRequest
+    , MergeTableCellsRequest
+    , mergeTableCellsRequest
+    , mtcrObjectId
+    , mtcrTableRange
+
     -- * Xgafv
     , Xgafv (..)
 
     -- * AutoTextType
     , AutoTextType (..)
+
+    -- * WriteControl
+    , WriteControl
+    , writeControl
+    , wcRequiredRevisionId
 
     -- * TextStyle
     , TextStyle
@@ -548,6 +698,7 @@ module Network.Google.Slides.Types
     , tsFontSize
     , tsSmallCaps
     , tsUnderline
+    , tsWeightedFontFamily
     , tsItalic
     , tsBold
     , tsStrikethrough
@@ -570,6 +721,7 @@ module Network.Google.Slides.Types
     -- * Recolor
     , Recolor
     , recolor
+    , rName
     , rRecolorStops
 
     -- * PageProperties
@@ -596,12 +748,16 @@ module Network.Google.Slides.Types
     , ocThemeColor
     , ocRgbColor
 
+    -- * TableBOrderPropertiesDashStyle
+    , TableBOrderPropertiesDashStyle (..)
+
     -- * CreateSlideRequest
     , CreateSlideRequest
     , createSlideRequest
     , csrsObjectId
     , csrsSlideLayoutReference
     , csrsInsertionIndex
+    , csrsPlaceholderIdMAppings
 
     -- * TableCellLocation
     , TableCellLocation
@@ -618,6 +774,8 @@ module Network.Google.Slides.Types
     -- * ReplaceAllShapesWithImageRequest
     , ReplaceAllShapesWithImageRequest
     , replaceAllShapesWithImageRequest
+    , raswirImageReplaceMethod
+    , raswirPageObjectIds
     , raswirContainsText
     , raswirImageURL
     , raswirReplaceMethod
@@ -693,7 +851,18 @@ module Network.Google.Slides.Types
     -- * VideoProperties
     , VideoProperties
     , videoProperties
+    , vpStart
+    , vpAutoPlay
+    , vpMute
+    , vpEnd
     , vpOutline
+
+    -- * LayoutPlaceholderIdMApping
+    , LayoutPlaceholderIdMApping
+    , layoutPlaceholderIdMApping
+    , lpimaObjectId
+    , lpimaLayoutPlaceholderObjectId
+    , lpimaLayoutPlaceholder
 
     -- * LineLineType
     , LineLineType (..)
@@ -718,6 +887,13 @@ module Network.Google.Slides.Types
     -- * ParagraphStyleSpacingMode
     , ParagraphStyleSpacingMode (..)
 
+    -- * DeleteParagraphBulletsRequest
+    , DeleteParagraphBulletsRequest
+    , deleteParagraphBulletsRequest
+    , dpbrTextRange
+    , dpbrObjectId
+    , dpbrCellLocation
+
     -- * InsertTextRequest
     , InsertTextRequest
     , insertTextRequest
@@ -725,6 +901,15 @@ module Network.Google.Slides.Types
     , itrObjectId
     , itrInsertionIndex
     , itrCellLocation
+
+    -- * UpdateTableBOrderPropertiesRequest
+    , UpdateTableBOrderPropertiesRequest
+    , updateTableBOrderPropertiesRequest
+    , utboprBOrderPosition
+    , utboprObjectId
+    , utboprTableBOrderProperties
+    , utboprTableRange
+    , utboprFields
 
     -- * CreateLineRequest
     , CreateLineRequest
@@ -758,8 +943,10 @@ module Network.Google.Slides.Types
     , Table
     , table
     , tTableRows
+    , tVerticalBOrderRows
     , tRows
     , tColumns
+    , tHorizontalBOrderRows
     , tTableColumns
 
     -- * ThemeColorPairType
@@ -774,6 +961,7 @@ module Network.Google.Slides.Types
     , spLink
     , spShadow
     , spOutline
+    , spContentAlignment
     , spShapeBackgRoundFill
 
     -- * ShadowPropertyState
@@ -802,19 +990,32 @@ module Network.Google.Slides.Types
     -- * DimensionUnit
     , DimensionUnit (..)
 
+    -- * ReplaceImageRequestImageReplaceMethod
+    , ReplaceImageRequestImageReplaceMethod (..)
+
     -- * OutlineDashStyle
     , OutlineDashStyle (..)
 
     -- * AffineTransformUnit
     , AffineTransformUnit (..)
 
+    -- * UpdatePageElementAltTextRequest
+    , UpdatePageElementAltTextRequest
+    , updatePageElementAltTextRequest
+    , upeatrObjectId
+    , upeatrTitle
+    , upeatrDescription
+
     -- * UpdateTableCellPropertiesRequest
     , UpdateTableCellPropertiesRequest
     , updateTableCellPropertiesRequest
-    , utcprObjectId
-    , utcprTableCellProperties
-    , utcprTableRange
-    , utcprFields
+    , uObjectId
+    , uTableCellProperties
+    , uTableRange
+    , uFields
+
+    -- * ReplaceAllShapesWithImageRequestImageReplaceMethod
+    , ReplaceAllShapesWithImageRequestImageReplaceMethod (..)
 
     -- * SheetsChartProperties
     , SheetsChartProperties
@@ -849,9 +1050,19 @@ module Network.Google.Slides.Types
     , duplicateObjectResponse
     , dupObjectId
 
+    -- * UpdateParagraphStyleRequest
+    , UpdateParagraphStyleRequest
+    , updateParagraphStyleRequest
+    , upsrStyle
+    , upsrTextRange
+    , upsrObjectId
+    , upsrCellLocation
+    , upsrFields
+
     -- * ReplaceAllTextRequest
     , ReplaceAllTextRequest
     , replaceAllTextRequest
+    , ratrPageObjectIds
     , ratrContainsText
     , ratrReplaceText
 
@@ -872,24 +1083,36 @@ module Network.Google.Slides.Types
     , reqCreateParagraphBullets
     , reqCreateLine
     , reqInsertText
+    , reqUpdateTableBOrderProperties
+    , reqDeleteParagraphBullets
     , reqDeleteTableRow
     , reqUpdateTableCellProperties
     , reqReplaceAllText
+    , reqUpdatePageElementAltText
+    , reqUpdateParagraphStyle
+    , reqReplaceImage
+    , reqReplaceAllShapesWithSheetsChart
     , reqCreateShape
     , reqUpdatePageProperties
     , reqUpdateLineProperties
     , reqDeleteTableColumn
+    , reqGroupObjects
     , reqDeleteText
+    , reqUpdateTableRowProperties
     , reqCreateSheetsChart
     , reqInsertTableColumns
     , reqUpdateImageProperties
+    , reqUnGroupObjects
     , reqDuplicateObject
     , reqCreateTable
     , reqCreateVideo
     , reqRefreshSheetsChart
+    , reqUpdateTableColumnProperties
+    , reqUnmergeTableCells
     , reqUpdatePageElementTransform
     , reqInsertTableRows
     , reqCreateImage
+    , reqMergeTableCells
     , reqCreateSlide
     , reqUpdateTextStyle
     , reqUpdateVideoProperties
@@ -901,9 +1124,9 @@ module Network.Google.Slides.Types
     , smcText
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Slides.Types.Product
-import           Network.Google.Slides.Types.Sum
+import Network.Google.Prelude
+import Network.Google.Slides.Types.Product
+import Network.Google.Slides.Types.Sum
 
 -- | Default request referring to version 'v1' of the Google Slides API. This contains the host and root path used as a starting point for constructing service requests.
 slidesService :: ServiceConfig
@@ -926,6 +1149,11 @@ driveReadOnlyScope = Proxy;
 -- | View and manage the files in your Google Drive
 driveScope :: Proxy '["https://www.googleapis.com/auth/drive"]
 driveScope = Proxy;
+
+-- | View and manage Google Drive files and folders that you have opened or
+-- created with this app
+driveFileScope :: Proxy '["https://www.googleapis.com/auth/drive.file"]
+driveFileScope = Proxy;
 
 -- | View and manage your spreadsheets in Google Drive
 spreadsheetsScope :: Proxy '["https://www.googleapis.com/auth/spreadsheets"]

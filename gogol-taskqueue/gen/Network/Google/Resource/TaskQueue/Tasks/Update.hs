@@ -40,8 +40,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Update
     , tuNewLeaseSeconds
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.update@ method which the
 -- 'TasksUpdate' request conforms to.
@@ -62,10 +62,10 @@ type TasksUpdateResource =
 --
 -- /See:/ 'tasksUpdate' smart constructor.
 data TasksUpdate = TasksUpdate'
-    { _tuTaskQueue       :: !Text
-    , _tuProject         :: !Text
-    , _tuPayload         :: !Task
-    , _tuTask            :: !Text
+    { _tuTaskQueue :: !Text
+    , _tuProject :: !Text
+    , _tuPayload :: !Task
+    , _tuTask :: !Text
     , _tuNewLeaseSeconds :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ tasksUpdate
     -> Text -- ^ 'tuTask'
     -> Int32 -- ^ 'tuNewLeaseSeconds'
     -> TasksUpdate
-tasksUpdate pTuTaskQueue_ pTuProject_ pTuPayload_ pTuTask_ pTuNewLeaseSeconds_ =
+tasksUpdate pTuTaskQueue_ pTuProject_ pTuPayload_ pTuTask_ pTuNewLeaseSeconds_ = 
     TasksUpdate'
     { _tuTaskQueue = pTuTaskQueue_
     , _tuProject = pTuProject_

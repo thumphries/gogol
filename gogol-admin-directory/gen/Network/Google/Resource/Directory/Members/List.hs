@@ -39,8 +39,8 @@ module Network.Google.Resource.Directory.Members.List
     , mlMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.list@ method which the
 -- 'MembersList' request conforms to.
@@ -60,9 +60,9 @@ type MembersListResource =
 --
 -- /See:/ 'membersList' smart constructor.
 data MembersList = MembersList'
-    { _mlRoles      :: !(Maybe Text)
-    , _mlGroupKey   :: !Text
-    , _mlPageToken  :: !(Maybe Text)
+    { _mlRoles :: !(Maybe Text)
+    , _mlGroupKey :: !Text
+    , _mlPageToken :: !(Maybe Text)
     , _mlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ data MembersList = MembersList'
 membersList
     :: Text -- ^ 'mlGroupKey'
     -> MembersList
-membersList pMlGroupKey_ =
+membersList pMlGroupKey_ = 
     MembersList'
     { _mlRoles = Nothing
     , _mlGroupKey = pMlGroupKey_
@@ -92,7 +92,7 @@ membersList pMlGroupKey_ =
 mlRoles :: Lens' MembersList (Maybe Text)
 mlRoles = lens _mlRoles (\ s a -> s{_mlRoles = a})
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 mlGroupKey :: Lens' MembersList Text
 mlGroupKey
   = lens _mlGroupKey (\ s a -> s{_mlGroupKey = a})

@@ -36,8 +36,8 @@ module Network.Google.Resource.PlusDomains.Circles.Get
     , cgCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.get@ method which the
 -- 'CirclesGet' request conforms to.
@@ -63,7 +63,7 @@ newtype CirclesGet = CirclesGet'
 circlesGet
     :: Text -- ^ 'cgCircleId'
     -> CirclesGet
-circlesGet pCgCircleId_ =
+circlesGet pCgCircleId_ = 
     CirclesGet'
     { _cgCircleId = pCgCircleId_
     }

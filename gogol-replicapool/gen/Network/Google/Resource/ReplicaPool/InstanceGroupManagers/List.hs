@@ -41,8 +41,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.List
     , igmlMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.list@ method which the
 -- 'InstanceGroupManagersList' request conforms to.
@@ -65,10 +65,10 @@ type InstanceGroupManagersListResource =
 --
 -- /See:/ 'instanceGroupManagersList' smart constructor.
 data InstanceGroupManagersList = InstanceGroupManagersList'
-    { _igmlProject    :: !Text
-    , _igmlZone       :: !Text
-    , _igmlFilter     :: !(Maybe Text)
-    , _igmlPageToken  :: !(Maybe Text)
+    { _igmlProject :: !Text
+    , _igmlZone :: !Text
+    , _igmlFilter :: !(Maybe Text)
+    , _igmlPageToken :: !(Maybe Text)
     , _igmlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -89,7 +89,7 @@ instanceGroupManagersList
     :: Text -- ^ 'igmlProject'
     -> Text -- ^ 'igmlZone'
     -> InstanceGroupManagersList
-instanceGroupManagersList pIgmlProject_ pIgmlZone_ =
+instanceGroupManagersList pIgmlProject_ pIgmlZone_ = 
     InstanceGroupManagersList'
     { _igmlProject = pIgmlProject_
     , _igmlZone = pIgmlZone_

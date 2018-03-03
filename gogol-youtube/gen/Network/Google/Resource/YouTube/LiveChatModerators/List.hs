@@ -39,8 +39,8 @@ module Network.Google.Resource.YouTube.LiveChatModerators.List
     , livMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.liveChatModerators.list@ method which the
 -- 'LiveChatModeratorsList' request conforms to.
@@ -60,9 +60,9 @@ type LiveChatModeratorsListResource =
 --
 -- /See:/ 'liveChatModeratorsList' smart constructor.
 data LiveChatModeratorsList = LiveChatModeratorsList'
-    { _livPart       :: !Text
+    { _livPart :: !Text
     , _livLiveChatId :: !Text
-    , _livPageToken  :: !(Maybe Text)
+    , _livPageToken :: !(Maybe Text)
     , _livMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -81,7 +81,7 @@ liveChatModeratorsList
     :: Text -- ^ 'livPart'
     -> Text -- ^ 'livLiveChatId'
     -> LiveChatModeratorsList
-liveChatModeratorsList pLivPart_ pLivLiveChatId_ =
+liveChatModeratorsList pLivPart_ pLivLiveChatId_ = 
     LiveChatModeratorsList'
     { _livPart = pLivPart_
     , _livLiveChatId = pLivLiveChatId_

@@ -42,8 +42,8 @@ module Network.Google.Resource.BigQuery.Tables.Patch
     , tpTableId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.tables.patch@ method which the
 -- 'TablesPatch' request conforms to.
@@ -66,10 +66,10 @@ type TablesPatchResource =
 --
 -- /See:/ 'tablesPatch' smart constructor.
 data TablesPatch = TablesPatch'
-    { _tpPayload   :: !Table
+    { _tpPayload :: !Table
     , _tpDataSetId :: !Text
     , _tpProjectId :: !Text
-    , _tpTableId   :: !Text
+    , _tpTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TablesPatch' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ tablesPatch
     -> Text -- ^ 'tpProjectId'
     -> Text -- ^ 'tpTableId'
     -> TablesPatch
-tablesPatch pTpPayload_ pTpDataSetId_ pTpProjectId_ pTpTableId_ =
+tablesPatch pTpPayload_ pTpDataSetId_ pTpProjectId_ pTpTableId_ = 
     TablesPatch'
     { _tpPayload = pTpPayload_
     , _tpDataSetId = pTpDataSetId_

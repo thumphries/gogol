@@ -41,8 +41,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Insert
     , uInternalDateSource
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.insert@ method which the
 -- 'UsersMessagesInsert' request conforms to.
@@ -80,9 +80,9 @@ type UsersMessagesInsertResource =
 --
 -- /See:/ 'usersMessagesInsert' smart constructor.
 data UsersMessagesInsert = UsersMessagesInsert'
-    { _uPayload            :: !Message
-    , _uUserId             :: !Text
-    , _uDeleted            :: !Bool
+    { _uPayload :: !Message
+    , _uUserId :: !Text
+    , _uDeleted :: !Bool
     , _uInternalDateSource :: !UsersMessagesInsertInternalDateSource
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -100,7 +100,7 @@ data UsersMessagesInsert = UsersMessagesInsert'
 usersMessagesInsert
     :: Message -- ^ 'uPayload'
     -> UsersMessagesInsert
-usersMessagesInsert pUPayload_ =
+usersMessagesInsert pUPayload_ = 
     UsersMessagesInsert'
     { _uPayload = pUPayload_
     , _uUserId = "me"
@@ -118,8 +118,7 @@ uUserId :: Lens' UsersMessagesInsert Text
 uUserId = lens _uUserId (\ s a -> s{_uUserId = a})
 
 -- | Mark the email as permanently deleted (not TRASH) and only visible in
--- Google Apps Vault to a Vault administrator. Only used for Google Apps
--- for Work accounts.
+-- Google Vault to a Vault administrator. Only used for G Suite accounts.
 uDeleted :: Lens' UsersMessagesInsert Bool
 uDeleted = lens _uDeleted (\ s a -> s{_uDeleted = a})
 

@@ -40,8 +40,8 @@ module Network.Google.Resource.YouTube.Comments.SetModerationStatus
     , csmsId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.setModerationStatus@ method which the
 -- 'CommentsSetModerationStatus' request conforms to.
@@ -63,9 +63,9 @@ type CommentsSetModerationStatusResource =
 --
 -- /See:/ 'commentsSetModerationStatus' smart constructor.
 data CommentsSetModerationStatus = CommentsSetModerationStatus'
-    { _csmsBanAuthor        :: !Bool
+    { _csmsBanAuthor :: !Bool
     , _csmsModerationStatus :: !CommentsSetModerationStatusModerationStatus
-    , _csmsId               :: !Text
+    , _csmsId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommentsSetModerationStatus' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ commentsSetModerationStatus
     :: CommentsSetModerationStatusModerationStatus -- ^ 'csmsModerationStatus'
     -> Text -- ^ 'csmsId'
     -> CommentsSetModerationStatus
-commentsSetModerationStatus pCsmsModerationStatus_ pCsmsId_ =
+commentsSetModerationStatus pCsmsModerationStatus_ pCsmsId_ = 
     CommentsSetModerationStatus'
     { _csmsBanAuthor = False
     , _csmsModerationStatus = pCsmsModerationStatus_

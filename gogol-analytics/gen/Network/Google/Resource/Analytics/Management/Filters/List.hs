@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.Filters.List
     , mflMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.filters.list@ method which the
 -- 'ManagementFiltersList' request conforms to.
@@ -58,7 +58,7 @@ type ManagementFiltersListResource =
 --
 -- /See:/ 'managementFiltersList' smart constructor.
 data ManagementFiltersList = ManagementFiltersList'
-    { _mflAccountId  :: !Text
+    { _mflAccountId :: !Text
     , _mflStartIndex :: !(Maybe (Textual Int32))
     , _mflMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -75,7 +75,7 @@ data ManagementFiltersList = ManagementFiltersList'
 managementFiltersList
     :: Text -- ^ 'mflAccountId'
     -> ManagementFiltersList
-managementFiltersList pMflAccountId_ =
+managementFiltersList pMflAccountId_ = 
     ManagementFiltersList'
     { _mflAccountId = pMflAccountId_
     , _mflStartIndex = Nothing

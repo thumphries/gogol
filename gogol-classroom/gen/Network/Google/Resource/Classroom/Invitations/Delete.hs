@@ -46,8 +46,8 @@ module Network.Google.Resource.Classroom.Invitations.Delete
     , idCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.invitations.delete@ method which the
 -- 'InvitationsDelete' request conforms to.
@@ -55,7 +55,7 @@ type InvitationsDeleteResource =
      "v1" :>
        "invitations" :>
          Capture "id" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -71,14 +71,14 @@ type InvitationsDeleteResource =
 --
 -- /See:/ 'invitationsDelete' smart constructor.
 data InvitationsDelete = InvitationsDelete'
-    { _idXgafv          :: !(Maybe Text)
+    { _idXgafv :: !(Maybe Xgafv)
     , _idUploadProtocol :: !(Maybe Text)
-    , _idPp             :: !Bool
-    , _idAccessToken    :: !(Maybe Text)
-    , _idUploadType     :: !(Maybe Text)
-    , _idBearerToken    :: !(Maybe Text)
-    , _idId             :: !Text
-    , _idCallback       :: !(Maybe Text)
+    , _idPp :: !Bool
+    , _idAccessToken :: !(Maybe Text)
+    , _idUploadType :: !(Maybe Text)
+    , _idBearerToken :: !(Maybe Text)
+    , _idId :: !Text
+    , _idCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvitationsDelete' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data InvitationsDelete = InvitationsDelete'
 invitationsDelete
     :: Text -- ^ 'idId'
     -> InvitationsDelete
-invitationsDelete pIdId_ =
+invitationsDelete pIdId_ = 
     InvitationsDelete'
     { _idXgafv = Nothing
     , _idUploadProtocol = Nothing
@@ -116,7 +116,7 @@ invitationsDelete pIdId_ =
     }
 
 -- | V1 error format.
-idXgafv :: Lens' InvitationsDelete (Maybe Text)
+idXgafv :: Lens' InvitationsDelete (Maybe Xgafv)
 idXgafv = lens _idXgafv (\ s a -> s{_idXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

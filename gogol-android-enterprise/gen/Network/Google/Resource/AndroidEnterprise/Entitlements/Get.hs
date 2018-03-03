@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Entitlements.Get
     , egUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.entitlements.get@ method which the
 -- 'EntitlementsGet' request conforms to.
@@ -59,8 +59,8 @@ type EntitlementsGetResource =
 -- /See:/ 'entitlementsGet' smart constructor.
 data EntitlementsGet = EntitlementsGet'
     { _egEntitlementId :: !Text
-    , _egEnterpriseId  :: !Text
-    , _egUserId        :: !Text
+    , _egEnterpriseId :: !Text
+    , _egUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ entitlementsGet
     -> Text -- ^ 'egEnterpriseId'
     -> Text -- ^ 'egUserId'
     -> EntitlementsGet
-entitlementsGet pEgEntitlementId_ pEgEnterpriseId_ pEgUserId_ =
+entitlementsGet pEgEntitlementId_ pEgEnterpriseId_ pEgUserId_ = 
     EntitlementsGet'
     { _egEntitlementId = pEgEntitlementId_
     , _egEnterpriseId = pEgEnterpriseId_

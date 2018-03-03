@@ -22,7 +22,7 @@
 --
 -- Updates the configuration of the specified service.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.patch@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.patch@.
 module Network.Google.Resource.AppEngine.Apps.Services.Patch
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Patch
     , aspCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.patch@ method which the
 -- 'AppsServicesPatch' request conforms to.
@@ -58,9 +58,9 @@ type AppsServicesPatchResource =
          Capture "appsId" Text :>
            "services" :>
              Capture "servicesId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" Text :>
+                   QueryParam "updateMask" FieldMask :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
                          QueryParam "uploadType" Text :>
@@ -75,18 +75,18 @@ type AppsServicesPatchResource =
 --
 -- /See:/ 'appsServicesPatch' smart constructor.
 data AppsServicesPatch = AppsServicesPatch'
-    { _aspXgafv          :: !(Maybe Text)
+    { _aspXgafv :: !(Maybe Xgafv)
     , _aspUploadProtocol :: !(Maybe Text)
-    , _aspUpdateMask     :: !(Maybe Text)
-    , _aspPp             :: !Bool
-    , _aspAccessToken    :: !(Maybe Text)
-    , _aspUploadType     :: !(Maybe Text)
-    , _aspPayload        :: !Service
+    , _aspUpdateMask :: !(Maybe FieldMask)
+    , _aspPp :: !Bool
+    , _aspAccessToken :: !(Maybe Text)
+    , _aspUploadType :: !(Maybe Text)
+    , _aspPayload :: !Service
     , _aspMigrateTraffic :: !(Maybe Bool)
-    , _aspBearerToken    :: !(Maybe Text)
-    , _aspAppsId         :: !Text
-    , _aspServicesId     :: !Text
-    , _aspCallback       :: !(Maybe Text)
+    , _aspBearerToken :: !(Maybe Text)
+    , _aspAppsId :: !Text
+    , _aspServicesId :: !Text
+    , _aspCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesPatch' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ appsServicesPatch
     -> Text -- ^ 'aspAppsId'
     -> Text -- ^ 'aspServicesId'
     -> AppsServicesPatch
-appsServicesPatch pAspPayload_ pAspAppsId_ pAspServicesId_ =
+appsServicesPatch pAspPayload_ pAspAppsId_ pAspServicesId_ = 
     AppsServicesPatch'
     { _aspXgafv = Nothing
     , _aspUploadProtocol = Nothing
@@ -138,7 +138,7 @@ appsServicesPatch pAspPayload_ pAspAppsId_ pAspServicesId_ =
     }
 
 -- | V1 error format.
-aspXgafv :: Lens' AppsServicesPatch (Maybe Text)
+aspXgafv :: Lens' AppsServicesPatch (Maybe Xgafv)
 aspXgafv = lens _aspXgafv (\ s a -> s{_aspXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -148,7 +148,7 @@ aspUploadProtocol
       (\ s a -> s{_aspUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-aspUpdateMask :: Lens' AppsServicesPatch (Maybe Text)
+aspUpdateMask :: Lens' AppsServicesPatch (Maybe FieldMask)
 aspUpdateMask
   = lens _aspUpdateMask
       (\ s a -> s{_aspUpdateMask = a})
@@ -174,10 +174,10 @@ aspPayload :: Lens' AppsServicesPatch Service
 aspPayload
   = lens _aspPayload (\ s a -> s{_aspPayload = a})
 
--- | Set to true to gradually shift traffic from one version to another
--- single version. By default, traffic is shifted immediately. For gradual
--- traffic migration, the target version must be located within instances
--- that are configured for both warmup requests
+-- | Set to true to gradually shift traffic to one or more versions that you
+-- specify. By default, traffic is shifted immediately. For gradual traffic
+-- migration, the target versions must be located within instances that are
+-- configured for both warmup requests
 -- (https:\/\/cloud.google.com\/appengine\/docs\/admin-api\/reference\/rest\/v1\/apps.services.versions#inboundservicetype)
 -- and automatic scaling
 -- (https:\/\/cloud.google.com\/appengine\/docs\/admin-api\/reference\/rest\/v1\/apps.services.versions#automaticscaling).

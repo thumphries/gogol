@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the binding between the EMM and enterprise. This is now
--- deprecated; use this to unenroll customers that were previously enrolled
--- with the \'insert\' call, then enroll them again with the \'enroll\'
--- call.
+-- deprecated. Use this method only to unenroll customers that were
+-- previously enrolled with the insert call, then enroll them again with
+-- the enroll call.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.enterprises.delete@.
 module Network.Google.Resource.AndroidEnterprise.Enterprises.Delete
@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.Delete
     , edEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.delete@ method which the
 -- 'EnterprisesDelete' request conforms to.
@@ -52,9 +52,9 @@ type EnterprisesDeleteResource =
              QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
 -- | Deletes the binding between the EMM and enterprise. This is now
--- deprecated; use this to unenroll customers that were previously enrolled
--- with the \'insert\' call, then enroll them again with the \'enroll\'
--- call.
+-- deprecated. Use this method only to unenroll customers that were
+-- previously enrolled with the insert call, then enroll them again with
+-- the enroll call.
 --
 -- /See:/ 'enterprisesDelete' smart constructor.
 newtype EnterprisesDelete = EnterprisesDelete'
@@ -69,7 +69,7 @@ newtype EnterprisesDelete = EnterprisesDelete'
 enterprisesDelete
     :: Text -- ^ 'edEnterpriseId'
     -> EnterprisesDelete
-enterprisesDelete pEdEnterpriseId_ =
+enterprisesDelete pEdEnterpriseId_ = 
     EnterprisesDelete'
     { _edEnterpriseId = pEdEnterpriseId_
     }

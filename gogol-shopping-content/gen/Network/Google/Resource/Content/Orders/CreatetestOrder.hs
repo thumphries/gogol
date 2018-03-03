@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sandbox only. Creates a test order. This method can only be called for
--- non-multi-client accounts.
+-- Sandbox only. Creates a test order.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.createtestorder@.
 module Network.Google.Resource.Content.Orders.CreatetestOrder
@@ -38,8 +37,8 @@ module Network.Google.Resource.Content.Orders.CreatetestOrder
     , ocoPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.createtestorder@ method which the
 -- 'OrdersCreatetestOrder' request conforms to.
@@ -52,13 +51,12 @@ type OrdersCreatetestOrderResource =
                ReqBody '[JSON] OrdersCreateTestOrderRequest :>
                  Post '[JSON] OrdersCreateTestOrderResponse
 
--- | Sandbox only. Creates a test order. This method can only be called for
--- non-multi-client accounts.
+-- | Sandbox only. Creates a test order.
 --
 -- /See:/ 'ordersCreatetestOrder' smart constructor.
 data OrdersCreatetestOrder = OrdersCreatetestOrder'
     { _ocoMerchantId :: !(Textual Word64)
-    , _ocoPayload    :: !OrdersCreateTestOrderRequest
+    , _ocoPayload :: !OrdersCreateTestOrderRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrdersCreatetestOrder' with the minimum fields required to make a request.
@@ -72,13 +70,14 @@ ordersCreatetestOrder
     :: Word64 -- ^ 'ocoMerchantId'
     -> OrdersCreateTestOrderRequest -- ^ 'ocoPayload'
     -> OrdersCreatetestOrder
-ordersCreatetestOrder pOcoMerchantId_ pOcoPayload_ =
+ordersCreatetestOrder pOcoMerchantId_ pOcoPayload_ = 
     OrdersCreatetestOrder'
     { _ocoMerchantId = _Coerce # pOcoMerchantId_
     , _ocoPayload = pOcoPayload_
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that should manage the order. This cannot be a
+-- multi-client account.
 ocoMerchantId :: Lens' OrdersCreatetestOrder Word64
 ocoMerchantId
   = lens _ocoMerchantId

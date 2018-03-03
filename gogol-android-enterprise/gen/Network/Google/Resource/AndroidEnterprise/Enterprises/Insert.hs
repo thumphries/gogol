@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.Insert
     , eiPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.insert@ method which the
 -- 'EnterprisesInsert' request conforms to.
@@ -56,7 +56,7 @@ type EnterprisesInsertResource =
 --
 -- /See:/ 'enterprisesInsert' smart constructor.
 data EnterprisesInsert = EnterprisesInsert'
-    { _eiToken   :: !Text
+    { _eiToken :: !Text
     , _eiPayload :: !Enterprise
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ enterprisesInsert
     :: Text -- ^ 'eiToken'
     -> Enterprise -- ^ 'eiPayload'
     -> EnterprisesInsert
-enterprisesInsert pEiToken_ pEiPayload_ =
+enterprisesInsert pEiToken_ pEiPayload_ = 
     EnterprisesInsert'
     { _eiToken = pEiToken_
     , _eiPayload = pEiPayload_

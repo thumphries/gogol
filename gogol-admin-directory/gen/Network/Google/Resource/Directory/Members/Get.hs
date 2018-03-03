@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Members.Get
     , mgGroupKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.members.get@ method which the
 -- 'MembersGet' request conforms to.
@@ -57,7 +57,7 @@ type MembersGetResource =
 -- /See:/ 'membersGet' smart constructor.
 data MembersGet = MembersGet'
     { _mgMemberKey :: !Text
-    , _mgGroupKey  :: !Text
+    , _mgGroupKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MembersGet' with the minimum fields required to make a request.
@@ -71,18 +71,18 @@ membersGet
     :: Text -- ^ 'mgMemberKey'
     -> Text -- ^ 'mgGroupKey'
     -> MembersGet
-membersGet pMgMemberKey_ pMgGroupKey_ =
+membersGet pMgMemberKey_ pMgGroupKey_ = 
     MembersGet'
     { _mgMemberKey = pMgMemberKey_
     , _mgGroupKey = pMgGroupKey_
     }
 
--- | Email or immutable Id of the member
+-- | Email or immutable ID of the member
 mgMemberKey :: Lens' MembersGet Text
 mgMemberKey
   = lens _mgMemberKey (\ s a -> s{_mgMemberKey = a})
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 mgGroupKey :: Lens' MembersGet Text
 mgGroupKey
   = lens _mgGroupKey (\ s a -> s{_mgGroupKey = a})

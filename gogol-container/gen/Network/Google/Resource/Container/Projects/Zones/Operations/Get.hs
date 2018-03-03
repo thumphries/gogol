@@ -22,7 +22,7 @@
 --
 -- Gets the specified operation.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.operations.get@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.operations.get@.
 module Network.Google.Resource.Container.Projects.Zones.Operations.Get
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Container.Projects.Zones.Operations.Get
     , pzogCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.operations.get@ method which the
 -- 'ProjectsZonesOperationsGet' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsZonesOperationsGetResource =
              Capture "zone" Text :>
                "operations" :>
                  Capture "operationId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -72,16 +72,16 @@ type ProjectsZonesOperationsGetResource =
 --
 -- /See:/ 'projectsZonesOperationsGet' smart constructor.
 data ProjectsZonesOperationsGet = ProjectsZonesOperationsGet'
-    { _pzogXgafv          :: !(Maybe Text)
+    { _pzogXgafv :: !(Maybe Xgafv)
     , _pzogUploadProtocol :: !(Maybe Text)
-    , _pzogPp             :: !Bool
-    , _pzogAccessToken    :: !(Maybe Text)
-    , _pzogUploadType     :: !(Maybe Text)
-    , _pzogZone           :: !Text
-    , _pzogBearerToken    :: !(Maybe Text)
-    , _pzogProjectId      :: !Text
-    , _pzogOperationId    :: !Text
-    , _pzogCallback       :: !(Maybe Text)
+    , _pzogPp :: !Bool
+    , _pzogAccessToken :: !(Maybe Text)
+    , _pzogUploadType :: !(Maybe Text)
+    , _pzogZone :: !Text
+    , _pzogBearerToken :: !(Maybe Text)
+    , _pzogProjectId :: !Text
+    , _pzogOperationId :: !Text
+    , _pzogCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesOperationsGet' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ projectsZonesOperationsGet
     -> Text -- ^ 'pzogProjectId'
     -> Text -- ^ 'pzogOperationId'
     -> ProjectsZonesOperationsGet
-projectsZonesOperationsGet pPzogZone_ pPzogProjectId_ pPzogOperationId_ =
+projectsZonesOperationsGet pPzogZone_ pPzogProjectId_ pPzogOperationId_ = 
     ProjectsZonesOperationsGet'
     { _pzogXgafv = Nothing
     , _pzogUploadProtocol = Nothing
@@ -127,7 +127,7 @@ projectsZonesOperationsGet pPzogZone_ pPzogProjectId_ pPzogOperationId_ =
     }
 
 -- | V1 error format.
-pzogXgafv :: Lens' ProjectsZonesOperationsGet (Maybe Text)
+pzogXgafv :: Lens' ProjectsZonesOperationsGet (Maybe Xgafv)
 pzogXgafv
   = lens _pzogXgafv (\ s a -> s{_pzogXgafv = a})
 

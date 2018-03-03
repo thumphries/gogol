@@ -22,7 +22,7 @@
 --
 -- Lists information about the supported locations for this service.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.locations.list@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.locations.list@.
 module Network.Google.Resource.AppEngine.Apps.Locations.List
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.AppEngine.Apps.Locations.List
     , allCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.locations.list@ method which the
 -- 'AppsLocationsList' request conforms to.
@@ -56,7 +56,7 @@ type AppsLocationsListResource =
        "apps" :>
          Capture "appsId" Text :>
            "locations" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -73,17 +73,17 @@ type AppsLocationsListResource =
 --
 -- /See:/ 'appsLocationsList' smart constructor.
 data AppsLocationsList = AppsLocationsList'
-    { _allXgafv          :: !(Maybe Text)
+    { _allXgafv :: !(Maybe Xgafv)
     , _allUploadProtocol :: !(Maybe Text)
-    , _allPp             :: !Bool
-    , _allAccessToken    :: !(Maybe Text)
-    , _allUploadType     :: !(Maybe Text)
-    , _allBearerToken    :: !(Maybe Text)
-    , _allAppsId         :: !Text
-    , _allFilter         :: !(Maybe Text)
-    , _allPageToken      :: !(Maybe Text)
-    , _allPageSize       :: !(Maybe (Textual Int32))
-    , _allCallback       :: !(Maybe Text)
+    , _allPp :: !Bool
+    , _allAccessToken :: !(Maybe Text)
+    , _allUploadType :: !(Maybe Text)
+    , _allBearerToken :: !(Maybe Text)
+    , _allAppsId :: !Text
+    , _allFilter :: !(Maybe Text)
+    , _allPageToken :: !(Maybe Text)
+    , _allPageSize :: !(Maybe (Textual Int32))
+    , _allCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsLocationsList' with the minimum fields required to make a request.
@@ -114,7 +114,7 @@ data AppsLocationsList = AppsLocationsList'
 appsLocationsList
     :: Text -- ^ 'allAppsId'
     -> AppsLocationsList
-appsLocationsList pAllAppsId_ =
+appsLocationsList pAllAppsId_ = 
     AppsLocationsList'
     { _allXgafv = Nothing
     , _allUploadProtocol = Nothing
@@ -130,7 +130,7 @@ appsLocationsList pAllAppsId_ =
     }
 
 -- | V1 error format.
-allXgafv :: Lens' AppsLocationsList (Maybe Text)
+allXgafv :: Lens' AppsLocationsList (Maybe Xgafv)
 allXgafv = lens _allXgafv (\ s a -> s{_allXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

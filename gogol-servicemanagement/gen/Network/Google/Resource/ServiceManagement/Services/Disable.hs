@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disable a managed service for a project. Operation
+-- Disables a service for a project, so it can no longer be be used for the
+-- project. It prevents accidental usage that may cause unexpected billing
+-- charges or security leaks. Operation
 --
 -- /See:/ <https://cloud.google.com/service-management/ Google Service Management API Reference> for @servicemanagement.services.disable@.
 module Network.Google.Resource.ServiceManagement.Services.Disable
@@ -44,8 +46,8 @@ module Network.Google.Resource.ServiceManagement.Services.Disable
     , sCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.disable@ method which the
 -- 'ServicesDisable' request conforms to.
@@ -64,19 +66,21 @@ type ServicesDisableResource =
                            ReqBody '[JSON] DisableServiceRequest :>
                              Post '[JSON] Operation
 
--- | Disable a managed service for a project. Operation
+-- | Disables a service for a project, so it can no longer be be used for the
+-- project. It prevents accidental usage that may cause unexpected billing
+-- charges or security leaks. Operation
 --
 -- /See:/ 'servicesDisable' smart constructor.
 data ServicesDisable = ServicesDisable'
-    { _sXgafv          :: !(Maybe Xgafv)
+    { _sXgafv :: !(Maybe Xgafv)
     , _sUploadProtocol :: !(Maybe Text)
-    , _sPp             :: !Bool
-    , _sAccessToken    :: !(Maybe Text)
-    , _sUploadType     :: !(Maybe Text)
-    , _sPayload        :: !DisableServiceRequest
-    , _sBearerToken    :: !(Maybe Text)
-    , _sServiceName    :: !Text
-    , _sCallback       :: !(Maybe Text)
+    , _sPp :: !Bool
+    , _sAccessToken :: !(Maybe Text)
+    , _sUploadType :: !(Maybe Text)
+    , _sPayload :: !DisableServiceRequest
+    , _sBearerToken :: !(Maybe Text)
+    , _sServiceName :: !Text
+    , _sCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesDisable' with the minimum fields required to make a request.
@@ -104,7 +108,7 @@ servicesDisable
     :: DisableServiceRequest -- ^ 'sPayload'
     -> Text -- ^ 'sServiceName'
     -> ServicesDisable
-servicesDisable pSPayload_ pSServiceName_ =
+servicesDisable pSPayload_ pSServiceName_ = 
     ServicesDisable'
     { _sXgafv = Nothing
     , _sUploadProtocol = Nothing

@@ -33,6 +33,7 @@ module Network.Google.Resource.Calendar.Events.Update
     , EventsUpdate
 
     -- * Request Lenses
+    , euConferenceDataVersion
     , euCalendarId
     , euPayload
     , euMaxAttendees
@@ -42,8 +43,8 @@ module Network.Google.Resource.Calendar.Events.Update
     , euEventId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.update@ method which the
 -- 'EventsUpdate' request conforms to.
@@ -54,29 +55,33 @@ type EventsUpdateResource =
            Capture "calendarId" Text :>
              "events" :>
                Capture "eventId" Text :>
-                 QueryParam "maxAttendees" (Textual Int32) :>
-                   QueryParam "sendNotifications" Bool :>
-                     QueryParam "supportsAttachments" Bool :>
-                       QueryParam "alwaysIncludeEmail" Bool :>
-                         QueryParam "alt" AltJSON :>
-                           ReqBody '[JSON] Event :> Put '[JSON] Event
+                 QueryParam "conferenceDataVersion" (Textual Int32) :>
+                   QueryParam "maxAttendees" (Textual Int32) :>
+                     QueryParam "sendNotifications" Bool :>
+                       QueryParam "supportsAttachments" Bool :>
+                         QueryParam "alwaysIncludeEmail" Bool :>
+                           QueryParam "alt" AltJSON :>
+                             ReqBody '[JSON] Event :> Put '[JSON] Event
 
 -- | Updates an event.
 --
 -- /See:/ 'eventsUpdate' smart constructor.
 data EventsUpdate = EventsUpdate'
-    { _euCalendarId          :: !Text
-    , _euPayload             :: !Event
-    , _euMaxAttendees        :: !(Maybe (Textual Int32))
-    , _euSendNotifications   :: !(Maybe Bool)
+    { _euConferenceDataVersion :: !(Maybe (Textual Int32))
+    , _euCalendarId :: !Text
+    , _euPayload :: !Event
+    , _euMaxAttendees :: !(Maybe (Textual Int32))
+    , _euSendNotifications :: !(Maybe Bool)
     , _euSupportsAttachments :: !(Maybe Bool)
-    , _euAlwaysIncludeEmail  :: !(Maybe Bool)
-    , _euEventId             :: !Text
+    , _euAlwaysIncludeEmail :: !(Maybe Bool)
+    , _euEventId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'euConferenceDataVersion'
 --
 -- * 'euCalendarId'
 --
@@ -96,9 +101,10 @@ eventsUpdate
     -> Event -- ^ 'euPayload'
     -> Text -- ^ 'euEventId'
     -> EventsUpdate
-eventsUpdate pEuCalendarId_ pEuPayload_ pEuEventId_ =
+eventsUpdate pEuCalendarId_ pEuPayload_ pEuEventId_ = 
     EventsUpdate'
-    { _euCalendarId = pEuCalendarId_
+    { _euConferenceDataVersion = Nothing
+    , _euCalendarId = pEuCalendarId_
     , _euPayload = pEuPayload_
     , _euMaxAttendees = Nothing
     , _euSendNotifications = Nothing
@@ -106,6 +112,17 @@ eventsUpdate pEuCalendarId_ pEuPayload_ pEuEventId_ =
     , _euAlwaysIncludeEmail = Nothing
     , _euEventId = pEuEventId_
     }
+
+-- | Version number of conference data supported by the API client. Version 0
+-- assumes no conference data support and ignores conference data in the
+-- event\'s body. Version 1 enables support for copying of ConferenceData
+-- as well as for creating new conferences using the createRequest field of
+-- conferenceData. The default is 0.
+euConferenceDataVersion :: Lens' EventsUpdate (Maybe Int32)
+euConferenceDataVersion
+  = lens _euConferenceDataVersion
+      (\ s a -> s{_euConferenceDataVersion = a})
+      . mapping _Coerce
 
 -- | Calendar identifier. To retrieve calendar IDs call the calendarList.list
 -- method. If you want to access the primary calendar of the currently
@@ -163,7 +180,9 @@ instance GoogleRequest EventsUpdate where
         type Scopes EventsUpdate =
              '["https://www.googleapis.com/auth/calendar"]
         requestClient EventsUpdate'{..}
-          = go _euCalendarId _euEventId _euMaxAttendees
+          = go _euCalendarId _euEventId
+              _euConferenceDataVersion
+              _euMaxAttendees
               _euSendNotifications
               _euSupportsAttachments
               _euAlwaysIncludeEmail

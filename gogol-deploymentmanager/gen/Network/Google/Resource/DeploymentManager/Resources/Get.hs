@@ -38,8 +38,8 @@ module Network.Google.Resource.DeploymentManager.Resources.Get
     , rgDeployment
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.resources.get@ method which the
 -- 'ResourcesGet' request conforms to.
@@ -59,8 +59,8 @@ type ResourcesGetResource =
 --
 -- /See:/ 'resourcesGet' smart constructor.
 data ResourcesGet = ResourcesGet'
-    { _rgProject    :: !Text
-    , _rgResource   :: !Text
+    { _rgProject :: !Text
+    , _rgResource :: !Text
     , _rgDeployment :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ resourcesGet
     -> Text -- ^ 'rgResource'
     -> Text -- ^ 'rgDeployment'
     -> ResourcesGet
-resourcesGet pRgProject_ pRgResource_ pRgDeployment_ =
+resourcesGet pRgProject_ pRgResource_ pRgDeployment_ = 
     ResourcesGet'
     { _rgProject = pRgProject_
     , _rgResource = pRgResource_

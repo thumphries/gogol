@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Insert
     , faiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.insert@ method which the
 -- 'FloodlightActivitiesInsert' request conforms to.
 type FloodlightActivitiesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -57,7 +57,7 @@ type FloodlightActivitiesInsertResource =
 -- /See:/ 'floodlightActivitiesInsert' smart constructor.
 data FloodlightActivitiesInsert = FloodlightActivitiesInsert'
     { _faiProFileId :: !(Textual Int64)
-    , _faiPayload   :: !FloodlightActivity
+    , _faiPayload :: !FloodlightActivity
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ floodlightActivitiesInsert
     :: Int64 -- ^ 'faiProFileId'
     -> FloodlightActivity -- ^ 'faiPayload'
     -> FloodlightActivitiesInsert
-floodlightActivitiesInsert pFaiProFileId_ pFaiPayload_ =
+floodlightActivitiesInsert pFaiProFileId_ pFaiPayload_ = 
     FloodlightActivitiesInsert'
     { _faiProFileId = _Coerce # pFaiProFileId_
     , _faiPayload = pFaiPayload_

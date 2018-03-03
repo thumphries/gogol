@@ -42,8 +42,8 @@ module Network.Google.Resource.Directory.MobileDevices.List
     , mdlMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.mobiledevices.list@ method which the
 -- 'MobileDevicesList' request conforms to.
@@ -69,12 +69,12 @@ type MobileDevicesListResource =
 --
 -- /See:/ 'mobileDevicesList' smart constructor.
 data MobileDevicesList = MobileDevicesList'
-    { _mdlOrderBy    :: !(Maybe MobileDevicesListOrderBy)
+    { _mdlOrderBy :: !(Maybe MobileDevicesListOrderBy)
     , _mdlCustomerId :: !Text
-    , _mdlSortOrder  :: !(Maybe MobileDevicesListSortOrder)
-    , _mdlQuery      :: !(Maybe Text)
+    , _mdlSortOrder :: !(Maybe MobileDevicesListSortOrder)
+    , _mdlQuery :: !(Maybe Text)
     , _mdlProjection :: !(Maybe MobileDevicesListProjection)
-    , _mdlPageToken  :: !(Maybe Text)
+    , _mdlPageToken :: !(Maybe Text)
     , _mdlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -98,7 +98,7 @@ data MobileDevicesList = MobileDevicesList'
 mobileDevicesList
     :: Text -- ^ 'mdlCustomerId'
     -> MobileDevicesList
-mobileDevicesList pMdlCustomerId_ =
+mobileDevicesList pMdlCustomerId_ = 
     MobileDevicesList'
     { _mdlOrderBy = Nothing
     , _mdlCustomerId = pMdlCustomerId_
@@ -114,7 +114,7 @@ mdlOrderBy :: Lens' MobileDevicesList (Maybe MobileDevicesListOrderBy)
 mdlOrderBy
   = lens _mdlOrderBy (\ s a -> s{_mdlOrderBy = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 mdlCustomerId :: Lens' MobileDevicesList Text
 mdlCustomerId
   = lens _mdlCustomerId

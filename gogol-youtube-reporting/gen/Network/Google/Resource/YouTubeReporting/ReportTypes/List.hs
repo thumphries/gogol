@@ -46,8 +46,8 @@ module Network.Google.Resource.YouTubeReporting.ReportTypes.List
     , rtlCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.reportTypes.list@ method which the
 -- 'ReportTypesList' request conforms to.
@@ -72,17 +72,17 @@ type ReportTypesListResource =
 --
 -- /See:/ 'reportTypesList' smart constructor.
 data ReportTypesList = ReportTypesList'
-    { _rtlXgafv                  :: !(Maybe Xgafv)
-    , _rtlUploadProtocol         :: !(Maybe Text)
-    , _rtlPp                     :: !Bool
-    , _rtlAccessToken            :: !(Maybe Text)
-    , _rtlUploadType             :: !(Maybe Text)
-    , _rtlIncludeSystemManaged   :: !(Maybe Bool)
+    { _rtlXgafv :: !(Maybe Xgafv)
+    , _rtlUploadProtocol :: !(Maybe Text)
+    , _rtlPp :: !Bool
+    , _rtlAccessToken :: !(Maybe Text)
+    , _rtlUploadType :: !(Maybe Text)
+    , _rtlIncludeSystemManaged :: !(Maybe Bool)
     , _rtlOnBehalfOfContentOwner :: !(Maybe Text)
-    , _rtlBearerToken            :: !(Maybe Text)
-    , _rtlPageToken              :: !(Maybe Text)
-    , _rtlPageSize               :: !(Maybe (Textual Int32))
-    , _rtlCallback               :: !(Maybe Text)
+    , _rtlBearerToken :: !(Maybe Text)
+    , _rtlPageToken :: !(Maybe Text)
+    , _rtlPageSize :: !(Maybe (Textual Int32))
+    , _rtlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportTypesList' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ data ReportTypesList = ReportTypesList'
 -- * 'rtlCallback'
 reportTypesList
     :: ReportTypesList
-reportTypesList =
+reportTypesList = 
     ReportTypesList'
     { _rtlXgafv = Nothing
     , _rtlUploadProtocol = Nothing

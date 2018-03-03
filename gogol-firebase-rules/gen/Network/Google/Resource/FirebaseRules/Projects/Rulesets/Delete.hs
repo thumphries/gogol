@@ -44,8 +44,8 @@ module Network.Google.Resource.FirebaseRules.Projects.Rulesets.Delete
     , proCallback
     ) where
 
-import           Network.Google.FirebaseRules.Types
-import           Network.Google.Prelude
+import Network.Google.FirebaseRules.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @firebaserules.projects.rulesets.delete@ method which the
 -- 'ProjectsRulesetsDelete' request conforms to.
@@ -66,14 +66,14 @@ type ProjectsRulesetsDeleteResource =
 --
 -- /See:/ 'projectsRulesetsDelete' smart constructor.
 data ProjectsRulesetsDelete = ProjectsRulesetsDelete'
-    { _proXgafv          :: !(Maybe Xgafv)
+    { _proXgafv :: !(Maybe Xgafv)
     , _proUploadProtocol :: !(Maybe Text)
-    , _proPp             :: !Bool
-    , _proAccessToken    :: !(Maybe Text)
-    , _proUploadType     :: !(Maybe Text)
-    , _proBearerToken    :: !(Maybe Text)
-    , _proName           :: !Text
-    , _proCallback       :: !(Maybe Text)
+    , _proPp :: !Bool
+    , _proAccessToken :: !(Maybe Text)
+    , _proUploadType :: !(Maybe Text)
+    , _proBearerToken :: !(Maybe Text)
+    , _proName :: !Text
+    , _proCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRulesetsDelete' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ProjectsRulesetsDelete = ProjectsRulesetsDelete'
 projectsRulesetsDelete
     :: Text -- ^ 'proName'
     -> ProjectsRulesetsDelete
-projectsRulesetsDelete pProName_ =
+projectsRulesetsDelete pProName_ = 
     ProjectsRulesetsDelete'
     { _proXgafv = Nothing
     , _proUploadProtocol = Nothing

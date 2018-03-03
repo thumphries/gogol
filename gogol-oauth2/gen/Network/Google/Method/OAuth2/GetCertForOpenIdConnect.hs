@@ -32,8 +32,8 @@ module Network.Google.Method.OAuth2.GetCertForOpenIdConnect
 
     ) where
 
-import           Network.Google.OAuth2.Types
-import           Network.Google.Prelude
+import Network.Google.OAuth2.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @oauth2.getCertForOpenIdConnect@ method which the
 -- 'GetCertForOpenIdConnect' request conforms to.
@@ -46,7 +46,7 @@ type GetCertForOpenIdConnectMethod =
 --
 -- /See:/ 'getCertForOpenIdConnect' smart constructor.
 data GetCertForOpenIdConnect =
-    GetCertForOpenIdConnect'
+    GetCertForOpenIdConnect' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCertForOpenIdConnect' with the minimum fields required to make a request.

@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Purchases.Subscriptions.Revoke
     , pSubscriptionId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.purchases.subscriptions.revoke@ method which the
 -- 'PurchasesSubscriptionsRevoke' request conforms to.
@@ -63,8 +63,8 @@ type PurchasesSubscriptionsRevokeResource =
 --
 -- /See:/ 'purchasesSubscriptionsRevoke' smart constructor.
 data PurchasesSubscriptionsRevoke = PurchasesSubscriptionsRevoke'
-    { _pPackageName    :: !Text
-    , _pToken          :: !Text
+    { _pPackageName :: !Text
+    , _pToken :: !Text
     , _pSubscriptionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ purchasesSubscriptionsRevoke
     -> Text -- ^ 'pToken'
     -> Text -- ^ 'pSubscriptionId'
     -> PurchasesSubscriptionsRevoke
-purchasesSubscriptionsRevoke pPPackageName_ pPToken_ pPSubscriptionId_ =
+purchasesSubscriptionsRevoke pPPackageName_ pPToken_ pPSubscriptionId_ = 
     PurchasesSubscriptionsRevoke'
     { _pPackageName = pPPackageName_
     , _pToken = pPToken_

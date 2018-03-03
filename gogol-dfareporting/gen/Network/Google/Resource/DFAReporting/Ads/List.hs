@@ -59,14 +59,14 @@ module Network.Google.Resource.DFAReporting.Ads.List
     , alAudienceSegmentIds
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.ads.list@ method which the
 -- 'AdsList' request conforms to.
 type AdsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "ads" :>
@@ -125,30 +125,30 @@ type AdsListResource =
 --
 -- /See:/ 'adsList' smart constructor.
 data AdsList = AdsList'
-    { _alRemarketingListIds                   :: !(Maybe [Textual Int64])
-    , _alLandingPageIds                       :: !(Maybe [Textual Int64])
-    , _alCreativeIds                          :: !(Maybe [Textual Int64])
-    , _alAdvertiserId                         :: !(Maybe (Textual Int64))
-    , _alCampaignIds                          :: !(Maybe [Textual Int64])
-    , _alSearchString                         :: !(Maybe Text)
-    , _alSizeIds                              :: !(Maybe [Textual Int64])
-    , _alSSLCompliant                         :: !(Maybe Bool)
-    , _alIds                                  :: !(Maybe [Textual Int64])
-    , _alProFileId                            :: !(Textual Int64)
-    , _alSortOrder                            :: !(Maybe AdsListSortOrder)
-    , _alActive                               :: !(Maybe Bool)
+    { _alRemarketingListIds :: !(Maybe [Textual Int64])
+    , _alLandingPageIds :: !(Maybe [Textual Int64])
+    , _alCreativeIds :: !(Maybe [Textual Int64])
+    , _alAdvertiserId :: !(Maybe (Textual Int64))
+    , _alCampaignIds :: !(Maybe [Textual Int64])
+    , _alSearchString :: !(Maybe Text)
+    , _alSizeIds :: !(Maybe [Textual Int64])
+    , _alSSLCompliant :: !(Maybe Bool)
+    , _alIds :: !(Maybe [Textual Int64])
+    , _alProFileId :: !(Textual Int64)
+    , _alSortOrder :: !AdsListSortOrder
+    , _alActive :: !(Maybe Bool)
     , _alCreativeOptimizationConfigurationIds :: !(Maybe [Textual Int64])
-    , _alPlacementIds                         :: !(Maybe [Textual Int64])
-    , _alSSLRequired                          :: !(Maybe Bool)
-    , _alOverriddenEventTagId                 :: !(Maybe (Textual Int64))
-    , _alPageToken                            :: !(Maybe Text)
-    , _alSortField                            :: !(Maybe AdsListSortField)
-    , _alType                                 :: !(Maybe [AdsListType])
-    , _alDynamicClickTracker                  :: !(Maybe Bool)
-    , _alCompatibility                        :: !(Maybe AdsListCompatibility)
-    , _alArchived                             :: !(Maybe Bool)
-    , _alMaxResults                           :: !(Maybe (Textual Int32))
-    , _alAudienceSegmentIds                   :: !(Maybe [Textual Int64])
+    , _alPlacementIds :: !(Maybe [Textual Int64])
+    , _alSSLRequired :: !(Maybe Bool)
+    , _alOverriddenEventTagId :: !(Maybe (Textual Int64))
+    , _alPageToken :: !(Maybe Text)
+    , _alSortField :: !AdsListSortField
+    , _alType :: !(Maybe [AdsListType])
+    , _alDynamicClickTracker :: !(Maybe Bool)
+    , _alCompatibility :: !(Maybe AdsListCompatibility)
+    , _alArchived :: !(Maybe Bool)
+    , _alMaxResults :: !(Textual Int32)
+    , _alAudienceSegmentIds :: !(Maybe [Textual Int64])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdsList' with the minimum fields required to make a request.
@@ -205,7 +205,7 @@ data AdsList = AdsList'
 adsList
     :: Int64 -- ^ 'alProFileId'
     -> AdsList
-adsList pAlProFileId_ =
+adsList pAlProFileId_ = 
     AdsList'
     { _alRemarketingListIds = Nothing
     , _alLandingPageIds = Nothing
@@ -217,19 +217,19 @@ adsList pAlProFileId_ =
     , _alSSLCompliant = Nothing
     , _alIds = Nothing
     , _alProFileId = _Coerce # pAlProFileId_
-    , _alSortOrder = Nothing
+    , _alSortOrder = ADSAscending
     , _alActive = Nothing
     , _alCreativeOptimizationConfigurationIds = Nothing
     , _alPlacementIds = Nothing
     , _alSSLRequired = Nothing
     , _alOverriddenEventTagId = Nothing
     , _alPageToken = Nothing
-    , _alSortField = Nothing
+    , _alSortField = ALSFID
     , _alType = Nothing
     , _alDynamicClickTracker = Nothing
     , _alCompatibility = Nothing
     , _alArchived = Nothing
-    , _alMaxResults = Nothing
+    , _alMaxResults = 1000
     , _alAudienceSegmentIds = Nothing
     }
 
@@ -309,8 +309,8 @@ alProFileId
   = lens _alProFileId (\ s a -> s{_alProFileId = a}) .
       _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-alSortOrder :: Lens' AdsList (Maybe AdsListSortOrder)
+-- | Order of sorted results.
+alSortOrder :: Lens' AdsList AdsListSortOrder
 alSortOrder
   = lens _alSortOrder (\ s a -> s{_alSortOrder = a})
 
@@ -354,7 +354,7 @@ alPageToken
   = lens _alPageToken (\ s a -> s{_alPageToken = a})
 
 -- | Field by which to sort the list.
-alSortField :: Lens' AdsList (Maybe AdsListSortField)
+alSortField :: Lens' AdsList AdsListSortField
 alSortField
   = lens _alSortField (\ s a -> s{_alSortField = a})
 
@@ -389,10 +389,10 @@ alArchived
   = lens _alArchived (\ s a -> s{_alArchived = a})
 
 -- | Maximum number of results to return.
-alMaxResults :: Lens' AdsList (Maybe Int32)
+alMaxResults :: Lens' AdsList Int32
 alMaxResults
   = lens _alMaxResults (\ s a -> s{_alMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 -- | Select only ads with these audience segment IDs.
 alAudienceSegmentIds :: Lens' AdsList [Int64]
@@ -416,19 +416,19 @@ instance GoogleRequest AdsList where
               (_alSizeIds ^. _Default)
               _alSSLCompliant
               (_alIds ^. _Default)
-              _alSortOrder
+              (Just _alSortOrder)
               _alActive
               (_alCreativeOptimizationConfigurationIds ^. _Default)
               (_alPlacementIds ^. _Default)
               _alSSLRequired
               _alOverriddenEventTagId
               _alPageToken
-              _alSortField
+              (Just _alSortField)
               (_alType ^. _Default)
               _alDynamicClickTracker
               _alCompatibility
               _alArchived
-              _alMaxResults
+              (Just _alMaxResults)
               (_alAudienceSegmentIds ^. _Default)
               (Just AltJSON)
               dFAReportingService

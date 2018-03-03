@@ -43,8 +43,8 @@ module Network.Google.Resource.PagespeedOnline.PagespeedAPI.RunPagespeed
     , parpRule
     ) where
 
-import           Network.Google.PageSpeed.Types
-import           Network.Google.Prelude
+import Network.Google.PageSpeed.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @pagespeedonline.pagespeedapi.runpagespeed@ method which the
 -- 'PagespeedAPIRunPagespeed' request conforms to.
@@ -68,12 +68,12 @@ type PagespeedAPIRunPagespeedResource =
 --
 -- /See:/ 'pagespeedAPIRunPagespeed' smart constructor.
 data PagespeedAPIRunPagespeed = PagespeedAPIRunPagespeed'
-    { _parpScreenshot                :: !Bool
-    , _parpLocale                    :: !(Maybe Text)
-    , _parpURL                       :: !Text
+    { _parpScreenshot :: !Bool
+    , _parpLocale :: !(Maybe Text)
+    , _parpURL :: !Text
     , _parpFilterThirdPartyResources :: !Bool
-    , _parpStrategy                  :: !(Maybe PagespeedAPIRunPagespeedStrategy)
-    , _parpRule                      :: !(Maybe [Text])
+    , _parpStrategy :: !(Maybe PagespeedAPIRunPagespeedStrategy)
+    , _parpRule :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PagespeedAPIRunPagespeed' with the minimum fields required to make a request.
@@ -94,7 +94,7 @@ data PagespeedAPIRunPagespeed = PagespeedAPIRunPagespeed'
 pagespeedAPIRunPagespeed
     :: Text -- ^ 'parpURL'
     -> PagespeedAPIRunPagespeed
-pagespeedAPIRunPagespeed pParpURL_ =
+pagespeedAPIRunPagespeed pParpURL_ = 
     PagespeedAPIRunPagespeed'
     { _parpScreenshot = False
     , _parpLocale = Nothing

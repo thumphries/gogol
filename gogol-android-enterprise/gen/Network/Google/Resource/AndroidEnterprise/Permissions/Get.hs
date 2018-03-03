@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Permissions.Get
     , pgPermissionId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.permissions.get@ method which the
 -- 'PermissionsGet' request conforms to.
@@ -56,7 +56,7 @@ type PermissionsGetResource =
 --
 -- /See:/ 'permissionsGet' smart constructor.
 data PermissionsGet = PermissionsGet'
-    { _pgLanguage     :: !(Maybe Text)
+    { _pgLanguage :: !(Maybe Text)
     , _pgPermissionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ data PermissionsGet = PermissionsGet'
 permissionsGet
     :: Text -- ^ 'pgPermissionId'
     -> PermissionsGet
-permissionsGet pPgPermissionId_ =
+permissionsGet pPgPermissionId_ = 
     PermissionsGet'
     { _pgLanguage = Nothing
     , _pgPermissionId = pPgPermissionId_

@@ -56,8 +56,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.BatchUpdate
     , sbuCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.batchUpdate@ method which the
 -- 'SpreadsheetsBatchUpdate' request conforms to.
@@ -92,15 +92,15 @@ type SpreadsheetsBatchUpdateResource =
 --
 -- /See:/ 'spreadsheetsBatchUpdate' smart constructor.
 data SpreadsheetsBatchUpdate = SpreadsheetsBatchUpdate'
-    { _sbuXgafv          :: !(Maybe Xgafv)
+    { _sbuXgafv :: !(Maybe Xgafv)
     , _sbuUploadProtocol :: !(Maybe Text)
-    , _sbuPp             :: !Bool
-    , _sbuAccessToken    :: !(Maybe Text)
-    , _sbuSpreadsheetId  :: !Text
-    , _sbuUploadType     :: !(Maybe Text)
-    , _sbuPayload        :: !BatchUpdateSpreadsheetRequest
-    , _sbuBearerToken    :: !(Maybe Text)
-    , _sbuCallback       :: !(Maybe Text)
+    , _sbuPp :: !Bool
+    , _sbuAccessToken :: !(Maybe Text)
+    , _sbuSpreadsheetId :: !Text
+    , _sbuUploadType :: !(Maybe Text)
+    , _sbuPayload :: !BatchUpdateSpreadsheetRequest
+    , _sbuBearerToken :: !(Maybe Text)
+    , _sbuCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsBatchUpdate' with the minimum fields required to make a request.
@@ -128,7 +128,7 @@ spreadsheetsBatchUpdate
     :: Text -- ^ 'sbuSpreadsheetId'
     -> BatchUpdateSpreadsheetRequest -- ^ 'sbuPayload'
     -> SpreadsheetsBatchUpdate
-spreadsheetsBatchUpdate pSbuSpreadsheetId_ pSbuPayload_ =
+spreadsheetsBatchUpdate pSbuSpreadsheetId_ pSbuPayload_ = 
     SpreadsheetsBatchUpdate'
     { _sbuXgafv = Nothing
     , _sbuUploadProtocol = Nothing
@@ -194,6 +194,7 @@ instance GoogleRequest SpreadsheetsBatchUpdate where
              BatchUpdateSpreadsheetResponse
         type Scopes SpreadsheetsBatchUpdate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsBatchUpdate'{..}
           = go _sbuSpreadsheetId _sbuXgafv _sbuUploadProtocol

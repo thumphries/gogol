@@ -15,18 +15,14 @@
 --
 -- Provides a historical view of activity.
 --
--- /See:/ <https://developers.google.com/google-apps/activity/ Google Apps Activity API Reference>
+-- /See:/ <https://developers.google.com/google-apps/activity/ G Suite Activity API Reference>
 module Network.Google.AppsActivity
     (
     -- * Service Configuration
       appsActivityService
 
     -- * OAuth Scopes
-    , driveMetadataReadOnlyScope
     , activityScope
-    , driveReadOnlyScope
-    , driveScope
-    , driveMetadataScope
 
     -- * API Declaration
     , AppsActivityAPI
@@ -135,13 +131,13 @@ module Network.Google.AppsActivity
     , mRemovedParents
     ) where
 
-import           Network.Google.AppsActivity.Types
-import           Network.Google.Prelude
-import           Network.Google.Resource.AppsActivity.Activities.List
+import Network.Google.Prelude
+import Network.Google.AppsActivity.Types
+import Network.Google.Resource.AppsActivity.Activities.List
 
 {- $resources
 TODO
 -}
 
--- | Represents the entirety of the methods and resources available for the Google Apps Activity API service.
+-- | Represents the entirety of the methods and resources available for the G Suite Activity API service.
 type AppsActivityAPI = ActivitiesListResource

@@ -45,8 +45,8 @@ module Network.Google.Resource.Datastore.Projects.AllocateIds
     , paiCallback
     ) where
 
-import           Network.Google.Datastore.Types
-import           Network.Google.Prelude
+import Network.Google.Datastore.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @datastore.projects.allocateIds@ method which the
 -- 'ProjectsAllocateIds' request conforms to.
@@ -70,15 +70,15 @@ type ProjectsAllocateIdsResource =
 --
 -- /See:/ 'projectsAllocateIds' smart constructor.
 data ProjectsAllocateIds = ProjectsAllocateIds'
-    { _paiXgafv          :: !(Maybe Xgafv)
+    { _paiXgafv :: !(Maybe Xgafv)
     , _paiUploadProtocol :: !(Maybe Text)
-    , _paiPp             :: !Bool
-    , _paiAccessToken    :: !(Maybe Text)
-    , _paiUploadType     :: !(Maybe Text)
-    , _paiPayload        :: !AllocateIdsRequest
-    , _paiBearerToken    :: !(Maybe Text)
-    , _paiProjectId      :: !Text
-    , _paiCallback       :: !(Maybe Text)
+    , _paiPp :: !Bool
+    , _paiAccessToken :: !(Maybe Text)
+    , _paiUploadType :: !(Maybe Text)
+    , _paiPayload :: !AllocateIdsRequest
+    , _paiBearerToken :: !(Maybe Text)
+    , _paiProjectId :: !Text
+    , _paiCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsAllocateIds' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsAllocateIds
     :: AllocateIdsRequest -- ^ 'paiPayload'
     -> Text -- ^ 'paiProjectId'
     -> ProjectsAllocateIds
-projectsAllocateIds pPaiPayload_ pPaiProjectId_ =
+projectsAllocateIds pPaiPayload_ pPaiProjectId_ = 
     ProjectsAllocateIds'
     { _paiXgafv = Nothing
     , _paiUploadProtocol = Nothing

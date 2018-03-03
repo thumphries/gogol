@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Listings.Deleteall
     , eldlEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.listings.deleteall@ method which the
 -- 'EditsListingsDeleteall' request conforms to.
@@ -57,7 +57,7 @@ type EditsListingsDeleteallResource =
 -- /See:/ 'editsListingsDeleteall' smart constructor.
 data EditsListingsDeleteall = EditsListingsDeleteall'
     { _eldlPackageName :: !Text
-    , _eldlEditId      :: !Text
+    , _eldlEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsListingsDeleteall' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ editsListingsDeleteall
     :: Text -- ^ 'eldlPackageName'
     -> Text -- ^ 'eldlEditId'
     -> EditsListingsDeleteall
-editsListingsDeleteall pEldlPackageName_ pEldlEditId_ =
+editsListingsDeleteall pEldlPackageName_ pEldlEditId_ = 
     EditsListingsDeleteall'
     { _eldlPackageName = pEldlPackageName_
     , _eldlEditId = pEldlEditId_

@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Groups.Update
     , guPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.update@ method which the
 -- 'GroupsUpdate' request conforms to.
@@ -56,7 +56,7 @@ type GroupsUpdateResource =
 -- /See:/ 'groupsUpdate' smart constructor.
 data GroupsUpdate = GroupsUpdate'
     { _guGroupKey :: !Text
-    , _guPayload  :: !Group
+    , _guPayload :: !Group
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupsUpdate' with the minimum fields required to make a request.
@@ -70,13 +70,13 @@ groupsUpdate
     :: Text -- ^ 'guGroupKey'
     -> Group -- ^ 'guPayload'
     -> GroupsUpdate
-groupsUpdate pGuGroupKey_ pGuPayload_ =
+groupsUpdate pGuGroupKey_ pGuPayload_ = 
     GroupsUpdate'
     { _guGroupKey = pGuGroupKey_
     , _guPayload = pGuPayload_
     }
 
--- | Email or immutable Id of the group. If Id, it should match with id of
+-- | Email or immutable ID of the group. If ID, it should match with id of
 -- group object
 guGroupKey :: Lens' GroupsUpdate Text
 guGroupKey

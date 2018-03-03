@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Customers.Patch
     , cpPayload
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.customers.patch@ method which the
 -- 'CustomersPatch' request conforms to.
@@ -56,7 +56,7 @@ type CustomersPatchResource =
 -- /See:/ 'customersPatch' smart constructor.
 data CustomersPatch = CustomersPatch'
     { _cpCustomerKey :: !Text
-    , _cpPayload     :: !Customer
+    , _cpPayload :: !Customer
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomersPatch' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ customersPatch
     :: Text -- ^ 'cpCustomerKey'
     -> Customer -- ^ 'cpPayload'
     -> CustomersPatch
-customersPatch pCpCustomerKey_ pCpPayload_ =
+customersPatch pCpCustomerKey_ pCpPayload_ = 
     CustomersPatch'
     { _cpCustomerKey = pCpCustomerKey_
     , _cpPayload = pCpPayload_

@@ -23,9 +23,9 @@
 -- Creates a model which will later contain one or more versions. You must
 -- add at least one version before you can request predictions from the
 -- model. Add versions by calling
--- [projects.models.versions.create](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/create).
+-- [projects.models.versions.create](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/create).
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.models.create@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.models.create@.
 module Network.Google.Resource.Ml.Projects.Models.Create
     (
     -- * REST Resource
@@ -47,13 +47,13 @@ module Network.Google.Resource.Ml.Projects.Models.Create
     , pmcCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.models.create@ method which the
 -- 'ProjectsModelsCreate' request conforms to.
 type ProjectsModelsCreateResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "parent" Text :>
          "models" :>
            QueryParam "$.xgafv" Xgafv :>
@@ -64,25 +64,25 @@ type ProjectsModelsCreateResource =
                      QueryParam "bearer_token" Text :>
                        QueryParam "callback" Text :>
                          QueryParam "alt" AltJSON :>
-                           ReqBody '[JSON] GoogleCloudMlV1beta1__Model :>
-                             Post '[JSON] GoogleCloudMlV1beta1__Model
+                           ReqBody '[JSON] GoogleCloudMlV1__Model :>
+                             Post '[JSON] GoogleCloudMlV1__Model
 
 -- | Creates a model which will later contain one or more versions. You must
 -- add at least one version before you can request predictions from the
 -- model. Add versions by calling
--- [projects.models.versions.create](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/create).
+-- [projects.models.versions.create](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/create).
 --
 -- /See:/ 'projectsModelsCreate' smart constructor.
 data ProjectsModelsCreate = ProjectsModelsCreate'
-    { _pmcParent         :: !Text
-    , _pmcXgafv          :: !(Maybe Xgafv)
+    { _pmcParent :: !Text
+    , _pmcXgafv :: !(Maybe Xgafv)
     , _pmcUploadProtocol :: !(Maybe Text)
-    , _pmcPp             :: !Bool
-    , _pmcAccessToken    :: !(Maybe Text)
-    , _pmcUploadType     :: !(Maybe Text)
-    , _pmcPayload        :: !GoogleCloudMlV1beta1__Model
-    , _pmcBearerToken    :: !(Maybe Text)
-    , _pmcCallback       :: !(Maybe Text)
+    , _pmcPp :: !Bool
+    , _pmcAccessToken :: !(Maybe Text)
+    , _pmcUploadType :: !(Maybe Text)
+    , _pmcPayload :: !GoogleCloudMlV1__Model
+    , _pmcBearerToken :: !(Maybe Text)
+    , _pmcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsModelsCreate' with the minimum fields required to make a request.
@@ -108,9 +108,9 @@ data ProjectsModelsCreate = ProjectsModelsCreate'
 -- * 'pmcCallback'
 projectsModelsCreate
     :: Text -- ^ 'pmcParent'
-    -> GoogleCloudMlV1beta1__Model -- ^ 'pmcPayload'
+    -> GoogleCloudMlV1__Model -- ^ 'pmcPayload'
     -> ProjectsModelsCreate
-projectsModelsCreate pPmcParent_ pPmcPayload_ =
+projectsModelsCreate pPmcParent_ pPmcPayload_ = 
     ProjectsModelsCreate'
     { _pmcParent = pPmcParent_
     , _pmcXgafv = Nothing
@@ -123,8 +123,7 @@ projectsModelsCreate pPmcParent_ pPmcPayload_ =
     , _pmcCallback = Nothing
     }
 
--- | Required. The project name. Authorization: requires \`Editor\` role on
--- the specified project.
+-- | Required. The project name.
 pmcParent :: Lens' ProjectsModelsCreate Text
 pmcParent
   = lens _pmcParent (\ s a -> s{_pmcParent = a})
@@ -156,7 +155,7 @@ pmcUploadType
       (\ s a -> s{_pmcUploadType = a})
 
 -- | Multipart request metadata.
-pmcPayload :: Lens' ProjectsModelsCreate GoogleCloudMlV1beta1__Model
+pmcPayload :: Lens' ProjectsModelsCreate GoogleCloudMlV1__Model
 pmcPayload
   = lens _pmcPayload (\ s a -> s{_pmcPayload = a})
 
@@ -172,8 +171,7 @@ pmcCallback
   = lens _pmcCallback (\ s a -> s{_pmcCallback = a})
 
 instance GoogleRequest ProjectsModelsCreate where
-        type Rs ProjectsModelsCreate =
-             GoogleCloudMlV1beta1__Model
+        type Rs ProjectsModelsCreate = GoogleCloudMlV1__Model
         type Scopes ProjectsModelsCreate =
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsModelsCreate'{..}

@@ -44,8 +44,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.DataSets.Get
     , udsdsgPageToken
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.datasets.get@ method which the
 -- 'UsersDataSourcesDataSetsGet' request conforms to.
@@ -71,10 +71,10 @@ type UsersDataSourcesDataSetsGetResource =
 -- /See:/ 'usersDataSourcesDataSetsGet' smart constructor.
 data UsersDataSourcesDataSetsGet = UsersDataSourcesDataSetsGet'
     { _udsdsgDataSourceId :: !Text
-    , _udsdsgUserId       :: !Text
-    , _udsdsgDataSetId    :: !Text
-    , _udsdsgLimit        :: !(Maybe (Textual Int32))
-    , _udsdsgPageToken    :: !(Maybe Text)
+    , _udsdsgUserId :: !Text
+    , _udsdsgDataSetId :: !Text
+    , _udsdsgLimit :: !(Maybe (Textual Int32))
+    , _udsdsgPageToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSourcesDataSetsGet' with the minimum fields required to make a request.
@@ -95,7 +95,7 @@ usersDataSourcesDataSetsGet
     -> Text -- ^ 'udsdsgUserId'
     -> Text -- ^ 'udsdsgDataSetId'
     -> UsersDataSourcesDataSetsGet
-usersDataSourcesDataSetsGet pUdsdsgDataSourceId_ pUdsdsgUserId_ pUdsdsgDataSetId_ =
+usersDataSourcesDataSetsGet pUdsdsgDataSourceId_ pUdsdsgUserId_ pUdsdsgDataSetId_ = 
     UsersDataSourcesDataSetsGet'
     { _udsdsgDataSourceId = pUdsdsgDataSourceId_
     , _udsdsgUserId = pUdsdsgUserId_

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.SubAccounts.Update
     , sauPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.subaccounts.update@ method which the
 -- 'SubAccountsUpdate' request conforms to.
 type SubAccountsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "subaccounts" :>
@@ -56,7 +56,7 @@ type SubAccountsUpdateResource =
 -- /See:/ 'subAccountsUpdate' smart constructor.
 data SubAccountsUpdate = SubAccountsUpdate'
     { _sauProFileId :: !(Textual Int64)
-    , _sauPayload   :: !SubAccount
+    , _sauPayload :: !SubAccount
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubAccountsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ subAccountsUpdate
     :: Int64 -- ^ 'sauProFileId'
     -> SubAccount -- ^ 'sauPayload'
     -> SubAccountsUpdate
-subAccountsUpdate pSauProFileId_ pSauPayload_ =
+subAccountsUpdate pSauProFileId_ pSauPayload_ = 
     SubAccountsUpdate'
     { _sauProFileId = _Coerce # pSauProFileId_
     , _sauPayload = pSauPayload_

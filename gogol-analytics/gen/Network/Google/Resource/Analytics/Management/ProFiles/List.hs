@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.ProFiles.List
     , mpflMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.profiles.list@ method which the
 -- 'ManagementProFilesList' request conforms to.
@@ -62,9 +62,9 @@ type ManagementProFilesListResource =
 -- /See:/ 'managementProFilesList' smart constructor.
 data ManagementProFilesList = ManagementProFilesList'
     { _mpflWebPropertyId :: !Text
-    , _mpflAccountId     :: !Text
-    , _mpflStartIndex    :: !(Maybe (Textual Int32))
-    , _mpflMaxResults    :: !(Maybe (Textual Int32))
+    , _mpflAccountId :: !Text
+    , _mpflStartIndex :: !(Maybe (Textual Int32))
+    , _mpflMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementProFilesList' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ managementProFilesList
     :: Text -- ^ 'mpflWebPropertyId'
     -> Text -- ^ 'mpflAccountId'
     -> ManagementProFilesList
-managementProFilesList pMpflWebPropertyId_ pMpflAccountId_ =
+managementProFilesList pMpflWebPropertyId_ pMpflAccountId_ = 
     ManagementProFilesList'
     { _mpflWebPropertyId = pMpflWebPropertyId_
     , _mpflAccountId = pMpflAccountId_

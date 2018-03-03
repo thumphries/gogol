@@ -38,8 +38,8 @@ module Network.Google.Resource.Tasks.TaskLists.Patch
     , tlpTaskList
     ) where
 
-import           Network.Google.AppsTasks.Types
-import           Network.Google.Prelude
+import Network.Google.AppsTasks.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @tasks.tasklists.patch@ method which the
 -- 'TaskListsPatch' request conforms to.
@@ -58,7 +58,7 @@ type TaskListsPatchResource =
 --
 -- /See:/ 'taskListsPatch' smart constructor.
 data TaskListsPatch = TaskListsPatch'
-    { _tlpPayload  :: !TaskList
+    { _tlpPayload :: !TaskList
     , _tlpTaskList :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ taskListsPatch
     :: TaskList -- ^ 'tlpPayload'
     -> Text -- ^ 'tlpTaskList'
     -> TaskListsPatch
-taskListsPatch pTlpPayload_ pTlpTaskList_ =
+taskListsPatch pTlpPayload_ pTlpTaskList_ = 
     TaskListsPatch'
     { _tlpPayload = pTlpPayload_
     , _tlpTaskList = pTlpTaskList_

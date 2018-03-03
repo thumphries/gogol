@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Reports.Update
     , ruPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.update@ method which the
 -- 'ReportsUpdate' request conforms to.
 type ReportsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -57,9 +57,9 @@ type ReportsUpdateResource =
 --
 -- /See:/ 'reportsUpdate' smart constructor.
 data ReportsUpdate = ReportsUpdate'
-    { _ruReportId  :: !(Textual Int64)
+    { _ruReportId :: !(Textual Int64)
     , _ruProFileId :: !(Textual Int64)
-    , _ruPayload   :: !Report
+    , _ruPayload :: !Report
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsUpdate' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ reportsUpdate
     -> Int64 -- ^ 'ruProFileId'
     -> Report -- ^ 'ruPayload'
     -> ReportsUpdate
-reportsUpdate pRuReportId_ pRuProFileId_ pRuPayload_ =
+reportsUpdate pRuReportId_ pRuProFileId_ pRuPayload_ = 
     ReportsUpdate'
     { _ruReportId = _Coerce # pRuReportId_
     , _ruProFileId = _Coerce # pRuProFileId_

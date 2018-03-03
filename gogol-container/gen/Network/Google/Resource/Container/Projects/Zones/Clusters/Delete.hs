@@ -26,7 +26,7 @@
 -- use by the cluster (e.g. load balancer resources) will not be deleted if
 -- they weren\'t present at the initial create time.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.clusters.delete@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.clusters.delete@.
 module Network.Google.Resource.Container.Projects.Zones.Clusters.Delete
     (
     -- * REST Resource
@@ -49,8 +49,8 @@ module Network.Google.Resource.Container.Projects.Zones.Clusters.Delete
     , pzcdCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.clusters.delete@ method which the
 -- 'ProjectsZonesClustersDelete' request conforms to.
@@ -62,7 +62,7 @@ type ProjectsZonesClustersDeleteResource =
              Capture "zone" Text :>
                "clusters" :>
                  Capture "clusterId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -80,16 +80,16 @@ type ProjectsZonesClustersDeleteResource =
 --
 -- /See:/ 'projectsZonesClustersDelete' smart constructor.
 data ProjectsZonesClustersDelete = ProjectsZonesClustersDelete'
-    { _pzcdXgafv          :: !(Maybe Text)
+    { _pzcdXgafv :: !(Maybe Xgafv)
     , _pzcdUploadProtocol :: !(Maybe Text)
-    , _pzcdPp             :: !Bool
-    , _pzcdAccessToken    :: !(Maybe Text)
-    , _pzcdUploadType     :: !(Maybe Text)
-    , _pzcdZone           :: !Text
-    , _pzcdBearerToken    :: !(Maybe Text)
-    , _pzcdClusterId      :: !Text
-    , _pzcdProjectId      :: !Text
-    , _pzcdCallback       :: !(Maybe Text)
+    , _pzcdPp :: !Bool
+    , _pzcdAccessToken :: !(Maybe Text)
+    , _pzcdUploadType :: !(Maybe Text)
+    , _pzcdZone :: !Text
+    , _pzcdBearerToken :: !(Maybe Text)
+    , _pzcdClusterId :: !Text
+    , _pzcdProjectId :: !Text
+    , _pzcdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesClustersDelete' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ projectsZonesClustersDelete
     -> Text -- ^ 'pzcdClusterId'
     -> Text -- ^ 'pzcdProjectId'
     -> ProjectsZonesClustersDelete
-projectsZonesClustersDelete pPzcdZone_ pPzcdClusterId_ pPzcdProjectId_ =
+projectsZonesClustersDelete pPzcdZone_ pPzcdClusterId_ pPzcdProjectId_ = 
     ProjectsZonesClustersDelete'
     { _pzcdXgafv = Nothing
     , _pzcdUploadProtocol = Nothing
@@ -135,7 +135,7 @@ projectsZonesClustersDelete pPzcdZone_ pPzcdClusterId_ pPzcdProjectId_ =
     }
 
 -- | V1 error format.
-pzcdXgafv :: Lens' ProjectsZonesClustersDelete (Maybe Text)
+pzcdXgafv :: Lens' ProjectsZonesClustersDelete (Maybe Xgafv)
 pzcdXgafv
   = lens _pzcdXgafv (\ s a -> s{_pzcdXgafv = a})
 

@@ -44,8 +44,8 @@ module Network.Google.Resource.CloudMonitoring.MetricDescriptors.List
     , mdlPageToken
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.metricDescriptors.list@ method which the
 -- 'MetricDescriptorsList' request conforms to.
@@ -70,10 +70,10 @@ type MetricDescriptorsListResource =
 --
 -- /See:/ 'metricDescriptorsList' smart constructor.
 data MetricDescriptorsList = MetricDescriptorsList'
-    { _mdlProject   :: !Text
-    , _mdlCount     :: !(Textual Int32)
-    , _mdlPayload   :: !ListMetricDescriptorsRequest
-    , _mdlQuery     :: !(Maybe Text)
+    { _mdlProject :: !Text
+    , _mdlCount :: !(Textual Int32)
+    , _mdlPayload :: !ListMetricDescriptorsRequest
+    , _mdlQuery :: !(Maybe Text)
     , _mdlPageToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -94,7 +94,7 @@ metricDescriptorsList
     :: Text -- ^ 'mdlProject'
     -> ListMetricDescriptorsRequest -- ^ 'mdlPayload'
     -> MetricDescriptorsList
-metricDescriptorsList pMdlProject_ pMdlPayload_ =
+metricDescriptorsList pMdlProject_ pMdlPayload_ = 
     MetricDescriptorsList'
     { _mdlProject = pMdlProject_
     , _mdlCount = 100

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.EventTags.Delete
     , etdId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.eventTags.delete@ method which the
 -- 'EventTagsDelete' request conforms to.
 type EventTagsDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "eventTags" :>
@@ -56,7 +56,7 @@ type EventTagsDeleteResource =
 -- /See:/ 'eventTagsDelete' smart constructor.
 data EventTagsDelete = EventTagsDelete'
     { _etdProFileId :: !(Textual Int64)
-    , _etdId        :: !(Textual Int64)
+    , _etdId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventTagsDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ eventTagsDelete
     :: Int64 -- ^ 'etdProFileId'
     -> Int64 -- ^ 'etdId'
     -> EventTagsDelete
-eventTagsDelete pEtdProFileId_ pEtdId_ =
+eventTagsDelete pEtdProFileId_ pEtdId_ = 
     EventTagsDelete'
     { _etdProFileId = _Coerce # pEtdProFileId_
     , _etdId = _Coerce # pEtdId_

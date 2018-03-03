@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update a customer resource if one it exists and is owned by the
--- reseller.
+-- Update a customer account\'s settings.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.customers.update@.
 module Network.Google.Resource.Reseller.Customers.Update
@@ -38,8 +37,8 @@ module Network.Google.Resource.Reseller.Customers.Update
     , cuCustomerId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.customers.update@ method which the
 -- 'CustomersUpdate' request conforms to.
@@ -52,12 +51,11 @@ type CustomersUpdateResource =
                QueryParam "alt" AltJSON :>
                  ReqBody '[JSON] Customer :> Put '[JSON] Customer
 
--- | Update a customer resource if one it exists and is owned by the
--- reseller.
+-- | Update a customer account\'s settings.
 --
 -- /See:/ 'customersUpdate' smart constructor.
 data CustomersUpdate = CustomersUpdate'
-    { _cuPayload    :: !Customer
+    { _cuPayload :: !Customer
     , _cuCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +70,7 @@ customersUpdate
     :: Customer -- ^ 'cuPayload'
     -> Text -- ^ 'cuCustomerId'
     -> CustomersUpdate
-customersUpdate pCuPayload_ pCuCustomerId_ =
+customersUpdate pCuPayload_ pCuCustomerId_ = 
     CustomersUpdate'
     { _cuPayload = pCuPayload_
     , _cuCustomerId = pCuCustomerId_
@@ -83,7 +81,10 @@ cuPayload :: Lens' CustomersUpdate Customer
 cuPayload
   = lens _cuPayload (\ s a -> s{_cuPayload = a})
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 cuCustomerId :: Lens' CustomersUpdate Text
 cuCustomerId
   = lens _cuCustomerId (\ s a -> s{_cuCustomerId = a})

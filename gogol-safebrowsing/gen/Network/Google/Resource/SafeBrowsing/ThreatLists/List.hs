@@ -22,7 +22,7 @@
 --
 -- Lists the Safe Browsing threat lists available for download.
 --
--- /See:/ <https://developers.google.com/safe-browsing/ Safe Browsing APIs Reference> for @safebrowsing.threatLists.list@.
+-- /See:/ <https://developers.google.com/safe-browsing/ Google Safe Browsing API Reference> for @safebrowsing.threatLists.list@.
 module Network.Google.Resource.SafeBrowsing.ThreatLists.List
     (
     -- * REST Resource
@@ -42,15 +42,15 @@ module Network.Google.Resource.SafeBrowsing.ThreatLists.List
     , tllCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SafeBrowsing.Types
+import Network.Google.Prelude
+import Network.Google.SafeBrowsing.Types
 
 -- | A resource alias for @safebrowsing.threatLists.list@ method which the
 -- 'ThreatListsList' request conforms to.
 type ThreatListsListResource =
      "v4" :>
        "threatLists" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -64,13 +64,13 @@ type ThreatListsListResource =
 --
 -- /See:/ 'threatListsList' smart constructor.
 data ThreatListsList = ThreatListsList'
-    { _tllXgafv          :: !(Maybe Text)
+    { _tllXgafv :: !(Maybe Xgafv)
     , _tllUploadProtocol :: !(Maybe Text)
-    , _tllPp             :: !Bool
-    , _tllAccessToken    :: !(Maybe Text)
-    , _tllUploadType     :: !(Maybe Text)
-    , _tllBearerToken    :: !(Maybe Text)
-    , _tllCallback       :: !(Maybe Text)
+    , _tllPp :: !Bool
+    , _tllAccessToken :: !(Maybe Text)
+    , _tllUploadType :: !(Maybe Text)
+    , _tllBearerToken :: !(Maybe Text)
+    , _tllCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThreatListsList' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ data ThreatListsList = ThreatListsList'
 -- * 'tllCallback'
 threatListsList
     :: ThreatListsList
-threatListsList =
+threatListsList = 
     ThreatListsList'
     { _tllXgafv = Nothing
     , _tllUploadProtocol = Nothing
@@ -104,7 +104,7 @@ threatListsList =
     }
 
 -- | V1 error format.
-tllXgafv :: Lens' ThreatListsList (Maybe Text)
+tllXgafv :: Lens' ThreatListsList (Maybe Xgafv)
 tllXgafv = lens _tllXgafv (\ s a -> s{_tllXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.UserRoles.Patch
     , urpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRoles.patch@ method which the
 -- 'UserRolesPatch' request conforms to.
 type UserRolesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRoles" :>
@@ -58,8 +58,8 @@ type UserRolesPatchResource =
 -- /See:/ 'userRolesPatch' smart constructor.
 data UserRolesPatch = UserRolesPatch'
     { _urpProFileId :: !(Textual Int64)
-    , _urpPayload   :: !UserRole
-    , _urpId        :: !(Textual Int64)
+    , _urpPayload :: !UserRole
+    , _urpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserRolesPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ userRolesPatch
     -> UserRole -- ^ 'urpPayload'
     -> Int64 -- ^ 'urpId'
     -> UserRolesPatch
-userRolesPatch pUrpProFileId_ pUrpPayload_ pUrpId_ =
+userRolesPatch pUrpProFileId_ pUrpPayload_ pUrpId_ = 
     UserRolesPatch'
     { _urpProFileId = _Coerce # pUrpProFileId_
     , _urpPayload = pUrpPayload_

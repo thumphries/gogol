@@ -39,8 +39,8 @@ module Network.Google.Resource.Books.MyConfig.ReleaseDownloadAccess
     , mcrdaSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.myconfig.releaseDownloadAccess@ method which the
 -- 'MyConfigReleaseDownloadAccess' request conforms to.
@@ -60,10 +60,10 @@ type MyConfigReleaseDownloadAccessResource =
 --
 -- /See:/ 'myConfigReleaseDownloadAccess' smart constructor.
 data MyConfigReleaseDownloadAccess = MyConfigReleaseDownloadAccess'
-    { _mcrdaCpksver   :: !Text
-    , _mcrdaLocale    :: !(Maybe Text)
+    { _mcrdaCpksver :: !Text
+    , _mcrdaLocale :: !(Maybe Text)
     , _mcrdaVolumeIds :: ![Text]
-    , _mcrdaSource    :: !(Maybe Text)
+    , _mcrdaSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MyConfigReleaseDownloadAccess' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ myConfigReleaseDownloadAccess
     :: Text -- ^ 'mcrdaCpksver'
     -> [Text] -- ^ 'mcrdaVolumeIds'
     -> MyConfigReleaseDownloadAccess
-myConfigReleaseDownloadAccess pMcrdaCpksver_ pMcrdaVolumeIds_ =
+myConfigReleaseDownloadAccess pMcrdaCpksver_ pMcrdaVolumeIds_ = 
     MyConfigReleaseDownloadAccess'
     { _mcrdaCpksver = pMcrdaCpksver_
     , _mcrdaLocale = Nothing

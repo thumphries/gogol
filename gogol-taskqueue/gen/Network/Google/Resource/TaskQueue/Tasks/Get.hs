@@ -38,8 +38,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Get
     , tgTask
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.get@ method which the
 -- 'TasksGet' request conforms to.
@@ -59,8 +59,8 @@ type TasksGetResource =
 -- /See:/ 'tasksGet' smart constructor.
 data TasksGet = TasksGet'
     { _tgTaskQueue :: !Text
-    , _tgProject   :: !Text
-    , _tgTask      :: !Text
+    , _tgProject :: !Text
+    , _tgTask :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ tasksGet
     -> Text -- ^ 'tgProject'
     -> Text -- ^ 'tgTask'
     -> TasksGet
-tasksGet pTgTaskQueue_ pTgProject_ pTgTask_ =
+tasksGet pTgTaskQueue_ pTgProject_ pTgTask_ = 
     TasksGet'
     { _tgTaskQueue = pTgTaskQueue_
     , _tgProject = pTgProject_

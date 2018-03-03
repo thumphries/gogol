@@ -42,8 +42,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.DeleteInstances
     , igmdiPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.deleteInstances@ method which the
 -- 'InstanceGroupManagersDeleteInstances' request conforms to.
@@ -69,10 +69,10 @@ type InstanceGroupManagersDeleteInstancesResource =
 --
 -- /See:/ 'instanceGroupManagersDeleteInstances' smart constructor.
 data InstanceGroupManagersDeleteInstances = InstanceGroupManagersDeleteInstances'
-    { _igmdiProject              :: !Text
+    { _igmdiProject :: !Text
     , _igmdiInstanceGroupManager :: !Text
-    , _igmdiZone                 :: !Text
-    , _igmdiPayload              :: !InstanceGroupManagersDeleteInstancesRequest
+    , _igmdiZone :: !Text
+    , _igmdiPayload :: !InstanceGroupManagersDeleteInstancesRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersDeleteInstances' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ instanceGroupManagersDeleteInstances
     -> Text -- ^ 'igmdiZone'
     -> InstanceGroupManagersDeleteInstancesRequest -- ^ 'igmdiPayload'
     -> InstanceGroupManagersDeleteInstances
-instanceGroupManagersDeleteInstances pIgmdiProject_ pIgmdiInstanceGroupManager_ pIgmdiZone_ pIgmdiPayload_ =
+instanceGroupManagersDeleteInstances pIgmdiProject_ pIgmdiInstanceGroupManager_ pIgmdiZone_ pIgmdiPayload_ = 
     InstanceGroupManagersDeleteInstances'
     { _igmdiProject = pIgmdiProject_
     , _igmdiInstanceGroupManager = pIgmdiInstanceGroupManager_

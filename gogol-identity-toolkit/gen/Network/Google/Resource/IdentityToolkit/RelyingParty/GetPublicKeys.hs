@@ -34,8 +34,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.GetPublicKeys
 
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.getPublicKeys@ method which the
 -- 'RelyingPartyGetPublicKeys' request conforms to.
@@ -52,7 +52,7 @@ type RelyingPartyGetPublicKeysResource =
 --
 -- /See:/ 'relyingPartyGetPublicKeys' smart constructor.
 data RelyingPartyGetPublicKeys =
-    RelyingPartyGetPublicKeys'
+    RelyingPartyGetPublicKeys' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RelyingPartyGetPublicKeys' with the minimum fields required to make a request.

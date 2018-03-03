@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Users.Photos.Get
     , upgUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.photos.get@ method which the
 -- 'UsersPhotosGet' request conforms to.
@@ -66,12 +66,12 @@ newtype UsersPhotosGet = UsersPhotosGet'
 usersPhotosGet
     :: Text -- ^ 'upgUserKey'
     -> UsersPhotosGet
-usersPhotosGet pUpgUserKey_ =
+usersPhotosGet pUpgUserKey_ = 
     UsersPhotosGet'
     { _upgUserKey = pUpgUserKey_
     }
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 upgUserKey :: Lens' UsersPhotosGet Text
 upgUserKey
   = lens _upgUserKey (\ s a -> s{_upgUserKey = a})

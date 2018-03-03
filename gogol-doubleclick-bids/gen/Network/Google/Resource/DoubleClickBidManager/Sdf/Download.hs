@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Sdf.Download
     , sdPayload
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.sdf.download@ method which the
 -- 'SdfDownload' request conforms to.
@@ -65,7 +65,7 @@ newtype SdfDownload = SdfDownload'
 sdfDownload
     :: DownloadRequest -- ^ 'sdPayload'
     -> SdfDownload
-sdfDownload pSdPayload_ =
+sdfDownload pSdPayload_ = 
     SdfDownload'
     { _sdPayload = pSdPayload_
     }
@@ -77,7 +77,8 @@ sdPayload
 
 instance GoogleRequest SdfDownload where
         type Rs SdfDownload = DownloadResponse
-        type Scopes SdfDownload = '[]
+        type Scopes SdfDownload =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient SdfDownload'{..}
           = go (Just AltJSON) _sdPayload doubleClickBidsService
           where go

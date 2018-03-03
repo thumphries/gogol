@@ -43,8 +43,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.Get
     , ptgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.get@ method which the
 -- 'ProjectsTopicsGet' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsTopicsGetResource =
 --
 -- /See:/ 'projectsTopicsGet' smart constructor.
 data ProjectsTopicsGet = ProjectsTopicsGet'
-    { _ptgXgafv          :: !(Maybe Xgafv)
+    { _ptgXgafv :: !(Maybe Xgafv)
     , _ptgUploadProtocol :: !(Maybe Text)
-    , _ptgPp             :: !Bool
-    , _ptgAccessToken    :: !(Maybe Text)
-    , _ptgUploadType     :: !(Maybe Text)
-    , _ptgTopic          :: !Text
-    , _ptgBearerToken    :: !(Maybe Text)
-    , _ptgCallback       :: !(Maybe Text)
+    , _ptgPp :: !Bool
+    , _ptgAccessToken :: !(Maybe Text)
+    , _ptgUploadType :: !(Maybe Text)
+    , _ptgTopic :: !Text
+    , _ptgBearerToken :: !(Maybe Text)
+    , _ptgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsTopicsGet = ProjectsTopicsGet'
 projectsTopicsGet
     :: Text -- ^ 'ptgTopic'
     -> ProjectsTopicsGet
-projectsTopicsGet pPtgTopic_ =
+projectsTopicsGet pPtgTopic_ = 
     ProjectsTopicsGet'
     { _ptgXgafv = Nothing
     , _ptgUploadProtocol = Nothing

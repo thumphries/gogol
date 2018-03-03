@@ -38,8 +38,8 @@ module Network.Google.Resource.FusionTables.Style.Update
     , suTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.style.update@ method which the
 -- 'StyleUpdate' request conforms to.
@@ -77,7 +77,7 @@ styleUpdate
     -> Int32 -- ^ 'suStyleId'
     -> Text -- ^ 'suTableId'
     -> StyleUpdate
-styleUpdate pSuPayload_ pSuStyleId_ pSuTableId_ =
+styleUpdate pSuPayload_ pSuStyleId_ pSuTableId_ = 
     StyleUpdate'
     { _suPayload = pSuPayload_
     , _suStyleId = _Coerce # pSuStyleId_

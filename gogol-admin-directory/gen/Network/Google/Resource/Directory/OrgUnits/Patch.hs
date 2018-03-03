@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update Organization Unit. This method supports patch semantics.
+-- Update organizational unit. This method supports patch semantics.
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.orgunits.patch@.
 module Network.Google.Resource.Directory.OrgUnits.Patch
@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.OrgUnits.Patch
     , oupCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.orgunits.patch@ method which the
 -- 'OrgUnitsPatch' request conforms to.
@@ -54,13 +54,13 @@ type OrgUnitsPatchResource =
                    QueryParam "alt" AltJSON :>
                      ReqBody '[JSON] OrgUnit :> Patch '[JSON] OrgUnit
 
--- | Update Organization Unit. This method supports patch semantics.
+-- | Update organizational unit. This method supports patch semantics.
 --
 -- /See:/ 'orgUnitsPatch' smart constructor.
 data OrgUnitsPatch = OrgUnitsPatch'
-    { _oupPayload     :: !OrgUnit
+    { _oupPayload :: !OrgUnit
     , _oupOrgUnitPath :: ![Text]
-    , _oupCustomerId  :: !Text
+    , _oupCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrgUnitsPatch' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ orgUnitsPatch
     -> [Text] -- ^ 'oupOrgUnitPath'
     -> Text -- ^ 'oupCustomerId'
     -> OrgUnitsPatch
-orgUnitsPatch pOupPayload_ pOupOrgUnitPath_ pOupCustomerId_ =
+orgUnitsPatch pOupPayload_ pOupOrgUnitPath_ pOupCustomerId_ = 
     OrgUnitsPatch'
     { _oupPayload = pOupPayload_
     , _oupOrgUnitPath = _Coerce # pOupOrgUnitPath_
@@ -89,14 +89,14 @@ oupPayload :: Lens' OrgUnitsPatch OrgUnit
 oupPayload
   = lens _oupPayload (\ s a -> s{_oupPayload = a})
 
--- | Full path of the organization unit or its Id
+-- | Full path of the organizational unit or its ID
 oupOrgUnitPath :: Lens' OrgUnitsPatch [Text]
 oupOrgUnitPath
   = lens _oupOrgUnitPath
       (\ s a -> s{_oupOrgUnitPath = a})
       . _Coerce
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 oupCustomerId :: Lens' OrgUnitsPatch Text
 oupCustomerId
   = lens _oupCustomerId

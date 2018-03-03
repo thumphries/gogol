@@ -43,8 +43,8 @@ module Network.Google.Resource.Logging.Projects.Sinks.Get
     , psgCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.projects.sinks.get@ method which the
 -- 'ProjectsSinksGet' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsSinksGetResource =
 --
 -- /See:/ 'projectsSinksGet' smart constructor.
 data ProjectsSinksGet = ProjectsSinksGet'
-    { _psgXgafv          :: !(Maybe Xgafv)
+    { _psgXgafv :: !(Maybe Xgafv)
     , _psgUploadProtocol :: !(Maybe Text)
-    , _psgPp             :: !Bool
-    , _psgAccessToken    :: !(Maybe Text)
-    , _psgUploadType     :: !(Maybe Text)
-    , _psgBearerToken    :: !(Maybe Text)
-    , _psgSinkName       :: !Text
-    , _psgCallback       :: !(Maybe Text)
+    , _psgPp :: !Bool
+    , _psgAccessToken :: !(Maybe Text)
+    , _psgUploadType :: !(Maybe Text)
+    , _psgBearerToken :: !(Maybe Text)
+    , _psgSinkName :: !Text
+    , _psgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSinksGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsSinksGet = ProjectsSinksGet'
 projectsSinksGet
     :: Text -- ^ 'psgSinkName'
     -> ProjectsSinksGet
-projectsSinksGet pPsgSinkName_ =
+projectsSinksGet pPsgSinkName_ = 
     ProjectsSinksGet'
     { _psgXgafv = Nothing
     , _psgUploadProtocol = Nothing
@@ -140,9 +140,11 @@ psgBearerToken
   = lens _psgBearerToken
       (\ s a -> s{_psgBearerToken = a})
 
--- | Required. The parent resource name of the sink:
+-- | Required. The resource name of the sink:
 -- \"projects\/[PROJECT_ID]\/sinks\/[SINK_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\" Example:
+-- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/sinks\/[SINK_ID]\"
+-- \"folders\/[FOLDER_ID]\/sinks\/[SINK_ID]\" Example:
 -- \"projects\/my-project-id\/sinks\/my-sink-id\".
 psgSinkName :: Lens' ProjectsSinksGet Text
 psgSinkName

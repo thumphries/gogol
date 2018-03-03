@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a previously requested build. The Build that
--- is returned includes its status (e.g., success or failure, or
--- in-progress), and timing information.
+-- Returns information about a previously requested build. The \`Build\`
+-- that is returned includes its status (such as \`SUCCESS\`, \`FAILURE\`,
+-- or \`WORKING\`), and timing information.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.builds.get@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.builds.get@.
 module Network.Google.Resource.Cloudbuild.Projects.Builds.Get
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Builds.Get
     , pbgCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.builds.get@ method which the
 -- 'ProjectsBuildsGet' request conforms to.
@@ -66,21 +66,21 @@ type ProjectsBuildsGetResource =
                            QueryParam "callback" Text :>
                              QueryParam "alt" AltJSON :> Get '[JSON] Build
 
--- | Returns information about a previously requested build. The Build that
--- is returned includes its status (e.g., success or failure, or
--- in-progress), and timing information.
+-- | Returns information about a previously requested build. The \`Build\`
+-- that is returned includes its status (such as \`SUCCESS\`, \`FAILURE\`,
+-- or \`WORKING\`), and timing information.
 --
 -- /See:/ 'projectsBuildsGet' smart constructor.
 data ProjectsBuildsGet = ProjectsBuildsGet'
-    { _pbgXgafv          :: !(Maybe Xgafv)
+    { _pbgXgafv :: !(Maybe Xgafv)
     , _pbgUploadProtocol :: !(Maybe Text)
-    , _pbgPp             :: !Bool
-    , _pbgAccessToken    :: !(Maybe Text)
-    , _pbgUploadType     :: !(Maybe Text)
-    , _pbgBearerToken    :: !(Maybe Text)
-    , _pbgId             :: !Text
-    , _pbgProjectId      :: !Text
-    , _pbgCallback       :: !(Maybe Text)
+    , _pbgPp :: !Bool
+    , _pbgAccessToken :: !(Maybe Text)
+    , _pbgUploadType :: !(Maybe Text)
+    , _pbgBearerToken :: !(Maybe Text)
+    , _pbgId :: !Text
+    , _pbgProjectId :: !Text
+    , _pbgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsBuildsGet' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ projectsBuildsGet
     :: Text -- ^ 'pbgId'
     -> Text -- ^ 'pbgProjectId'
     -> ProjectsBuildsGet
-projectsBuildsGet pPbgId_ pPbgProjectId_ =
+projectsBuildsGet pPbgId_ pPbgProjectId_ = 
     ProjectsBuildsGet'
     { _pbgXgafv = Nothing
     , _pbgUploadProtocol = Nothing

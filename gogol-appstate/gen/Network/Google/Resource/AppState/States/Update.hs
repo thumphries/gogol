@@ -40,8 +40,8 @@ module Network.Google.Resource.AppState.States.Update
     , suPayload
     ) where
 
-import           Network.Google.AppState.Types
-import           Network.Google.Prelude
+import Network.Google.AppState.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appstate.states.update@ method which the
 -- 'StatesUpdate' request conforms to.
@@ -62,8 +62,8 @@ type StatesUpdateResource =
 -- /See:/ 'statesUpdate' smart constructor.
 data StatesUpdate = StatesUpdate'
     { _suCurrentStateVersion :: !(Maybe Text)
-    , _suStateKey            :: !(Textual Int32)
-    , _suPayload             :: !UpdateRequest
+    , _suStateKey :: !(Textual Int32)
+    , _suPayload :: !UpdateRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StatesUpdate' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ statesUpdate
     :: Int32 -- ^ 'suStateKey'
     -> UpdateRequest -- ^ 'suPayload'
     -> StatesUpdate
-statesUpdate pSuStateKey_ pSuPayload_ =
+statesUpdate pSuStateKey_ pSuPayload_ = 
     StatesUpdate'
     { _suCurrentStateVersion = Nothing
     , _suStateKey = _Coerce # pSuStateKey_

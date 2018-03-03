@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.Installs.Delete
     , idDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.installs.delete@ method which the
 -- 'InstallsDelete' request conforms to.
@@ -66,9 +66,9 @@ type InstallsDeleteResource =
 -- /See:/ 'installsDelete' smart constructor.
 data InstallsDelete = InstallsDelete'
     { _idEnterpriseId :: !Text
-    , _idUserId       :: !Text
-    , _idInstallId    :: !Text
-    , _idDeviceId     :: !Text
+    , _idUserId :: !Text
+    , _idInstallId :: !Text
+    , _idDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstallsDelete' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ installsDelete
     -> Text -- ^ 'idInstallId'
     -> Text -- ^ 'idDeviceId'
     -> InstallsDelete
-installsDelete pIdEnterpriseId_ pIdUserId_ pIdInstallId_ pIdDeviceId_ =
+installsDelete pIdEnterpriseId_ pIdUserId_ pIdInstallId_ pIdDeviceId_ = 
     InstallsDelete'
     { _idEnterpriseId = pIdEnterpriseId_
     , _idUserId = pIdUserId_

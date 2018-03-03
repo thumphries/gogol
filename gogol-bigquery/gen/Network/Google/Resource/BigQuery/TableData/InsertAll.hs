@@ -40,8 +40,8 @@ module Network.Google.Resource.BigQuery.TableData.InsertAll
     , tdiaTableId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.tabledata.insertAll@ method which the
 -- 'TableDataInsertAll' request conforms to.
@@ -64,10 +64,10 @@ type TableDataInsertAllResource =
 --
 -- /See:/ 'tableDataInsertAll' smart constructor.
 data TableDataInsertAll = TableDataInsertAll'
-    { _tdiaPayload   :: !TableDataInsertAllRequest
+    { _tdiaPayload :: !TableDataInsertAllRequest
     , _tdiaDataSetId :: !Text
     , _tdiaProjectId :: !Text
-    , _tdiaTableId   :: !Text
+    , _tdiaTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableDataInsertAll' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ tableDataInsertAll
     -> Text -- ^ 'tdiaProjectId'
     -> Text -- ^ 'tdiaTableId'
     -> TableDataInsertAll
-tableDataInsertAll pTdiaPayload_ pTdiaDataSetId_ pTdiaProjectId_ pTdiaTableId_ =
+tableDataInsertAll pTdiaPayload_ pTdiaDataSetId_ pTdiaProjectId_ pTdiaTableId_ = 
     TableDataInsertAll'
     { _tdiaPayload = pTdiaPayload_
     , _tdiaDataSetId = pTdiaDataSetId_

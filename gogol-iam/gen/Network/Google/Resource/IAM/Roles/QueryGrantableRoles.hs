@@ -45,15 +45,15 @@ module Network.Google.Resource.IAM.Roles.QueryGrantableRoles
     , rqgrCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.roles.queryGrantableRoles@ method which the
 -- 'RolesQueryGrantableRoles' request conforms to.
 type RolesQueryGrantableRolesResource =
      "v1" :>
        "roles:queryGrantableRoles" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -70,14 +70,14 @@ type RolesQueryGrantableRolesResource =
 --
 -- /See:/ 'rolesQueryGrantableRoles' smart constructor.
 data RolesQueryGrantableRoles = RolesQueryGrantableRoles'
-    { _rqgrXgafv          :: !(Maybe Text)
+    { _rqgrXgafv :: !(Maybe Xgafv)
     , _rqgrUploadProtocol :: !(Maybe Text)
-    , _rqgrPp             :: !Bool
-    , _rqgrAccessToken    :: !(Maybe Text)
-    , _rqgrUploadType     :: !(Maybe Text)
-    , _rqgrPayload        :: !QueryGrantableRolesRequest
-    , _rqgrBearerToken    :: !(Maybe Text)
-    , _rqgrCallback       :: !(Maybe Text)
+    , _rqgrPp :: !Bool
+    , _rqgrAccessToken :: !(Maybe Text)
+    , _rqgrUploadType :: !(Maybe Text)
+    , _rqgrPayload :: !QueryGrantableRolesRequest
+    , _rqgrBearerToken :: !(Maybe Text)
+    , _rqgrCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RolesQueryGrantableRoles' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data RolesQueryGrantableRoles = RolesQueryGrantableRoles'
 rolesQueryGrantableRoles
     :: QueryGrantableRolesRequest -- ^ 'rqgrPayload'
     -> RolesQueryGrantableRoles
-rolesQueryGrantableRoles pRqgrPayload_ =
+rolesQueryGrantableRoles pRqgrPayload_ = 
     RolesQueryGrantableRoles'
     { _rqgrXgafv = Nothing
     , _rqgrUploadProtocol = Nothing
@@ -115,7 +115,7 @@ rolesQueryGrantableRoles pRqgrPayload_ =
     }
 
 -- | V1 error format.
-rqgrXgafv :: Lens' RolesQueryGrantableRoles (Maybe Text)
+rqgrXgafv :: Lens' RolesQueryGrantableRoles (Maybe Xgafv)
 rqgrXgafv
   = lens _rqgrXgafv (\ s a -> s{_rqgrXgafv = a})
 

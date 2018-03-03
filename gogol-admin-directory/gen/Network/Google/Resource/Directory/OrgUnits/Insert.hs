@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add Organization Unit
+-- Add organizational unit
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.orgunits.insert@.
 module Network.Google.Resource.Directory.OrgUnits.Insert
@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.OrgUnits.Insert
     , ouiCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.orgunits.insert@ method which the
 -- 'OrgUnitsInsert' request conforms to.
@@ -52,11 +52,11 @@ type OrgUnitsInsertResource =
                  QueryParam "alt" AltJSON :>
                    ReqBody '[JSON] OrgUnit :> Post '[JSON] OrgUnit
 
--- | Add Organization Unit
+-- | Add organizational unit
 --
 -- /See:/ 'orgUnitsInsert' smart constructor.
 data OrgUnitsInsert = OrgUnitsInsert'
-    { _ouiPayload    :: !OrgUnit
+    { _ouiPayload :: !OrgUnit
     , _ouiCustomerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ orgUnitsInsert
     :: OrgUnit -- ^ 'ouiPayload'
     -> Text -- ^ 'ouiCustomerId'
     -> OrgUnitsInsert
-orgUnitsInsert pOuiPayload_ pOuiCustomerId_ =
+orgUnitsInsert pOuiPayload_ pOuiCustomerId_ = 
     OrgUnitsInsert'
     { _ouiPayload = pOuiPayload_
     , _ouiCustomerId = pOuiCustomerId_
@@ -82,7 +82,7 @@ ouiPayload :: Lens' OrgUnitsInsert OrgUnit
 ouiPayload
   = lens _ouiPayload (\ s a -> s{_ouiPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 ouiCustomerId :: Lens' OrgUnitsInsert Text
 ouiCustomerId
   = lens _ouiCustomerId

@@ -40,14 +40,14 @@ module Network.Google.Resource.DFAReporting.Cities.List
     , citDartIds
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.cities.list@ method which the
 -- 'CitiesList' request conforms to.
 type CitiesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "cities" :>
@@ -62,11 +62,11 @@ type CitiesListResource =
 --
 -- /See:/ 'citiesList' smart constructor.
 data CitiesList = CitiesList'
-    { _citRegionDartIds  :: !(Maybe [Textual Int64])
-    , _citProFileId      :: !(Textual Int64)
-    , _citNamePrefix     :: !(Maybe Text)
+    { _citRegionDartIds :: !(Maybe [Textual Int64])
+    , _citProFileId :: !(Textual Int64)
+    , _citNamePrefix :: !(Maybe Text)
     , _citCountryDartIds :: !(Maybe [Textual Int64])
-    , _citDartIds        :: !(Maybe [Textual Int64])
+    , _citDartIds :: !(Maybe [Textual Int64])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CitiesList' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data CitiesList = CitiesList'
 citiesList
     :: Int64 -- ^ 'citProFileId'
     -> CitiesList
-citiesList pCitProFileId_ =
+citiesList pCitProFileId_ = 
     CitiesList'
     { _citRegionDartIds = Nothing
     , _citProFileId = _Coerce # pCitProFileId_

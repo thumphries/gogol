@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Creatives.Insert
     , ciPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creatives.insert@ method which the
 -- 'CreativesInsert' request conforms to.
 type CreativesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creatives" :>
@@ -56,7 +56,7 @@ type CreativesInsertResource =
 -- /See:/ 'creativesInsert' smart constructor.
 data CreativesInsert = CreativesInsert'
     { _ciProFileId :: !(Textual Int64)
-    , _ciPayload   :: !Creative
+    , _ciPayload :: !Creative
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ creativesInsert
     :: Int64 -- ^ 'ciProFileId'
     -> Creative -- ^ 'ciPayload'
     -> CreativesInsert
-creativesInsert pCiProFileId_ pCiPayload_ =
+creativesInsert pCiProFileId_ pCiPayload_ = 
     CreativesInsert'
     { _ciProFileId = _Coerce # pCiProFileId_
     , _ciPayload = pCiPayload_

@@ -41,8 +41,8 @@ module Network.Google.Resource.Calendar.CalendarList.List
     , cllMaxResults
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.calendarList.list@ method which the
 -- 'CalendarListList' request conforms to.
@@ -66,12 +66,12 @@ type CalendarListListResource =
 --
 -- /See:/ 'calendarListList' smart constructor.
 data CalendarListList = CalendarListList'
-    { _cllSyncToken     :: !(Maybe Text)
+    { _cllSyncToken :: !(Maybe Text)
     , _cllMinAccessRole :: !(Maybe CalendarListListMinAccessRole)
-    , _cllShowDeleted   :: !(Maybe Bool)
-    , _cllShowHidden    :: !(Maybe Bool)
-    , _cllPageToken     :: !(Maybe Text)
-    , _cllMaxResults    :: !(Maybe (Textual Int32))
+    , _cllShowDeleted :: !(Maybe Bool)
+    , _cllShowHidden :: !(Maybe Bool)
+    , _cllPageToken :: !(Maybe Text)
+    , _cllMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CalendarListList' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ data CalendarListList = CalendarListList'
 -- * 'cllMaxResults'
 calendarListList
     :: CalendarListList
-calendarListList =
+calendarListList = 
     CalendarListList'
     { _cllSyncToken = Nothing
     , _cllMinAccessRole = Nothing

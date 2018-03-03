@@ -40,8 +40,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.SetTargetPools
     , igmstpPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.setTargetPools@ method which the
 -- 'InstanceGroupManagersSetTargetPools' request conforms to.
@@ -65,10 +65,10 @@ type InstanceGroupManagersSetTargetPoolsResource =
 --
 -- /See:/ 'instanceGroupManagersSetTargetPools' smart constructor.
 data InstanceGroupManagersSetTargetPools = InstanceGroupManagersSetTargetPools'
-    { _igmstpProject              :: !Text
+    { _igmstpProject :: !Text
     , _igmstpInstanceGroupManager :: !Text
-    , _igmstpZone                 :: !Text
-    , _igmstpPayload              :: !InstanceGroupManagersSetTargetPoolsRequest
+    , _igmstpZone :: !Text
+    , _igmstpPayload :: !InstanceGroupManagersSetTargetPoolsRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersSetTargetPools' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ instanceGroupManagersSetTargetPools
     -> Text -- ^ 'igmstpZone'
     -> InstanceGroupManagersSetTargetPoolsRequest -- ^ 'igmstpPayload'
     -> InstanceGroupManagersSetTargetPools
-instanceGroupManagersSetTargetPools pIgmstpProject_ pIgmstpInstanceGroupManager_ pIgmstpZone_ pIgmstpPayload_ =
+instanceGroupManagersSetTargetPools pIgmstpProject_ pIgmstpInstanceGroupManager_ pIgmstpZone_ pIgmstpPayload_ = 
     InstanceGroupManagersSetTargetPools'
     { _igmstpProject = pIgmstpProject_
     , _igmstpInstanceGroupManager = pIgmstpInstanceGroupManager_

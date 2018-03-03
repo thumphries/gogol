@@ -39,8 +39,8 @@ module Network.Google.Resource.PlusDomains.Circles.AddPeople
     , capCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.addPeople@ method which the
 -- 'CirclesAddPeople' request conforms to.
@@ -59,8 +59,8 @@ type CirclesAddPeopleResource =
 --
 -- /See:/ 'circlesAddPeople' smart constructor.
 data CirclesAddPeople = CirclesAddPeople'
-    { _capEmail    :: !(Maybe [Text])
-    , _capUserId   :: !(Maybe [Text])
+    { _capEmail :: !(Maybe [Text])
+    , _capUserId :: !(Maybe [Text])
     , _capCircleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,7 +76,7 @@ data CirclesAddPeople = CirclesAddPeople'
 circlesAddPeople
     :: Text -- ^ 'capCircleId'
     -> CirclesAddPeople
-circlesAddPeople pCapCircleId_ =
+circlesAddPeople pCapCircleId_ = 
     CirclesAddPeople'
     { _capEmail = Nothing
     , _capUserId = Nothing

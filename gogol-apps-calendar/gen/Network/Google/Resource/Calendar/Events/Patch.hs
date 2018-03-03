@@ -33,6 +33,7 @@ module Network.Google.Resource.Calendar.Events.Patch
     , EventsPatch
 
     -- * Request Lenses
+    , epConferenceDataVersion
     , epCalendarId
     , epPayload
     , epMaxAttendees
@@ -42,8 +43,8 @@ module Network.Google.Resource.Calendar.Events.Patch
     , epEventId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.patch@ method which the
 -- 'EventsPatch' request conforms to.
@@ -54,29 +55,33 @@ type EventsPatchResource =
            Capture "calendarId" Text :>
              "events" :>
                Capture "eventId" Text :>
-                 QueryParam "maxAttendees" (Textual Int32) :>
-                   QueryParam "sendNotifications" Bool :>
-                     QueryParam "supportsAttachments" Bool :>
-                       QueryParam "alwaysIncludeEmail" Bool :>
-                         QueryParam "alt" AltJSON :>
-                           ReqBody '[JSON] Event :> Patch '[JSON] Event
+                 QueryParam "conferenceDataVersion" (Textual Int32) :>
+                   QueryParam "maxAttendees" (Textual Int32) :>
+                     QueryParam "sendNotifications" Bool :>
+                       QueryParam "supportsAttachments" Bool :>
+                         QueryParam "alwaysIncludeEmail" Bool :>
+                           QueryParam "alt" AltJSON :>
+                             ReqBody '[JSON] Event :> Patch '[JSON] Event
 
 -- | Updates an event. This method supports patch semantics.
 --
 -- /See:/ 'eventsPatch' smart constructor.
 data EventsPatch = EventsPatch'
-    { _epCalendarId          :: !Text
-    , _epPayload             :: !Event
-    , _epMaxAttendees        :: !(Maybe (Textual Int32))
-    , _epSendNotifications   :: !(Maybe Bool)
+    { _epConferenceDataVersion :: !(Maybe (Textual Int32))
+    , _epCalendarId :: !Text
+    , _epPayload :: !Event
+    , _epMaxAttendees :: !(Maybe (Textual Int32))
+    , _epSendNotifications :: !(Maybe Bool)
     , _epSupportsAttachments :: !(Maybe Bool)
-    , _epAlwaysIncludeEmail  :: !(Maybe Bool)
-    , _epEventId             :: !Text
+    , _epAlwaysIncludeEmail :: !(Maybe Bool)
+    , _epEventId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsPatch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'epConferenceDataVersion'
 --
 -- * 'epCalendarId'
 --
@@ -96,9 +101,10 @@ eventsPatch
     -> Event -- ^ 'epPayload'
     -> Text -- ^ 'epEventId'
     -> EventsPatch
-eventsPatch pEpCalendarId_ pEpPayload_ pEpEventId_ =
+eventsPatch pEpCalendarId_ pEpPayload_ pEpEventId_ = 
     EventsPatch'
-    { _epCalendarId = pEpCalendarId_
+    { _epConferenceDataVersion = Nothing
+    , _epCalendarId = pEpCalendarId_
     , _epPayload = pEpPayload_
     , _epMaxAttendees = Nothing
     , _epSendNotifications = Nothing
@@ -106,6 +112,17 @@ eventsPatch pEpCalendarId_ pEpPayload_ pEpEventId_ =
     , _epAlwaysIncludeEmail = Nothing
     , _epEventId = pEpEventId_
     }
+
+-- | Version number of conference data supported by the API client. Version 0
+-- assumes no conference data support and ignores conference data in the
+-- event\'s body. Version 1 enables support for copying of ConferenceData
+-- as well as for creating new conferences using the createRequest field of
+-- conferenceData. The default is 0.
+epConferenceDataVersion :: Lens' EventsPatch (Maybe Int32)
+epConferenceDataVersion
+  = lens _epConferenceDataVersion
+      (\ s a -> s{_epConferenceDataVersion = a})
+      . mapping _Coerce
 
 -- | Calendar identifier. To retrieve calendar IDs call the calendarList.list
 -- method. If you want to access the primary calendar of the currently
@@ -163,7 +180,9 @@ instance GoogleRequest EventsPatch where
         type Scopes EventsPatch =
              '["https://www.googleapis.com/auth/calendar"]
         requestClient EventsPatch'{..}
-          = go _epCalendarId _epEventId _epMaxAttendees
+          = go _epCalendarId _epEventId
+              _epConferenceDataVersion
+              _epMaxAttendees
               _epSendNotifications
               _epSupportsAttachments
               _epAlwaysIncludeEmail

@@ -22,7 +22,7 @@
 --
 -- Send a worker_message to the service.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.workerMessages@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.workerMessages@.
 module Network.Google.Resource.Dataflow.Projects.WorkerMessages
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Dataflow.Projects.WorkerMessages
     , pwmCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.workerMessages@ method which the
 -- 'ProjectsWorkerMessages' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsWorkerMessagesResource =
        "projects" :>
          Capture "projectId" Text :>
            "WorkerMessages" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -69,15 +69,15 @@ type ProjectsWorkerMessagesResource =
 --
 -- /See:/ 'projectsWorkerMessages' smart constructor.
 data ProjectsWorkerMessages = ProjectsWorkerMessages'
-    { _pwmXgafv          :: !(Maybe Text)
+    { _pwmXgafv :: !(Maybe Xgafv)
     , _pwmUploadProtocol :: !(Maybe Text)
-    , _pwmPp             :: !Bool
-    , _pwmAccessToken    :: !(Maybe Text)
-    , _pwmUploadType     :: !(Maybe Text)
-    , _pwmPayload        :: !SendWorkerMessagesRequest
-    , _pwmBearerToken    :: !(Maybe Text)
-    , _pwmProjectId      :: !Text
-    , _pwmCallback       :: !(Maybe Text)
+    , _pwmPp :: !Bool
+    , _pwmAccessToken :: !(Maybe Text)
+    , _pwmUploadType :: !(Maybe Text)
+    , _pwmPayload :: !SendWorkerMessagesRequest
+    , _pwmBearerToken :: !(Maybe Text)
+    , _pwmProjectId :: !Text
+    , _pwmCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsWorkerMessages' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsWorkerMessages
     :: SendWorkerMessagesRequest -- ^ 'pwmPayload'
     -> Text -- ^ 'pwmProjectId'
     -> ProjectsWorkerMessages
-projectsWorkerMessages pPwmPayload_ pPwmProjectId_ =
+projectsWorkerMessages pPwmPayload_ pPwmProjectId_ = 
     ProjectsWorkerMessages'
     { _pwmXgafv = Nothing
     , _pwmUploadProtocol = Nothing
@@ -119,7 +119,7 @@ projectsWorkerMessages pPwmPayload_ pPwmProjectId_ =
     }
 
 -- | V1 error format.
-pwmXgafv :: Lens' ProjectsWorkerMessages (Maybe Text)
+pwmXgafv :: Lens' ProjectsWorkerMessages (Maybe Xgafv)
 pwmXgafv = lens _pwmXgafv (\ s a -> s{_pwmXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -170,6 +170,8 @@ instance GoogleRequest ProjectsWorkerMessages where
              SendWorkerMessagesResponse
         type Scopes ProjectsWorkerMessages =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsWorkerMessages'{..}
           = go _pwmProjectId _pwmXgafv _pwmUploadProtocol

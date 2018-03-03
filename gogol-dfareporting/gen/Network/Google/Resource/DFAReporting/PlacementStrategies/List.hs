@@ -43,14 +43,14 @@ module Network.Google.Resource.DFAReporting.PlacementStrategies.List
     , pslMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementStrategies.list@ method which the
 -- 'PlacementStrategiesList' request conforms to.
 type PlacementStrategiesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementStrategies" :>
@@ -73,12 +73,12 @@ type PlacementStrategiesListResource =
 -- /See:/ 'placementStrategiesList' smart constructor.
 data PlacementStrategiesList = PlacementStrategiesList'
     { _pslSearchString :: !(Maybe Text)
-    , _pslIds          :: !(Maybe [Textual Int64])
-    , _pslProFileId    :: !(Textual Int64)
-    , _pslSortOrder    :: !(Maybe PlacementStrategiesListSortOrder)
-    , _pslPageToken    :: !(Maybe Text)
-    , _pslSortField    :: !(Maybe PlacementStrategiesListSortField)
-    , _pslMaxResults   :: !(Maybe (Textual Int32))
+    , _pslIds :: !(Maybe [Textual Int64])
+    , _pslProFileId :: !(Textual Int64)
+    , _pslSortOrder :: !PlacementStrategiesListSortOrder
+    , _pslPageToken :: !(Maybe Text)
+    , _pslSortField :: !PlacementStrategiesListSortField
+    , _pslMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementStrategiesList' with the minimum fields required to make a request.
@@ -101,15 +101,15 @@ data PlacementStrategiesList = PlacementStrategiesList'
 placementStrategiesList
     :: Int64 -- ^ 'pslProFileId'
     -> PlacementStrategiesList
-placementStrategiesList pPslProFileId_ =
+placementStrategiesList pPslProFileId_ = 
     PlacementStrategiesList'
     { _pslSearchString = Nothing
     , _pslIds = Nothing
     , _pslProFileId = _Coerce # pPslProFileId_
-    , _pslSortOrder = Nothing
+    , _pslSortOrder = PSLSOAscending
     , _pslPageToken = Nothing
-    , _pslSortField = Nothing
-    , _pslMaxResults = Nothing
+    , _pslSortField = PSLSFID
+    , _pslMaxResults = 1000
     }
 
 -- | Allows searching for objects by name or ID. Wildcards (*) are allowed.
@@ -137,8 +137,8 @@ pslProFileId
   = lens _pslProFileId (\ s a -> s{_pslProFileId = a})
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-pslSortOrder :: Lens' PlacementStrategiesList (Maybe PlacementStrategiesListSortOrder)
+-- | Order of sorted results.
+pslSortOrder :: Lens' PlacementStrategiesList PlacementStrategiesListSortOrder
 pslSortOrder
   = lens _pslSortOrder (\ s a -> s{_pslSortOrder = a})
 
@@ -148,16 +148,16 @@ pslPageToken
   = lens _pslPageToken (\ s a -> s{_pslPageToken = a})
 
 -- | Field by which to sort the list.
-pslSortField :: Lens' PlacementStrategiesList (Maybe PlacementStrategiesListSortField)
+pslSortField :: Lens' PlacementStrategiesList PlacementStrategiesListSortField
 pslSortField
   = lens _pslSortField (\ s a -> s{_pslSortField = a})
 
 -- | Maximum number of results to return.
-pslMaxResults :: Lens' PlacementStrategiesList (Maybe Int32)
+pslMaxResults :: Lens' PlacementStrategiesList Int32
 pslMaxResults
   = lens _pslMaxResults
       (\ s a -> s{_pslMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest PlacementStrategiesList where
         type Rs PlacementStrategiesList =
@@ -167,10 +167,10 @@ instance GoogleRequest PlacementStrategiesList where
         requestClient PlacementStrategiesList'{..}
           = go _pslProFileId _pslSearchString
               (_pslIds ^. _Default)
-              _pslSortOrder
+              (Just _pslSortOrder)
               _pslPageToken
-              _pslSortField
-              _pslMaxResults
+              (Just _pslSortField)
+              (Just _pslMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

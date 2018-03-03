@@ -45,8 +45,8 @@ module Network.Google.Resource.Monitoring.Projects.MetricDescriptors.Create
     , pmdcCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.metricDescriptors.create@ method which the
 -- 'ProjectsMetricDescriptorsCreate' request conforms to.
@@ -70,15 +70,15 @@ type ProjectsMetricDescriptorsCreateResource =
 --
 -- /See:/ 'projectsMetricDescriptorsCreate' smart constructor.
 data ProjectsMetricDescriptorsCreate = ProjectsMetricDescriptorsCreate'
-    { _pmdcXgafv          :: !(Maybe Xgafv)
+    { _pmdcXgafv :: !(Maybe Xgafv)
     , _pmdcUploadProtocol :: !(Maybe Text)
-    , _pmdcPp             :: !Bool
-    , _pmdcAccessToken    :: !(Maybe Text)
-    , _pmdcUploadType     :: !(Maybe Text)
-    , _pmdcPayload        :: !MetricDescriptor
-    , _pmdcBearerToken    :: !(Maybe Text)
-    , _pmdcName           :: !Text
-    , _pmdcCallback       :: !(Maybe Text)
+    , _pmdcPp :: !Bool
+    , _pmdcAccessToken :: !(Maybe Text)
+    , _pmdcUploadType :: !(Maybe Text)
+    , _pmdcPayload :: !MetricDescriptor
+    , _pmdcBearerToken :: !(Maybe Text)
+    , _pmdcName :: !Text
+    , _pmdcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMetricDescriptorsCreate' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ projectsMetricDescriptorsCreate
     :: MetricDescriptor -- ^ 'pmdcPayload'
     -> Text -- ^ 'pmdcName'
     -> ProjectsMetricDescriptorsCreate
-projectsMetricDescriptorsCreate pPmdcPayload_ pPmdcName_ =
+projectsMetricDescriptorsCreate pPmdcPayload_ pPmdcName_ = 
     ProjectsMetricDescriptorsCreate'
     { _pmdcXgafv = Nothing
     , _pmdcUploadProtocol = Nothing

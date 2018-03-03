@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.VerificationCodes.Invalidate
     , vciUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.verificationCodes.invalidate@ method which the
 -- 'VerificationCodesInvalidate' request conforms to.
@@ -66,12 +66,12 @@ newtype VerificationCodesInvalidate = VerificationCodesInvalidate'
 verificationCodesInvalidate
     :: Text -- ^ 'vciUserKey'
     -> VerificationCodesInvalidate
-verificationCodesInvalidate pVciUserKey_ =
+verificationCodesInvalidate pVciUserKey_ = 
     VerificationCodesInvalidate'
     { _vciUserKey = pVciUserKey_
     }
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 vciUserKey :: Lens' VerificationCodesInvalidate Text
 vciUserKey
   = lens _vciUserKey (\ s a -> s{_vciUserKey = a})

@@ -54,8 +54,8 @@ module Network.Google.Resource.PlayMoviesPartner.Accounts.Avails.List
     , aalCallback
     ) where
 
-import           Network.Google.PlayMoviesPartner.Types
-import           Network.Google.Prelude
+import Network.Google.PlayMoviesPartner.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @playmoviespartner.accounts.avails.list@ method which the
 -- 'AccountsAvailsList' request conforms to.
@@ -66,7 +66,7 @@ type AccountsAvailsListResource =
            "avails" :>
              QueryParam "altId" Text :>
                QueryParams "pphNames" Text :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParams "studioNames" Text :>
                      QueryParams "videoIds" Text :>
                        QueryParam "upload_protocol" Text :>
@@ -90,23 +90,23 @@ type AccountsAvailsListResource =
 --
 -- /See:/ 'accountsAvailsList' smart constructor.
 data AccountsAvailsList = AccountsAvailsList'
-    { _aalAltId          :: !(Maybe Text)
-    , _aalPphNames       :: !(Maybe [Text])
-    , _aalXgafv          :: !(Maybe Text)
-    , _aalStudioNames    :: !(Maybe [Text])
-    , _aalVideoIds       :: !(Maybe [Text])
+    { _aalAltId :: !(Maybe Text)
+    , _aalPphNames :: !(Maybe [Text])
+    , _aalXgafv :: !(Maybe Xgafv)
+    , _aalStudioNames :: !(Maybe [Text])
+    , _aalVideoIds :: !(Maybe [Text])
     , _aalUploadProtocol :: !(Maybe Text)
-    , _aalPp             :: !Bool
-    , _aalAccessToken    :: !(Maybe Text)
-    , _aalUploadType     :: !(Maybe Text)
-    , _aalTerritories    :: !(Maybe [Text])
-    , _aalAccountId      :: !Text
-    , _aalBearerToken    :: !(Maybe Text)
-    , _aalAltIds         :: !(Maybe [Text])
-    , _aalPageToken      :: !(Maybe Text)
-    , _aalTitle          :: !(Maybe Text)
-    , _aalPageSize       :: !(Maybe (Textual Int32))
-    , _aalCallback       :: !(Maybe Text)
+    , _aalPp :: !Bool
+    , _aalAccessToken :: !(Maybe Text)
+    , _aalUploadType :: !(Maybe Text)
+    , _aalTerritories :: !(Maybe [Text])
+    , _aalAccountId :: !Text
+    , _aalBearerToken :: !(Maybe Text)
+    , _aalAltIds :: !(Maybe [Text])
+    , _aalPageToken :: !(Maybe Text)
+    , _aalTitle :: !(Maybe Text)
+    , _aalPageSize :: !(Maybe (Textual Int32))
+    , _aalCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsAvailsList' with the minimum fields required to make a request.
@@ -149,7 +149,7 @@ data AccountsAvailsList = AccountsAvailsList'
 accountsAvailsList
     :: Text -- ^ 'aalAccountId'
     -> AccountsAvailsList
-accountsAvailsList pAalAccountId_ =
+accountsAvailsList pAalAccountId_ = 
     AccountsAvailsList'
     { _aalAltId = Nothing
     , _aalPphNames = Nothing
@@ -184,7 +184,7 @@ aalPphNames
       . _Coerce
 
 -- | V1 error format.
-aalXgafv :: Lens' AccountsAvailsList (Maybe Text)
+aalXgafv :: Lens' AccountsAvailsList (Maybe Xgafv)
 aalXgafv = lens _aalXgafv (\ s a -> s{_aalXgafv = a})
 
 -- | See _List methods rules_ for info about this field.

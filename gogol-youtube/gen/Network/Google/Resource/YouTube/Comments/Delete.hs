@@ -36,8 +36,8 @@ module Network.Google.Resource.YouTube.Comments.Delete
     , cdId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.delete@ method which the
 -- 'CommentsDelete' request conforms to.
@@ -63,7 +63,7 @@ newtype CommentsDelete = CommentsDelete'
 commentsDelete
     :: Text -- ^ 'cdId'
     -> CommentsDelete
-commentsDelete pCdId_ =
+commentsDelete pCdId_ = 
     CommentsDelete'
     { _cdId = pCdId_
     }

@@ -49,8 +49,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.Acknowledge
     , psaCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.acknowledge@ method which the
 -- 'ProjectsSubscriptionsAcknowledge' request conforms to.
@@ -77,15 +77,15 @@ type ProjectsSubscriptionsAcknowledgeResource =
 --
 -- /See:/ 'projectsSubscriptionsAcknowledge' smart constructor.
 data ProjectsSubscriptionsAcknowledge = ProjectsSubscriptionsAcknowledge'
-    { _psaXgafv          :: !(Maybe Xgafv)
+    { _psaXgafv :: !(Maybe Xgafv)
     , _psaUploadProtocol :: !(Maybe Text)
-    , _psaPp             :: !Bool
-    , _psaAccessToken    :: !(Maybe Text)
-    , _psaUploadType     :: !(Maybe Text)
-    , _psaPayload        :: !AcknowledgeRequest
-    , _psaBearerToken    :: !(Maybe Text)
-    , _psaSubscription   :: !Text
-    , _psaCallback       :: !(Maybe Text)
+    , _psaPp :: !Bool
+    , _psaAccessToken :: !(Maybe Text)
+    , _psaUploadType :: !(Maybe Text)
+    , _psaPayload :: !AcknowledgeRequest
+    , _psaBearerToken :: !(Maybe Text)
+    , _psaSubscription :: !Text
+    , _psaCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsAcknowledge' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ projectsSubscriptionsAcknowledge
     :: AcknowledgeRequest -- ^ 'psaPayload'
     -> Text -- ^ 'psaSubscription'
     -> ProjectsSubscriptionsAcknowledge
-projectsSubscriptionsAcknowledge pPsaPayload_ pPsaSubscription_ =
+projectsSubscriptionsAcknowledge pPsaPayload_ pPsaSubscription_ = 
     ProjectsSubscriptionsAcknowledge'
     { _psaXgafv = Nothing
     , _psaUploadProtocol = Nothing

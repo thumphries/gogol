@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Comments.MarkAsSpam
     , cmasId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.markAsSpam@ method which the
 -- 'CommentsMarkAsSpam' request conforms to.
@@ -66,7 +66,7 @@ newtype CommentsMarkAsSpam = CommentsMarkAsSpam'
 commentsMarkAsSpam
     :: Text -- ^ 'cmasId'
     -> CommentsMarkAsSpam
-commentsMarkAsSpam pCmasId_ =
+commentsMarkAsSpam pCmasId_ = 
     CommentsMarkAsSpam'
     { _cmasId = pCmasId_
     }

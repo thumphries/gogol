@@ -39,8 +39,8 @@ module Network.Google.Resource.SQL.Databases.Insert
     , diInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.databases.insert@ method which the
 -- 'DatabasesInsert' request conforms to.
@@ -60,8 +60,8 @@ type DatabasesInsertResource =
 --
 -- /See:/ 'databasesInsert' smart constructor.
 data DatabasesInsert = DatabasesInsert'
-    { _diProject  :: !Text
-    , _diPayload  :: !Database
+    { _diProject :: !Text
+    , _diPayload :: !Database
     , _diInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ databasesInsert
     -> Database -- ^ 'diPayload'
     -> Text -- ^ 'diInstance'
     -> DatabasesInsert
-databasesInsert pDiProject_ pDiPayload_ pDiInstance_ =
+databasesInsert pDiProject_ pDiPayload_ pDiInstance_ = 
     DatabasesInsert'
     { _diProject = pDiProject_
     , _diPayload = pDiPayload_

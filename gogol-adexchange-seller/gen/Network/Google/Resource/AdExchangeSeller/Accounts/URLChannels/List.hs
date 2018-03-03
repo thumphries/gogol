@@ -40,8 +40,8 @@ module Network.Google.Resource.AdExchangeSeller.Accounts.URLChannels.List
     , auclMaxResults
     ) where
 
-import           Network.Google.AdExchangeSeller.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeSeller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangeseller.accounts.urlchannels.list@ method which the
 -- 'AccountsURLChannelsList' request conforms to.
@@ -63,8 +63,8 @@ type AccountsURLChannelsListResource =
 -- /See:/ 'accountsURLChannelsList' smart constructor.
 data AccountsURLChannelsList = AccountsURLChannelsList'
     { _auclAdClientId :: !Text
-    , _auclAccountId  :: !Text
-    , _auclPageToken  :: !(Maybe Text)
+    , _auclAccountId :: !Text
+    , _auclPageToken :: !(Maybe Text)
     , _auclMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -83,7 +83,7 @@ accountsURLChannelsList
     :: Text -- ^ 'auclAdClientId'
     -> Text -- ^ 'auclAccountId'
     -> AccountsURLChannelsList
-accountsURLChannelsList pAuclAdClientId_ pAuclAccountId_ =
+accountsURLChannelsList pAuclAdClientId_ pAuclAccountId_ = 
     AccountsURLChannelsList'
     { _auclAdClientId = pAuclAdClientId_
     , _auclAccountId = pAuclAccountId_

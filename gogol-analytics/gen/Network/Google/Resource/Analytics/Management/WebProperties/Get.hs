@@ -37,8 +37,8 @@ module Network.Google.Resource.Analytics.Management.WebProperties.Get
     , mwpgAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webproperties.get@ method which the
 -- 'ManagementWebPropertiesGet' request conforms to.
@@ -57,7 +57,7 @@ type ManagementWebPropertiesGetResource =
 -- /See:/ 'managementWebPropertiesGet' smart constructor.
 data ManagementWebPropertiesGet = ManagementWebPropertiesGet'
     { _mwpgWebPropertyId :: !Text
-    , _mwpgAccountId     :: !Text
+    , _mwpgAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertiesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ managementWebPropertiesGet
     :: Text -- ^ 'mwpgWebPropertyId'
     -> Text -- ^ 'mwpgAccountId'
     -> ManagementWebPropertiesGet
-managementWebPropertiesGet pMwpgWebPropertyId_ pMwpgAccountId_ =
+managementWebPropertiesGet pMwpgWebPropertyId_ pMwpgAccountId_ = 
     ManagementWebPropertiesGet'
     { _mwpgWebPropertyId = pMwpgWebPropertyId_
     , _mwpgAccountId = pMwpgAccountId_

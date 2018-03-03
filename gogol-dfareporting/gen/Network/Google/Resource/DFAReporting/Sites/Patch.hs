@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Sites.Patch
     , spId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sites.patch@ method which the
 -- 'SitesPatch' request conforms to.
 type SitesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sites" :>
@@ -58,8 +58,8 @@ type SitesPatchResource =
 -- /See:/ 'sitesPatch' smart constructor.
 data SitesPatch = SitesPatch'
     { _spProFileId :: !(Textual Int64)
-    , _spPayload   :: !Site
-    , _spId        :: !(Textual Int64)
+    , _spPayload :: !Site
+    , _spId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitesPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ sitesPatch
     -> Site -- ^ 'spPayload'
     -> Int64 -- ^ 'spId'
     -> SitesPatch
-sitesPatch pSpProFileId_ pSpPayload_ pSpId_ =
+sitesPatch pSpProFileId_ pSpPayload_ pSpId_ = 
     SitesPatch'
     { _spProFileId = _Coerce # pSpProFileId_
     , _spPayload = pSpPayload_

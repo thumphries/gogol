@@ -51,15 +51,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Attachments.Delete
     , badCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.attachments.delete@ method which the
 -- 'BeaconsAttachmentsDelete' request conforms to.
 type BeaconsAttachmentsDeleteResource =
      "v1beta1" :>
        Capture "attachmentName" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -80,15 +80,15 @@ type BeaconsAttachmentsDeleteResource =
 --
 -- /See:/ 'beaconsAttachmentsDelete' smart constructor.
 data BeaconsAttachmentsDelete = BeaconsAttachmentsDelete'
-    { _badXgafv          :: !(Maybe Text)
+    { _badXgafv :: !(Maybe Xgafv)
     , _badUploadProtocol :: !(Maybe Text)
-    , _badPp             :: !Bool
-    , _badAccessToken    :: !(Maybe Text)
-    , _badUploadType     :: !(Maybe Text)
+    , _badPp :: !Bool
+    , _badAccessToken :: !(Maybe Text)
+    , _badUploadType :: !(Maybe Text)
     , _badAttachmentName :: !Text
-    , _badBearerToken    :: !(Maybe Text)
-    , _badProjectId      :: !(Maybe Text)
-    , _badCallback       :: !(Maybe Text)
+    , _badBearerToken :: !(Maybe Text)
+    , _badProjectId :: !(Maybe Text)
+    , _badCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsAttachmentsDelete' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data BeaconsAttachmentsDelete = BeaconsAttachmentsDelete'
 beaconsAttachmentsDelete
     :: Text -- ^ 'badAttachmentName'
     -> BeaconsAttachmentsDelete
-beaconsAttachmentsDelete pBadAttachmentName_ =
+beaconsAttachmentsDelete pBadAttachmentName_ = 
     BeaconsAttachmentsDelete'
     { _badXgafv = Nothing
     , _badUploadProtocol = Nothing
@@ -129,7 +129,7 @@ beaconsAttachmentsDelete pBadAttachmentName_ =
     }
 
 -- | V1 error format.
-badXgafv :: Lens' BeaconsAttachmentsDelete (Maybe Text)
+badXgafv :: Lens' BeaconsAttachmentsDelete (Maybe Xgafv)
 badXgafv = lens _badXgafv (\ s a -> s{_badXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

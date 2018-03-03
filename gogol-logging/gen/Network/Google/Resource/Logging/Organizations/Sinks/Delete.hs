@@ -44,8 +44,8 @@ module Network.Google.Resource.Logging.Organizations.Sinks.Delete
     , osdCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.organizations.sinks.delete@ method which the
 -- 'OrganizationsSinksDelete' request conforms to.
@@ -66,14 +66,14 @@ type OrganizationsSinksDeleteResource =
 --
 -- /See:/ 'organizationsSinksDelete' smart constructor.
 data OrganizationsSinksDelete = OrganizationsSinksDelete'
-    { _osdXgafv          :: !(Maybe Xgafv)
+    { _osdXgafv :: !(Maybe Xgafv)
     , _osdUploadProtocol :: !(Maybe Text)
-    , _osdPp             :: !Bool
-    , _osdAccessToken    :: !(Maybe Text)
-    , _osdUploadType     :: !(Maybe Text)
-    , _osdBearerToken    :: !(Maybe Text)
-    , _osdSinkName       :: !Text
-    , _osdCallback       :: !(Maybe Text)
+    , _osdPp :: !Bool
+    , _osdAccessToken :: !(Maybe Text)
+    , _osdUploadType :: !(Maybe Text)
+    , _osdBearerToken :: !(Maybe Text)
+    , _osdSinkName :: !Text
+    , _osdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrganizationsSinksDelete' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data OrganizationsSinksDelete = OrganizationsSinksDelete'
 organizationsSinksDelete
     :: Text -- ^ 'osdSinkName'
     -> OrganizationsSinksDelete
-organizationsSinksDelete pOsdSinkName_ =
+organizationsSinksDelete pOsdSinkName_ = 
     OrganizationsSinksDelete'
     { _osdXgafv = Nothing
     , _osdUploadProtocol = Nothing
@@ -145,10 +145,10 @@ osdBearerToken
 -- | Required. The full resource name of the sink to delete, including the
 -- parent resource and the sink identifier:
 -- \"projects\/[PROJECT_ID]\/sinks\/[SINK_ID]\"
--- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\" It is an error if
--- the sink does not exist. Example:
--- \"projects\/my-project-id\/sinks\/my-sink-id\". It is an error if the
--- sink does not exist.
+-- \"organizations\/[ORGANIZATION_ID]\/sinks\/[SINK_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\/sinks\/[SINK_ID]\"
+-- \"folders\/[FOLDER_ID]\/sinks\/[SINK_ID]\" Example:
+-- \"projects\/my-project-id\/sinks\/my-sink-id\".
 osdSinkName :: Lens' OrganizationsSinksDelete Text
 osdSinkName
   = lens _osdSinkName (\ s a -> s{_osdSinkName = a})

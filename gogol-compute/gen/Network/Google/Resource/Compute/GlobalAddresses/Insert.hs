@@ -34,12 +34,13 @@ module Network.Google.Resource.Compute.GlobalAddresses.Insert
     , GlobalAddressesInsert
 
     -- * Request Lenses
+    , gaiRequestId
     , gaiProject
     , gaiPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.globalAddresses.insert@ method which the
 -- 'GlobalAddressesInsert' request conforms to.
@@ -50,21 +51,25 @@ type GlobalAddressesInsertResource =
            Capture "project" Text :>
              "global" :>
                "addresses" :>
-                 QueryParam "alt" AltJSON :>
-                   ReqBody '[JSON] Address :> Post '[JSON] Operation
+                 QueryParam "requestId" Text :>
+                   QueryParam "alt" AltJSON :>
+                     ReqBody '[JSON] Address :> Post '[JSON] Operation
 
 -- | Creates an address resource in the specified project using the data
 -- included in the request.
 --
 -- /See:/ 'globalAddressesInsert' smart constructor.
 data GlobalAddressesInsert = GlobalAddressesInsert'
-    { _gaiProject :: !Text
+    { _gaiRequestId :: !(Maybe Text)
+    , _gaiProject :: !Text
     , _gaiPayload :: !Address
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GlobalAddressesInsert' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaiRequestId'
 --
 -- * 'gaiProject'
 --
@@ -73,11 +78,26 @@ globalAddressesInsert
     :: Text -- ^ 'gaiProject'
     -> Address -- ^ 'gaiPayload'
     -> GlobalAddressesInsert
-globalAddressesInsert pGaiProject_ pGaiPayload_ =
+globalAddressesInsert pGaiProject_ pGaiPayload_ = 
     GlobalAddressesInsert'
-    { _gaiProject = pGaiProject_
+    { _gaiRequestId = Nothing
+    , _gaiProject = pGaiProject_
     , _gaiPayload = pGaiPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+gaiRequestId :: Lens' GlobalAddressesInsert (Maybe Text)
+gaiRequestId
+  = lens _gaiRequestId (\ s a -> s{_gaiRequestId = a})
 
 -- | Project ID for this request.
 gaiProject :: Lens' GlobalAddressesInsert Text
@@ -95,7 +115,8 @@ instance GoogleRequest GlobalAddressesInsert where
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient GlobalAddressesInsert'{..}
-          = go _gaiProject (Just AltJSON) _gaiPayload
+          = go _gaiProject _gaiRequestId (Just AltJSON)
+              _gaiPayload
               computeService
           where go
                   = buildClient

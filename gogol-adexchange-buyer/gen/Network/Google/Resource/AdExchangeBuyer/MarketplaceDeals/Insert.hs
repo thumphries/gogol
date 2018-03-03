@@ -37,8 +37,8 @@ module Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Insert
     , mdiProposalId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.marketplacedeals.insert@ method which the
 -- 'MarketplaceDealsInsert' request conforms to.
@@ -57,7 +57,7 @@ type MarketplaceDealsInsertResource =
 --
 -- /See:/ 'marketplaceDealsInsert' smart constructor.
 data MarketplaceDealsInsert = MarketplaceDealsInsert'
-    { _mdiPayload    :: !AddOrderDealsRequest
+    { _mdiPayload :: !AddOrderDealsRequest
     , _mdiProposalId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ marketplaceDealsInsert
     :: AddOrderDealsRequest -- ^ 'mdiPayload'
     -> Text -- ^ 'mdiProposalId'
     -> MarketplaceDealsInsert
-marketplaceDealsInsert pMdiPayload_ pMdiProposalId_ =
+marketplaceDealsInsert pMdiPayload_ pMdiProposalId_ = 
     MarketplaceDealsInsert'
     { _mdiPayload = pMdiPayload_
     , _mdiProposalId = pMdiProposalId_

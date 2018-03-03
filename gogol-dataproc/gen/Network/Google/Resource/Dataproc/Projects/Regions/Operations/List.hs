@@ -21,10 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists operations that match the specified filter in the request. If the
--- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- server doesn\'t support this method, it returns UNIMPLEMENTED.NOTE: the
+-- name binding allows API services to override the binding to use
+-- different resource name schemes, such as users\/*\/operations. To
+-- override the binding, API services can add a binding such as
+-- \"\/v1\/{name=users\/*}\/operations\" to their service configuration.
+-- For backwards compatibility, the default name includes the operations
+-- collection id, however overriding users must ensure the name binding is
+-- the parent resource, without the operations collection id.
 --
 -- /See:/ <https://cloud.google.com/dataproc/ Google Cloud Dataproc API Reference> for @dataproc.projects.regions.operations.list@.
 module Network.Google.Resource.Dataproc.Projects.Regions.Operations.List
@@ -50,15 +54,15 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Operations.List
     , prolCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.operations.list@ method which the
 -- 'ProjectsRegionsOperationsList' request conforms to.
 type ProjectsRegionsOperationsListResource =
      "v1" :>
        Capture "name" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -72,24 +76,28 @@ type ProjectsRegionsOperationsListResource =
                                Get '[JSON] ListOperationsResponse
 
 -- | Lists operations that match the specified filter in the request. If the
--- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- server doesn\'t support this method, it returns UNIMPLEMENTED.NOTE: the
+-- name binding allows API services to override the binding to use
+-- different resource name schemes, such as users\/*\/operations. To
+-- override the binding, API services can add a binding such as
+-- \"\/v1\/{name=users\/*}\/operations\" to their service configuration.
+-- For backwards compatibility, the default name includes the operations
+-- collection id, however overriding users must ensure the name binding is
+-- the parent resource, without the operations collection id.
 --
 -- /See:/ 'projectsRegionsOperationsList' smart constructor.
 data ProjectsRegionsOperationsList = ProjectsRegionsOperationsList'
-    { _prolXgafv          :: !(Maybe Text)
+    { _prolXgafv :: !(Maybe Xgafv)
     , _prolUploadProtocol :: !(Maybe Text)
-    , _prolPp             :: !Bool
-    , _prolAccessToken    :: !(Maybe Text)
-    , _prolUploadType     :: !(Maybe Text)
-    , _prolBearerToken    :: !(Maybe Text)
-    , _prolName           :: !Text
-    , _prolFilter         :: !(Maybe Text)
-    , _prolPageToken      :: !(Maybe Text)
-    , _prolPageSize       :: !(Maybe (Textual Int32))
-    , _prolCallback       :: !(Maybe Text)
+    , _prolPp :: !Bool
+    , _prolAccessToken :: !(Maybe Text)
+    , _prolUploadType :: !(Maybe Text)
+    , _prolBearerToken :: !(Maybe Text)
+    , _prolName :: !Text
+    , _prolFilter :: !(Maybe Text)
+    , _prolPageToken :: !(Maybe Text)
+    , _prolPageSize :: !(Maybe (Textual Int32))
+    , _prolCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsOperationsList' with the minimum fields required to make a request.
@@ -120,7 +128,7 @@ data ProjectsRegionsOperationsList = ProjectsRegionsOperationsList'
 projectsRegionsOperationsList
     :: Text -- ^ 'prolName'
     -> ProjectsRegionsOperationsList
-projectsRegionsOperationsList pProlName_ =
+projectsRegionsOperationsList pProlName_ = 
     ProjectsRegionsOperationsList'
     { _prolXgafv = Nothing
     , _prolUploadProtocol = Nothing
@@ -136,7 +144,7 @@ projectsRegionsOperationsList pProlName_ =
     }
 
 -- | V1 error format.
-prolXgafv :: Lens' ProjectsRegionsOperationsList (Maybe Text)
+prolXgafv :: Lens' ProjectsRegionsOperationsList (Maybe Xgafv)
 prolXgafv
   = lens _prolXgafv (\ s a -> s{_prolXgafv = a})
 
@@ -168,7 +176,7 @@ prolBearerToken
   = lens _prolBearerToken
       (\ s a -> s{_prolBearerToken = a})
 
--- | The name of the operation collection.
+-- | The name of the operation\'s parent resource.
 prolName :: Lens' ProjectsRegionsOperationsList Text
 prolName = lens _prolName (\ s a -> s{_prolName = a})
 

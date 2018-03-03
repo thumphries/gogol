@@ -37,8 +37,8 @@ module Network.Google.Resource.Prediction.TrainedModels.Get
     , tmgId
     ) where
 
-import           Network.Google.Prediction.Types
-import           Network.Google.Prelude
+import Network.Google.Prediction.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @prediction.trainedmodels.get@ method which the
 -- 'TrainedModelsGet' request conforms to.
@@ -56,7 +56,7 @@ type TrainedModelsGetResource =
 -- /See:/ 'trainedModelsGet' smart constructor.
 data TrainedModelsGet = TrainedModelsGet'
     { _tmgProject :: !Text
-    , _tmgId      :: !Text
+    , _tmgId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TrainedModelsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ trainedModelsGet
     :: Text -- ^ 'tmgProject'
     -> Text -- ^ 'tmgId'
     -> TrainedModelsGet
-trainedModelsGet pTmgProject_ pTmgId_ =
+trainedModelsGet pTmgProject_ pTmgId_ = 
     TrainedModelsGet'
     { _tmgProject = pTmgProject_
     , _tmgId = pTmgId_

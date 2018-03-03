@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Domains.List
     , dlCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.domains.list@ method which the
 -- 'DomainsList' request conforms to.
@@ -65,12 +65,12 @@ newtype DomainsList = DomainsList'
 domainsList
     :: Text -- ^ 'dlCustomer'
     -> DomainsList
-domainsList pDlCustomer_ =
+domainsList pDlCustomer_ = 
     DomainsList'
     { _dlCustomer = pDlCustomer_
     }
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 dlCustomer :: Lens' DomainsList Text
 dlCustomer
   = lens _dlCustomer (\ s a -> s{_dlCustomer = a})

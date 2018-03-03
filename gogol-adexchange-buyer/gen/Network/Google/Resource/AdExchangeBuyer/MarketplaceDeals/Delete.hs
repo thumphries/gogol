@@ -37,8 +37,8 @@ module Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Delete
     , mddProposalId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.marketplacedeals.delete@ method which the
 -- 'MarketplaceDealsDelete' request conforms to.
@@ -57,7 +57,7 @@ type MarketplaceDealsDeleteResource =
 --
 -- /See:/ 'marketplaceDealsDelete' smart constructor.
 data MarketplaceDealsDelete = MarketplaceDealsDelete'
-    { _mddPayload    :: !DeleteOrderDealsRequest
+    { _mddPayload :: !DeleteOrderDealsRequest
     , _mddProposalId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ marketplaceDealsDelete
     :: DeleteOrderDealsRequest -- ^ 'mddPayload'
     -> Text -- ^ 'mddProposalId'
     -> MarketplaceDealsDelete
-marketplaceDealsDelete pMddPayload_ pMddProposalId_ =
+marketplaceDealsDelete pMddPayload_ pMddProposalId_ = 
     MarketplaceDealsDelete'
     { _mddPayload = pMddPayload_
     , _mddProposalId = pMddProposalId_

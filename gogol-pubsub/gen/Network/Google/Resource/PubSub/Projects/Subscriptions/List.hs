@@ -45,8 +45,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.List
     , pslCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.list@ method which the
 -- 'ProjectsSubscriptionsList' request conforms to.
@@ -70,16 +70,16 @@ type ProjectsSubscriptionsListResource =
 --
 -- /See:/ 'projectsSubscriptionsList' smart constructor.
 data ProjectsSubscriptionsList = ProjectsSubscriptionsList'
-    { _pslXgafv          :: !(Maybe Xgafv)
+    { _pslXgafv :: !(Maybe Xgafv)
     , _pslUploadProtocol :: !(Maybe Text)
-    , _pslProject        :: !Text
-    , _pslPp             :: !Bool
-    , _pslAccessToken    :: !(Maybe Text)
-    , _pslUploadType     :: !(Maybe Text)
-    , _pslBearerToken    :: !(Maybe Text)
-    , _pslPageToken      :: !(Maybe Text)
-    , _pslPageSize       :: !(Maybe (Textual Int32))
-    , _pslCallback       :: !(Maybe Text)
+    , _pslProject :: !Text
+    , _pslPp :: !Bool
+    , _pslAccessToken :: !(Maybe Text)
+    , _pslUploadType :: !(Maybe Text)
+    , _pslBearerToken :: !(Maybe Text)
+    , _pslPageToken :: !(Maybe Text)
+    , _pslPageSize :: !(Maybe (Textual Int32))
+    , _pslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data ProjectsSubscriptionsList = ProjectsSubscriptionsList'
 projectsSubscriptionsList
     :: Text -- ^ 'pslProject'
     -> ProjectsSubscriptionsList
-projectsSubscriptionsList pPslProject_ =
+projectsSubscriptionsList pPslProject_ = 
     ProjectsSubscriptionsList'
     { _pslXgafv = Nothing
     , _pslUploadProtocol = Nothing

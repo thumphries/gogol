@@ -54,8 +54,8 @@ module Network.Google.Resource.Partners.Companies.Get
     , cgCallback
     ) where
 
-import           Network.Google.Partners.Types
-import           Network.Google.Prelude
+import Network.Google.Partners.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @partners.companies.get@ method which the
 -- 'CompaniesGet' request conforms to.
@@ -63,7 +63,7 @@ type CompaniesGetResource =
      "v2" :>
        "companies" :>
          Capture "companyId" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "currencyCode" Text :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "orderBy" Text :>
@@ -103,25 +103,25 @@ type CompaniesGetResource =
 --
 -- /See:/ 'companiesGet' smart constructor.
 data CompaniesGet = CompaniesGet'
-    { _cgXgafv                                       :: !(Maybe Text)
-    , _cgCurrencyCode                                :: !(Maybe Text)
-    , _cgUploadProtocol                              :: !(Maybe Text)
-    , _cgCompanyId                                   :: !Text
-    , _cgOrderBy                                     :: !(Maybe Text)
-    , _cgPp                                          :: !Bool
-    , _cgAccessToken                                 :: !(Maybe Text)
-    , _cgUploadType                                  :: !(Maybe Text)
-    , _cgAddress                                     :: !(Maybe Text)
-    , _cgRequestMetadataPartnersSessionId            :: !(Maybe Text)
-    , _cgBearerToken                                 :: !(Maybe Text)
-    , _cgRequestMetadataLocale                       :: !(Maybe Text)
-    , _cgView                                        :: !(Maybe Text)
-    , _cgRequestMetadataExperimentIds                :: !(Maybe [Text])
-    , _cgRequestMetadataUserOverridesIPAddress       :: !(Maybe Text)
-    , _cgRequestMetadataTrafficSourceTrafficSubId    :: !(Maybe Text)
-    , _cgRequestMetadataUserOverridesUserId          :: !(Maybe Text)
+    { _cgXgafv :: !(Maybe Xgafv)
+    , _cgCurrencyCode :: !(Maybe Text)
+    , _cgUploadProtocol :: !(Maybe Text)
+    , _cgCompanyId :: !Text
+    , _cgOrderBy :: !(Maybe Text)
+    , _cgPp :: !Bool
+    , _cgAccessToken :: !(Maybe Text)
+    , _cgUploadType :: !(Maybe Text)
+    , _cgAddress :: !(Maybe Text)
+    , _cgRequestMetadataPartnersSessionId :: !(Maybe Text)
+    , _cgBearerToken :: !(Maybe Text)
+    , _cgRequestMetadataLocale :: !(Maybe Text)
+    , _cgView :: !(Maybe Text)
+    , _cgRequestMetadataExperimentIds :: !(Maybe [Text])
+    , _cgRequestMetadataUserOverridesIPAddress :: !(Maybe Text)
+    , _cgRequestMetadataTrafficSourceTrafficSubId :: !(Maybe Text)
+    , _cgRequestMetadataUserOverridesUserId :: !(Maybe Text)
     , _cgRequestMetadataTrafficSourceTrafficSourceId :: !(Maybe Text)
-    , _cgCallback                                    :: !(Maybe Text)
+    , _cgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompaniesGet' with the minimum fields required to make a request.
@@ -168,7 +168,7 @@ data CompaniesGet = CompaniesGet'
 companiesGet
     :: Text -- ^ 'cgCompanyId'
     -> CompaniesGet
-companiesGet pCgCompanyId_ =
+companiesGet pCgCompanyId_ = 
     CompaniesGet'
     { _cgXgafv = Nothing
     , _cgCurrencyCode = Nothing
@@ -192,7 +192,7 @@ companiesGet pCgCompanyId_ =
     }
 
 -- | V1 error format.
-cgXgafv :: Lens' CompaniesGet (Maybe Text)
+cgXgafv :: Lens' CompaniesGet (Maybe Xgafv)
 cgXgafv = lens _cgXgafv (\ s a -> s{_cgXgafv = a})
 
 -- | If the company\'s budget is in a different currency code than this one,

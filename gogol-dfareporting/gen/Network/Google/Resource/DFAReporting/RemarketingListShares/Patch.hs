@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.RemarketingListShares.Patch
     , rlspRemarketingListId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.remarketingListShares.patch@ method which the
 -- 'RemarketingListSharesPatch' request conforms to.
 type RemarketingListSharesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "remarketingListShares" :>
@@ -60,8 +60,8 @@ type RemarketingListSharesPatchResource =
 --
 -- /See:/ 'remarketingListSharesPatch' smart constructor.
 data RemarketingListSharesPatch = RemarketingListSharesPatch'
-    { _rlspProFileId         :: !(Textual Int64)
-    , _rlspPayload           :: !RemarketingListShare
+    { _rlspProFileId :: !(Textual Int64)
+    , _rlspPayload :: !RemarketingListShare
     , _rlspRemarketingListId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ remarketingListSharesPatch
     -> RemarketingListShare -- ^ 'rlspPayload'
     -> Int64 -- ^ 'rlspRemarketingListId'
     -> RemarketingListSharesPatch
-remarketingListSharesPatch pRlspProFileId_ pRlspPayload_ pRlspRemarketingListId_ =
+remarketingListSharesPatch pRlspProFileId_ pRlspPayload_ pRlspRemarketingListId_ = 
     RemarketingListSharesPatch'
     { _rlspProFileId = _Coerce # pRlspProFileId_
     , _rlspPayload = pRlspPayload_

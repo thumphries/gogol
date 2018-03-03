@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.TargetHTTPProxies.Get
     , thttppgTargetHTTPProxy
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.targetHttpProxies.get@ method which the
 -- 'TargetHTTPProxiesGet' request conforms to.
@@ -59,7 +59,7 @@ type TargetHTTPProxiesGetResource =
 --
 -- /See:/ 'targetHTTPProxiesGet' smart constructor.
 data TargetHTTPProxiesGet = TargetHTTPProxiesGet'
-    { _thttppgProject         :: !Text
+    { _thttppgProject :: !Text
     , _thttppgTargetHTTPProxy :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ targetHTTPProxiesGet
     :: Text -- ^ 'thttppgProject'
     -> Text -- ^ 'thttppgTargetHTTPProxy'
     -> TargetHTTPProxiesGet
-targetHTTPProxiesGet pThttppgProject_ pThttppgTargetHTTPProxy_ =
+targetHTTPProxiesGet pThttppgProject_ pThttppgTargetHTTPProxy_ = 
     TargetHTTPProxiesGet'
     { _thttppgProject = pThttppgProject_
     , _thttppgTargetHTTPProxy = pThttppgTargetHTTPProxy_

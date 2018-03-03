@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the jobs of a project.
+-- List the jobs of a project in a given region.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.list@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.list@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.List
     (
     -- * REST Resource
@@ -48,8 +48,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.List
     , pjlCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.list@ method which the
 -- 'ProjectsJobsList' request conforms to.
@@ -58,7 +58,7 @@ type ProjectsJobsListResource =
        "projects" :>
          Capture "projectId" Text :>
            "jobs" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "location" Text :>
                    QueryParam "pp" Bool :>
@@ -73,23 +73,23 @@ type ProjectsJobsListResource =
                                      QueryParam "alt" AltJSON :>
                                        Get '[JSON] ListJobsResponse
 
--- | List the jobs of a project.
+-- | List the jobs of a project in a given region.
 --
 -- /See:/ 'projectsJobsList' smart constructor.
 data ProjectsJobsList = ProjectsJobsList'
-    { _pjlXgafv          :: !(Maybe Text)
+    { _pjlXgafv :: !(Maybe Xgafv)
     , _pjlUploadProtocol :: !(Maybe Text)
-    , _pjlLocation       :: !(Maybe Text)
-    , _pjlPp             :: !Bool
-    , _pjlAccessToken    :: !(Maybe Text)
-    , _pjlUploadType     :: !(Maybe Text)
-    , _pjlBearerToken    :: !(Maybe Text)
-    , _pjlView           :: !(Maybe Text)
-    , _pjlFilter         :: !(Maybe Text)
-    , _pjlPageToken      :: !(Maybe Text)
-    , _pjlProjectId      :: !Text
-    , _pjlPageSize       :: !(Maybe (Textual Int32))
-    , _pjlCallback       :: !(Maybe Text)
+    , _pjlLocation :: !(Maybe Text)
+    , _pjlPp :: !Bool
+    , _pjlAccessToken :: !(Maybe Text)
+    , _pjlUploadType :: !(Maybe Text)
+    , _pjlBearerToken :: !(Maybe Text)
+    , _pjlView :: !(Maybe Text)
+    , _pjlFilter :: !(Maybe Text)
+    , _pjlPageToken :: !(Maybe Text)
+    , _pjlProjectId :: !Text
+    , _pjlPageSize :: !(Maybe (Textual Int32))
+    , _pjlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsList' with the minimum fields required to make a request.
@@ -124,7 +124,7 @@ data ProjectsJobsList = ProjectsJobsList'
 projectsJobsList
     :: Text -- ^ 'pjlProjectId'
     -> ProjectsJobsList
-projectsJobsList pPjlProjectId_ =
+projectsJobsList pPjlProjectId_ = 
     ProjectsJobsList'
     { _pjlXgafv = Nothing
     , _pjlUploadProtocol = Nothing
@@ -142,7 +142,7 @@ projectsJobsList pPjlProjectId_ =
     }
 
 -- | V1 error format.
-pjlXgafv :: Lens' ProjectsJobsList (Maybe Text)
+pjlXgafv :: Lens' ProjectsJobsList (Maybe Xgafv)
 pjlXgafv = lens _pjlXgafv (\ s a -> s{_pjlXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -216,6 +216,8 @@ instance GoogleRequest ProjectsJobsList where
         type Rs ProjectsJobsList = ListJobsResponse
         type Scopes ProjectsJobsList =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsList'{..}
           = go _pjlProjectId _pjlXgafv _pjlUploadProtocol

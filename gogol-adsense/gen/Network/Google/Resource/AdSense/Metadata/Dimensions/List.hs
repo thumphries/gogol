@@ -34,8 +34,8 @@ module Network.Google.Resource.AdSense.Metadata.Dimensions.List
 
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.metadata.dimensions.list@ method which the
 -- 'MetadataDimensionsList' request conforms to.
@@ -50,7 +50,7 @@ type MetadataDimensionsListResource =
 --
 -- /See:/ 'metadataDimensionsList' smart constructor.
 data MetadataDimensionsList =
-    MetadataDimensionsList'
+    MetadataDimensionsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetadataDimensionsList' with the minimum fields required to make a request.

@@ -36,8 +36,8 @@ module Network.Google.Resource.Calendar.Settings.Get
     , sgSetting
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.settings.get@ method which the
 -- 'SettingsGet' request conforms to.
@@ -65,7 +65,7 @@ newtype SettingsGet = SettingsGet'
 settingsGet
     :: Text -- ^ 'sgSetting'
     -> SettingsGet
-settingsGet pSgSetting_ =
+settingsGet pSgSetting_ = 
     SettingsGet'
     { _sgSetting = pSgSetting_
     }

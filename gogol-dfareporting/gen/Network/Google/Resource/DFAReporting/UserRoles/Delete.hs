@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.UserRoles.Delete
     , urdId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRoles.delete@ method which the
 -- 'UserRolesDelete' request conforms to.
 type UserRolesDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRoles" :>
@@ -56,7 +56,7 @@ type UserRolesDeleteResource =
 -- /See:/ 'userRolesDelete' smart constructor.
 data UserRolesDelete = UserRolesDelete'
     { _urdProFileId :: !(Textual Int64)
-    , _urdId        :: !(Textual Int64)
+    , _urdId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserRolesDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ userRolesDelete
     :: Int64 -- ^ 'urdProFileId'
     -> Int64 -- ^ 'urdId'
     -> UserRolesDelete
-userRolesDelete pUrdProFileId_ pUrdId_ =
+userRolesDelete pUrdProFileId_ pUrdId_ = 
     UserRolesDelete'
     { _urdProFileId = _Coerce # pUrdProFileId_
     , _urdId = _Coerce # pUrdId_

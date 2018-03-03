@@ -43,14 +43,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.List
     , cclMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.list@ method which the
 -- 'ContentCategoriesList' request conforms to.
 type ContentCategoriesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -71,12 +71,12 @@ type ContentCategoriesListResource =
 -- /See:/ 'contentCategoriesList' smart constructor.
 data ContentCategoriesList = ContentCategoriesList'
     { _cclSearchString :: !(Maybe Text)
-    , _cclIds          :: !(Maybe [Textual Int64])
-    , _cclProFileId    :: !(Textual Int64)
-    , _cclSortOrder    :: !(Maybe ContentCategoriesListSortOrder)
-    , _cclPageToken    :: !(Maybe Text)
-    , _cclSortField    :: !(Maybe ContentCategoriesListSortField)
-    , _cclMaxResults   :: !(Maybe (Textual Int32))
+    , _cclIds :: !(Maybe [Textual Int64])
+    , _cclProFileId :: !(Textual Int64)
+    , _cclSortOrder :: !ContentCategoriesListSortOrder
+    , _cclPageToken :: !(Maybe Text)
+    , _cclSortField :: !ContentCategoriesListSortField
+    , _cclMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesList' with the minimum fields required to make a request.
@@ -99,15 +99,15 @@ data ContentCategoriesList = ContentCategoriesList'
 contentCategoriesList
     :: Int64 -- ^ 'cclProFileId'
     -> ContentCategoriesList
-contentCategoriesList pCclProFileId_ =
+contentCategoriesList pCclProFileId_ = 
     ContentCategoriesList'
     { _cclSearchString = Nothing
     , _cclIds = Nothing
     , _cclProFileId = _Coerce # pCclProFileId_
-    , _cclSortOrder = Nothing
+    , _cclSortOrder = CCLSOAscending
     , _cclPageToken = Nothing
-    , _cclSortField = Nothing
-    , _cclMaxResults = Nothing
+    , _cclSortField = CCLSFID
+    , _cclMaxResults = 1000
     }
 
 -- | Allows searching for objects by name or ID. Wildcards (*) are allowed.
@@ -135,8 +135,8 @@ cclProFileId
   = lens _cclProFileId (\ s a -> s{_cclProFileId = a})
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-cclSortOrder :: Lens' ContentCategoriesList (Maybe ContentCategoriesListSortOrder)
+-- | Order of sorted results.
+cclSortOrder :: Lens' ContentCategoriesList ContentCategoriesListSortOrder
 cclSortOrder
   = lens _cclSortOrder (\ s a -> s{_cclSortOrder = a})
 
@@ -146,16 +146,16 @@ cclPageToken
   = lens _cclPageToken (\ s a -> s{_cclPageToken = a})
 
 -- | Field by which to sort the list.
-cclSortField :: Lens' ContentCategoriesList (Maybe ContentCategoriesListSortField)
+cclSortField :: Lens' ContentCategoriesList ContentCategoriesListSortField
 cclSortField
   = lens _cclSortField (\ s a -> s{_cclSortField = a})
 
 -- | Maximum number of results to return.
-cclMaxResults :: Lens' ContentCategoriesList (Maybe Int32)
+cclMaxResults :: Lens' ContentCategoriesList Int32
 cclMaxResults
   = lens _cclMaxResults
       (\ s a -> s{_cclMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest ContentCategoriesList where
         type Rs ContentCategoriesList =
@@ -165,10 +165,10 @@ instance GoogleRequest ContentCategoriesList where
         requestClient ContentCategoriesList'{..}
           = go _cclProFileId _cclSearchString
               (_cclIds ^. _Default)
-              _cclSortOrder
+              (Just _cclSortOrder)
               _cclPageToken
-              _cclSortField
-              _cclMaxResults
+              (Just _cclSortField)
+              (Just _cclMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

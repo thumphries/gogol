@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Devices.Get
     , dgDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.devices.get@ method which the
 -- 'DevicesGet' request conforms to.
@@ -59,8 +59,8 @@ type DevicesGetResource =
 -- /See:/ 'devicesGet' smart constructor.
 data DevicesGet = DevicesGet'
     { _dgEnterpriseId :: !Text
-    , _dgUserId       :: !Text
-    , _dgDeviceId     :: !Text
+    , _dgUserId :: !Text
+    , _dgDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DevicesGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ devicesGet
     -> Text -- ^ 'dgUserId'
     -> Text -- ^ 'dgDeviceId'
     -> DevicesGet
-devicesGet pDgEnterpriseId_ pDgUserId_ pDgDeviceId_ =
+devicesGet pDgEnterpriseId_ pDgUserId_ pDgDeviceId_ = 
     DevicesGet'
     { _dgEnterpriseId = pDgEnterpriseId_
     , _dgUserId = pDgUserId_

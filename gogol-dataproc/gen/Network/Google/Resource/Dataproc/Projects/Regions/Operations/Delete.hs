@@ -23,7 +23,7 @@
 -- Deletes a long-running operation. This method indicates that the client
 -- is no longer interested in the operation result. It does not cancel the
 -- operation. If the server doesn\'t support this method, it returns
--- \`google.rpc.Code.UNIMPLEMENTED\`.
+-- google.rpc.Code.UNIMPLEMENTED.
 --
 -- /See:/ <https://cloud.google.com/dataproc/ Google Cloud Dataproc API Reference> for @dataproc.projects.regions.operations.delete@.
 module Network.Google.Resource.Dataproc.Projects.Regions.Operations.Delete
@@ -46,15 +46,15 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Operations.Delete
     , prodCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.operations.delete@ method which the
 -- 'ProjectsRegionsOperationsDelete' request conforms to.
 type ProjectsRegionsOperationsDeleteResource =
      "v1" :>
        Capture "name" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -66,18 +66,18 @@ type ProjectsRegionsOperationsDeleteResource =
 -- | Deletes a long-running operation. This method indicates that the client
 -- is no longer interested in the operation result. It does not cancel the
 -- operation. If the server doesn\'t support this method, it returns
--- \`google.rpc.Code.UNIMPLEMENTED\`.
+-- google.rpc.Code.UNIMPLEMENTED.
 --
 -- /See:/ 'projectsRegionsOperationsDelete' smart constructor.
 data ProjectsRegionsOperationsDelete = ProjectsRegionsOperationsDelete'
-    { _prodXgafv          :: !(Maybe Text)
+    { _prodXgafv :: !(Maybe Xgafv)
     , _prodUploadProtocol :: !(Maybe Text)
-    , _prodPp             :: !Bool
-    , _prodAccessToken    :: !(Maybe Text)
-    , _prodUploadType     :: !(Maybe Text)
-    , _prodBearerToken    :: !(Maybe Text)
-    , _prodName           :: !Text
-    , _prodCallback       :: !(Maybe Text)
+    , _prodPp :: !Bool
+    , _prodAccessToken :: !(Maybe Text)
+    , _prodUploadType :: !(Maybe Text)
+    , _prodBearerToken :: !(Maybe Text)
+    , _prodName :: !Text
+    , _prodCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsOperationsDelete' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data ProjectsRegionsOperationsDelete = ProjectsRegionsOperationsDelete'
 projectsRegionsOperationsDelete
     :: Text -- ^ 'prodName'
     -> ProjectsRegionsOperationsDelete
-projectsRegionsOperationsDelete pProdName_ =
+projectsRegionsOperationsDelete pProdName_ = 
     ProjectsRegionsOperationsDelete'
     { _prodXgafv = Nothing
     , _prodUploadProtocol = Nothing
@@ -115,7 +115,7 @@ projectsRegionsOperationsDelete pProdName_ =
     }
 
 -- | V1 error format.
-prodXgafv :: Lens' ProjectsRegionsOperationsDelete (Maybe Text)
+prodXgafv :: Lens' ProjectsRegionsOperationsDelete (Maybe Xgafv)
 prodXgafv
   = lens _prodXgafv (\ s a -> s{_prodXgafv = a})
 

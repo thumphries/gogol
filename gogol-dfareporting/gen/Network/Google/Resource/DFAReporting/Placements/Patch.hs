@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Placements.Patch
     , ppId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.patch@ method which the
 -- 'PlacementsPatch' request conforms to.
 type PlacementsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -58,8 +58,8 @@ type PlacementsPatchResource =
 -- /See:/ 'placementsPatch' smart constructor.
 data PlacementsPatch = PlacementsPatch'
     { _ppProFileId :: !(Textual Int64)
-    , _ppPayload   :: !Placement
-    , _ppId        :: !(Textual Int64)
+    , _ppPayload :: !Placement
+    , _ppId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementsPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ placementsPatch
     -> Placement -- ^ 'ppPayload'
     -> Int64 -- ^ 'ppId'
     -> PlacementsPatch
-placementsPatch pPpProFileId_ pPpPayload_ pPpId_ =
+placementsPatch pPpProFileId_ pPpPayload_ pPpId_ = 
     PlacementsPatch'
     { _ppProFileId = _Coerce # pPpProFileId_
     , _ppPayload = pPpPayload_

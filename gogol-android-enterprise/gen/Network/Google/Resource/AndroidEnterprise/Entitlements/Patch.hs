@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.Entitlements.Patch
     , epUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.entitlements.patch@ method which the
 -- 'EntitlementsPatch' request conforms to.
@@ -66,10 +66,10 @@ type EntitlementsPatchResource =
 -- /See:/ 'entitlementsPatch' smart constructor.
 data EntitlementsPatch = EntitlementsPatch'
     { _epEntitlementId :: !Text
-    , _epEnterpriseId  :: !Text
-    , _epPayload       :: !Entitlement
-    , _epInstall       :: !(Maybe Bool)
-    , _epUserId        :: !Text
+    , _epEnterpriseId :: !Text
+    , _epPayload :: !Entitlement
+    , _epInstall :: !(Maybe Bool)
+    , _epUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsPatch' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ entitlementsPatch
     -> Entitlement -- ^ 'epPayload'
     -> Text -- ^ 'epUserId'
     -> EntitlementsPatch
-entitlementsPatch pEpEntitlementId_ pEpEnterpriseId_ pEpPayload_ pEpUserId_ =
+entitlementsPatch pEpEntitlementId_ pEpEnterpriseId_ pEpPayload_ pEpUserId_ = 
     EntitlementsPatch'
     { _epEntitlementId = pEpEntitlementId_
     , _epEnterpriseId = pEpEnterpriseId_

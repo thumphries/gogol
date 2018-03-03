@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Addresses.Get
     , addRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.addresses.get@ method which the
 -- 'AddressesGet' request conforms to.
@@ -60,7 +60,7 @@ type AddressesGetResource =
 data AddressesGet = AddressesGet'
     { _addProject :: !Text
     , _addAddress :: !Text
-    , _addRegion  :: !Text
+    , _addRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddressesGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ addressesGet
     -> Text -- ^ 'addAddress'
     -> Text -- ^ 'addRegion'
     -> AddressesGet
-addressesGet pAddProject_ pAddAddress_ pAddRegion_ =
+addressesGet pAddProject_ pAddAddress_ pAddRegion_ = 
     AddressesGet'
     { _addProject = pAddProject_
     , _addAddress = pAddAddress_

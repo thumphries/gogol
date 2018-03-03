@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.ExpansionFiles.Upload
     , eEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.expansionfiles.upload@ method which the
 -- 'EditsExpansionFilesUpload' request conforms to.
@@ -82,10 +82,10 @@ type EditsExpansionFilesUploadResource =
 --
 -- /See:/ 'editsExpansionFilesUpload' smart constructor.
 data EditsExpansionFilesUpload = EditsExpansionFilesUpload'
-    { _ePackageName       :: !Text
-    , _eAPKVersionCode    :: !(Textual Int32)
+    { _ePackageName :: !Text
+    , _eAPKVersionCode :: !(Textual Int32)
     , _eExpansionFileType :: !EditsExpansionFilesUploadExpansionFileType
-    , _eEditId            :: !Text
+    , _eEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsExpansionFilesUpload' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ editsExpansionFilesUpload
     -> EditsExpansionFilesUploadExpansionFileType -- ^ 'eExpansionFileType'
     -> Text -- ^ 'eEditId'
     -> EditsExpansionFilesUpload
-editsExpansionFilesUpload pEPackageName_ pEAPKVersionCode_ pEExpansionFileType_ pEEditId_ =
+editsExpansionFilesUpload pEPackageName_ pEAPKVersionCode_ pEExpansionFileType_ pEEditId_ = 
     EditsExpansionFilesUpload'
     { _ePackageName = pEPackageName_
     , _eAPKVersionCode = _Coerce # pEAPKVersionCode_

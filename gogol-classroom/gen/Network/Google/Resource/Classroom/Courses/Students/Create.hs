@@ -53,8 +53,8 @@ module Network.Google.Resource.Classroom.Courses.Students.Create
     , cscCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.students.create@ method which the
 -- 'CoursesStudentsCreate' request conforms to.
@@ -63,7 +63,7 @@ type CoursesStudentsCreateResource =
        "courses" :>
          Capture "courseId" Text :>
            "students" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -86,16 +86,16 @@ type CoursesStudentsCreateResource =
 --
 -- /See:/ 'coursesStudentsCreate' smart constructor.
 data CoursesStudentsCreate = CoursesStudentsCreate'
-    { _cscXgafv          :: !(Maybe Text)
+    { _cscXgafv :: !(Maybe Xgafv)
     , _cscUploadProtocol :: !(Maybe Text)
-    , _cscPp             :: !Bool
-    , _cscCourseId       :: !Text
-    , _cscAccessToken    :: !(Maybe Text)
-    , _cscUploadType     :: !(Maybe Text)
-    , _cscPayload        :: !Student
+    , _cscPp :: !Bool
+    , _cscCourseId :: !Text
+    , _cscAccessToken :: !(Maybe Text)
+    , _cscUploadType :: !(Maybe Text)
+    , _cscPayload :: !Student
     , _cscEnrollmentCode :: !(Maybe Text)
-    , _cscBearerToken    :: !(Maybe Text)
-    , _cscCallback       :: !(Maybe Text)
+    , _cscBearerToken :: !(Maybe Text)
+    , _cscCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesStudentsCreate' with the minimum fields required to make a request.
@@ -125,7 +125,7 @@ coursesStudentsCreate
     :: Text -- ^ 'cscCourseId'
     -> Student -- ^ 'cscPayload'
     -> CoursesStudentsCreate
-coursesStudentsCreate pCscCourseId_ pCscPayload_ =
+coursesStudentsCreate pCscCourseId_ pCscPayload_ = 
     CoursesStudentsCreate'
     { _cscXgafv = Nothing
     , _cscUploadProtocol = Nothing
@@ -140,7 +140,7 @@ coursesStudentsCreate pCscCourseId_ pCscPayload_ =
     }
 
 -- | V1 error format.
-cscXgafv :: Lens' CoursesStudentsCreate (Maybe Text)
+cscXgafv :: Lens' CoursesStudentsCreate (Maybe Xgafv)
 cscXgafv = lens _cscXgafv (\ s a -> s{_cscXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

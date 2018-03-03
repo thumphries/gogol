@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a calendar resource.
+-- Updates a calendar resource. This method supports patch semantics,
+-- meaning you only need to include the fields you wish to update. Fields
+-- that are not present in the request will be preserved.
 --
 -- /See:/ <https://developers.google.com/admin-sdk/directory/ Admin Directory API Reference> for @directory.resources.calendars.update@.
 module Network.Google.Resource.Directory.Resources.Calendars.Update
@@ -38,8 +40,8 @@ module Network.Google.Resource.Directory.Resources.Calendars.Update
     , rcuCalendarResourceId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.resources.calendars.update@ method which the
 -- 'ResourcesCalendarsUpdate' request conforms to.
@@ -56,12 +58,14 @@ type ResourcesCalendarsUpdateResource =
                        ReqBody '[JSON] CalendarResource :>
                          Put '[JSON] CalendarResource
 
--- | Updates a calendar resource.
+-- | Updates a calendar resource. This method supports patch semantics,
+-- meaning you only need to include the fields you wish to update. Fields
+-- that are not present in the request will be preserved.
 --
 -- /See:/ 'resourcesCalendarsUpdate' smart constructor.
 data ResourcesCalendarsUpdate = ResourcesCalendarsUpdate'
-    { _rcuPayload            :: !CalendarResource
-    , _rcuCustomer           :: !Text
+    { _rcuPayload :: !CalendarResource
+    , _rcuCustomer :: !Text
     , _rcuCalendarResourceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +83,7 @@ resourcesCalendarsUpdate
     -> Text -- ^ 'rcuCustomer'
     -> Text -- ^ 'rcuCalendarResourceId'
     -> ResourcesCalendarsUpdate
-resourcesCalendarsUpdate pRcuPayload_ pRcuCustomer_ pRcuCalendarResourceId_ =
+resourcesCalendarsUpdate pRcuPayload_ pRcuCustomer_ pRcuCalendarResourceId_ = 
     ResourcesCalendarsUpdate'
     { _rcuPayload = pRcuPayload_
     , _rcuCustomer = pRcuCustomer_
@@ -91,7 +95,7 @@ rcuPayload :: Lens' ResourcesCalendarsUpdate CalendarResource
 rcuPayload
   = lens _rcuPayload (\ s a -> s{_rcuPayload = a})
 
--- | The unique ID for the customer\'s Google account. As an account
+-- | The unique ID for the customer\'s G Suite account. As an account
 -- administrator, you can also use the my_customer alias to represent your
 -- account\'s customer ID.
 rcuCustomer :: Lens' ResourcesCalendarsUpdate Text

@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Users.Delete
     , udUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.delete@ method which the
 -- 'UsersDelete' request conforms to.
@@ -64,12 +64,12 @@ newtype UsersDelete = UsersDelete'
 usersDelete
     :: Text -- ^ 'udUserKey'
     -> UsersDelete
-usersDelete pUdUserKey_ =
+usersDelete pUdUserKey_ = 
     UsersDelete'
     { _udUserKey = pUdUserKey_
     }
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 udUserKey :: Lens' UsersDelete Text
 udUserKey
   = lens _udUserKey (\ s a -> s{_udUserKey = a})

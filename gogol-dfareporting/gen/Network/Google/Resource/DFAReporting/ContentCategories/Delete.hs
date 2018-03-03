@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.ContentCategories.Delete
     , ccdId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.contentCategories.delete@ method which the
 -- 'ContentCategoriesDelete' request conforms to.
 type ContentCategoriesDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "contentCategories" :>
@@ -56,7 +56,7 @@ type ContentCategoriesDeleteResource =
 -- /See:/ 'contentCategoriesDelete' smart constructor.
 data ContentCategoriesDelete = ContentCategoriesDelete'
     { _ccdProFileId :: !(Textual Int64)
-    , _ccdId        :: !(Textual Int64)
+    , _ccdId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContentCategoriesDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ contentCategoriesDelete
     :: Int64 -- ^ 'ccdProFileId'
     -> Int64 -- ^ 'ccdId'
     -> ContentCategoriesDelete
-contentCategoriesDelete pCcdProFileId_ pCcdId_ =
+contentCategoriesDelete pCcdProFileId_ pCcdId_ = 
     ContentCategoriesDelete'
     { _ccdProFileId = _Coerce # pCcdProFileId_
     , _ccdId = _Coerce # pCcdId_

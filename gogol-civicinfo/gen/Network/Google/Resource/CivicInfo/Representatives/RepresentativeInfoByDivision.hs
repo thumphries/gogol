@@ -40,8 +40,8 @@ module Network.Google.Resource.CivicInfo.Representatives.RepresentativeInfoByDiv
     , rribdLevels
     ) where
 
-import           Network.Google.CivicInfo.Types
-import           Network.Google.Prelude
+import Network.Google.CivicInfo.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @civicinfo.representatives.representativeInfoByDivision@ method which the
 -- 'RepresentativesRepresentativeInfoByDivision' request conforms to.
@@ -66,11 +66,11 @@ type RepresentativesRepresentativeInfoByDivisionResource
 --
 -- /See:/ 'representativesRepresentativeInfoByDivision' smart constructor.
 data RepresentativesRepresentativeInfoByDivision = RepresentativesRepresentativeInfoByDivision'
-    { _rribdRoles     :: !(Maybe [RepresentativesRepresentativeInfoByDivisionRoles])
-    , _rribdPayload   :: !DivisionRepresentativeInfoRequest
+    { _rribdRoles :: !(Maybe [RepresentativesRepresentativeInfoByDivisionRoles])
+    , _rribdPayload :: !DivisionRepresentativeInfoRequest
     , _rribdRecursive :: !(Maybe Bool)
-    , _rribdOcdId     :: !Text
-    , _rribdLevels    :: !(Maybe [RepresentativesRepresentativeInfoByDivisionLevels])
+    , _rribdOcdId :: !Text
+    , _rribdLevels :: !(Maybe [RepresentativesRepresentativeInfoByDivisionLevels])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RepresentativesRepresentativeInfoByDivision' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ representativesRepresentativeInfoByDivision
     :: DivisionRepresentativeInfoRequest -- ^ 'rribdPayload'
     -> Text -- ^ 'rribdOcdId'
     -> RepresentativesRepresentativeInfoByDivision
-representativesRepresentativeInfoByDivision pRribdPayload_ pRribdOcdId_ =
+representativesRepresentativeInfoByDivision pRribdPayload_ pRribdOcdId_ = 
     RepresentativesRepresentativeInfoByDivision'
     { _rribdRoles = Nothing
     , _rribdPayload = pRribdPayload_

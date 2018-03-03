@@ -43,8 +43,8 @@ module Network.Google.Resource.Vision.Images.Annotate
     , iaCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Vision.Types
+import Network.Google.Prelude
+import Network.Google.Vision.Types
 
 -- | A resource alias for @vision.images.annotate@ method which the
 -- 'ImagesAnnotate' request conforms to.
@@ -66,14 +66,14 @@ type ImagesAnnotateResource =
 --
 -- /See:/ 'imagesAnnotate' smart constructor.
 data ImagesAnnotate = ImagesAnnotate'
-    { _iaXgafv          :: !(Maybe Xgafv)
+    { _iaXgafv :: !(Maybe Xgafv)
     , _iaUploadProtocol :: !(Maybe Text)
-    , _iaPp             :: !Bool
-    , _iaAccessToken    :: !(Maybe Text)
-    , _iaUploadType     :: !(Maybe Text)
-    , _iaPayload        :: !BatchAnnotateImagesRequest
-    , _iaBearerToken    :: !(Maybe Text)
-    , _iaCallback       :: !(Maybe Text)
+    , _iaPp :: !Bool
+    , _iaAccessToken :: !(Maybe Text)
+    , _iaUploadType :: !(Maybe Text)
+    , _iaPayload :: !BatchAnnotateImagesRequest
+    , _iaBearerToken :: !(Maybe Text)
+    , _iaCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImagesAnnotate' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ImagesAnnotate = ImagesAnnotate'
 imagesAnnotate
     :: BatchAnnotateImagesRequest -- ^ 'iaPayload'
     -> ImagesAnnotate
-imagesAnnotate pIaPayload_ =
+imagesAnnotate pIaPayload_ = 
     ImagesAnnotate'
     { _iaXgafv = Nothing
     , _iaUploadProtocol = Nothing
@@ -154,7 +154,8 @@ iaCallback
 instance GoogleRequest ImagesAnnotate where
         type Rs ImagesAnnotate = BatchAnnotateImagesResponse
         type Scopes ImagesAnnotate =
-             '["https://www.googleapis.com/auth/cloud-platform"]
+             '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/cloud-vision"]
         requestClient ImagesAnnotate'{..}
           = go _iaXgafv _iaUploadProtocol (Just _iaPp)
               _iaAccessToken

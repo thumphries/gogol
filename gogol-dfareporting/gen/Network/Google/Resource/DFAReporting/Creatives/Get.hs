@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Creatives.Get
     , ccId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creatives.get@ method which the
 -- 'CreativesGet' request conforms to.
 type CreativesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creatives" :>
@@ -56,7 +56,7 @@ type CreativesGetResource =
 -- /See:/ 'creativesGet' smart constructor.
 data CreativesGet = CreativesGet'
     { _ccProFileId :: !(Textual Int64)
-    , _ccId        :: !(Textual Int64)
+    , _ccId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ creativesGet
     :: Int64 -- ^ 'ccProFileId'
     -> Int64 -- ^ 'ccId'
     -> CreativesGet
-creativesGet pCcProFileId_ pCcId_ =
+creativesGet pCcProFileId_ pCcId_ = 
     CreativesGet'
     { _ccProFileId = _Coerce # pCcProFileId_
     , _ccId = _Coerce # pCcId_

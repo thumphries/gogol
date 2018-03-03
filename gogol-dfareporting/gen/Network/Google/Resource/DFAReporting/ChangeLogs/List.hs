@@ -46,14 +46,14 @@ module Network.Google.Resource.DFAReporting.ChangeLogs.List
     , cllMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.changeLogs.list@ method which the
 -- 'ChangeLogsList' request conforms to.
 type ChangeLogsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "changeLogs" :>
@@ -75,16 +75,16 @@ type ChangeLogsListResource =
 -- /See:/ 'changeLogsList' smart constructor.
 data ChangeLogsList = ChangeLogsList'
     { _cllUserProFileIds :: !(Maybe [Textual Int64])
-    , _cllObjectType     :: !(Maybe ChangeLogsListObjectType)
-    , _cllSearchString   :: !(Maybe Text)
-    , _cllIds            :: !(Maybe [Textual Int64])
-    , _cllProFileId      :: !(Textual Int64)
-    , _cllAction         :: !(Maybe ChangeLogsListAction)
-    , _cllMinChangeTime  :: !(Maybe Text)
-    , _cllMaxChangeTime  :: !(Maybe Text)
-    , _cllPageToken      :: !(Maybe Text)
-    , _cllObjectIds      :: !(Maybe [Textual Int64])
-    , _cllMaxResults     :: !(Maybe (Textual Int32))
+    , _cllObjectType :: !(Maybe ChangeLogsListObjectType)
+    , _cllSearchString :: !(Maybe Text)
+    , _cllIds :: !(Maybe [Textual Int64])
+    , _cllProFileId :: !(Textual Int64)
+    , _cllAction :: !(Maybe ChangeLogsListAction)
+    , _cllMinChangeTime :: !(Maybe Text)
+    , _cllMaxChangeTime :: !(Maybe Text)
+    , _cllPageToken :: !(Maybe Text)
+    , _cllObjectIds :: !(Maybe [Textual Int64])
+    , _cllMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeLogsList' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data ChangeLogsList = ChangeLogsList'
 changeLogsList
     :: Int64 -- ^ 'cllProFileId'
     -> ChangeLogsList
-changeLogsList pCllProFileId_ =
+changeLogsList pCllProFileId_ = 
     ChangeLogsList'
     { _cllUserProFileIds = Nothing
     , _cllObjectType = Nothing
@@ -127,7 +127,7 @@ changeLogsList pCllProFileId_ =
     , _cllMaxChangeTime = Nothing
     , _cllPageToken = Nothing
     , _cllObjectIds = Nothing
-    , _cllMaxResults = Nothing
+    , _cllMaxResults = 1000
     }
 
 -- | Select only change logs with these user profile IDs.
@@ -205,11 +205,11 @@ cllObjectIds
       . _Coerce
 
 -- | Maximum number of results to return.
-cllMaxResults :: Lens' ChangeLogsList (Maybe Int32)
+cllMaxResults :: Lens' ChangeLogsList Int32
 cllMaxResults
   = lens _cllMaxResults
       (\ s a -> s{_cllMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest ChangeLogsList where
         type Rs ChangeLogsList = ChangeLogsListResponse
@@ -225,7 +225,7 @@ instance GoogleRequest ChangeLogsList where
               _cllMaxChangeTime
               _cllPageToken
               (_cllObjectIds ^. _Default)
-              _cllMaxResults
+              (Just _cllMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

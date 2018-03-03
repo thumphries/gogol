@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.OrderDocuments.Get
     , odgProjectId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.orderDocuments.get@ method which the
 -- 'OrderDocumentsGet' request conforms to.
 type OrderDocumentsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "projects" :>
@@ -59,7 +59,7 @@ type OrderDocumentsGetResource =
 -- /See:/ 'orderDocumentsGet' smart constructor.
 data OrderDocumentsGet = OrderDocumentsGet'
     { _odgProFileId :: !(Textual Int64)
-    , _odgId        :: !(Textual Int64)
+    , _odgId :: !(Textual Int64)
     , _odgProjectId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ orderDocumentsGet
     -> Int64 -- ^ 'odgId'
     -> Int64 -- ^ 'odgProjectId'
     -> OrderDocumentsGet
-orderDocumentsGet pOdgProFileId_ pOdgId_ pOdgProjectId_ =
+orderDocumentsGet pOdgProFileId_ pOdgId_ pOdgProjectId_ = 
     OrderDocumentsGet'
     { _odgProFileId = _Coerce # pOdgProFileId_
     , _odgId = _Coerce # pOdgId_

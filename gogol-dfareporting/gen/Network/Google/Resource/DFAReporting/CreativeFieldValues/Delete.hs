@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.CreativeFieldValues.Delete
     , cfvdId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeFieldValues.delete@ method which the
 -- 'CreativeFieldValuesDelete' request conforms to.
 type CreativeFieldValuesDeleteResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeFields" :>
@@ -59,8 +59,8 @@ type CreativeFieldValuesDeleteResource =
 -- /See:/ 'creativeFieldValuesDelete' smart constructor.
 data CreativeFieldValuesDelete = CreativeFieldValuesDelete'
     { _cfvdCreativeFieldId :: !(Textual Int64)
-    , _cfvdProFileId       :: !(Textual Int64)
-    , _cfvdId              :: !(Textual Int64)
+    , _cfvdProFileId :: !(Textual Int64)
+    , _cfvdId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeFieldValuesDelete' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ creativeFieldValuesDelete
     -> Int64 -- ^ 'cfvdProFileId'
     -> Int64 -- ^ 'cfvdId'
     -> CreativeFieldValuesDelete
-creativeFieldValuesDelete pCfvdCreativeFieldId_ pCfvdProFileId_ pCfvdId_ =
+creativeFieldValuesDelete pCfvdCreativeFieldId_ pCfvdProFileId_ pCfvdId_ = 
     CreativeFieldValuesDelete'
     { _cfvdCreativeFieldId = _Coerce # pCfvdCreativeFieldId_
     , _cfvdProFileId = _Coerce # pCfvdProFileId_

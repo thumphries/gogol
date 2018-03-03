@@ -37,8 +37,8 @@ module Network.Google.Resource.Books.Bookshelves.List
     , blSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.bookshelves.list@ method which the
 -- 'BookshelvesList' request conforms to.
@@ -69,7 +69,7 @@ data BookshelvesList = BookshelvesList'
 bookshelvesList
     :: Text -- ^ 'blUserId'
     -> BookshelvesList
-bookshelvesList pBlUserId_ =
+bookshelvesList pBlUserId_ = 
     BookshelvesList'
     { _blUserId = pBlUserId_
     , _blSource = Nothing

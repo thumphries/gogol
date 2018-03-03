@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.SubAccounts.Patch
     , sapId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.subaccounts.patch@ method which the
 -- 'SubAccountsPatch' request conforms to.
 type SubAccountsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "subaccounts" :>
@@ -59,8 +59,8 @@ type SubAccountsPatchResource =
 -- /See:/ 'subAccountsPatch' smart constructor.
 data SubAccountsPatch = SubAccountsPatch'
     { _sapProFileId :: !(Textual Int64)
-    , _sapPayload   :: !SubAccount
-    , _sapId        :: !(Textual Int64)
+    , _sapPayload :: !SubAccount
+    , _sapId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubAccountsPatch' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ subAccountsPatch
     -> SubAccount -- ^ 'sapPayload'
     -> Int64 -- ^ 'sapId'
     -> SubAccountsPatch
-subAccountsPatch pSapProFileId_ pSapPayload_ pSapId_ =
+subAccountsPatch pSapProFileId_ pSapPayload_ pSapId_ = 
     SubAccountsPatch'
     { _sapProFileId = _Coerce # pSapProFileId_
     , _sapPayload = pSapPayload_

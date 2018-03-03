@@ -48,8 +48,8 @@ module Network.Google.Resource.Classroom.Courses.Students.Get
     , csgCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.students.get@ method which the
 -- 'CoursesStudentsGet' request conforms to.
@@ -59,7 +59,7 @@ type CoursesStudentsGetResource =
          Capture "courseId" Text :>
            "students" :>
              Capture "userId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -76,15 +76,15 @@ type CoursesStudentsGetResource =
 --
 -- /See:/ 'coursesStudentsGet' smart constructor.
 data CoursesStudentsGet = CoursesStudentsGet'
-    { _csgXgafv          :: !(Maybe Text)
+    { _csgXgafv :: !(Maybe Xgafv)
     , _csgUploadProtocol :: !(Maybe Text)
-    , _csgPp             :: !Bool
-    , _csgCourseId       :: !Text
-    , _csgAccessToken    :: !(Maybe Text)
-    , _csgUploadType     :: !(Maybe Text)
-    , _csgUserId         :: !Text
-    , _csgBearerToken    :: !(Maybe Text)
-    , _csgCallback       :: !(Maybe Text)
+    , _csgPp :: !Bool
+    , _csgCourseId :: !Text
+    , _csgAccessToken :: !(Maybe Text)
+    , _csgUploadType :: !(Maybe Text)
+    , _csgUserId :: !Text
+    , _csgBearerToken :: !(Maybe Text)
+    , _csgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesStudentsGet' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ coursesStudentsGet
     :: Text -- ^ 'csgCourseId'
     -> Text -- ^ 'csgUserId'
     -> CoursesStudentsGet
-coursesStudentsGet pCsgCourseId_ pCsgUserId_ =
+coursesStudentsGet pCsgCourseId_ pCsgUserId_ = 
     CoursesStudentsGet'
     { _csgXgafv = Nothing
     , _csgUploadProtocol = Nothing
@@ -126,7 +126,7 @@ coursesStudentsGet pCsgCourseId_ pCsgUserId_ =
     }
 
 -- | V1 error format.
-csgXgafv :: Lens' CoursesStudentsGet (Maybe Text)
+csgXgafv :: Lens' CoursesStudentsGet (Maybe Xgafv)
 csgXgafv = lens _csgXgafv (\ s a -> s{_csgXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

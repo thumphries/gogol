@@ -33,14 +33,15 @@ module Network.Google.Resource.Compute.RegionInstanceGroups.SetNamedPorts
     , RegionInstanceGroupsSetNamedPorts
 
     -- * Request Lenses
+    , rigsnpRequestId
     , rigsnpProject
     , rigsnpPayload
     , rigsnpRegion
     , rigsnpInstanceGroup
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.regionInstanceGroups.setNamedPorts@ method which the
 -- 'RegionInstanceGroupsSetNamedPorts' request conforms to.
@@ -54,24 +55,28 @@ type RegionInstanceGroupsSetNamedPortsResource =
                  "instanceGroups" :>
                    Capture "instanceGroup" Text :>
                      "setNamedPorts" :>
-                       QueryParam "alt" AltJSON :>
-                         ReqBody '[JSON]
-                           RegionInstanceGroupsSetNamedPortsRequest
-                           :> Post '[JSON] Operation
+                       QueryParam "requestId" Text :>
+                         QueryParam "alt" AltJSON :>
+                           ReqBody '[JSON]
+                             RegionInstanceGroupsSetNamedPortsRequest
+                             :> Post '[JSON] Operation
 
 -- | Sets the named ports for the specified regional instance group.
 --
 -- /See:/ 'regionInstanceGroupsSetNamedPorts' smart constructor.
 data RegionInstanceGroupsSetNamedPorts = RegionInstanceGroupsSetNamedPorts'
-    { _rigsnpProject       :: !Text
-    , _rigsnpPayload       :: !RegionInstanceGroupsSetNamedPortsRequest
-    , _rigsnpRegion        :: !Text
+    { _rigsnpRequestId :: !(Maybe Text)
+    , _rigsnpProject :: !Text
+    , _rigsnpPayload :: !RegionInstanceGroupsSetNamedPortsRequest
+    , _rigsnpRegion :: !Text
     , _rigsnpInstanceGroup :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegionInstanceGroupsSetNamedPorts' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rigsnpRequestId'
 --
 -- * 'rigsnpProject'
 --
@@ -86,13 +91,29 @@ regionInstanceGroupsSetNamedPorts
     -> Text -- ^ 'rigsnpRegion'
     -> Text -- ^ 'rigsnpInstanceGroup'
     -> RegionInstanceGroupsSetNamedPorts
-regionInstanceGroupsSetNamedPorts pRigsnpProject_ pRigsnpPayload_ pRigsnpRegion_ pRigsnpInstanceGroup_ =
+regionInstanceGroupsSetNamedPorts pRigsnpProject_ pRigsnpPayload_ pRigsnpRegion_ pRigsnpInstanceGroup_ = 
     RegionInstanceGroupsSetNamedPorts'
-    { _rigsnpProject = pRigsnpProject_
+    { _rigsnpRequestId = Nothing
+    , _rigsnpProject = pRigsnpProject_
     , _rigsnpPayload = pRigsnpPayload_
     , _rigsnpRegion = pRigsnpRegion_
     , _rigsnpInstanceGroup = pRigsnpInstanceGroup_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+rigsnpRequestId :: Lens' RegionInstanceGroupsSetNamedPorts (Maybe Text)
+rigsnpRequestId
+  = lens _rigsnpRequestId
+      (\ s a -> s{_rigsnpRequestId = a})
 
 -- | Project ID for this request.
 rigsnpProject :: Lens' RegionInstanceGroupsSetNamedPorts Text
@@ -127,6 +148,7 @@ instance GoogleRequest
         requestClient RegionInstanceGroupsSetNamedPorts'{..}
           = go _rigsnpProject _rigsnpRegion
               _rigsnpInstanceGroup
+              _rigsnpRequestId
               (Just AltJSON)
               _rigsnpPayload
               computeService

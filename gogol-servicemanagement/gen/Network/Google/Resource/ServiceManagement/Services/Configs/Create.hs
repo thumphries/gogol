@@ -47,8 +47,8 @@ module Network.Google.Resource.ServiceManagement.Services.Configs.Create
     , sccCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.configs.create@ method which the
 -- 'ServicesConfigsCreate' request conforms to.
@@ -74,15 +74,15 @@ type ServicesConfigsCreateResource =
 --
 -- /See:/ 'servicesConfigsCreate' smart constructor.
 data ServicesConfigsCreate = ServicesConfigsCreate'
-    { _sccXgafv          :: !(Maybe Xgafv)
+    { _sccXgafv :: !(Maybe Xgafv)
     , _sccUploadProtocol :: !(Maybe Text)
-    , _sccPp             :: !Bool
-    , _sccAccessToken    :: !(Maybe Text)
-    , _sccUploadType     :: !(Maybe Text)
-    , _sccPayload        :: !Service
-    , _sccBearerToken    :: !(Maybe Text)
-    , _sccServiceName    :: !Text
-    , _sccCallback       :: !(Maybe Text)
+    , _sccPp :: !Bool
+    , _sccAccessToken :: !(Maybe Text)
+    , _sccUploadType :: !(Maybe Text)
+    , _sccPayload :: !Service
+    , _sccBearerToken :: !(Maybe Text)
+    , _sccServiceName :: !Text
+    , _sccCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesConfigsCreate' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ servicesConfigsCreate
     :: Service -- ^ 'sccPayload'
     -> Text -- ^ 'sccServiceName'
     -> ServicesConfigsCreate
-servicesConfigsCreate pSccPayload_ pSccServiceName_ =
+servicesConfigsCreate pSccPayload_ pSccServiceName_ = 
     ServicesConfigsCreate'
     { _sccXgafv = Nothing
     , _sccUploadProtocol = Nothing

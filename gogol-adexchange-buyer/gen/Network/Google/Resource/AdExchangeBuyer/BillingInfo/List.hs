@@ -35,8 +35,8 @@ module Network.Google.Resource.AdExchangeBuyer.BillingInfo.List
 
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.billingInfo.list@ method which the
 -- 'BillingInfoList'' request conforms to.
@@ -52,7 +52,7 @@ type BillingInfoListResource =
 --
 -- /See:/ 'billingInfoList'' smart constructor.
 data BillingInfoList' =
-    BillingInfoList''
+    BillingInfoList'' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingInfoList'' with the minimum fields required to make a request.

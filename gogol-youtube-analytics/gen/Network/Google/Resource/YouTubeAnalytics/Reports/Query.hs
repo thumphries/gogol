@@ -42,11 +42,12 @@ module Network.Google.Resource.YouTubeAnalytics.Reports.Query
     , rqDimensions
     , rqStartIndex
     , rqMaxResults
+    , rqIncludeHistoricalChannelData
     , rqStartDate
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.reports.query@ method which the
 -- 'ReportsQuery' request conforms to.
@@ -65,23 +66,27 @@ type ReportsQueryResource =
                            QueryParam "dimensions" Text :>
                              QueryParam "start-index" (Textual Int32) :>
                                QueryParam "max-results" (Textual Int32) :>
-                                 QueryParam "alt" AltJSON :>
-                                   Get '[JSON] ResultTable
+                                 QueryParam "include-historical-channel-data"
+                                   Bool
+                                   :>
+                                   QueryParam "alt" AltJSON :>
+                                     Get '[JSON] ResultTable
 
 -- | Retrieve your YouTube Analytics reports.
 --
 -- /See:/ 'reportsQuery' smart constructor.
 data ReportsQuery = ReportsQuery'
-    { _rqMetrics    :: !Text
-    , _rqFilters    :: !(Maybe Text)
-    , _rqIds        :: !Text
-    , _rqEndDate    :: !Text
-    , _rqCurrency   :: !(Maybe Text)
-    , _rqSort       :: !(Maybe Text)
+    { _rqMetrics :: !Text
+    , _rqFilters :: !(Maybe Text)
+    , _rqIds :: !Text
+    , _rqEndDate :: !Text
+    , _rqCurrency :: !(Maybe Text)
+    , _rqSort :: !(Maybe Text)
     , _rqDimensions :: !(Maybe Text)
     , _rqStartIndex :: !(Maybe (Textual Int32))
     , _rqMaxResults :: !(Maybe (Textual Int32))
-    , _rqStartDate  :: !Text
+    , _rqIncludeHistoricalChannelData :: !(Maybe Bool)
+    , _rqStartDate :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportsQuery' with the minimum fields required to make a request.
@@ -106,6 +111,8 @@ data ReportsQuery = ReportsQuery'
 --
 -- * 'rqMaxResults'
 --
+-- * 'rqIncludeHistoricalChannelData'
+--
 -- * 'rqStartDate'
 reportsQuery
     :: Text -- ^ 'rqMetrics'
@@ -113,7 +120,7 @@ reportsQuery
     -> Text -- ^ 'rqEndDate'
     -> Text -- ^ 'rqStartDate'
     -> ReportsQuery
-reportsQuery pRqMetrics_ pRqIds_ pRqEndDate_ pRqStartDate_ =
+reportsQuery pRqMetrics_ pRqIds_ pRqEndDate_ pRqStartDate_ = 
     ReportsQuery'
     { _rqMetrics = pRqMetrics_
     , _rqFilters = Nothing
@@ -124,6 +131,7 @@ reportsQuery pRqMetrics_ pRqIds_ pRqEndDate_ pRqStartDate_ =
     , _rqDimensions = Nothing
     , _rqStartIndex = Nothing
     , _rqMaxResults = Nothing
+    , _rqIncludeHistoricalChannelData = Nothing
     , _rqStartDate = pRqStartDate_
     }
 
@@ -199,6 +207,13 @@ rqMaxResults
   = lens _rqMaxResults (\ s a -> s{_rqMaxResults = a})
       . mapping _Coerce
 
+-- | If set to true historical data (i.e. channel data from before the
+-- linking of the channel to the content owner) will be retrieved.
+rqIncludeHistoricalChannelData :: Lens' ReportsQuery (Maybe Bool)
+rqIncludeHistoricalChannelData
+  = lens _rqIncludeHistoricalChannelData
+      (\ s a -> s{_rqIncludeHistoricalChannelData = a})
+
 -- | The start date for fetching YouTube Analytics data. The value should be
 -- in YYYY-MM-DD format.
 rqStartDate :: Lens' ReportsQuery Text
@@ -222,6 +237,7 @@ instance GoogleRequest ReportsQuery where
               _rqDimensions
               _rqStartIndex
               _rqMaxResults
+              _rqIncludeHistoricalChannelData
               (Just AltJSON)
               youTubeAnalyticsService
           where go

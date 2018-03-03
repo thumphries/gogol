@@ -38,8 +38,8 @@ module Network.Google.Resource.Tasks.Tasks.Clear
     , tcTaskList
     ) where
 
-import           Network.Google.AppsTasks.Types
-import           Network.Google.Prelude
+import Network.Google.AppsTasks.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @tasks.tasks.clear@ method which the
 -- 'TasksClear' request conforms to.
@@ -68,7 +68,7 @@ newtype TasksClear = TasksClear'
 tasksClear
     :: Text -- ^ 'tcTaskList'
     -> TasksClear
-tasksClear pTcTaskList_ =
+tasksClear pTcTaskList_ = 
     TasksClear'
     { _tcTaskList = pTcTaskList_
     }

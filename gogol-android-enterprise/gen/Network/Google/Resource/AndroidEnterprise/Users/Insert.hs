@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.Insert
     , uiPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.insert@ method which the
 -- 'UsersInsert' request conforms to.
@@ -64,7 +64,7 @@ type UsersInsertResource =
 -- /See:/ 'usersInsert' smart constructor.
 data UsersInsert = UsersInsert'
     { _uiEnterpriseId :: !Text
-    , _uiPayload      :: !User
+    , _uiPayload :: !User
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersInsert' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ usersInsert
     :: Text -- ^ 'uiEnterpriseId'
     -> User -- ^ 'uiPayload'
     -> UsersInsert
-usersInsert pUiEnterpriseId_ pUiPayload_ =
+usersInsert pUiEnterpriseId_ pUiPayload_ = 
     UsersInsert'
     { _uiEnterpriseId = pUiEnterpriseId_
     , _uiPayload = pUiPayload_

@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.Creatives.Patch
     , cppId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creatives.patch@ method which the
 -- 'CreativesPatch' request conforms to.
 type CreativesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creatives" :>
@@ -58,8 +58,8 @@ type CreativesPatchResource =
 -- /See:/ 'creativesPatch' smart constructor.
 data CreativesPatch = CreativesPatch'
     { _cppProFileId :: !(Textual Int64)
-    , _cppPayload   :: !Creative
-    , _cppId        :: !(Textual Int64)
+    , _cppPayload :: !Creative
+    , _cppId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ creativesPatch
     -> Creative -- ^ 'cppPayload'
     -> Int64 -- ^ 'cppId'
     -> CreativesPatch
-creativesPatch pCppProFileId_ pCppPayload_ pCppId_ =
+creativesPatch pCppProFileId_ pCppPayload_ pCppId_ = 
     CreativesPatch'
     { _cppProFileId = _Coerce # pCppProFileId_
     , _cppPayload = pCppPayload_

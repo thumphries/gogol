@@ -36,8 +36,8 @@ module Network.Google.Resource.Mirror.Subscriptions.Insert
     , siPayload
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.subscriptions.insert@ method which the
 -- 'SubscriptionsInsert' request conforms to.
@@ -64,7 +64,7 @@ newtype SubscriptionsInsert = SubscriptionsInsert'
 subscriptionsInsert
     :: Subscription -- ^ 'siPayload'
     -> SubscriptionsInsert
-subscriptionsInsert pSiPayload_ =
+subscriptionsInsert pSiPayload_ = 
     SubscriptionsInsert'
     { _siPayload = pSiPayload_
     }

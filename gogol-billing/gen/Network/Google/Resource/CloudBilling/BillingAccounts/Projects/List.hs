@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the projects associated with a billing account. The current
--- authenticated user must be an [owner of the billing
--- account](https:\/\/support.google.com\/cloud\/answer\/4430947).
+-- authenticated user must have the \"billing.resourceAssociations.list\"
+-- IAM permission, which is often given to billing account
+-- [viewers](https:\/\/support.google.com\/cloud\/answer\/4430947).
 --
 -- /See:/ <https://cloud.google.com/billing/ Google Cloud Billing API Reference> for @cloudbilling.billingAccounts.projects.list@.
 module Network.Google.Resource.CloudBilling.BillingAccounts.Projects.List
@@ -47,8 +48,8 @@ module Network.Google.Resource.CloudBilling.BillingAccounts.Projects.List
     , baplCallback
     ) where
 
-import           Network.Google.Billing.Types
-import           Network.Google.Prelude
+import Network.Google.Billing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbilling.billingAccounts.projects.list@ method which the
 -- 'BillingAccountsProjectsList' request conforms to.
@@ -56,7 +57,7 @@ type BillingAccountsProjectsListResource =
      "v1" :>
        Capture "name" Text :>
          "projects" :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -69,21 +70,22 @@ type BillingAccountsProjectsListResource =
                                Get '[JSON] ListProjectBillingInfoResponse
 
 -- | Lists the projects associated with a billing account. The current
--- authenticated user must be an [owner of the billing
--- account](https:\/\/support.google.com\/cloud\/answer\/4430947).
+-- authenticated user must have the \"billing.resourceAssociations.list\"
+-- IAM permission, which is often given to billing account
+-- [viewers](https:\/\/support.google.com\/cloud\/answer\/4430947).
 --
 -- /See:/ 'billingAccountsProjectsList' smart constructor.
 data BillingAccountsProjectsList = BillingAccountsProjectsList'
-    { _baplXgafv          :: !(Maybe Text)
+    { _baplXgafv :: !(Maybe Xgafv)
     , _baplUploadProtocol :: !(Maybe Text)
-    , _baplPp             :: !Bool
-    , _baplAccessToken    :: !(Maybe Text)
-    , _baplUploadType     :: !(Maybe Text)
-    , _baplBearerToken    :: !(Maybe Text)
-    , _baplName           :: !Text
-    , _baplPageToken      :: !(Maybe Text)
-    , _baplPageSize       :: !(Maybe (Textual Int32))
-    , _baplCallback       :: !(Maybe Text)
+    , _baplPp :: !Bool
+    , _baplAccessToken :: !(Maybe Text)
+    , _baplUploadType :: !(Maybe Text)
+    , _baplBearerToken :: !(Maybe Text)
+    , _baplName :: !Text
+    , _baplPageToken :: !(Maybe Text)
+    , _baplPageSize :: !(Maybe (Textual Int32))
+    , _baplCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsProjectsList' with the minimum fields required to make a request.
@@ -112,7 +114,7 @@ data BillingAccountsProjectsList = BillingAccountsProjectsList'
 billingAccountsProjectsList
     :: Text -- ^ 'baplName'
     -> BillingAccountsProjectsList
-billingAccountsProjectsList pBaplName_ =
+billingAccountsProjectsList pBaplName_ = 
     BillingAccountsProjectsList'
     { _baplXgafv = Nothing
     , _baplUploadProtocol = Nothing
@@ -127,7 +129,7 @@ billingAccountsProjectsList pBaplName_ =
     }
 
 -- | V1 error format.
-baplXgafv :: Lens' BillingAccountsProjectsList (Maybe Text)
+baplXgafv :: Lens' BillingAccountsProjectsList (Maybe Xgafv)
 baplXgafv
   = lens _baplXgafv (\ s a -> s{_baplXgafv = a})
 

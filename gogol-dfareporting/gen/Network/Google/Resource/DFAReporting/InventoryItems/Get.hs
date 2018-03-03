@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.InventoryItems.Get
     , iigProjectId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.inventoryItems.get@ method which the
 -- 'InventoryItemsGet' request conforms to.
 type InventoryItemsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "projects" :>
@@ -59,7 +59,7 @@ type InventoryItemsGetResource =
 -- /See:/ 'inventoryItemsGet' smart constructor.
 data InventoryItemsGet = InventoryItemsGet'
     { _iigProFileId :: !(Textual Int64)
-    , _iigId        :: !(Textual Int64)
+    , _iigId :: !(Textual Int64)
     , _iigProjectId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ inventoryItemsGet
     -> Int64 -- ^ 'iigId'
     -> Int64 -- ^ 'iigProjectId'
     -> InventoryItemsGet
-inventoryItemsGet pIigProFileId_ pIigId_ pIigProjectId_ =
+inventoryItemsGet pIigProFileId_ pIigId_ pIigProjectId_ = 
     InventoryItemsGet'
     { _iigProFileId = _Coerce # pIigProFileId_
     , _iigId = _Coerce # pIigId_

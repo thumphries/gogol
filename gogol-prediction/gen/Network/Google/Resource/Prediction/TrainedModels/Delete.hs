@@ -37,8 +37,8 @@ module Network.Google.Resource.Prediction.TrainedModels.Delete
     , tmdId
     ) where
 
-import           Network.Google.Prediction.Types
-import           Network.Google.Prelude
+import Network.Google.Prediction.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @prediction.trainedmodels.delete@ method which the
 -- 'TrainedModelsDelete' request conforms to.
@@ -56,7 +56,7 @@ type TrainedModelsDeleteResource =
 -- /See:/ 'trainedModelsDelete' smart constructor.
 data TrainedModelsDelete = TrainedModelsDelete'
     { _tmdProject :: !Text
-    , _tmdId      :: !Text
+    , _tmdId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TrainedModelsDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ trainedModelsDelete
     :: Text -- ^ 'tmdProject'
     -> Text -- ^ 'tmdId'
     -> TrainedModelsDelete
-trainedModelsDelete pTmdProject_ pTmdId_ =
+trainedModelsDelete pTmdProject_ pTmdId_ = 
     TrainedModelsDelete'
     { _tmdProject = pTmdProject_
     , _tmdId = pTmdId_

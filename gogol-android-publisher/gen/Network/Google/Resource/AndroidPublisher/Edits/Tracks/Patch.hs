@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Tracks.Patch
     , etptEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.tracks.patch@ method which the
 -- 'EditsTracksPatch' request conforms to.
@@ -55,7 +55,7 @@ type EditsTracksPatchResource =
              "edits" :>
                Capture "editId" Text :>
                  "tracks" :>
-                   Capture "track" EditsTracksPatchTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :>
                        ReqBody '[JSON] Track :> Patch '[JSON] Track
 
@@ -66,10 +66,10 @@ type EditsTracksPatchResource =
 --
 -- /See:/ 'editsTracksPatch' smart constructor.
 data EditsTracksPatch = EditsTracksPatch'
-    { _etptTrack       :: !EditsTracksPatchTrack
+    { _etptTrack :: !Text
     , _etptPackageName :: !Text
-    , _etptPayload     :: !Track
-    , _etptEditId      :: !Text
+    , _etptPayload :: !Track
+    , _etptEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTracksPatch' with the minimum fields required to make a request.
@@ -84,12 +84,12 @@ data EditsTracksPatch = EditsTracksPatch'
 --
 -- * 'etptEditId'
 editsTracksPatch
-    :: EditsTracksPatchTrack -- ^ 'etptTrack'
+    :: Text -- ^ 'etptTrack'
     -> Text -- ^ 'etptPackageName'
     -> Track -- ^ 'etptPayload'
     -> Text -- ^ 'etptEditId'
     -> EditsTracksPatch
-editsTracksPatch pEtptTrack_ pEtptPackageName_ pEtptPayload_ pEtptEditId_ =
+editsTracksPatch pEtptTrack_ pEtptPackageName_ pEtptPayload_ pEtptEditId_ = 
     EditsTracksPatch'
     { _etptTrack = pEtptTrack_
     , _etptPackageName = pEtptPackageName_
@@ -97,8 +97,9 @@ editsTracksPatch pEtptTrack_ pEtptPackageName_ pEtptPayload_ pEtptEditId_ =
     , _etptEditId = pEtptEditId_
     }
 
--- | The track type to read or modify.
-etptTrack :: Lens' EditsTracksPatch EditsTracksPatchTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etptTrack :: Lens' EditsTracksPatch Text
 etptTrack
   = lens _etptTrack (\ s a -> s{_etptTrack = a})
 

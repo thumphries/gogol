@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Roles.Update
     , ruCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.update@ method which the
 -- 'RolesUpdate' request conforms to.
@@ -58,8 +58,8 @@ type RolesUpdateResource =
 --
 -- /See:/ 'rolesUpdate' smart constructor.
 data RolesUpdate = RolesUpdate'
-    { _ruPayload  :: !Role
-    , _ruRoleId   :: !Text
+    { _ruPayload :: !Role
+    , _ruRoleId :: !Text
     , _ruCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ rolesUpdate
     -> Text -- ^ 'ruRoleId'
     -> Text -- ^ 'ruCustomer'
     -> RolesUpdate
-rolesUpdate pRuPayload_ pRuRoleId_ pRuCustomer_ =
+rolesUpdate pRuPayload_ pRuRoleId_ pRuCustomer_ = 
     RolesUpdate'
     { _ruPayload = pRuPayload_
     , _ruRoleId = pRuRoleId_
@@ -93,7 +93,7 @@ ruPayload
 ruRoleId :: Lens' RolesUpdate Text
 ruRoleId = lens _ruRoleId (\ s a -> s{_ruRoleId = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 ruCustomer :: Lens' RolesUpdate Text
 ruCustomer
   = lens _ruCustomer (\ s a -> s{_ruCustomer = a})

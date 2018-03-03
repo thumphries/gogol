@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Sites.Get
     , sggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sites.get@ method which the
 -- 'SitesGet' request conforms to.
 type SitesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sites" :>
@@ -56,7 +56,7 @@ type SitesGetResource =
 -- /See:/ 'sitesGet' smart constructor.
 data SitesGet = SitesGet'
     { _sggProFileId :: !(Textual Int64)
-    , _sggId        :: !(Textual Int64)
+    , _sggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sitesGet
     :: Int64 -- ^ 'sggProFileId'
     -> Int64 -- ^ 'sggId'
     -> SitesGet
-sitesGet pSggProFileId_ pSggId_ =
+sitesGet pSggProFileId_ pSggId_ = 
     SitesGet'
     { _sggProFileId = _Coerce # pSggProFileId_
     , _sggId = _Coerce # pSggId_

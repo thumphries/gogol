@@ -26,7 +26,7 @@
 -- the available product set for a user (using the setAvailableProductSet
 -- call). Apps on the page are sorted in order of their product ID value.
 -- If you create a custom store layout (by setting storeLayoutType =
--- \"custom\"), the basic store layout is disabled.
+-- \"custom\" and setting a homepage), the basic store layout is disabled.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.enterprises.setStoreLayout@.
 module Network.Google.Resource.AndroidEnterprise.Enterprises.SetStoreLayout
@@ -43,8 +43,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.SetStoreLayout
     , esslPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.setStoreLayout@ method which the
 -- 'EnterprisesSetStoreLayout' request conforms to.
@@ -64,12 +64,12 @@ type EnterprisesSetStoreLayoutResource =
 -- the available product set for a user (using the setAvailableProductSet
 -- call). Apps on the page are sorted in order of their product ID value.
 -- If you create a custom store layout (by setting storeLayoutType =
--- \"custom\"), the basic store layout is disabled.
+-- \"custom\" and setting a homepage), the basic store layout is disabled.
 --
 -- /See:/ 'enterprisesSetStoreLayout' smart constructor.
 data EnterprisesSetStoreLayout = EnterprisesSetStoreLayout'
     { _esslEnterpriseId :: !Text
-    , _esslPayload      :: !StoreLayout
+    , _esslPayload :: !StoreLayout
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnterprisesSetStoreLayout' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ enterprisesSetStoreLayout
     :: Text -- ^ 'esslEnterpriseId'
     -> StoreLayout -- ^ 'esslPayload'
     -> EnterprisesSetStoreLayout
-enterprisesSetStoreLayout pEsslEnterpriseId_ pEsslPayload_ =
+enterprisesSetStoreLayout pEsslEnterpriseId_ pEsslPayload_ = 
     EnterprisesSetStoreLayout'
     { _esslEnterpriseId = pEsslEnterpriseId_
     , _esslPayload = pEsslPayload_

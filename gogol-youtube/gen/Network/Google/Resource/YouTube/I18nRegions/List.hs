@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.I18nRegions.List
     , irlHl
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.i18nRegions.list@ method which the
 -- 'I18nRegionsList' request conforms to.
@@ -56,7 +56,7 @@ type I18nRegionsListResource =
 -- /See:/ 'i18nRegionsList' smart constructor.
 data I18nRegionsList = I18nRegionsList'
     { _irlPart :: !Text
-    , _irlHl   :: !Text
+    , _irlHl :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'I18nRegionsList' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data I18nRegionsList = I18nRegionsList'
 i18nRegionsList
     :: Text -- ^ 'irlPart'
     -> I18nRegionsList
-i18nRegionsList pIrlPart_ =
+i18nRegionsList pIrlPart_ = 
     I18nRegionsList'
     { _irlPart = pIrlPart_
     , _irlHl = "en_US"

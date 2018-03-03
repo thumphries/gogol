@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Projects.Get
     , proId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.projects.get@ method which the
 -- 'ProjectsGet' request conforms to.
 type ProjectsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "projects" :>
@@ -56,7 +56,7 @@ type ProjectsGetResource =
 -- /See:/ 'projectsGet' smart constructor.
 data ProjectsGet = ProjectsGet'
     { _proProFileId :: !(Textual Int64)
-    , _proId        :: !(Textual Int64)
+    , _proId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ projectsGet
     :: Int64 -- ^ 'proProFileId'
     -> Int64 -- ^ 'proId'
     -> ProjectsGet
-projectsGet pProProFileId_ pProId_ =
+projectsGet pProProFileId_ pProId_ = 
     ProjectsGet'
     { _proProFileId = _Coerce # pProProFileId_
     , _proId = _Coerce # pProId_

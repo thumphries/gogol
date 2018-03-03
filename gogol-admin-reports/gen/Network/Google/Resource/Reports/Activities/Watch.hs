@@ -46,8 +46,8 @@ module Network.Google.Resource.Reports.Activities.Watch
     , awMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Reports.Types
+import Network.Google.Prelude
+import Network.Google.Reports.Types
 
 -- | A resource alias for @reports.activities.watch@ method which the
 -- 'ActivitiesWatch' request conforms to.
@@ -77,17 +77,17 @@ type ActivitiesWatchResource =
 --
 -- /See:/ 'activitiesWatch' smart constructor.
 data ActivitiesWatch = ActivitiesWatch'
-    { _awStartTime       :: !(Maybe Text)
-    , _awFilters         :: !(Maybe Text)
-    , _awPayload         :: !Channel
-    , _awCustomerId      :: !(Maybe Text)
-    , _awActorIPAddress  :: !(Maybe Text)
-    , _awEndTime         :: !(Maybe Text)
+    { _awStartTime :: !(Maybe Text)
+    , _awFilters :: !(Maybe Text)
+    , _awPayload :: !Channel
+    , _awCustomerId :: !(Maybe Text)
+    , _awActorIPAddress :: !(Maybe Text)
+    , _awEndTime :: !(Maybe Text)
     , _awApplicationName :: !Text
-    , _awPageToken       :: !(Maybe Text)
-    , _awEventName       :: !(Maybe Text)
-    , _awUserKey         :: !Text
-    , _awMaxResults      :: !(Maybe (Textual Int32))
+    , _awPageToken :: !(Maybe Text)
+    , _awEventName :: !(Maybe Text)
+    , _awUserKey :: !Text
+    , _awMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivitiesWatch' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ activitiesWatch
     -> Text -- ^ 'awApplicationName'
     -> Text -- ^ 'awUserKey'
     -> ActivitiesWatch
-activitiesWatch pAwPayload_ pAwApplicationName_ pAwUserKey_ =
+activitiesWatch pAwPayload_ pAwApplicationName_ pAwUserKey_ = 
     ActivitiesWatch'
     { _awStartTime = Nothing
     , _awFilters = Nothing
@@ -135,7 +135,7 @@ activitiesWatch pAwPayload_ pAwApplicationName_ pAwUserKey_ =
     , _awMaxResults = Nothing
     }
 
--- | Return events which occured at or after this time.
+-- | Return events which occurred at or after this time.
 awStartTime :: Lens' ActivitiesWatch (Maybe Text)
 awStartTime
   = lens _awStartTime (\ s a -> s{_awStartTime = a})
@@ -163,7 +163,7 @@ awActorIPAddress
   = lens _awActorIPAddress
       (\ s a -> s{_awActorIPAddress = a})
 
--- | Return events which occured at or before this time.
+-- | Return events which occurred at or before this time.
 awEndTime :: Lens' ActivitiesWatch (Maybe Text)
 awEndTime
   = lens _awEndTime (\ s a -> s{_awEndTime = a})

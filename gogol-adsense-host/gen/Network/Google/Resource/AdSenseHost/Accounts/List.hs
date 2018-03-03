@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.List
     , alFilterAdClientId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.list@ method which the
 -- 'AccountsList' request conforms to.
@@ -65,7 +65,7 @@ newtype AccountsList = AccountsList'
 accountsList
     :: [Text] -- ^ 'alFilterAdClientId'
     -> AccountsList
-accountsList pAlFilterAdClientId_ =
+accountsList pAlFilterAdClientId_ = 
     AccountsList'
     { _alFilterAdClientId = _Coerce # pAlFilterAdClientId_
     }

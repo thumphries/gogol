@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tax settings of the sub-accounts in your Merchant Center
--- account. This method can only be called for multi-client accounts.
+-- account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.accounttax.list@.
 module Network.Google.Resource.Content.Accounttax.List
@@ -39,8 +39,8 @@ module Network.Google.Resource.Content.Accounttax.List
     , allMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.accounttax.list@ method which the
 -- 'AccounttaxList' request conforms to.
@@ -55,12 +55,12 @@ type AccounttaxListResource =
                    Get '[JSON] AccounttaxListResponse
 
 -- | Lists the tax settings of the sub-accounts in your Merchant Center
--- account. This method can only be called for multi-client accounts.
+-- account.
 --
 -- /See:/ 'accounttaxList' smart constructor.
 data AccounttaxList = AccounttaxList'
     { _allMerchantId :: !(Textual Word64)
-    , _allPageToken  :: !(Maybe Text)
+    , _allPageToken :: !(Maybe Text)
     , _allMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,14 +76,14 @@ data AccounttaxList = AccounttaxList'
 accounttaxList
     :: Word64 -- ^ 'allMerchantId'
     -> AccounttaxList
-accounttaxList pAllMerchantId_ =
+accounttaxList pAllMerchantId_ = 
     AccounttaxList'
     { _allMerchantId = _Coerce # pAllMerchantId_
     , _allPageToken = Nothing
     , _allMaxResults = Nothing
     }
 
--- | The ID of the managing account.
+-- | The ID of the managing account. This must be a multi-client account.
 allMerchantId :: Lens' AccounttaxList Word64
 allMerchantId
   = lens _allMerchantId

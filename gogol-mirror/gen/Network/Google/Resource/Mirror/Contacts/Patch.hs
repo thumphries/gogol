@@ -37,8 +37,8 @@ module Network.Google.Resource.Mirror.Contacts.Patch
     , cpId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.contacts.patch@ method which the
 -- 'ContactsPatch' request conforms to.
@@ -55,7 +55,7 @@ type ContactsPatchResource =
 -- /See:/ 'contactsPatch' smart constructor.
 data ContactsPatch = ContactsPatch'
     { _cpPayload :: !Contact
-    , _cpId      :: !Text
+    , _cpId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContactsPatch' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ contactsPatch
     :: Contact -- ^ 'cpPayload'
     -> Text -- ^ 'cpId'
     -> ContactsPatch
-contactsPatch pCpPayload_ pCpId_ =
+contactsPatch pCpPayload_ pCpId_ = 
     ContactsPatch'
     { _cpPayload = pCpPayload_
     , _cpId = pCpId_

@@ -24,7 +24,7 @@
 -- method to poll the operation result at intervals as recommended by the
 -- API service.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.operations.get@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.operations.get@.
 module Network.Google.Resource.Cloudbuild.Operations.Get
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Cloudbuild.Operations.Get
     , ogCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.operations.get@ method which the
 -- 'OperationsGet' request conforms to.
@@ -68,14 +68,14 @@ type OperationsGetResource =
 --
 -- /See:/ 'operationsGet' smart constructor.
 data OperationsGet = OperationsGet'
-    { _ogXgafv          :: !(Maybe Xgafv)
+    { _ogXgafv :: !(Maybe Xgafv)
     , _ogUploadProtocol :: !(Maybe Text)
-    , _ogPp             :: !Bool
-    , _ogAccessToken    :: !(Maybe Text)
-    , _ogUploadType     :: !(Maybe Text)
-    , _ogBearerToken    :: !(Maybe Text)
-    , _ogName           :: !Text
-    , _ogCallback       :: !(Maybe Text)
+    , _ogPp :: !Bool
+    , _ogAccessToken :: !(Maybe Text)
+    , _ogUploadType :: !(Maybe Text)
+    , _ogBearerToken :: !(Maybe Text)
+    , _ogName :: !Text
+    , _ogCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperationsGet' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data OperationsGet = OperationsGet'
 operationsGet
     :: Text -- ^ 'ogName'
     -> OperationsGet
-operationsGet pOgName_ =
+operationsGet pOgName_ = 
     OperationsGet'
     { _ogXgafv = Nothing
     , _ogUploadProtocol = Nothing

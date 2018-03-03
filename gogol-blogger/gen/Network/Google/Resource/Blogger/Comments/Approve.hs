@@ -38,8 +38,8 @@ module Network.Google.Resource.Blogger.Comments.Approve
     , caCommentId
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.comments.approve@ method which the
 -- 'CommentsApprove' request conforms to.
@@ -59,8 +59,8 @@ type CommentsApproveResource =
 --
 -- /See:/ 'commentsApprove' smart constructor.
 data CommentsApprove = CommentsApprove'
-    { _caBlogId    :: !Text
-    , _caPostId    :: !Text
+    { _caBlogId :: !Text
+    , _caPostId :: !Text
     , _caCommentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ commentsApprove
     -> Text -- ^ 'caPostId'
     -> Text -- ^ 'caCommentId'
     -> CommentsApprove
-commentsApprove pCaBlogId_ pCaPostId_ pCaCommentId_ =
+commentsApprove pCaBlogId_ pCaPostId_ pCaCommentId_ = 
     CommentsApprove'
     { _caBlogId = pCaBlogId_
     , _caPostId = pCaPostId_

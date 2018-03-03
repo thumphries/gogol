@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Resources.Calendars.Insert
     , rciCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.resources.calendars.insert@ method which the
 -- 'ResourcesCalendarsInsert' request conforms to.
@@ -58,7 +58,7 @@ type ResourcesCalendarsInsertResource =
 --
 -- /See:/ 'resourcesCalendarsInsert' smart constructor.
 data ResourcesCalendarsInsert = ResourcesCalendarsInsert'
-    { _rciPayload  :: !CalendarResource
+    { _rciPayload :: !CalendarResource
     , _rciCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ resourcesCalendarsInsert
     :: CalendarResource -- ^ 'rciPayload'
     -> Text -- ^ 'rciCustomer'
     -> ResourcesCalendarsInsert
-resourcesCalendarsInsert pRciPayload_ pRciCustomer_ =
+resourcesCalendarsInsert pRciPayload_ pRciCustomer_ = 
     ResourcesCalendarsInsert'
     { _rciPayload = pRciPayload_
     , _rciCustomer = pRciCustomer_
@@ -84,7 +84,7 @@ rciPayload :: Lens' ResourcesCalendarsInsert CalendarResource
 rciPayload
   = lens _rciPayload (\ s a -> s{_rciPayload = a})
 
--- | The unique ID for the customer\'s Google account. As an account
+-- | The unique ID for the customer\'s G Suite account. As an account
 -- administrator, you can also use the my_customer alias to represent your
 -- account\'s customer ID.
 rciCustomer :: Lens' ResourcesCalendarsInsert Text

@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Thumbnails.Set
     , tsVideoId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.thumbnails.set@ method which the
 -- 'ThumbnailsSet' request conforms to.
@@ -68,7 +68,7 @@ type ThumbnailsSetResource =
 -- /See:/ 'thumbnailsSet' smart constructor.
 data ThumbnailsSet = ThumbnailsSet'
     { _tsOnBehalfOfContentOwner :: !(Maybe Text)
-    , _tsVideoId                :: !Text
+    , _tsVideoId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThumbnailsSet' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ data ThumbnailsSet = ThumbnailsSet'
 thumbnailsSet
     :: Text -- ^ 'tsVideoId'
     -> ThumbnailsSet
-thumbnailsSet pTsVideoId_ =
+thumbnailsSet pTsVideoId_ = 
     ThumbnailsSet'
     { _tsOnBehalfOfContentOwner = Nothing
     , _tsVideoId = pTsVideoId_

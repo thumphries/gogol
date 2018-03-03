@@ -34,8 +34,8 @@ module Network.Google.Resource.Mirror.Contacts.List
 
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.contacts.list@ method which the
 -- 'ContactsList' request conforms to.
@@ -50,7 +50,7 @@ type ContactsListResource =
 --
 -- /See:/ 'contactsList' smart constructor.
 data ContactsList =
-    ContactsList'
+    ContactsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContactsList' with the minimum fields required to make a request.

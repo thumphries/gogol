@@ -38,8 +38,8 @@ module Network.Google.Resource.Blogger.Pages.Get
     , pgView
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.pages.get@ method which the
 -- 'PagesGet' request conforms to.
@@ -59,7 +59,7 @@ type PagesGetResource =
 data PagesGet = PagesGet'
     { _pgBlogId :: !Text
     , _pgPageId :: !Text
-    , _pgView   :: !(Maybe PagesGetView)
+    , _pgView :: !(Maybe PagesGetView)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PagesGet' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ pagesGet
     :: Text -- ^ 'pgBlogId'
     -> Text -- ^ 'pgPageId'
     -> PagesGet
-pagesGet pPgBlogId_ pPgPageId_ =
+pagesGet pPgBlogId_ pPgPageId_ = 
     PagesGet'
     { _pgBlogId = pPgBlogId_
     , _pgPageId = pPgPageId_

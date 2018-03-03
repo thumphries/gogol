@@ -36,8 +36,8 @@ module Network.Google.Resource.QPXExpress.Trips.Search
     , tsPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.QPXExpress.Types
+import Network.Google.Prelude
+import Network.Google.QPXExpress.Types
 
 -- | A resource alias for @qpxExpress.trips.search@ method which the
 -- 'TripsSearch' request conforms to.
@@ -65,7 +65,7 @@ newtype TripsSearch = TripsSearch'
 tripsSearch
     :: TripsSearchRequest -- ^ 'tsPayload'
     -> TripsSearch
-tripsSearch pTsPayload_ =
+tripsSearch pTsPayload_ = 
     TripsSearch'
     { _tsPayload = pTsPayload_
     }

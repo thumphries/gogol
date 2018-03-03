@@ -48,8 +48,8 @@ module Network.Google.Resource.Monitoring.Projects.Groups.List
     , pglCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.groups.list@ method which the
 -- 'ProjectsGroupsList' request conforms to.
@@ -76,19 +76,19 @@ type ProjectsGroupsListResource =
 --
 -- /See:/ 'projectsGroupsList' smart constructor.
 data ProjectsGroupsList = ProjectsGroupsList'
-    { _pglXgafv              :: !(Maybe Xgafv)
-    , _pglUploadProtocol     :: !(Maybe Text)
-    , _pglChildrenOfGroup    :: !(Maybe Text)
-    , _pglPp                 :: !Bool
+    { _pglXgafv :: !(Maybe Xgafv)
+    , _pglUploadProtocol :: !(Maybe Text)
+    , _pglChildrenOfGroup :: !(Maybe Text)
+    , _pglPp :: !Bool
     , _pglDescendantsOfGroup :: !(Maybe Text)
-    , _pglAccessToken        :: !(Maybe Text)
-    , _pglUploadType         :: !(Maybe Text)
-    , _pglBearerToken        :: !(Maybe Text)
-    , _pglName               :: !Text
-    , _pglPageToken          :: !(Maybe Text)
-    , _pglPageSize           :: !(Maybe (Textual Int32))
-    , _pglAncestorsOfGroup   :: !(Maybe Text)
-    , _pglCallback           :: !(Maybe Text)
+    , _pglAccessToken :: !(Maybe Text)
+    , _pglUploadType :: !(Maybe Text)
+    , _pglBearerToken :: !(Maybe Text)
+    , _pglName :: !Text
+    , _pglPageToken :: !(Maybe Text)
+    , _pglPageSize :: !(Maybe (Textual Int32))
+    , _pglAncestorsOfGroup :: !(Maybe Text)
+    , _pglCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGroupsList' with the minimum fields required to make a request.
@@ -123,7 +123,7 @@ data ProjectsGroupsList = ProjectsGroupsList'
 projectsGroupsList
     :: Text -- ^ 'pglName'
     -> ProjectsGroupsList
-projectsGroupsList pPglName_ =
+projectsGroupsList pPglName_ = 
     ProjectsGroupsList'
     { _pglXgafv = Nothing
     , _pglUploadProtocol = Nothing

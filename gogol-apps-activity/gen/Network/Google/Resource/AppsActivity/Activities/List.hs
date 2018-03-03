@@ -27,7 +27,7 @@
 -- similar. A request is scoped to activities from a given Google service
 -- using the source parameter.
 --
--- /See:/ <https://developers.google.com/google-apps/activity/ Google Apps Activity API Reference> for @appsactivity.activities.list@.
+-- /See:/ <https://developers.google.com/google-apps/activity/ G Suite Activity API Reference> for @appsactivity.activities.list@.
 module Network.Google.Resource.AppsActivity.Activities.List
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.AppsActivity.Activities.List
     , alPageSize
     ) where
 
-import           Network.Google.AppsActivity.Types
-import           Network.Google.Prelude
+import Network.Google.AppsActivity.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appsactivity.activities.list@ method which the
 -- 'ActivitiesList' request conforms to.
@@ -77,13 +77,13 @@ type ActivitiesListResource =
 --
 -- /See:/ 'activitiesList' smart constructor.
 data ActivitiesList = ActivitiesList'
-    { _alDriveFileId      :: !(Maybe Text)
-    , _alDriveAncestorId  :: !(Maybe Text)
+    { _alDriveFileId :: !(Maybe Text)
+    , _alDriveAncestorId :: !(Maybe Text)
     , _alGroupingStrategy :: !ActivitiesListGroupingStrategy
-    , _alUserId           :: !Text
-    , _alSource           :: !(Maybe Text)
-    , _alPageToken        :: !(Maybe Text)
-    , _alPageSize         :: !(Textual Int32)
+    , _alUserId :: !Text
+    , _alSource :: !(Maybe Text)
+    , _alPageToken :: !(Maybe Text)
+    , _alPageSize :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivitiesList' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ data ActivitiesList = ActivitiesList'
 -- * 'alPageSize'
 activitiesList
     :: ActivitiesList
-activitiesList =
+activitiesList = 
     ActivitiesList'
     { _alDriveFileId = Nothing
     , _alDriveAncestorId = Nothing
@@ -161,11 +161,7 @@ alPageSize
 instance GoogleRequest ActivitiesList where
         type Rs ActivitiesList = ListActivitiesResponse
         type Scopes ActivitiesList =
-             '["https://www.googleapis.com/auth/activity",
-               "https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.metadata",
-               "https://www.googleapis.com/auth/drive.metadata.readonly",
-               "https://www.googleapis.com/auth/drive.readonly"]
+             '["https://www.googleapis.com/auth/activity"]
         requestClient ActivitiesList'{..}
           = go _alDriveFileId _alDriveAncestorId
               (Just _alGroupingStrategy)

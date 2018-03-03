@@ -36,8 +36,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutpages.List
     , slEnterpriseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutpages.list@ method which the
 -- 'StorelayoutpagesList' request conforms to.
@@ -66,7 +66,7 @@ newtype StorelayoutpagesList = StorelayoutpagesList'
 storelayoutpagesList
     :: Text -- ^ 'slEnterpriseId'
     -> StorelayoutpagesList
-storelayoutpagesList pSlEnterpriseId_ =
+storelayoutpagesList pSlEnterpriseId_ = 
     StorelayoutpagesList'
     { _slEnterpriseId = pSlEnterpriseId_
     }

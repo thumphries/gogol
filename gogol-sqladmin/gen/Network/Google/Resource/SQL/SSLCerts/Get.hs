@@ -40,8 +40,8 @@ module Network.Google.Resource.SQL.SSLCerts.Get
     , scgInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.sslCerts.get@ method which the
 -- 'SSLCertsGet' request conforms to.
@@ -62,9 +62,9 @@ type SSLCertsGetResource =
 --
 -- /See:/ 'sslCertsGet' smart constructor.
 data SSLCertsGet = SSLCertsGet'
-    { _scgProject         :: !Text
+    { _scgProject :: !Text
     , _scgSha1Fingerprint :: !Text
-    , _scgInstance        :: !Text
+    , _scgInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SSLCertsGet' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ sslCertsGet
     -> Text -- ^ 'scgSha1Fingerprint'
     -> Text -- ^ 'scgInstance'
     -> SSLCertsGet
-sslCertsGet pScgProject_ pScgSha1Fingerprint_ pScgInstance_ =
+sslCertsGet pScgProject_ pScgSha1Fingerprint_ pScgInstance_ = 
     SSLCertsGet'
     { _scgProject = pScgProject_
     , _scgSha1Fingerprint = pScgSha1Fingerprint_

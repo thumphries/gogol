@@ -47,8 +47,8 @@ module Network.Google.Resource.Monitoring.Projects.MonitoredResourceDescriptors.
     , pmrdlCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.monitoredResourceDescriptors.list@ method which the
 -- 'ProjectsMonitoredResourceDescriptorsList' request conforms to.
@@ -76,17 +76,17 @@ type ProjectsMonitoredResourceDescriptorsListResource
 --
 -- /See:/ 'projectsMonitoredResourceDescriptorsList' smart constructor.
 data ProjectsMonitoredResourceDescriptorsList = ProjectsMonitoredResourceDescriptorsList'
-    { _pmrdlXgafv          :: !(Maybe Xgafv)
+    { _pmrdlXgafv :: !(Maybe Xgafv)
     , _pmrdlUploadProtocol :: !(Maybe Text)
-    , _pmrdlPp             :: !Bool
-    , _pmrdlAccessToken    :: !(Maybe Text)
-    , _pmrdlUploadType     :: !(Maybe Text)
-    , _pmrdlBearerToken    :: !(Maybe Text)
-    , _pmrdlName           :: !Text
-    , _pmrdlFilter         :: !(Maybe Text)
-    , _pmrdlPageToken      :: !(Maybe Text)
-    , _pmrdlPageSize       :: !(Maybe (Textual Int32))
-    , _pmrdlCallback       :: !(Maybe Text)
+    , _pmrdlPp :: !Bool
+    , _pmrdlAccessToken :: !(Maybe Text)
+    , _pmrdlUploadType :: !(Maybe Text)
+    , _pmrdlBearerToken :: !(Maybe Text)
+    , _pmrdlName :: !Text
+    , _pmrdlFilter :: !(Maybe Text)
+    , _pmrdlPageToken :: !(Maybe Text)
+    , _pmrdlPageSize :: !(Maybe (Textual Int32))
+    , _pmrdlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsMonitoredResourceDescriptorsList' with the minimum fields required to make a request.
@@ -117,7 +117,7 @@ data ProjectsMonitoredResourceDescriptorsList = ProjectsMonitoredResourceDescrip
 projectsMonitoredResourceDescriptorsList
     :: Text -- ^ 'pmrdlName'
     -> ProjectsMonitoredResourceDescriptorsList
-projectsMonitoredResourceDescriptorsList pPmrdlName_ =
+projectsMonitoredResourceDescriptorsList pPmrdlName_ = 
     ProjectsMonitoredResourceDescriptorsList'
     { _pmrdlXgafv = Nothing
     , _pmrdlUploadProtocol = Nothing

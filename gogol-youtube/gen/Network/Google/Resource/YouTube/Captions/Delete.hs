@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.Captions.Delete
     , cddId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.captions.delete@ method which the
 -- 'CaptionsDelete' request conforms to.
@@ -56,9 +56,9 @@ type CaptionsDeleteResource =
 --
 -- /See:/ 'captionsDelete' smart constructor.
 data CaptionsDelete = CaptionsDelete'
-    { _cddOnBehalfOf             :: !(Maybe Text)
+    { _cddOnBehalfOf :: !(Maybe Text)
     , _cddOnBehalfOfContentOwner :: !(Maybe Text)
-    , _cddId                     :: !Text
+    , _cddId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CaptionsDelete' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ data CaptionsDelete = CaptionsDelete'
 captionsDelete
     :: Text -- ^ 'cddId'
     -> CaptionsDelete
-captionsDelete pCddId_ =
+captionsDelete pCddId_ = 
     CaptionsDelete'
     { _cddOnBehalfOf = Nothing
     , _cddOnBehalfOfContentOwner = Nothing

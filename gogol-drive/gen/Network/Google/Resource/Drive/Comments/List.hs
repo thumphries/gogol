@@ -40,8 +40,8 @@ module Network.Google.Resource.Drive.Comments.List
     , cIncludeDeleted
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.comments.list@ method which the
 -- 'CommentsList' request conforms to.
@@ -62,10 +62,10 @@ type CommentsListResource =
 -- /See:/ 'commentsList' smart constructor.
 data CommentsList = CommentsList'
     { _cStartModifiedTime :: !(Maybe Text)
-    , _cPageToken         :: !(Maybe Text)
-    , _cFileId            :: !Text
-    , _cPageSize          :: !(Textual Int32)
-    , _cIncludeDeleted    :: !Bool
+    , _cPageToken :: !(Maybe Text)
+    , _cFileId :: !Text
+    , _cPageSize :: !(Textual Int32)
+    , _cIncludeDeleted :: !Bool
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommentsList' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ data CommentsList = CommentsList'
 commentsList
     :: Text -- ^ 'cFileId'
     -> CommentsList
-commentsList pCFileId_ =
+commentsList pCFileId_ = 
     CommentsList'
     { _cStartModifiedTime = Nothing
     , _cPageToken = Nothing

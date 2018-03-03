@@ -34,7 +34,6 @@ module Network.Google.Resource.Games.Scores.ListWindow
     , ScoresListWindow
 
     -- * Request Lenses
-    , slwConsistencyToken
     , slwCollection
     , slwTimeSpan
     , slwReturnTopIfAbsent
@@ -45,8 +44,8 @@ module Network.Google.Resource.Games.Scores.ListWindow
     , slwMaxResults
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.scores.listWindow@ method which the
 -- 'ScoresListWindow' request conforms to.
@@ -58,36 +57,32 @@ type ScoresListWindowResource =
              "window" :>
                Capture "collection" ScoresListWindowCollection :>
                  QueryParam "timeSpan" ScoresListWindowTimeSpan :>
-                   QueryParam "consistencyToken" (Textual Int64) :>
-                     QueryParam "returnTopIfAbsent" Bool :>
-                       QueryParam "language" Text :>
-                         QueryParam "resultsAbove" (Textual Int32) :>
-                           QueryParam "pageToken" Text :>
-                             QueryParam "maxResults" (Textual Int32) :>
-                               QueryParam "alt" AltJSON :>
-                                 Get '[JSON] LeaderboardScores
+                   QueryParam "returnTopIfAbsent" Bool :>
+                     QueryParam "language" Text :>
+                       QueryParam "resultsAbove" (Textual Int32) :>
+                         QueryParam "pageToken" Text :>
+                           QueryParam "maxResults" (Textual Int32) :>
+                             QueryParam "alt" AltJSON :>
+                               Get '[JSON] LeaderboardScores
 
 -- | Lists the scores in a leaderboard around (and including) a player\'s
 -- score.
 --
 -- /See:/ 'scoresListWindow' smart constructor.
 data ScoresListWindow = ScoresListWindow'
-    { _slwConsistencyToken  :: !(Maybe (Textual Int64))
-    , _slwCollection        :: !ScoresListWindowCollection
-    , _slwTimeSpan          :: !ScoresListWindowTimeSpan
+    { _slwCollection :: !ScoresListWindowCollection
+    , _slwTimeSpan :: !ScoresListWindowTimeSpan
     , _slwReturnTopIfAbsent :: !(Maybe Bool)
-    , _slwLeaderboardId     :: !Text
-    , _slwLanguage          :: !(Maybe Text)
-    , _slwResultsAbove      :: !(Maybe (Textual Int32))
-    , _slwPageToken         :: !(Maybe Text)
-    , _slwMaxResults        :: !(Maybe (Textual Int32))
+    , _slwLeaderboardId :: !Text
+    , _slwLanguage :: !(Maybe Text)
+    , _slwResultsAbove :: !(Maybe (Textual Int32))
+    , _slwPageToken :: !(Maybe Text)
+    , _slwMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScoresListWindow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'slwConsistencyToken'
 --
 -- * 'slwCollection'
 --
@@ -109,10 +104,9 @@ scoresListWindow
     -> ScoresListWindowTimeSpan -- ^ 'slwTimeSpan'
     -> Text -- ^ 'slwLeaderboardId'
     -> ScoresListWindow
-scoresListWindow pSlwCollection_ pSlwTimeSpan_ pSlwLeaderboardId_ =
+scoresListWindow pSlwCollection_ pSlwTimeSpan_ pSlwLeaderboardId_ = 
     ScoresListWindow'
-    { _slwConsistencyToken = Nothing
-    , _slwCollection = pSlwCollection_
+    { _slwCollection = pSlwCollection_
     , _slwTimeSpan = pSlwTimeSpan_
     , _slwReturnTopIfAbsent = Nothing
     , _slwLeaderboardId = pSlwLeaderboardId_
@@ -121,13 +115,6 @@ scoresListWindow pSlwCollection_ pSlwTimeSpan_ pSlwLeaderboardId_ =
     , _slwPageToken = Nothing
     , _slwMaxResults = Nothing
     }
-
--- | The last-seen mutation timestamp.
-slwConsistencyToken :: Lens' ScoresListWindow (Maybe Int64)
-slwConsistencyToken
-  = lens _slwConsistencyToken
-      (\ s a -> s{_slwConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The collection of scores you\'re requesting.
 slwCollection :: Lens' ScoresListWindow ScoresListWindowCollection
@@ -190,7 +177,6 @@ instance GoogleRequest ScoresListWindow where
         requestClient ScoresListWindow'{..}
           = go _slwLeaderboardId _slwCollection
               (Just _slwTimeSpan)
-              _slwConsistencyToken
               _slwReturnTopIfAbsent
               _slwLanguage
               _slwResultsAbove

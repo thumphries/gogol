@@ -40,8 +40,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.List
     , glMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.list@ method which the
 -- 'GroupsList' request conforms to.
@@ -62,10 +62,10 @@ type GroupsListResource =
 --
 -- /See:/ 'groupsList' smart constructor.
 data GroupsList = GroupsList'
-    { _glOrderBy    :: !(Maybe Text)
-    , _glProject    :: !Text
-    , _glFilter     :: !(Maybe Text)
-    , _glPageToken  :: !(Maybe Text)
+    { _glOrderBy :: !(Maybe Text)
+    , _glProject :: !Text
+    , _glFilter :: !(Maybe Text)
+    , _glPageToken :: !(Maybe Text)
     , _glMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ data GroupsList = GroupsList'
 groupsList
     :: Text -- ^ 'glProject'
     -> GroupsList
-groupsList pGlProject_ =
+groupsList pGlProject_ = 
     GroupsList'
     { _glOrderBy = Nothing
     , _glProject = pGlProject_

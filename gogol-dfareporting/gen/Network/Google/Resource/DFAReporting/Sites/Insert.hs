@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Sites.Insert
     , sPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.sites.insert@ method which the
 -- 'SitesInsert' request conforms to.
 type SitesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "sites" :>
@@ -56,7 +56,7 @@ type SitesInsertResource =
 -- /See:/ 'sitesInsert' smart constructor.
 data SitesInsert = SitesInsert'
     { _sProFileId :: !(Textual Int64)
-    , _sPayload   :: !Site
+    , _sPayload :: !Site
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SitesInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ sitesInsert
     :: Int64 -- ^ 'sProFileId'
     -> Site -- ^ 'sPayload'
     -> SitesInsert
-sitesInsert pSProFileId_ pSPayload_ =
+sitesInsert pSProFileId_ pSPayload_ = 
     SitesInsert'
     { _sProFileId = _Coerce # pSProFileId_
     , _sPayload = pSPayload_

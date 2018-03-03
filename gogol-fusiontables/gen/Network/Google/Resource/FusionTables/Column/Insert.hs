@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Column.Insert
     , ciTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.column.insert@ method which the
 -- 'ColumnInsert' request conforms to.
@@ -70,7 +70,7 @@ columnInsert
     :: Column -- ^ 'ciPayload'
     -> Text -- ^ 'ciTableId'
     -> ColumnInsert
-columnInsert pCiPayload_ pCiTableId_ =
+columnInsert pCiPayload_ pCiTableId_ = 
     ColumnInsert'
     { _ciPayload = pCiPayload_
     , _ciTableId = pCiTableId_

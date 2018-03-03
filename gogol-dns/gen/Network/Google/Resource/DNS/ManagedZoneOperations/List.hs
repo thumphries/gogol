@@ -40,8 +40,8 @@ module Network.Google.Resource.DNS.ManagedZoneOperations.List
     , mzolSortBy
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.managedZoneOperations.list@ method which the
 -- 'ManagedZoneOperationsList' request conforms to.
@@ -64,11 +64,11 @@ type ManagedZoneOperationsListResource =
 --
 -- /See:/ 'managedZoneOperationsList' smart constructor.
 data ManagedZoneOperationsList = ManagedZoneOperationsList'
-    { _mzolProject     :: !Text
-    , _mzolPageToken   :: !(Maybe Text)
+    { _mzolProject :: !Text
+    , _mzolPageToken :: !(Maybe Text)
     , _mzolManagedZone :: !Text
-    , _mzolMaxResults  :: !(Maybe (Textual Int32))
-    , _mzolSortBy      :: !ManagedZoneOperationsListSortBy
+    , _mzolMaxResults :: !(Maybe (Textual Int32))
+    , _mzolSortBy :: !ManagedZoneOperationsListSortBy
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagedZoneOperationsList' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ managedZoneOperationsList
     :: Text -- ^ 'mzolProject'
     -> Text -- ^ 'mzolManagedZone'
     -> ManagedZoneOperationsList
-managedZoneOperationsList pMzolProject_ pMzolManagedZone_ =
+managedZoneOperationsList pMzolProject_ pMzolManagedZone_ = 
     ManagedZoneOperationsList'
     { _mzolProject = pMzolProject_
     , _mzolPageToken = Nothing

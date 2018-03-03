@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Attachments.Get
     , umagMessageId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.attachments.get@ method which the
 -- 'UsersMessagesAttachmentsGet' request conforms to.
@@ -59,8 +59,8 @@ type UsersMessagesAttachmentsGetResource =
 --
 -- /See:/ 'usersMessagesAttachmentsGet' smart constructor.
 data UsersMessagesAttachmentsGet = UsersMessagesAttachmentsGet'
-    { _umagUserId    :: !Text
-    , _umagId        :: !Text
+    { _umagUserId :: !Text
+    , _umagId :: !Text
     , _umagMessageId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ usersMessagesAttachmentsGet
     :: Text -- ^ 'umagId'
     -> Text -- ^ 'umagMessageId'
     -> UsersMessagesAttachmentsGet
-usersMessagesAttachmentsGet pUmagId_ pUmagMessageId_ =
+usersMessagesAttachmentsGet pUmagId_ pUmagMessageId_ = 
     UsersMessagesAttachmentsGet'
     { _umagUserId = "me"
     , _umagId = pUmagId_

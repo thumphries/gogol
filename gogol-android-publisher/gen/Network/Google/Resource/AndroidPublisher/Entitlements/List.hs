@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Entitlements.List
     , elMaxResults
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.entitlements.list@ method which the
 -- 'EntitlementsList' request conforms to.
@@ -63,10 +63,10 @@ type EntitlementsListResource =
 -- /See:/ 'entitlementsList' smart constructor.
 data EntitlementsList = EntitlementsList'
     { _elPackageName :: !Text
-    , _elToken       :: !(Maybe Text)
-    , _elStartIndex  :: !(Maybe (Textual Word32))
-    , _elProductId   :: !(Maybe Text)
-    , _elMaxResults  :: !(Maybe (Textual Word32))
+    , _elToken :: !(Maybe Text)
+    , _elStartIndex :: !(Maybe (Textual Word32))
+    , _elProductId :: !(Maybe Text)
+    , _elMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsList' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data EntitlementsList = EntitlementsList'
 entitlementsList
     :: Text -- ^ 'elPackageName'
     -> EntitlementsList
-entitlementsList pElPackageName_ =
+entitlementsList pElPackageName_ = 
     EntitlementsList'
     { _elPackageName = pElPackageName_
     , _elToken = Nothing

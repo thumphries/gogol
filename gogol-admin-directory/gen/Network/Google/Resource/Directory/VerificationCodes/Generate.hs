@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.VerificationCodes.Generate
     , vcgUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.verificationCodes.generate@ method which the
 -- 'VerificationCodesGenerate' request conforms to.
@@ -66,12 +66,12 @@ newtype VerificationCodesGenerate = VerificationCodesGenerate'
 verificationCodesGenerate
     :: Text -- ^ 'vcgUserKey'
     -> VerificationCodesGenerate
-verificationCodesGenerate pVcgUserKey_ =
+verificationCodesGenerate pVcgUserKey_ = 
     VerificationCodesGenerate'
     { _vcgUserKey = pVcgUserKey_
     }
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 vcgUserKey :: Lens' VerificationCodesGenerate Text
 vcgUserKey
   = lens _vcgUserKey (\ s a -> s{_vcgUserKey = a})

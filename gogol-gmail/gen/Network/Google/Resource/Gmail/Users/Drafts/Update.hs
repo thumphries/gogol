@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Drafts.Update
     , uduId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.drafts.update@ method which the
 -- 'UsersDraftsUpdate' request conforms to.
@@ -69,8 +69,8 @@ type UsersDraftsUpdateResource =
 -- /See:/ 'usersDraftsUpdate' smart constructor.
 data UsersDraftsUpdate = UsersDraftsUpdate'
     { _uduPayload :: !Draft
-    , _uduUserId  :: !Text
-    , _uduId      :: !Text
+    , _uduUserId :: !Text
+    , _uduId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDraftsUpdate' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ usersDraftsUpdate
     :: Draft -- ^ 'uduPayload'
     -> Text -- ^ 'uduId'
     -> UsersDraftsUpdate
-usersDraftsUpdate pUduPayload_ pUduId_ =
+usersDraftsUpdate pUduPayload_ pUduId_ = 
     UsersDraftsUpdate'
     { _uduPayload = pUduPayload_
     , _uduUserId = "me"

@@ -22,7 +22,7 @@
 --
 -- Creates a Cloud Dataflow job.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.jobs.create@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.jobs.create@.
 module Network.Google.Resource.Dataflow.Projects.Jobs.Create
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.Dataflow.Projects.Jobs.Create
     , pjcCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.jobs.create@ method which the
 -- 'ProjectsJobsCreate' request conforms to.
@@ -57,7 +57,7 @@ type ProjectsJobsCreateResource =
        "projects" :>
          Capture "projectId" Text :>
            "jobs" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "location" Text :>
                    QueryParam "pp" Bool :>
@@ -74,18 +74,18 @@ type ProjectsJobsCreateResource =
 --
 -- /See:/ 'projectsJobsCreate' smart constructor.
 data ProjectsJobsCreate = ProjectsJobsCreate'
-    { _pjcXgafv          :: !(Maybe Text)
+    { _pjcXgafv :: !(Maybe Xgafv)
     , _pjcUploadProtocol :: !(Maybe Text)
-    , _pjcLocation       :: !(Maybe Text)
-    , _pjcPp             :: !Bool
-    , _pjcAccessToken    :: !(Maybe Text)
-    , _pjcUploadType     :: !(Maybe Text)
-    , _pjcPayload        :: !Job
-    , _pjcBearerToken    :: !(Maybe Text)
-    , _pjcView           :: !(Maybe Text)
-    , _pjcProjectId      :: !Text
-    , _pjcReplaceJobId   :: !(Maybe Text)
-    , _pjcCallback       :: !(Maybe Text)
+    , _pjcLocation :: !(Maybe Text)
+    , _pjcPp :: !Bool
+    , _pjcAccessToken :: !(Maybe Text)
+    , _pjcUploadType :: !(Maybe Text)
+    , _pjcPayload :: !Job
+    , _pjcBearerToken :: !(Maybe Text)
+    , _pjcView :: !(Maybe Text)
+    , _pjcProjectId :: !Text
+    , _pjcReplaceJobId :: !(Maybe Text)
+    , _pjcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsJobsCreate' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ projectsJobsCreate
     :: Job -- ^ 'pjcPayload'
     -> Text -- ^ 'pjcProjectId'
     -> ProjectsJobsCreate
-projectsJobsCreate pPjcPayload_ pPjcProjectId_ =
+projectsJobsCreate pPjcPayload_ pPjcProjectId_ = 
     ProjectsJobsCreate'
     { _pjcXgafv = Nothing
     , _pjcUploadProtocol = Nothing
@@ -136,7 +136,7 @@ projectsJobsCreate pPjcPayload_ pPjcProjectId_ =
     }
 
 -- | V1 error format.
-pjcXgafv :: Lens' ProjectsJobsCreate (Maybe Text)
+pjcXgafv :: Lens' ProjectsJobsCreate (Maybe Xgafv)
 pjcXgafv = lens _pjcXgafv (\ s a -> s{_pjcXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -201,6 +201,8 @@ instance GoogleRequest ProjectsJobsCreate where
         type Rs ProjectsJobsCreate = Job
         type Scopes ProjectsJobsCreate =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsJobsCreate'{..}
           = go _pjcProjectId _pjcXgafv _pjcUploadProtocol

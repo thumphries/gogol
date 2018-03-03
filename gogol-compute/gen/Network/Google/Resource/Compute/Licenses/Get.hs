@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified License resource. Get a list of available licenses
--- by making a list() request.
+-- Returns the specified License resource.
 --
 -- /See:/ <https://developers.google.com/compute/docs/reference/latest/ Compute Engine API Reference> for @compute.licenses.get@.
 module Network.Google.Resource.Compute.Licenses.Get
@@ -38,8 +37,8 @@ module Network.Google.Resource.Compute.Licenses.Get
     , lgLicense
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.licenses.get@ method which the
 -- 'LicensesGet' request conforms to.
@@ -53,8 +52,7 @@ type LicensesGetResource =
                  Capture "license" Text :>
                    QueryParam "alt" AltJSON :> Get '[JSON] License
 
--- | Returns the specified License resource. Get a list of available licenses
--- by making a list() request.
+-- | Returns the specified License resource.
 --
 -- /See:/ 'licensesGet' smart constructor.
 data LicensesGet = LicensesGet'
@@ -73,7 +71,7 @@ licensesGet
     :: Text -- ^ 'lgProject'
     -> Text -- ^ 'lgLicense'
     -> LicensesGet
-licensesGet pLgProject_ pLgLicense_ =
+licensesGet pLgProject_ pLgLicense_ = 
     LicensesGet'
     { _lgProject = pLgProject_
     , _lgLicense = pLgLicense_

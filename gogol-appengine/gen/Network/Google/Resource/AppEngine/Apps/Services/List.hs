@@ -22,7 +22,7 @@
 --
 -- Lists all the services in the application.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.list@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.list@.
 module Network.Google.Resource.AppEngine.Apps.Services.List
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.List
     , aslCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.list@ method which the
 -- 'AppsServicesList' request conforms to.
@@ -55,7 +55,7 @@ type AppsServicesListResource =
        "apps" :>
          Capture "appsId" Text :>
            "services" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -71,16 +71,16 @@ type AppsServicesListResource =
 --
 -- /See:/ 'appsServicesList' smart constructor.
 data AppsServicesList = AppsServicesList'
-    { _aslXgafv          :: !(Maybe Text)
+    { _aslXgafv :: !(Maybe Xgafv)
     , _aslUploadProtocol :: !(Maybe Text)
-    , _aslPp             :: !Bool
-    , _aslAccessToken    :: !(Maybe Text)
-    , _aslUploadType     :: !(Maybe Text)
-    , _aslBearerToken    :: !(Maybe Text)
-    , _aslAppsId         :: !Text
-    , _aslPageToken      :: !(Maybe Text)
-    , _aslPageSize       :: !(Maybe (Textual Int32))
-    , _aslCallback       :: !(Maybe Text)
+    , _aslPp :: !Bool
+    , _aslAccessToken :: !(Maybe Text)
+    , _aslUploadType :: !(Maybe Text)
+    , _aslBearerToken :: !(Maybe Text)
+    , _aslAppsId :: !Text
+    , _aslPageToken :: !(Maybe Text)
+    , _aslPageSize :: !(Maybe (Textual Int32))
+    , _aslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesList' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ data AppsServicesList = AppsServicesList'
 appsServicesList
     :: Text -- ^ 'aslAppsId'
     -> AppsServicesList
-appsServicesList pAslAppsId_ =
+appsServicesList pAslAppsId_ = 
     AppsServicesList'
     { _aslXgafv = Nothing
     , _aslUploadProtocol = Nothing
@@ -124,7 +124,7 @@ appsServicesList pAslAppsId_ =
     }
 
 -- | V1 error format.
-aslXgafv :: Lens' AppsServicesList (Maybe Text)
+aslXgafv :: Lens' AppsServicesList (Maybe Xgafv)
 aslXgafv = lens _aslXgafv (\ s a -> s{_aslXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

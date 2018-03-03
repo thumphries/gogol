@@ -38,8 +38,8 @@ module Network.Google.Resource.SQL.Users.Insert
     , uiInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.users.insert@ method which the
 -- 'UsersInsert' request conforms to.
@@ -58,8 +58,8 @@ type UsersInsertResource =
 --
 -- /See:/ 'usersInsert' smart constructor.
 data UsersInsert = UsersInsert'
-    { _uiProject  :: !Text
-    , _uiPayload  :: !User
+    { _uiProject :: !Text
+    , _uiPayload :: !User
     , _uiInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ usersInsert
     -> User -- ^ 'uiPayload'
     -> Text -- ^ 'uiInstance'
     -> UsersInsert
-usersInsert pUiProject_ pUiPayload_ pUiInstance_ =
+usersInsert pUiProject_ pUiPayload_ pUiInstance_ = 
     UsersInsert'
     { _uiProject = pUiProject_
     , _uiPayload = pUiPayload_

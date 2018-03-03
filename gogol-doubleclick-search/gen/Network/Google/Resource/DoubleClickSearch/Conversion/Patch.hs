@@ -44,8 +44,8 @@ module Network.Google.Resource.DoubleClickSearch.Conversion.Patch
     , cpRowCount
     ) where
 
-import           Network.Google.DoubleClickSearch.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickSearch.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclicksearch.conversion.patch@ method which the
 -- 'ConversionPatch' request conforms to.
@@ -70,13 +70,13 @@ type ConversionPatchResource =
 -- /See:/ 'conversionPatch' smart constructor.
 data ConversionPatch = ConversionPatch'
     { _cpEngineAccountId :: !(Textual Int64)
-    , _cpAgencyId        :: !(Textual Int64)
-    , _cpAdvertiserId    :: !(Textual Int64)
-    , _cpEndDate         :: !(Textual Int32)
-    , _cpPayload         :: !ConversionList
-    , _cpStartDate       :: !(Textual Int32)
-    , _cpStartRow        :: !(Textual Word32)
-    , _cpRowCount        :: !(Textual Int32)
+    , _cpAgencyId :: !(Textual Int64)
+    , _cpAdvertiserId :: !(Textual Int64)
+    , _cpEndDate :: !(Textual Int32)
+    , _cpPayload :: !ConversionList
+    , _cpStartDate :: !(Textual Int32)
+    , _cpStartRow :: !(Textual Word32)
+    , _cpRowCount :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConversionPatch' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ conversionPatch
     -> Word32 -- ^ 'cpStartRow'
     -> Int32 -- ^ 'cpRowCount'
     -> ConversionPatch
-conversionPatch pCpEngineAccountId_ pCpAgencyId_ pCpAdvertiserId_ pCpEndDate_ pCpPayload_ pCpStartDate_ pCpStartRow_ pCpRowCount_ =
+conversionPatch pCpEngineAccountId_ pCpAgencyId_ pCpAdvertiserId_ pCpEndDate_ pCpPayload_ pCpStartDate_ pCpStartRow_ pCpRowCount_ = 
     ConversionPatch'
     { _cpEngineAccountId = _Coerce # pCpEngineAccountId_
     , _cpAgencyId = _Coerce # pCpAgencyId_

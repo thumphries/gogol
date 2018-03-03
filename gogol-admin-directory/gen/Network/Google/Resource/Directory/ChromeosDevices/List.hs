@@ -34,6 +34,7 @@ module Network.Google.Resource.Directory.ChromeosDevices.List
 
     -- * Request Lenses
     , cdlOrderBy
+    , cdlOrgUnitPath
     , cdlCustomerId
     , cdlSortOrder
     , cdlQuery
@@ -42,8 +43,8 @@ module Network.Google.Resource.Directory.ChromeosDevices.List
     , cdlMaxResults
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.chromeosdevices.list@ method which the
 -- 'ChromeosDevicesList' request conforms to.
@@ -56,26 +57,28 @@ type ChromeosDevicesListResource =
                "devices" :>
                  "chromeos" :>
                    QueryParam "orderBy" ChromeosDevicesListOrderBy :>
-                     QueryParam "sortOrder" ChromeosDevicesListSortOrder
-                       :>
-                       QueryParam "query" Text :>
-                         QueryParam "projection" ChromeosDevicesListProjection
-                           :>
-                           QueryParam "pageToken" Text :>
-                             QueryParam "maxResults" (Textual Int32) :>
-                               QueryParam "alt" AltJSON :>
-                                 Get '[JSON] ChromeOSDevices
+                     QueryParam "orgUnitPath" Text :>
+                       QueryParam "sortOrder" ChromeosDevicesListSortOrder
+                         :>
+                         QueryParam "query" Text :>
+                           QueryParam "projection" ChromeosDevicesListProjection
+                             :>
+                             QueryParam "pageToken" Text :>
+                               QueryParam "maxResults" (Textual Int32) :>
+                                 QueryParam "alt" AltJSON :>
+                                   Get '[JSON] ChromeOSDevices
 
 -- | Retrieve all Chrome OS Devices of a customer (paginated)
 --
 -- /See:/ 'chromeosDevicesList' smart constructor.
 data ChromeosDevicesList = ChromeosDevicesList'
-    { _cdlOrderBy    :: !(Maybe ChromeosDevicesListOrderBy)
+    { _cdlOrderBy :: !(Maybe ChromeosDevicesListOrderBy)
+    , _cdlOrgUnitPath :: !(Maybe Text)
     , _cdlCustomerId :: !Text
-    , _cdlSortOrder  :: !(Maybe ChromeosDevicesListSortOrder)
-    , _cdlQuery      :: !(Maybe Text)
+    , _cdlSortOrder :: !(Maybe ChromeosDevicesListSortOrder)
+    , _cdlQuery :: !(Maybe Text)
     , _cdlProjection :: !(Maybe ChromeosDevicesListProjection)
-    , _cdlPageToken  :: !(Maybe Text)
+    , _cdlPageToken :: !(Maybe Text)
     , _cdlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -84,6 +87,8 @@ data ChromeosDevicesList = ChromeosDevicesList'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdlOrderBy'
+--
+-- * 'cdlOrgUnitPath'
 --
 -- * 'cdlCustomerId'
 --
@@ -99,9 +104,10 @@ data ChromeosDevicesList = ChromeosDevicesList'
 chromeosDevicesList
     :: Text -- ^ 'cdlCustomerId'
     -> ChromeosDevicesList
-chromeosDevicesList pCdlCustomerId_ =
+chromeosDevicesList pCdlCustomerId_ = 
     ChromeosDevicesList'
     { _cdlOrderBy = Nothing
+    , _cdlOrgUnitPath = Nothing
     , _cdlCustomerId = pCdlCustomerId_
     , _cdlSortOrder = Nothing
     , _cdlQuery = Nothing
@@ -115,7 +121,13 @@ cdlOrderBy :: Lens' ChromeosDevicesList (Maybe ChromeosDevicesListOrderBy)
 cdlOrderBy
   = lens _cdlOrderBy (\ s a -> s{_cdlOrderBy = a})
 
--- | Immutable id of the Google Apps account
+-- | Full path of the organizational unit or its ID
+cdlOrgUnitPath :: Lens' ChromeosDevicesList (Maybe Text)
+cdlOrgUnitPath
+  = lens _cdlOrgUnitPath
+      (\ s a -> s{_cdlOrgUnitPath = a})
+
+-- | Immutable ID of the G Suite account
 cdlCustomerId :: Lens' ChromeosDevicesList Text
 cdlCustomerId
   = lens _cdlCustomerId
@@ -156,7 +168,8 @@ instance GoogleRequest ChromeosDevicesList where
              '["https://www.googleapis.com/auth/admin.directory.device.chromeos",
                "https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly"]
         requestClient ChromeosDevicesList'{..}
-          = go _cdlCustomerId _cdlOrderBy _cdlSortOrder
+          = go _cdlCustomerId _cdlOrderBy _cdlOrgUnitPath
+              _cdlSortOrder
               _cdlQuery
               _cdlProjection
               _cdlPageToken

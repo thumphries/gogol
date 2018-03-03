@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.CreativeGroups.Get
     , cgggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeGroups.get@ method which the
 -- 'CreativeGroupsGet' request conforms to.
 type CreativeGroupsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeGroups" :>
@@ -56,7 +56,7 @@ type CreativeGroupsGetResource =
 -- /See:/ 'creativeGroupsGet' smart constructor.
 data CreativeGroupsGet = CreativeGroupsGet'
     { _cgggProFileId :: !(Textual Int64)
-    , _cgggId        :: !(Textual Int64)
+    , _cgggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeGroupsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ creativeGroupsGet
     :: Int64 -- ^ 'cgggProFileId'
     -> Int64 -- ^ 'cgggId'
     -> CreativeGroupsGet
-creativeGroupsGet pCgggProFileId_ pCgggId_ =
+creativeGroupsGet pCgggProFileId_ pCgggId_ = 
     CreativeGroupsGet'
     { _cgggProFileId = _Coerce # pCgggProFileId_
     , _cgggId = _Coerce # pCgggId_

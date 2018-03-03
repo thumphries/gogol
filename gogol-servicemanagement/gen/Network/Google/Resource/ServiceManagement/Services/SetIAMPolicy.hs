@@ -45,8 +45,8 @@ module Network.Google.Resource.ServiceManagement.Services.SetIAMPolicy
     , ssipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.setIamPolicy@ method which the
 -- 'ServicesSetIAMPolicy' request conforms to.
@@ -69,15 +69,15 @@ type ServicesSetIAMPolicyResource =
 --
 -- /See:/ 'servicesSetIAMPolicy' smart constructor.
 data ServicesSetIAMPolicy = ServicesSetIAMPolicy'
-    { _ssipXgafv          :: !(Maybe Xgafv)
+    { _ssipXgafv :: !(Maybe Xgafv)
     , _ssipUploadProtocol :: !(Maybe Text)
-    , _ssipPp             :: !Bool
-    , _ssipAccessToken    :: !(Maybe Text)
-    , _ssipUploadType     :: !(Maybe Text)
-    , _ssipPayload        :: !SetIAMPolicyRequest
-    , _ssipBearerToken    :: !(Maybe Text)
-    , _ssipResource       :: !Text
-    , _ssipCallback       :: !(Maybe Text)
+    , _ssipPp :: !Bool
+    , _ssipAccessToken :: !(Maybe Text)
+    , _ssipUploadType :: !(Maybe Text)
+    , _ssipPayload :: !SetIAMPolicyRequest
+    , _ssipBearerToken :: !(Maybe Text)
+    , _ssipResource :: !Text
+    , _ssipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesSetIAMPolicy' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ servicesSetIAMPolicy
     :: SetIAMPolicyRequest -- ^ 'ssipPayload'
     -> Text -- ^ 'ssipResource'
     -> ServicesSetIAMPolicy
-servicesSetIAMPolicy pSsipPayload_ pSsipResource_ =
+servicesSetIAMPolicy pSsipPayload_ pSsipResource_ = 
     ServicesSetIAMPolicy'
     { _ssipXgafv = Nothing
     , _ssipUploadProtocol = Nothing
@@ -156,9 +156,8 @@ ssipBearerToken
   = lens _ssipBearerToken
       (\ s a -> s{_ssipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being specified.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being specified. See the
+-- operation documentation for the appropriate value for this field.
 ssipResource :: Lens' ServicesSetIAMPolicy Text
 ssipResource
   = lens _ssipResource (\ s a -> s{_ssipResource = a})

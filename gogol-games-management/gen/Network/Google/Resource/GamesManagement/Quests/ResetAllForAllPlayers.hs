@@ -35,8 +35,8 @@ module Network.Google.Resource.GamesManagement.Quests.ResetAllForAllPlayers
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.quests.resetAllForAllPlayers@ method which the
 -- 'QuestsResetAllForAllPlayers' request conforms to.
@@ -52,7 +52,7 @@ type QuestsResetAllForAllPlayersResource =
 --
 -- /See:/ 'questsResetAllForAllPlayers' smart constructor.
 data QuestsResetAllForAllPlayers =
-    QuestsResetAllForAllPlayers'
+    QuestsResetAllForAllPlayers' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QuestsResetAllForAllPlayers' with the minimum fields required to make a request.

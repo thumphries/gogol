@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.Autoscalers.Get
     , agAutoscaler
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.autoscalers.get@ method which the
 -- 'AutoscalersGet' request conforms to.
@@ -60,8 +60,8 @@ type AutoscalersGetResource =
 --
 -- /See:/ 'autoscalersGet' smart constructor.
 data AutoscalersGet = AutoscalersGet'
-    { _agProject    :: !Text
-    , _agZone       :: !Text
+    { _agProject :: !Text
+    , _agZone :: !Text
     , _agAutoscaler :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ autoscalersGet
     -> Text -- ^ 'agZone'
     -> Text -- ^ 'agAutoscaler'
     -> AutoscalersGet
-autoscalersGet pAgProject_ pAgZone_ pAgAutoscaler_ =
+autoscalersGet pAgProject_ pAgZone_ pAgAutoscaler_ = 
     AutoscalersGet'
     { _agProject = pAgProject_
     , _agZone = pAgZone_

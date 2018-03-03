@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels all line items in an order. This method can only be called for
--- non-multi-client accounts.
+-- Cancels all line items in an order, making a full refund.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.cancel@.
 module Network.Google.Resource.Content.Orders.Cancel
@@ -34,13 +33,13 @@ module Network.Google.Resource.Content.Orders.Cancel
     , OrdersCancel
 
     -- * Request Lenses
-    , occMerchantId
-    , occPayload
-    , occOrderId
+    , ooMerchantId
+    , ooPayload
+    , ooOrderId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.cancel@ method which the
 -- 'OrdersCancel' request conforms to.
@@ -55,61 +54,60 @@ type OrdersCancelResource =
                    ReqBody '[JSON] OrdersCancelRequest :>
                      Post '[JSON] OrdersCancelResponse
 
--- | Cancels all line items in an order. This method can only be called for
--- non-multi-client accounts.
+-- | Cancels all line items in an order, making a full refund.
 --
 -- /See:/ 'ordersCancel' smart constructor.
 data OrdersCancel = OrdersCancel'
-    { _occMerchantId :: !(Textual Word64)
-    , _occPayload    :: !OrdersCancelRequest
-    , _occOrderId    :: !Text
+    { _ooMerchantId :: !(Textual Word64)
+    , _ooPayload :: !OrdersCancelRequest
+    , _ooOrderId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrdersCancel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'occMerchantId'
+-- * 'ooMerchantId'
 --
--- * 'occPayload'
+-- * 'ooPayload'
 --
--- * 'occOrderId'
+-- * 'ooOrderId'
 ordersCancel
-    :: Word64 -- ^ 'occMerchantId'
-    -> OrdersCancelRequest -- ^ 'occPayload'
-    -> Text -- ^ 'occOrderId'
+    :: Word64 -- ^ 'ooMerchantId'
+    -> OrdersCancelRequest -- ^ 'ooPayload'
+    -> Text -- ^ 'ooOrderId'
     -> OrdersCancel
-ordersCancel pOccMerchantId_ pOccPayload_ pOccOrderId_ =
+ordersCancel pOoMerchantId_ pOoPayload_ pOoOrderId_ = 
     OrdersCancel'
-    { _occMerchantId = _Coerce # pOccMerchantId_
-    , _occPayload = pOccPayload_
-    , _occOrderId = pOccOrderId_
+    { _ooMerchantId = _Coerce # pOoMerchantId_
+    , _ooPayload = pOoPayload_
+    , _ooOrderId = pOoOrderId_
     }
 
--- | The ID of the managing account.
-occMerchantId :: Lens' OrdersCancel Word64
-occMerchantId
-  = lens _occMerchantId
-      (\ s a -> s{_occMerchantId = a})
+-- | The ID of the account that manages the order. This cannot be a
+-- multi-client account.
+ooMerchantId :: Lens' OrdersCancel Word64
+ooMerchantId
+  = lens _ooMerchantId (\ s a -> s{_ooMerchantId = a})
       . _Coerce
 
 -- | Multipart request metadata.
-occPayload :: Lens' OrdersCancel OrdersCancelRequest
-occPayload
-  = lens _occPayload (\ s a -> s{_occPayload = a})
+ooPayload :: Lens' OrdersCancel OrdersCancelRequest
+ooPayload
+  = lens _ooPayload (\ s a -> s{_ooPayload = a})
 
 -- | The ID of the order to cancel.
-occOrderId :: Lens' OrdersCancel Text
-occOrderId
-  = lens _occOrderId (\ s a -> s{_occOrderId = a})
+ooOrderId :: Lens' OrdersCancel Text
+ooOrderId
+  = lens _ooOrderId (\ s a -> s{_ooOrderId = a})
 
 instance GoogleRequest OrdersCancel where
         type Rs OrdersCancel = OrdersCancelResponse
         type Scopes OrdersCancel =
              '["https://www.googleapis.com/auth/content"]
         requestClient OrdersCancel'{..}
-          = go _occMerchantId _occOrderId (Just AltJSON)
-              _occPayload
+          = go _ooMerchantId _ooOrderId (Just AltJSON)
+              _ooPayload
               shoppingContentService
           where go
                   = buildClient (Proxy :: Proxy OrdersCancelResource)

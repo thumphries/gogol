@@ -39,8 +39,8 @@ module Network.Google.Resource.Spectrum.Paws.NotifySpectrumUse
     , pnsuPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Spectrum.Types
+import Network.Google.Prelude
+import Network.Google.Spectrum.Types
 
 -- | A resource alias for @spectrum.paws.notifySpectrumUse@ method which the
 -- 'PawsNotifySpectrumUse' request conforms to.
@@ -71,7 +71,7 @@ newtype PawsNotifySpectrumUse = PawsNotifySpectrumUse'
 pawsNotifySpectrumUse
     :: PawsNotifySpectrumUseRequest -- ^ 'pnsuPayload'
     -> PawsNotifySpectrumUse
-pawsNotifySpectrumUse pPnsuPayload_ =
+pawsNotifySpectrumUse pPnsuPayload_ = 
     PawsNotifySpectrumUse'
     { _pnsuPayload = pPnsuPayload_
     }

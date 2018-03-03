@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Privileges.List
     , plCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.privileges.list@ method which the
 -- 'PrivilegesList' request conforms to.
@@ -67,12 +67,12 @@ newtype PrivilegesList = PrivilegesList'
 privilegesList
     :: Text -- ^ 'plCustomer'
     -> PrivilegesList
-privilegesList pPlCustomer_ =
+privilegesList pPlCustomer_ = 
     PrivilegesList'
     { _plCustomer = pPlCustomer_
     }
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 plCustomer :: Lens' PrivilegesList Text
 plCustomer
   = lens _plCustomer (\ s a -> s{_plCustomer = a})

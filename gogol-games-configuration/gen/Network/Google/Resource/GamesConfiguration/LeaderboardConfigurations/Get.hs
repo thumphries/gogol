@@ -37,8 +37,8 @@ module Network.Google.Resource.GamesConfiguration.LeaderboardConfigurations.Get
     , lcgLeaderboardId
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.leaderboardConfigurations.get@ method which the
 -- 'LeaderboardConfigurationsGet' request conforms to.
@@ -66,7 +66,7 @@ newtype LeaderboardConfigurationsGet = LeaderboardConfigurationsGet'
 leaderboardConfigurationsGet
     :: Text -- ^ 'lcgLeaderboardId'
     -> LeaderboardConfigurationsGet
-leaderboardConfigurationsGet pLcgLeaderboardId_ =
+leaderboardConfigurationsGet pLcgLeaderboardId_ = 
     LeaderboardConfigurationsGet'
     { _lcgLeaderboardId = pLcgLeaderboardId_
     }

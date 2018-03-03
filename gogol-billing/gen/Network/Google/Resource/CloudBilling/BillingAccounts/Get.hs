@@ -45,15 +45,15 @@ module Network.Google.Resource.CloudBilling.BillingAccounts.Get
     , bagCallback
     ) where
 
-import           Network.Google.Billing.Types
-import           Network.Google.Prelude
+import Network.Google.Billing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbilling.billingAccounts.get@ method which the
 -- 'BillingAccountsGet' request conforms to.
 type BillingAccountsGetResource =
      "v1" :>
        Capture "name" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -69,14 +69,14 @@ type BillingAccountsGetResource =
 --
 -- /See:/ 'billingAccountsGet' smart constructor.
 data BillingAccountsGet = BillingAccountsGet'
-    { _bagXgafv          :: !(Maybe Text)
+    { _bagXgafv :: !(Maybe Xgafv)
     , _bagUploadProtocol :: !(Maybe Text)
-    , _bagPp             :: !Bool
-    , _bagAccessToken    :: !(Maybe Text)
-    , _bagUploadType     :: !(Maybe Text)
-    , _bagBearerToken    :: !(Maybe Text)
-    , _bagName           :: !Text
-    , _bagCallback       :: !(Maybe Text)
+    , _bagPp :: !Bool
+    , _bagAccessToken :: !(Maybe Text)
+    , _bagUploadType :: !(Maybe Text)
+    , _bagBearerToken :: !(Maybe Text)
+    , _bagName :: !Text
+    , _bagCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsGet' with the minimum fields required to make a request.
@@ -101,7 +101,7 @@ data BillingAccountsGet = BillingAccountsGet'
 billingAccountsGet
     :: Text -- ^ 'bagName'
     -> BillingAccountsGet
-billingAccountsGet pBagName_ =
+billingAccountsGet pBagName_ = 
     BillingAccountsGet'
     { _bagXgafv = Nothing
     , _bagUploadProtocol = Nothing
@@ -114,7 +114,7 @@ billingAccountsGet pBagName_ =
     }
 
 -- | V1 error format.
-bagXgafv :: Lens' BillingAccountsGet (Maybe Text)
+bagXgafv :: Lens' BillingAccountsGet (Maybe Xgafv)
 bagXgafv = lens _bagXgafv (\ s a -> s{_bagXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

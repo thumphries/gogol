@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Finds named entities (currently finds proper names) in the text, entity
--- types, salience, mentions for each entity, and other properties.
+-- Finds named entities (currently proper names and common nouns) in the
+-- text along with entity types, salience, mentions for each entity, and
+-- other properties.
 --
--- /See:/ <https://cloud.google.com/natural-language/ Google Cloud Natural Language API Reference> for @language.documents.analyzeEntities@.
+-- /See:/ <https://cloud.google.com/natural-language/ Cloud Natural Language API Reference> for @language.documents.analyzeEntities@.
 module Network.Google.Resource.Language.Documents.AnalyzeEntities
     (
     -- * REST Resource
@@ -44,8 +45,8 @@ module Network.Google.Resource.Language.Documents.AnalyzeEntities
     , daeCallback
     ) where
 
-import           Network.Google.Language.Types
-import           Network.Google.Prelude
+import Network.Google.Language.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @language.documents.analyzeEntities@ method which the
 -- 'DocumentsAnalyzeEntities' request conforms to.
@@ -63,19 +64,20 @@ type DocumentsAnalyzeEntitiesResource =
                          ReqBody '[JSON] AnalyzeEntitiesRequest :>
                            Post '[JSON] AnalyzeEntitiesResponse
 
--- | Finds named entities (currently finds proper names) in the text, entity
--- types, salience, mentions for each entity, and other properties.
+-- | Finds named entities (currently proper names and common nouns) in the
+-- text along with entity types, salience, mentions for each entity, and
+-- other properties.
 --
 -- /See:/ 'documentsAnalyzeEntities' smart constructor.
 data DocumentsAnalyzeEntities = DocumentsAnalyzeEntities'
-    { _daeXgafv          :: !(Maybe Xgafv)
+    { _daeXgafv :: !(Maybe Xgafv)
     , _daeUploadProtocol :: !(Maybe Text)
-    , _daePp             :: !Bool
-    , _daeAccessToken    :: !(Maybe Text)
-    , _daeUploadType     :: !(Maybe Text)
-    , _daePayload        :: !AnalyzeEntitiesRequest
-    , _daeBearerToken    :: !(Maybe Text)
-    , _daeCallback       :: !(Maybe Text)
+    , _daePp :: !Bool
+    , _daeAccessToken :: !(Maybe Text)
+    , _daeUploadType :: !(Maybe Text)
+    , _daePayload :: !AnalyzeEntitiesRequest
+    , _daeBearerToken :: !(Maybe Text)
+    , _daeCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DocumentsAnalyzeEntities' with the minimum fields required to make a request.
@@ -100,7 +102,7 @@ data DocumentsAnalyzeEntities = DocumentsAnalyzeEntities'
 documentsAnalyzeEntities
     :: AnalyzeEntitiesRequest -- ^ 'daePayload'
     -> DocumentsAnalyzeEntities
-documentsAnalyzeEntities pDaePayload_ =
+documentsAnalyzeEntities pDaePayload_ = 
     DocumentsAnalyzeEntities'
     { _daeXgafv = Nothing
     , _daeUploadProtocol = Nothing
@@ -158,7 +160,8 @@ instance GoogleRequest DocumentsAnalyzeEntities where
         type Rs DocumentsAnalyzeEntities =
              AnalyzeEntitiesResponse
         type Scopes DocumentsAnalyzeEntities =
-             '["https://www.googleapis.com/auth/cloud-platform"]
+             '["https://www.googleapis.com/auth/cloud-language",
+               "https://www.googleapis.com/auth/cloud-platform"]
         requestClient DocumentsAnalyzeEntities'{..}
           = go _daeXgafv _daeUploadProtocol (Just _daePp)
               _daeAccessToken

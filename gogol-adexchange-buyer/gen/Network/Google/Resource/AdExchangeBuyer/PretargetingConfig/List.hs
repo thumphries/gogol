@@ -37,8 +37,8 @@ module Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.List
     , pclAccountId
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangebuyer.pretargetingConfig.list@ method which the
 -- 'PretargetingConfigList'' request conforms to.
@@ -66,7 +66,7 @@ newtype PretargetingConfigList' = PretargetingConfigList''
 pretargetingConfigList'
     :: Int64 -- ^ 'pclAccountId'
     -> PretargetingConfigList'
-pretargetingConfigList' pPclAccountId_ =
+pretargetingConfigList' pPclAccountId_ = 
     PretargetingConfigList''
     { _pclAccountId = _Coerce # pPclAccountId_
     }

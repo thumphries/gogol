@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Notifications.Get
     , ngNotificationId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.notifications.get@ method which the
 -- 'NotificationsGet' request conforms to.
@@ -56,7 +56,7 @@ type NotificationsGetResource =
 --
 -- /See:/ 'notificationsGet' smart constructor.
 data NotificationsGet = NotificationsGet'
-    { _ngCustomer       :: !Text
+    { _ngCustomer :: !Text
     , _ngNotificationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,14 +71,14 @@ notificationsGet
     :: Text -- ^ 'ngCustomer'
     -> Text -- ^ 'ngNotificationId'
     -> NotificationsGet
-notificationsGet pNgCustomer_ pNgNotificationId_ =
+notificationsGet pNgCustomer_ pNgNotificationId_ = 
     NotificationsGet'
     { _ngCustomer = pNgCustomer_
     , _ngNotificationId = pNgNotificationId_
     }
 
--- | The unique ID for the customer\'s Google account. The customerId is also
--- returned as part of the Users resource.
+-- | The unique ID for the customer\'s G Suite account. The customerId is
+-- also returned as part of the Users resource.
 ngCustomer :: Lens' NotificationsGet Text
 ngCustomer
   = lens _ngCustomer (\ s a -> s{_ngCustomer = a})

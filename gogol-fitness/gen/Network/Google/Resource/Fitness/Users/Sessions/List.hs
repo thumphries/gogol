@@ -40,8 +40,8 @@ module Network.Google.Resource.Fitness.Users.Sessions.List
     , uslIncludeDeleted
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.sessions.list@ method which the
 -- 'UsersSessionsList' request conforms to.
@@ -62,10 +62,10 @@ type UsersSessionsListResource =
 --
 -- /See:/ 'usersSessionsList' smart constructor.
 data UsersSessionsList = UsersSessionsList'
-    { _uslStartTime      :: !(Maybe Text)
-    , _uslUserId         :: !Text
-    , _uslEndTime        :: !(Maybe Text)
-    , _uslPageToken      :: !(Maybe Text)
+    { _uslStartTime :: !(Maybe Text)
+    , _uslUserId :: !Text
+    , _uslEndTime :: !(Maybe Text)
+    , _uslPageToken :: !(Maybe Text)
     , _uslIncludeDeleted :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ data UsersSessionsList = UsersSessionsList'
 usersSessionsList
     :: Text -- ^ 'uslUserId'
     -> UsersSessionsList
-usersSessionsList pUslUserId_ =
+usersSessionsList pUslUserId_ = 
     UsersSessionsList'
     { _uslStartTime = Nothing
     , _uslUserId = pUslUserId_

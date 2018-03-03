@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesConfiguration.AchievementConfigurations.Dele
     , acdAchievementId
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.achievementConfigurations.delete@ method which the
 -- 'AchievementConfigurationsDelete' request conforms to.
@@ -63,7 +63,7 @@ newtype AchievementConfigurationsDelete = AchievementConfigurationsDelete'
 achievementConfigurationsDelete
     :: Text -- ^ 'acdAchievementId'
     -> AchievementConfigurationsDelete
-achievementConfigurationsDelete pAcdAchievementId_ =
+achievementConfigurationsDelete pAcdAchievementId_ = 
     AchievementConfigurationsDelete'
     { _acdAchievementId = pAcdAchievementId_
     }

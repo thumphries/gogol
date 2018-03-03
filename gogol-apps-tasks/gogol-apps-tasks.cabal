@@ -55,5 +55,5 @@ library
         , Network.Google.AppsTasks.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

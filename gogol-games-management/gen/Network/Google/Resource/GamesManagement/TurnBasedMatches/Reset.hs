@@ -35,8 +35,8 @@ module Network.Google.Resource.GamesManagement.TurnBasedMatches.Reset
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.turnBasedMatches.reset@ method which the
 -- 'TurnBasedMatchesReset' request conforms to.
@@ -52,7 +52,7 @@ type TurnBasedMatchesResetResource =
 --
 -- /See:/ 'turnBasedMatchesReset' smart constructor.
 data TurnBasedMatchesReset =
-    TurnBasedMatchesReset'
+    TurnBasedMatchesReset' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TurnBasedMatchesReset' with the minimum fields required to make a request.

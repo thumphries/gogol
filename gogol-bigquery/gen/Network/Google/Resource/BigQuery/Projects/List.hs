@@ -37,8 +37,8 @@ module Network.Google.Resource.BigQuery.Projects.List
     , plMaxResults
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.projects.list@ method which the
 -- 'ProjectsList' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsListResource =
 --
 -- /See:/ 'projectsList' smart constructor.
 data ProjectsList = ProjectsList'
-    { _plPageToken  :: !(Maybe Text)
+    { _plPageToken :: !(Maybe Text)
     , _plMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -67,7 +67,7 @@ data ProjectsList = ProjectsList'
 -- * 'plMaxResults'
 projectsList
     :: ProjectsList
-projectsList =
+projectsList = 
     ProjectsList'
     { _plPageToken = Nothing
     , _plMaxResults = Nothing

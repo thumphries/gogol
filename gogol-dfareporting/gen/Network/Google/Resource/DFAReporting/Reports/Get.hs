@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Reports.Get
     , rgProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.reports.get@ method which the
 -- 'ReportsGet' request conforms to.
 type ReportsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "reports" :>
@@ -55,7 +55,7 @@ type ReportsGetResource =
 --
 -- /See:/ 'reportsGet' smart constructor.
 data ReportsGet = ReportsGet'
-    { _rgReportId  :: !(Textual Int64)
+    { _rgReportId :: !(Textual Int64)
     , _rgProFileId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ reportsGet
     :: Int64 -- ^ 'rgReportId'
     -> Int64 -- ^ 'rgProFileId'
     -> ReportsGet
-reportsGet pRgReportId_ pRgProFileId_ =
+reportsGet pRgReportId_ pRgProFileId_ = 
     ReportsGet'
     { _rgReportId = _Coerce # pRgReportId_
     , _rgProFileId = _Coerce # pRgProFileId_

@@ -34,8 +34,8 @@ module Network.Google.Resource.AdSense.Payments.List
 
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.payments.list@ method which the
 -- 'PaymentsList' request conforms to.
@@ -49,7 +49,7 @@ type PaymentsListResource =
 --
 -- /See:/ 'paymentsList' smart constructor.
 data PaymentsList =
-    PaymentsList'
+    PaymentsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PaymentsList' with the minimum fields required to make a request.

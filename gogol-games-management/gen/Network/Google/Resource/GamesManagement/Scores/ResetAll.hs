@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesManagement.Scores.ResetAll
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.scores.resetAll@ method which the
 -- 'ScoresResetAll' request conforms to.
@@ -55,7 +55,7 @@ type ScoresResetAllResource =
 --
 -- /See:/ 'scoresResetAll' smart constructor.
 data ScoresResetAll =
-    ScoresResetAll'
+    ScoresResetAll' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScoresResetAll' with the minimum fields required to make a request.

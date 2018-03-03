@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidEnterprise.Devices.GetState
     , dgsDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.devices.getState@ method which the
 -- 'DevicesGetState' request conforms to.
@@ -68,8 +68,8 @@ type DevicesGetStateResource =
 -- /See:/ 'devicesGetState' smart constructor.
 data DevicesGetState = DevicesGetState'
     { _dgsEnterpriseId :: !Text
-    , _dgsUserId       :: !Text
-    , _dgsDeviceId     :: !Text
+    , _dgsUserId :: !Text
+    , _dgsDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DevicesGetState' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ devicesGetState
     -> Text -- ^ 'dgsUserId'
     -> Text -- ^ 'dgsDeviceId'
     -> DevicesGetState
-devicesGetState pDgsEnterpriseId_ pDgsUserId_ pDgsDeviceId_ =
+devicesGetState pDgsEnterpriseId_ pDgsUserId_ pDgsDeviceId_ = 
     DevicesGetState'
     { _dgsEnterpriseId = pDgsEnterpriseId_
     , _dgsUserId = pDgsUserId_

@@ -34,8 +34,8 @@ module Network.Google.Resource.Mirror.Locations.List
 
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.locations.list@ method which the
 -- 'LocationsList' request conforms to.
@@ -50,7 +50,7 @@ type LocationsListResource =
 --
 -- /See:/ 'locationsList' smart constructor.
 data LocationsList =
-    LocationsList'
+    LocationsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LocationsList' with the minimum fields required to make a request.

@@ -40,8 +40,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.List
     , ulMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.list@ method which the
 -- 'UsersList' request conforms to.
@@ -62,10 +62,10 @@ type UsersListResource =
 --
 -- /See:/ 'usersList' smart constructor.
 data UsersList = UsersList'
-    { _ulOrderBy    :: !(Maybe Text)
-    , _ulProject    :: !Text
-    , _ulFilter     :: !(Maybe Text)
-    , _ulPageToken  :: !(Maybe Text)
+    { _ulOrderBy :: !(Maybe Text)
+    , _ulProject :: !Text
+    , _ulFilter :: !(Maybe Text)
+    , _ulPageToken :: !(Maybe Text)
     , _ulMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ data UsersList = UsersList'
 usersList
     :: Text -- ^ 'ulProject'
     -> UsersList
-usersList pUlProject_ =
+usersList pUlProject_ = 
     UsersList'
     { _ulOrderBy = Nothing
     , _ulProject = pUlProject_

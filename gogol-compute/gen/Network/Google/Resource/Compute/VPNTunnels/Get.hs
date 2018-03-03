@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.VPNTunnels.Get
     , vtgRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.vpnTunnels.get@ method which the
 -- 'VPNTunnelsGet' request conforms to.
@@ -60,9 +60,9 @@ type VPNTunnelsGetResource =
 --
 -- /See:/ 'vpnTunnelsGet' smart constructor.
 data VPNTunnelsGet = VPNTunnelsGet'
-    { _vtgProject   :: !Text
+    { _vtgProject :: !Text
     , _vtgVPNTunnel :: !Text
-    , _vtgRegion    :: !Text
+    , _vtgRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPNTunnelsGet' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ vpnTunnelsGet
     -> Text -- ^ 'vtgVPNTunnel'
     -> Text -- ^ 'vtgRegion'
     -> VPNTunnelsGet
-vpnTunnelsGet pVtgProject_ pVtgVPNTunnel_ pVtgRegion_ =
+vpnTunnelsGet pVtgProject_ pVtgVPNTunnel_ pVtgRegion_ = 
     VPNTunnelsGet'
     { _vtgProject = pVtgProject_
     , _vtgVPNTunnel = pVtgVPNTunnel_

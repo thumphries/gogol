@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an BuildTrigger by its project ID and trigger ID. This API is
+-- Updates a \`BuildTrigger\` by its project ID and trigger ID. This API is
 -- experimental.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.patch@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.triggers.patch@.
 module Network.Google.Resource.Cloudbuild.Projects.Triggers.Patch
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Triggers.Patch
     , ptpCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.triggers.patch@ method which the
 -- 'ProjectsTriggersPatch' request conforms to.
@@ -68,21 +68,21 @@ type ProjectsTriggersPatchResource =
                                ReqBody '[JSON] BuildTrigger :>
                                  Patch '[JSON] BuildTrigger
 
--- | Updates an BuildTrigger by its project ID and trigger ID. This API is
+-- | Updates a \`BuildTrigger\` by its project ID and trigger ID. This API is
 -- experimental.
 --
 -- /See:/ 'projectsTriggersPatch' smart constructor.
 data ProjectsTriggersPatch = ProjectsTriggersPatch'
-    { _ptpXgafv          :: !(Maybe Xgafv)
+    { _ptpXgafv :: !(Maybe Xgafv)
     , _ptpUploadProtocol :: !(Maybe Text)
-    , _ptpTriggerId      :: !Text
-    , _ptpPp             :: !Bool
-    , _ptpAccessToken    :: !(Maybe Text)
-    , _ptpUploadType     :: !(Maybe Text)
-    , _ptpPayload        :: !BuildTrigger
-    , _ptpBearerToken    :: !(Maybe Text)
-    , _ptpProjectId      :: !Text
-    , _ptpCallback       :: !(Maybe Text)
+    , _ptpTriggerId :: !Text
+    , _ptpPp :: !Bool
+    , _ptpAccessToken :: !(Maybe Text)
+    , _ptpUploadType :: !(Maybe Text)
+    , _ptpPayload :: !BuildTrigger
+    , _ptpBearerToken :: !(Maybe Text)
+    , _ptpProjectId :: !Text
+    , _ptpCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTriggersPatch' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ projectsTriggersPatch
     -> BuildTrigger -- ^ 'ptpPayload'
     -> Text -- ^ 'ptpProjectId'
     -> ProjectsTriggersPatch
-projectsTriggersPatch pPtpTriggerId_ pPtpPayload_ pPtpProjectId_ =
+projectsTriggersPatch pPtpTriggerId_ pPtpPayload_ pPtpProjectId_ = 
     ProjectsTriggersPatch'
     { _ptpXgafv = Nothing
     , _ptpUploadProtocol = Nothing
@@ -137,7 +137,7 @@ ptpUploadProtocol
   = lens _ptpUploadProtocol
       (\ s a -> s{_ptpUploadProtocol = a})
 
--- | ID of the BuildTrigger to update.
+-- | ID of the \`BuildTrigger\` to update.
 ptpTriggerId :: Lens' ProjectsTriggersPatch Text
 ptpTriggerId
   = lens _ptpTriggerId (\ s a -> s{_ptpTriggerId = a})

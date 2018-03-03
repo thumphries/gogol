@@ -39,8 +39,8 @@ module Network.Google.Resource.Blogger.Posts.GetByPath
     , pgbpView
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.posts.getByPath@ method which the
 -- 'PostsGetByPath' request conforms to.
@@ -60,10 +60,10 @@ type PostsGetByPathResource =
 --
 -- /See:/ 'postsGetByPath' smart constructor.
 data PostsGetByPath = PostsGetByPath'
-    { _pgbpPath        :: !Text
-    , _pgbpBlogId      :: !Text
+    { _pgbpPath :: !Text
+    , _pgbpBlogId :: !Text
     , _pgbpMaxComments :: !(Maybe (Textual Word32))
-    , _pgbpView        :: !(Maybe PostsGetByPathView)
+    , _pgbpView :: !(Maybe PostsGetByPathView)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PostsGetByPath' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ postsGetByPath
     :: Text -- ^ 'pgbpPath'
     -> Text -- ^ 'pgbpBlogId'
     -> PostsGetByPath
-postsGetByPath pPgbpPath_ pPgbpBlogId_ =
+postsGetByPath pPgbpPath_ pPgbpBlogId_ = 
     PostsGetByPath'
     { _pgbpPath = pPgbpPath_
     , _pgbpBlogId = pPgbpBlogId_

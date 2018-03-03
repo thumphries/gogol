@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesConfiguration.AchievementConfigurations.Patc
     , acpPayload
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.achievementConfigurations.patch@ method which the
 -- 'AchievementConfigurationsPatch' request conforms to.
@@ -58,7 +58,7 @@ type AchievementConfigurationsPatchResource =
 -- /See:/ 'achievementConfigurationsPatch' smart constructor.
 data AchievementConfigurationsPatch = AchievementConfigurationsPatch'
     { _acpAchievementId :: !Text
-    , _acpPayload       :: !AchievementConfiguration
+    , _acpPayload :: !AchievementConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AchievementConfigurationsPatch' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ achievementConfigurationsPatch
     :: Text -- ^ 'acpAchievementId'
     -> AchievementConfiguration -- ^ 'acpPayload'
     -> AchievementConfigurationsPatch
-achievementConfigurationsPatch pAcpAchievementId_ pAcpPayload_ =
+achievementConfigurationsPatch pAcpAchievementId_ pAcpPayload_ = 
     AchievementConfigurationsPatch'
     { _acpAchievementId = pAcpAchievementId_
     , _acpPayload = pAcpPayload_

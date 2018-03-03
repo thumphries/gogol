@@ -36,8 +36,8 @@ module Network.Google.Resource.Books.CloudLoading.UpdateBook
     , clubPayload
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.cloudloading.updateBook@ method which the
 -- 'CloudLoadingUpdateBook' request conforms to.
@@ -65,7 +65,7 @@ newtype CloudLoadingUpdateBook = CloudLoadingUpdateBook'
 cloudLoadingUpdateBook
     :: BooksCloudLoadingResource -- ^ 'clubPayload'
     -> CloudLoadingUpdateBook
-cloudLoadingUpdateBook pClubPayload_ =
+cloudLoadingUpdateBook pClubPayload_ = 
     CloudLoadingUpdateBook'
     { _clubPayload = pClubPayload_
     }

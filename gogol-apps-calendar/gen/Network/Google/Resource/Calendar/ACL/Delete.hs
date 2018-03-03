@@ -37,8 +37,8 @@ module Network.Google.Resource.Calendar.ACL.Delete
     , adRuleId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.acl.delete@ method which the
 -- 'ACLDelete' request conforms to.
@@ -56,7 +56,7 @@ type ACLDeleteResource =
 -- /See:/ 'aclDelete' smart constructor.
 data ACLDelete = ACLDelete'
     { _adCalendarId :: !Text
-    , _adRuleId     :: !Text
+    , _adRuleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ACLDelete' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ aclDelete
     :: Text -- ^ 'adCalendarId'
     -> Text -- ^ 'adRuleId'
     -> ACLDelete
-aclDelete pAdCalendarId_ pAdRuleId_ =
+aclDelete pAdCalendarId_ pAdRuleId_ = 
     ACLDelete'
     { _adCalendarId = pAdCalendarId_
     , _adRuleId = pAdRuleId_

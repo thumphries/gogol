@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.Aliases.Insert
     , uaiUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.aliases.insert@ method which the
 -- 'UsersAliasesInsert' request conforms to.
@@ -71,7 +71,7 @@ usersAliasesInsert
     :: Alias -- ^ 'uaiPayload'
     -> Text -- ^ 'uaiUserKey'
     -> UsersAliasesInsert
-usersAliasesInsert pUaiPayload_ pUaiUserKey_ =
+usersAliasesInsert pUaiPayload_ pUaiUserKey_ = 
     UsersAliasesInsert'
     { _uaiPayload = pUaiPayload_
     , _uaiUserKey = pUaiUserKey_
@@ -82,7 +82,7 @@ uaiPayload :: Lens' UsersAliasesInsert Alias
 uaiPayload
   = lens _uaiPayload (\ s a -> s{_uaiPayload = a})
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 uaiUserKey :: Lens' UsersAliasesInsert Text
 uaiUserKey
   = lens _uaiUserKey (\ s a -> s{_uaiUserKey = a})

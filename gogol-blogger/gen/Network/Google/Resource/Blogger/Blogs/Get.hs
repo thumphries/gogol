@@ -38,8 +38,8 @@ module Network.Google.Resource.Blogger.Blogs.Get
     , bgView
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.blogs.get@ method which the
 -- 'BlogsGet' request conforms to.
@@ -56,9 +56,9 @@ type BlogsGetResource =
 --
 -- /See:/ 'blogsGet' smart constructor.
 data BlogsGet = BlogsGet'
-    { _bgBlogId   :: !Text
+    { _bgBlogId :: !Text
     , _bgMaxPosts :: !(Maybe (Textual Word32))
-    , _bgView     :: !(Maybe BlogsGetView)
+    , _bgView :: !(Maybe BlogsGetView)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BlogsGet' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ data BlogsGet = BlogsGet'
 blogsGet
     :: Text -- ^ 'bgBlogId'
     -> BlogsGet
-blogsGet pBgBlogId_ =
+blogsGet pBgBlogId_ = 
     BlogsGet'
     { _bgBlogId = pBgBlogId_
     , _bgMaxPosts = Nothing

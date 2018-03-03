@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Untrash
     , umuId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.untrash@ method which the
 -- 'UsersMessagesUntrash' request conforms to.
@@ -57,7 +57,7 @@ type UsersMessagesUntrashResource =
 -- /See:/ 'usersMessagesUntrash' smart constructor.
 data UsersMessagesUntrash = UsersMessagesUntrash'
     { _umuUserId :: !Text
-    , _umuId     :: !Text
+    , _umuId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersMessagesUntrash' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data UsersMessagesUntrash = UsersMessagesUntrash'
 usersMessagesUntrash
     :: Text -- ^ 'umuId'
     -> UsersMessagesUntrash
-usersMessagesUntrash pUmuId_ =
+usersMessagesUntrash pUmuId_ = 
     UsersMessagesUntrash'
     { _umuUserId = "me"
     , _umuId = pUmuId_

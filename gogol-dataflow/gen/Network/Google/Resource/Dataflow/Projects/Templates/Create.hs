@@ -22,7 +22,7 @@
 --
 -- Creates a Cloud Dataflow job from a template.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.templates.create@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.templates.create@.
 module Network.Google.Resource.Dataflow.Projects.Templates.Create
     (
     -- * REST Resource
@@ -44,8 +44,8 @@ module Network.Google.Resource.Dataflow.Projects.Templates.Create
     , ptcCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.templates.create@ method which the
 -- 'ProjectsTemplatesCreate' request conforms to.
@@ -54,7 +54,7 @@ type ProjectsTemplatesCreateResource =
        "projects" :>
          Capture "projectId" Text :>
            "templates" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -69,15 +69,15 @@ type ProjectsTemplatesCreateResource =
 --
 -- /See:/ 'projectsTemplatesCreate' smart constructor.
 data ProjectsTemplatesCreate = ProjectsTemplatesCreate'
-    { _ptcXgafv          :: !(Maybe Text)
+    { _ptcXgafv :: !(Maybe Xgafv)
     , _ptcUploadProtocol :: !(Maybe Text)
-    , _ptcPp             :: !Bool
-    , _ptcAccessToken    :: !(Maybe Text)
-    , _ptcUploadType     :: !(Maybe Text)
-    , _ptcPayload        :: !CreateJobFromTemplateRequest
-    , _ptcBearerToken    :: !(Maybe Text)
-    , _ptcProjectId      :: !Text
-    , _ptcCallback       :: !(Maybe Text)
+    , _ptcPp :: !Bool
+    , _ptcAccessToken :: !(Maybe Text)
+    , _ptcUploadType :: !(Maybe Text)
+    , _ptcPayload :: !CreateJobFromTemplateRequest
+    , _ptcBearerToken :: !(Maybe Text)
+    , _ptcProjectId :: !Text
+    , _ptcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTemplatesCreate' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ projectsTemplatesCreate
     :: CreateJobFromTemplateRequest -- ^ 'ptcPayload'
     -> Text -- ^ 'ptcProjectId'
     -> ProjectsTemplatesCreate
-projectsTemplatesCreate pPtcPayload_ pPtcProjectId_ =
+projectsTemplatesCreate pPtcPayload_ pPtcProjectId_ = 
     ProjectsTemplatesCreate'
     { _ptcXgafv = Nothing
     , _ptcUploadProtocol = Nothing
@@ -119,7 +119,7 @@ projectsTemplatesCreate pPtcPayload_ pPtcProjectId_ =
     }
 
 -- | V1 error format.
-ptcXgafv :: Lens' ProjectsTemplatesCreate (Maybe Text)
+ptcXgafv :: Lens' ProjectsTemplatesCreate (Maybe Xgafv)
 ptcXgafv = lens _ptcXgafv (\ s a -> s{_ptcXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -169,6 +169,8 @@ instance GoogleRequest ProjectsTemplatesCreate where
         type Rs ProjectsTemplatesCreate = Job
         type Scopes ProjectsTemplatesCreate =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsTemplatesCreate'{..}
           = go _ptcProjectId _ptcXgafv _ptcUploadProtocol

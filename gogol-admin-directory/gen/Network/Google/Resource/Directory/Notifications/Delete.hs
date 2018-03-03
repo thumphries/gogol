@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Notifications.Delete
     , ndNotificationId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.notifications.delete@ method which the
 -- 'NotificationsDelete' request conforms to.
@@ -56,7 +56,7 @@ type NotificationsDeleteResource =
 --
 -- /See:/ 'notificationsDelete' smart constructor.
 data NotificationsDelete = NotificationsDelete'
-    { _ndCustomer       :: !Text
+    { _ndCustomer :: !Text
     , _ndNotificationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,14 +71,14 @@ notificationsDelete
     :: Text -- ^ 'ndCustomer'
     -> Text -- ^ 'ndNotificationId'
     -> NotificationsDelete
-notificationsDelete pNdCustomer_ pNdNotificationId_ =
+notificationsDelete pNdCustomer_ pNdNotificationId_ = 
     NotificationsDelete'
     { _ndCustomer = pNdCustomer_
     , _ndNotificationId = pNdNotificationId_
     }
 
--- | The unique ID for the customer\'s Google account. The customerId is also
--- returned as part of the Users resource.
+-- | The unique ID for the customer\'s G Suite account. The customerId is
+-- also returned as part of the Users resource.
 ndCustomer :: Lens' NotificationsDelete Text
 ndCustomer
   = lens _ndCustomer (\ s a -> s{_ndCustomer = a})

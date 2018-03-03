@@ -45,8 +45,8 @@ module Network.Google.Resource.Reports.Activities.List
     , alMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Reports.Types
+import Network.Google.Prelude
+import Network.Google.Reports.Types
 
 -- | A resource alias for @reports.activities.list@ method which the
 -- 'ActivitiesList' request conforms to.
@@ -74,16 +74,16 @@ type ActivitiesListResource =
 --
 -- /See:/ 'activitiesList' smart constructor.
 data ActivitiesList = ActivitiesList'
-    { _alStartTime       :: !(Maybe Text)
-    , _alFilters         :: !(Maybe Text)
-    , _alCustomerId      :: !(Maybe Text)
-    , _alActorIPAddress  :: !(Maybe Text)
-    , _alEndTime         :: !(Maybe Text)
+    { _alStartTime :: !(Maybe Text)
+    , _alFilters :: !(Maybe Text)
+    , _alCustomerId :: !(Maybe Text)
+    , _alActorIPAddress :: !(Maybe Text)
+    , _alEndTime :: !(Maybe Text)
     , _alApplicationName :: !Text
-    , _alPageToken       :: !(Maybe Text)
-    , _alEventName       :: !(Maybe Text)
-    , _alUserKey         :: !Text
-    , _alMaxResults      :: !(Maybe (Textual Int32))
+    , _alPageToken :: !(Maybe Text)
+    , _alEventName :: !(Maybe Text)
+    , _alUserKey :: !Text
+    , _alMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivitiesList' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ activitiesList
     :: Text -- ^ 'alApplicationName'
     -> Text -- ^ 'alUserKey'
     -> ActivitiesList
-activitiesList pAlApplicationName_ pAlUserKey_ =
+activitiesList pAlApplicationName_ pAlUserKey_ = 
     ActivitiesList'
     { _alStartTime = Nothing
     , _alFilters = Nothing
@@ -127,7 +127,7 @@ activitiesList pAlApplicationName_ pAlUserKey_ =
     , _alMaxResults = Nothing
     }
 
--- | Return events which occured at or after this time.
+-- | Return events which occurred at or after this time.
 alStartTime :: Lens' ActivitiesList (Maybe Text)
 alStartTime
   = lens _alStartTime (\ s a -> s{_alStartTime = a})
@@ -150,7 +150,7 @@ alActorIPAddress
   = lens _alActorIPAddress
       (\ s a -> s{_alActorIPAddress = a})
 
--- | Return events which occured at or before this time.
+-- | Return events which occurred at or before this time.
 alEndTime :: Lens' ActivitiesList (Maybe Text)
 alEndTime
   = lens _alEndTime (\ s a -> s{_alEndTime = a})

@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Testers.Patch
     , etpEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.testers.patch@ method which the
 -- 'EditsTestersPatch' request conforms to.
@@ -50,17 +50,17 @@ type EditsTestersPatchResource =
              "edits" :>
                Capture "editId" Text :>
                  "testers" :>
-                   Capture "track" EditsTestersPatchTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :>
                        ReqBody '[JSON] Testers :> Patch '[JSON] Testers
 
 --
 -- /See:/ 'editsTestersPatch' smart constructor.
 data EditsTestersPatch = EditsTestersPatch'
-    { _etpTrack       :: !EditsTestersPatchTrack
+    { _etpTrack :: !Text
     , _etpPackageName :: !Text
-    , _etpPayload     :: !Testers
-    , _etpEditId      :: !Text
+    , _etpPayload :: !Testers
+    , _etpEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTestersPatch' with the minimum fields required to make a request.
@@ -75,12 +75,12 @@ data EditsTestersPatch = EditsTestersPatch'
 --
 -- * 'etpEditId'
 editsTestersPatch
-    :: EditsTestersPatchTrack -- ^ 'etpTrack'
+    :: Text -- ^ 'etpTrack'
     -> Text -- ^ 'etpPackageName'
     -> Testers -- ^ 'etpPayload'
     -> Text -- ^ 'etpEditId'
     -> EditsTestersPatch
-editsTestersPatch pEtpTrack_ pEtpPackageName_ pEtpPayload_ pEtpEditId_ =
+editsTestersPatch pEtpTrack_ pEtpPackageName_ pEtpPayload_ pEtpEditId_ = 
     EditsTestersPatch'
     { _etpTrack = pEtpTrack_
     , _etpPackageName = pEtpPackageName_
@@ -88,7 +88,9 @@ editsTestersPatch pEtpTrack_ pEtpPackageName_ pEtpPayload_ pEtpEditId_ =
     , _etpEditId = pEtpEditId_
     }
 
-etpTrack :: Lens' EditsTestersPatch EditsTestersPatchTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etpTrack :: Lens' EditsTestersPatch Text
 etpTrack = lens _etpTrack (\ s a -> s{_etpTrack = a})
 
 -- | Unique identifier for the Android app that is being updated; for

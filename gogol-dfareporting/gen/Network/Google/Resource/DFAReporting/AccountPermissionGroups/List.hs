@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.AccountPermissionGroups.List
     , apglProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountPermissionGroups.list@ method which the
 -- 'AccountPermissionGroupsList' request conforms to.
 type AccountPermissionGroupsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountPermissionGroups" :>
@@ -65,7 +65,7 @@ newtype AccountPermissionGroupsList = AccountPermissionGroupsList'
 accountPermissionGroupsList
     :: Int64 -- ^ 'apglProFileId'
     -> AccountPermissionGroupsList
-accountPermissionGroupsList pApglProFileId_ =
+accountPermissionGroupsList pApglProFileId_ = 
     AccountPermissionGroupsList'
     { _apglProFileId = _Coerce # pApglProFileId_
     }

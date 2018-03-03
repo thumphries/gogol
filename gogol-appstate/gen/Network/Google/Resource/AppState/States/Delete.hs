@@ -40,8 +40,8 @@ module Network.Google.Resource.AppState.States.Delete
     , sdStateKey
     ) where
 
-import           Network.Google.AppState.Types
-import           Network.Google.Prelude
+import Network.Google.AppState.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appstate.states.delete@ method which the
 -- 'StatesDelete' request conforms to.
@@ -71,7 +71,7 @@ newtype StatesDelete = StatesDelete'
 statesDelete
     :: Int32 -- ^ 'sdStateKey'
     -> StatesDelete
-statesDelete pSdStateKey_ =
+statesDelete pSdStateKey_ = 
     StatesDelete'
     { _sdStateKey = _Coerce # pSdStateKey_
     }

@@ -20,9 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a datafeed of your Merchant Center account. This method can only
--- be called for non-multi-client accounts. This method supports patch
--- semantics.
+-- Updates a datafeed configuration of your Merchant Center account. This
+-- method supports patch semantics.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.datafeeds.patch@.
 module Network.Google.Resource.Content.Datafeeds.Patch
@@ -41,8 +40,8 @@ module Network.Google.Resource.Content.Datafeeds.Patch
     , dpDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeeds.patch@ method which the
 -- 'DatafeedsPatch' request conforms to.
@@ -56,16 +55,15 @@ type DatafeedsPatchResource =
                  QueryParam "alt" AltJSON :>
                    ReqBody '[JSON] Datafeed :> Patch '[JSON] Datafeed
 
--- | Updates a datafeed of your Merchant Center account. This method can only
--- be called for non-multi-client accounts. This method supports patch
--- semantics.
+-- | Updates a datafeed configuration of your Merchant Center account. This
+-- method supports patch semantics.
 --
 -- /See:/ 'datafeedsPatch' smart constructor.
 data DatafeedsPatch = DatafeedsPatch'
     { _dpMerchantId :: !(Textual Word64)
-    , _dpPayload    :: !Datafeed
+    , _dpPayload :: !Datafeed
     , _dpDatafeedId :: !(Textual Word64)
-    , _dpDryRun     :: !(Maybe Bool)
+    , _dpDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DatafeedsPatch' with the minimum fields required to make a request.
@@ -84,7 +82,7 @@ datafeedsPatch
     -> Datafeed -- ^ 'dpPayload'
     -> Word64 -- ^ 'dpDatafeedId'
     -> DatafeedsPatch
-datafeedsPatch pDpMerchantId_ pDpPayload_ pDpDatafeedId_ =
+datafeedsPatch pDpMerchantId_ pDpPayload_ pDpDatafeedId_ = 
     DatafeedsPatch'
     { _dpMerchantId = _Coerce # pDpMerchantId_
     , _dpPayload = pDpPayload_
@@ -92,6 +90,8 @@ datafeedsPatch pDpMerchantId_ pDpPayload_ pDpDatafeedId_ =
     , _dpDryRun = Nothing
     }
 
+-- | The ID of the account that manages the datafeed. This account cannot be
+-- a multi-client account.
 dpMerchantId :: Lens' DatafeedsPatch Word64
 dpMerchantId
   = lens _dpMerchantId (\ s a -> s{_dpMerchantId = a})
@@ -102,6 +102,7 @@ dpPayload :: Lens' DatafeedsPatch Datafeed
 dpPayload
   = lens _dpPayload (\ s a -> s{_dpPayload = a})
 
+-- | The ID of the datafeed.
 dpDatafeedId :: Lens' DatafeedsPatch Word64
 dpDatafeedId
   = lens _dpDatafeedId (\ s a -> s{_dpDatafeedId = a})

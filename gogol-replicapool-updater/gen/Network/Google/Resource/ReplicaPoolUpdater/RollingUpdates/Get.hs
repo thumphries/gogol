@@ -38,8 +38,8 @@ module Network.Google.Resource.ReplicaPoolUpdater.RollingUpdates.Get
     , rugZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPoolUpdater.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPoolUpdater.Types
 
 -- | A resource alias for @replicapoolupdater.rollingUpdates.get@ method which the
 -- 'RollingUpdatesGet' request conforms to.
@@ -59,8 +59,8 @@ type RollingUpdatesGetResource =
 -- /See:/ 'rollingUpdatesGet' smart constructor.
 data RollingUpdatesGet = RollingUpdatesGet'
     { _rugRollingUpdate :: !Text
-    , _rugProject       :: !Text
-    , _rugZone          :: !Text
+    , _rugProject :: !Text
+    , _rugZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RollingUpdatesGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ rollingUpdatesGet
     -> Text -- ^ 'rugProject'
     -> Text -- ^ 'rugZone'
     -> RollingUpdatesGet
-rollingUpdatesGet pRugRollingUpdate_ pRugProject_ pRugZone_ =
+rollingUpdatesGet pRugRollingUpdate_ pRugProject_ pRugZone_ = 
     RollingUpdatesGet'
     { _rugRollingUpdate = pRugRollingUpdate_
     , _rugProject = pRugProject_

@@ -21,7 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the product from a Manufacturer Center account, including product
--- issues.
+-- issues. A recently updated product takes around 15 minutes to process.
+-- Changes are only visible after it has been processed. While some issues
+-- may be available once the product has been processed, other issues may
+-- take days to appear.
 --
 -- /See:/ <https://developers.google.com/manufacturers/ Manufacturer Center API Reference> for @manufacturers.accounts.products.get@.
 module Network.Google.Resource.Manufacturers.Accounts.Products.Get
@@ -45,8 +48,8 @@ module Network.Google.Resource.Manufacturers.Accounts.Products.Get
     , apgCallback
     ) where
 
-import           Network.Google.Manufacturers.Types
-import           Network.Google.Prelude
+import Network.Google.Manufacturers.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @manufacturers.accounts.products.get@ method which the
 -- 'AccountsProductsGet' request conforms to.
@@ -65,19 +68,22 @@ type AccountsProductsGetResource =
                            QueryParam "alt" AltJSON :> Get '[JSON] Product
 
 -- | Gets the product from a Manufacturer Center account, including product
--- issues.
+-- issues. A recently updated product takes around 15 minutes to process.
+-- Changes are only visible after it has been processed. While some issues
+-- may be available once the product has been processed, other issues may
+-- take days to appear.
 --
 -- /See:/ 'accountsProductsGet' smart constructor.
 data AccountsProductsGet = AccountsProductsGet'
-    { _apgParent         :: !Text
-    , _apgXgafv          :: !(Maybe Xgafv)
+    { _apgParent :: !Text
+    , _apgXgafv :: !(Maybe Xgafv)
     , _apgUploadProtocol :: !(Maybe Text)
-    , _apgPp             :: !Bool
-    , _apgAccessToken    :: !(Maybe Text)
-    , _apgUploadType     :: !(Maybe Text)
-    , _apgBearerToken    :: !(Maybe Text)
-    , _apgName           :: !Text
-    , _apgCallback       :: !(Maybe Text)
+    , _apgPp :: !Bool
+    , _apgAccessToken :: !(Maybe Text)
+    , _apgUploadType :: !(Maybe Text)
+    , _apgBearerToken :: !(Maybe Text)
+    , _apgName :: !Text
+    , _apgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsProductsGet' with the minimum fields required to make a request.
@@ -105,7 +111,7 @@ accountsProductsGet
     :: Text -- ^ 'apgParent'
     -> Text -- ^ 'apgName'
     -> AccountsProductsGet
-accountsProductsGet pApgParent_ pApgName_ =
+accountsProductsGet pApgParent_ pApgName_ = 
     AccountsProductsGet'
     { _apgParent = pApgParent_
     , _apgXgafv = Nothing

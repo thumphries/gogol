@@ -37,8 +37,8 @@ module Network.Google.Resource.FusionTables.Table.Copy
     , tcCopyPresentation
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.table.copy@ method which the
 -- 'TableCopy' request conforms to.
@@ -55,7 +55,7 @@ type TableCopyResource =
 --
 -- /See:/ 'tableCopy' smart constructor.
 data TableCopy = TableCopy'
-    { _tcTableId          :: !Text
+    { _tcTableId :: !Text
     , _tcCopyPresentation :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data TableCopy = TableCopy'
 tableCopy
     :: Text -- ^ 'tcTableId'
     -> TableCopy
-tableCopy pTcTableId_ =
+tableCopy pTcTableId_ = 
     TableCopy'
     { _tcTableId = pTcTableId_
     , _tcCopyPresentation = Nothing

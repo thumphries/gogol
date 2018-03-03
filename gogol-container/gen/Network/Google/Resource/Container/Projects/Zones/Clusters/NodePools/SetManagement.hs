@@ -22,7 +22,7 @@
 --
 -- Sets the NodeManagement options for a node pool.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.clusters.nodePools.setManagement@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.clusters.nodePools.setManagement@.
 module Network.Google.Resource.Container.Projects.Zones.Clusters.NodePools.SetManagement
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.Container.Projects.Zones.Clusters.NodePools.SetMa
     , pzcnpsmCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.clusters.nodePools.setManagement@ method which the
 -- 'ProjectsZonesClustersNodePoolsSetManagement' request conforms to.
@@ -64,7 +64,7 @@ type ProjectsZonesClustersNodePoolsSetManagementResource
                    "nodePools" :>
                      Capture "nodePoolId" Text :>
                        "setManagement" :>
-                         QueryParam "$.xgafv" Text :>
+                         QueryParam "$.xgafv" Xgafv :>
                            QueryParam "upload_protocol" Text :>
                              QueryParam "pp" Bool :>
                                QueryParam "access_token" Text :>
@@ -80,18 +80,18 @@ type ProjectsZonesClustersNodePoolsSetManagementResource
 --
 -- /See:/ 'projectsZonesClustersNodePoolsSetManagement' smart constructor.
 data ProjectsZonesClustersNodePoolsSetManagement = ProjectsZonesClustersNodePoolsSetManagement'
-    { _pzcnpsmXgafv          :: !(Maybe Text)
+    { _pzcnpsmXgafv :: !(Maybe Xgafv)
     , _pzcnpsmUploadProtocol :: !(Maybe Text)
-    , _pzcnpsmPp             :: !Bool
-    , _pzcnpsmAccessToken    :: !(Maybe Text)
-    , _pzcnpsmUploadType     :: !(Maybe Text)
-    , _pzcnpsmZone           :: !Text
-    , _pzcnpsmPayload        :: !SetNodePoolManagementRequest
-    , _pzcnpsmNodePoolId     :: !Text
-    , _pzcnpsmBearerToken    :: !(Maybe Text)
-    , _pzcnpsmClusterId      :: !Text
-    , _pzcnpsmProjectId      :: !Text
-    , _pzcnpsmCallback       :: !(Maybe Text)
+    , _pzcnpsmPp :: !Bool
+    , _pzcnpsmAccessToken :: !(Maybe Text)
+    , _pzcnpsmUploadType :: !(Maybe Text)
+    , _pzcnpsmZone :: !Text
+    , _pzcnpsmPayload :: !SetNodePoolManagementRequest
+    , _pzcnpsmNodePoolId :: !Text
+    , _pzcnpsmBearerToken :: !(Maybe Text)
+    , _pzcnpsmClusterId :: !Text
+    , _pzcnpsmProjectId :: !Text
+    , _pzcnpsmCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesClustersNodePoolsSetManagement' with the minimum fields required to make a request.
@@ -128,7 +128,7 @@ projectsZonesClustersNodePoolsSetManagement
     -> Text -- ^ 'pzcnpsmClusterId'
     -> Text -- ^ 'pzcnpsmProjectId'
     -> ProjectsZonesClustersNodePoolsSetManagement
-projectsZonesClustersNodePoolsSetManagement pPzcnpsmZone_ pPzcnpsmPayload_ pPzcnpsmNodePoolId_ pPzcnpsmClusterId_ pPzcnpsmProjectId_ =
+projectsZonesClustersNodePoolsSetManagement pPzcnpsmZone_ pPzcnpsmPayload_ pPzcnpsmNodePoolId_ pPzcnpsmClusterId_ pPzcnpsmProjectId_ = 
     ProjectsZonesClustersNodePoolsSetManagement'
     { _pzcnpsmXgafv = Nothing
     , _pzcnpsmUploadProtocol = Nothing
@@ -145,7 +145,7 @@ projectsZonesClustersNodePoolsSetManagement pPzcnpsmZone_ pPzcnpsmPayload_ pPzcn
     }
 
 -- | V1 error format.
-pzcnpsmXgafv :: Lens' ProjectsZonesClustersNodePoolsSetManagement (Maybe Text)
+pzcnpsmXgafv :: Lens' ProjectsZonesClustersNodePoolsSetManagement (Maybe Xgafv)
 pzcnpsmXgafv
   = lens _pzcnpsmXgafv (\ s a -> s{_pzcnpsmXgafv = a})
 

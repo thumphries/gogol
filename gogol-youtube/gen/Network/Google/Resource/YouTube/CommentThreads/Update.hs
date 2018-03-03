@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.CommentThreads.Update
     , ctuPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.commentThreads.update@ method which the
 -- 'CommentThreadsUpdate' request conforms to.
@@ -55,7 +55,7 @@ type CommentThreadsUpdateResource =
 --
 -- /See:/ 'commentThreadsUpdate' smart constructor.
 data CommentThreadsUpdate = CommentThreadsUpdate'
-    { _ctuPart    :: !Text
+    { _ctuPart :: !Text
     , _ctuPayload :: !CommentThread
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ commentThreadsUpdate
     :: Text -- ^ 'ctuPart'
     -> CommentThread -- ^ 'ctuPayload'
     -> CommentThreadsUpdate
-commentThreadsUpdate pCtuPart_ pCtuPayload_ =
+commentThreadsUpdate pCtuPart_ pCtuPayload_ = 
     CommentThreadsUpdate'
     { _ctuPart = pCtuPart_
     , _ctuPayload = pCtuPayload_

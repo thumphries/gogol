@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.EventTags.Get
     , etgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.eventTags.get@ method which the
 -- 'EventTagsGet' request conforms to.
 type EventTagsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "eventTags" :>
@@ -56,7 +56,7 @@ type EventTagsGetResource =
 -- /See:/ 'eventTagsGet' smart constructor.
 data EventTagsGet = EventTagsGet'
     { _etgProFileId :: !(Textual Int64)
-    , _etgId        :: !(Textual Int64)
+    , _etgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventTagsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ eventTagsGet
     :: Int64 -- ^ 'etgProFileId'
     -> Int64 -- ^ 'etgId'
     -> EventTagsGet
-eventTagsGet pEtgProFileId_ pEtgId_ =
+eventTagsGet pEtgProFileId_ pEtgId_ = 
     EventTagsGet'
     { _etgProFileId = _Coerce # pEtgProFileId_
     , _etgId = _Coerce # pEtgId_

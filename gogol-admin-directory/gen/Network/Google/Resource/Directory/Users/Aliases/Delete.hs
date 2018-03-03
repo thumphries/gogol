@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.Aliases.Delete
     , uadUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.aliases.delete@ method which the
 -- 'UsersAliasesDelete' request conforms to.
@@ -56,7 +56,7 @@ type UsersAliasesDeleteResource =
 --
 -- /See:/ 'usersAliasesDelete' smart constructor.
 data UsersAliasesDelete = UsersAliasesDelete'
-    { _uadAlias   :: !Text
+    { _uadAlias :: !Text
     , _uadUserKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ usersAliasesDelete
     :: Text -- ^ 'uadAlias'
     -> Text -- ^ 'uadUserKey'
     -> UsersAliasesDelete
-usersAliasesDelete pUadAlias_ pUadUserKey_ =
+usersAliasesDelete pUadAlias_ pUadUserKey_ = 
     UsersAliasesDelete'
     { _uadAlias = pUadAlias_
     , _uadUserKey = pUadUserKey_
@@ -81,7 +81,7 @@ usersAliasesDelete pUadAlias_ pUadUserKey_ =
 uadAlias :: Lens' UsersAliasesDelete Text
 uadAlias = lens _uadAlias (\ s a -> s{_uadAlias = a})
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 uadUserKey :: Lens' UsersAliasesDelete Text
 uadUserKey
   = lens _uadUserKey (\ s a -> s{_uadUserKey = a})

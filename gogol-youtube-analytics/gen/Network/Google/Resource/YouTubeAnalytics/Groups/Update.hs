@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTubeAnalytics.Groups.Update
     , guOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groups.update@ method which the
 -- 'GroupsUpdate' request conforms to.
@@ -55,7 +55,7 @@ type GroupsUpdateResource =
 --
 -- /See:/ 'groupsUpdate' smart constructor.
 data GroupsUpdate = GroupsUpdate'
-    { _guPayload                :: !Group
+    { _guPayload :: !Group
     , _guOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data GroupsUpdate = GroupsUpdate'
 groupsUpdate
     :: Group -- ^ 'guPayload'
     -> GroupsUpdate
-groupsUpdate pGuPayload_ =
+groupsUpdate pGuPayload_ = 
     GroupsUpdate'
     { _guPayload = pGuPayload_
     , _guOnBehalfOfContentOwner = Nothing

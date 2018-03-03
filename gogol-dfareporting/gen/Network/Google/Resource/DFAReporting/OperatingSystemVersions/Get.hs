@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.OperatingSystemVersions.Get
     , osvgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.operatingSystemVersions.get@ method which the
 -- 'OperatingSystemVersionsGet' request conforms to.
 type OperatingSystemVersionsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "operatingSystemVersions" :>
@@ -57,7 +57,7 @@ type OperatingSystemVersionsGetResource =
 -- /See:/ 'operatingSystemVersionsGet' smart constructor.
 data OperatingSystemVersionsGet = OperatingSystemVersionsGet'
     { _osvgProFileId :: !(Textual Int64)
-    , _osvgId        :: !(Textual Int64)
+    , _osvgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperatingSystemVersionsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ operatingSystemVersionsGet
     :: Int64 -- ^ 'osvgProFileId'
     -> Int64 -- ^ 'osvgId'
     -> OperatingSystemVersionsGet
-operatingSystemVersionsGet pOsvgProFileId_ pOsvgId_ =
+operatingSystemVersionsGet pOsvgProFileId_ pOsvgId_ = 
     OperatingSystemVersionsGet'
     { _osvgProFileId = _Coerce # pOsvgProFileId_
     , _osvgId = _Coerce # pOsvgId_

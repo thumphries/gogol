@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.AdvertiserGroups.Get
     , agggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.advertiserGroups.get@ method which the
 -- 'AdvertiserGroupsGet' request conforms to.
 type AdvertiserGroupsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "advertiserGroups" :>
@@ -57,7 +57,7 @@ type AdvertiserGroupsGetResource =
 -- /See:/ 'advertiserGroupsGet' smart constructor.
 data AdvertiserGroupsGet = AdvertiserGroupsGet'
     { _agggProFileId :: !(Textual Int64)
-    , _agggId        :: !(Textual Int64)
+    , _agggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdvertiserGroupsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ advertiserGroupsGet
     :: Int64 -- ^ 'agggProFileId'
     -> Int64 -- ^ 'agggId'
     -> AdvertiserGroupsGet
-advertiserGroupsGet pAgggProFileId_ pAgggId_ =
+advertiserGroupsGet pAgggProFileId_ pAgggId_ = 
     AdvertiserGroupsGet'
     { _agggProFileId = _Coerce # pAgggProFileId_
     , _agggId = _Coerce # pAgggId_

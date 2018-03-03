@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.GlobalAccountsOperations.Get
     , gaogOperation
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.globalAccountsOperations.get@ method which the
 -- 'GlobalAccountsOperationsGet' request conforms to.
@@ -56,7 +56,7 @@ type GlobalAccountsOperationsGetResource =
 --
 -- /See:/ 'globalAccountsOperationsGet' smart constructor.
 data GlobalAccountsOperationsGet = GlobalAccountsOperationsGet'
-    { _gaogProject   :: !Text
+    { _gaogProject :: !Text
     , _gaogOperation :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ globalAccountsOperationsGet
     :: Text -- ^ 'gaogProject'
     -> Text -- ^ 'gaogOperation'
     -> GlobalAccountsOperationsGet
-globalAccountsOperationsGet pGaogProject_ pGaogOperation_ =
+globalAccountsOperationsGet pGaogProject_ pGaogOperation_ = 
     GlobalAccountsOperationsGet'
     { _gaogProject = pGaogProject_
     , _gaogOperation = pGaogOperation_

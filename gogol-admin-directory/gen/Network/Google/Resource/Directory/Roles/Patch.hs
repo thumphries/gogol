@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Roles.Patch
     , rpCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roles.patch@ method which the
 -- 'RolesPatch' request conforms to.
@@ -58,8 +58,8 @@ type RolesPatchResource =
 --
 -- /See:/ 'rolesPatch' smart constructor.
 data RolesPatch = RolesPatch'
-    { _rpPayload  :: !Role
-    , _rpRoleId   :: !Text
+    { _rpPayload :: !Role
+    , _rpRoleId :: !Text
     , _rpCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ rolesPatch
     -> Text -- ^ 'rpRoleId'
     -> Text -- ^ 'rpCustomer'
     -> RolesPatch
-rolesPatch pRpPayload_ pRpRoleId_ pRpCustomer_ =
+rolesPatch pRpPayload_ pRpRoleId_ pRpCustomer_ = 
     RolesPatch'
     { _rpPayload = pRpPayload_
     , _rpRoleId = pRpRoleId_
@@ -93,7 +93,7 @@ rpPayload
 rpRoleId :: Lens' RolesPatch Text
 rpRoleId = lens _rpRoleId (\ s a -> s{_rpRoleId = a})
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 rpCustomer :: Lens' RolesPatch Text
 rpCustomer
   = lens _rpCustomer (\ s a -> s{_rpCustomer = a})

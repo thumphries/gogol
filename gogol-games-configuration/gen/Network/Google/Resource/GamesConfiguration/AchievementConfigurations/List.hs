@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesConfiguration.AchievementConfigurations.List
     , aclMaxResults
     ) where
 
-import           Network.Google.GamesConfiguration.Types
-import           Network.Google.Prelude
+import Network.Google.GamesConfiguration.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesConfiguration.achievementConfigurations.list@ method which the
 -- 'AchievementConfigurationsList' request conforms to.
@@ -59,8 +59,8 @@ type AchievementConfigurationsListResource =
 -- /See:/ 'achievementConfigurationsList' smart constructor.
 data AchievementConfigurationsList = AchievementConfigurationsList'
     { _aclApplicationId :: !Text
-    , _aclPageToken     :: !(Maybe Text)
-    , _aclMaxResults    :: !(Maybe (Textual Int32))
+    , _aclPageToken :: !(Maybe Text)
+    , _aclMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AchievementConfigurationsList' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ data AchievementConfigurationsList = AchievementConfigurationsList'
 achievementConfigurationsList
     :: Text -- ^ 'aclApplicationId'
     -> AchievementConfigurationsList
-achievementConfigurationsList pAclApplicationId_ =
+achievementConfigurationsList pAclApplicationId_ = 
     AchievementConfigurationsList'
     { _aclApplicationId = pAclApplicationId_
     , _aclPageToken = Nothing

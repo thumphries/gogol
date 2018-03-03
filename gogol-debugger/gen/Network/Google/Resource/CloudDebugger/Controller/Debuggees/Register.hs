@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers the debuggee with the controller service. All agents attached
--- to the same application should call this method with the same request
--- content to get back the same stable \`debuggee_id\`. Agents should call
--- this method again whenever \`google.rpc.Code.NOT_FOUND\` is returned
--- from any controller method. This allows the controller service to
--- disable the agent or recover from any data loss. If the debuggee is
--- disabled by the server, the response will have \`is_disabled\` set to
--- \`true\`.
+-- to the same application must call this method with exactly the same
+-- request content to get back the same stable \`debuggee_id\`. Agents
+-- should call this method again whenever \`google.rpc.Code.NOT_FOUND\` is
+-- returned from any controller method. This protocol allows the controller
+-- service to disable debuggees, recover from data loss, or change the
+-- \`debuggee_id\` format. Agents must handle \`debuggee_id\` value
+-- changing upon re-registration.
 --
 -- /See:/ <http://cloud.google.com/debugger Stackdriver Debugger API Reference> for @clouddebugger.controller.debuggees.register@.
 module Network.Google.Resource.CloudDebugger.Controller.Debuggees.Register
@@ -50,8 +50,8 @@ module Network.Google.Resource.CloudDebugger.Controller.Debuggees.Register
     , cdrCallback
     ) where
 
-import           Network.Google.Debugger.Types
-import           Network.Google.Prelude
+import Network.Google.Debugger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @clouddebugger.controller.debuggees.register@ method which the
 -- 'ControllerDebuggeesRegister' request conforms to.
@@ -72,24 +72,24 @@ type ControllerDebuggeesRegisterResource =
                                Post '[JSON] RegisterDebuggeeResponse
 
 -- | Registers the debuggee with the controller service. All agents attached
--- to the same application should call this method with the same request
--- content to get back the same stable \`debuggee_id\`. Agents should call
--- this method again whenever \`google.rpc.Code.NOT_FOUND\` is returned
--- from any controller method. This allows the controller service to
--- disable the agent or recover from any data loss. If the debuggee is
--- disabled by the server, the response will have \`is_disabled\` set to
--- \`true\`.
+-- to the same application must call this method with exactly the same
+-- request content to get back the same stable \`debuggee_id\`. Agents
+-- should call this method again whenever \`google.rpc.Code.NOT_FOUND\` is
+-- returned from any controller method. This protocol allows the controller
+-- service to disable debuggees, recover from data loss, or change the
+-- \`debuggee_id\` format. Agents must handle \`debuggee_id\` value
+-- changing upon re-registration.
 --
 -- /See:/ 'controllerDebuggeesRegister' smart constructor.
 data ControllerDebuggeesRegister = ControllerDebuggeesRegister'
-    { _cdrXgafv          :: !(Maybe Xgafv)
+    { _cdrXgafv :: !(Maybe Xgafv)
     , _cdrUploadProtocol :: !(Maybe Text)
-    , _cdrPp             :: !Bool
-    , _cdrAccessToken    :: !(Maybe Text)
-    , _cdrUploadType     :: !(Maybe Text)
-    , _cdrPayload        :: !RegisterDebuggeeRequest
-    , _cdrBearerToken    :: !(Maybe Text)
-    , _cdrCallback       :: !(Maybe Text)
+    , _cdrPp :: !Bool
+    , _cdrAccessToken :: !(Maybe Text)
+    , _cdrUploadType :: !(Maybe Text)
+    , _cdrPayload :: !RegisterDebuggeeRequest
+    , _cdrBearerToken :: !(Maybe Text)
+    , _cdrCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ControllerDebuggeesRegister' with the minimum fields required to make a request.
@@ -114,7 +114,7 @@ data ControllerDebuggeesRegister = ControllerDebuggeesRegister'
 controllerDebuggeesRegister
     :: RegisterDebuggeeRequest -- ^ 'cdrPayload'
     -> ControllerDebuggeesRegister
-controllerDebuggeesRegister pCdrPayload_ =
+controllerDebuggeesRegister pCdrPayload_ = 
     ControllerDebuggeesRegister'
     { _cdrXgafv = Nothing
     , _cdrUploadProtocol = Nothing

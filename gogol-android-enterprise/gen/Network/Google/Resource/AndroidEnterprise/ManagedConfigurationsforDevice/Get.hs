@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforDevice.
     , mcdgManagedConfigurationForDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsfordevice.get@ method which the
 -- 'ManagedConfigurationsforDeviceGet' request conforms to.
@@ -62,9 +62,9 @@ type ManagedConfigurationsforDeviceGetResource =
 --
 -- /See:/ 'managedConfigurationsforDeviceGet' smart constructor.
 data ManagedConfigurationsforDeviceGet = ManagedConfigurationsforDeviceGet'
-    { _mcdgEnterpriseId                    :: !Text
-    , _mcdgUserId                          :: !Text
-    , _mcdgDeviceId                        :: !Text
+    { _mcdgEnterpriseId :: !Text
+    , _mcdgUserId :: !Text
+    , _mcdgDeviceId :: !Text
     , _mcdgManagedConfigurationForDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ managedConfigurationsforDeviceGet
     -> Text -- ^ 'mcdgDeviceId'
     -> Text -- ^ 'mcdgManagedConfigurationForDeviceId'
     -> ManagedConfigurationsforDeviceGet
-managedConfigurationsforDeviceGet pMcdgEnterpriseId_ pMcdgUserId_ pMcdgDeviceId_ pMcdgManagedConfigurationForDeviceId_ =
+managedConfigurationsforDeviceGet pMcdgEnterpriseId_ pMcdgUserId_ pMcdgDeviceId_ pMcdgManagedConfigurationForDeviceId_ = 
     ManagedConfigurationsforDeviceGet'
     { _mcdgEnterpriseId = pMcdgEnterpriseId_
     , _mcdgUserId = pMcdgUserId_

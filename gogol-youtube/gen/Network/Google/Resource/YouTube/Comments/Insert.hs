@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.Comments.Insert
     , comPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.comments.insert@ method which the
 -- 'CommentsInsert' request conforms to.
@@ -56,7 +56,7 @@ type CommentsInsertResource =
 --
 -- /See:/ 'commentsInsert' smart constructor.
 data CommentsInsert = CommentsInsert'
-    { _comPart    :: !Text
+    { _comPart :: !Text
     , _comPayload :: !Comment
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ commentsInsert
     :: Text -- ^ 'comPart'
     -> Comment -- ^ 'comPayload'
     -> CommentsInsert
-commentsInsert pComPart_ pComPayload_ =
+commentsInsert pComPart_ pComPayload_ = 
     CommentsInsert'
     { _comPart = pComPart_
     , _comPayload = pComPayload_

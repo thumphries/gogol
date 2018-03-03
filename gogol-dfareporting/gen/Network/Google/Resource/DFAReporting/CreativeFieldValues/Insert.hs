@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.CreativeFieldValues.Insert
     , cfviPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeFieldValues.insert@ method which the
 -- 'CreativeFieldValuesInsert' request conforms to.
 type CreativeFieldValuesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeFields" :>
@@ -60,8 +60,8 @@ type CreativeFieldValuesInsertResource =
 -- /See:/ 'creativeFieldValuesInsert' smart constructor.
 data CreativeFieldValuesInsert = CreativeFieldValuesInsert'
     { _cfviCreativeFieldId :: !(Textual Int64)
-    , _cfviProFileId       :: !(Textual Int64)
-    , _cfviPayload         :: !CreativeFieldValue
+    , _cfviProFileId :: !(Textual Int64)
+    , _cfviPayload :: !CreativeFieldValue
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeFieldValuesInsert' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ creativeFieldValuesInsert
     -> Int64 -- ^ 'cfviProFileId'
     -> CreativeFieldValue -- ^ 'cfviPayload'
     -> CreativeFieldValuesInsert
-creativeFieldValuesInsert pCfviCreativeFieldId_ pCfviProFileId_ pCfviPayload_ =
+creativeFieldValuesInsert pCfviCreativeFieldId_ pCfviProFileId_ pCfviPayload_ = 
     CreativeFieldValuesInsert'
     { _cfviCreativeFieldId = _Coerce # pCfviCreativeFieldId_
     , _cfviProFileId = _Coerce # pCfviProFileId_

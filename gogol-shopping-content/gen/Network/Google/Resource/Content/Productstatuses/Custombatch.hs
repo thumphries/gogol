@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the statuses of multiple products in a single request. This method
--- can only be called for non-multi-client accounts.
+-- Gets the statuses of multiple products in a single request.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.productstatuses.custombatch@.
 module Network.Google.Resource.Content.Productstatuses.Custombatch
@@ -34,11 +33,12 @@ module Network.Google.Resource.Content.Productstatuses.Custombatch
     , ProductstatusesCustombatch
 
     -- * Request Lenses
-    , pPayload
+    , proPayload
+    , proIncludeAttributes
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.productstatuses.custombatch@ method which the
 -- 'ProductstatusesCustombatch' request conforms to.
@@ -47,34 +47,46 @@ type ProductstatusesCustombatchResource =
        "v2" :>
          "productstatuses" :>
            "batch" :>
-             QueryParam "alt" AltJSON :>
-               ReqBody '[JSON] ProductstatusesCustomBatchRequest :>
-                 Post '[JSON] ProductstatusesCustomBatchResponse
+             QueryParam "includeAttributes" Bool :>
+               QueryParam "alt" AltJSON :>
+                 ReqBody '[JSON] ProductstatusesCustomBatchRequest :>
+                   Post '[JSON] ProductstatusesCustomBatchResponse
 
--- | Gets the statuses of multiple products in a single request. This method
--- can only be called for non-multi-client accounts.
+-- | Gets the statuses of multiple products in a single request.
 --
 -- /See:/ 'productstatusesCustombatch' smart constructor.
-newtype ProductstatusesCustombatch = ProductstatusesCustombatch'
-    { _pPayload :: ProductstatusesCustomBatchRequest
+data ProductstatusesCustombatch = ProductstatusesCustombatch'
+    { _proPayload :: !ProductstatusesCustomBatchRequest
+    , _proIncludeAttributes :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductstatusesCustombatch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPayload'
+-- * 'proPayload'
+--
+-- * 'proIncludeAttributes'
 productstatusesCustombatch
-    :: ProductstatusesCustomBatchRequest -- ^ 'pPayload'
+    :: ProductstatusesCustomBatchRequest -- ^ 'proPayload'
     -> ProductstatusesCustombatch
-productstatusesCustombatch pPPayload_ =
+productstatusesCustombatch pProPayload_ = 
     ProductstatusesCustombatch'
-    { _pPayload = pPPayload_
+    { _proPayload = pProPayload_
+    , _proIncludeAttributes = Nothing
     }
 
 -- | Multipart request metadata.
-pPayload :: Lens' ProductstatusesCustombatch ProductstatusesCustomBatchRequest
-pPayload = lens _pPayload (\ s a -> s{_pPayload = a})
+proPayload :: Lens' ProductstatusesCustombatch ProductstatusesCustomBatchRequest
+proPayload
+  = lens _proPayload (\ s a -> s{_proPayload = a})
+
+-- | Flag to include full product data in the results of this request. The
+-- default value is false.
+proIncludeAttributes :: Lens' ProductstatusesCustombatch (Maybe Bool)
+proIncludeAttributes
+  = lens _proIncludeAttributes
+      (\ s a -> s{_proIncludeAttributes = a})
 
 instance GoogleRequest ProductstatusesCustombatch
          where
@@ -83,7 +95,8 @@ instance GoogleRequest ProductstatusesCustombatch
         type Scopes ProductstatusesCustombatch =
              '["https://www.googleapis.com/auth/content"]
         requestClient ProductstatusesCustombatch'{..}
-          = go (Just AltJSON) _pPayload shoppingContentService
+          = go _proIncludeAttributes (Just AltJSON) _proPayload
+              shoppingContentService
           where go
                   = buildClient
                       (Proxy :: Proxy ProductstatusesCustombatchResource)

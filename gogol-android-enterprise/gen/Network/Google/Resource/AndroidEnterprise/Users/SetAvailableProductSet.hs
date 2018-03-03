@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the set of products a user is entitled to access.
+-- Modifies the set of products that a user is entitled to access (referred
+-- to as whitelisted products). Only products that are approved or products
+-- that were previously approved (products with revoked approval) can be
+-- whitelisted.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.users.setAvailableProductSet@.
 module Network.Google.Resource.AndroidEnterprise.Users.SetAvailableProductSet
@@ -38,8 +41,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.SetAvailableProductSet
     , usapsUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.setAvailableProductSet@ method which the
 -- 'UsersSetAvailableProductSet' request conforms to.
@@ -54,13 +57,16 @@ type UsersSetAvailableProductSetResource =
                    QueryParam "alt" AltJSON :>
                      ReqBody '[JSON] ProductSet :> Put '[JSON] ProductSet
 
--- | Modifies the set of products a user is entitled to access.
+-- | Modifies the set of products that a user is entitled to access (referred
+-- to as whitelisted products). Only products that are approved or products
+-- that were previously approved (products with revoked approval) can be
+-- whitelisted.
 --
 -- /See:/ 'usersSetAvailableProductSet' smart constructor.
 data UsersSetAvailableProductSet = UsersSetAvailableProductSet'
     { _usapsEnterpriseId :: !Text
-    , _usapsPayload      :: !ProductSet
-    , _usapsUserId       :: !Text
+    , _usapsPayload :: !ProductSet
+    , _usapsUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSetAvailableProductSet' with the minimum fields required to make a request.
@@ -77,7 +83,7 @@ usersSetAvailableProductSet
     -> ProductSet -- ^ 'usapsPayload'
     -> Text -- ^ 'usapsUserId'
     -> UsersSetAvailableProductSet
-usersSetAvailableProductSet pUsapsEnterpriseId_ pUsapsPayload_ pUsapsUserId_ =
+usersSetAvailableProductSet pUsapsEnterpriseId_ pUsapsPayload_ pUsapsUserId_ = 
     UsersSetAvailableProductSet'
     { _usapsEnterpriseId = pUsapsEnterpriseId_
     , _usapsPayload = pUsapsPayload_

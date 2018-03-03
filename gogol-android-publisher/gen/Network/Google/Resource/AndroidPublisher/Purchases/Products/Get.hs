@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Purchases.Products.Get
     , ppgProductId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.purchases.products.get@ method which the
 -- 'PurchasesProductsGet' request conforms to.
@@ -61,8 +61,8 @@ type PurchasesProductsGetResource =
 -- /See:/ 'purchasesProductsGet' smart constructor.
 data PurchasesProductsGet = PurchasesProductsGet'
     { _ppgPackageName :: !Text
-    , _ppgToken       :: !Text
-    , _ppgProductId   :: !Text
+    , _ppgToken :: !Text
+    , _ppgProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchasesProductsGet' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ purchasesProductsGet
     -> Text -- ^ 'ppgToken'
     -> Text -- ^ 'ppgProductId'
     -> PurchasesProductsGet
-purchasesProductsGet pPpgPackageName_ pPpgToken_ pPpgProductId_ =
+purchasesProductsGet pPpgPackageName_ pPpgToken_ pPpgProductId_ = 
     PurchasesProductsGet'
     { _ppgPackageName = pPpgPackageName_
     , _ppgToken = pPpgToken_

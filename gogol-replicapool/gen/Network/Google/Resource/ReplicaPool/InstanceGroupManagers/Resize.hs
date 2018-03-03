@@ -42,8 +42,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.Resize
     , igmrZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.resize@ method which the
 -- 'InstanceGroupManagersResize' request conforms to.
@@ -67,10 +67,10 @@ type InstanceGroupManagersResizeResource =
 --
 -- /See:/ 'instanceGroupManagersResize' smart constructor.
 data InstanceGroupManagersResize = InstanceGroupManagersResize'
-    { _igmrProject              :: !Text
-    , _igmrSize                 :: !(Textual Int32)
+    { _igmrProject :: !Text
+    , _igmrSize :: !(Textual Int32)
     , _igmrInstanceGroupManager :: !Text
-    , _igmrZone                 :: !Text
+    , _igmrZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersResize' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ instanceGroupManagersResize
     -> Text -- ^ 'igmrInstanceGroupManager'
     -> Text -- ^ 'igmrZone'
     -> InstanceGroupManagersResize
-instanceGroupManagersResize pIgmrProject_ pIgmrSize_ pIgmrInstanceGroupManager_ pIgmrZone_ =
+instanceGroupManagersResize pIgmrProject_ pIgmrSize_ pIgmrInstanceGroupManager_ pIgmrZone_ = 
     InstanceGroupManagersResize'
     { _igmrProject = pIgmrProject_
     , _igmrSize = _Coerce # pIgmrSize_

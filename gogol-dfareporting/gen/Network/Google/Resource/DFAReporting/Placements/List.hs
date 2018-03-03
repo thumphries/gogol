@@ -59,14 +59,14 @@ module Network.Google.Resource.DFAReporting.Placements.List
     , pMinEndDate
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.list@ method which the
 -- 'PlacementsList' request conforms to.
 type PlacementsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -123,28 +123,28 @@ type PlacementsListResource =
 -- /See:/ 'placementsList' smart constructor.
 data PlacementsList = PlacementsList'
     { _pPlacementStrategyIds :: !(Maybe [Textual Int64])
-    , _pContentCategoryIds   :: !(Maybe [Textual Int64])
-    , _pMaxEndDate           :: !(Maybe Text)
-    , _pCampaignIds          :: !(Maybe [Textual Int64])
-    , _pPricingTypes         :: !(Maybe [PlacementsListPricingTypes])
-    , _pSearchString         :: !(Maybe Text)
-    , _pSizeIds              :: !(Maybe [Textual Int64])
-    , _pIds                  :: !(Maybe [Textual Int64])
-    , _pProFileId            :: !(Textual Int64)
-    , _pGroupIds             :: !(Maybe [Textual Int64])
-    , _pDirectorySiteIds     :: !(Maybe [Textual Int64])
-    , _pSortOrder            :: !(Maybe PlacementsListSortOrder)
-    , _pPaymentSource        :: !(Maybe PlacementsListPaymentSource)
-    , _pSiteIds              :: !(Maybe [Textual Int64])
-    , _pPageToken            :: !(Maybe Text)
-    , _pSortField            :: !(Maybe PlacementsListSortField)
-    , _pCompatibilities      :: !(Maybe [PlacementsListCompatibilities])
-    , _pMaxStartDate         :: !(Maybe Text)
-    , _pAdvertiserIds        :: !(Maybe [Textual Int64])
-    , _pMinStartDate         :: !(Maybe Text)
-    , _pArchived             :: !(Maybe Bool)
-    , _pMaxResults           :: !(Maybe (Textual Int32))
-    , _pMinEndDate           :: !(Maybe Text)
+    , _pContentCategoryIds :: !(Maybe [Textual Int64])
+    , _pMaxEndDate :: !(Maybe Text)
+    , _pCampaignIds :: !(Maybe [Textual Int64])
+    , _pPricingTypes :: !(Maybe [PlacementsListPricingTypes])
+    , _pSearchString :: !(Maybe Text)
+    , _pSizeIds :: !(Maybe [Textual Int64])
+    , _pIds :: !(Maybe [Textual Int64])
+    , _pProFileId :: !(Textual Int64)
+    , _pGroupIds :: !(Maybe [Textual Int64])
+    , _pDirectorySiteIds :: !(Maybe [Textual Int64])
+    , _pSortOrder :: !PlacementsListSortOrder
+    , _pPaymentSource :: !(Maybe PlacementsListPaymentSource)
+    , _pSiteIds :: !(Maybe [Textual Int64])
+    , _pPageToken :: !(Maybe Text)
+    , _pSortField :: !PlacementsListSortField
+    , _pCompatibilities :: !(Maybe [PlacementsListCompatibilities])
+    , _pMaxStartDate :: !(Maybe Text)
+    , _pAdvertiserIds :: !(Maybe [Textual Int64])
+    , _pMinStartDate :: !(Maybe Text)
+    , _pArchived :: !(Maybe Bool)
+    , _pMaxResults :: !(Textual Int32)
+    , _pMinEndDate :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementsList' with the minimum fields required to make a request.
@@ -199,7 +199,7 @@ data PlacementsList = PlacementsList'
 placementsList
     :: Int64 -- ^ 'pProFileId'
     -> PlacementsList
-placementsList pPProFileId_ =
+placementsList pPProFileId_ = 
     PlacementsList'
     { _pPlacementStrategyIds = Nothing
     , _pContentCategoryIds = Nothing
@@ -212,17 +212,17 @@ placementsList pPProFileId_ =
     , _pProFileId = _Coerce # pPProFileId_
     , _pGroupIds = Nothing
     , _pDirectorySiteIds = Nothing
-    , _pSortOrder = Nothing
+    , _pSortOrder = Ascending
     , _pPaymentSource = Nothing
     , _pSiteIds = Nothing
     , _pPageToken = Nothing
-    , _pSortField = Nothing
+    , _pSortField = PLSFID
     , _pCompatibilities = Nothing
     , _pMaxStartDate = Nothing
     , _pAdvertiserIds = Nothing
     , _pMinStartDate = Nothing
     , _pArchived = Nothing
-    , _pMaxResults = Nothing
+    , _pMaxResults = 1000
     , _pMinEndDate = Nothing
     }
 
@@ -312,8 +312,8 @@ pDirectorySiteIds
       . _Default
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-pSortOrder :: Lens' PlacementsList (Maybe PlacementsListSortOrder)
+-- | Order of sorted results.
+pSortOrder :: Lens' PlacementsList PlacementsListSortOrder
 pSortOrder
   = lens _pSortOrder (\ s a -> s{_pSortOrder = a})
 
@@ -336,7 +336,7 @@ pPageToken
   = lens _pPageToken (\ s a -> s{_pPageToken = a})
 
 -- | Field by which to sort the list.
-pSortField :: Lens' PlacementsList (Maybe PlacementsListSortField)
+pSortField :: Lens' PlacementsList PlacementsListSortField
 pSortField
   = lens _pSortField (\ s a -> s{_pSortField = a})
 
@@ -384,10 +384,10 @@ pArchived
   = lens _pArchived (\ s a -> s{_pArchived = a})
 
 -- | Maximum number of results to return.
-pMaxResults :: Lens' PlacementsList (Maybe Int32)
+pMaxResults :: Lens' PlacementsList Int32
 pMaxResults
   = lens _pMaxResults (\ s a -> s{_pMaxResults = a}) .
-      mapping _Coerce
+      _Coerce
 
 -- | Select only placements or placement groups whose end date is on or after
 -- the specified minEndDate. The date should be formatted as
@@ -411,17 +411,17 @@ instance GoogleRequest PlacementsList where
               (_pIds ^. _Default)
               (_pGroupIds ^. _Default)
               (_pDirectorySiteIds ^. _Default)
-              _pSortOrder
+              (Just _pSortOrder)
               _pPaymentSource
               (_pSiteIds ^. _Default)
               _pPageToken
-              _pSortField
+              (Just _pSortField)
               (_pCompatibilities ^. _Default)
               _pMaxStartDate
               (_pAdvertiserIds ^. _Default)
               _pMinStartDate
               _pArchived
-              _pMaxResults
+              (Just _pMaxResults)
               _pMinEndDate
               (Just AltJSON)
               dFAReportingService

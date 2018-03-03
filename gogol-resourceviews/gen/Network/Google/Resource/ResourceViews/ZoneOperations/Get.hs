@@ -38,8 +38,8 @@ module Network.Google.Resource.ResourceViews.ZoneOperations.Get
     , zogZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneOperations.get@ method which the
 -- 'ZoneOperationsGet' request conforms to.
@@ -58,9 +58,9 @@ type ZoneOperationsGetResource =
 --
 -- /See:/ 'zoneOperationsGet' smart constructor.
 data ZoneOperationsGet = ZoneOperationsGet'
-    { _zogProject   :: !Text
+    { _zogProject :: !Text
     , _zogOperation :: !Text
-    , _zogZone      :: !Text
+    , _zogZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneOperationsGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ zoneOperationsGet
     -> Text -- ^ 'zogOperation'
     -> Text -- ^ 'zogZone'
     -> ZoneOperationsGet
-zoneOperationsGet pZogProject_ pZogOperation_ pZogZone_ =
+zoneOperationsGet pZogProject_ pZogOperation_ pZogZone_ = 
     ZoneOperationsGet'
     { _zogProject = pZogProject_
     , _zogOperation = pZogOperation_

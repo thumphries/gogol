@@ -38,8 +38,8 @@ module Network.Google.Resource.SQL.BackupRuns.Delete
     , brdInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.backupRuns.delete@ method which the
 -- 'BackupRunsDelete' request conforms to.
@@ -58,8 +58,8 @@ type BackupRunsDeleteResource =
 --
 -- /See:/ 'backupRunsDelete' smart constructor.
 data BackupRunsDelete = BackupRunsDelete'
-    { _brdProject  :: !Text
-    , _brdId       :: !(Textual Int64)
+    { _brdProject :: !Text
+    , _brdId :: !(Textual Int64)
     , _brdInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ backupRunsDelete
     -> Int64 -- ^ 'brdId'
     -> Text -- ^ 'brdInstance'
     -> BackupRunsDelete
-backupRunsDelete pBrdProject_ pBrdId_ pBrdInstance_ =
+backupRunsDelete pBrdProject_ pBrdId_ pBrdInstance_ = 
     BackupRunsDelete'
     { _brdProject = pBrdProject_
     , _brdId = _Coerce # pBrdId_

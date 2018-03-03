@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.CustomMetrics.Insert
     , mcmiAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customMetrics.insert@ method which the
 -- 'ManagementCustomMetricsInsert' request conforms to.
@@ -61,8 +61,8 @@ type ManagementCustomMetricsInsertResource =
 -- /See:/ 'managementCustomMetricsInsert' smart constructor.
 data ManagementCustomMetricsInsert = ManagementCustomMetricsInsert'
     { _mcmiWebPropertyId :: !Text
-    , _mcmiPayload       :: !CustomMetric
-    , _mcmiAccountId     :: !Text
+    , _mcmiPayload :: !CustomMetric
+    , _mcmiAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomMetricsInsert' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ managementCustomMetricsInsert
     -> CustomMetric -- ^ 'mcmiPayload'
     -> Text -- ^ 'mcmiAccountId'
     -> ManagementCustomMetricsInsert
-managementCustomMetricsInsert pMcmiWebPropertyId_ pMcmiPayload_ pMcmiAccountId_ =
+managementCustomMetricsInsert pMcmiWebPropertyId_ pMcmiPayload_ pMcmiAccountId_ = 
     ManagementCustomMetricsInsert'
     { _mcmiWebPropertyId = pMcmiWebPropertyId_
     , _mcmiPayload = pMcmiPayload_

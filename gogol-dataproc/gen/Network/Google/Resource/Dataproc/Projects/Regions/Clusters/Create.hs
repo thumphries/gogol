@@ -34,6 +34,7 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Create
 
     -- * Request Lenses
     , prccXgafv
+    , prccRequestId
     , prccUploadProtocol
     , prccPp
     , prccAccessToken
@@ -45,8 +46,8 @@ module Network.Google.Resource.Dataproc.Projects.Regions.Clusters.Create
     , prccCallback
     ) where
 
-import           Network.Google.Dataproc.Types
-import           Network.Google.Prelude
+import Network.Google.Dataproc.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataproc.projects.regions.clusters.create@ method which the
 -- 'ProjectsRegionsClustersCreate' request conforms to.
@@ -57,31 +58,33 @@ type ProjectsRegionsClustersCreateResource =
            "regions" :>
              Capture "region" Text :>
                "clusters" :>
-                 QueryParam "$.xgafv" Text :>
-                   QueryParam "upload_protocol" Text :>
-                     QueryParam "pp" Bool :>
-                       QueryParam "access_token" Text :>
-                         QueryParam "uploadType" Text :>
-                           QueryParam "bearer_token" Text :>
-                             QueryParam "callback" Text :>
-                               QueryParam "alt" AltJSON :>
-                                 ReqBody '[JSON] Cluster :>
-                                   Post '[JSON] Operation
+                 QueryParam "$.xgafv" Xgafv :>
+                   QueryParam "requestId" Text :>
+                     QueryParam "upload_protocol" Text :>
+                       QueryParam "pp" Bool :>
+                         QueryParam "access_token" Text :>
+                           QueryParam "uploadType" Text :>
+                             QueryParam "bearer_token" Text :>
+                               QueryParam "callback" Text :>
+                                 QueryParam "alt" AltJSON :>
+                                   ReqBody '[JSON] Cluster :>
+                                     Post '[JSON] Operation
 
 -- | Creates a cluster in a project.
 --
 -- /See:/ 'projectsRegionsClustersCreate' smart constructor.
 data ProjectsRegionsClustersCreate = ProjectsRegionsClustersCreate'
-    { _prccXgafv          :: !(Maybe Text)
+    { _prccXgafv :: !(Maybe Xgafv)
+    , _prccRequestId :: !(Maybe Text)
     , _prccUploadProtocol :: !(Maybe Text)
-    , _prccPp             :: !Bool
-    , _prccAccessToken    :: !(Maybe Text)
-    , _prccUploadType     :: !(Maybe Text)
-    , _prccPayload        :: !Cluster
-    , _prccBearerToken    :: !(Maybe Text)
-    , _prccRegion         :: !Text
-    , _prccProjectId      :: !Text
-    , _prccCallback       :: !(Maybe Text)
+    , _prccPp :: !Bool
+    , _prccAccessToken :: !(Maybe Text)
+    , _prccUploadType :: !(Maybe Text)
+    , _prccPayload :: !Cluster
+    , _prccBearerToken :: !(Maybe Text)
+    , _prccRegion :: !Text
+    , _prccProjectId :: !Text
+    , _prccCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsRegionsClustersCreate' with the minimum fields required to make a request.
@@ -89,6 +92,8 @@ data ProjectsRegionsClustersCreate = ProjectsRegionsClustersCreate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prccXgafv'
+--
+-- * 'prccRequestId'
 --
 -- * 'prccUploadProtocol'
 --
@@ -112,9 +117,10 @@ projectsRegionsClustersCreate
     -> Text -- ^ 'prccRegion'
     -> Text -- ^ 'prccProjectId'
     -> ProjectsRegionsClustersCreate
-projectsRegionsClustersCreate pPrccPayload_ pPrccRegion_ pPrccProjectId_ =
+projectsRegionsClustersCreate pPrccPayload_ pPrccRegion_ pPrccProjectId_ = 
     ProjectsRegionsClustersCreate'
     { _prccXgafv = Nothing
+    , _prccRequestId = Nothing
     , _prccUploadProtocol = Nothing
     , _prccPp = True
     , _prccAccessToken = Nothing
@@ -127,9 +133,22 @@ projectsRegionsClustersCreate pPrccPayload_ pPrccRegion_ pPrccProjectId_ =
     }
 
 -- | V1 error format.
-prccXgafv :: Lens' ProjectsRegionsClustersCreate (Maybe Text)
+prccXgafv :: Lens' ProjectsRegionsClustersCreate (Maybe Xgafv)
 prccXgafv
   = lens _prccXgafv (\ s a -> s{_prccXgafv = a})
+
+-- | Optional. A unique id used to identify the request. If the server
+-- receives two CreateClusterRequest requests with the same id, then the
+-- second request will be ignored and the first
+-- google.longrunning.Operation created and stored in the backend is
+-- returned.It is recommended to always set this value to a UUID
+-- (https:\/\/en.wikipedia.org\/wiki\/Universally_unique_identifier).The id
+-- must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
+-- and hyphens (-). The maximum length is 40 characters.
+prccRequestId :: Lens' ProjectsRegionsClustersCreate (Maybe Text)
+prccRequestId
+  = lens _prccRequestId
+      (\ s a -> s{_prccRequestId = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
 prccUploadProtocol :: Lens' ProjectsRegionsClustersCreate (Maybe Text)
@@ -164,12 +183,12 @@ prccBearerToken
   = lens _prccBearerToken
       (\ s a -> s{_prccBearerToken = a})
 
--- | [Required] The Cloud Dataproc region in which to handle the request.
+-- | Required. The Cloud Dataproc region in which to handle the request.
 prccRegion :: Lens' ProjectsRegionsClustersCreate Text
 prccRegion
   = lens _prccRegion (\ s a -> s{_prccRegion = a})
 
--- | [Required] The ID of the Google Cloud Platform project that the cluster
+-- | Required. The ID of the Google Cloud Platform project that the cluster
 -- belongs to.
 prccProjectId :: Lens' ProjectsRegionsClustersCreate Text
 prccProjectId
@@ -188,6 +207,7 @@ instance GoogleRequest ProjectsRegionsClustersCreate
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsRegionsClustersCreate'{..}
           = go _prccProjectId _prccRegion _prccXgafv
+              _prccRequestId
               _prccUploadProtocol
               (Just _prccPp)
               _prccAccessToken

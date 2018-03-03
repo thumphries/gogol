@@ -39,8 +39,8 @@ module Network.Google.Resource.SQL.Instances.Import
     , iiInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.instances.import@ method which the
 -- 'InstancesImport' request conforms to.
@@ -61,8 +61,8 @@ type InstancesImportResource =
 --
 -- /See:/ 'instancesImport' smart constructor.
 data InstancesImport = InstancesImport'
-    { _iiProject  :: !Text
-    , _iiPayload  :: !InstancesImportRequest
+    { _iiProject :: !Text
+    , _iiPayload :: !InstancesImportRequest
     , _iiInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ instancesImport
     -> InstancesImportRequest -- ^ 'iiPayload'
     -> Text -- ^ 'iiInstance'
     -> InstancesImport
-instancesImport pIiProject_ pIiPayload_ pIiInstance_ =
+instancesImport pIiProject_ pIiPayload_ pIiInstance_ = 
     InstancesImport'
     { _iiProject = pIiProject_
     , _iiPayload = pIiPayload_

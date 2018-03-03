@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSense.Accounts.Savedadstyles.Get
     , asgAccountId
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.accounts.savedadstyles.get@ method which the
 -- 'AccountsSavedadstylesGet' request conforms to.
@@ -56,7 +56,7 @@ type AccountsSavedadstylesGetResource =
 -- /See:/ 'accountsSavedadstylesGet' smart constructor.
 data AccountsSavedadstylesGet = AccountsSavedadstylesGet'
     { _asgSavedAdStyleId :: !Text
-    , _asgAccountId      :: !Text
+    , _asgAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsSavedadstylesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ accountsSavedadstylesGet
     :: Text -- ^ 'asgSavedAdStyleId'
     -> Text -- ^ 'asgAccountId'
     -> AccountsSavedadstylesGet
-accountsSavedadstylesGet pAsgSavedAdStyleId_ pAsgAccountId_ =
+accountsSavedadstylesGet pAsgSavedAdStyleId_ pAsgAccountId_ = 
     AccountsSavedadstylesGet'
     { _asgSavedAdStyleId = pAsgSavedAdStyleId_
     , _asgAccountId = pAsgAccountId_

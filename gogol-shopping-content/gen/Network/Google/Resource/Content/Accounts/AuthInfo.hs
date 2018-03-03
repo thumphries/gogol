@@ -34,8 +34,8 @@ module Network.Google.Resource.Content.Accounts.AuthInfo
 
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.accounts.authinfo@ method which the
 -- 'AccountsAuthInfo' request conforms to.
@@ -51,7 +51,7 @@ type AccountsAuthInfoResource =
 --
 -- /See:/ 'accountsAuthInfo' smart constructor.
 data AccountsAuthInfo =
-    AccountsAuthInfo'
+    AccountsAuthInfo' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsAuthInfo' with the minimum fields required to make a request.

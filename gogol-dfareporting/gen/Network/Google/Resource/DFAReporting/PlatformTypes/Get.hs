@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PlatformTypes.Get
     , ptgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.platformTypes.get@ method which the
 -- 'PlatformTypesGet' request conforms to.
 type PlatformTypesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "platformTypes" :>
@@ -56,7 +56,7 @@ type PlatformTypesGetResource =
 -- /See:/ 'platformTypesGet' smart constructor.
 data PlatformTypesGet = PlatformTypesGet'
     { _ptgProFileId :: !(Textual Int64)
-    , _ptgId        :: !(Textual Int64)
+    , _ptgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlatformTypesGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ platformTypesGet
     :: Int64 -- ^ 'ptgProFileId'
     -> Int64 -- ^ 'ptgId'
     -> PlatformTypesGet
-platformTypesGet pPtgProFileId_ pPtgId_ =
+platformTypesGet pPtgProFileId_ pPtgId_ = 
     PlatformTypesGet'
     { _ptgProFileId = _Coerce # pPtgProFileId_
     , _ptgId = _Coerce # pPtgId_

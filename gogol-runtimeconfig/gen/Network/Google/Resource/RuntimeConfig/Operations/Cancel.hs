@@ -30,7 +30,7 @@
 -- instead, it becomes an operation with an Operation.error value with a
 -- google.rpc.Status.code of 1, corresponding to \`Code.CANCELLED\`.
 --
--- /See:/ <https://cloud.google.com/deployment-manager/runtime-configurator/ Google Cloud RuntimeConfig API Reference> for @runtimeconfig.operations.cancel@.
+-- /See:/ <https://cloud.google.com/deployment-manager/runtime-configurator/ Google Cloud Runtime Configuration API Reference> for @runtimeconfig.operations.cancel@.
 module Network.Google.Resource.RuntimeConfig.Operations.Cancel
     (
     -- * REST Resource
@@ -52,8 +52,8 @@ module Network.Google.Resource.RuntimeConfig.Operations.Cancel
     , ocCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.RuntimeConfig.Types
+import Network.Google.Prelude
+import Network.Google.RuntimeConfig.Types
 
 -- | A resource alias for @runtimeconfig.operations.cancel@ method which the
 -- 'OperationsCancel' request conforms to.
@@ -83,15 +83,15 @@ type OperationsCancelResource =
 --
 -- /See:/ 'operationsCancel' smart constructor.
 data OperationsCancel = OperationsCancel'
-    { _ocXgafv          :: !(Maybe Xgafv)
+    { _ocXgafv :: !(Maybe Xgafv)
     , _ocUploadProtocol :: !(Maybe Text)
-    , _ocPp             :: !Bool
-    , _ocAccessToken    :: !(Maybe Text)
-    , _ocUploadType     :: !(Maybe Text)
-    , _ocPayload        :: !CancelOperationRequest
-    , _ocBearerToken    :: !(Maybe Text)
-    , _ocName           :: !Text
-    , _ocCallback       :: !(Maybe Text)
+    , _ocPp :: !Bool
+    , _ocAccessToken :: !(Maybe Text)
+    , _ocUploadType :: !(Maybe Text)
+    , _ocPayload :: !CancelOperationRequest
+    , _ocBearerToken :: !(Maybe Text)
+    , _ocName :: !Text
+    , _ocCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperationsCancel' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ operationsCancel
     :: CancelOperationRequest -- ^ 'ocPayload'
     -> Text -- ^ 'ocName'
     -> OperationsCancel
-operationsCancel pOcPayload_ pOcName_ =
+operationsCancel pOcPayload_ pOcName_ = 
     OperationsCancel'
     { _ocXgafv = Nothing
     , _ocUploadProtocol = Nothing

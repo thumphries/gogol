@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.CreateWebToken
     , ecwtPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.createWebToken@ method which the
 -- 'EnterprisesCreateWebToken' request conforms to.
@@ -63,7 +63,7 @@ type EnterprisesCreateWebTokenResource =
 -- /See:/ 'enterprisesCreateWebToken' smart constructor.
 data EnterprisesCreateWebToken = EnterprisesCreateWebToken'
     { _ecwtEnterpriseId :: !Text
-    , _ecwtPayload      :: !AdministratorWebTokenSpec
+    , _ecwtPayload :: !AdministratorWebTokenSpec
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnterprisesCreateWebToken' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ enterprisesCreateWebToken
     :: Text -- ^ 'ecwtEnterpriseId'
     -> AdministratorWebTokenSpec -- ^ 'ecwtPayload'
     -> EnterprisesCreateWebToken
-enterprisesCreateWebToken pEcwtEnterpriseId_ pEcwtPayload_ =
+enterprisesCreateWebToken pEcwtEnterpriseId_ pEcwtPayload_ = 
     EnterprisesCreateWebToken'
     { _ecwtEnterpriseId = pEcwtEnterpriseId_
     , _ecwtPayload = pEcwtPayload_

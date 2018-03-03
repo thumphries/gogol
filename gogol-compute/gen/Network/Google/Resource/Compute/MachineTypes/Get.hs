@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.MachineTypes.Get
     , mtgMachineType
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.machineTypes.get@ method which the
 -- 'MachineTypesGet' request conforms to.
@@ -60,8 +60,8 @@ type MachineTypesGetResource =
 --
 -- /See:/ 'machineTypesGet' smart constructor.
 data MachineTypesGet = MachineTypesGet'
-    { _mtgProject     :: !Text
-    , _mtgZone        :: !Text
+    { _mtgProject :: !Text
+    , _mtgZone :: !Text
     , _mtgMachineType :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ machineTypesGet
     -> Text -- ^ 'mtgZone'
     -> Text -- ^ 'mtgMachineType'
     -> MachineTypesGet
-machineTypesGet pMtgProject_ pMtgZone_ pMtgMachineType_ =
+machineTypesGet pMtgProject_ pMtgZone_ pMtgMachineType_ = 
     MachineTypesGet'
     { _mtgProject = pMtgProject_
     , _mtgZone = pMtgZone_

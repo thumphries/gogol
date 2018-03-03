@@ -38,8 +38,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.Insert
     , zviPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.insert@ method which the
 -- 'ZoneViewsInsert' request conforms to.
@@ -60,7 +60,7 @@ type ZoneViewsInsertResource =
 -- /See:/ 'zoneViewsInsert' smart constructor.
 data ZoneViewsInsert = ZoneViewsInsert'
     { _zviProject :: !Text
-    , _zviZone    :: !Text
+    , _zviZone :: !Text
     , _zviPayload :: !ResourceView
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ zoneViewsInsert
     -> Text -- ^ 'zviZone'
     -> ResourceView -- ^ 'zviPayload'
     -> ZoneViewsInsert
-zoneViewsInsert pZviProject_ pZviZone_ pZviPayload_ =
+zoneViewsInsert pZviProject_ pZviZone_ pZviPayload_ = 
     ZoneViewsInsert'
     { _zviProject = pZviProject_
     , _zviZone = pZviZone_

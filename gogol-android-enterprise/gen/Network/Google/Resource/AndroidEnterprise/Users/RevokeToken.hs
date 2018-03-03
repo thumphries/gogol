@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Users.RevokeToken
     , urtUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.users.revokeToken@ method which the
 -- 'UsersRevokeToken' request conforms to.
@@ -57,7 +57,7 @@ type UsersRevokeTokenResource =
 -- /See:/ 'usersRevokeToken' smart constructor.
 data UsersRevokeToken = UsersRevokeToken'
     { _urtEnterpriseId :: !Text
-    , _urtUserId       :: !Text
+    , _urtUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersRevokeToken' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ usersRevokeToken
     :: Text -- ^ 'urtEnterpriseId'
     -> Text -- ^ 'urtUserId'
     -> UsersRevokeToken
-usersRevokeToken pUrtEnterpriseId_ pUrtUserId_ =
+usersRevokeToken pUrtEnterpriseId_ pUrtUserId_ = 
     UsersRevokeToken'
     { _urtEnterpriseId = pUrtEnterpriseId_
     , _urtUserId = pUrtUserId_

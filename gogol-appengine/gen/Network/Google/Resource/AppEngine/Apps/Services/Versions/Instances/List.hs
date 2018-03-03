@@ -20,9 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instances of a version.
+-- Lists the instances of a version.Tip: To aggregate details about
+-- instances over time, see the Stackdriver Monitoring API
+-- (https:\/\/cloud.google.com\/monitoring\/api\/ref_v3\/rest\/v3\/projects.timeSeries\/list).
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.instances.list@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.instances.list@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.List
     (
     -- * REST Resource
@@ -47,8 +49,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.List
     , asvilCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.instances.list@ method which the
 -- 'AppsServicesVersionsInstancesList' request conforms to.
@@ -61,7 +63,7 @@ type AppsServicesVersionsInstancesListResource =
                "versions" :>
                  Capture "versionsId" Text :>
                    "instances" :>
-                     QueryParam "$.xgafv" Text :>
+                     QueryParam "$.xgafv" Xgafv :>
                        QueryParam "upload_protocol" Text :>
                          QueryParam "pp" Bool :>
                            QueryParam "access_token" Text :>
@@ -73,22 +75,24 @@ type AppsServicesVersionsInstancesListResource =
                                        QueryParam "alt" AltJSON :>
                                          Get '[JSON] ListInstancesResponse
 
--- | Lists the instances of a version.
+-- | Lists the instances of a version.Tip: To aggregate details about
+-- instances over time, see the Stackdriver Monitoring API
+-- (https:\/\/cloud.google.com\/monitoring\/api\/ref_v3\/rest\/v3\/projects.timeSeries\/list).
 --
 -- /See:/ 'appsServicesVersionsInstancesList' smart constructor.
 data AppsServicesVersionsInstancesList = AppsServicesVersionsInstancesList'
-    { _asvilXgafv          :: !(Maybe Text)
+    { _asvilXgafv :: !(Maybe Xgafv)
     , _asvilUploadProtocol :: !(Maybe Text)
-    , _asvilPp             :: !Bool
-    , _asvilAccessToken    :: !(Maybe Text)
-    , _asvilUploadType     :: !(Maybe Text)
-    , _asvilVersionsId     :: !Text
-    , _asvilBearerToken    :: !(Maybe Text)
-    , _asvilAppsId         :: !Text
-    , _asvilPageToken      :: !(Maybe Text)
-    , _asvilServicesId     :: !Text
-    , _asvilPageSize       :: !(Maybe (Textual Int32))
-    , _asvilCallback       :: !(Maybe Text)
+    , _asvilPp :: !Bool
+    , _asvilAccessToken :: !(Maybe Text)
+    , _asvilUploadType :: !(Maybe Text)
+    , _asvilVersionsId :: !Text
+    , _asvilBearerToken :: !(Maybe Text)
+    , _asvilAppsId :: !Text
+    , _asvilPageToken :: !(Maybe Text)
+    , _asvilServicesId :: !Text
+    , _asvilPageSize :: !(Maybe (Textual Int32))
+    , _asvilCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsInstancesList' with the minimum fields required to make a request.
@@ -123,7 +127,7 @@ appsServicesVersionsInstancesList
     -> Text -- ^ 'asvilAppsId'
     -> Text -- ^ 'asvilServicesId'
     -> AppsServicesVersionsInstancesList
-appsServicesVersionsInstancesList pAsvilVersionsId_ pAsvilAppsId_ pAsvilServicesId_ =
+appsServicesVersionsInstancesList pAsvilVersionsId_ pAsvilAppsId_ pAsvilServicesId_ = 
     AppsServicesVersionsInstancesList'
     { _asvilXgafv = Nothing
     , _asvilUploadProtocol = Nothing
@@ -140,7 +144,7 @@ appsServicesVersionsInstancesList pAsvilVersionsId_ pAsvilAppsId_ pAsvilServices
     }
 
 -- | V1 error format.
-asvilXgafv :: Lens' AppsServicesVersionsInstancesList (Maybe Text)
+asvilXgafv :: Lens' AppsServicesVersionsInstancesList (Maybe Xgafv)
 asvilXgafv
   = lens _asvilXgafv (\ s a -> s{_asvilXgafv = a})
 

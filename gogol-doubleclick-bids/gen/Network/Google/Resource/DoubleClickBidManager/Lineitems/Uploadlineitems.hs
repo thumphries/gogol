@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uploads line items in CSV format.
+-- Uploads line items in CSV format. TrueView line items are not supported.
 --
 -- /See:/ <https://developers.google.com/bid-manager/ DoubleClick Bid Manager API Reference> for @doubleclickbidmanager.lineitems.uploadlineitems@.
 module Network.Google.Resource.DoubleClickBidManager.Lineitems.Uploadlineitems
@@ -36,8 +36,8 @@ module Network.Google.Resource.DoubleClickBidManager.Lineitems.Uploadlineitems
     , luPayload
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.lineitems.uploadlineitems@ method which the
 -- 'LineitemsUploadlineitems' request conforms to.
@@ -50,7 +50,7 @@ type LineitemsUploadlineitemsResource =
                ReqBody '[JSON] UploadLineItemsRequest :>
                  Post '[JSON] UploadLineItemsResponse
 
--- | Uploads line items in CSV format.
+-- | Uploads line items in CSV format. TrueView line items are not supported.
 --
 -- /See:/ 'lineitemsUploadlineitems' smart constructor.
 newtype LineitemsUploadlineitems = LineitemsUploadlineitems'
@@ -65,7 +65,7 @@ newtype LineitemsUploadlineitems = LineitemsUploadlineitems'
 lineitemsUploadlineitems
     :: UploadLineItemsRequest -- ^ 'luPayload'
     -> LineitemsUploadlineitems
-lineitemsUploadlineitems pLuPayload_ =
+lineitemsUploadlineitems pLuPayload_ = 
     LineitemsUploadlineitems'
     { _luPayload = pLuPayload_
     }
@@ -78,7 +78,8 @@ luPayload
 instance GoogleRequest LineitemsUploadlineitems where
         type Rs LineitemsUploadlineitems =
              UploadLineItemsResponse
-        type Scopes LineitemsUploadlineitems = '[]
+        type Scopes LineitemsUploadlineitems =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient LineitemsUploadlineitems'{..}
           = go (Just AltJSON) _luPayload doubleClickBidsService
           where go

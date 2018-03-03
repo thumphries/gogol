@@ -183,6 +183,11 @@ module Network.Google.AdExchangeBuyer
     , eaodrDeals
     , eaodrOrderRevisionNumber
 
+    -- ** TargetingValueDemogGenderCriteria
+    , TargetingValueDemogGenderCriteria
+    , targetingValueDemogGenderCriteria
+    , tvdgcDemogGenderCriteriaIds
+
     -- ** CreativesList
     , CreativesList
     , creativesList
@@ -303,6 +308,7 @@ module Network.Google.AdExchangeBuyer
     , DealServingMetadata
     , dealServingMetadata
     , dsmDealPauseStatus
+    , dsmAlcoholAdsAllowed
 
     -- ** AddOrderDealsResponse
     , AddOrderDealsResponse
@@ -320,6 +326,7 @@ module Network.Google.AdExchangeBuyer
     -- ** PricePerBuyer
     , PricePerBuyer
     , pricePerBuyer
+    , ppbBilledBuyer
     , ppbPrice
     , ppbAuctionTier
     , ppbBuyer
@@ -336,6 +343,7 @@ module Network.Google.AdExchangeBuyer
     , cAgencyId
     , cCorrections
     , cProductCategories
+    , cVideoVastXML
     , cKind
     , cHTMLSnippet
     , cAdvertiserId
@@ -377,6 +385,11 @@ module Network.Google.AdExchangeBuyer
     , pretargetingConfigList
     , pclKind
     , pclItems
+
+    -- ** TargetingValueDemogAgeCriteria
+    , TargetingValueDemogAgeCriteria
+    , targetingValueDemogAgeCriteria
+    , tvdacDemogAgeCriteriaIds
 
     -- ** DealTermsNonGuaranteedFixedPriceTerms
     , DealTermsNonGuaranteedFixedPriceTerms
@@ -424,6 +437,7 @@ module Network.Google.AdExchangeBuyer
     -- ** Account
     , Account
     , account
+    , aApplyPretargetingToNonGuaranteedDeals
     , aMaximumTotalQps
     , aKind
     , aCookieMatchingURL
@@ -510,6 +524,8 @@ module Network.Google.AdExchangeBuyer
     , tvcsCompanionSizes
     , tvcsSkippableAdType
     , tvcsCreativeSizeType
+    , tvcsAllowedFormats
+    , tvcsNATiveTemplate
 
     -- ** DealTermsGuaranteedFixedPriceTermsBillingInfo
     , DealTermsGuaranteedFixedPriceTermsBillingInfo
@@ -600,10 +616,12 @@ module Network.Google.AdExchangeBuyer
     -- ** TargetingValue
     , TargetingValue
     , targetingValue
+    , tvDemogAgeCriteriaValue
     , tvCreativeSizeValue
     , tvStringValue
     , tvLongValue
     , tvDayPartTargetingValue
+    , tvDemogGenderCriteriaValue
 
     -- ** CreativeNATiveAdAppIcon
     , CreativeNATiveAdAppIcon
@@ -674,6 +692,7 @@ module Network.Google.AdExchangeBuyer
     , proLastUpdateTimeMs
     , proKind
     , proRevisionNumber
+    , proBilledBuyer
     , proPrivateAuctionId
     , proDeliveryControl
     , proHasCreatorSignedOff
@@ -687,9 +706,11 @@ module Network.Google.AdExchangeBuyer
     , proMarketplacePublisherProFileId
     , proPublisherProvidedForecast
     , proLabels
+    , proCreatorRole
     , proPublisherProFileId
     , proLegacyOfferId
     , proProductId
+    , proBuyer
 
     -- ** CreativeServingRestrictionsItem
     , CreativeServingRestrictionsItem
@@ -742,6 +763,7 @@ module Network.Google.AdExchangeBuyer
     , marketplaceDeal
     , mdExternalDealId
     , mdBuyerPrivateData
+    , mdIsSetupComplete
     , mdWebPropertyCode
     , mdCreationTimeMs
     , mdTerms
@@ -850,46 +872,46 @@ module Network.Google.AdExchangeBuyer
     , dtgfptMinimumDailyLooks
     ) where
 
-import           Network.Google.AdExchangeBuyer.Types
-import           Network.Google.Prelude
-import           Network.Google.Resource.AdExchangeBuyer.Accounts.Get
-import           Network.Google.Resource.AdExchangeBuyer.Accounts.List
-import           Network.Google.Resource.AdExchangeBuyer.Accounts.Patch
-import           Network.Google.Resource.AdExchangeBuyer.Accounts.Update
-import           Network.Google.Resource.AdExchangeBuyer.BillingInfo.Get
-import           Network.Google.Resource.AdExchangeBuyer.BillingInfo.List
-import           Network.Google.Resource.AdExchangeBuyer.Budget.Get
-import           Network.Google.Resource.AdExchangeBuyer.Budget.Patch
-import           Network.Google.Resource.AdExchangeBuyer.Budget.Update
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.AddDeal
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.Get
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.Insert
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.List
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.ListDeals
-import           Network.Google.Resource.AdExchangeBuyer.Creatives.RemoveDeal
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Delete
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Insert
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.List
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Update
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceNotes.Insert
-import           Network.Google.Resource.AdExchangeBuyer.MarketplaceNotes.List
-import           Network.Google.Resource.AdExchangeBuyer.Marketplaceprivateauction.Updateproposal
-import           Network.Google.Resource.AdExchangeBuyer.PerformanceReport.List
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Delete
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Get
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Insert
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.List
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Patch
-import           Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Update
-import           Network.Google.Resource.AdExchangeBuyer.Products.Get
-import           Network.Google.Resource.AdExchangeBuyer.Products.Search
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Get
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Insert
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Patch
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Search
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Setupcomplete
-import           Network.Google.Resource.AdExchangeBuyer.Proposals.Update
-import           Network.Google.Resource.AdExchangeBuyer.PubproFiles.List
+import Network.Google.Prelude
+import Network.Google.AdExchangeBuyer.Types
+import Network.Google.Resource.AdExchangeBuyer.Accounts.Get
+import Network.Google.Resource.AdExchangeBuyer.Accounts.List
+import Network.Google.Resource.AdExchangeBuyer.Accounts.Patch
+import Network.Google.Resource.AdExchangeBuyer.Accounts.Update
+import Network.Google.Resource.AdExchangeBuyer.BillingInfo.Get
+import Network.Google.Resource.AdExchangeBuyer.BillingInfo.List
+import Network.Google.Resource.AdExchangeBuyer.Budget.Get
+import Network.Google.Resource.AdExchangeBuyer.Budget.Patch
+import Network.Google.Resource.AdExchangeBuyer.Budget.Update
+import Network.Google.Resource.AdExchangeBuyer.Creatives.AddDeal
+import Network.Google.Resource.AdExchangeBuyer.Creatives.Get
+import Network.Google.Resource.AdExchangeBuyer.Creatives.Insert
+import Network.Google.Resource.AdExchangeBuyer.Creatives.List
+import Network.Google.Resource.AdExchangeBuyer.Creatives.ListDeals
+import Network.Google.Resource.AdExchangeBuyer.Creatives.RemoveDeal
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Delete
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Insert
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.List
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceDeals.Update
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceNotes.Insert
+import Network.Google.Resource.AdExchangeBuyer.MarketplaceNotes.List
+import Network.Google.Resource.AdExchangeBuyer.Marketplaceprivateauction.Updateproposal
+import Network.Google.Resource.AdExchangeBuyer.PerformanceReport.List
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Delete
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Get
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Insert
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.List
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Patch
+import Network.Google.Resource.AdExchangeBuyer.PretargetingConfig.Update
+import Network.Google.Resource.AdExchangeBuyer.Products.Get
+import Network.Google.Resource.AdExchangeBuyer.Products.Search
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Get
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Insert
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Patch
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Search
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Setupcomplete
+import Network.Google.Resource.AdExchangeBuyer.Proposals.Update
+import Network.Google.Resource.AdExchangeBuyer.PubproFiles.List
 
 {- $resources
 TODO

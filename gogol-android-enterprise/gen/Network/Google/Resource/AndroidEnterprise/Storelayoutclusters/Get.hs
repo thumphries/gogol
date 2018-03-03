@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutclusters.Get
     , stoClusterId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutclusters.get@ method which the
 -- 'StorelayoutclustersGet' request conforms to.
@@ -60,8 +60,8 @@ type StorelayoutclustersGetResource =
 -- /See:/ 'storelayoutclustersGet' smart constructor.
 data StorelayoutclustersGet = StorelayoutclustersGet'
     { _stoEnterpriseId :: !Text
-    , _stoPageId       :: !Text
-    , _stoClusterId    :: !Text
+    , _stoPageId :: !Text
+    , _stoClusterId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutclustersGet' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ storelayoutclustersGet
     -> Text -- ^ 'stoPageId'
     -> Text -- ^ 'stoClusterId'
     -> StorelayoutclustersGet
-storelayoutclustersGet pStoEnterpriseId_ pStoPageId_ pStoClusterId_ =
+storelayoutclustersGet pStoEnterpriseId_ pStoPageId_ pStoClusterId_ = 
     StorelayoutclustersGet'
     { _stoEnterpriseId = pStoEnterpriseId_
     , _stoPageId = pStoPageId_

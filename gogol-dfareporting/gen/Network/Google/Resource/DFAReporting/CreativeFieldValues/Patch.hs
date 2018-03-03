@@ -40,14 +40,14 @@ module Network.Google.Resource.DFAReporting.CreativeFieldValues.Patch
     , cfvpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeFieldValues.patch@ method which the
 -- 'CreativeFieldValuesPatch' request conforms to.
 type CreativeFieldValuesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeFields" :>
@@ -64,9 +64,9 @@ type CreativeFieldValuesPatchResource =
 -- /See:/ 'creativeFieldValuesPatch' smart constructor.
 data CreativeFieldValuesPatch = CreativeFieldValuesPatch'
     { _cfvpCreativeFieldId :: !(Textual Int64)
-    , _cfvpProFileId       :: !(Textual Int64)
-    , _cfvpPayload         :: !CreativeFieldValue
-    , _cfvpId              :: !(Textual Int64)
+    , _cfvpProFileId :: !(Textual Int64)
+    , _cfvpPayload :: !CreativeFieldValue
+    , _cfvpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeFieldValuesPatch' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ creativeFieldValuesPatch
     -> CreativeFieldValue -- ^ 'cfvpPayload'
     -> Int64 -- ^ 'cfvpId'
     -> CreativeFieldValuesPatch
-creativeFieldValuesPatch pCfvpCreativeFieldId_ pCfvpProFileId_ pCfvpPayload_ pCfvpId_ =
+creativeFieldValuesPatch pCfvpCreativeFieldId_ pCfvpProFileId_ pCfvpPayload_ pCfvpId_ = 
     CreativeFieldValuesPatch'
     { _cfvpCreativeFieldId = _Coerce # pCfvpCreativeFieldId_
     , _cfvpProFileId = _Coerce # pCfvpProFileId_

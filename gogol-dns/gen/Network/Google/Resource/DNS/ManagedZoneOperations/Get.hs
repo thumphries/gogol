@@ -39,8 +39,8 @@ module Network.Google.Resource.DNS.ManagedZoneOperations.Get
     , mzogClientOperationId
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.managedZoneOperations.get@ method which the
 -- 'ManagedZoneOperationsGet' request conforms to.
@@ -60,9 +60,9 @@ type ManagedZoneOperationsGetResource =
 --
 -- /See:/ 'managedZoneOperationsGet' smart constructor.
 data ManagedZoneOperationsGet = ManagedZoneOperationsGet'
-    { _mzogProject           :: !Text
-    , _mzogOperation         :: !Text
-    , _mzogManagedZone       :: !Text
+    { _mzogProject :: !Text
+    , _mzogOperation :: !Text
+    , _mzogManagedZone :: !Text
     , _mzogClientOperationId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ managedZoneOperationsGet
     -> Text -- ^ 'mzogOperation'
     -> Text -- ^ 'mzogManagedZone'
     -> ManagedZoneOperationsGet
-managedZoneOperationsGet pMzogProject_ pMzogOperation_ pMzogManagedZone_ =
+managedZoneOperationsGet pMzogProject_ pMzogOperation_ pMzogManagedZone_ = 
     ManagedZoneOperationsGet'
     { _mzogProject = pMzogProject_
     , _mzogOperation = pMzogOperation_

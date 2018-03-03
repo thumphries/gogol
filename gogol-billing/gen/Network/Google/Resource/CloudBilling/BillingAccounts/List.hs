@@ -45,15 +45,15 @@ module Network.Google.Resource.CloudBilling.BillingAccounts.List
     , balCallback
     ) where
 
-import           Network.Google.Billing.Types
-import           Network.Google.Prelude
+import Network.Google.Billing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbilling.billingAccounts.list@ method which the
 -- 'BillingAccountsList' request conforms to.
 type BillingAccountsListResource =
      "v1" :>
        "billingAccounts" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -70,15 +70,15 @@ type BillingAccountsListResource =
 --
 -- /See:/ 'billingAccountsList' smart constructor.
 data BillingAccountsList = BillingAccountsList'
-    { _balXgafv          :: !(Maybe Text)
+    { _balXgafv :: !(Maybe Xgafv)
     , _balUploadProtocol :: !(Maybe Text)
-    , _balPp             :: !Bool
-    , _balAccessToken    :: !(Maybe Text)
-    , _balUploadType     :: !(Maybe Text)
-    , _balBearerToken    :: !(Maybe Text)
-    , _balPageToken      :: !(Maybe Text)
-    , _balPageSize       :: !(Maybe (Textual Int32))
-    , _balCallback       :: !(Maybe Text)
+    , _balPp :: !Bool
+    , _balAccessToken :: !(Maybe Text)
+    , _balUploadType :: !(Maybe Text)
+    , _balBearerToken :: !(Maybe Text)
+    , _balPageToken :: !(Maybe Text)
+    , _balPageSize :: !(Maybe (Textual Int32))
+    , _balCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BillingAccountsList' with the minimum fields required to make a request.
@@ -104,7 +104,7 @@ data BillingAccountsList = BillingAccountsList'
 -- * 'balCallback'
 billingAccountsList
     :: BillingAccountsList
-billingAccountsList =
+billingAccountsList = 
     BillingAccountsList'
     { _balXgafv = Nothing
     , _balUploadProtocol = Nothing
@@ -118,7 +118,7 @@ billingAccountsList =
     }
 
 -- | V1 error format.
-balXgafv :: Lens' BillingAccountsList (Maybe Text)
+balXgafv :: Lens' BillingAccountsList (Maybe Xgafv)
 balXgafv = lens _balXgafv (\ s a -> s{_balXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

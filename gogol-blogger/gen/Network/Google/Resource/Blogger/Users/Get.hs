@@ -36,8 +36,8 @@ module Network.Google.Resource.Blogger.Users.Get
     , ugUserId
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.users.get@ method which the
 -- 'UsersGet' request conforms to.
@@ -63,7 +63,7 @@ newtype UsersGet = UsersGet'
 usersGet
     :: Text -- ^ 'ugUserId'
     -> UsersGet
-usersGet pUgUserId_ =
+usersGet pUgUserId_ = 
     UsersGet'
     { _ugUserId = pUgUserId_
     }

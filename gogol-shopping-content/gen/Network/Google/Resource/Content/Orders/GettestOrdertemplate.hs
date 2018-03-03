@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sandbox only. Retrieves an order template that can be used to quickly
--- create a new order in sandbox. This method can only be called for
--- non-multi-client accounts.
+-- create a new order in sandbox.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.gettestordertemplate@.
 module Network.Google.Resource.Content.Orders.GettestOrdertemplate
@@ -39,8 +38,8 @@ module Network.Google.Resource.Content.Orders.GettestOrdertemplate
     , ogoTemplateName
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.gettestordertemplate@ method which the
 -- 'OrdersGettestOrdertemplate' request conforms to.
@@ -56,12 +55,11 @@ type OrdersGettestOrdertemplateResource =
                  Get '[JSON] OrdersGetTestOrderTemplateResponse
 
 -- | Sandbox only. Retrieves an order template that can be used to quickly
--- create a new order in sandbox. This method can only be called for
--- non-multi-client accounts.
+-- create a new order in sandbox.
 --
 -- /See:/ 'ordersGettestOrdertemplate' smart constructor.
 data OrdersGettestOrdertemplate = OrdersGettestOrdertemplate'
-    { _ogoMerchantId   :: !(Textual Word64)
+    { _ogoMerchantId :: !(Textual Word64)
     , _ogoTemplateName :: !OrdersGettestOrdertemplateTemplateName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,13 +74,14 @@ ordersGettestOrdertemplate
     :: Word64 -- ^ 'ogoMerchantId'
     -> OrdersGettestOrdertemplateTemplateName -- ^ 'ogoTemplateName'
     -> OrdersGettestOrdertemplate
-ordersGettestOrdertemplate pOgoMerchantId_ pOgoTemplateName_ =
+ordersGettestOrdertemplate pOgoMerchantId_ pOgoTemplateName_ = 
     OrdersGettestOrdertemplate'
     { _ogoMerchantId = _Coerce # pOgoMerchantId_
     , _ogoTemplateName = pOgoTemplateName_
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that should manage the order. This cannot be a
+-- multi-client account.
 ogoMerchantId :: Lens' OrdersGettestOrdertemplate Word64
 ogoMerchantId
   = lens _ogoMerchantId

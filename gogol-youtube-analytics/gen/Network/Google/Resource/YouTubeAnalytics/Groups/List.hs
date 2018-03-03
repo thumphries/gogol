@@ -41,8 +41,8 @@ module Network.Google.Resource.YouTubeAnalytics.Groups.List
     , glPageToken
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeAnalytics.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeAnalytics.Types
 
 -- | A resource alias for @youtubeAnalytics.groups.list@ method which the
 -- 'GroupsList' request conforms to.
@@ -64,10 +64,10 @@ type GroupsListResource =
 --
 -- /See:/ 'groupsList' smart constructor.
 data GroupsList = GroupsList'
-    { _glMine                   :: !(Maybe Bool)
+    { _glMine :: !(Maybe Bool)
     , _glOnBehalfOfContentOwner :: !(Maybe Text)
-    , _glId                     :: !(Maybe Text)
-    , _glPageToken              :: !(Maybe Text)
+    , _glId :: !(Maybe Text)
+    , _glPageToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GroupsList' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ data GroupsList = GroupsList'
 -- * 'glPageToken'
 groupsList
     :: GroupsList
-groupsList =
+groupsList = 
     GroupsList'
     { _glMine = Nothing
     , _glOnBehalfOfContentOwner = Nothing

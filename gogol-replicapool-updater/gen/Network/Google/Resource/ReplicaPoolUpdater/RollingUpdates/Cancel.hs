@@ -39,8 +39,8 @@ module Network.Google.Resource.ReplicaPoolUpdater.RollingUpdates.Cancel
     , rucZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPoolUpdater.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPoolUpdater.Types
 
 -- | A resource alias for @replicapoolupdater.rollingUpdates.cancel@ method which the
 -- 'RollingUpdatesCancel' request conforms to.
@@ -62,8 +62,8 @@ type RollingUpdatesCancelResource =
 -- /See:/ 'rollingUpdatesCancel' smart constructor.
 data RollingUpdatesCancel = RollingUpdatesCancel'
     { _rucRollingUpdate :: !Text
-    , _rucProject       :: !Text
-    , _rucZone          :: !Text
+    , _rucProject :: !Text
+    , _rucZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RollingUpdatesCancel' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ rollingUpdatesCancel
     -> Text -- ^ 'rucProject'
     -> Text -- ^ 'rucZone'
     -> RollingUpdatesCancel
-rollingUpdatesCancel pRucRollingUpdate_ pRucProject_ pRucZone_ =
+rollingUpdatesCancel pRucRollingUpdate_ pRucProject_ pRucZone_ = 
     RollingUpdatesCancel'
     { _rucRollingUpdate = pRucRollingUpdate_
     , _rucProject = pRucProject_

@@ -1,6 +1,6 @@
 name:                  gogol-apps-activity
 version:               0.3.0
-synopsis:              Google Apps Activity SDK.
+synopsis:              Google G Suite Activity SDK.
 homepage:              https://github.com/brendanhay/gogol
 bug-reports:           https://github.com/brendanhay/gogol/issues
 license:               OtherLicense
@@ -42,5 +42,5 @@ library
         , Network.Google.AppsActivity.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

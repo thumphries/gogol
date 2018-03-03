@@ -22,7 +22,7 @@
 --
 -- Analyzes the sentiment of the provided text.
 --
--- /See:/ <https://cloud.google.com/natural-language/ Google Cloud Natural Language API Reference> for @language.documents.analyzeSentiment@.
+-- /See:/ <https://cloud.google.com/natural-language/ Cloud Natural Language API Reference> for @language.documents.analyzeSentiment@.
 module Network.Google.Resource.Language.Documents.AnalyzeSentiment
     (
     -- * REST Resource
@@ -43,8 +43,8 @@ module Network.Google.Resource.Language.Documents.AnalyzeSentiment
     , dasCallback
     ) where
 
-import           Network.Google.Language.Types
-import           Network.Google.Prelude
+import Network.Google.Language.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @language.documents.analyzeSentiment@ method which the
 -- 'DocumentsAnalyzeSentiment' request conforms to.
@@ -66,14 +66,14 @@ type DocumentsAnalyzeSentimentResource =
 --
 -- /See:/ 'documentsAnalyzeSentiment' smart constructor.
 data DocumentsAnalyzeSentiment = DocumentsAnalyzeSentiment'
-    { _dasXgafv          :: !(Maybe Xgafv)
+    { _dasXgafv :: !(Maybe Xgafv)
     , _dasUploadProtocol :: !(Maybe Text)
-    , _dasPp             :: !Bool
-    , _dasAccessToken    :: !(Maybe Text)
-    , _dasUploadType     :: !(Maybe Text)
-    , _dasPayload        :: !AnalyzeSentimentRequest
-    , _dasBearerToken    :: !(Maybe Text)
-    , _dasCallback       :: !(Maybe Text)
+    , _dasPp :: !Bool
+    , _dasAccessToken :: !(Maybe Text)
+    , _dasUploadType :: !(Maybe Text)
+    , _dasPayload :: !AnalyzeSentimentRequest
+    , _dasBearerToken :: !(Maybe Text)
+    , _dasCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DocumentsAnalyzeSentiment' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data DocumentsAnalyzeSentiment = DocumentsAnalyzeSentiment'
 documentsAnalyzeSentiment
     :: AnalyzeSentimentRequest -- ^ 'dasPayload'
     -> DocumentsAnalyzeSentiment
-documentsAnalyzeSentiment pDasPayload_ =
+documentsAnalyzeSentiment pDasPayload_ = 
     DocumentsAnalyzeSentiment'
     { _dasXgafv = Nothing
     , _dasUploadProtocol = Nothing
@@ -157,7 +157,8 @@ instance GoogleRequest DocumentsAnalyzeSentiment
         type Rs DocumentsAnalyzeSentiment =
              AnalyzeSentimentResponse
         type Scopes DocumentsAnalyzeSentiment =
-             '["https://www.googleapis.com/auth/cloud-platform"]
+             '["https://www.googleapis.com/auth/cloud-language",
+               "https://www.googleapis.com/auth/cloud-platform"]
         requestClient DocumentsAnalyzeSentiment'{..}
           = go _dasXgafv _dasUploadProtocol (Just _dasPp)
               _dasAccessToken

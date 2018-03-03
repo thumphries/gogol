@@ -37,8 +37,8 @@ module Network.Google.Resource.Calendar.ACL.Get
     , agRuleId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.acl.get@ method which the
 -- 'ACLGet' request conforms to.
@@ -56,7 +56,7 @@ type ACLGetResource =
 -- /See:/ 'aclGet' smart constructor.
 data ACLGet = ACLGet'
     { _agCalendarId :: !Text
-    , _agRuleId     :: !Text
+    , _agRuleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ACLGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ aclGet
     :: Text -- ^ 'agCalendarId'
     -> Text -- ^ 'agRuleId'
     -> ACLGet
-aclGet pAgCalendarId_ pAgRuleId_ =
+aclGet pAgCalendarId_ pAgRuleId_ = 
     ACLGet'
     { _agCalendarId = pAgCalendarId_
     , _agRuleId = pAgRuleId_

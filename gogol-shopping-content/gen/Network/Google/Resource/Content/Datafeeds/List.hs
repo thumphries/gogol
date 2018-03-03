@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the datafeeds in your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- Lists the configurations for datafeeds in your Merchant Center account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.datafeeds.list@.
 module Network.Google.Resource.Content.Datafeeds.List
@@ -39,8 +38,8 @@ module Network.Google.Resource.Content.Datafeeds.List
     , datMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeeds.list@ method which the
 -- 'DatafeedsList' request conforms to.
@@ -54,13 +53,12 @@ type DatafeedsListResource =
                  QueryParam "alt" AltJSON :>
                    Get '[JSON] DatafeedsListResponse
 
--- | Lists the datafeeds in your Merchant Center account. This method can
--- only be called for non-multi-client accounts.
+-- | Lists the configurations for datafeeds in your Merchant Center account.
 --
 -- /See:/ 'datafeedsList' smart constructor.
 data DatafeedsList = DatafeedsList'
     { _datMerchantId :: !(Textual Word64)
-    , _datPageToken  :: !(Maybe Text)
+    , _datPageToken :: !(Maybe Text)
     , _datMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -76,14 +74,15 @@ data DatafeedsList = DatafeedsList'
 datafeedsList
     :: Word64 -- ^ 'datMerchantId'
     -> DatafeedsList
-datafeedsList pDatMerchantId_ =
+datafeedsList pDatMerchantId_ = 
     DatafeedsList'
     { _datMerchantId = _Coerce # pDatMerchantId_
     , _datPageToken = Nothing
     , _datMaxResults = Nothing
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that manages the datafeeds. This account cannot be
+-- a multi-client account.
 datMerchantId :: Lens' DatafeedsList Word64
 datMerchantId
   = lens _datMerchantId

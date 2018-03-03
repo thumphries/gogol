@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivityGroups.Get
     , faggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivityGroups.get@ method which the
 -- 'FloodlightActivityGroupsGet' request conforms to.
 type FloodlightActivityGroupsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivityGroups" :>
@@ -57,7 +57,7 @@ type FloodlightActivityGroupsGetResource =
 -- /See:/ 'floodlightActivityGroupsGet' smart constructor.
 data FloodlightActivityGroupsGet = FloodlightActivityGroupsGet'
     { _faggProFileId :: !(Textual Int64)
-    , _faggId        :: !(Textual Int64)
+    , _faggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivityGroupsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ floodlightActivityGroupsGet
     :: Int64 -- ^ 'faggProFileId'
     -> Int64 -- ^ 'faggId'
     -> FloodlightActivityGroupsGet
-floodlightActivityGroupsGet pFaggProFileId_ pFaggId_ =
+floodlightActivityGroupsGet pFaggProFileId_ pFaggId_ = 
     FloodlightActivityGroupsGet'
     { _faggProFileId = _Coerce # pFaggProFileId_
     , _faggId = _Coerce # pFaggId_

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a requested build in progress.
+-- Cancels a build in progress.
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.builds.cancel@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.builds.cancel@.
 module Network.Google.Resource.Cloudbuild.Projects.Builds.Cancel
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Builds.Cancel
     , pbcCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.builds.cancel@ method which the
 -- 'ProjectsBuildsCancel' request conforms to.
@@ -67,20 +67,20 @@ type ProjectsBuildsCancelResource =
                                ReqBody '[JSON] CancelBuildRequest :>
                                  Post '[JSON] Build
 
--- | Cancels a requested build in progress.
+-- | Cancels a build in progress.
 --
 -- /See:/ 'projectsBuildsCancel' smart constructor.
 data ProjectsBuildsCancel = ProjectsBuildsCancel'
-    { _pbcXgafv          :: !(Maybe Xgafv)
+    { _pbcXgafv :: !(Maybe Xgafv)
     , _pbcUploadProtocol :: !(Maybe Text)
-    , _pbcPp             :: !Bool
-    , _pbcAccessToken    :: !(Maybe Text)
-    , _pbcUploadType     :: !(Maybe Text)
-    , _pbcPayload        :: !CancelBuildRequest
-    , _pbcBearerToken    :: !(Maybe Text)
-    , _pbcId             :: !Text
-    , _pbcProjectId      :: !Text
-    , _pbcCallback       :: !(Maybe Text)
+    , _pbcPp :: !Bool
+    , _pbcAccessToken :: !(Maybe Text)
+    , _pbcUploadType :: !(Maybe Text)
+    , _pbcPayload :: !CancelBuildRequest
+    , _pbcBearerToken :: !(Maybe Text)
+    , _pbcId :: !Text
+    , _pbcProjectId :: !Text
+    , _pbcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsBuildsCancel' with the minimum fields required to make a request.
@@ -111,7 +111,7 @@ projectsBuildsCancel
     -> Text -- ^ 'pbcId'
     -> Text -- ^ 'pbcProjectId'
     -> ProjectsBuildsCancel
-projectsBuildsCancel pPbcPayload_ pPbcId_ pPbcProjectId_ =
+projectsBuildsCancel pPbcPayload_ pPbcId_ pPbcProjectId_ = 
     ProjectsBuildsCancel'
     { _pbcXgafv = Nothing
     , _pbcUploadProtocol = Nothing

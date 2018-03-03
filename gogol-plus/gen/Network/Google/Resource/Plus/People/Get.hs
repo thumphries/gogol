@@ -38,8 +38,8 @@ module Network.Google.Resource.Plus.People.Get
     , pgUserId
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.people.get@ method which the
 -- 'PeopleGet' request conforms to.
@@ -67,7 +67,7 @@ newtype PeopleGet = PeopleGet'
 peopleGet
     :: Text -- ^ 'pgUserId'
     -> PeopleGet
-peopleGet pPgUserId_ =
+peopleGet pPgUserId_ = 
     PeopleGet'
     { _pgUserId = pPgUserId_
     }

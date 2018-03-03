@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.OperatingSystems.Get
     , osgDartId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.operatingSystems.get@ method which the
 -- 'OperatingSystemsGet' request conforms to.
 type OperatingSystemsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "operatingSystems" :>
@@ -57,7 +57,7 @@ type OperatingSystemsGetResource =
 -- /See:/ 'operatingSystemsGet' smart constructor.
 data OperatingSystemsGet = OperatingSystemsGet'
     { _osgProFileId :: !(Textual Int64)
-    , _osgDartId    :: !(Textual Int64)
+    , _osgDartId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperatingSystemsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ operatingSystemsGet
     :: Int64 -- ^ 'osgProFileId'
     -> Int64 -- ^ 'osgDartId'
     -> OperatingSystemsGet
-operatingSystemsGet pOsgProFileId_ pOsgDartId_ =
+operatingSystemsGet pOsgProFileId_ pOsgDartId_ = 
     OperatingSystemsGet'
     { _osgProFileId = _Coerce # pOsgProFileId_
     , _osgDartId = _Coerce # pOsgDartId_

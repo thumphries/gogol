@@ -41,8 +41,8 @@ module Network.Google.Resource.Analytics.Management.CustomDimensions.Patch
     , mcdpCustomDimensionId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customDimensions.patch@ method which the
 -- 'ManagementCustomDimensionsPatch' request conforms to.
@@ -66,11 +66,11 @@ type ManagementCustomDimensionsPatchResource =
 --
 -- /See:/ 'managementCustomDimensionsPatch' smart constructor.
 data ManagementCustomDimensionsPatch = ManagementCustomDimensionsPatch'
-    { _mcdpWebPropertyId               :: !Text
+    { _mcdpWebPropertyId :: !Text
     , _mcdpIgnoreCustomDataSourceLinks :: !Bool
-    , _mcdpPayload                     :: !CustomDimension
-    , _mcdpAccountId                   :: !Text
-    , _mcdpCustomDimensionId           :: !Text
+    , _mcdpPayload :: !CustomDimension
+    , _mcdpAccountId :: !Text
+    , _mcdpCustomDimensionId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomDimensionsPatch' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ managementCustomDimensionsPatch
     -> Text -- ^ 'mcdpAccountId'
     -> Text -- ^ 'mcdpCustomDimensionId'
     -> ManagementCustomDimensionsPatch
-managementCustomDimensionsPatch pMcdpWebPropertyId_ pMcdpPayload_ pMcdpAccountId_ pMcdpCustomDimensionId_ =
+managementCustomDimensionsPatch pMcdpWebPropertyId_ pMcdpPayload_ pMcdpAccountId_ pMcdpCustomDimensionId_ = 
     ManagementCustomDimensionsPatch'
     { _mcdpWebPropertyId = pMcdpWebPropertyId_
     , _mcdpIgnoreCustomDataSourceLinks = False

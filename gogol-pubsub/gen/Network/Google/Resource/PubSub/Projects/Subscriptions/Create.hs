@@ -51,8 +51,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.Create
     , pscCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.create@ method which the
 -- 'ProjectsSubscriptionsCreate' request conforms to.
@@ -81,15 +81,15 @@ type ProjectsSubscriptionsCreateResource =
 --
 -- /See:/ 'projectsSubscriptionsCreate' smart constructor.
 data ProjectsSubscriptionsCreate = ProjectsSubscriptionsCreate'
-    { _pscXgafv          :: !(Maybe Xgafv)
+    { _pscXgafv :: !(Maybe Xgafv)
     , _pscUploadProtocol :: !(Maybe Text)
-    , _pscPp             :: !Bool
-    , _pscAccessToken    :: !(Maybe Text)
-    , _pscUploadType     :: !(Maybe Text)
-    , _pscPayload        :: !Subscription
-    , _pscBearerToken    :: !(Maybe Text)
-    , _pscName           :: !Text
-    , _pscCallback       :: !(Maybe Text)
+    , _pscPp :: !Bool
+    , _pscAccessToken :: !(Maybe Text)
+    , _pscUploadType :: !(Maybe Text)
+    , _pscPayload :: !Subscription
+    , _pscBearerToken :: !(Maybe Text)
+    , _pscName :: !Text
+    , _pscCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsCreate' with the minimum fields required to make a request.
@@ -117,7 +117,7 @@ projectsSubscriptionsCreate
     :: Subscription -- ^ 'pscPayload'
     -> Text -- ^ 'pscName'
     -> ProjectsSubscriptionsCreate
-projectsSubscriptionsCreate pPscPayload_ pPscName_ =
+projectsSubscriptionsCreate pPscPayload_ pPscName_ = 
     ProjectsSubscriptionsCreate'
     { _pscXgafv = Nothing
     , _pscUploadProtocol = Nothing

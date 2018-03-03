@@ -53,8 +53,8 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Diagnostics.List
     , bdlCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.diagnostics.list@ method which the
 -- 'BeaconsDiagnosticsList' request conforms to.
@@ -62,7 +62,7 @@ type BeaconsDiagnosticsListResource =
      "v1beta1" :>
        Capture "beaconName" Text :>
          "diagnostics" :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -86,18 +86,18 @@ type BeaconsDiagnosticsListResource =
 --
 -- /See:/ 'beaconsDiagnosticsList' smart constructor.
 data BeaconsDiagnosticsList = BeaconsDiagnosticsList'
-    { _bdlXgafv          :: !(Maybe Text)
+    { _bdlXgafv :: !(Maybe Xgafv)
     , _bdlUploadProtocol :: !(Maybe Text)
-    , _bdlPp             :: !Bool
-    , _bdlAccessToken    :: !(Maybe Text)
-    , _bdlBeaconName     :: !Text
-    , _bdlUploadType     :: !(Maybe Text)
-    , _bdlBearerToken    :: !(Maybe Text)
-    , _bdlPageToken      :: !(Maybe Text)
-    , _bdlProjectId      :: !(Maybe Text)
-    , _bdlPageSize       :: !(Maybe (Textual Int32))
-    , _bdlAlertFilter    :: !(Maybe Text)
-    , _bdlCallback       :: !(Maybe Text)
+    , _bdlPp :: !Bool
+    , _bdlAccessToken :: !(Maybe Text)
+    , _bdlBeaconName :: !Text
+    , _bdlUploadType :: !(Maybe Text)
+    , _bdlBearerToken :: !(Maybe Text)
+    , _bdlPageToken :: !(Maybe Text)
+    , _bdlProjectId :: !(Maybe Text)
+    , _bdlPageSize :: !(Maybe (Textual Int32))
+    , _bdlAlertFilter :: !(Maybe Text)
+    , _bdlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsDiagnosticsList' with the minimum fields required to make a request.
@@ -130,7 +130,7 @@ data BeaconsDiagnosticsList = BeaconsDiagnosticsList'
 beaconsDiagnosticsList
     :: Text -- ^ 'bdlBeaconName'
     -> BeaconsDiagnosticsList
-beaconsDiagnosticsList pBdlBeaconName_ =
+beaconsDiagnosticsList pBdlBeaconName_ = 
     BeaconsDiagnosticsList'
     { _bdlXgafv = Nothing
     , _bdlUploadProtocol = Nothing
@@ -147,7 +147,7 @@ beaconsDiagnosticsList pBdlBeaconName_ =
     }
 
 -- | V1 error format.
-bdlXgafv :: Lens' BeaconsDiagnosticsList (Maybe Text)
+bdlXgafv :: Lens' BeaconsDiagnosticsList (Maybe Xgafv)
 bdlXgafv = lens _bdlXgafv (\ s a -> s{_bdlXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

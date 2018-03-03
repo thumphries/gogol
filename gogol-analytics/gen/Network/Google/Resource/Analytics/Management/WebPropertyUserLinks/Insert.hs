@@ -38,8 +38,8 @@ module Network.Google.Resource.Analytics.Management.WebPropertyUserLinks.Insert
     , mwpuliAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webpropertyUserLinks.insert@ method which the
 -- 'ManagementWebPropertyUserLinksInsert' request conforms to.
@@ -61,8 +61,8 @@ type ManagementWebPropertyUserLinksInsertResource =
 -- /See:/ 'managementWebPropertyUserLinksInsert' smart constructor.
 data ManagementWebPropertyUserLinksInsert = ManagementWebPropertyUserLinksInsert'
     { _mwpuliWebPropertyId :: !Text
-    , _mwpuliPayload       :: !EntityUserLink
-    , _mwpuliAccountId     :: !Text
+    , _mwpuliPayload :: !EntityUserLink
+    , _mwpuliAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertyUserLinksInsert' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ managementWebPropertyUserLinksInsert
     -> EntityUserLink -- ^ 'mwpuliPayload'
     -> Text -- ^ 'mwpuliAccountId'
     -> ManagementWebPropertyUserLinksInsert
-managementWebPropertyUserLinksInsert pMwpuliWebPropertyId_ pMwpuliPayload_ pMwpuliAccountId_ =
+managementWebPropertyUserLinksInsert pMwpuliWebPropertyId_ pMwpuliPayload_ pMwpuliAccountId_ = 
     ManagementWebPropertyUserLinksInsert'
     { _mwpuliWebPropertyId = pMwpuliWebPropertyId_
     , _mwpuliPayload = pMwpuliPayload_

@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Installs.List
     , ilDeviceId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.installs.list@ method which the
 -- 'InstallsList' request conforms to.
@@ -61,8 +61,8 @@ type InstallsListResource =
 -- /See:/ 'installsList' smart constructor.
 data InstallsList = InstallsList'
     { _ilEnterpriseId :: !Text
-    , _ilUserId       :: !Text
-    , _ilDeviceId     :: !Text
+    , _ilUserId :: !Text
+    , _ilDeviceId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstallsList' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ installsList
     -> Text -- ^ 'ilUserId'
     -> Text -- ^ 'ilDeviceId'
     -> InstallsList
-installsList pIlEnterpriseId_ pIlUserId_ pIlDeviceId_ =
+installsList pIlEnterpriseId_ pIlUserId_ pIlDeviceId_ = 
     InstallsList'
     { _ilEnterpriseId = pIlEnterpriseId_
     , _ilUserId = pIlUserId_

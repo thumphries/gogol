@@ -93,6 +93,7 @@ library
         , Network.Google.Resource.YouTube.Subscriptions.Delete
         , Network.Google.Resource.YouTube.Subscriptions.Insert
         , Network.Google.Resource.YouTube.Subscriptions.List
+        , Network.Google.Resource.YouTube.SuperChatEvents.List
         , Network.Google.Resource.YouTube.Thumbnails.Set
         , Network.Google.Resource.YouTube.VideoAbuseReportReasons.List
         , Network.Google.Resource.YouTube.VideoCategories.List
@@ -113,5 +114,5 @@ library
         , Network.Google.YouTube.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

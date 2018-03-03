@@ -42,8 +42,8 @@ module Network.Google.Resource.DeploymentManager.Deployments.Update
     , duDeployment
     ) where
 
-import           Network.Google.DeploymentManager.Types
-import           Network.Google.Prelude
+import Network.Google.DeploymentManager.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @deploymentmanager.deployments.update@ method which the
 -- 'DeploymentsUpdate' request conforms to.
@@ -71,11 +71,11 @@ type DeploymentsUpdateResource =
 -- /See:/ 'deploymentsUpdate' smart constructor.
 data DeploymentsUpdate = DeploymentsUpdate'
     { _duCreatePolicy :: !DeploymentsUpdateCreatePolicy
-    , _duProject      :: !Text
-    , _duPayload      :: !Deployment
+    , _duProject :: !Text
+    , _duPayload :: !Deployment
     , _duDeletePolicy :: !DeploymentsUpdateDeletePolicy
-    , _duPreview      :: !Bool
-    , _duDeployment   :: !Text
+    , _duPreview :: !Bool
+    , _duDeployment :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeploymentsUpdate' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ deploymentsUpdate
     -> Deployment -- ^ 'duPayload'
     -> Text -- ^ 'duDeployment'
     -> DeploymentsUpdate
-deploymentsUpdate pDuProject_ pDuPayload_ pDuDeployment_ =
+deploymentsUpdate pDuProject_ pDuPayload_ pDuDeployment_ = 
     DeploymentsUpdate'
     { _duCreatePolicy = CreateOrAcquire
     , _duProject = pDuProject_

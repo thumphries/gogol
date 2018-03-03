@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Labels.Update
     , uluId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.update@ method which the
 -- 'UsersLabelsUpdate' request conforms to.
@@ -58,8 +58,8 @@ type UsersLabelsUpdateResource =
 -- /See:/ 'usersLabelsUpdate' smart constructor.
 data UsersLabelsUpdate = UsersLabelsUpdate'
     { _uluPayload :: !Label
-    , _uluUserId  :: !Text
-    , _uluId      :: !Text
+    , _uluUserId :: !Text
+    , _uluId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersLabelsUpdate' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ usersLabelsUpdate
     :: Label -- ^ 'uluPayload'
     -> Text -- ^ 'uluId'
     -> UsersLabelsUpdate
-usersLabelsUpdate pUluPayload_ pUluId_ =
+usersLabelsUpdate pUluPayload_ pUluId_ = 
     UsersLabelsUpdate'
     { _uluPayload = pUluPayload_
     , _uluUserId = "me"

@@ -39,8 +39,8 @@ module Network.Google.Resource.Compute.TargetPools.Get
     , tpgRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.targetPools.get@ method which the
 -- 'TargetPoolsGet' request conforms to.
@@ -60,9 +60,9 @@ type TargetPoolsGetResource =
 --
 -- /See:/ 'targetPoolsGet' smart constructor.
 data TargetPoolsGet = TargetPoolsGet'
-    { _tpgProject    :: !Text
+    { _tpgProject :: !Text
     , _tpgTargetPool :: !Text
-    , _tpgRegion     :: !Text
+    , _tpgRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetPoolsGet' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ targetPoolsGet
     -> Text -- ^ 'tpgTargetPool'
     -> Text -- ^ 'tpgRegion'
     -> TargetPoolsGet
-targetPoolsGet pTpgProject_ pTpgTargetPool_ pTpgRegion_ =
+targetPoolsGet pTpgProject_ pTpgTargetPool_ pTpgRegion_ = 
     TargetPoolsGet'
     { _tpgProject = pTpgProject_
     , _tpgTargetPool = pTpgTargetPool_

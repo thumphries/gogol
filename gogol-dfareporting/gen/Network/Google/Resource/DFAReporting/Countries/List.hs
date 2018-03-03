@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.Countries.List
     , couProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.countries.list@ method which the
 -- 'CountriesList' request conforms to.
 type CountriesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "countries" :>
@@ -65,7 +65,7 @@ newtype CountriesList = CountriesList'
 countriesList
     :: Int64 -- ^ 'couProFileId'
     -> CountriesList
-countriesList pCouProFileId_ =
+countriesList pCouProFileId_ = 
     CountriesList'
     { _couProFileId = _Coerce # pCouProFileId_
     }

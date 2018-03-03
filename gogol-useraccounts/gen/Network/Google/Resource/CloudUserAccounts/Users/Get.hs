@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.Get
     , ugUser
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.get@ method which the
 -- 'UsersGet' request conforms to.
@@ -57,7 +57,7 @@ type UsersGetResource =
 -- /See:/ 'usersGet' smart constructor.
 data UsersGet = UsersGet'
     { _ugProject :: !Text
-    , _ugUser    :: !Text
+    , _ugUser :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ usersGet
     :: Text -- ^ 'ugProject'
     -> Text -- ^ 'ugUser'
     -> UsersGet
-usersGet pUgProject_ pUgUser_ =
+usersGet pUgProject_ pUgUser_ = 
     UsersGet'
     { _ugProject = pUgProject_
     , _ugUser = pUgUser_

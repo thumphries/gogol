@@ -22,11 +22,16 @@
 --
 -- Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- the \`name\` binding allows API services to override the binding to use
+-- different resource name schemes, such as \`users\/*\/operations\`. To
+-- override the binding, API services can add a binding such as
+-- \`\"\/v1\/{name=users\/*}\/operations\"\` to their service
+-- configuration. For backwards compatibility, the default name includes
+-- the operations collection id, however overriding users must ensure the
+-- name binding is the parent resource, without the operations collection
+-- id.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.operations.list@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.operations.list@.
 module Network.Google.Resource.Ml.Projects.Operations.List
     (
     -- * REST Resource
@@ -50,13 +55,13 @@ module Network.Google.Resource.Ml.Projects.Operations.List
     , polCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.operations.list@ method which the
 -- 'ProjectsOperationsList' request conforms to.
 type ProjectsOperationsListResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "name" Text :>
          "operations" :>
            QueryParam "$.xgafv" Xgafv :>
@@ -75,23 +80,28 @@ type ProjectsOperationsListResource =
 
 -- | Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns \`UNIMPLEMENTED\`. NOTE:
--- the \`name\` binding below allows API services to override the binding
--- to use different resource name schemes, such as
--- \`users\/*\/operations\`.
+-- the \`name\` binding allows API services to override the binding to use
+-- different resource name schemes, such as \`users\/*\/operations\`. To
+-- override the binding, API services can add a binding such as
+-- \`\"\/v1\/{name=users\/*}\/operations\"\` to their service
+-- configuration. For backwards compatibility, the default name includes
+-- the operations collection id, however overriding users must ensure the
+-- name binding is the parent resource, without the operations collection
+-- id.
 --
 -- /See:/ 'projectsOperationsList' smart constructor.
 data ProjectsOperationsList = ProjectsOperationsList'
-    { _polXgafv          :: !(Maybe Xgafv)
+    { _polXgafv :: !(Maybe Xgafv)
     , _polUploadProtocol :: !(Maybe Text)
-    , _polPp             :: !Bool
-    , _polAccessToken    :: !(Maybe Text)
-    , _polUploadType     :: !(Maybe Text)
-    , _polBearerToken    :: !(Maybe Text)
-    , _polName           :: !Text
-    , _polFilter         :: !(Maybe Text)
-    , _polPageToken      :: !(Maybe Text)
-    , _polPageSize       :: !(Maybe (Textual Int32))
-    , _polCallback       :: !(Maybe Text)
+    , _polPp :: !Bool
+    , _polAccessToken :: !(Maybe Text)
+    , _polUploadType :: !(Maybe Text)
+    , _polBearerToken :: !(Maybe Text)
+    , _polName :: !Text
+    , _polFilter :: !(Maybe Text)
+    , _polPageToken :: !(Maybe Text)
+    , _polPageSize :: !(Maybe (Textual Int32))
+    , _polCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsOperationsList' with the minimum fields required to make a request.
@@ -122,7 +132,7 @@ data ProjectsOperationsList = ProjectsOperationsList'
 projectsOperationsList
     :: Text -- ^ 'polName'
     -> ProjectsOperationsList
-projectsOperationsList pPolName_ =
+projectsOperationsList pPolName_ = 
     ProjectsOperationsList'
     { _polXgafv = Nothing
     , _polUploadProtocol = Nothing
@@ -169,7 +179,7 @@ polBearerToken
   = lens _polBearerToken
       (\ s a -> s{_polBearerToken = a})
 
--- | The name of the operation collection.
+-- | The name of the operation\'s parent resource.
 polName :: Lens' ProjectsOperationsList Text
 polName = lens _polName (\ s a -> s{_polName = a})
 

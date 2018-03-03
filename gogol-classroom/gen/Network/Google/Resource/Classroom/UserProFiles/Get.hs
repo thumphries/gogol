@@ -46,8 +46,8 @@ module Network.Google.Resource.Classroom.UserProFiles.Get
     , upfgCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.get@ method which the
 -- 'UserProFilesGet' request conforms to.
@@ -55,7 +55,7 @@ type UserProFilesGetResource =
      "v1" :>
        "userProfiles" :>
          Capture "userId" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -71,14 +71,14 @@ type UserProFilesGetResource =
 --
 -- /See:/ 'userProFilesGet' smart constructor.
 data UserProFilesGet = UserProFilesGet'
-    { _upfgXgafv          :: !(Maybe Text)
+    { _upfgXgafv :: !(Maybe Xgafv)
     , _upfgUploadProtocol :: !(Maybe Text)
-    , _upfgPp             :: !Bool
-    , _upfgAccessToken    :: !(Maybe Text)
-    , _upfgUploadType     :: !(Maybe Text)
-    , _upfgUserId         :: !Text
-    , _upfgBearerToken    :: !(Maybe Text)
-    , _upfgCallback       :: !(Maybe Text)
+    , _upfgPp :: !Bool
+    , _upfgAccessToken :: !(Maybe Text)
+    , _upfgUploadType :: !(Maybe Text)
+    , _upfgUserId :: !Text
+    , _upfgBearerToken :: !(Maybe Text)
+    , _upfgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGet' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data UserProFilesGet = UserProFilesGet'
 userProFilesGet
     :: Text -- ^ 'upfgUserId'
     -> UserProFilesGet
-userProFilesGet pUpfgUserId_ =
+userProFilesGet pUpfgUserId_ = 
     UserProFilesGet'
     { _upfgXgafv = Nothing
     , _upfgUploadProtocol = Nothing
@@ -116,7 +116,7 @@ userProFilesGet pUpfgUserId_ =
     }
 
 -- | V1 error format.
-upfgXgafv :: Lens' UserProFilesGet (Maybe Text)
+upfgXgafv :: Lens' UserProFilesGet (Maybe Xgafv)
 upfgXgafv
   = lens _upfgXgafv (\ s a -> s{_upfgXgafv = a})
 

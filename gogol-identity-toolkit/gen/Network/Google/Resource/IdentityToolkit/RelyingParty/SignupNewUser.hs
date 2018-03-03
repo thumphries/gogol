@@ -36,8 +36,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.SignupNewUser
     , rpsnuPayload
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.signupNewUser@ method which the
 -- 'RelyingPartySignupNewUser' request conforms to.
@@ -66,7 +66,7 @@ newtype RelyingPartySignupNewUser = RelyingPartySignupNewUser'
 relyingPartySignupNewUser
     :: IdentitytoolkitRelyingPartySignupNewUserRequest -- ^ 'rpsnuPayload'
     -> RelyingPartySignupNewUser
-relyingPartySignupNewUser pRpsnuPayload_ =
+relyingPartySignupNewUser pRpsnuPayload_ = 
     RelyingPartySignupNewUser'
     { _rpsnuPayload = pRpsnuPayload_
     }

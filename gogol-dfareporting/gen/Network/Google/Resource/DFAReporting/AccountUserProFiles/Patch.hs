@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.AccountUserProFiles.Patch
     , aupfpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.accountUserProfiles.patch@ method which the
 -- 'AccountUserProFilesPatch' request conforms to.
 type AccountUserProFilesPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "accountUserProfiles" :>
@@ -61,8 +61,8 @@ type AccountUserProFilesPatchResource =
 -- /See:/ 'accountUserProFilesPatch' smart constructor.
 data AccountUserProFilesPatch = AccountUserProFilesPatch'
     { _aupfpProFileId :: !(Textual Int64)
-    , _aupfpPayload   :: !AccountUserProFile
-    , _aupfpId        :: !(Textual Int64)
+    , _aupfpPayload :: !AccountUserProFile
+    , _aupfpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountUserProFilesPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ accountUserProFilesPatch
     -> AccountUserProFile -- ^ 'aupfpPayload'
     -> Int64 -- ^ 'aupfpId'
     -> AccountUserProFilesPatch
-accountUserProFilesPatch pAupfpProFileId_ pAupfpPayload_ pAupfpId_ =
+accountUserProFilesPatch pAupfpProFileId_ pAupfpPayload_ pAupfpId_ = 
     AccountUserProFilesPatch'
     { _aupfpProFileId = _Coerce # pAupfpProFileId_
     , _aupfpPayload = pAupfpPayload_

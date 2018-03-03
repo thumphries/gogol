@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List of all entitlements for the specified user. Only the ID is set.
+-- Lists all entitlements for the specified user. Only the ID is set.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.entitlements.list@.
 module Network.Google.Resource.AndroidEnterprise.Entitlements.List
@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Entitlements.List
     , elUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.entitlements.list@ method which the
 -- 'EntitlementsList' request conforms to.
@@ -53,12 +53,12 @@ type EntitlementsListResource =
                    QueryParam "alt" AltJSON :>
                      Get '[JSON] EntitlementsListResponse
 
--- | List of all entitlements for the specified user. Only the ID is set.
+-- | Lists all entitlements for the specified user. Only the ID is set.
 --
 -- /See:/ 'entitlementsList' smart constructor.
 data EntitlementsList = EntitlementsList'
     { _elEnterpriseId :: !Text
-    , _elUserId       :: !Text
+    , _elUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsList' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ entitlementsList
     :: Text -- ^ 'elEnterpriseId'
     -> Text -- ^ 'elUserId'
     -> EntitlementsList
-entitlementsList pElEnterpriseId_ pElUserId_ =
+entitlementsList pElEnterpriseId_ pElUserId_ = 
     EntitlementsList'
     { _elEnterpriseId = pElEnterpriseId_
     , _elUserId = pElUserId_

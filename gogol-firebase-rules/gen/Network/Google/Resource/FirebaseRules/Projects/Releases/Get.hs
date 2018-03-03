@@ -43,8 +43,8 @@ module Network.Google.Resource.FirebaseRules.Projects.Releases.Get
     , pCallback
     ) where
 
-import           Network.Google.FirebaseRules.Types
-import           Network.Google.Prelude
+import Network.Google.FirebaseRules.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @firebaserules.projects.releases.get@ method which the
 -- 'ProjectsReleasesGet' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsReleasesGetResource =
 --
 -- /See:/ 'projectsReleasesGet' smart constructor.
 data ProjectsReleasesGet = ProjectsReleasesGet'
-    { _pXgafv          :: !(Maybe Xgafv)
+    { _pXgafv :: !(Maybe Xgafv)
     , _pUploadProtocol :: !(Maybe Text)
-    , _pPp             :: !Bool
-    , _pAccessToken    :: !(Maybe Text)
-    , _pUploadType     :: !(Maybe Text)
-    , _pBearerToken    :: !(Maybe Text)
-    , _pName           :: !Text
-    , _pCallback       :: !(Maybe Text)
+    , _pPp :: !Bool
+    , _pAccessToken :: !(Maybe Text)
+    , _pUploadType :: !(Maybe Text)
+    , _pBearerToken :: !(Maybe Text)
+    , _pName :: !Text
+    , _pCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsReleasesGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsReleasesGet = ProjectsReleasesGet'
 projectsReleasesGet
     :: Text -- ^ 'pName'
     -> ProjectsReleasesGet
-projectsReleasesGet pPName_ =
+projectsReleasesGet pPName_ = 
     ProjectsReleasesGet'
     { _pXgafv = Nothing
     , _pUploadProtocol = Nothing

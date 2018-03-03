@@ -45,8 +45,8 @@ module Network.Google.Resource.PlayMoviesPartner.Accounts.Orders.Get
     , aogCallback
     ) where
 
-import           Network.Google.PlayMoviesPartner.Types
-import           Network.Google.Prelude
+import Network.Google.PlayMoviesPartner.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @playmoviespartner.accounts.orders.get@ method which the
 -- 'AccountsOrdersGet' request conforms to.
@@ -56,7 +56,7 @@ type AccountsOrdersGetResource =
          Capture "accountId" Text :>
            "orders" :>
              Capture "orderId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -70,15 +70,15 @@ type AccountsOrdersGetResource =
 --
 -- /See:/ 'accountsOrdersGet' smart constructor.
 data AccountsOrdersGet = AccountsOrdersGet'
-    { _aogXgafv          :: !(Maybe Text)
+    { _aogXgafv :: !(Maybe Xgafv)
     , _aogUploadProtocol :: !(Maybe Text)
-    , _aogPp             :: !Bool
-    , _aogAccessToken    :: !(Maybe Text)
-    , _aogUploadType     :: !(Maybe Text)
-    , _aogAccountId      :: !Text
-    , _aogBearerToken    :: !(Maybe Text)
-    , _aogOrderId        :: !Text
-    , _aogCallback       :: !(Maybe Text)
+    , _aogPp :: !Bool
+    , _aogAccessToken :: !(Maybe Text)
+    , _aogUploadType :: !(Maybe Text)
+    , _aogAccountId :: !Text
+    , _aogBearerToken :: !(Maybe Text)
+    , _aogOrderId :: !Text
+    , _aogCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsOrdersGet' with the minimum fields required to make a request.
@@ -106,7 +106,7 @@ accountsOrdersGet
     :: Text -- ^ 'aogAccountId'
     -> Text -- ^ 'aogOrderId'
     -> AccountsOrdersGet
-accountsOrdersGet pAogAccountId_ pAogOrderId_ =
+accountsOrdersGet pAogAccountId_ pAogOrderId_ = 
     AccountsOrdersGet'
     { _aogXgafv = Nothing
     , _aogUploadProtocol = Nothing
@@ -120,7 +120,7 @@ accountsOrdersGet pAogAccountId_ pAogOrderId_ =
     }
 
 -- | V1 error format.
-aogXgafv :: Lens' AccountsOrdersGet (Maybe Text)
+aogXgafv :: Lens' AccountsOrdersGet (Maybe Xgafv)
 aogXgafv = lens _aogXgafv (\ s a -> s{_aogXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

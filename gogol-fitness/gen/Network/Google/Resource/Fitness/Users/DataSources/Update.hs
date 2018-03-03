@@ -40,8 +40,8 @@ module Network.Google.Resource.Fitness.Users.DataSources.Update
     , udsuUserId
     ) where
 
-import           Network.Google.Fitness.Types
-import           Network.Google.Prelude
+import Network.Google.Fitness.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fitness.users.dataSources.update@ method which the
 -- 'UsersDataSourcesUpdate' request conforms to.
@@ -62,8 +62,8 @@ type UsersDataSourcesUpdateResource =
 -- /See:/ 'usersDataSourcesUpdate' smart constructor.
 data UsersDataSourcesUpdate = UsersDataSourcesUpdate'
     { _udsuDataSourceId :: !Text
-    , _udsuPayload      :: !DataSource
-    , _udsuUserId       :: !Text
+    , _udsuPayload :: !DataSource
+    , _udsuUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDataSourcesUpdate' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ usersDataSourcesUpdate
     -> DataSource -- ^ 'udsuPayload'
     -> Text -- ^ 'udsuUserId'
     -> UsersDataSourcesUpdate
-usersDataSourcesUpdate pUdsuDataSourceId_ pUdsuPayload_ pUdsuUserId_ =
+usersDataSourcesUpdate pUdsuDataSourceId_ pUdsuPayload_ pUdsuUserId_ = 
     UsersDataSourcesUpdate'
     { _udsuDataSourceId = pUdsuDataSourceId_
     , _udsuPayload = pUdsuPayload_

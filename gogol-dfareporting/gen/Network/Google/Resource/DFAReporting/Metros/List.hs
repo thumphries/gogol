@@ -36,14 +36,14 @@ module Network.Google.Resource.DFAReporting.Metros.List
     , mlProFileId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.metros.list@ method which the
 -- 'MetrosList' request conforms to.
 type MetrosListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "metros" :>
@@ -65,7 +65,7 @@ newtype MetrosList = MetrosList'
 metrosList
     :: Int64 -- ^ 'mlProFileId'
     -> MetrosList
-metrosList pMlProFileId_ =
+metrosList pMlProFileId_ = 
     MetrosList'
     { _mlProFileId = _Coerce # pMlProFileId_
     }

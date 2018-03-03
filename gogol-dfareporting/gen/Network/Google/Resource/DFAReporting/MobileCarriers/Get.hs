@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.MobileCarriers.Get
     , mcgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.mobileCarriers.get@ method which the
 -- 'MobileCarriersGet' request conforms to.
 type MobileCarriersGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "mobileCarriers" :>
@@ -56,7 +56,7 @@ type MobileCarriersGetResource =
 -- /See:/ 'mobileCarriersGet' smart constructor.
 data MobileCarriersGet = MobileCarriersGet'
     { _mcgProFileId :: !(Textual Int64)
-    , _mcgId        :: !(Textual Int64)
+    , _mcgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MobileCarriersGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ mobileCarriersGet
     :: Int64 -- ^ 'mcgProFileId'
     -> Int64 -- ^ 'mcgId'
     -> MobileCarriersGet
-mobileCarriersGet pMcgProFileId_ pMcgId_ =
+mobileCarriersGet pMcgProFileId_ pMcgId_ = 
     MobileCarriersGet'
     { _mcgProFileId = _Coerce # pMcgProFileId_
     , _mcgId = _Coerce # pMcgId_

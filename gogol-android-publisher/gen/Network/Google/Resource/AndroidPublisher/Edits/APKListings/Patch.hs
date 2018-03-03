@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.APKListings.Patch
     , eapklpEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.apklistings.patch@ method which the
 -- 'EditsAPKListingsPatch' request conforms to.
@@ -66,11 +66,11 @@ type EditsAPKListingsPatchResource =
 --
 -- /See:/ 'editsAPKListingsPatch' smart constructor.
 data EditsAPKListingsPatch = EditsAPKListingsPatch'
-    { _eapklpPackageName    :: !Text
+    { _eapklpPackageName :: !Text
     , _eapklpAPKVersionCode :: !(Textual Int32)
-    , _eapklpPayload        :: !APKListing
-    , _eapklpLanguage       :: !Text
-    , _eapklpEditId         :: !Text
+    , _eapklpPayload :: !APKListing
+    , _eapklpLanguage :: !Text
+    , _eapklpEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsAPKListingsPatch' with the minimum fields required to make a request.
@@ -93,7 +93,7 @@ editsAPKListingsPatch
     -> Text -- ^ 'eapklpLanguage'
     -> Text -- ^ 'eapklpEditId'
     -> EditsAPKListingsPatch
-editsAPKListingsPatch pEapklpPackageName_ pEapklpAPKVersionCode_ pEapklpPayload_ pEapklpLanguage_ pEapklpEditId_ =
+editsAPKListingsPatch pEapklpPackageName_ pEapklpAPKVersionCode_ pEapklpPayload_ pEapklpLanguage_ pEapklpEditId_ = 
     EditsAPKListingsPatch'
     { _eapklpPackageName = pEapklpPackageName_
     , _eapklpAPKVersionCode = _Coerce # pEapklpAPKVersionCode_

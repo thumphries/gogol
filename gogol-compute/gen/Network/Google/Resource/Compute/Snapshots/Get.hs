@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Snapshots.Get
     , sggProject
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.snapshots.get@ method which the
 -- 'SnapshotsGet' request conforms to.
@@ -59,7 +59,7 @@ type SnapshotsGetResource =
 -- /See:/ 'snapshotsGet' smart constructor.
 data SnapshotsGet = SnapshotsGet'
     { _sggSnapshot :: !Text
-    , _sggProject  :: !Text
+    , _sggProject :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SnapshotsGet' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ snapshotsGet
     :: Text -- ^ 'sggSnapshot'
     -> Text -- ^ 'sggProject'
     -> SnapshotsGet
-snapshotsGet pSggSnapshot_ pSggProject_ =
+snapshotsGet pSggSnapshot_ pSggProject_ = 
     SnapshotsGet'
     { _sggSnapshot = pSggSnapshot_
     , _sggProject = pSggProject_

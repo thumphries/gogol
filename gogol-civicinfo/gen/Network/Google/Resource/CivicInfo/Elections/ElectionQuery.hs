@@ -36,8 +36,8 @@ module Network.Google.Resource.CivicInfo.Elections.ElectionQuery
     , eeqPayload
     ) where
 
-import           Network.Google.CivicInfo.Types
-import           Network.Google.Prelude
+import Network.Google.CivicInfo.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @civicinfo.elections.electionQuery@ method which the
 -- 'ElectionsElectionQuery' request conforms to.
@@ -64,7 +64,7 @@ newtype ElectionsElectionQuery = ElectionsElectionQuery'
 electionsElectionQuery
     :: ElectionsQueryRequest -- ^ 'eeqPayload'
     -> ElectionsElectionQuery
-electionsElectionQuery pEeqPayload_ =
+electionsElectionQuery pEeqPayload_ = 
     ElectionsElectionQuery'
     { _eeqPayload = pEeqPayload_
     }

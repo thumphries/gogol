@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.Update
     , fauPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.update@ method which the
 -- 'FloodlightActivitiesUpdate' request conforms to.
 type FloodlightActivitiesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -57,7 +57,7 @@ type FloodlightActivitiesUpdateResource =
 -- /See:/ 'floodlightActivitiesUpdate' smart constructor.
 data FloodlightActivitiesUpdate = FloodlightActivitiesUpdate'
     { _fauProFileId :: !(Textual Int64)
-    , _fauPayload   :: !FloodlightActivity
+    , _fauPayload :: !FloodlightActivity
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ floodlightActivitiesUpdate
     :: Int64 -- ^ 'fauProFileId'
     -> FloodlightActivity -- ^ 'fauPayload'
     -> FloodlightActivitiesUpdate
-floodlightActivitiesUpdate pFauProFileId_ pFauPayload_ =
+floodlightActivitiesUpdate pFauProFileId_ pFauPayload_ = 
     FloodlightActivitiesUpdate'
     { _fauProFileId = _Coerce # pFauProFileId_
     , _fauPayload = pFauPayload_

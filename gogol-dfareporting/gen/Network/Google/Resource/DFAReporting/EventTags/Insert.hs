@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.EventTags.Insert
     , etiPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.eventTags.insert@ method which the
 -- 'EventTagsInsert' request conforms to.
 type EventTagsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "eventTags" :>
@@ -56,7 +56,7 @@ type EventTagsInsertResource =
 -- /See:/ 'eventTagsInsert' smart constructor.
 data EventTagsInsert = EventTagsInsert'
     { _etiProFileId :: !(Textual Int64)
-    , _etiPayload   :: !EventTag
+    , _etiPayload :: !EventTag
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventTagsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ eventTagsInsert
     :: Int64 -- ^ 'etiProFileId'
     -> EventTag -- ^ 'etiPayload'
     -> EventTagsInsert
-eventTagsInsert pEtiProFileId_ pEtiPayload_ =
+eventTagsInsert pEtiProFileId_ pEtiPayload_ = 
     EventTagsInsert'
     { _etiProFileId = _Coerce # pEtiProFileId_
     , _etiPayload = pEtiPayload_

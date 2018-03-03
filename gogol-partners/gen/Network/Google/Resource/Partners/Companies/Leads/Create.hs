@@ -44,8 +44,8 @@ module Network.Google.Resource.Partners.Companies.Leads.Create
     , clcCallback
     ) where
 
-import           Network.Google.Partners.Types
-import           Network.Google.Prelude
+import Network.Google.Partners.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @partners.companies.leads.create@ method which the
 -- 'CompaniesLeadsCreate' request conforms to.
@@ -54,7 +54,7 @@ type CompaniesLeadsCreateResource =
        "companies" :>
          Capture "companyId" Text :>
            "leads" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -69,15 +69,15 @@ type CompaniesLeadsCreateResource =
 --
 -- /See:/ 'companiesLeadsCreate' smart constructor.
 data CompaniesLeadsCreate = CompaniesLeadsCreate'
-    { _clcXgafv          :: !(Maybe Text)
+    { _clcXgafv :: !(Maybe Xgafv)
     , _clcUploadProtocol :: !(Maybe Text)
-    , _clcCompanyId      :: !Text
-    , _clcPp             :: !Bool
-    , _clcAccessToken    :: !(Maybe Text)
-    , _clcUploadType     :: !(Maybe Text)
-    , _clcPayload        :: !CreateLeadRequest
-    , _clcBearerToken    :: !(Maybe Text)
-    , _clcCallback       :: !(Maybe Text)
+    , _clcCompanyId :: !Text
+    , _clcPp :: !Bool
+    , _clcAccessToken :: !(Maybe Text)
+    , _clcUploadType :: !(Maybe Text)
+    , _clcPayload :: !CreateLeadRequest
+    , _clcBearerToken :: !(Maybe Text)
+    , _clcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompaniesLeadsCreate' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ companiesLeadsCreate
     :: Text -- ^ 'clcCompanyId'
     -> CreateLeadRequest -- ^ 'clcPayload'
     -> CompaniesLeadsCreate
-companiesLeadsCreate pClcCompanyId_ pClcPayload_ =
+companiesLeadsCreate pClcCompanyId_ pClcPayload_ = 
     CompaniesLeadsCreate'
     { _clcXgafv = Nothing
     , _clcUploadProtocol = Nothing
@@ -119,7 +119,7 @@ companiesLeadsCreate pClcCompanyId_ pClcPayload_ =
     }
 
 -- | V1 error format.
-clcXgafv :: Lens' CompaniesLeadsCreate (Maybe Text)
+clcXgafv :: Lens' CompaniesLeadsCreate (Maybe Xgafv)
 clcXgafv = lens _clcXgafv (\ s a -> s{_clcXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

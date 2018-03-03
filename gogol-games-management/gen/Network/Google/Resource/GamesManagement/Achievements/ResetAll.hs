@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesManagement.Achievements.ResetAll
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.achievements.resetAll@ method which the
 -- 'AchievementsResetAll' request conforms to.
@@ -55,7 +55,7 @@ type AchievementsResetAllResource =
 --
 -- /See:/ 'achievementsResetAll' smart constructor.
 data AchievementsResetAll =
-    AchievementsResetAll'
+    AchievementsResetAll' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AchievementsResetAll' with the minimum fields required to make a request.

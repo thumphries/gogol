@@ -34,8 +34,8 @@ module Network.Google.Resource.Content.Datafeedstatuses.Custombatch
     , dcPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeedstatuses.custombatch@ method which the
 -- 'DatafeedstatusesCustombatch' request conforms to.
@@ -62,7 +62,7 @@ newtype DatafeedstatusesCustombatch = DatafeedstatusesCustombatch'
 datafeedstatusesCustombatch
     :: DatafeedstatusesCustomBatchRequest -- ^ 'dcPayload'
     -> DatafeedstatusesCustombatch
-datafeedstatusesCustombatch pDcPayload_ =
+datafeedstatusesCustombatch pDcPayload_ = 
     DatafeedstatusesCustombatch'
     { _dcPayload = pDcPayload_
     }

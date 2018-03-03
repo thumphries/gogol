@@ -43,8 +43,8 @@ module Network.Google.Resource.Monitoring.Projects.Groups.Delete
     , pgdCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.groups.delete@ method which the
 -- 'ProjectsGroupsDelete' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsGroupsDeleteResource =
 --
 -- /See:/ 'projectsGroupsDelete' smart constructor.
 data ProjectsGroupsDelete = ProjectsGroupsDelete'
-    { _pgdXgafv          :: !(Maybe Xgafv)
+    { _pgdXgafv :: !(Maybe Xgafv)
     , _pgdUploadProtocol :: !(Maybe Text)
-    , _pgdPp             :: !Bool
-    , _pgdAccessToken    :: !(Maybe Text)
-    , _pgdUploadType     :: !(Maybe Text)
-    , _pgdBearerToken    :: !(Maybe Text)
-    , _pgdName           :: !Text
-    , _pgdCallback       :: !(Maybe Text)
+    , _pgdPp :: !Bool
+    , _pgdAccessToken :: !(Maybe Text)
+    , _pgdUploadType :: !(Maybe Text)
+    , _pgdBearerToken :: !(Maybe Text)
+    , _pgdName :: !Text
+    , _pgdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsGroupsDelete' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsGroupsDelete = ProjectsGroupsDelete'
 projectsGroupsDelete
     :: Text -- ^ 'pgdName'
     -> ProjectsGroupsDelete
-projectsGroupsDelete pPgdName_ =
+projectsGroupsDelete pPgdName_ = 
     ProjectsGroupsDelete'
     { _pgdXgafv = Nothing
     , _pgdUploadProtocol = Nothing

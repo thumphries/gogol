@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.Photos.Patch
     , uppUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.photos.patch@ method which the
 -- 'UsersPhotosPatch' request conforms to.
@@ -72,7 +72,7 @@ usersPhotosPatch
     :: UserPhoto -- ^ 'uppPayload'
     -> Text -- ^ 'uppUserKey'
     -> UsersPhotosPatch
-usersPhotosPatch pUppPayload_ pUppUserKey_ =
+usersPhotosPatch pUppPayload_ pUppUserKey_ = 
     UsersPhotosPatch'
     { _uppPayload = pUppPayload_
     , _uppUserKey = pUppUserKey_
@@ -83,7 +83,7 @@ uppPayload :: Lens' UsersPhotosPatch UserPhoto
 uppPayload
   = lens _uppPayload (\ s a -> s{_uppPayload = a})
 
--- | Email or immutable Id of the user
+-- | Email or immutable ID of the user
 uppUserKey :: Lens' UsersPhotosPatch Text
 uppUserKey
   = lens _uppUserKey (\ s a -> s{_uppUserKey = a})

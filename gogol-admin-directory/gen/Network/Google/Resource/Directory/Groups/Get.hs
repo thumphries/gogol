@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Groups.Get
     , ggGroupKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.get@ method which the
 -- 'GroupsGet' request conforms to.
@@ -64,12 +64,12 @@ newtype GroupsGet = GroupsGet'
 groupsGet
     :: Text -- ^ 'ggGroupKey'
     -> GroupsGet
-groupsGet pGgGroupKey_ =
+groupsGet pGgGroupKey_ = 
     GroupsGet'
     { _ggGroupKey = pGgGroupKey_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 ggGroupKey :: Lens' GroupsGet Text
 ggGroupKey
   = lens _ggGroupKey (\ s a -> s{_ggGroupKey = a})

@@ -46,8 +46,8 @@ module Network.Google.Resource.Classroom.Courses.Delete
     , cdCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.delete@ method which the
 -- 'CoursesDelete' request conforms to.
@@ -55,7 +55,7 @@ type CoursesDeleteResource =
      "v1" :>
        "courses" :>
          Capture "id" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -71,14 +71,14 @@ type CoursesDeleteResource =
 --
 -- /See:/ 'coursesDelete' smart constructor.
 data CoursesDelete = CoursesDelete'
-    { _cdXgafv          :: !(Maybe Text)
+    { _cdXgafv :: !(Maybe Xgafv)
     , _cdUploadProtocol :: !(Maybe Text)
-    , _cdPp             :: !Bool
-    , _cdAccessToken    :: !(Maybe Text)
-    , _cdUploadType     :: !(Maybe Text)
-    , _cdBearerToken    :: !(Maybe Text)
-    , _cdId             :: !Text
-    , _cdCallback       :: !(Maybe Text)
+    , _cdPp :: !Bool
+    , _cdAccessToken :: !(Maybe Text)
+    , _cdUploadType :: !(Maybe Text)
+    , _cdBearerToken :: !(Maybe Text)
+    , _cdId :: !Text
+    , _cdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesDelete' with the minimum fields required to make a request.
@@ -103,7 +103,7 @@ data CoursesDelete = CoursesDelete'
 coursesDelete
     :: Text -- ^ 'cdId'
     -> CoursesDelete
-coursesDelete pCdId_ =
+coursesDelete pCdId_ = 
     CoursesDelete'
     { _cdXgafv = Nothing
     , _cdUploadProtocol = Nothing
@@ -116,7 +116,7 @@ coursesDelete pCdId_ =
     }
 
 -- | V1 error format.
-cdXgafv :: Lens' CoursesDelete (Maybe Text)
+cdXgafv :: Lens' CoursesDelete (Maybe Xgafv)
 cdXgafv = lens _cdXgafv (\ s a -> s{_cdXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

@@ -22,7 +22,7 @@
 --
 -- Stops a running instance.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.instances.delete@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.instances.delete@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Delete
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.Instances.Delete
     , aCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.instances.delete@ method which the
 -- 'AppsServicesVersionsInstancesDelete' request conforms to.
@@ -61,7 +61,7 @@ type AppsServicesVersionsInstancesDeleteResource =
                  Capture "versionsId" Text :>
                    "instances" :>
                      Capture "instancesId" Text :>
-                       QueryParam "$.xgafv" Text :>
+                       QueryParam "$.xgafv" Xgafv :>
                          QueryParam "upload_protocol" Text :>
                            QueryParam "pp" Bool :>
                              QueryParam "access_token" Text :>
@@ -75,17 +75,17 @@ type AppsServicesVersionsInstancesDeleteResource =
 --
 -- /See:/ 'appsServicesVersionsInstancesDelete' smart constructor.
 data AppsServicesVersionsInstancesDelete = AppsServicesVersionsInstancesDelete'
-    { _aXgafv          :: !(Maybe Text)
-    , _aInstancesId    :: !Text
+    { _aXgafv :: !(Maybe Xgafv)
+    , _aInstancesId :: !Text
     , _aUploadProtocol :: !(Maybe Text)
-    , _aPp             :: !Bool
-    , _aAccessToken    :: !(Maybe Text)
-    , _aUploadType     :: !(Maybe Text)
-    , _aVersionsId     :: !Text
-    , _aBearerToken    :: !(Maybe Text)
-    , _aAppsId         :: !Text
-    , _aServicesId     :: !Text
-    , _aCallback       :: !(Maybe Text)
+    , _aPp :: !Bool
+    , _aAccessToken :: !(Maybe Text)
+    , _aUploadType :: !(Maybe Text)
+    , _aVersionsId :: !Text
+    , _aBearerToken :: !(Maybe Text)
+    , _aAppsId :: !Text
+    , _aServicesId :: !Text
+    , _aCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsInstancesDelete' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ appsServicesVersionsInstancesDelete
     -> Text -- ^ 'aAppsId'
     -> Text -- ^ 'aServicesId'
     -> AppsServicesVersionsInstancesDelete
-appsServicesVersionsInstancesDelete pAInstancesId_ pAVersionsId_ pAAppsId_ pAServicesId_ =
+appsServicesVersionsInstancesDelete pAInstancesId_ pAVersionsId_ pAAppsId_ pAServicesId_ = 
     AppsServicesVersionsInstancesDelete'
     { _aXgafv = Nothing
     , _aInstancesId = pAInstancesId_
@@ -135,7 +135,7 @@ appsServicesVersionsInstancesDelete pAInstancesId_ pAVersionsId_ pAAppsId_ pASer
     }
 
 -- | V1 error format.
-aXgafv :: Lens' AppsServicesVersionsInstancesDelete (Maybe Text)
+aXgafv :: Lens' AppsServicesVersionsInstancesDelete (Maybe Xgafv)
 aXgafv = lens _aXgafv (\ s a -> s{_aXgafv = a})
 
 -- | Part of \`name\`. See documentation of \`appsId\`.

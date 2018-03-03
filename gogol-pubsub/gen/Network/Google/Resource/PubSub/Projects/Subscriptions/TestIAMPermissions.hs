@@ -22,7 +22,10 @@
 --
 -- Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ <https://cloud.google.com/pubsub/docs Google Cloud Pub/Sub API Reference> for @pubsub.projects.subscriptions.testIamPermissions@.
 module Network.Google.Resource.PubSub.Projects.Subscriptions.TestIAMPermissions
@@ -46,8 +49,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.TestIAMPermissions
     , pstiampCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.testIamPermissions@ method which the
 -- 'ProjectsSubscriptionsTestIAMPermissions' request conforms to.
@@ -68,19 +71,22 @@ type ProjectsSubscriptionsTestIAMPermissionsResource
 
 -- | Returns permissions that a caller has on the specified resource. If the
 -- resource does not exist, this will return an empty set of permissions,
--- not a NOT_FOUND error.
+-- not a NOT_FOUND error. Note: This operation is designed to be used for
+-- building permission-aware UIs and command-line tools, not for
+-- authorization checking. This operation may \"fail open\" without
+-- warning.
 --
 -- /See:/ 'projectsSubscriptionsTestIAMPermissions' smart constructor.
 data ProjectsSubscriptionsTestIAMPermissions = ProjectsSubscriptionsTestIAMPermissions'
-    { _pstiampXgafv          :: !(Maybe Xgafv)
+    { _pstiampXgafv :: !(Maybe Xgafv)
     , _pstiampUploadProtocol :: !(Maybe Text)
-    , _pstiampPp             :: !Bool
-    , _pstiampAccessToken    :: !(Maybe Text)
-    , _pstiampUploadType     :: !(Maybe Text)
-    , _pstiampPayload        :: !TestIAMPermissionsRequest
-    , _pstiampBearerToken    :: !(Maybe Text)
-    , _pstiampResource       :: !Text
-    , _pstiampCallback       :: !(Maybe Text)
+    , _pstiampPp :: !Bool
+    , _pstiampAccessToken :: !(Maybe Text)
+    , _pstiampUploadType :: !(Maybe Text)
+    , _pstiampPayload :: !TestIAMPermissionsRequest
+    , _pstiampBearerToken :: !(Maybe Text)
+    , _pstiampResource :: !Text
+    , _pstiampCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsTestIAMPermissions' with the minimum fields required to make a request.
@@ -108,7 +114,7 @@ projectsSubscriptionsTestIAMPermissions
     :: TestIAMPermissionsRequest -- ^ 'pstiampPayload'
     -> Text -- ^ 'pstiampResource'
     -> ProjectsSubscriptionsTestIAMPermissions
-projectsSubscriptionsTestIAMPermissions pPstiampPayload_ pPstiampResource_ =
+projectsSubscriptionsTestIAMPermissions pPstiampPayload_ pPstiampResource_ = 
     ProjectsSubscriptionsTestIAMPermissions'
     { _pstiampXgafv = Nothing
     , _pstiampUploadProtocol = Nothing
@@ -162,8 +168,8 @@ pstiampBearerToken
       (\ s a -> s{_pstiampBearerToken = a})
 
 -- | REQUIRED: The resource for which the policy detail is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- See the operation documentation for the appropriate value for this
+-- field.
 pstiampResource :: Lens' ProjectsSubscriptionsTestIAMPermissions Text
 pstiampResource
   = lens _pstiampResource

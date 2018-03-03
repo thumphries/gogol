@@ -22,9 +22,9 @@
 --
 -- Deletes a model. You can only delete a model if there are no versions in
 -- it. You can delete versions by calling
--- [projects.models.versions.delete](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/delete).
+-- [projects.models.versions.delete](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/delete).
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.models.delete@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.models.delete@.
 module Network.Google.Resource.Ml.Projects.Models.Delete
     (
     -- * REST Resource
@@ -45,13 +45,13 @@ module Network.Google.Resource.Ml.Projects.Models.Delete
     , pmdCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.models.delete@ method which the
 -- 'ProjectsModelsDelete' request conforms to.
 type ProjectsModelsDeleteResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
@@ -65,18 +65,18 @@ type ProjectsModelsDeleteResource =
 
 -- | Deletes a model. You can only delete a model if there are no versions in
 -- it. You can delete versions by calling
--- [projects.models.versions.delete](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/delete).
+-- [projects.models.versions.delete](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/delete).
 --
 -- /See:/ 'projectsModelsDelete' smart constructor.
 data ProjectsModelsDelete = ProjectsModelsDelete'
-    { _pmdXgafv          :: !(Maybe Xgafv)
+    { _pmdXgafv :: !(Maybe Xgafv)
     , _pmdUploadProtocol :: !(Maybe Text)
-    , _pmdPp             :: !Bool
-    , _pmdAccessToken    :: !(Maybe Text)
-    , _pmdUploadType     :: !(Maybe Text)
-    , _pmdBearerToken    :: !(Maybe Text)
-    , _pmdName           :: !Text
-    , _pmdCallback       :: !(Maybe Text)
+    , _pmdPp :: !Bool
+    , _pmdAccessToken :: !(Maybe Text)
+    , _pmdUploadType :: !(Maybe Text)
+    , _pmdBearerToken :: !(Maybe Text)
+    , _pmdName :: !Text
+    , _pmdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsModelsDelete' with the minimum fields required to make a request.
@@ -101,7 +101,7 @@ data ProjectsModelsDelete = ProjectsModelsDelete'
 projectsModelsDelete
     :: Text -- ^ 'pmdName'
     -> ProjectsModelsDelete
-projectsModelsDelete pPmdName_ =
+projectsModelsDelete pPmdName_ = 
     ProjectsModelsDelete'
     { _pmdXgafv = Nothing
     , _pmdUploadProtocol = Nothing
@@ -145,8 +145,7 @@ pmdBearerToken
   = lens _pmdBearerToken
       (\ s a -> s{_pmdBearerToken = a})
 
--- | Required. The name of the model. Authorization: requires \`Editor\` role
--- on the parent project.
+-- | Required. The name of the model.
 pmdName :: Lens' ProjectsModelsDelete Text
 pmdName = lens _pmdName (\ s a -> s{_pmdName = a})
 

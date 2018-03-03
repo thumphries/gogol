@@ -51,8 +51,8 @@ module Network.Google.Resource.Classroom.Courses.Patch
     , cpCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.patch@ method which the
 -- 'CoursesPatch' request conforms to.
@@ -60,9 +60,9 @@ type CoursesPatchResource =
      "v1" :>
        "courses" :>
          Capture "id" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" Text :>
+               QueryParam "updateMask" FieldMask :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
                      QueryParam "uploadType" Text :>
@@ -81,16 +81,16 @@ type CoursesPatchResource =
 --
 -- /See:/ 'coursesPatch' smart constructor.
 data CoursesPatch = CoursesPatch'
-    { _cpXgafv          :: !(Maybe Text)
+    { _cpXgafv :: !(Maybe Xgafv)
     , _cpUploadProtocol :: !(Maybe Text)
-    , _cpUpdateMask     :: !(Maybe Text)
-    , _cpPp             :: !Bool
-    , _cpAccessToken    :: !(Maybe Text)
-    , _cpUploadType     :: !(Maybe Text)
-    , _cpPayload        :: !Course
-    , _cpBearerToken    :: !(Maybe Text)
-    , _cpId             :: !Text
-    , _cpCallback       :: !(Maybe Text)
+    , _cpUpdateMask :: !(Maybe FieldMask)
+    , _cpPp :: !Bool
+    , _cpAccessToken :: !(Maybe Text)
+    , _cpUploadType :: !(Maybe Text)
+    , _cpPayload :: !Course
+    , _cpBearerToken :: !(Maybe Text)
+    , _cpId :: !Text
+    , _cpCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesPatch' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ coursesPatch
     :: Course -- ^ 'cpPayload'
     -> Text -- ^ 'cpId'
     -> CoursesPatch
-coursesPatch pCpPayload_ pCpId_ =
+coursesPatch pCpPayload_ pCpId_ = 
     CoursesPatch'
     { _cpXgafv = Nothing
     , _cpUploadProtocol = Nothing
@@ -135,7 +135,7 @@ coursesPatch pCpPayload_ pCpId_ =
     }
 
 -- | V1 error format.
-cpXgafv :: Lens' CoursesPatch (Maybe Text)
+cpXgafv :: Lens' CoursesPatch (Maybe Xgafv)
 cpXgafv = lens _cpXgafv (\ s a -> s{_cpXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -147,10 +147,12 @@ cpUploadProtocol
 -- | Mask that identifies which fields on the course to update. This field is
 -- required to do an update. The update will fail if invalid fields are
 -- specified. The following fields are valid: * \`name\` * \`section\` *
--- \`descriptionHeading\` * \`description\` * \`room\` * \`courseState\`
--- When set in a query parameter, this field should be specified as
--- \`updateMask=,,...\`
-cpUpdateMask :: Lens' CoursesPatch (Maybe Text)
+-- \`descriptionHeading\` * \`description\` * \`room\` * \`courseState\` *
+-- \`ownerId\` Note: patches to ownerId are treated as being effective
+-- immediately, but in practice it may take some time for the ownership
+-- transfer of all affected resources to complete. When set in a query
+-- parameter, this field should be specified as \`updateMask=,,...\`
+cpUpdateMask :: Lens' CoursesPatch (Maybe FieldMask)
 cpUpdateMask
   = lens _cpUpdateMask (\ s a -> s{_cpUpdateMask = a})
 

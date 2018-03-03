@@ -37,8 +37,8 @@ module Network.Google.Resource.Analytics.Management.AccountUserLinks.Delete
     , mauldLinkId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.accountUserLinks.delete@ method which the
 -- 'ManagementAccountUserLinksDelete' request conforms to.
@@ -57,7 +57,7 @@ type ManagementAccountUserLinksDeleteResource =
 -- /See:/ 'managementAccountUserLinksDelete' smart constructor.
 data ManagementAccountUserLinksDelete = ManagementAccountUserLinksDelete'
     { _mauldAccountId :: !Text
-    , _mauldLinkId    :: !Text
+    , _mauldLinkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementAccountUserLinksDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ managementAccountUserLinksDelete
     :: Text -- ^ 'mauldAccountId'
     -> Text -- ^ 'mauldLinkId'
     -> ManagementAccountUserLinksDelete
-managementAccountUserLinksDelete pMauldAccountId_ pMauldLinkId_ =
+managementAccountUserLinksDelete pMauldAccountId_ pMauldLinkId_ = 
     ManagementAccountUserLinksDelete'
     { _mauldAccountId = pMauldAccountId_
     , _mauldLinkId = pMauldLinkId_

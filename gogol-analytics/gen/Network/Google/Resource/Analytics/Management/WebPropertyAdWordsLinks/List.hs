@@ -39,8 +39,8 @@ module Network.Google.Resource.Analytics.Management.WebPropertyAdWordsLinks.List
     , mwpawllMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.webPropertyAdWordsLinks.list@ method which the
 -- 'ManagementWebPropertyAdWordsLinksList' request conforms to.
@@ -63,9 +63,9 @@ type ManagementWebPropertyAdWordsLinksListResource =
 -- /See:/ 'managementWebPropertyAdWordsLinksList' smart constructor.
 data ManagementWebPropertyAdWordsLinksList = ManagementWebPropertyAdWordsLinksList'
     { _mwpawllWebPropertyId :: !Text
-    , _mwpawllAccountId     :: !Text
-    , _mwpawllStartIndex    :: !(Maybe (Textual Int32))
-    , _mwpawllMaxResults    :: !(Maybe (Textual Int32))
+    , _mwpawllAccountId :: !Text
+    , _mwpawllStartIndex :: !(Maybe (Textual Int32))
+    , _mwpawllMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementWebPropertyAdWordsLinksList' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ managementWebPropertyAdWordsLinksList
     :: Text -- ^ 'mwpawllWebPropertyId'
     -> Text -- ^ 'mwpawllAccountId'
     -> ManagementWebPropertyAdWordsLinksList
-managementWebPropertyAdWordsLinksList pMwpawllWebPropertyId_ pMwpawllAccountId_ =
+managementWebPropertyAdWordsLinksList pMwpawllWebPropertyId_ pMwpawllAccountId_ = 
     ManagementWebPropertyAdWordsLinksList'
     { _mwpawllWebPropertyId = pMwpawllWebPropertyId_
     , _mwpawllAccountId = pMwpawllAccountId_

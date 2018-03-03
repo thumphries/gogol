@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Labels.Delete
     , uldId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.labels.delete@ method which the
 -- 'UsersLabelsDelete' request conforms to.
@@ -58,7 +58,7 @@ type UsersLabelsDeleteResource =
 -- /See:/ 'usersLabelsDelete' smart constructor.
 data UsersLabelsDelete = UsersLabelsDelete'
     { _uldUserId :: !Text
-    , _uldId     :: !Text
+    , _uldId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersLabelsDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ data UsersLabelsDelete = UsersLabelsDelete'
 usersLabelsDelete
     :: Text -- ^ 'uldId'
     -> UsersLabelsDelete
-usersLabelsDelete pUldId_ =
+usersLabelsDelete pUldId_ = 
     UsersLabelsDelete'
     { _uldUserId = "me"
     , _uldId = pUldId_

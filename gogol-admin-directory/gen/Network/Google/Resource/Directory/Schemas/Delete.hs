@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Schemas.Delete
     , sdSchemaKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.delete@ method which the
 -- 'SchemasDelete' request conforms to.
@@ -57,7 +57,7 @@ type SchemasDeleteResource =
 -- /See:/ 'schemasDelete' smart constructor.
 data SchemasDelete = SchemasDelete'
     { _sdCustomerId :: !Text
-    , _sdSchemaKey  :: !Text
+    , _sdSchemaKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SchemasDelete' with the minimum fields required to make a request.
@@ -71,18 +71,18 @@ schemasDelete
     :: Text -- ^ 'sdCustomerId'
     -> Text -- ^ 'sdSchemaKey'
     -> SchemasDelete
-schemasDelete pSdCustomerId_ pSdSchemaKey_ =
+schemasDelete pSdCustomerId_ pSdSchemaKey_ = 
     SchemasDelete'
     { _sdCustomerId = pSdCustomerId_
     , _sdSchemaKey = pSdSchemaKey_
     }
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 sdCustomerId :: Lens' SchemasDelete Text
 sdCustomerId
   = lens _sdCustomerId (\ s a -> s{_sdCustomerId = a})
 
--- | Name or immutable Id of the schema
+-- | Name or immutable ID of the schema
 sdSchemaKey :: Lens' SchemasDelete Text
 sdSchemaKey
   = lens _sdSchemaKey (\ s a -> s{_sdSchemaKey = a})

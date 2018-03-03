@@ -36,8 +36,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.GetAccountInfo
     , rpgaiPayload
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.getAccountInfo@ method which the
 -- 'RelyingPartyGetAccountInfo' request conforms to.
@@ -66,7 +66,7 @@ newtype RelyingPartyGetAccountInfo = RelyingPartyGetAccountInfo'
 relyingPartyGetAccountInfo
     :: IdentitytoolkitRelyingPartyGetAccountInfoRequest -- ^ 'rpgaiPayload'
     -> RelyingPartyGetAccountInfo
-relyingPartyGetAccountInfo pRpgaiPayload_ =
+relyingPartyGetAccountInfo pRpgaiPayload_ = 
     RelyingPartyGetAccountInfo'
     { _rpgaiPayload = pRpgaiPayload_
     }

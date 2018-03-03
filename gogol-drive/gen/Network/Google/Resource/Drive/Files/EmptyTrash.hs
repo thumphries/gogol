@@ -34,8 +34,8 @@ module Network.Google.Resource.Drive.Files.EmptyTrash
 
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.files.emptyTrash@ method which the
 -- 'FilesEmptyTrash' request conforms to.
@@ -50,7 +50,7 @@ type FilesEmptyTrashResource =
 --
 -- /See:/ 'filesEmptyTrash' smart constructor.
 data FilesEmptyTrash =
-    FilesEmptyTrash'
+    FilesEmptyTrash' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FilesEmptyTrash' with the minimum fields required to make a request.

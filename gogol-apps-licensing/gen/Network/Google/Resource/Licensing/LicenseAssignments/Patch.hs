@@ -39,8 +39,8 @@ module Network.Google.Resource.Licensing.LicenseAssignments.Patch
     , lapProductId
     ) where
 
-import           Network.Google.AppsLicensing.Types
-import           Network.Google.Prelude
+import Network.Google.AppsLicensing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @licensing.licenseAssignments.patch@ method which the
 -- 'LicenseAssignmentsPatch' request conforms to.
@@ -62,9 +62,9 @@ type LicenseAssignmentsPatchResource =
 --
 -- /See:/ 'licenseAssignmentsPatch' smart constructor.
 data LicenseAssignmentsPatch = LicenseAssignmentsPatch'
-    { _lapSKUId     :: !Text
-    , _lapPayload   :: !LicenseAssignment
-    , _lapUserId    :: !Text
+    { _lapSKUId :: !Text
+    , _lapPayload :: !LicenseAssignment
+    , _lapUserId :: !Text
     , _lapProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ licenseAssignmentsPatch
     -> Text -- ^ 'lapUserId'
     -> Text -- ^ 'lapProductId'
     -> LicenseAssignmentsPatch
-licenseAssignmentsPatch pLapSKUId_ pLapPayload_ pLapUserId_ pLapProductId_ =
+licenseAssignmentsPatch pLapSKUId_ pLapPayload_ pLapUserId_ pLapProductId_ = 
     LicenseAssignmentsPatch'
     { _lapSKUId = pLapSKUId_
     , _lapPayload = pLapPayload_

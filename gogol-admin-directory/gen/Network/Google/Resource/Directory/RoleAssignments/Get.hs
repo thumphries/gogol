@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.RoleAssignments.Get
     , ragRoleAssignmentId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roleAssignments.get@ method which the
 -- 'RoleAssignmentsGet' request conforms to.
@@ -57,7 +57,7 @@ type RoleAssignmentsGetResource =
 --
 -- /See:/ 'roleAssignmentsGet' smart constructor.
 data RoleAssignmentsGet = RoleAssignmentsGet'
-    { _ragCustomer         :: !Text
+    { _ragCustomer :: !Text
     , _ragRoleAssignmentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,13 +72,13 @@ roleAssignmentsGet
     :: Text -- ^ 'ragCustomer'
     -> Text -- ^ 'ragRoleAssignmentId'
     -> RoleAssignmentsGet
-roleAssignmentsGet pRagCustomer_ pRagRoleAssignmentId_ =
+roleAssignmentsGet pRagCustomer_ pRagRoleAssignmentId_ = 
     RoleAssignmentsGet'
     { _ragCustomer = pRagCustomer_
     , _ragRoleAssignmentId = pRagRoleAssignmentId_
     }
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 ragCustomer :: Lens' RoleAssignmentsGet Text
 ragCustomer
   = lens _ragCustomer (\ s a -> s{_ragCustomer = a})

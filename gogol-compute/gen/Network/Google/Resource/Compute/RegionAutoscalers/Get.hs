@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.RegionAutoscalers.Get
     , ragRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.regionAutoscalers.get@ method which the
 -- 'RegionAutoscalersGet' request conforms to.
@@ -58,9 +58,9 @@ type RegionAutoscalersGetResource =
 --
 -- /See:/ 'regionAutoscalersGet' smart constructor.
 data RegionAutoscalersGet = RegionAutoscalersGet'
-    { _ragProject    :: !Text
+    { _ragProject :: !Text
     , _ragAutoscaler :: !Text
-    , _ragRegion     :: !Text
+    , _ragRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegionAutoscalersGet' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ regionAutoscalersGet
     -> Text -- ^ 'ragAutoscaler'
     -> Text -- ^ 'ragRegion'
     -> RegionAutoscalersGet
-regionAutoscalersGet pRagProject_ pRagAutoscaler_ pRagRegion_ =
+regionAutoscalersGet pRagProject_ pRagAutoscaler_ pRagRegion_ = 
     RegionAutoscalersGet'
     { _ragProject = pRagProject_
     , _ragAutoscaler = pRagAutoscaler_

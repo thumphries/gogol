@@ -39,8 +39,8 @@ module Network.Google.Resource.Gmail.Users.Threads.Modify
     , utmId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.threads.modify@ method which the
 -- 'UsersThreadsModify' request conforms to.
@@ -62,8 +62,8 @@ type UsersThreadsModifyResource =
 -- /See:/ 'usersThreadsModify' smart constructor.
 data UsersThreadsModify = UsersThreadsModify'
     { _utmPayload :: !ModifyThreadRequest
-    , _utmUserId  :: !Text
-    , _utmId      :: !Text
+    , _utmUserId :: !Text
+    , _utmId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersThreadsModify' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ usersThreadsModify
     :: ModifyThreadRequest -- ^ 'utmPayload'
     -> Text -- ^ 'utmId'
     -> UsersThreadsModify
-usersThreadsModify pUtmPayload_ pUtmId_ =
+usersThreadsModify pUtmPayload_ pUtmId_ = 
     UsersThreadsModify'
     { _utmPayload = pUtmPayload_
     , _utmUserId = "me"

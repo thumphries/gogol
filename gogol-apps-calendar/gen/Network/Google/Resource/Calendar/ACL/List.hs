@@ -40,8 +40,8 @@ module Network.Google.Resource.Calendar.ACL.List
     , alMaxResults
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.acl.list@ method which the
 -- 'ACLList' request conforms to.
@@ -61,11 +61,11 @@ type ACLListResource =
 --
 -- /See:/ 'aclList' smart constructor.
 data ACLList = ACLList'
-    { _alSyncToken   :: !(Maybe Text)
-    , _alCalendarId  :: !Text
+    { _alSyncToken :: !(Maybe Text)
+    , _alCalendarId :: !Text
     , _alShowDeleted :: !(Maybe Bool)
-    , _alPageToken   :: !(Maybe Text)
-    , _alMaxResults  :: !(Maybe (Textual Int32))
+    , _alPageToken :: !(Maybe Text)
+    , _alMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ACLList' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ data ACLList = ACLList'
 aclList
     :: Text -- ^ 'alCalendarId'
     -> ACLList
-aclList pAlCalendarId_ =
+aclList pAlCalendarId_ = 
     ACLList'
     { _alSyncToken = Nothing
     , _alCalendarId = pAlCalendarId_

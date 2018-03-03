@@ -20,10 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the tax settings of the account. This method can only be called
--- for accounts to which the managing account has access: either the
--- managing account itself or sub-accounts if the managing account is a
--- multi-client account. This method supports patch semantics.
+-- Updates the tax settings of the account. This method supports patch
+-- semantics.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.accounttax.patch@.
 module Network.Google.Resource.Content.Accounttax.Patch
@@ -42,8 +40,8 @@ module Network.Google.Resource.Content.Accounttax.Patch
     , appDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.accounttax.patch@ method which the
 -- 'AccounttaxPatch' request conforms to.
@@ -58,17 +56,15 @@ type AccounttaxPatchResource =
                    ReqBody '[JSON] AccountTax :>
                      Patch '[JSON] AccountTax
 
--- | Updates the tax settings of the account. This method can only be called
--- for accounts to which the managing account has access: either the
--- managing account itself or sub-accounts if the managing account is a
--- multi-client account. This method supports patch semantics.
+-- | Updates the tax settings of the account. This method supports patch
+-- semantics.
 --
 -- /See:/ 'accounttaxPatch' smart constructor.
 data AccounttaxPatch = AccounttaxPatch'
     { _appMerchantId :: !(Textual Word64)
-    , _appPayload    :: !AccountTax
-    , _appAccountId  :: !(Textual Word64)
-    , _appDryRun     :: !(Maybe Bool)
+    , _appPayload :: !AccountTax
+    , _appAccountId :: !(Textual Word64)
+    , _appDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccounttaxPatch' with the minimum fields required to make a request.
@@ -87,7 +83,7 @@ accounttaxPatch
     -> AccountTax -- ^ 'appPayload'
     -> Word64 -- ^ 'appAccountId'
     -> AccounttaxPatch
-accounttaxPatch pAppMerchantId_ pAppPayload_ pAppAccountId_ =
+accounttaxPatch pAppMerchantId_ pAppPayload_ pAppAccountId_ = 
     AccounttaxPatch'
     { _appMerchantId = _Coerce # pAppMerchantId_
     , _appPayload = pAppPayload_
@@ -95,7 +91,9 @@ accounttaxPatch pAppMerchantId_ pAppPayload_ pAppAccountId_ =
     , _appDryRun = Nothing
     }
 
--- | The ID of the managing account.
+-- | The ID of the managing account. If this parameter is not the same as
+-- accountId, then this account must be a multi-client account and
+-- accountId must be the ID of a sub-account of this account.
 appMerchantId :: Lens' AccounttaxPatch Word64
 appMerchantId
   = lens _appMerchantId

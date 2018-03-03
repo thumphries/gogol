@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.UserRolePermissionGroups.Get
     , urpggId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRolePermissionGroups.get@ method which the
 -- 'UserRolePermissionGroupsGet' request conforms to.
 type UserRolePermissionGroupsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRolePermissionGroups" :>
@@ -57,7 +57,7 @@ type UserRolePermissionGroupsGetResource =
 -- /See:/ 'userRolePermissionGroupsGet' smart constructor.
 data UserRolePermissionGroupsGet = UserRolePermissionGroupsGet'
     { _urpggProFileId :: !(Textual Int64)
-    , _urpggId        :: !(Textual Int64)
+    , _urpggId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserRolePermissionGroupsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ userRolePermissionGroupsGet
     :: Int64 -- ^ 'urpggProFileId'
     -> Int64 -- ^ 'urpggId'
     -> UserRolePermissionGroupsGet
-userRolePermissionGroupsGet pUrpggProFileId_ pUrpggId_ =
+userRolePermissionGroupsGet pUrpggProFileId_ pUrpggId_ = 
     UserRolePermissionGroupsGet'
     { _urpggProFileId = _Coerce # pUrpggProFileId_
     , _urpggId = _Coerce # pUrpggId_

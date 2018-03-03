@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of reviews.
+-- Returns a list of reviews. Only reviews from last week will be returned.
 --
 -- /See:/ <https://developers.google.com/android-publisher Google Play Developer API Reference> for @androidpublisher.reviews.list@.
 module Network.Google.Resource.AndroidPublisher.Reviews.List
@@ -40,8 +40,8 @@ module Network.Google.Resource.AndroidPublisher.Reviews.List
     , rlMaxResults
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.reviews.list@ method which the
 -- 'ReviewsList' request conforms to.
@@ -58,15 +58,15 @@ type ReviewsListResource =
                        QueryParam "alt" AltJSON :>
                          Get '[JSON] ReviewsListResponse
 
--- | Returns a list of reviews.
+-- | Returns a list of reviews. Only reviews from last week will be returned.
 --
 -- /See:/ 'reviewsList' smart constructor.
 data ReviewsList = ReviewsList'
-    { _rlPackageName         :: !Text
-    , _rlToken               :: !(Maybe Text)
+    { _rlPackageName :: !Text
+    , _rlToken :: !(Maybe Text)
     , _rlTranslationLanguage :: !(Maybe Text)
-    , _rlStartIndex          :: !(Maybe (Textual Word32))
-    , _rlMaxResults          :: !(Maybe (Textual Word32))
+    , _rlStartIndex :: !(Maybe (Textual Word32))
+    , _rlMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReviewsList' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data ReviewsList = ReviewsList'
 reviewsList
     :: Text -- ^ 'rlPackageName'
     -> ReviewsList
-reviewsList pRlPackageName_ =
+reviewsList pRlPackageName_ = 
     ReviewsList'
     { _rlPackageName = pRlPackageName_
     , _rlToken = Nothing

@@ -41,8 +41,8 @@ module Network.Google.Resource.CivicInfo.Elections.VoterInfoQuery
     , eviqOfficialOnly
     ) where
 
-import           Network.Google.CivicInfo.Types
-import           Network.Google.Prelude
+import Network.Google.CivicInfo.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @civicinfo.elections.voterInfoQuery@ method which the
 -- 'ElectionsVoterInfoQuery' request conforms to.
@@ -64,10 +64,10 @@ type ElectionsVoterInfoQueryResource =
 -- /See:/ 'electionsVoterInfoQuery' smart constructor.
 data ElectionsVoterInfoQuery = ElectionsVoterInfoQuery'
     { _eviqReturnAllAvailableData :: !Bool
-    , _eviqElectionId             :: !(Textual Int64)
-    , _eviqAddress                :: !Text
-    , _eviqPayload                :: !VoterInfoRequest
-    , _eviqOfficialOnly           :: !Bool
+    , _eviqElectionId :: !(Textual Int64)
+    , _eviqAddress :: !Text
+    , _eviqPayload :: !VoterInfoRequest
+    , _eviqOfficialOnly :: !Bool
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ElectionsVoterInfoQuery' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ electionsVoterInfoQuery
     :: Text -- ^ 'eviqAddress'
     -> VoterInfoRequest -- ^ 'eviqPayload'
     -> ElectionsVoterInfoQuery
-electionsVoterInfoQuery pEviqAddress_ pEviqPayload_ =
+electionsVoterInfoQuery pEviqAddress_ pEviqPayload_ = 
     ElectionsVoterInfoQuery'
     { _eviqReturnAllAvailableData = False
     , _eviqElectionId = 0

@@ -36,8 +36,8 @@ module Network.Google.Resource.Webmasters.Sites.Get
     , sitSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.sites.get@ method which the
 -- 'SitesGet' request conforms to.
@@ -63,13 +63,15 @@ newtype SitesGet = SitesGet'
 sitesGet
     :: Text -- ^ 'sitSiteURL'
     -> SitesGet
-sitesGet pSitSiteURL_ =
+sitesGet pSitSiteURL_ = 
     SitesGet'
     { _sitSiteURL = pSitSiteURL_
     }
 
 -- | The URI of the property as defined in Search Console. Examples:
--- http:\/\/www.example.com\/ or android-app:\/\/com.example\/
+-- http:\/\/www.example.com\/ or android-app:\/\/com.example\/ Note: for
+-- property-sets, use the URI that starts with sc-set: which is used in
+-- Search Console URLs.
 sitSiteURL :: Lens' SitesGet Text
 sitSiteURL
   = lens _sitSiteURL (\ s a -> s{_sitSiteURL = a})

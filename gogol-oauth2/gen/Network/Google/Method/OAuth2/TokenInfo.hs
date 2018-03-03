@@ -36,8 +36,8 @@ module Network.Google.Method.OAuth2.TokenInfo
     , tIdToken
     ) where
 
-import           Network.Google.OAuth2.Types
-import           Network.Google.Prelude
+import Network.Google.OAuth2.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @oauth2.tokeninfo@ method which the
 -- 'TokenInfo'' request conforms to.
@@ -55,7 +55,7 @@ type TokenInfoMethod =
 data TokenInfo' = TokenInfo''
     { _tAccessToken :: !(Maybe Text)
     , _tTokenHandle :: !(Maybe Text)
-    , _tIdToken     :: !(Maybe Text)
+    , _tIdToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TokenInfo'' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data TokenInfo' = TokenInfo''
 -- * 'tIdToken'
 tokenInfo'
     :: TokenInfo'
-tokenInfo' =
+tokenInfo' = 
     TokenInfo''
     { _tAccessToken = Nothing
     , _tTokenHandle = Nothing

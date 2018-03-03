@@ -37,8 +37,8 @@ module Network.Google.Resource.Books.MyLibrary.Bookshelves.ClearVolumes
     , mlbcvSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.bookshelves.clearVolumes@ method which the
 -- 'MyLibraryBookshelvesClearVolumes' request conforms to.
@@ -56,7 +56,7 @@ type MyLibraryBookshelvesClearVolumesResource =
 --
 -- /See:/ 'myLibraryBookshelvesClearVolumes' smart constructor.
 data MyLibraryBookshelvesClearVolumes = MyLibraryBookshelvesClearVolumes'
-    { _mlbcvShelf  :: !Text
+    { _mlbcvShelf :: !Text
     , _mlbcvSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ data MyLibraryBookshelvesClearVolumes = MyLibraryBookshelvesClearVolumes'
 myLibraryBookshelvesClearVolumes
     :: Text -- ^ 'mlbcvShelf'
     -> MyLibraryBookshelvesClearVolumes
-myLibraryBookshelvesClearVolumes pMlbcvShelf_ =
+myLibraryBookshelvesClearVolumes pMlbcvShelf_ = 
     MyLibraryBookshelvesClearVolumes'
     { _mlbcvShelf = pMlbcvShelf_
     , _mlbcvSource = Nothing

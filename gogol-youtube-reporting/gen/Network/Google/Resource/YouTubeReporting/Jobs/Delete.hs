@@ -44,8 +44,8 @@ module Network.Google.Resource.YouTubeReporting.Jobs.Delete
     , jdCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTubeReporting.Types
+import Network.Google.Prelude
+import Network.Google.YouTubeReporting.Types
 
 -- | A resource alias for @youtubereporting.jobs.delete@ method which the
 -- 'JobsDelete' request conforms to.
@@ -67,15 +67,15 @@ type JobsDeleteResource =
 --
 -- /See:/ 'jobsDelete' smart constructor.
 data JobsDelete = JobsDelete'
-    { _jdXgafv                  :: !(Maybe Xgafv)
-    , _jdJobId                  :: !Text
-    , _jdUploadProtocol         :: !(Maybe Text)
-    , _jdPp                     :: !Bool
-    , _jdAccessToken            :: !(Maybe Text)
-    , _jdUploadType             :: !(Maybe Text)
+    { _jdXgafv :: !(Maybe Xgafv)
+    , _jdJobId :: !Text
+    , _jdUploadProtocol :: !(Maybe Text)
+    , _jdPp :: !Bool
+    , _jdAccessToken :: !(Maybe Text)
+    , _jdUploadType :: !(Maybe Text)
     , _jdOnBehalfOfContentOwner :: !(Maybe Text)
-    , _jdBearerToken            :: !(Maybe Text)
-    , _jdCallback               :: !(Maybe Text)
+    , _jdBearerToken :: !(Maybe Text)
+    , _jdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobsDelete' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data JobsDelete = JobsDelete'
 jobsDelete
     :: Text -- ^ 'jdJobId'
     -> JobsDelete
-jobsDelete pJdJobId_ =
+jobsDelete pJdJobId_ = 
     JobsDelete'
     { _jdXgafv = Nothing
     , _jdJobId = pJdJobId_

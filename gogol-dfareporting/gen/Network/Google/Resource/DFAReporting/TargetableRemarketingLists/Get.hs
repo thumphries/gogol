@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.TargetableRemarketingLists.Get
     , trlgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.targetableRemarketingLists.get@ method which the
 -- 'TargetableRemarketingListsGet' request conforms to.
 type TargetableRemarketingListsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "targetableRemarketingLists" :>
@@ -57,7 +57,7 @@ type TargetableRemarketingListsGetResource =
 -- /See:/ 'targetableRemarketingListsGet' smart constructor.
 data TargetableRemarketingListsGet = TargetableRemarketingListsGet'
     { _trlgProFileId :: !(Textual Int64)
-    , _trlgId        :: !(Textual Int64)
+    , _trlgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetableRemarketingListsGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ targetableRemarketingListsGet
     :: Int64 -- ^ 'trlgProFileId'
     -> Int64 -- ^ 'trlgId'
     -> TargetableRemarketingListsGet
-targetableRemarketingListsGet pTrlgProFileId_ pTrlgId_ =
+targetableRemarketingListsGet pTrlgProFileId_ pTrlgId_ = 
     TargetableRemarketingListsGet'
     { _trlgProFileId = _Coerce # pTrlgProFileId_
     , _trlgId = _Coerce # pTrlgId_

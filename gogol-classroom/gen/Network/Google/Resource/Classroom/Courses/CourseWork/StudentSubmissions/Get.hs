@@ -49,8 +49,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.StudentSubmissions.G
     , ccwssgCourseWorkId
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.studentSubmissions.get@ method which the
 -- 'CoursesCourseWorkStudentSubmissionsGet' request conforms to.
@@ -62,7 +62,7 @@ type CoursesCourseWorkStudentSubmissionsGetResource =
              Capture "courseWorkId" Text :>
                "studentSubmissions" :>
                  Capture "id" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -80,16 +80,16 @@ type CoursesCourseWorkStudentSubmissionsGetResource =
 --
 -- /See:/ 'coursesCourseWorkStudentSubmissionsGet' smart constructor.
 data CoursesCourseWorkStudentSubmissionsGet = CoursesCourseWorkStudentSubmissionsGet'
-    { _ccwssgXgafv          :: !(Maybe Text)
+    { _ccwssgXgafv :: !(Maybe Xgafv)
     , _ccwssgUploadProtocol :: !(Maybe Text)
-    , _ccwssgPp             :: !Bool
-    , _ccwssgCourseId       :: !Text
-    , _ccwssgAccessToken    :: !(Maybe Text)
-    , _ccwssgUploadType     :: !(Maybe Text)
-    , _ccwssgBearerToken    :: !(Maybe Text)
-    , _ccwssgId             :: !Text
-    , _ccwssgCallback       :: !(Maybe Text)
-    , _ccwssgCourseWorkId   :: !Text
+    , _ccwssgPp :: !Bool
+    , _ccwssgCourseId :: !Text
+    , _ccwssgAccessToken :: !(Maybe Text)
+    , _ccwssgUploadType :: !(Maybe Text)
+    , _ccwssgBearerToken :: !(Maybe Text)
+    , _ccwssgId :: !Text
+    , _ccwssgCallback :: !(Maybe Text)
+    , _ccwssgCourseWorkId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkStudentSubmissionsGet' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ coursesCourseWorkStudentSubmissionsGet
     -> Text -- ^ 'ccwssgId'
     -> Text -- ^ 'ccwssgCourseWorkId'
     -> CoursesCourseWorkStudentSubmissionsGet
-coursesCourseWorkStudentSubmissionsGet pCcwssgCourseId_ pCcwssgId_ pCcwssgCourseWorkId_ =
+coursesCourseWorkStudentSubmissionsGet pCcwssgCourseId_ pCcwssgId_ pCcwssgCourseWorkId_ = 
     CoursesCourseWorkStudentSubmissionsGet'
     { _ccwssgXgafv = Nothing
     , _ccwssgUploadProtocol = Nothing
@@ -135,7 +135,7 @@ coursesCourseWorkStudentSubmissionsGet pCcwssgCourseId_ pCcwssgId_ pCcwssgCourse
     }
 
 -- | V1 error format.
-ccwssgXgafv :: Lens' CoursesCourseWorkStudentSubmissionsGet (Maybe Text)
+ccwssgXgafv :: Lens' CoursesCourseWorkStudentSubmissionsGet (Maybe Xgafv)
 ccwssgXgafv
   = lens _ccwssgXgafv (\ s a -> s{_ccwssgXgafv = a})
 

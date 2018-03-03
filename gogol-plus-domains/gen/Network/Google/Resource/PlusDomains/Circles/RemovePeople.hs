@@ -38,8 +38,8 @@ module Network.Google.Resource.PlusDomains.Circles.RemovePeople
     , crpCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.removePeople@ method which the
 -- 'CirclesRemovePeople' request conforms to.
@@ -57,8 +57,8 @@ type CirclesRemovePeopleResource =
 --
 -- /See:/ 'circlesRemovePeople' smart constructor.
 data CirclesRemovePeople = CirclesRemovePeople'
-    { _crpEmail    :: !(Maybe [Text])
-    , _crpUserId   :: !(Maybe [Text])
+    { _crpEmail :: !(Maybe [Text])
+    , _crpUserId :: !(Maybe [Text])
     , _crpCircleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data CirclesRemovePeople = CirclesRemovePeople'
 circlesRemovePeople
     :: Text -- ^ 'crpCircleId'
     -> CirclesRemovePeople
-circlesRemovePeople pCrpCircleId_ =
+circlesRemovePeople pCrpCircleId_ = 
     CirclesRemovePeople'
     { _crpEmail = Nothing
     , _crpUserId = Nothing

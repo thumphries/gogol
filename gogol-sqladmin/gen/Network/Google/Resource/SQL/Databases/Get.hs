@@ -39,8 +39,8 @@ module Network.Google.Resource.SQL.Databases.Get
     , dgInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.databases.get@ method which the
 -- 'DatabasesGet' request conforms to.
@@ -60,7 +60,7 @@ type DatabasesGetResource =
 --
 -- /See:/ 'databasesGet' smart constructor.
 data DatabasesGet = DatabasesGet'
-    { _dgProject  :: !Text
+    { _dgProject :: !Text
     , _dgDatabase :: !Text
     , _dgInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -79,7 +79,7 @@ databasesGet
     -> Text -- ^ 'dgDatabase'
     -> Text -- ^ 'dgInstance'
     -> DatabasesGet
-databasesGet pDgProject_ pDgDatabase_ pDgInstance_ =
+databasesGet pDgProject_ pDgDatabase_ pDgInstance_ = 
     DatabasesGet'
     { _dgProject = pDgProject_
     , _dgDatabase = pDgDatabase_

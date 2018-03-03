@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a send-as alias. If a signature is provided, Gmail will sanitize
--- the HTML before saving it with the alias.
+-- the HTML before saving it with the alias. Addresses other than the
+-- primary address for the account can only be updated by service account
+-- clients that have been delegated domain-wide authority.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.sendAs.update@.
 module Network.Google.Resource.Gmail.Users.Settings.SendAs.Update
@@ -39,8 +41,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Update
     , ussauSendAsEmail
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.update@ method which the
 -- 'UsersSettingsSendAsUpdate' request conforms to.
@@ -56,12 +58,14 @@ type UsersSettingsSendAsUpdateResource =
                      ReqBody '[JSON] SendAs :> Put '[JSON] SendAs
 
 -- | Updates a send-as alias. If a signature is provided, Gmail will sanitize
--- the HTML before saving it with the alias.
+-- the HTML before saving it with the alias. Addresses other than the
+-- primary address for the account can only be updated by service account
+-- clients that have been delegated domain-wide authority.
 --
 -- /See:/ 'usersSettingsSendAsUpdate' smart constructor.
 data UsersSettingsSendAsUpdate = UsersSettingsSendAsUpdate'
-    { _ussauPayload     :: !SendAs
-    , _ussauUserId      :: !Text
+    { _ussauPayload :: !SendAs
+    , _ussauUserId :: !Text
     , _ussauSendAsEmail :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +82,7 @@ usersSettingsSendAsUpdate
     :: SendAs -- ^ 'ussauPayload'
     -> Text -- ^ 'ussauSendAsEmail'
     -> UsersSettingsSendAsUpdate
-usersSettingsSendAsUpdate pUssauPayload_ pUssauSendAsEmail_ =
+usersSettingsSendAsUpdate pUssauPayload_ pUssauSendAsEmail_ = 
     UsersSettingsSendAsUpdate'
     { _ussauPayload = pUssauPayload_
     , _ussauUserId = "me"

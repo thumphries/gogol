@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -27,6 +27,7 @@ module Network.Google.AppsCalendar.Types
     , CalendarListEntry
     , calendarListEntry
     , cleSummary
+    , cleConferenceProperties
     , cleEtag
     , cleLocation
     , cleKind
@@ -44,6 +45,11 @@ module Network.Google.AppsCalendar.Types
     , cleColorId
     , cleTimeZone
     , cleDescription
+
+    -- * ConferenceParameters
+    , ConferenceParameters
+    , conferenceParameters
+    , cpAddOnParameters
 
     -- * Event
     , Event
@@ -66,6 +72,7 @@ module Network.Google.AppsCalendar.Types
     , eStart
     , ePrivateCopy
     , eEndTimeUnspecified
+    , eConferenceData
     , eExtendedProperties
     , eVisibility
     , eGuestsCanInviteOthers
@@ -90,6 +97,18 @@ module Network.Google.AppsCalendar.Types
     , CalendarListEntryNotificationSettings
     , calendarListEntryNotificationSettings
     , clensNotifications
+
+    -- * ConferenceProperties
+    , ConferenceProperties
+    , conferenceProperties
+    , cpAllowedConferenceSolutionTypes
+
+    -- * ConferenceSolution
+    , ConferenceSolution
+    , conferenceSolution
+    , csIconURI
+    , csKey
+    , csName
 
     -- * ACLRuleScope
     , ACLRuleScope
@@ -125,11 +144,28 @@ module Network.Google.AppsCalendar.Types
     , eaTitle
     , eaFileId
 
+    -- * EntryPoint
+    , EntryPoint
+    , entryPoint
+    , epPasscode
+    , epURI
+    , epMeetingCode
+    , epPassword
+    , epPin
+    , epEntryPointType
+    , epLabel
+    , epAccessCode
+
     -- * TimePeriod
     , TimePeriod
     , timePeriod
     , tpStart
     , tpEnd
+
+    -- * ConferenceSolutionKey
+    , ConferenceSolutionKey
+    , conferenceSolutionKey
+    , cskType
 
     -- * EventCreator
     , EventCreator
@@ -168,11 +204,27 @@ module Network.Google.AppsCalendar.Types
     , cId
     , cType
 
+    -- * ConferenceRequestStatus
+    , ConferenceRequestStatus
+    , conferenceRequestStatus
+    , crsStatusCode
+
     -- * FreeBusyCalendar
     , FreeBusyCalendar
     , freeBusyCalendar
     , fbcBusy
     , fbcErrors
+
+    -- * ConferenceData
+    , ConferenceData
+    , conferenceData
+    , cdSignature
+    , cdConferenceSolution
+    , cdCreateRequest
+    , cdConferenceId
+    , cdParameters
+    , cdNotes
+    , cdEntryPoints
 
     -- * Setting
     , Setting
@@ -197,6 +249,11 @@ module Network.Google.AppsCalendar.Types
     , ColorsCalendar
     , colorsCalendar
     , ccAddtional
+
+    -- * ConferenceParametersAddOnParametersParameters
+    , ConferenceParametersAddOnParametersParameters
+    , conferenceParametersAddOnParametersParameters
+    , cpaoppAddtional
 
     -- * CalendarNotification
     , CalendarNotification
@@ -247,6 +304,7 @@ module Network.Google.AppsCalendar.Types
     , Calendar
     , calendar
     , calSummary
+    , calConferenceProperties
     , calEtag
     , calLocation
     , calKind
@@ -341,6 +399,13 @@ module Network.Google.AppsCalendar.Types
     -- * EventsWatchOrderBy
     , EventsWatchOrderBy (..)
 
+    -- * CreateConferenceRequest
+    , CreateConferenceRequest
+    , createConferenceRequest
+    , ccrStatus
+    , ccrRequestId
+    , ccrConferenceSolutionKey
+
     -- * EventExtendedPropertiesShared
     , EventExtendedPropertiesShared
     , eventExtendedPropertiesShared
@@ -377,6 +442,11 @@ module Network.Google.AppsCalendar.Types
     , fbgCalendars
     , fbgErrors
 
+    -- * ConferenceParametersAddOnParameters
+    , ConferenceParametersAddOnParameters
+    , conferenceParametersAddOnParameters
+    , cpaopParameters
+
     -- * EventSource
     , EventSource
     , eventSource
@@ -384,9 +454,9 @@ module Network.Google.AppsCalendar.Types
     , esTitle
     ) where
 
-import           Network.Google.AppsCalendar.Types.Product
-import           Network.Google.AppsCalendar.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types.Product
+import Network.Google.AppsCalendar.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v3' of the Calendar API. This contains the host and root path used as a starting point for constructing service requests.
 appsCalendarService :: ServiceConfig

@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Conversions.Batchinsert
     , cbPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.conversions.batchinsert@ method which the
 -- 'ConversionsBatchinsert' request conforms to.
 type ConversionsBatchinsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "conversions" :>
@@ -58,7 +58,7 @@ type ConversionsBatchinsertResource =
 -- /See:/ 'conversionsBatchinsert' smart constructor.
 data ConversionsBatchinsert = ConversionsBatchinsert'
     { _cbProFileId :: !(Textual Int64)
-    , _cbPayload   :: !ConversionsBatchInsertRequest
+    , _cbPayload :: !ConversionsBatchInsertRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConversionsBatchinsert' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ conversionsBatchinsert
     :: Int64 -- ^ 'cbProFileId'
     -> ConversionsBatchInsertRequest -- ^ 'cbPayload'
     -> ConversionsBatchinsert
-conversionsBatchinsert pCbProFileId_ pCbPayload_ =
+conversionsBatchinsert pCbProFileId_ pCbPayload_ = 
     ConversionsBatchinsert'
     { _cbProFileId = _Coerce # pCbProFileId_
     , _cbPayload = pCbPayload_

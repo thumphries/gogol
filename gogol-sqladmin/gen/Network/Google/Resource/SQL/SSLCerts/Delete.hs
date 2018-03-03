@@ -39,8 +39,8 @@ module Network.Google.Resource.SQL.SSLCerts.Delete
     , scdInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.sslCerts.delete@ method which the
 -- 'SSLCertsDelete' request conforms to.
@@ -60,9 +60,9 @@ type SSLCertsDeleteResource =
 --
 -- /See:/ 'sslCertsDelete' smart constructor.
 data SSLCertsDelete = SSLCertsDelete'
-    { _scdProject         :: !Text
+    { _scdProject :: !Text
     , _scdSha1Fingerprint :: !Text
-    , _scdInstance        :: !Text
+    , _scdInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SSLCertsDelete' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ sslCertsDelete
     -> Text -- ^ 'scdSha1Fingerprint'
     -> Text -- ^ 'scdInstance'
     -> SSLCertsDelete
-sslCertsDelete pScdProject_ pScdSha1Fingerprint_ pScdInstance_ =
+sslCertsDelete pScdProject_ pScdSha1Fingerprint_ pScdInstance_ = 
     SSLCertsDelete'
     { _scdProject = pScdProject_
     , _scdSha1Fingerprint = pScdSha1Fingerprint_

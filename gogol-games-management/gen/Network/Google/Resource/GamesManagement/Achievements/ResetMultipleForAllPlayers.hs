@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesManagement.Achievements.ResetMultipleForAllP
     , armfapPayload
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.achievements.resetMultipleForAllPlayers@ method which the
 -- 'AchievementsResetMultipleForAllPlayers' request conforms to.
@@ -69,7 +69,7 @@ newtype AchievementsResetMultipleForAllPlayers = AchievementsResetMultipleForAll
 achievementsResetMultipleForAllPlayers
     :: AchievementResetMultipleForAllRequest -- ^ 'armfapPayload'
     -> AchievementsResetMultipleForAllPlayers
-achievementsResetMultipleForAllPlayers pArmfapPayload_ =
+achievementsResetMultipleForAllPlayers pArmfapPayload_ = 
     AchievementsResetMultipleForAllPlayers'
     { _armfapPayload = pArmfapPayload_
     }

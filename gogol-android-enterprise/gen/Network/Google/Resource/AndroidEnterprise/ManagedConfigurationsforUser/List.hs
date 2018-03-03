@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.ManagedConfigurationsforUser.Li
     , mculUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.managedconfigurationsforuser.list@ method which the
 -- 'ManagedConfigurationsforUserList' request conforms to.
@@ -60,7 +60,7 @@ type ManagedConfigurationsforUserListResource =
 -- /See:/ 'managedConfigurationsforUserList' smart constructor.
 data ManagedConfigurationsforUserList = ManagedConfigurationsforUserList'
     { _mculEnterpriseId :: !Text
-    , _mculUserId       :: !Text
+    , _mculUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagedConfigurationsforUserList' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ managedConfigurationsforUserList
     :: Text -- ^ 'mculEnterpriseId'
     -> Text -- ^ 'mculUserId'
     -> ManagedConfigurationsforUserList
-managedConfigurationsforUserList pMculEnterpriseId_ pMculUserId_ =
+managedConfigurationsforUserList pMculEnterpriseId_ pMculUserId_ = 
     ManagedConfigurationsforUserList'
     { _mculEnterpriseId = pMculEnterpriseId_
     , _mculUserId = pMculUserId_

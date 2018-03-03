@@ -40,8 +40,8 @@ module Network.Google.Resource.DNS.DNSKeys.List
     , dklMaxResults
     ) where
 
-import           Network.Google.DNS.Types
-import           Network.Google.Prelude
+import Network.Google.DNS.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dns.dnsKeys.list@ method which the
 -- 'DNSKeysList' request conforms to.
@@ -63,11 +63,11 @@ type DNSKeysListResource =
 --
 -- /See:/ 'dnsKeysList' smart constructor.
 data DNSKeysList = DNSKeysList'
-    { _dklProject     :: !Text
-    , _dklDigestType  :: !(Maybe Text)
-    , _dklPageToken   :: !(Maybe Text)
+    { _dklProject :: !Text
+    , _dklDigestType :: !(Maybe Text)
+    , _dklPageToken :: !(Maybe Text)
     , _dklManagedZone :: !Text
-    , _dklMaxResults  :: !(Maybe (Textual Int32))
+    , _dklMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DNSKeysList' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ dnsKeysList
     :: Text -- ^ 'dklProject'
     -> Text -- ^ 'dklManagedZone'
     -> DNSKeysList
-dnsKeysList pDklProject_ pDklManagedZone_ =
+dnsKeysList pDklProject_ pDklManagedZone_ = 
     DNSKeysList'
     { _dklProject = pDklProject_
     , _dklDigestType = Nothing

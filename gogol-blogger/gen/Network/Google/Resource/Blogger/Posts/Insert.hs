@@ -40,8 +40,8 @@ module Network.Google.Resource.Blogger.Posts.Insert
     , posPayload
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.posts.insert@ method which the
 -- 'PostsInsert' request conforms to.
@@ -61,11 +61,11 @@ type PostsInsertResource =
 --
 -- /See:/ 'postsInsert' smart constructor.
 data PostsInsert = PostsInsert'
-    { _posFetchBody   :: !Bool
-    , _posIsDraft     :: !(Maybe Bool)
+    { _posFetchBody :: !Bool
+    , _posIsDraft :: !(Maybe Bool)
     , _posFetchImages :: !(Maybe Bool)
-    , _posBlogId      :: !Text
-    , _posPayload     :: !Post'
+    , _posBlogId :: !Text
+    , _posPayload :: !Post'
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PostsInsert' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ postsInsert
     :: Text -- ^ 'posBlogId'
     -> Post' -- ^ 'posPayload'
     -> PostsInsert
-postsInsert pPosBlogId_ pPosPayload_ =
+postsInsert pPosBlogId_ pPosPayload_ = 
     PostsInsert'
     { _posFetchBody = True
     , _posIsDraft = Nothing

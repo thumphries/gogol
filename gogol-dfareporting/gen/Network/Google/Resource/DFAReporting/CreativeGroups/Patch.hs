@@ -39,14 +39,14 @@ module Network.Google.Resource.DFAReporting.CreativeGroups.Patch
     , cgpId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeGroups.patch@ method which the
 -- 'CreativeGroupsPatch' request conforms to.
 type CreativeGroupsPatchResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeGroups" :>
@@ -61,8 +61,8 @@ type CreativeGroupsPatchResource =
 -- /See:/ 'creativeGroupsPatch' smart constructor.
 data CreativeGroupsPatch = CreativeGroupsPatch'
     { _cgpProFileId :: !(Textual Int64)
-    , _cgpPayload   :: !CreativeGroup
-    , _cgpId        :: !(Textual Int64)
+    , _cgpPayload :: !CreativeGroup
+    , _cgpId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeGroupsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ creativeGroupsPatch
     -> CreativeGroup -- ^ 'cgpPayload'
     -> Int64 -- ^ 'cgpId'
     -> CreativeGroupsPatch
-creativeGroupsPatch pCgpProFileId_ pCgpPayload_ pCgpId_ =
+creativeGroupsPatch pCgpProFileId_ pCgpPayload_ pCgpId_ = 
     CreativeGroupsPatch'
     { _cgpProFileId = _Coerce # pCgpProFileId_
     , _cgpPayload = pCgpPayload_

@@ -37,8 +37,8 @@ module Network.Google.Resource.PlusDomains.Circles.Update
     , cuCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.update@ method which the
 -- 'CirclesUpdate' request conforms to.
@@ -54,7 +54,7 @@ type CirclesUpdateResource =
 --
 -- /See:/ 'circlesUpdate' smart constructor.
 data CirclesUpdate = CirclesUpdate'
-    { _cuPayload  :: !Circle
+    { _cuPayload :: !Circle
     , _cuCircleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ circlesUpdate
     :: Circle -- ^ 'cuPayload'
     -> Text -- ^ 'cuCircleId'
     -> CirclesUpdate
-circlesUpdate pCuPayload_ pCuCircleId_ =
+circlesUpdate pCuPayload_ pCuCircleId_ = 
     CirclesUpdate'
     { _cuPayload = pCuPayload_
     , _cuCircleId = pCuCircleId_

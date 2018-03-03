@@ -38,8 +38,8 @@ module Network.Google.Resource.FusionTables.Template.Patch
     , tppTableId
     ) where
 
-import           Network.Google.FusionTables.Types
-import           Network.Google.Prelude
+import Network.Google.FusionTables.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @fusiontables.template.patch@ method which the
 -- 'TemplatePatch' request conforms to.
@@ -58,8 +58,8 @@ type TemplatePatchResource =
 -- /See:/ 'templatePatch' smart constructor.
 data TemplatePatch = TemplatePatch'
     { _tppTemplateId :: !(Textual Int32)
-    , _tppPayload    :: !Template
-    , _tppTableId    :: !Text
+    , _tppPayload :: !Template
+    , _tppTableId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TemplatePatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ templatePatch
     -> Template -- ^ 'tppPayload'
     -> Text -- ^ 'tppTableId'
     -> TemplatePatch
-templatePatch pTppTemplateId_ pTppPayload_ pTppTableId_ =
+templatePatch pTppTemplateId_ pTppPayload_ pTppTableId_ = 
     TemplatePatch'
     { _tppTemplateId = _Coerce # pTppTemplateId_
     , _tppPayload = pTppPayload_

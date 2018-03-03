@@ -38,8 +38,8 @@ module Network.Google.Resource.Books.MyLibrary.ReadingPositions.Get
     , mlrpgSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.readingpositions.get@ method which the
 -- 'MyLibraryReadingPositionsGet' request conforms to.
@@ -59,8 +59,8 @@ type MyLibraryReadingPositionsGetResource =
 -- /See:/ 'myLibraryReadingPositionsGet' smart constructor.
 data MyLibraryReadingPositionsGet = MyLibraryReadingPositionsGet'
     { _mlrpgContentVersion :: !(Maybe Text)
-    , _mlrpgVolumeId       :: !Text
-    , _mlrpgSource         :: !(Maybe Text)
+    , _mlrpgVolumeId :: !Text
+    , _mlrpgSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MyLibraryReadingPositionsGet' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ data MyLibraryReadingPositionsGet = MyLibraryReadingPositionsGet'
 myLibraryReadingPositionsGet
     :: Text -- ^ 'mlrpgVolumeId'
     -> MyLibraryReadingPositionsGet
-myLibraryReadingPositionsGet pMlrpgVolumeId_ =
+myLibraryReadingPositionsGet pMlrpgVolumeId_ = 
     MyLibraryReadingPositionsGet'
     { _mlrpgContentVersion = Nothing
     , _mlrpgVolumeId = pMlrpgVolumeId_

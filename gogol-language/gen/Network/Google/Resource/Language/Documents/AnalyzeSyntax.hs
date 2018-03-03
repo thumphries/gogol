@@ -24,7 +24,7 @@
 -- tokenization along with part of speech tags, dependency trees, and other
 -- properties.
 --
--- /See:/ <https://cloud.google.com/natural-language/ Google Cloud Natural Language API Reference> for @language.documents.analyzeSyntax@.
+-- /See:/ <https://cloud.google.com/natural-language/ Cloud Natural Language API Reference> for @language.documents.analyzeSyntax@.
 module Network.Google.Resource.Language.Documents.AnalyzeSyntax
     (
     -- * REST Resource
@@ -45,8 +45,8 @@ module Network.Google.Resource.Language.Documents.AnalyzeSyntax
     , dCallback
     ) where
 
-import           Network.Google.Language.Types
-import           Network.Google.Prelude
+import Network.Google.Language.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @language.documents.analyzeSyntax@ method which the
 -- 'DocumentsAnalyzeSyntax' request conforms to.
@@ -70,14 +70,14 @@ type DocumentsAnalyzeSyntaxResource =
 --
 -- /See:/ 'documentsAnalyzeSyntax' smart constructor.
 data DocumentsAnalyzeSyntax = DocumentsAnalyzeSyntax'
-    { _dXgafv          :: !(Maybe Xgafv)
+    { _dXgafv :: !(Maybe Xgafv)
     , _dUploadProtocol :: !(Maybe Text)
-    , _dPp             :: !Bool
-    , _dAccessToken    :: !(Maybe Text)
-    , _dUploadType     :: !(Maybe Text)
-    , _dPayload        :: !AnalyzeSyntaxRequest
-    , _dBearerToken    :: !(Maybe Text)
-    , _dCallback       :: !(Maybe Text)
+    , _dPp :: !Bool
+    , _dAccessToken :: !(Maybe Text)
+    , _dUploadType :: !(Maybe Text)
+    , _dPayload :: !AnalyzeSyntaxRequest
+    , _dBearerToken :: !(Maybe Text)
+    , _dCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DocumentsAnalyzeSyntax' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data DocumentsAnalyzeSyntax = DocumentsAnalyzeSyntax'
 documentsAnalyzeSyntax
     :: AnalyzeSyntaxRequest -- ^ 'dPayload'
     -> DocumentsAnalyzeSyntax
-documentsAnalyzeSyntax pDPayload_ =
+documentsAnalyzeSyntax pDPayload_ = 
     DocumentsAnalyzeSyntax'
     { _dXgafv = Nothing
     , _dUploadProtocol = Nothing
@@ -156,7 +156,8 @@ instance GoogleRequest DocumentsAnalyzeSyntax where
         type Rs DocumentsAnalyzeSyntax =
              AnalyzeSyntaxResponse
         type Scopes DocumentsAnalyzeSyntax =
-             '["https://www.googleapis.com/auth/cloud-platform"]
+             '["https://www.googleapis.com/auth/cloud-language",
+               "https://www.googleapis.com/auth/cloud-platform"]
         requestClient DocumentsAnalyzeSyntax'{..}
           = go _dXgafv _dUploadProtocol (Just _dPp)
               _dAccessToken

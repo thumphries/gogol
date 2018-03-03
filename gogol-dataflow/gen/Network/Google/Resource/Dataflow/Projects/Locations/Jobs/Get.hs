@@ -22,7 +22,7 @@
 --
 -- Gets the state of the specified Cloud Dataflow job.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.locations.jobs.get@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.locations.jobs.get@.
 module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.Get
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.Get
     , pljgCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.locations.jobs.get@ method which the
 -- 'ProjectsLocationsJobsGet' request conforms to.
@@ -59,7 +59,7 @@ type ProjectsLocationsJobsGetResource =
              Capture "location" Text :>
                "jobs" :>
                  Capture "jobId" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -73,17 +73,17 @@ type ProjectsLocationsJobsGetResource =
 --
 -- /See:/ 'projectsLocationsJobsGet' smart constructor.
 data ProjectsLocationsJobsGet = ProjectsLocationsJobsGet'
-    { _pljgXgafv          :: !(Maybe Text)
-    , _pljgJobId          :: !Text
+    { _pljgXgafv :: !(Maybe Xgafv)
+    , _pljgJobId :: !Text
     , _pljgUploadProtocol :: !(Maybe Text)
-    , _pljgLocation       :: !Text
-    , _pljgPp             :: !Bool
-    , _pljgAccessToken    :: !(Maybe Text)
-    , _pljgUploadType     :: !(Maybe Text)
-    , _pljgBearerToken    :: !(Maybe Text)
-    , _pljgView           :: !(Maybe Text)
-    , _pljgProjectId      :: !Text
-    , _pljgCallback       :: !(Maybe Text)
+    , _pljgLocation :: !Text
+    , _pljgPp :: !Bool
+    , _pljgAccessToken :: !(Maybe Text)
+    , _pljgUploadType :: !(Maybe Text)
+    , _pljgBearerToken :: !(Maybe Text)
+    , _pljgView :: !(Maybe Text)
+    , _pljgProjectId :: !Text
+    , _pljgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLocationsJobsGet' with the minimum fields required to make a request.
@@ -116,7 +116,7 @@ projectsLocationsJobsGet
     -> Text -- ^ 'pljgLocation'
     -> Text -- ^ 'pljgProjectId'
     -> ProjectsLocationsJobsGet
-projectsLocationsJobsGet pPljgJobId_ pPljgLocation_ pPljgProjectId_ =
+projectsLocationsJobsGet pPljgJobId_ pPljgLocation_ pPljgProjectId_ = 
     ProjectsLocationsJobsGet'
     { _pljgXgafv = Nothing
     , _pljgJobId = pPljgJobId_
@@ -132,7 +132,7 @@ projectsLocationsJobsGet pPljgJobId_ pPljgLocation_ pPljgProjectId_ =
     }
 
 -- | V1 error format.
-pljgXgafv :: Lens' ProjectsLocationsJobsGet (Maybe Text)
+pljgXgafv :: Lens' ProjectsLocationsJobsGet (Maybe Xgafv)
 pljgXgafv
   = lens _pljgXgafv (\ s a -> s{_pljgXgafv = a})
 
@@ -193,6 +193,8 @@ instance GoogleRequest ProjectsLocationsJobsGet where
         type Rs ProjectsLocationsJobsGet = Job
         type Scopes ProjectsLocationsJobsGet =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient ProjectsLocationsJobsGet'{..}
           = go _pljgProjectId _pljgLocation _pljgJobId

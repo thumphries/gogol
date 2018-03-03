@@ -24,6 +24,7 @@ module Network.Google.Vision
       visionService
 
     -- * OAuth Scopes
+    , cloudVisionScope
     , cloudPlatformScope
 
     -- * API Declaration
@@ -34,6 +35,18 @@ module Network.Google.Vision
     -- ** vision.images.annotate
     , module Network.Google.Resource.Vision.Images.Annotate
 
+    -- ** vision.operations.cancel
+    , module Network.Google.Resource.Vision.Operations.Cancel
+
+    -- ** vision.operations.delete
+    , module Network.Google.Resource.Vision.Operations.Delete
+
+    -- ** vision.operations.get
+    , module Network.Google.Resource.Vision.Operations.Get
+
+    -- ** vision.operations.list
+    , module Network.Google.Resource.Vision.Operations.List
+
     -- * Types
 
     -- ** LatLng
@@ -42,12 +55,18 @@ module Network.Google.Vision
     , llLatitude
     , llLongitude
 
+    -- ** GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse
+    , GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse
+    , googleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse
+    , gcvvabafrResponses
+
     -- ** FaceAnnotationUnderExposedLikelihood
     , FaceAnnotationUnderExposedLikelihood (..)
 
     -- ** Feature
     , Feature
     , feature
+    , fModel
     , fType
     , fMaxResults
 
@@ -58,9 +77,16 @@ module Network.Google.Vision
     , sCode
     , sMessage
 
+    -- ** GoogleCloudVisionV1p2beta1OutputConfig
+    , GoogleCloudVisionV1p2beta1OutputConfig
+    , googleCloudVisionV1p2beta1OutputConfig
+    , gcvvocGcsDestination
+    , gcvvocBatchSize
+
     -- ** Property
     , Property
     , property
+    , pUint64Value
     , pValue
     , pName
 
@@ -70,11 +96,61 @@ module Network.Google.Vision
     , iContent
     , iSource
 
+    -- ** ListOperationsResponse
+    , ListOperationsResponse
+    , listOperationsResponse
+    , lorNextPageToken
+    , lorOperations
+
     -- ** Landmark
     , Landmark
     , landmark
     , lType
     , lPosition
+
+    -- ** CancelOperationRequest
+    , CancelOperationRequest
+    , cancelOperationRequest
+
+    -- ** GoogleCloudVisionV1p2beta1OperationMetadata
+    , GoogleCloudVisionV1p2beta1OperationMetadata
+    , googleCloudVisionV1p2beta1OperationMetadata
+    , gcvvomState
+    , gcvvomUpdateTime
+    , gcvvomCreateTime
+
+    -- ** CropHintsParams
+    , CropHintsParams
+    , cropHintsParams
+    , chpAspectRatios
+
+    -- ** TextProperty
+    , TextProperty
+    , textProperty
+    , tpDetectedLanguages
+    , tpDetectedBreak
+
+    -- ** TextAnnotation
+    , TextAnnotation
+    , textAnnotation
+    , taText
+    , taPages
+
+    -- ** Operation
+    , Operation
+    , operation
+    , oDone
+    , oError
+    , oResponse
+    , oName
+    , oMetadata
+
+    -- ** GoogleCloudVisionV1p2beta1OperationMetadataState
+    , GoogleCloudVisionV1p2beta1OperationMetadataState (..)
+
+    -- ** Empty
+    , Empty
+    , empty
 
     -- ** Color
     , Color
@@ -86,6 +162,9 @@ module Network.Google.Vision
 
     -- ** FaceAnnotationHeadwearLikelihood
     , FaceAnnotationHeadwearLikelihood (..)
+
+    -- ** BlockBlockType
+    , BlockBlockType (..)
 
     -- ** BoundingPoly
     , BoundingPoly
@@ -101,6 +180,13 @@ module Network.Google.Vision
     , vX
     , vY
 
+    -- ** WebEntity
+    , WebEntity
+    , webEntity
+    , weScore
+    , weEntityId
+    , weDescription
+
     -- ** FaceAnnotationAngerLikelihood
     , FaceAnnotationAngerLikelihood (..)
 
@@ -108,6 +194,11 @@ module Network.Google.Vision
     , LocationInfo
     , locationInfo
     , liLatLng
+
+    -- ** WebDetectionParams
+    , WebDetectionParams
+    , webDetectionParams
+    , wdpIncludeGeoResults
 
     -- ** SafeSearchAnnotationMedical
     , SafeSearchAnnotationMedical (..)
@@ -122,12 +213,43 @@ module Network.Google.Vision
     , batchAnnotateImagesRequest
     , bairRequests
 
+    -- ** Page
+    , Page
+    , page
+    , pProperty
+    , pHeight
+    , pBlocks
+    , pWidth
+    , pConfidence
+
     -- ** ColorInfo
     , ColorInfo
     , colorInfo
     , ciColor
     , ciScore
     , ciPixelFraction
+
+    -- ** WebLabel
+    , WebLabel
+    , webLabel
+    , wlLanguageCode
+    , wlLabel
+
+    -- ** Paragraph
+    , Paragraph
+    , paragraph
+    , parProperty
+    , parBoundingBox
+    , parConfidence
+    , parWords
+
+    -- ** Symbol
+    , Symbol
+    , symbol
+    , sProperty
+    , sBoundingBox
+    , sText
+    , sConfidence
 
     -- ** FaceAnnotationBlurredLikelihood
     , FaceAnnotationBlurredLikelihood (..)
@@ -139,9 +261,12 @@ module Network.Google.Vision
     , airLabelAnnotations
     , airFaceAnnotations
     , airError
+    , airWebDetection
     , airSafeSearchAnnotation
     , airLandmarkAnnotations
     , airTextAnnotations
+    , airCropHintsAnnotation
+    , airFullTextAnnotation
     , airImagePropertiesAnnotation
 
     -- ** ImageProperties
@@ -167,6 +292,21 @@ module Network.Google.Vision
     , faSorrowLikelihood
     , faJoyLikelihood
     , faLandmarks
+
+    -- ** DetectedBreak
+    , DetectedBreak
+    , detectedBreak
+    , dbIsPrefix
+    , dbType
+
+    -- ** Block
+    , Block
+    , block
+    , bProperty
+    , bBoundingBox
+    , bParagraphs
+    , bConfidence
+    , bBlockType
 
     -- ** SafeSearchAnnotationViolence
     , SafeSearchAnnotationViolence (..)
@@ -194,6 +334,28 @@ module Network.Google.Vision
     , airFeatures
     , airImageContext
 
+    -- ** DetectedLanguage
+    , DetectedLanguage
+    , detectedLanguage
+    , dlLanguageCode
+    , dlConfidence
+
+    -- ** WebImage
+    , WebImage
+    , webImage
+    , wiScore
+    , wiURL
+
+    -- ** WebDetection
+    , WebDetection
+    , webDetection
+    , wdVisuallySimilarImages
+    , wdBestGuessLabels
+    , wdPagesWithMatchingImages
+    , wdPartialMatchingImages
+    , wdFullMatchingImages
+    , wdWebEntities
+
     -- ** LandmarkType
     , LandmarkType (..)
 
@@ -204,6 +366,14 @@ module Network.Google.Vision
     , ImageSource
     , imageSource
     , isGcsImageURI
+    , isImageURI
+
+    -- ** CropHint
+    , CropHint
+    , cropHint
+    , chBoundingPoly
+    , chConfidence
+    , chImportanceFraction
 
     -- ** SafeSearchAnnotationSpoof
     , SafeSearchAnnotationSpoof (..)
@@ -215,6 +385,7 @@ module Network.Google.Vision
     , SafeSearchAnnotation
     , safeSearchAnnotation
     , ssaSpoof
+    , ssaRacy
     , ssaAdult
     , ssaMedical
     , ssaViolence
@@ -228,8 +399,24 @@ module Network.Google.Vision
     -- ** ImageContext
     , ImageContext
     , imageContext
+    , icCropHintsParams
+    , icWebDetectionParams
     , icLanguageHints
     , icLatLongRect
+
+    -- ** OperationMetadata
+    , OperationMetadata
+    , operationMetadata
+    , omAddtional
+
+    -- ** WebPage
+    , WebPage
+    , webPage
+    , wpScore
+    , wpURL
+    , wpPageTitle
+    , wpPartialMatchingImages
+    , wpFullMatchingImages
 
     -- ** DominantColorsAnnotation
     , DominantColorsAnnotation
@@ -242,10 +429,39 @@ module Network.Google.Vision
     , llrMaxLatLng
     , llrMinLatLng
 
+    -- ** GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse
+    , GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse
+    , googleCloudVisionV1p2beta1AsyncAnnotateFileResponse
+    , gcvvaafrOutputConfig
+
+    -- ** OperationResponse
+    , OperationResponse
+    , operationResponse
+    , orAddtional
+
+    -- ** Word
+    , Word
+    , word
+    , wProperty
+    , wBoundingBox
+    , wSymbols
+    , wConfidence
+
+    -- ** DetectedBreakType
+    , DetectedBreakType (..)
+
     -- ** BatchAnnotateImagesResponse
     , BatchAnnotateImagesResponse
     , batchAnnotateImagesResponse
     , bairResponses
+
+    -- ** CropHintsAnnotation
+    , CropHintsAnnotation
+    , cropHintsAnnotation
+    , chaCropHints
+
+    -- ** SafeSearchAnnotationRacy
+    , SafeSearchAnnotationRacy (..)
 
     -- ** Position
     , Position
@@ -253,15 +469,28 @@ module Network.Google.Vision
     , pZ
     , pX
     , pY
+
+    -- ** GoogleCloudVisionV1p2beta1GcsDestination
+    , GoogleCloudVisionV1p2beta1GcsDestination
+    , googleCloudVisionV1p2beta1GcsDestination
+    , gcvvgdURI
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Resource.Vision.Images.Annotate
-import           Network.Google.Vision.Types
+import Network.Google.Prelude
+import Network.Google.Resource.Vision.Images.Annotate
+import Network.Google.Resource.Vision.Operations.Cancel
+import Network.Google.Resource.Vision.Operations.Delete
+import Network.Google.Resource.Vision.Operations.Get
+import Network.Google.Resource.Vision.Operations.List
+import Network.Google.Vision.Types
 
 {- $resources
 TODO
 -}
 
 -- | Represents the entirety of the methods and resources available for the Google Cloud Vision API service.
-type VisionAPI = ImagesAnnotateResource
+type VisionAPI =
+     ImagesAnnotateResource :<|> OperationsListResource
+       :<|> OperationsGetResource
+       :<|> OperationsCancelResource
+       :<|> OperationsDeleteResource

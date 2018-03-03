@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an order using merchant order id. This method can only be
--- called for non-multi-client accounts.
+-- Retrieves an order using merchant order id.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.orders.getbymerchantorderid@.
 module Network.Google.Resource.Content.Orders.GetbymerchantOrderid
@@ -38,8 +37,8 @@ module Network.Google.Resource.Content.Orders.GetbymerchantOrderid
     , ogogMerchantOrderId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.orders.getbymerchantorderid@ method which the
 -- 'OrdersGetbymerchantOrderid' request conforms to.
@@ -52,12 +51,11 @@ type OrdersGetbymerchantOrderidResource =
                QueryParam "alt" AltJSON :>
                  Get '[JSON] OrdersGetByMerchantOrderIdResponse
 
--- | Retrieves an order using merchant order id. This method can only be
--- called for non-multi-client accounts.
+-- | Retrieves an order using merchant order id.
 --
 -- /See:/ 'ordersGetbymerchantOrderid' smart constructor.
 data OrdersGetbymerchantOrderid = OrdersGetbymerchantOrderid'
-    { _ogogMerchantId      :: !(Textual Word64)
+    { _ogogMerchantId :: !(Textual Word64)
     , _ogogMerchantOrderId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -72,13 +70,14 @@ ordersGetbymerchantOrderid
     :: Word64 -- ^ 'ogogMerchantId'
     -> Text -- ^ 'ogogMerchantOrderId'
     -> OrdersGetbymerchantOrderid
-ordersGetbymerchantOrderid pOgogMerchantId_ pOgogMerchantOrderId_ =
+ordersGetbymerchantOrderid pOgogMerchantId_ pOgogMerchantOrderId_ = 
     OrdersGetbymerchantOrderid'
     { _ogogMerchantId = _Coerce # pOgogMerchantId_
     , _ogogMerchantOrderId = pOgogMerchantOrderId_
     }
 
--- | The ID of the managing account.
+-- | The ID of the account that manages the order. This cannot be a
+-- multi-client account.
 ogogMerchantId :: Lens' OrdersGetbymerchantOrderid Word64
 ogogMerchantId
   = lens _ogogMerchantId

@@ -46,8 +46,8 @@ module Network.Google.Resource.PubSub.Projects.Topics.Publish
     , ptpCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.topics.publish@ method which the
 -- 'ProjectsTopicsPublish' request conforms to.
@@ -71,15 +71,15 @@ type ProjectsTopicsPublishResource =
 --
 -- /See:/ 'projectsTopicsPublish' smart constructor.
 data ProjectsTopicsPublish = ProjectsTopicsPublish'
-    { _ptpXgafv          :: !(Maybe Xgafv)
+    { _ptpXgafv :: !(Maybe Xgafv)
     , _ptpUploadProtocol :: !(Maybe Text)
-    , _ptpPp             :: !Bool
-    , _ptpAccessToken    :: !(Maybe Text)
-    , _ptpUploadType     :: !(Maybe Text)
-    , _ptpPayload        :: !PublishRequest
-    , _ptpTopic          :: !Text
-    , _ptpBearerToken    :: !(Maybe Text)
-    , _ptpCallback       :: !(Maybe Text)
+    , _ptpPp :: !Bool
+    , _ptpAccessToken :: !(Maybe Text)
+    , _ptpUploadType :: !(Maybe Text)
+    , _ptpPayload :: !PublishRequest
+    , _ptpTopic :: !Text
+    , _ptpBearerToken :: !(Maybe Text)
+    , _ptpCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTopicsPublish' with the minimum fields required to make a request.
@@ -107,7 +107,7 @@ projectsTopicsPublish
     :: PublishRequest -- ^ 'ptpPayload'
     -> Text -- ^ 'ptpTopic'
     -> ProjectsTopicsPublish
-projectsTopicsPublish pPtpPayload_ pPtpTopic_ =
+projectsTopicsPublish pPtpPayload_ pPtpTopic_ = 
     ProjectsTopicsPublish'
     { _ptpXgafv = Nothing
     , _ptpUploadProtocol = Nothing

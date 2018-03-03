@@ -38,8 +38,8 @@ module Network.Google.Resource.TaskQueue.TaskQueues.Get
     , tqgGetStats
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.taskqueues.get@ method which the
 -- 'TaskQueuesGet' request conforms to.
@@ -58,8 +58,8 @@ type TaskQueuesGetResource =
 -- /See:/ 'taskQueuesGet' smart constructor.
 data TaskQueuesGet = TaskQueuesGet'
     { _tqgTaskQueue :: !Text
-    , _tqgProject   :: !Text
-    , _tqgGetStats  :: !(Maybe Bool)
+    , _tqgProject :: !Text
+    , _tqgGetStats :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TaskQueuesGet' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ taskQueuesGet
     :: Text -- ^ 'tqgTaskQueue'
     -> Text -- ^ 'tqgProject'
     -> TaskQueuesGet
-taskQueuesGet pTqgTaskQueue_ pTqgProject_ =
+taskQueuesGet pTqgTaskQueue_ pTqgProject_ = 
     TaskQueuesGet'
     { _tqgTaskQueue = pTqgTaskQueue_
     , _tqgProject = pTqgProject_

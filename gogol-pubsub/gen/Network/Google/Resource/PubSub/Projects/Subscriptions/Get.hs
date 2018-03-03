@@ -43,8 +43,8 @@ module Network.Google.Resource.PubSub.Projects.Subscriptions.Get
     , psgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.subscriptions.get@ method which the
 -- 'ProjectsSubscriptionsGet' request conforms to.
@@ -64,14 +64,14 @@ type ProjectsSubscriptionsGetResource =
 --
 -- /See:/ 'projectsSubscriptionsGet' smart constructor.
 data ProjectsSubscriptionsGet = ProjectsSubscriptionsGet'
-    { _psgXgafv          :: !(Maybe Xgafv)
+    { _psgXgafv :: !(Maybe Xgafv)
     , _psgUploadProtocol :: !(Maybe Text)
-    , _psgPp             :: !Bool
-    , _psgAccessToken    :: !(Maybe Text)
-    , _psgUploadType     :: !(Maybe Text)
-    , _psgBearerToken    :: !(Maybe Text)
-    , _psgSubscription   :: !Text
-    , _psgCallback       :: !(Maybe Text)
+    , _psgPp :: !Bool
+    , _psgAccessToken :: !(Maybe Text)
+    , _psgUploadType :: !(Maybe Text)
+    , _psgBearerToken :: !(Maybe Text)
+    , _psgSubscription :: !Text
+    , _psgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSubscriptionsGet' with the minimum fields required to make a request.
@@ -96,7 +96,7 @@ data ProjectsSubscriptionsGet = ProjectsSubscriptionsGet'
 projectsSubscriptionsGet
     :: Text -- ^ 'psgSubscription'
     -> ProjectsSubscriptionsGet
-projectsSubscriptionsGet pPsgSubscription_ =
+projectsSubscriptionsGet pPsgSubscription_ = 
     ProjectsSubscriptionsGet'
     { _psgXgafv = Nothing
     , _psgUploadProtocol = Nothing

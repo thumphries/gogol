@@ -45,8 +45,8 @@ module Network.Google.Resource.Logging.Folders.Sinks.List
     , fslCallback
     ) where
 
-import           Network.Google.Logging.Types
-import           Network.Google.Prelude
+import Network.Google.Logging.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @logging.folders.sinks.list@ method which the
 -- 'FoldersSinksList' request conforms to.
@@ -70,16 +70,16 @@ type FoldersSinksListResource =
 --
 -- /See:/ 'foldersSinksList' smart constructor.
 data FoldersSinksList = FoldersSinksList'
-    { _fslParent         :: !Text
-    , _fslXgafv          :: !(Maybe Xgafv)
+    { _fslParent :: !Text
+    , _fslXgafv :: !(Maybe Xgafv)
     , _fslUploadProtocol :: !(Maybe Text)
-    , _fslPp             :: !Bool
-    , _fslAccessToken    :: !(Maybe Text)
-    , _fslUploadType     :: !(Maybe Text)
-    , _fslBearerToken    :: !(Maybe Text)
-    , _fslPageToken      :: !(Maybe Text)
-    , _fslPageSize       :: !(Maybe (Textual Int32))
-    , _fslCallback       :: !(Maybe Text)
+    , _fslPp :: !Bool
+    , _fslAccessToken :: !(Maybe Text)
+    , _fslUploadType :: !(Maybe Text)
+    , _fslBearerToken :: !(Maybe Text)
+    , _fslPageToken :: !(Maybe Text)
+    , _fslPageSize :: !(Maybe (Textual Int32))
+    , _fslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FoldersSinksList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data FoldersSinksList = FoldersSinksList'
 foldersSinksList
     :: Text -- ^ 'fslParent'
     -> FoldersSinksList
-foldersSinksList pFslParent_ =
+foldersSinksList pFslParent_ = 
     FoldersSinksList'
     { _fslParent = pFslParent_
     , _fslXgafv = Nothing
@@ -122,8 +122,9 @@ foldersSinksList pFslParent_ =
     , _fslCallback = Nothing
     }
 
--- | Required. The parent resource whose sinks are to be listed. Examples:
--- \"projects\/my-logging-project\", \"organizations\/123456789\".
+-- | Required. The parent resource whose sinks are to be listed:
+-- \"projects\/[PROJECT_ID]\" \"organizations\/[ORGANIZATION_ID]\"
+-- \"billingAccounts\/[BILLING_ACCOUNT_ID]\" \"folders\/[FOLDER_ID]\"
 fslParent :: Lens' FoldersSinksList Text
 fslParent
   = lens _fslParent (\ s a -> s{_fslParent = a})

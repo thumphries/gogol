@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Tokens.List
     , tlUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.tokens.list@ method which the
 -- 'TokensList' request conforms to.
@@ -67,7 +67,7 @@ newtype TokensList = TokensList'
 tokensList
     :: Text -- ^ 'tlUserKey'
     -> TokensList
-tokensList pTlUserKey_ =
+tokensList pTlUserKey_ = 
     TokensList'
     { _tlUserKey = pTlUserKey_
     }

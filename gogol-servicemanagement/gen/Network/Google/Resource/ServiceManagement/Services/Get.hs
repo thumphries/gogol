@@ -44,8 +44,8 @@ module Network.Google.Resource.ServiceManagement.Services.Get
     , sgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.get@ method which the
 -- 'ServicesGet' request conforms to.
@@ -68,14 +68,14 @@ type ServicesGetResource =
 --
 -- /See:/ 'servicesGet' smart constructor.
 data ServicesGet = ServicesGet'
-    { _sgXgafv          :: !(Maybe Xgafv)
+    { _sgXgafv :: !(Maybe Xgafv)
     , _sgUploadProtocol :: !(Maybe Text)
-    , _sgPp             :: !Bool
-    , _sgAccessToken    :: !(Maybe Text)
-    , _sgUploadType     :: !(Maybe Text)
-    , _sgBearerToken    :: !(Maybe Text)
-    , _sgServiceName    :: !Text
-    , _sgCallback       :: !(Maybe Text)
+    , _sgPp :: !Bool
+    , _sgAccessToken :: !(Maybe Text)
+    , _sgUploadType :: !(Maybe Text)
+    , _sgBearerToken :: !(Maybe Text)
+    , _sgServiceName :: !Text
+    , _sgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesGet' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data ServicesGet = ServicesGet'
 servicesGet
     :: Text -- ^ 'sgServiceName'
     -> ServicesGet
-servicesGet pSgServiceName_ =
+servicesGet pSgServiceName_ = 
     ServicesGet'
     { _sgXgafv = Nothing
     , _sgUploadProtocol = Nothing

@@ -33,12 +33,13 @@ module Network.Google.Resource.Compute.Routes.Delete
     , RoutesDelete
 
     -- * Request Lenses
+    , rdRequestId
     , rdProject
     , rdRoute
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.routes.delete@ method which the
 -- 'RoutesDelete' request conforms to.
@@ -50,19 +51,23 @@ type RoutesDeleteResource =
              "global" :>
                "routes" :>
                  Capture "route" Text :>
-                   QueryParam "alt" AltJSON :> Delete '[JSON] Operation
+                   QueryParam "requestId" Text :>
+                     QueryParam "alt" AltJSON :> Delete '[JSON] Operation
 
 -- | Deletes the specified Route resource.
 --
 -- /See:/ 'routesDelete' smart constructor.
 data RoutesDelete = RoutesDelete'
-    { _rdProject :: !Text
-    , _rdRoute   :: !Text
+    { _rdRequestId :: !(Maybe Text)
+    , _rdProject :: !Text
+    , _rdRoute :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoutesDelete' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdRequestId'
 --
 -- * 'rdProject'
 --
@@ -71,11 +76,26 @@ routesDelete
     :: Text -- ^ 'rdProject'
     -> Text -- ^ 'rdRoute'
     -> RoutesDelete
-routesDelete pRdProject_ pRdRoute_ =
+routesDelete pRdProject_ pRdRoute_ = 
     RoutesDelete'
-    { _rdProject = pRdProject_
+    { _rdRequestId = Nothing
+    , _rdProject = pRdProject_
     , _rdRoute = pRdRoute_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+rdRequestId :: Lens' RoutesDelete (Maybe Text)
+rdRequestId
+  = lens _rdRequestId (\ s a -> s{_rdRequestId = a})
 
 -- | Project ID for this request.
 rdProject :: Lens' RoutesDelete Text
@@ -92,7 +112,7 @@ instance GoogleRequest RoutesDelete where
              '["https://www.googleapis.com/auth/cloud-platform",
                "https://www.googleapis.com/auth/compute"]
         requestClient RoutesDelete'{..}
-          = go _rdProject _rdRoute (Just AltJSON)
+          = go _rdProject _rdRoute _rdRequestId (Just AltJSON)
               computeService
           where go
                   = buildClient (Proxy :: Proxy RoutesDeleteResource)

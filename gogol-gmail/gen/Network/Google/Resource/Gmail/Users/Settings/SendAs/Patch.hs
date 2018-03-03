@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a send-as alias. If a signature is provided, Gmail will sanitize
--- the HTML before saving it with the alias. This method supports patch
--- semantics.
+-- the HTML before saving it with the alias. Addresses other than the
+-- primary address for the account can only be updated by service account
+-- clients that have been delegated domain-wide authority. This method
+-- supports patch semantics.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.sendAs.patch@.
 module Network.Google.Resource.Gmail.Users.Settings.SendAs.Patch
@@ -40,8 +42,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Patch
     , ussapSendAsEmail
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.patch@ method which the
 -- 'UsersSettingsSendAsPatch' request conforms to.
@@ -57,13 +59,15 @@ type UsersSettingsSendAsPatchResource =
                      ReqBody '[JSON] SendAs :> Patch '[JSON] SendAs
 
 -- | Updates a send-as alias. If a signature is provided, Gmail will sanitize
--- the HTML before saving it with the alias. This method supports patch
--- semantics.
+-- the HTML before saving it with the alias. Addresses other than the
+-- primary address for the account can only be updated by service account
+-- clients that have been delegated domain-wide authority. This method
+-- supports patch semantics.
 --
 -- /See:/ 'usersSettingsSendAsPatch' smart constructor.
 data UsersSettingsSendAsPatch = UsersSettingsSendAsPatch'
-    { _ussapPayload     :: !SendAs
-    , _ussapUserId      :: !Text
+    { _ussapPayload :: !SendAs
+    , _ussapUserId :: !Text
     , _ussapSendAsEmail :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -80,7 +84,7 @@ usersSettingsSendAsPatch
     :: SendAs -- ^ 'ussapPayload'
     -> Text -- ^ 'ussapSendAsEmail'
     -> UsersSettingsSendAsPatch
-usersSettingsSendAsPatch pUssapPayload_ pUssapSendAsEmail_ =
+usersSettingsSendAsPatch pUssapPayload_ pUssapSendAsEmail_ = 
     UsersSettingsSendAsPatch'
     { _ussapPayload = pUssapPayload_
     , _ussapUserId = "me"

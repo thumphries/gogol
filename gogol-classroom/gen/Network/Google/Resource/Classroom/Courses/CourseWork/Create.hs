@@ -56,8 +56,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.Create
     , ccwcCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.create@ method which the
 -- 'CoursesCourseWorkCreate' request conforms to.
@@ -66,7 +66,7 @@ type CoursesCourseWorkCreateResource =
        "courses" :>
          Capture "courseId" Text :>
            "courseWork" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -93,15 +93,15 @@ type CoursesCourseWorkCreateResource =
 --
 -- /See:/ 'coursesCourseWorkCreate' smart constructor.
 data CoursesCourseWorkCreate = CoursesCourseWorkCreate'
-    { _ccwcXgafv          :: !(Maybe Text)
+    { _ccwcXgafv :: !(Maybe Xgafv)
     , _ccwcUploadProtocol :: !(Maybe Text)
-    , _ccwcPp             :: !Bool
-    , _ccwcCourseId       :: !Text
-    , _ccwcAccessToken    :: !(Maybe Text)
-    , _ccwcUploadType     :: !(Maybe Text)
-    , _ccwcPayload        :: !CourseWork
-    , _ccwcBearerToken    :: !(Maybe Text)
-    , _ccwcCallback       :: !(Maybe Text)
+    , _ccwcPp :: !Bool
+    , _ccwcCourseId :: !Text
+    , _ccwcAccessToken :: !(Maybe Text)
+    , _ccwcUploadType :: !(Maybe Text)
+    , _ccwcPayload :: !CourseWork
+    , _ccwcBearerToken :: !(Maybe Text)
+    , _ccwcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkCreate' with the minimum fields required to make a request.
@@ -129,7 +129,7 @@ coursesCourseWorkCreate
     :: Text -- ^ 'ccwcCourseId'
     -> CourseWork -- ^ 'ccwcPayload'
     -> CoursesCourseWorkCreate
-coursesCourseWorkCreate pCcwcCourseId_ pCcwcPayload_ =
+coursesCourseWorkCreate pCcwcCourseId_ pCcwcPayload_ = 
     CoursesCourseWorkCreate'
     { _ccwcXgafv = Nothing
     , _ccwcUploadProtocol = Nothing
@@ -143,7 +143,7 @@ coursesCourseWorkCreate pCcwcCourseId_ pCcwcPayload_ =
     }
 
 -- | V1 error format.
-ccwcXgafv :: Lens' CoursesCourseWorkCreate (Maybe Text)
+ccwcXgafv :: Lens' CoursesCourseWorkCreate (Maybe Xgafv)
 ccwcXgafv
   = lens _ccwcXgafv (\ s a -> s{_ccwcXgafv = a})
 

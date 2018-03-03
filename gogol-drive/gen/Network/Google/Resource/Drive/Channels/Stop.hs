@@ -36,8 +36,8 @@ module Network.Google.Resource.Drive.Channels.Stop
     , csPayload
     ) where
 
-import           Network.Google.Drive.Types
-import           Network.Google.Prelude
+import Network.Google.Drive.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @drive.channels.stop@ method which the
 -- 'ChannelsStop' request conforms to.
@@ -64,7 +64,7 @@ newtype ChannelsStop = ChannelsStop'
 channelsStop
     :: Channel -- ^ 'csPayload'
     -> ChannelsStop
-channelsStop pCsPayload_ =
+channelsStop pCsPayload_ = 
     ChannelsStop'
     { _csPayload = pCsPayload_
     }

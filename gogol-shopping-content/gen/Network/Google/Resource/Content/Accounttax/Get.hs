@@ -20,10 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the tax settings of the account. This method can only be
--- called for accounts to which the managing account has access: either the
--- managing account itself or sub-accounts if the managing account is a
--- multi-client account.
+-- Retrieves the tax settings of the account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.accounttax.get@.
 module Network.Google.Resource.Content.Accounttax.Get
@@ -40,8 +37,8 @@ module Network.Google.Resource.Content.Accounttax.Get
     , aggAccountId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.accounttax.get@ method which the
 -- 'AccounttaxGet' request conforms to.
@@ -53,15 +50,12 @@ type AccounttaxGetResource =
              Capture "accountId" (Textual Word64) :>
                QueryParam "alt" AltJSON :> Get '[JSON] AccountTax
 
--- | Retrieves the tax settings of the account. This method can only be
--- called for accounts to which the managing account has access: either the
--- managing account itself or sub-accounts if the managing account is a
--- multi-client account.
+-- | Retrieves the tax settings of the account.
 --
 -- /See:/ 'accounttaxGet' smart constructor.
 data AccounttaxGet = AccounttaxGet'
     { _aggMerchantId :: !(Textual Word64)
-    , _aggAccountId  :: !(Textual Word64)
+    , _aggAccountId :: !(Textual Word64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccounttaxGet' with the minimum fields required to make a request.
@@ -75,13 +69,15 @@ accounttaxGet
     :: Word64 -- ^ 'aggMerchantId'
     -> Word64 -- ^ 'aggAccountId'
     -> AccounttaxGet
-accounttaxGet pAggMerchantId_ pAggAccountId_ =
+accounttaxGet pAggMerchantId_ pAggAccountId_ = 
     AccounttaxGet'
     { _aggMerchantId = _Coerce # pAggMerchantId_
     , _aggAccountId = _Coerce # pAggAccountId_
     }
 
--- | The ID of the managing account.
+-- | The ID of the managing account. If this parameter is not the same as
+-- accountId, then this account must be a multi-client account and
+-- accountId must be the ID of a sub-account of this account.
 aggMerchantId :: Lens' AccounttaxGet Word64
 aggMerchantId
   = lens _aggMerchantId

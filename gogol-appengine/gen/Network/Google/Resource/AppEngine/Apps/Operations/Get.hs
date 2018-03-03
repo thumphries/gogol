@@ -24,7 +24,7 @@
 -- method to poll the operation result at intervals as recommended by the
 -- API service.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.operations.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.operations.get@.
 module Network.Google.Resource.AppEngine.Apps.Operations.Get
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.AppEngine.Apps.Operations.Get
     , aogCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.operations.get@ method which the
 -- 'AppsOperationsGet' request conforms to.
@@ -57,7 +57,7 @@ type AppsOperationsGetResource =
          Capture "appsId" Text :>
            "operations" :>
              Capture "operationsId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -72,15 +72,15 @@ type AppsOperationsGetResource =
 --
 -- /See:/ 'appsOperationsGet' smart constructor.
 data AppsOperationsGet = AppsOperationsGet'
-    { _aogXgafv          :: !(Maybe Text)
+    { _aogXgafv :: !(Maybe Xgafv)
     , _aogUploadProtocol :: !(Maybe Text)
-    , _aogPp             :: !Bool
-    , _aogAccessToken    :: !(Maybe Text)
-    , _aogUploadType     :: !(Maybe Text)
-    , _aogBearerToken    :: !(Maybe Text)
-    , _aogAppsId         :: !Text
-    , _aogOperationsId   :: !Text
-    , _aogCallback       :: !(Maybe Text)
+    , _aogPp :: !Bool
+    , _aogAccessToken :: !(Maybe Text)
+    , _aogUploadType :: !(Maybe Text)
+    , _aogBearerToken :: !(Maybe Text)
+    , _aogAppsId :: !Text
+    , _aogOperationsId :: !Text
+    , _aogCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsOperationsGet' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ appsOperationsGet
     :: Text -- ^ 'aogAppsId'
     -> Text -- ^ 'aogOperationsId'
     -> AppsOperationsGet
-appsOperationsGet pAogAppsId_ pAogOperationsId_ =
+appsOperationsGet pAogAppsId_ pAogOperationsId_ = 
     AppsOperationsGet'
     { _aogXgafv = Nothing
     , _aogUploadProtocol = Nothing
@@ -122,7 +122,7 @@ appsOperationsGet pAogAppsId_ pAogOperationsId_ =
     }
 
 -- | V1 error format.
-aogXgafv :: Lens' AppsOperationsGet (Maybe Text)
+aogXgafv :: Lens' AppsOperationsGet (Maybe Xgafv)
 aogXgafv = lens _aogXgafv (\ s a -> s{_aogXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

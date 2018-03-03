@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Devices.List
     , dlUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.devices.list@ method which the
 -- 'DevicesList' request conforms to.
@@ -58,7 +58,7 @@ type DevicesListResource =
 -- /See:/ 'devicesList' smart constructor.
 data DevicesList = DevicesList'
     { _dlEnterpriseId :: !Text
-    , _dlUserId       :: !Text
+    , _dlUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DevicesList' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ devicesList
     :: Text -- ^ 'dlEnterpriseId'
     -> Text -- ^ 'dlUserId'
     -> DevicesList
-devicesList pDlEnterpriseId_ pDlUserId_ =
+devicesList pDlEnterpriseId_ pDlUserId_ = 
     DevicesList'
     { _dlEnterpriseId = pDlEnterpriseId_
     , _dlUserId = pDlUserId_

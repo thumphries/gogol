@@ -38,8 +38,8 @@ module Network.Google.Resource.Licensing.LicenseAssignments.Delete
     , ladProductId
     ) where
 
-import           Network.Google.AppsLicensing.Types
-import           Network.Google.Prelude
+import Network.Google.AppsLicensing.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @licensing.licenseAssignments.delete@ method which the
 -- 'LicenseAssignmentsDelete' request conforms to.
@@ -59,8 +59,8 @@ type LicenseAssignmentsDeleteResource =
 --
 -- /See:/ 'licenseAssignmentsDelete' smart constructor.
 data LicenseAssignmentsDelete = LicenseAssignmentsDelete'
-    { _ladSKUId     :: !Text
-    , _ladUserId    :: !Text
+    { _ladSKUId :: !Text
+    , _ladUserId :: !Text
     , _ladProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ licenseAssignmentsDelete
     -> Text -- ^ 'ladUserId'
     -> Text -- ^ 'ladProductId'
     -> LicenseAssignmentsDelete
-licenseAssignmentsDelete pLadSKUId_ pLadUserId_ pLadProductId_ =
+licenseAssignmentsDelete pLadSKUId_ pLadUserId_ pLadProductId_ = 
     LicenseAssignmentsDelete'
     { _ladSKUId = pLadSKUId_
     , _ladUserId = pLadUserId_

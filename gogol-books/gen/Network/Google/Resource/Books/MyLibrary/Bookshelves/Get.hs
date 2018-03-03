@@ -38,8 +38,8 @@ module Network.Google.Resource.Books.MyLibrary.Bookshelves.Get
     , mlbgSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.bookshelves.get@ method which the
 -- 'MyLibraryBookshelvesGet' request conforms to.
@@ -57,7 +57,7 @@ type MyLibraryBookshelvesGetResource =
 --
 -- /See:/ 'myLibraryBookshelvesGet' smart constructor.
 data MyLibraryBookshelvesGet = MyLibraryBookshelvesGet'
-    { _mlbgShelf  :: !Text
+    { _mlbgShelf :: !Text
     , _mlbgSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ data MyLibraryBookshelvesGet = MyLibraryBookshelvesGet'
 myLibraryBookshelvesGet
     :: Text -- ^ 'mlbgShelf'
     -> MyLibraryBookshelvesGet
-myLibraryBookshelvesGet pMlbgShelf_ =
+myLibraryBookshelvesGet pMlbgShelf_ = 
     MyLibraryBookshelvesGet'
     { _mlbgShelf = pMlbgShelf_
     , _mlbgSource = Nothing

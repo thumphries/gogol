@@ -38,8 +38,8 @@ module Network.Google.Resource.Directory.Notifications.Update
     , nuNotificationId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.notifications.update@ method which the
 -- 'NotificationsUpdate' request conforms to.
@@ -59,8 +59,8 @@ type NotificationsUpdateResource =
 --
 -- /See:/ 'notificationsUpdate' smart constructor.
 data NotificationsUpdate = NotificationsUpdate'
-    { _nuPayload        :: !Notification
-    , _nuCustomer       :: !Text
+    { _nuPayload :: !Notification
+    , _nuCustomer :: !Text
     , _nuNotificationId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ notificationsUpdate
     -> Text -- ^ 'nuCustomer'
     -> Text -- ^ 'nuNotificationId'
     -> NotificationsUpdate
-notificationsUpdate pNuPayload_ pNuCustomer_ pNuNotificationId_ =
+notificationsUpdate pNuPayload_ pNuCustomer_ pNuNotificationId_ = 
     NotificationsUpdate'
     { _nuPayload = pNuPayload_
     , _nuCustomer = pNuCustomer_
@@ -90,7 +90,7 @@ nuPayload :: Lens' NotificationsUpdate Notification
 nuPayload
   = lens _nuPayload (\ s a -> s{_nuPayload = a})
 
--- | The unique ID for the customer\'s Google account.
+-- | The unique ID for the customer\'s G Suite account.
 nuCustomer :: Lens' NotificationsUpdate Text
 nuCustomer
   = lens _nuCustomer (\ s a -> s{_nuCustomer = a})

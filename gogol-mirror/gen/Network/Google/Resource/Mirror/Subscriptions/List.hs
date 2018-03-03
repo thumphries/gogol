@@ -35,8 +35,8 @@ module Network.Google.Resource.Mirror.Subscriptions.List
 
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.subscriptions.list@ method which the
 -- 'SubscriptionsList' request conforms to.
@@ -52,7 +52,7 @@ type SubscriptionsListResource =
 --
 -- /See:/ 'subscriptionsList' smart constructor.
 data SubscriptionsList =
-    SubscriptionsList'
+    SubscriptionsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubscriptionsList' with the minimum fields required to make a request.

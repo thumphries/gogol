@@ -49,15 +49,15 @@ module Network.Google.Resource.Partners.UserStates.List
     , uslCallback
     ) where
 
-import           Network.Google.Partners.Types
-import           Network.Google.Prelude
+import Network.Google.Partners.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @partners.userStates.list@ method which the
 -- 'UserStatesList' request conforms to.
 type UserStatesListResource =
      "v2" :>
        "userStates" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -89,20 +89,20 @@ type UserStatesListResource =
 --
 -- /See:/ 'userStatesList' smart constructor.
 data UserStatesList = UserStatesList'
-    { _uslXgafv                                       :: !(Maybe Text)
-    , _uslUploadProtocol                              :: !(Maybe Text)
-    , _uslPp                                          :: !Bool
-    , _uslAccessToken                                 :: !(Maybe Text)
-    , _uslUploadType                                  :: !(Maybe Text)
-    , _uslRequestMetadataPartnersSessionId            :: !(Maybe Text)
-    , _uslBearerToken                                 :: !(Maybe Text)
-    , _uslRequestMetadataLocale                       :: !(Maybe Text)
-    , _uslRequestMetadataExperimentIds                :: !(Maybe [Text])
-    , _uslRequestMetadataUserOverridesIPAddress       :: !(Maybe Text)
-    , _uslRequestMetadataTrafficSourceTrafficSubId    :: !(Maybe Text)
-    , _uslRequestMetadataUserOverridesUserId          :: !(Maybe Text)
+    { _uslXgafv :: !(Maybe Xgafv)
+    , _uslUploadProtocol :: !(Maybe Text)
+    , _uslPp :: !Bool
+    , _uslAccessToken :: !(Maybe Text)
+    , _uslUploadType :: !(Maybe Text)
+    , _uslRequestMetadataPartnersSessionId :: !(Maybe Text)
+    , _uslBearerToken :: !(Maybe Text)
+    , _uslRequestMetadataLocale :: !(Maybe Text)
+    , _uslRequestMetadataExperimentIds :: !(Maybe [Text])
+    , _uslRequestMetadataUserOverridesIPAddress :: !(Maybe Text)
+    , _uslRequestMetadataTrafficSourceTrafficSubId :: !(Maybe Text)
+    , _uslRequestMetadataUserOverridesUserId :: !(Maybe Text)
     , _uslRequestMetadataTrafficSourceTrafficSourceId :: !(Maybe Text)
-    , _uslCallback                                    :: !(Maybe Text)
+    , _uslCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserStatesList' with the minimum fields required to make a request.
@@ -138,7 +138,7 @@ data UserStatesList = UserStatesList'
 -- * 'uslCallback'
 userStatesList
     :: UserStatesList
-userStatesList =
+userStatesList = 
     UserStatesList'
     { _uslXgafv = Nothing
     , _uslUploadProtocol = Nothing
@@ -157,7 +157,7 @@ userStatesList =
     }
 
 -- | V1 error format.
-uslXgafv :: Lens' UserStatesList (Maybe Text)
+uslXgafv :: Lens' UserStatesList (Maybe Xgafv)
 uslXgafv = lens _uslXgafv (\ s a -> s{_uslXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

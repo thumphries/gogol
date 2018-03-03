@@ -40,8 +40,8 @@ module Network.Google.Resource.YouTube.Channels.Update
     , chaOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.channels.update@ method which the
 -- 'ChannelsUpdate' request conforms to.
@@ -60,8 +60,8 @@ type ChannelsUpdateResource =
 --
 -- /See:/ 'channelsUpdate' smart constructor.
 data ChannelsUpdate = ChannelsUpdate'
-    { _chaPart                   :: !Text
-    , _chaPayload                :: !Channel
+    { _chaPart :: !Text
+    , _chaPayload :: !Channel
     , _chaOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ channelsUpdate
     :: Text -- ^ 'chaPart'
     -> Channel -- ^ 'chaPayload'
     -> ChannelsUpdate
-channelsUpdate pChaPart_ pChaPayload_ =
+channelsUpdate pChaPart_ pChaPayload_ = 
     ChannelsUpdate'
     { _chaPart = pChaPart_
     , _chaPayload = pChaPayload_

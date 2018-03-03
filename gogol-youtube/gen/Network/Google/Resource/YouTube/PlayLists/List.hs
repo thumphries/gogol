@@ -46,8 +46,8 @@ module Network.Google.Resource.YouTube.PlayLists.List
     , pllMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.playlists.list@ method which the
 -- 'PlayListsList' request conforms to.
@@ -73,15 +73,15 @@ type PlayListsListResource =
 --
 -- /See:/ 'playListsList' smart constructor.
 data PlayListsList = PlayListsList'
-    { _pllPart                          :: !Text
-    , _pllMine                          :: !(Maybe Bool)
-    , _pllChannelId                     :: !(Maybe Text)
-    , _pllHl                            :: !(Maybe Text)
-    , _pllOnBehalfOfContentOwner        :: !(Maybe Text)
+    { _pllPart :: !Text
+    , _pllMine :: !(Maybe Bool)
+    , _pllChannelId :: !(Maybe Text)
+    , _pllHl :: !(Maybe Text)
+    , _pllOnBehalfOfContentOwner :: !(Maybe Text)
     , _pllOnBehalfOfContentOwnerChannel :: !(Maybe Text)
-    , _pllId                            :: !(Maybe Text)
-    , _pllPageToken                     :: !(Maybe Text)
-    , _pllMaxResults                    :: !(Textual Word32)
+    , _pllId :: !(Maybe Text)
+    , _pllPageToken :: !(Maybe Text)
+    , _pllMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayListsList' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ data PlayListsList = PlayListsList'
 playListsList
     :: Text -- ^ 'pllPart'
     -> PlayListsList
-playListsList pPllPart_ =
+playListsList pPllPart_ = 
     PlayListsList'
     { _pllPart = pPllPart_
     , _pllMine = Nothing

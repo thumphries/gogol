@@ -37,8 +37,8 @@ module Network.Google.Resource.DoubleClickBidManager.Queries.RunQuery
     , qrqPayload
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.queries.runquery@ method which the
 -- 'QueriesRunQuery' request conforms to.
@@ -69,7 +69,7 @@ queriesRunQuery
     :: Int64 -- ^ 'qrqQueryId'
     -> RunQueryRequest -- ^ 'qrqPayload'
     -> QueriesRunQuery
-queriesRunQuery pQrqQueryId_ pQrqPayload_ =
+queriesRunQuery pQrqQueryId_ pQrqPayload_ = 
     QueriesRunQuery'
     { _qrqQueryId = _Coerce # pQrqQueryId_
     , _qrqPayload = pQrqPayload_
@@ -88,7 +88,8 @@ qrqPayload
 
 instance GoogleRequest QueriesRunQuery where
         type Rs QueriesRunQuery = ()
-        type Scopes QueriesRunQuery = '[]
+        type Scopes QueriesRunQuery =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient QueriesRunQuery'{..}
           = go _qrqQueryId (Just AltJSON) _qrqPayload
               doubleClickBidsService

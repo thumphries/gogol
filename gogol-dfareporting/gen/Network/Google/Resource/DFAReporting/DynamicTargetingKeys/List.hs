@@ -40,14 +40,14 @@ module Network.Google.Resource.DFAReporting.DynamicTargetingKeys.List
     , dtklNames
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.dynamicTargetingKeys.list@ method which the
 -- 'DynamicTargetingKeysList' request conforms to.
 type DynamicTargetingKeysListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "dynamicTargetingKeys" :>
@@ -64,11 +64,11 @@ type DynamicTargetingKeysListResource =
 --
 -- /See:/ 'dynamicTargetingKeysList' smart constructor.
 data DynamicTargetingKeysList = DynamicTargetingKeysList'
-    { _dtklObjectType   :: !(Maybe DynamicTargetingKeysListObjectType)
+    { _dtklObjectType :: !(Maybe DynamicTargetingKeysListObjectType)
     , _dtklAdvertiserId :: !(Maybe (Textual Int64))
-    , _dtklObjectId     :: !(Maybe (Textual Int64))
-    , _dtklProFileId    :: !(Textual Int64)
-    , _dtklNames        :: !(Maybe [Text])
+    , _dtklObjectId :: !(Maybe (Textual Int64))
+    , _dtklProFileId :: !(Textual Int64)
+    , _dtklNames :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DynamicTargetingKeysList' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ data DynamicTargetingKeysList = DynamicTargetingKeysList'
 dynamicTargetingKeysList
     :: Int64 -- ^ 'dtklProFileId'
     -> DynamicTargetingKeysList
-dynamicTargetingKeysList pDtklProFileId_ =
+dynamicTargetingKeysList pDtklProFileId_ = 
     DynamicTargetingKeysList'
     { _dtklObjectType = Nothing
     , _dtklAdvertiserId = Nothing

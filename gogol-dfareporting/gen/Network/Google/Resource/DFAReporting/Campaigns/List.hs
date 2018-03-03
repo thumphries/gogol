@@ -50,14 +50,14 @@ module Network.Google.Resource.DFAReporting.Campaigns.List
     , clMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.campaigns.list@ method which the
 -- 'CampaignsList' request conforms to.
 type CampaignsListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "campaigns" :>
@@ -84,20 +84,20 @@ type CampaignsListResource =
 --
 -- /See:/ 'campaignsList' smart constructor.
 data CampaignsList = CampaignsList'
-    { _clExcludedIds                    :: !(Maybe [Textual Int64])
-    , _clSearchString                   :: !(Maybe Text)
-    , _clIds                            :: !(Maybe [Textual Int64])
-    , _clProFileId                      :: !(Textual Int64)
-    , _clSortOrder                      :: !(Maybe CampaignsListSortOrder)
-    , _clAdvertiserGroupIds             :: !(Maybe [Textual Int64])
+    { _clExcludedIds :: !(Maybe [Textual Int64])
+    , _clSearchString :: !(Maybe Text)
+    , _clIds :: !(Maybe [Textual Int64])
+    , _clProFileId :: !(Textual Int64)
+    , _clSortOrder :: !CampaignsListSortOrder
+    , _clAdvertiserGroupIds :: !(Maybe [Textual Int64])
     , _clAtLeastOneOptimizationActivity :: !(Maybe Bool)
-    , _clOverriddenEventTagId           :: !(Maybe (Textual Int64))
-    , _clPageToken                      :: !(Maybe Text)
-    , _clSortField                      :: !(Maybe CampaignsListSortField)
-    , _clSubAccountId                   :: !(Maybe (Textual Int64))
-    , _clAdvertiserIds                  :: !(Maybe [Textual Int64])
-    , _clArchived                       :: !(Maybe Bool)
-    , _clMaxResults                     :: !(Maybe (Textual Int32))
+    , _clOverriddenEventTagId :: !(Maybe (Textual Int64))
+    , _clPageToken :: !(Maybe Text)
+    , _clSortField :: !CampaignsListSortField
+    , _clSubAccountId :: !(Maybe (Textual Int64))
+    , _clAdvertiserIds :: !(Maybe [Textual Int64])
+    , _clArchived :: !(Maybe Bool)
+    , _clMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CampaignsList' with the minimum fields required to make a request.
@@ -134,22 +134,22 @@ data CampaignsList = CampaignsList'
 campaignsList
     :: Int64 -- ^ 'clProFileId'
     -> CampaignsList
-campaignsList pClProFileId_ =
+campaignsList pClProFileId_ = 
     CampaignsList'
     { _clExcludedIds = Nothing
     , _clSearchString = Nothing
     , _clIds = Nothing
     , _clProFileId = _Coerce # pClProFileId_
-    , _clSortOrder = Nothing
+    , _clSortOrder = CLSOAscending
     , _clAdvertiserGroupIds = Nothing
     , _clAtLeastOneOptimizationActivity = Nothing
     , _clOverriddenEventTagId = Nothing
     , _clPageToken = Nothing
-    , _clSortField = Nothing
+    , _clSortField = CLSFID
     , _clSubAccountId = Nothing
     , _clAdvertiserIds = Nothing
     , _clArchived = Nothing
-    , _clMaxResults = Nothing
+    , _clMaxResults = 1000
     }
 
 -- | Exclude campaigns with these IDs.
@@ -184,8 +184,8 @@ clProFileId
   = lens _clProFileId (\ s a -> s{_clProFileId = a}) .
       _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-clSortOrder :: Lens' CampaignsList (Maybe CampaignsListSortOrder)
+-- | Order of sorted results.
+clSortOrder :: Lens' CampaignsList CampaignsListSortOrder
 clSortOrder
   = lens _clSortOrder (\ s a -> s{_clSortOrder = a})
 
@@ -217,7 +217,7 @@ clPageToken
   = lens _clPageToken (\ s a -> s{_clPageToken = a})
 
 -- | Field by which to sort the list.
-clSortField :: Lens' CampaignsList (Maybe CampaignsListSortField)
+clSortField :: Lens' CampaignsList CampaignsListSortField
 clSortField
   = lens _clSortField (\ s a -> s{_clSortField = a})
 
@@ -243,10 +243,10 @@ clArchived
   = lens _clArchived (\ s a -> s{_clArchived = a})
 
 -- | Maximum number of results to return.
-clMaxResults :: Lens' CampaignsList (Maybe Int32)
+clMaxResults :: Lens' CampaignsList Int32
 clMaxResults
   = lens _clMaxResults (\ s a -> s{_clMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest CampaignsList where
         type Rs CampaignsList = CampaignsListResponse
@@ -256,16 +256,16 @@ instance GoogleRequest CampaignsList where
           = go _clProFileId (_clExcludedIds ^. _Default)
               _clSearchString
               (_clIds ^. _Default)
-              _clSortOrder
+              (Just _clSortOrder)
               (_clAdvertiserGroupIds ^. _Default)
               _clAtLeastOneOptimizationActivity
               _clOverriddenEventTagId
               _clPageToken
-              _clSortField
+              (Just _clSortField)
               _clSubAccountId
               (_clAdvertiserIds ^. _Default)
               _clArchived
-              _clMaxResults
+              (Just _clMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

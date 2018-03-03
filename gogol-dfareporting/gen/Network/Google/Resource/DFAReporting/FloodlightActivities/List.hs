@@ -50,14 +50,14 @@ module Network.Google.Resource.DFAReporting.FloodlightActivities.List
     , falMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.floodlightActivities.list@ method which the
 -- 'FloodlightActivitiesList' request conforms to.
 type FloodlightActivitiesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "floodlightActivities" :>
@@ -95,20 +95,20 @@ type FloodlightActivitiesListResource =
 --
 -- /See:/ 'floodlightActivitiesList' smart constructor.
 data FloodlightActivitiesList = FloodlightActivitiesList'
-    { _falTagString                        :: !(Maybe Text)
+    { _falTagString :: !(Maybe Text)
     , _falFloodlightActivityGroupTagString :: !(Maybe Text)
-    , _falFloodlightConfigurationId        :: !(Maybe (Textual Int64))
-    , _falAdvertiserId                     :: !(Maybe (Textual Int64))
-    , _falSearchString                     :: !(Maybe Text)
-    , _falIds                              :: !(Maybe [Textual Int64])
-    , _falProFileId                        :: !(Textual Int64)
-    , _falFloodlightActivityGroupIds       :: !(Maybe [Textual Int64])
-    , _falSortOrder                        :: !(Maybe FloodlightActivitiesListSortOrder)
-    , _falFloodlightActivityGroupType      :: !(Maybe FloodlightActivitiesListFloodlightActivityGroupType)
-    , _falFloodlightActivityGroupName      :: !(Maybe Text)
-    , _falPageToken                        :: !(Maybe Text)
-    , _falSortField                        :: !(Maybe FloodlightActivitiesListSortField)
-    , _falMaxResults                       :: !(Maybe (Textual Int32))
+    , _falFloodlightConfigurationId :: !(Maybe (Textual Int64))
+    , _falAdvertiserId :: !(Maybe (Textual Int64))
+    , _falSearchString :: !(Maybe Text)
+    , _falIds :: !(Maybe [Textual Int64])
+    , _falProFileId :: !(Textual Int64)
+    , _falFloodlightActivityGroupIds :: !(Maybe [Textual Int64])
+    , _falSortOrder :: !FloodlightActivitiesListSortOrder
+    , _falFloodlightActivityGroupType :: !(Maybe FloodlightActivitiesListFloodlightActivityGroupType)
+    , _falFloodlightActivityGroupName :: !(Maybe Text)
+    , _falPageToken :: !(Maybe Text)
+    , _falSortField :: !FloodlightActivitiesListSortField
+    , _falMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FloodlightActivitiesList' with the minimum fields required to make a request.
@@ -145,7 +145,7 @@ data FloodlightActivitiesList = FloodlightActivitiesList'
 floodlightActivitiesList
     :: Int64 -- ^ 'falProFileId'
     -> FloodlightActivitiesList
-floodlightActivitiesList pFalProFileId_ =
+floodlightActivitiesList pFalProFileId_ = 
     FloodlightActivitiesList'
     { _falTagString = Nothing
     , _falFloodlightActivityGroupTagString = Nothing
@@ -155,12 +155,12 @@ floodlightActivitiesList pFalProFileId_ =
     , _falIds = Nothing
     , _falProFileId = _Coerce # pFalProFileId_
     , _falFloodlightActivityGroupIds = Nothing
-    , _falSortOrder = Nothing
+    , _falSortOrder = FALSOAscending
     , _falFloodlightActivityGroupType = Nothing
     , _falFloodlightActivityGroupName = Nothing
     , _falPageToken = Nothing
-    , _falSortField = Nothing
-    , _falMaxResults = Nothing
+    , _falSortField = FALSFID
+    , _falMaxResults = 1000
     }
 
 -- | Select only floodlight activities with the specified tag string.
@@ -230,8 +230,8 @@ falFloodlightActivityGroupIds
       . _Default
       . _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-falSortOrder :: Lens' FloodlightActivitiesList (Maybe FloodlightActivitiesListSortOrder)
+-- | Order of sorted results.
+falSortOrder :: Lens' FloodlightActivitiesList FloodlightActivitiesListSortOrder
 falSortOrder
   = lens _falSortOrder (\ s a -> s{_falSortOrder = a})
 
@@ -255,16 +255,16 @@ falPageToken
   = lens _falPageToken (\ s a -> s{_falPageToken = a})
 
 -- | Field by which to sort the list.
-falSortField :: Lens' FloodlightActivitiesList (Maybe FloodlightActivitiesListSortField)
+falSortField :: Lens' FloodlightActivitiesList FloodlightActivitiesListSortField
 falSortField
   = lens _falSortField (\ s a -> s{_falSortField = a})
 
 -- | Maximum number of results to return.
-falMaxResults :: Lens' FloodlightActivitiesList (Maybe Int32)
+falMaxResults :: Lens' FloodlightActivitiesList Int32
 falMaxResults
   = lens _falMaxResults
       (\ s a -> s{_falMaxResults = a})
-      . mapping _Coerce
+      . _Coerce
 
 instance GoogleRequest FloodlightActivitiesList where
         type Rs FloodlightActivitiesList =
@@ -279,12 +279,12 @@ instance GoogleRequest FloodlightActivitiesList where
               _falSearchString
               (_falIds ^. _Default)
               (_falFloodlightActivityGroupIds ^. _Default)
-              _falSortOrder
+              (Just _falSortOrder)
               _falFloodlightActivityGroupType
               _falFloodlightActivityGroupName
               _falPageToken
-              _falSortField
-              _falMaxResults
+              (Just _falSortField)
+              (Just _falMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

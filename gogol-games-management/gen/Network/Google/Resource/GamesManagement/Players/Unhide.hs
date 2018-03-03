@@ -39,8 +39,8 @@ module Network.Google.Resource.GamesManagement.Players.Unhide
     , puPlayerId
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.players.unhide@ method which the
 -- 'PlayersUnhide' request conforms to.
@@ -61,7 +61,7 @@ type PlayersUnhideResource =
 -- /See:/ 'playersUnhide' smart constructor.
 data PlayersUnhide = PlayersUnhide'
     { _puApplicationId :: !Text
-    , _puPlayerId      :: !Text
+    , _puPlayerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayersUnhide' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ playersUnhide
     :: Text -- ^ 'puApplicationId'
     -> Text -- ^ 'puPlayerId'
     -> PlayersUnhide
-playersUnhide pPuApplicationId_ pPuPlayerId_ =
+playersUnhide pPuApplicationId_ pPuPlayerId_ = 
     PlayersUnhide'
     { _puApplicationId = pPuApplicationId_
     , _puPlayerId = pPuPlayerId_

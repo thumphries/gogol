@@ -38,8 +38,8 @@ module Network.Google.Resource.Spectrum.Paws.VerifyDevice
     , pvdPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Spectrum.Types
+import Network.Google.Prelude
+import Network.Google.Spectrum.Types
 
 -- | A resource alias for @spectrum.paws.verifyDevice@ method which the
 -- 'PawsVerifyDevice' request conforms to.
@@ -69,7 +69,7 @@ newtype PawsVerifyDevice = PawsVerifyDevice'
 pawsVerifyDevice
     :: PawsVerifyDeviceRequest -- ^ 'pvdPayload'
     -> PawsVerifyDevice
-pawsVerifyDevice pPvdPayload_ =
+pawsVerifyDevice pPvdPayload_ = 
     PawsVerifyDevice'
     { _pvdPayload = pPvdPayload_
     }

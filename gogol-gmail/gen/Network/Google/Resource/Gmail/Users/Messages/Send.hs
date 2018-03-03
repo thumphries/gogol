@@ -38,8 +38,8 @@ module Network.Google.Resource.Gmail.Users.Messages.Send
     , umsUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.messages.send@ method which the
 -- 'UsersMessagesSend' request conforms to.
@@ -71,7 +71,7 @@ type UsersMessagesSendResource =
 -- /See:/ 'usersMessagesSend' smart constructor.
 data UsersMessagesSend = UsersMessagesSend'
     { _umsPayload :: !Message
-    , _umsUserId  :: !Text
+    , _umsUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersMessagesSend' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ data UsersMessagesSend = UsersMessagesSend'
 usersMessagesSend
     :: Message -- ^ 'umsPayload'
     -> UsersMessagesSend
-usersMessagesSend pUmsPayload_ =
+usersMessagesSend pUmsPayload_ = 
     UsersMessagesSend'
     { _umsPayload = pUmsPayload_
     , _umsUserId = "me"

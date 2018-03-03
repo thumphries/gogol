@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.UserRoles.Insert
     , uriPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.userRoles.insert@ method which the
 -- 'UserRolesInsert' request conforms to.
 type UserRolesInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "userRoles" :>
@@ -56,7 +56,7 @@ type UserRolesInsertResource =
 -- /See:/ 'userRolesInsert' smart constructor.
 data UserRolesInsert = UserRolesInsert'
     { _uriProFileId :: !(Textual Int64)
-    , _uriPayload   :: !UserRole
+    , _uriPayload :: !UserRole
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserRolesInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ userRolesInsert
     :: Int64 -- ^ 'uriProFileId'
     -> UserRole -- ^ 'uriPayload'
     -> UserRolesInsert
-userRolesInsert pUriProFileId_ pUriPayload_ =
+userRolesInsert pUriProFileId_ pUriPayload_ = 
     UserRolesInsert'
     { _uriProFileId = _Coerce # pUriProFileId_
     , _uriPayload = pUriPayload_

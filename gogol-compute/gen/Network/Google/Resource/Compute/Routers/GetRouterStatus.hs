@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Routers.GetRouterStatus
     , rgrsRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.routers.getRouterStatus@ method which the
 -- 'RoutersGetRouterStatus' request conforms to.
@@ -61,8 +61,8 @@ type RoutersGetRouterStatusResource =
 -- /See:/ 'routersGetRouterStatus' smart constructor.
 data RoutersGetRouterStatus = RoutersGetRouterStatus'
     { _rgrsProject :: !Text
-    , _rgrsRouter  :: !Text
-    , _rgrsRegion  :: !Text
+    , _rgrsRouter :: !Text
+    , _rgrsRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoutersGetRouterStatus' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ routersGetRouterStatus
     -> Text -- ^ 'rgrsRouter'
     -> Text -- ^ 'rgrsRegion'
     -> RoutersGetRouterStatus
-routersGetRouterStatus pRgrsProject_ pRgrsRouter_ pRgrsRegion_ =
+routersGetRouterStatus pRgrsProject_ pRgrsRouter_ pRgrsRegion_ = 
     RoutersGetRouterStatus'
     { _rgrsProject = pRgrsProject_
     , _rgrsRouter = pRgrsRouter_

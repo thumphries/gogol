@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidEnterprise.Enterprises.Enroll
     , eePayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.enterprises.enroll@ method which the
 -- 'EnterprisesEnroll' request conforms to.
@@ -55,7 +55,7 @@ type EnterprisesEnrollResource =
 --
 -- /See:/ 'enterprisesEnroll' smart constructor.
 data EnterprisesEnroll = EnterprisesEnroll'
-    { _eeToken   :: !Text
+    { _eeToken :: !Text
     , _eePayload :: !Enterprise
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ enterprisesEnroll
     :: Text -- ^ 'eeToken'
     -> Enterprise -- ^ 'eePayload'
     -> EnterprisesEnroll
-enterprisesEnroll pEeToken_ pEePayload_ =
+enterprisesEnroll pEeToken_ pEePayload_ = 
     EnterprisesEnroll'
     { _eeToken = pEeToken_
     , _eePayload = pEePayload_

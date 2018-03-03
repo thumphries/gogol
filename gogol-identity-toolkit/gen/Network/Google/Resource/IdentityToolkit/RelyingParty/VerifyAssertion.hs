@@ -36,8 +36,8 @@ module Network.Google.Resource.IdentityToolkit.RelyingParty.VerifyAssertion
     , rpvaPayload
     ) where
 
-import           Network.Google.IdentityToolkit.Types
-import           Network.Google.Prelude
+import Network.Google.IdentityToolkit.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @identitytoolkit.relyingparty.verifyAssertion@ method which the
 -- 'RelyingPartyVerifyAssertion' request conforms to.
@@ -66,7 +66,7 @@ newtype RelyingPartyVerifyAssertion = RelyingPartyVerifyAssertion'
 relyingPartyVerifyAssertion
     :: IdentitytoolkitRelyingPartyVerifyAssertionRequest -- ^ 'rpvaPayload'
     -> RelyingPartyVerifyAssertion
-relyingPartyVerifyAssertion pRpvaPayload_ =
+relyingPartyVerifyAssertion pRpvaPayload_ = 
     RelyingPartyVerifyAssertion'
     { _rpvaPayload = pRpvaPayload_
     }

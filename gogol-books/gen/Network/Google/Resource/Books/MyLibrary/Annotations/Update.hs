@@ -38,8 +38,8 @@ module Network.Google.Resource.Books.MyLibrary.Annotations.Update
     , mlauSource
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.annotations.update@ method which the
 -- 'MyLibraryAnnotationsUpdate' request conforms to.
@@ -57,9 +57,9 @@ type MyLibraryAnnotationsUpdateResource =
 --
 -- /See:/ 'myLibraryAnnotationsUpdate' smart constructor.
 data MyLibraryAnnotationsUpdate = MyLibraryAnnotationsUpdate'
-    { _mlauPayload      :: !Annotation
+    { _mlauPayload :: !Annotation
     , _mlauAnnotationId :: !Text
-    , _mlauSource       :: !(Maybe Text)
+    , _mlauSource :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MyLibraryAnnotationsUpdate' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ myLibraryAnnotationsUpdate
     :: Annotation -- ^ 'mlauPayload'
     -> Text -- ^ 'mlauAnnotationId'
     -> MyLibraryAnnotationsUpdate
-myLibraryAnnotationsUpdate pMlauPayload_ pMlauAnnotationId_ =
+myLibraryAnnotationsUpdate pMlauPayload_ pMlauAnnotationId_ = 
     MyLibraryAnnotationsUpdate'
     { _mlauPayload = pMlauPayload_
     , _mlauAnnotationId = pMlauAnnotationId_

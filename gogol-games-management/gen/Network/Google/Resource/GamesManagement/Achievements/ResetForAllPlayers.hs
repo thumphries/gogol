@@ -38,8 +38,8 @@ module Network.Google.Resource.GamesManagement.Achievements.ResetForAllPlayers
     , arfapAchievementId
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.achievements.resetForAllPlayers@ method which the
 -- 'AchievementsResetForAllPlayers' request conforms to.
@@ -68,7 +68,7 @@ newtype AchievementsResetForAllPlayers = AchievementsResetForAllPlayers'
 achievementsResetForAllPlayers
     :: Text -- ^ 'arfapAchievementId'
     -> AchievementsResetForAllPlayers
-achievementsResetForAllPlayers pArfapAchievementId_ =
+achievementsResetForAllPlayers pArfapAchievementId_ = 
     AchievementsResetForAllPlayers'
     { _arfapAchievementId = pArfapAchievementId_
     }

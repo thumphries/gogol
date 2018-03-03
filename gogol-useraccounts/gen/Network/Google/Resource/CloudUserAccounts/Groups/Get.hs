@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.Groups.Get
     , ggGroupName
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.groups.get@ method which the
 -- 'GroupsGet' request conforms to.
@@ -56,7 +56,7 @@ type GroupsGetResource =
 --
 -- /See:/ 'groupsGet' smart constructor.
 data GroupsGet = GroupsGet'
-    { _ggProject   :: !Text
+    { _ggProject :: !Text
     , _ggGroupName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ groupsGet
     :: Text -- ^ 'ggProject'
     -> Text -- ^ 'ggGroupName'
     -> GroupsGet
-groupsGet pGgProject_ pGgGroupName_ =
+groupsGet pGgProject_ pGgGroupName_ = 
     GroupsGet'
     { _ggProject = pGgProject_
     , _ggGroupName = pGgGroupName_

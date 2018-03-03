@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.PlayLists.Delete
     , pldId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.playlists.delete@ method which the
 -- 'PlayListsDelete' request conforms to.
@@ -55,7 +55,7 @@ type PlayListsDeleteResource =
 -- /See:/ 'playListsDelete' smart constructor.
 data PlayListsDelete = PlayListsDelete'
     { _pldOnBehalfOfContentOwner :: !(Maybe Text)
-    , _pldId                     :: !Text
+    , _pldId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayListsDelete' with the minimum fields required to make a request.
@@ -68,7 +68,7 @@ data PlayListsDelete = PlayListsDelete'
 playListsDelete
     :: Text -- ^ 'pldId'
     -> PlayListsDelete
-playListsDelete pPldId_ =
+playListsDelete pPldId_ = 
     PlayListsDelete'
     { _pldOnBehalfOfContentOwner = Nothing
     , _pldId = pPldId_

@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.MakeAdmin
     , umaUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.makeAdmin@ method which the
 -- 'UsersMakeAdmin' request conforms to.
@@ -71,7 +71,7 @@ usersMakeAdmin
     :: UserMakeAdmin -- ^ 'umaPayload'
     -> Text -- ^ 'umaUserKey'
     -> UsersMakeAdmin
-usersMakeAdmin pUmaPayload_ pUmaUserKey_ =
+usersMakeAdmin pUmaPayload_ pUmaUserKey_ = 
     UsersMakeAdmin'
     { _umaPayload = pUmaPayload_
     , _umaUserKey = pUmaUserKey_
@@ -82,7 +82,7 @@ umaPayload :: Lens' UsersMakeAdmin UserMakeAdmin
 umaPayload
   = lens _umaPayload (\ s a -> s{_umaPayload = a})
 
--- | Email or immutable Id of the user as admin
+-- | Email or immutable ID of the user as admin
 umaUserKey :: Lens' UsersMakeAdmin Text
 umaUserKey
   = lens _umaUserKey (\ s a -> s{_umaUserKey = a})

@@ -34,12 +34,11 @@ module Network.Google.Resource.Games.Rooms.Dismiss
     , RoomsDismiss
 
     -- * Request Lenses
-    , rdConsistencyToken
     , rdRoomId
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.rooms.dismiss@ method which the
 -- 'RoomsDismiss' request conforms to.
@@ -49,40 +48,28 @@ type RoomsDismissResource =
          "rooms" :>
            Capture "roomId" Text :>
              "dismiss" :>
-               QueryParam "consistencyToken" (Textual Int64) :>
-                 QueryParam "alt" AltJSON :> Post '[JSON] ()
+               QueryParam "alt" AltJSON :> Post '[JSON] ()
 
 -- | Dismiss an invitation to join a room. For internal use by the Games SDK
 -- only. Calling this method directly is unsupported.
 --
 -- /See:/ 'roomsDismiss' smart constructor.
-data RoomsDismiss = RoomsDismiss'
-    { _rdConsistencyToken :: !(Maybe (Textual Int64))
-    , _rdRoomId           :: !Text
+newtype RoomsDismiss = RoomsDismiss'
+    { _rdRoomId :: Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoomsDismiss' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdConsistencyToken'
---
 -- * 'rdRoomId'
 roomsDismiss
     :: Text -- ^ 'rdRoomId'
     -> RoomsDismiss
-roomsDismiss pRdRoomId_ =
+roomsDismiss pRdRoomId_ = 
     RoomsDismiss'
-    { _rdConsistencyToken = Nothing
-    , _rdRoomId = pRdRoomId_
+    { _rdRoomId = pRdRoomId_
     }
-
--- | The last-seen mutation timestamp.
-rdConsistencyToken :: Lens' RoomsDismiss (Maybe Int64)
-rdConsistencyToken
-  = lens _rdConsistencyToken
-      (\ s a -> s{_rdConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The ID of the room.
 rdRoomId :: Lens' RoomsDismiss Text
@@ -94,8 +81,7 @@ instance GoogleRequest RoomsDismiss where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient RoomsDismiss'{..}
-          = go _rdRoomId _rdConsistencyToken (Just AltJSON)
-              gamesService
+          = go _rdRoomId (Just AltJSON) gamesService
           where go
                   = buildClient (Proxy :: Proxy RoomsDismissResource)
                       mempty

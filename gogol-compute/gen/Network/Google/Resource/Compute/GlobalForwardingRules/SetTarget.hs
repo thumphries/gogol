@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes target URL for forwarding rule. The new target should be of the
--- same type as the old target.
+-- Changes target URL for the GlobalForwardingRule resource. The new target
+-- should be of the same type as the old target.
 --
 -- /See:/ <https://developers.google.com/compute/docs/reference/latest/ Compute Engine API Reference> for @compute.globalForwardingRules.setTarget@.
 module Network.Google.Resource.Compute.GlobalForwardingRules.SetTarget
@@ -34,13 +34,14 @@ module Network.Google.Resource.Compute.GlobalForwardingRules.SetTarget
     , GlobalForwardingRulesSetTarget
 
     -- * Request Lenses
+    , gfrstRequestId
     , gfrstProject
     , gfrstForwardingRule
     , gfrstPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.globalForwardingRules.setTarget@ method which the
 -- 'GlobalForwardingRulesSetTarget' request conforms to.
@@ -53,23 +54,27 @@ type GlobalForwardingRulesSetTargetResource =
                "forwardingRules" :>
                  Capture "forwardingRule" Text :>
                    "setTarget" :>
-                     QueryParam "alt" AltJSON :>
-                       ReqBody '[JSON] TargetReference :>
-                         Post '[JSON] Operation
+                     QueryParam "requestId" Text :>
+                       QueryParam "alt" AltJSON :>
+                         ReqBody '[JSON] TargetReference :>
+                           Post '[JSON] Operation
 
--- | Changes target URL for forwarding rule. The new target should be of the
--- same type as the old target.
+-- | Changes target URL for the GlobalForwardingRule resource. The new target
+-- should be of the same type as the old target.
 --
 -- /See:/ 'globalForwardingRulesSetTarget' smart constructor.
 data GlobalForwardingRulesSetTarget = GlobalForwardingRulesSetTarget'
-    { _gfrstProject        :: !Text
+    { _gfrstRequestId :: !(Maybe Text)
+    , _gfrstProject :: !Text
     , _gfrstForwardingRule :: !Text
-    , _gfrstPayload        :: !TargetReference
+    , _gfrstPayload :: !TargetReference
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GlobalForwardingRulesSetTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfrstRequestId'
 --
 -- * 'gfrstProject'
 --
@@ -81,12 +86,28 @@ globalForwardingRulesSetTarget
     -> Text -- ^ 'gfrstForwardingRule'
     -> TargetReference -- ^ 'gfrstPayload'
     -> GlobalForwardingRulesSetTarget
-globalForwardingRulesSetTarget pGfrstProject_ pGfrstForwardingRule_ pGfrstPayload_ =
+globalForwardingRulesSetTarget pGfrstProject_ pGfrstForwardingRule_ pGfrstPayload_ = 
     GlobalForwardingRulesSetTarget'
-    { _gfrstProject = pGfrstProject_
+    { _gfrstRequestId = Nothing
+    , _gfrstProject = pGfrstProject_
     , _gfrstForwardingRule = pGfrstForwardingRule_
     , _gfrstPayload = pGfrstPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+gfrstRequestId :: Lens' GlobalForwardingRulesSetTarget (Maybe Text)
+gfrstRequestId
+  = lens _gfrstRequestId
+      (\ s a -> s{_gfrstRequestId = a})
 
 -- | Project ID for this request.
 gfrstProject :: Lens' GlobalForwardingRulesSetTarget Text
@@ -112,6 +133,7 @@ instance GoogleRequest GlobalForwardingRulesSetTarget
                "https://www.googleapis.com/auth/compute"]
         requestClient GlobalForwardingRulesSetTarget'{..}
           = go _gfrstProject _gfrstForwardingRule
+              _gfrstRequestId
               (Just AltJSON)
               _gfrstPayload
               computeService

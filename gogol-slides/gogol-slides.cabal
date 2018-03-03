@@ -37,6 +37,7 @@ library
         , Network.Google.Resource.Slides.Presentations.Create
         , Network.Google.Resource.Slides.Presentations.Get
         , Network.Google.Resource.Slides.Presentations.Pages.Get
+        , Network.Google.Resource.Slides.Presentations.Pages.GetThumbnail
         , Network.Google.Slides
         , Network.Google.Slides.Types
 
@@ -45,5 +46,5 @@ library
         , Network.Google.Slides.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

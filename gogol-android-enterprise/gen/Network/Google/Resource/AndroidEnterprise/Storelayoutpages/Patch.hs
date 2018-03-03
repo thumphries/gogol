@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidEnterprise.Storelayoutpages.Patch
     , spPayload
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.storelayoutpages.patch@ method which the
 -- 'StorelayoutpagesPatch' request conforms to.
@@ -61,8 +61,8 @@ type StorelayoutpagesPatchResource =
 -- /See:/ 'storelayoutpagesPatch' smart constructor.
 data StorelayoutpagesPatch = StorelayoutpagesPatch'
     { _spEnterpriseId :: !Text
-    , _spPageId       :: !Text
-    , _spPayload      :: !StorePage
+    , _spPageId :: !Text
+    , _spPayload :: !StorePage
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorelayoutpagesPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ storelayoutpagesPatch
     -> Text -- ^ 'spPageId'
     -> StorePage -- ^ 'spPayload'
     -> StorelayoutpagesPatch
-storelayoutpagesPatch pSpEnterpriseId_ pSpPageId_ pSpPayload_ =
+storelayoutpagesPatch pSpEnterpriseId_ pSpPageId_ pSpPayload_ = 
     StorelayoutpagesPatch'
     { _spEnterpriseId = pSpEnterpriseId_
     , _spPageId = pSpPageId_

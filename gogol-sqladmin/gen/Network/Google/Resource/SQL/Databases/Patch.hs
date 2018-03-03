@@ -40,8 +40,8 @@ module Network.Google.Resource.SQL.Databases.Patch
     , dpInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.databases.patch@ method which the
 -- 'DatabasesPatch' request conforms to.
@@ -62,9 +62,9 @@ type DatabasesPatchResource =
 --
 -- /See:/ 'databasesPatch' smart constructor.
 data DatabasesPatch = DatabasesPatch'
-    { _dpProject  :: !Text
+    { _dpProject :: !Text
     , _dpDatabase :: !Text
-    , _dpPayload  :: !Database
+    , _dpPayload :: !Database
     , _dpInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ databasesPatch
     -> Database -- ^ 'dpPayload'
     -> Text -- ^ 'dpInstance'
     -> DatabasesPatch
-databasesPatch pDpProject_ pDpDatabase_ pDpPayload_ pDpInstance_ =
+databasesPatch pDpProject_ pDpDatabase_ pDpPayload_ pDpInstance_ = 
     DatabasesPatch'
     { _dpProject = pDpProject_
     , _dpDatabase = pDpDatabase_

@@ -37,8 +37,8 @@ module Network.Google.Resource.PlusDomains.Circles.Patch
     , cpCircleId
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.circles.patch@ method which the
 -- 'CirclesPatch' request conforms to.
@@ -54,7 +54,7 @@ type CirclesPatchResource =
 --
 -- /See:/ 'circlesPatch' smart constructor.
 data CirclesPatch = CirclesPatch'
-    { _cpPayload  :: !Circle
+    { _cpPayload :: !Circle
     , _cpCircleId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ circlesPatch
     :: Circle -- ^ 'cpPayload'
     -> Text -- ^ 'cpCircleId'
     -> CirclesPatch
-circlesPatch pCpPayload_ pCpCircleId_ =
+circlesPatch pCpPayload_ pCpCircleId_ = 
     CirclesPatch'
     { _cpPayload = pCpPayload_
     , _cpCircleId = pCpCircleId_

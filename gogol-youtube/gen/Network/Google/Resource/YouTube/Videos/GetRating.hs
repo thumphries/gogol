@@ -38,8 +38,8 @@ module Network.Google.Resource.YouTube.Videos.GetRating
     , vgrId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.videos.getRating@ method which the
 -- 'VideosGetRating' request conforms to.
@@ -59,7 +59,7 @@ type VideosGetRatingResource =
 -- /See:/ 'videosGetRating' smart constructor.
 data VideosGetRating = VideosGetRating'
     { _vgrOnBehalfOfContentOwner :: !(Maybe Text)
-    , _vgrId                     :: !Text
+    , _vgrId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VideosGetRating' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data VideosGetRating = VideosGetRating'
 videosGetRating
     :: Text -- ^ 'vgrId'
     -> VideosGetRating
-videosGetRating pVgrId_ =
+videosGetRating pVgrId_ = 
     VideosGetRating'
     { _vgrOnBehalfOfContentOwner = Nothing
     , _vgrId = pVgrId_

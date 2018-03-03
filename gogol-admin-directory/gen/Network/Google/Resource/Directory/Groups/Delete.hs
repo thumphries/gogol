@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Groups.Delete
     , gdGroupKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.groups.delete@ method which the
 -- 'GroupsDelete' request conforms to.
@@ -64,12 +64,12 @@ newtype GroupsDelete = GroupsDelete'
 groupsDelete
     :: Text -- ^ 'gdGroupKey'
     -> GroupsDelete
-groupsDelete pGdGroupKey_ =
+groupsDelete pGdGroupKey_ = 
     GroupsDelete'
     { _gdGroupKey = pGdGroupKey_
     }
 
--- | Email or immutable Id of the group
+-- | Email or immutable ID of the group
 gdGroupKey :: Lens' GroupsDelete Text
 gdGroupKey
   = lens _gdGroupKey (\ s a -> s{_gdGroupKey = a})

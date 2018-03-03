@@ -39,8 +39,8 @@ module Network.Google.Resource.Webmasters.URLCrawlErrorsSamples.List
     , uceslSiteURL
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.WebmasterTools.Types
+import Network.Google.Prelude
+import Network.Google.WebmasterTools.Types
 
 -- | A resource alias for @webmasters.urlcrawlerrorssamples.list@ method which the
 -- 'URLCrawlErrorsSamplesList' request conforms to.
@@ -66,7 +66,7 @@ type URLCrawlErrorsSamplesListResource =
 data URLCrawlErrorsSamplesList = URLCrawlErrorsSamplesList'
     { _uceslPlatform :: !URLCrawlErrorsSamplesListPlatform
     , _uceslCategory :: !URLCrawlErrorsSamplesListCategory
-    , _uceslSiteURL  :: !Text
+    , _uceslSiteURL :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'URLCrawlErrorsSamplesList' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ urlCrawlErrorsSamplesList
     -> URLCrawlErrorsSamplesListCategory -- ^ 'uceslCategory'
     -> Text -- ^ 'uceslSiteURL'
     -> URLCrawlErrorsSamplesList
-urlCrawlErrorsSamplesList pUceslPlatform_ pUceslCategory_ pUceslSiteURL_ =
+urlCrawlErrorsSamplesList pUceslPlatform_ pUceslCategory_ pUceslSiteURL_ = 
     URLCrawlErrorsSamplesList'
     { _uceslPlatform = pUceslPlatform_
     , _uceslCategory = pUceslCategory_

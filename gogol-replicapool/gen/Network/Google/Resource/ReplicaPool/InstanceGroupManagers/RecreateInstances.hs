@@ -40,8 +40,8 @@ module Network.Google.Resource.ReplicaPool.InstanceGroupManagers.RecreateInstanc
     , igmriPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ReplicaPool.Types
+import Network.Google.Prelude
+import Network.Google.ReplicaPool.Types
 
 -- | A resource alias for @replicapool.instanceGroupManagers.recreateInstances@ method which the
 -- 'InstanceGroupManagersRecreateInstances' request conforms to.
@@ -65,10 +65,10 @@ type InstanceGroupManagersRecreateInstancesResource =
 --
 -- /See:/ 'instanceGroupManagersRecreateInstances' smart constructor.
 data InstanceGroupManagersRecreateInstances = InstanceGroupManagersRecreateInstances'
-    { _igmriProject              :: !Text
+    { _igmriProject :: !Text
     , _igmriInstanceGroupManager :: !Text
-    , _igmriZone                 :: !Text
-    , _igmriPayload              :: !InstanceGroupManagersRecreateInstancesRequest
+    , _igmriZone :: !Text
+    , _igmriPayload :: !InstanceGroupManagersRecreateInstancesRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersRecreateInstances' with the minimum fields required to make a request.
@@ -88,7 +88,7 @@ instanceGroupManagersRecreateInstances
     -> Text -- ^ 'igmriZone'
     -> InstanceGroupManagersRecreateInstancesRequest -- ^ 'igmriPayload'
     -> InstanceGroupManagersRecreateInstances
-instanceGroupManagersRecreateInstances pIgmriProject_ pIgmriInstanceGroupManager_ pIgmriZone_ pIgmriPayload_ =
+instanceGroupManagersRecreateInstances pIgmriProject_ pIgmriInstanceGroupManager_ pIgmriZone_ pIgmriPayload_ = 
     InstanceGroupManagersRecreateInstances'
     { _igmriProject = pIgmriProject_
     , _igmriInstanceGroupManager = pIgmriInstanceGroupManager_

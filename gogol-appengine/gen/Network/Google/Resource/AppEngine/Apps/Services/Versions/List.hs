@@ -22,7 +22,7 @@
 --
 -- Lists the versions of a service.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.services.versions.list@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.services.versions.list@.
 module Network.Google.Resource.AppEngine.Apps.Services.Versions.List
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.AppEngine.Apps.Services.Versions.List
     , asvlCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.services.versions.list@ method which the
 -- 'AppsServicesVersionsList' request conforms to.
@@ -59,7 +59,7 @@ type AppsServicesVersionsListResource =
            "services" :>
              Capture "servicesId" Text :>
                "versions" :>
-                 QueryParam "$.xgafv" Text :>
+                 QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
                      QueryParam "pp" Bool :>
                        QueryParam "access_token" Text :>
@@ -76,18 +76,18 @@ type AppsServicesVersionsListResource =
 --
 -- /See:/ 'appsServicesVersionsList' smart constructor.
 data AppsServicesVersionsList = AppsServicesVersionsList'
-    { _asvlXgafv          :: !(Maybe Text)
+    { _asvlXgafv :: !(Maybe Xgafv)
     , _asvlUploadProtocol :: !(Maybe Text)
-    , _asvlPp             :: !Bool
-    , _asvlAccessToken    :: !(Maybe Text)
-    , _asvlUploadType     :: !(Maybe Text)
-    , _asvlBearerToken    :: !(Maybe Text)
-    , _asvlAppsId         :: !Text
-    , _asvlView           :: !(Maybe Text)
-    , _asvlPageToken      :: !(Maybe Text)
-    , _asvlServicesId     :: !Text
-    , _asvlPageSize       :: !(Maybe (Textual Int32))
-    , _asvlCallback       :: !(Maybe Text)
+    , _asvlPp :: !Bool
+    , _asvlAccessToken :: !(Maybe Text)
+    , _asvlUploadType :: !(Maybe Text)
+    , _asvlBearerToken :: !(Maybe Text)
+    , _asvlAppsId :: !Text
+    , _asvlView :: !(Maybe Text)
+    , _asvlPageToken :: !(Maybe Text)
+    , _asvlServicesId :: !Text
+    , _asvlPageSize :: !(Maybe (Textual Int32))
+    , _asvlCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsServicesVersionsList' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ appsServicesVersionsList
     :: Text -- ^ 'asvlAppsId'
     -> Text -- ^ 'asvlServicesId'
     -> AppsServicesVersionsList
-appsServicesVersionsList pAsvlAppsId_ pAsvlServicesId_ =
+appsServicesVersionsList pAsvlAppsId_ pAsvlServicesId_ = 
     AppsServicesVersionsList'
     { _asvlXgafv = Nothing
     , _asvlUploadProtocol = Nothing
@@ -138,7 +138,7 @@ appsServicesVersionsList pAsvlAppsId_ pAsvlServicesId_ =
     }
 
 -- | V1 error format.
-asvlXgafv :: Lens' AppsServicesVersionsList (Maybe Text)
+asvlXgafv :: Lens' AppsServicesVersionsList (Maybe Xgafv)
 asvlXgafv
   = lens _asvlXgafv (\ s a -> s{_asvlXgafv = a})
 

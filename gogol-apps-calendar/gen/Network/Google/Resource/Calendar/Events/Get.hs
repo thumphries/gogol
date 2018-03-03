@@ -40,8 +40,8 @@ module Network.Google.Resource.Calendar.Events.Get
     , egEventId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.get@ method which the
 -- 'EventsGet' request conforms to.
@@ -61,11 +61,11 @@ type EventsGetResource =
 --
 -- /See:/ 'eventsGet' smart constructor.
 data EventsGet = EventsGet'
-    { _egCalendarId         :: !Text
-    , _egMaxAttendees       :: !(Maybe (Textual Int32))
-    , _egTimeZone           :: !(Maybe Text)
+    { _egCalendarId :: !Text
+    , _egMaxAttendees :: !(Maybe (Textual Int32))
+    , _egTimeZone :: !(Maybe Text)
     , _egAlwaysIncludeEmail :: !(Maybe Bool)
-    , _egEventId            :: !Text
+    , _egEventId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsGet' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ eventsGet
     :: Text -- ^ 'egCalendarId'
     -> Text -- ^ 'egEventId'
     -> EventsGet
-eventsGet pEgCalendarId_ pEgEventId_ =
+eventsGet pEgCalendarId_ pEgEventId_ = 
     EventsGet'
     { _egCalendarId = pEgCalendarId_
     , _egMaxAttendees = Nothing

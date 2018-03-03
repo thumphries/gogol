@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.DomainAliases.Get
     , dagCustomer
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.domainAliases.get@ method which the
 -- 'DomainAliasesGet' request conforms to.
@@ -57,7 +57,7 @@ type DomainAliasesGetResource =
 -- /See:/ 'domainAliasesGet' smart constructor.
 data DomainAliasesGet = DomainAliasesGet'
     { _dagDomainAliasName :: !Text
-    , _dagCustomer        :: !Text
+    , _dagCustomer :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DomainAliasesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ domainAliasesGet
     :: Text -- ^ 'dagDomainAliasName'
     -> Text -- ^ 'dagCustomer'
     -> DomainAliasesGet
-domainAliasesGet pDagDomainAliasName_ pDagCustomer_ =
+domainAliasesGet pDagDomainAliasName_ pDagCustomer_ = 
     DomainAliasesGet'
     { _dagDomainAliasName = pDagDomainAliasName_
     , _dagCustomer = pDagCustomer_
@@ -83,7 +83,7 @@ dagDomainAliasName
   = lens _dagDomainAliasName
       (\ s a -> s{_dagDomainAliasName = a})
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 dagCustomer :: Lens' DomainAliasesGet Text
 dagCustomer
   = lens _dagCustomer (\ s a -> s{_dagCustomer = a})

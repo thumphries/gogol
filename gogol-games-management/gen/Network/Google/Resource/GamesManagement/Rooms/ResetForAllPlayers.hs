@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesManagement.Rooms.ResetForAllPlayers
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.rooms.resetForAllPlayers@ method which the
 -- 'RoomsResetForAllPlayers' request conforms to.
@@ -54,7 +54,7 @@ type RoomsResetForAllPlayersResource =
 --
 -- /See:/ 'roomsResetForAllPlayers' smart constructor.
 data RoomsResetForAllPlayers =
-    RoomsResetForAllPlayers'
+    RoomsResetForAllPlayers' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoomsResetForAllPlayers' with the minimum fields required to make a request.

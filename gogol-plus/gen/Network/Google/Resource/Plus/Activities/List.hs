@@ -40,8 +40,8 @@ module Network.Google.Resource.Plus.Activities.List
     , alMaxResults
     ) where
 
-import           Network.Google.Plus.Types
-import           Network.Google.Prelude
+import Network.Google.Plus.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plus.activities.list@ method which the
 -- 'ActivitiesList' request conforms to.
@@ -62,8 +62,8 @@ type ActivitiesListResource =
 -- /See:/ 'activitiesList' smart constructor.
 data ActivitiesList = ActivitiesList'
     { _alCollection :: !ActivitiesListCollection
-    , _alUserId     :: !Text
-    , _alPageToken  :: !(Maybe Text)
+    , _alUserId :: !Text
+    , _alPageToken :: !(Maybe Text)
     , _alMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ activitiesList
     :: ActivitiesListCollection -- ^ 'alCollection'
     -> Text -- ^ 'alUserId'
     -> ActivitiesList
-activitiesList pAlCollection_ pAlUserId_ =
+activitiesList pAlCollection_ pAlUserId_ = 
     ActivitiesList'
     { _alCollection = pAlCollection_
     , _alUserId = pAlUserId_

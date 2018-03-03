@@ -40,8 +40,8 @@ module Network.Google.Resource.Books.Onboarding.ListCategoryVolumes
     , olcvPageSize
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.onboarding.listCategoryVolumes@ method which the
 -- 'OnboardingListCategoryVolumes' request conforms to.
@@ -63,11 +63,11 @@ type OnboardingListCategoryVolumesResource =
 --
 -- /See:/ 'onboardingListCategoryVolumes' smart constructor.
 data OnboardingListCategoryVolumes = OnboardingListCategoryVolumes'
-    { _olcvLocale                   :: !(Maybe Text)
+    { _olcvLocale :: !(Maybe Text)
     , _olcvMaxAllowedMaturityRating :: !(Maybe OnboardingListCategoryVolumesMaxAllowedMaturityRating)
-    , _olcvCategoryId               :: !(Maybe [Text])
-    , _olcvPageToken                :: !(Maybe Text)
-    , _olcvPageSize                 :: !(Maybe (Textual Word32))
+    , _olcvCategoryId :: !(Maybe [Text])
+    , _olcvPageToken :: !(Maybe Text)
+    , _olcvPageSize :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OnboardingListCategoryVolumes' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data OnboardingListCategoryVolumes = OnboardingListCategoryVolumes'
 -- * 'olcvPageSize'
 onboardingListCategoryVolumes
     :: OnboardingListCategoryVolumes
-onboardingListCategoryVolumes =
+onboardingListCategoryVolumes = 
     OnboardingListCategoryVolumes'
     { _olcvLocale = Nothing
     , _olcvMaxAllowedMaturityRating = Nothing

@@ -14,7 +14,7 @@ cabal-version:         >= 1.10
 extra-source-files:    README.md src/.gitkeep
 
 description:
-    Lets you search over a website or collection of websites
+    Searches over a website or collection of websites
     .
     /Warning:/ This is an experimental prototype/preview release which is still
     under exploratory development and not intended for public use, caveat emptor!
@@ -36,11 +36,12 @@ library
           Network.Google.CustomSearch
         , Network.Google.CustomSearch.Types
         , Network.Google.Resource.Search.CSE.List
+        , Network.Google.Resource.Search.CSE.Siterestrict.List
 
     other-modules:
           Network.Google.CustomSearch.Types.Product
         , Network.Google.CustomSearch.Types.Sum
 
     build-depends:
-          gogol-core == 0.3.0.*
+          gogol-core == .*
         , base       >= 4.7 && < 5

@@ -46,8 +46,8 @@ module Network.Google.Resource.AdSenseHost.Reports.Generate
     , rgMaxResults
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.reports.generate@ method which the
 -- 'ReportsGenerate' request conforms to.
@@ -72,13 +72,13 @@ type ReportsGenerateResource =
 --
 -- /See:/ 'reportsGenerate' smart constructor.
 data ReportsGenerate = ReportsGenerate'
-    { _rgDimension  :: !(Maybe [Text])
-    , _rgLocale     :: !(Maybe Text)
-    , _rgEndDate    :: !Text
-    , _rgStartDate  :: !Text
-    , _rgMetric     :: !(Maybe [Text])
-    , _rgSort       :: !(Maybe [Text])
-    , _rgFilter     :: !(Maybe [Text])
+    { _rgDimension :: !(Maybe [Text])
+    , _rgLocale :: !(Maybe Text)
+    , _rgEndDate :: !Text
+    , _rgStartDate :: !Text
+    , _rgMetric :: !(Maybe [Text])
+    , _rgSort :: !(Maybe [Text])
+    , _rgFilter :: !(Maybe [Text])
     , _rgStartIndex :: !(Maybe (Textual Word32))
     , _rgMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -108,7 +108,7 @@ reportsGenerate
     :: Text -- ^ 'rgEndDate'
     -> Text -- ^ 'rgStartDate'
     -> ReportsGenerate
-reportsGenerate pRgEndDate_ pRgStartDate_ =
+reportsGenerate pRgEndDate_ pRgStartDate_ = 
     ReportsGenerate'
     { _rgDimension = Nothing
     , _rgLocale = Nothing

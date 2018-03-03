@@ -43,8 +43,8 @@ module Network.Google.Resource.YouTube.Captions.Download
     , capaTfmt
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.captions.download@ method which the
 -- 'CaptionsDownload' request conforms to.
@@ -77,11 +77,11 @@ type CaptionsDownloadResource =
 --
 -- /See:/ 'captionsDownload' smart constructor.
 data CaptionsDownload = CaptionsDownload'
-    { _capaOnBehalfOf             :: !(Maybe Text)
-    , _capaTlang                  :: !(Maybe Text)
+    { _capaOnBehalfOf :: !(Maybe Text)
+    , _capaTlang :: !(Maybe Text)
     , _capaOnBehalfOfContentOwner :: !(Maybe Text)
-    , _capaId                     :: !Text
-    , _capaTfmt                   :: !(Maybe CaptionsDownloadTfmt)
+    , _capaId :: !Text
+    , _capaTfmt :: !(Maybe CaptionsDownloadTfmt)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CaptionsDownload' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data CaptionsDownload = CaptionsDownload'
 captionsDownload
     :: Text -- ^ 'capaId'
     -> CaptionsDownload
-captionsDownload pCapaId_ =
+captionsDownload pCapaId_ = 
     CaptionsDownload'
     { _capaOnBehalfOf = Nothing
     , _capaTlang = Nothing

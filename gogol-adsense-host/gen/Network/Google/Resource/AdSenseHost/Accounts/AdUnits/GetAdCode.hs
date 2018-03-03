@@ -40,8 +40,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.AdUnits.GetAdCode
     , aaugacHostCustomChannelId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.adunits.getAdCode@ method which the
 -- 'AccountsAdUnitsGetAdCode' request conforms to.
@@ -63,9 +63,9 @@ type AccountsAdUnitsGetAdCodeResource =
 --
 -- /See:/ 'accountsAdUnitsGetAdCode' smart constructor.
 data AccountsAdUnitsGetAdCode = AccountsAdUnitsGetAdCode'
-    { _aaugacAdUnitId            :: !Text
-    , _aaugacAdClientId          :: !Text
-    , _aaugacAccountId           :: !Text
+    { _aaugacAdUnitId :: !Text
+    , _aaugacAdClientId :: !Text
+    , _aaugacAccountId :: !Text
     , _aaugacHostCustomChannelId :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -85,7 +85,7 @@ accountsAdUnitsGetAdCode
     -> Text -- ^ 'aaugacAdClientId'
     -> Text -- ^ 'aaugacAccountId'
     -> AccountsAdUnitsGetAdCode
-accountsAdUnitsGetAdCode pAaugacAdUnitId_ pAaugacAdClientId_ pAaugacAccountId_ =
+accountsAdUnitsGetAdCode pAaugacAdUnitId_ pAaugacAdClientId_ pAaugacAccountId_ = 
     AccountsAdUnitsGetAdCode'
     { _aaugacAdUnitId = pAaugacAdUnitId_
     , _aaugacAdClientId = pAaugacAdClientId_

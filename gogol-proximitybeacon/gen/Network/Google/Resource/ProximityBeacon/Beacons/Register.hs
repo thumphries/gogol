@@ -49,15 +49,15 @@ module Network.Google.Resource.ProximityBeacon.Beacons.Register
     , brCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ProximityBeacon.Types
+import Network.Google.Prelude
+import Network.Google.ProximityBeacon.Types
 
 -- | A resource alias for @proximitybeacon.beacons.register@ method which the
 -- 'BeaconsRegister' request conforms to.
 type BeaconsRegisterResource =
      "v1beta1" :>
        "beacons:register" :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -77,15 +77,15 @@ type BeaconsRegisterResource =
 --
 -- /See:/ 'beaconsRegister' smart constructor.
 data BeaconsRegister = BeaconsRegister'
-    { _brXgafv          :: !(Maybe Text)
+    { _brXgafv :: !(Maybe Xgafv)
     , _brUploadProtocol :: !(Maybe Text)
-    , _brPp             :: !Bool
-    , _brAccessToken    :: !(Maybe Text)
-    , _brUploadType     :: !(Maybe Text)
-    , _brPayload        :: !Beacon
-    , _brBearerToken    :: !(Maybe Text)
-    , _brProjectId      :: !(Maybe Text)
-    , _brCallback       :: !(Maybe Text)
+    , _brPp :: !Bool
+    , _brAccessToken :: !(Maybe Text)
+    , _brUploadType :: !(Maybe Text)
+    , _brPayload :: !Beacon
+    , _brBearerToken :: !(Maybe Text)
+    , _brProjectId :: !(Maybe Text)
+    , _brCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BeaconsRegister' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ data BeaconsRegister = BeaconsRegister'
 beaconsRegister
     :: Beacon -- ^ 'brPayload'
     -> BeaconsRegister
-beaconsRegister pBrPayload_ =
+beaconsRegister pBrPayload_ = 
     BeaconsRegister'
     { _brXgafv = Nothing
     , _brUploadProtocol = Nothing
@@ -126,7 +126,7 @@ beaconsRegister pBrPayload_ =
     }
 
 -- | V1 error format.
-brXgafv :: Lens' BeaconsRegister (Maybe Text)
+brXgafv :: Lens' BeaconsRegister (Maybe Xgafv)
 brXgafv = lens _brXgafv (\ s a -> s{_brXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

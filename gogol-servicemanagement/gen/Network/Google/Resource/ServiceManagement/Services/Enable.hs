@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enable a managed service for a project with default setting. Operation
--- google.rpc.Status errors may contain a google.rpc.PreconditionFailure
--- error detail.
+-- Enables a service for a project, so it can be used for the project. See
+-- [Cloud Auth Guide](https:\/\/cloud.google.com\/docs\/authentication) for
+-- more information. Operation
 --
 -- /See:/ <https://cloud.google.com/service-management/ Google Service Management API Reference> for @servicemanagement.services.enable@.
 module Network.Google.Resource.ServiceManagement.Services.Enable
@@ -46,8 +46,8 @@ module Network.Google.Resource.ServiceManagement.Services.Enable
     , seCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.enable@ method which the
 -- 'ServicesEnable' request conforms to.
@@ -66,21 +66,21 @@ type ServicesEnableResource =
                            ReqBody '[JSON] EnableServiceRequest :>
                              Post '[JSON] Operation
 
--- | Enable a managed service for a project with default setting. Operation
--- google.rpc.Status errors may contain a google.rpc.PreconditionFailure
--- error detail.
+-- | Enables a service for a project, so it can be used for the project. See
+-- [Cloud Auth Guide](https:\/\/cloud.google.com\/docs\/authentication) for
+-- more information. Operation
 --
 -- /See:/ 'servicesEnable' smart constructor.
 data ServicesEnable = ServicesEnable'
-    { _seXgafv          :: !(Maybe Xgafv)
+    { _seXgafv :: !(Maybe Xgafv)
     , _seUploadProtocol :: !(Maybe Text)
-    , _sePp             :: !Bool
-    , _seAccessToken    :: !(Maybe Text)
-    , _seUploadType     :: !(Maybe Text)
-    , _sePayload        :: !EnableServiceRequest
-    , _seBearerToken    :: !(Maybe Text)
-    , _seServiceName    :: !Text
-    , _seCallback       :: !(Maybe Text)
+    , _sePp :: !Bool
+    , _seAccessToken :: !(Maybe Text)
+    , _seUploadType :: !(Maybe Text)
+    , _sePayload :: !EnableServiceRequest
+    , _seBearerToken :: !(Maybe Text)
+    , _seServiceName :: !Text
+    , _seCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesEnable' with the minimum fields required to make a request.
@@ -108,7 +108,7 @@ servicesEnable
     :: EnableServiceRequest -- ^ 'sePayload'
     -> Text -- ^ 'seServiceName'
     -> ServicesEnable
-servicesEnable pSePayload_ pSeServiceName_ =
+servicesEnable pSePayload_ pSeServiceName_ = 
     ServicesEnable'
     { _seXgafv = Nothing
     , _seUploadProtocol = Nothing

@@ -39,8 +39,8 @@ module Network.Google.Resource.YouTube.PlayListItems.Update
     , pliuOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.playlistItems.update@ method which the
 -- 'PlayListItemsUpdate' request conforms to.
@@ -59,8 +59,8 @@ type PlayListItemsUpdateResource =
 --
 -- /See:/ 'playListItemsUpdate' smart constructor.
 data PlayListItemsUpdate = PlayListItemsUpdate'
-    { _pliuPart                   :: !Text
-    , _pliuPayload                :: !PlayListItem
+    { _pliuPart :: !Text
+    , _pliuPayload :: !PlayListItem
     , _pliuOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ playListItemsUpdate
     :: Text -- ^ 'pliuPart'
     -> PlayListItem -- ^ 'pliuPayload'
     -> PlayListItemsUpdate
-playListItemsUpdate pPliuPart_ pPliuPayload_ =
+playListItemsUpdate pPliuPart_ pPliuPayload_ = 
     PlayListItemsUpdate'
     { _pliuPart = pPliuPart_
     , _pliuPayload = pPliuPayload_

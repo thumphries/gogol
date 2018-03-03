@@ -37,8 +37,8 @@ module Network.Google.Resource.Gmail.Users.Settings.Filters.Create
     , usfcUserId
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.filters.create@ method which the
 -- 'UsersSettingsFiltersCreate' request conforms to.
@@ -57,7 +57,7 @@ type UsersSettingsFiltersCreateResource =
 -- /See:/ 'usersSettingsFiltersCreate' smart constructor.
 data UsersSettingsFiltersCreate = UsersSettingsFiltersCreate'
     { _usfcPayload :: !Filter
-    , _usfcUserId  :: !Text
+    , _usfcUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersSettingsFiltersCreate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data UsersSettingsFiltersCreate = UsersSettingsFiltersCreate'
 usersSettingsFiltersCreate
     :: Filter -- ^ 'usfcPayload'
     -> UsersSettingsFiltersCreate
-usersSettingsFiltersCreate pUsfcPayload_ =
+usersSettingsFiltersCreate pUsfcPayload_ = 
     UsersSettingsFiltersCreate'
     { _usfcPayload = pUsfcPayload_
     , _usfcUserId = "me"

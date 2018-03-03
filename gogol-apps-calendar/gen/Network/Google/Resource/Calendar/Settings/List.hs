@@ -38,8 +38,8 @@ module Network.Google.Resource.Calendar.Settings.List
     , slMaxResults
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.settings.list@ method which the
 -- 'SettingsList' request conforms to.
@@ -58,8 +58,8 @@ type SettingsListResource =
 --
 -- /See:/ 'settingsList' smart constructor.
 data SettingsList = SettingsList'
-    { _slSyncToken  :: !(Maybe Text)
-    , _slPageToken  :: !(Maybe Text)
+    { _slSyncToken :: !(Maybe Text)
+    , _slPageToken :: !(Maybe Text)
     , _slMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ data SettingsList = SettingsList'
 -- * 'slMaxResults'
 settingsList
     :: SettingsList
-settingsList =
+settingsList = 
     SettingsList'
     { _slSyncToken = Nothing
     , _slPageToken = Nothing

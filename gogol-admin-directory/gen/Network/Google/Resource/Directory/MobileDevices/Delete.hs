@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.MobileDevices.Delete
     , mddCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.mobiledevices.delete@ method which the
 -- 'MobileDevicesDelete' request conforms to.
@@ -72,19 +72,19 @@ mobileDevicesDelete
     :: Text -- ^ 'mddResourceId'
     -> Text -- ^ 'mddCustomerId'
     -> MobileDevicesDelete
-mobileDevicesDelete pMddResourceId_ pMddCustomerId_ =
+mobileDevicesDelete pMddResourceId_ pMddCustomerId_ = 
     MobileDevicesDelete'
     { _mddResourceId = pMddResourceId_
     , _mddCustomerId = pMddCustomerId_
     }
 
--- | Immutable id of Mobile Device
+-- | Immutable ID of Mobile Device
 mddResourceId :: Lens' MobileDevicesDelete Text
 mddResourceId
   = lens _mddResourceId
       (\ s a -> s{_mddResourceId = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 mddCustomerId :: Lens' MobileDevicesDelete Text
 mddCustomerId
   = lens _mddCustomerId

@@ -45,8 +45,8 @@ module Network.Google.Resource.ServiceManagement.Services.GetIAMPolicy
     , sgipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.services.getIamPolicy@ method which the
 -- 'ServicesGetIAMPolicy' request conforms to.
@@ -69,15 +69,15 @@ type ServicesGetIAMPolicyResource =
 --
 -- /See:/ 'servicesGetIAMPolicy' smart constructor.
 data ServicesGetIAMPolicy = ServicesGetIAMPolicy'
-    { _sgipXgafv          :: !(Maybe Xgafv)
+    { _sgipXgafv :: !(Maybe Xgafv)
     , _sgipUploadProtocol :: !(Maybe Text)
-    , _sgipPp             :: !Bool
-    , _sgipAccessToken    :: !(Maybe Text)
-    , _sgipUploadType     :: !(Maybe Text)
-    , _sgipPayload        :: !GetIAMPolicyRequest
-    , _sgipBearerToken    :: !(Maybe Text)
-    , _sgipResource       :: !Text
-    , _sgipCallback       :: !(Maybe Text)
+    , _sgipPp :: !Bool
+    , _sgipAccessToken :: !(Maybe Text)
+    , _sgipUploadType :: !(Maybe Text)
+    , _sgipPayload :: !GetIAMPolicyRequest
+    , _sgipBearerToken :: !(Maybe Text)
+    , _sgipResource :: !Text
+    , _sgipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesGetIAMPolicy' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ servicesGetIAMPolicy
     :: GetIAMPolicyRequest -- ^ 'sgipPayload'
     -> Text -- ^ 'sgipResource'
     -> ServicesGetIAMPolicy
-servicesGetIAMPolicy pSgipPayload_ pSgipResource_ =
+servicesGetIAMPolicy pSgipPayload_ pSgipResource_ = 
     ServicesGetIAMPolicy'
     { _sgipXgafv = Nothing
     , _sgipUploadProtocol = Nothing
@@ -156,9 +156,8 @@ sgipBearerToken
   = lens _sgipBearerToken
       (\ s a -> s{_sgipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being requested. See the
+-- operation documentation for the appropriate value for this field.
 sgipResource :: Lens' ServicesGetIAMPolicy Text
 sgipResource
   = lens _sgipResource (\ s a -> s{_sgipResource = a})
@@ -172,7 +171,9 @@ instance GoogleRequest ServicesGetIAMPolicy where
         type Rs ServicesGetIAMPolicy = Policy
         type Scopes ServicesGetIAMPolicy =
              '["https://www.googleapis.com/auth/cloud-platform",
-               "https://www.googleapis.com/auth/service.management"]
+               "https://www.googleapis.com/auth/cloud-platform.read-only",
+               "https://www.googleapis.com/auth/service.management",
+               "https://www.googleapis.com/auth/service.management.readonly"]
         requestClient ServicesGetIAMPolicy'{..}
           = go _sgipResource _sgipXgafv _sgipUploadProtocol
               (Just _sgipPp)

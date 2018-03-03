@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudMonitoring.MetricDescriptors.Delete
     , mddMetric
     ) where
 
-import           Network.Google.CloudMonitoring.Types
-import           Network.Google.Prelude
+import Network.Google.CloudMonitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudmonitoring.metricDescriptors.delete@ method which the
 -- 'MetricDescriptorsDelete' request conforms to.
@@ -57,7 +57,7 @@ type MetricDescriptorsDeleteResource =
 -- /See:/ 'metricDescriptorsDelete' smart constructor.
 data MetricDescriptorsDelete = MetricDescriptorsDelete'
     { _mddProject :: !Text
-    , _mddMetric  :: !Text
+    , _mddMetric :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricDescriptorsDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ metricDescriptorsDelete
     :: Text -- ^ 'mddProject'
     -> Text -- ^ 'mddMetric'
     -> MetricDescriptorsDelete
-metricDescriptorsDelete pMddProject_ pMddMetric_ =
+metricDescriptorsDelete pMddProject_ pMddMetric_ = 
     MetricDescriptorsDelete'
     { _mddProject = pMddProject_
     , _mddMetric = pMddMetric_

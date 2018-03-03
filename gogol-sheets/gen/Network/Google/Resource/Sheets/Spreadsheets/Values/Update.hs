@@ -50,8 +50,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Values.Update
     , svuResponseValueRenderOption
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.values.update@ method which the
 -- 'SpreadsheetsValuesUpdate' request conforms to.
@@ -82,20 +82,20 @@ type SpreadsheetsValuesUpdateResource =
 --
 -- /See:/ 'spreadsheetsValuesUpdate' smart constructor.
 data SpreadsheetsValuesUpdate = SpreadsheetsValuesUpdate'
-    { _svuXgafv                        :: !(Maybe Xgafv)
-    , _svuUploadProtocol               :: !(Maybe Text)
-    , _svuPp                           :: !Bool
-    , _svuAccessToken                  :: !(Maybe Text)
-    , _svuSpreadsheetId                :: !Text
-    , _svuUploadType                   :: !(Maybe Text)
-    , _svuValueInputOption             :: !(Maybe Text)
-    , _svuPayload                      :: !ValueRange
-    , _svuBearerToken                  :: !(Maybe Text)
-    , _svuRange                        :: !Text
-    , _svuIncludeValuesInResponse      :: !(Maybe Bool)
+    { _svuXgafv :: !(Maybe Xgafv)
+    , _svuUploadProtocol :: !(Maybe Text)
+    , _svuPp :: !Bool
+    , _svuAccessToken :: !(Maybe Text)
+    , _svuSpreadsheetId :: !Text
+    , _svuUploadType :: !(Maybe Text)
+    , _svuValueInputOption :: !(Maybe Text)
+    , _svuPayload :: !ValueRange
+    , _svuBearerToken :: !(Maybe Text)
+    , _svuRange :: !Text
+    , _svuIncludeValuesInResponse :: !(Maybe Bool)
     , _svuResponseDateTimeRenderOption :: !(Maybe Text)
-    , _svuCallback                     :: !(Maybe Text)
-    , _svuResponseValueRenderOption    :: !(Maybe Text)
+    , _svuCallback :: !(Maybe Text)
+    , _svuResponseValueRenderOption :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsValuesUpdate' with the minimum fields required to make a request.
@@ -134,7 +134,7 @@ spreadsheetsValuesUpdate
     -> ValueRange -- ^ 'svuPayload'
     -> Text -- ^ 'svuRange'
     -> SpreadsheetsValuesUpdate
-spreadsheetsValuesUpdate pSvuSpreadsheetId_ pSvuPayload_ pSvuRange_ =
+spreadsheetsValuesUpdate pSvuSpreadsheetId_ pSvuPayload_ pSvuRange_ = 
     SpreadsheetsValuesUpdate'
     { _svuXgafv = Nothing
     , _svuUploadProtocol = Nothing
@@ -241,6 +241,7 @@ instance GoogleRequest SpreadsheetsValuesUpdate where
              UpdateValuesResponse
         type Scopes SpreadsheetsValuesUpdate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/spreadsheets"]
         requestClient SpreadsheetsValuesUpdate'{..}
           = go _svuSpreadsheetId _svuRange _svuXgafv

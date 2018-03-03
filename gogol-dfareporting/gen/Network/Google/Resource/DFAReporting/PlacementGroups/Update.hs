@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.PlacementGroups.Update
     , pguPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placementGroups.update@ method which the
 -- 'PlacementGroupsUpdate' request conforms to.
 type PlacementGroupsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placementGroups" :>
@@ -57,7 +57,7 @@ type PlacementGroupsUpdateResource =
 -- /See:/ 'placementGroupsUpdate' smart constructor.
 data PlacementGroupsUpdate = PlacementGroupsUpdate'
     { _pguProFileId :: !(Textual Int64)
-    , _pguPayload   :: !PlacementGroup
+    , _pguPayload :: !PlacementGroup
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementGroupsUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ placementGroupsUpdate
     :: Int64 -- ^ 'pguProFileId'
     -> PlacementGroup -- ^ 'pguPayload'
     -> PlacementGroupsUpdate
-placementGroupsUpdate pPguProFileId_ pPguPayload_ =
+placementGroupsUpdate pPguProFileId_ pPguPayload_ = 
     PlacementGroupsUpdate'
     { _pguProFileId = _Coerce # pPguProFileId_
     , _pguPayload = pPguPayload_

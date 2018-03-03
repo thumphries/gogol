@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an entitlement to an app for a user and uninstalls it.
+-- Removes an entitlement to an app for a user.
 --
 -- /See:/ <https://developers.google.com/android/work/play/emm-api Google Play EMM API Reference> for @androidenterprise.entitlements.delete@.
 module Network.Google.Resource.AndroidEnterprise.Entitlements.Delete
@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.Entitlements.Delete
     , entUserId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.entitlements.delete@ method which the
 -- 'EntitlementsDelete' request conforms to.
@@ -54,13 +54,13 @@ type EntitlementsDeleteResource =
                    Capture "entitlementId" Text :>
                      QueryParam "alt" AltJSON :> Delete '[JSON] ()
 
--- | Removes an entitlement to an app for a user and uninstalls it.
+-- | Removes an entitlement to an app for a user.
 --
 -- /See:/ 'entitlementsDelete' smart constructor.
 data EntitlementsDelete = EntitlementsDelete'
     { _entEntitlementId :: !Text
-    , _entEnterpriseId  :: !Text
-    , _entUserId        :: !Text
+    , _entEnterpriseId :: !Text
+    , _entUserId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EntitlementsDelete' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ entitlementsDelete
     -> Text -- ^ 'entEnterpriseId'
     -> Text -- ^ 'entUserId'
     -> EntitlementsDelete
-entitlementsDelete pEntEntitlementId_ pEntEnterpriseId_ pEntUserId_ =
+entitlementsDelete pEntEntitlementId_ pEntEnterpriseId_ pEntUserId_ = 
     EntitlementsDelete'
     { _entEntitlementId = pEntEntitlementId_
     , _entEnterpriseId = pEntEnterpriseId_

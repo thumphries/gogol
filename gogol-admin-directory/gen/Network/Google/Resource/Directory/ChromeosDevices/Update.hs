@@ -39,8 +39,8 @@ module Network.Google.Resource.Directory.ChromeosDevices.Update
     , cduProjection
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.chromeosdevices.update@ method which the
 -- 'ChromeosDevicesUpdate' request conforms to.
@@ -64,9 +64,9 @@ type ChromeosDevicesUpdateResource =
 --
 -- /See:/ 'chromeosDevicesUpdate' smart constructor.
 data ChromeosDevicesUpdate = ChromeosDevicesUpdate'
-    { _cduPayload    :: !ChromeOSDevice
+    { _cduPayload :: !ChromeOSDevice
     , _cduCustomerId :: !Text
-    , _cduDeviceId   :: !Text
+    , _cduDeviceId :: !Text
     , _cduProjection :: !(Maybe ChromeosDevicesUpdateProjection)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -86,7 +86,7 @@ chromeosDevicesUpdate
     -> Text -- ^ 'cduCustomerId'
     -> Text -- ^ 'cduDeviceId'
     -> ChromeosDevicesUpdate
-chromeosDevicesUpdate pCduPayload_ pCduCustomerId_ pCduDeviceId_ =
+chromeosDevicesUpdate pCduPayload_ pCduCustomerId_ pCduDeviceId_ = 
     ChromeosDevicesUpdate'
     { _cduPayload = pCduPayload_
     , _cduCustomerId = pCduCustomerId_
@@ -99,13 +99,13 @@ cduPayload :: Lens' ChromeosDevicesUpdate ChromeOSDevice
 cduPayload
   = lens _cduPayload (\ s a -> s{_cduPayload = a})
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 cduCustomerId :: Lens' ChromeosDevicesUpdate Text
 cduCustomerId
   = lens _cduCustomerId
       (\ s a -> s{_cduCustomerId = a})
 
--- | Immutable id of Chrome OS Device
+-- | Immutable ID of Chrome OS Device
 cduDeviceId :: Lens' ChromeosDevicesUpdate Text
 cduDeviceId
   = lens _cduDeviceId (\ s a -> s{_cduDeviceId = a})

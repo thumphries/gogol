@@ -48,8 +48,8 @@ module Network.Google.Resource.Classroom.Courses.CourseWork.Get
     , ccwgCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.courseWork.get@ method which the
 -- 'CoursesCourseWorkGet' request conforms to.
@@ -59,7 +59,7 @@ type CoursesCourseWorkGetResource =
          Capture "courseId" Text :>
            "courseWork" :>
              Capture "id" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -76,15 +76,15 @@ type CoursesCourseWorkGetResource =
 --
 -- /See:/ 'coursesCourseWorkGet' smart constructor.
 data CoursesCourseWorkGet = CoursesCourseWorkGet'
-    { _ccwgXgafv          :: !(Maybe Text)
+    { _ccwgXgafv :: !(Maybe Xgafv)
     , _ccwgUploadProtocol :: !(Maybe Text)
-    , _ccwgPp             :: !Bool
-    , _ccwgCourseId       :: !Text
-    , _ccwgAccessToken    :: !(Maybe Text)
-    , _ccwgUploadType     :: !(Maybe Text)
-    , _ccwgBearerToken    :: !(Maybe Text)
-    , _ccwgId             :: !Text
-    , _ccwgCallback       :: !(Maybe Text)
+    , _ccwgPp :: !Bool
+    , _ccwgCourseId :: !Text
+    , _ccwgAccessToken :: !(Maybe Text)
+    , _ccwgUploadType :: !(Maybe Text)
+    , _ccwgBearerToken :: !(Maybe Text)
+    , _ccwgId :: !Text
+    , _ccwgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesCourseWorkGet' with the minimum fields required to make a request.
@@ -112,7 +112,7 @@ coursesCourseWorkGet
     :: Text -- ^ 'ccwgCourseId'
     -> Text -- ^ 'ccwgId'
     -> CoursesCourseWorkGet
-coursesCourseWorkGet pCcwgCourseId_ pCcwgId_ =
+coursesCourseWorkGet pCcwgCourseId_ pCcwgId_ = 
     CoursesCourseWorkGet'
     { _ccwgXgafv = Nothing
     , _ccwgUploadProtocol = Nothing
@@ -126,7 +126,7 @@ coursesCourseWorkGet pCcwgCourseId_ pCcwgId_ =
     }
 
 -- | V1 error format.
-ccwgXgafv :: Lens' CoursesCourseWorkGet (Maybe Text)
+ccwgXgafv :: Lens' CoursesCourseWorkGet (Maybe Xgafv)
 ccwgXgafv
   = lens _ccwgXgafv (\ s a -> s{_ccwgXgafv = a})
 
@@ -176,8 +176,7 @@ ccwgCallback
 instance GoogleRequest CoursesCourseWorkGet where
         type Rs CoursesCourseWorkGet = CourseWork
         type Scopes CoursesCourseWorkGet =
-             '["https://www.googleapis.com/auth/classroom.course-work.readonly",
-               "https://www.googleapis.com/auth/classroom.coursework.me",
+             '["https://www.googleapis.com/auth/classroom.coursework.me",
                "https://www.googleapis.com/auth/classroom.coursework.me.readonly",
                "https://www.googleapis.com/auth/classroom.coursework.students",
                "https://www.googleapis.com/auth/classroom.coursework.students.readonly"]

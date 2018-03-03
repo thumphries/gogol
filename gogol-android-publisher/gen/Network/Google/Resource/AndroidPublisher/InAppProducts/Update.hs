@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.InAppProducts.Update
     , iapuSKU
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.inappproducts.update@ method which the
 -- 'InAppProductsUpdate' request conforms to.
@@ -61,9 +61,9 @@ type InAppProductsUpdateResource =
 -- /See:/ 'inAppProductsUpdate' smart constructor.
 data InAppProductsUpdate = InAppProductsUpdate'
     { _iapuAutoConvertMissingPrices :: !(Maybe Bool)
-    , _iapuPackageName              :: !Text
-    , _iapuPayload                  :: !InAppProduct
-    , _iapuSKU                      :: !Text
+    , _iapuPackageName :: !Text
+    , _iapuPayload :: !InAppProduct
+    , _iapuSKU :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InAppProductsUpdate' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ inAppProductsUpdate
     -> InAppProduct -- ^ 'iapuPayload'
     -> Text -- ^ 'iapuSKU'
     -> InAppProductsUpdate
-inAppProductsUpdate pIapuPackageName_ pIapuPayload_ pIapuSKU_ =
+inAppProductsUpdate pIapuPackageName_ pIapuPayload_ pIapuSKU_ = 
     InAppProductsUpdate'
     { _iapuAutoConvertMissingPrices = Nothing
     , _iapuPackageName = pIapuPackageName_

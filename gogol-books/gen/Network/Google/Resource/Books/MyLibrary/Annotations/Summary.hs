@@ -37,8 +37,8 @@ module Network.Google.Resource.Books.MyLibrary.Annotations.Summary
     , mlasVolumeId
     ) where
 
-import           Network.Google.Books.Types
-import           Network.Google.Prelude
+import Network.Google.Books.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @books.mylibrary.annotations.summary@ method which the
 -- 'MyLibraryAnnotationsSummary' request conforms to.
@@ -72,7 +72,7 @@ myLibraryAnnotationsSummary
     :: [Text] -- ^ 'mlasLayerIds'
     -> Text -- ^ 'mlasVolumeId'
     -> MyLibraryAnnotationsSummary
-myLibraryAnnotationsSummary pMlasLayerIds_ pMlasVolumeId_ =
+myLibraryAnnotationsSummary pMlasLayerIds_ pMlasVolumeId_ = 
     MyLibraryAnnotationsSummary'
     { _mlasLayerIds = _Coerce # pMlasLayerIds_
     , _mlasVolumeId = pMlasVolumeId_

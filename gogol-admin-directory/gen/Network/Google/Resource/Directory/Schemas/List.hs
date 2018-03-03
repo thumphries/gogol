@@ -36,8 +36,8 @@ module Network.Google.Resource.Directory.Schemas.List
     , slCustomerId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.list@ method which the
 -- 'SchemasList' request conforms to.
@@ -65,12 +65,12 @@ newtype SchemasList = SchemasList'
 schemasList
     :: Text -- ^ 'slCustomerId'
     -> SchemasList
-schemasList pSlCustomerId_ =
+schemasList pSlCustomerId_ = 
     SchemasList'
     { _slCustomerId = pSlCustomerId_
     }
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 slCustomerId :: Lens' SchemasList Text
 slCustomerId
   = lens _slCustomerId (\ s a -> s{_slCustomerId = a})

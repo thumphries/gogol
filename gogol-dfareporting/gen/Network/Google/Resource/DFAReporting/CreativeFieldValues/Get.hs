@@ -38,14 +38,14 @@ module Network.Google.Resource.DFAReporting.CreativeFieldValues.Get
     , cfvgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creativeFieldValues.get@ method which the
 -- 'CreativeFieldValuesGet' request conforms to.
 type CreativeFieldValuesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creativeFields" :>
@@ -60,8 +60,8 @@ type CreativeFieldValuesGetResource =
 -- /See:/ 'creativeFieldValuesGet' smart constructor.
 data CreativeFieldValuesGet = CreativeFieldValuesGet'
     { _cfvgCreativeFieldId :: !(Textual Int64)
-    , _cfvgProFileId       :: !(Textual Int64)
-    , _cfvgId              :: !(Textual Int64)
+    , _cfvgProFileId :: !(Textual Int64)
+    , _cfvgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativeFieldValuesGet' with the minimum fields required to make a request.
@@ -78,7 +78,7 @@ creativeFieldValuesGet
     -> Int64 -- ^ 'cfvgProFileId'
     -> Int64 -- ^ 'cfvgId'
     -> CreativeFieldValuesGet
-creativeFieldValuesGet pCfvgCreativeFieldId_ pCfvgProFileId_ pCfvgId_ =
+creativeFieldValuesGet pCfvgCreativeFieldId_ pCfvgProFileId_ pCfvgId_ = 
     CreativeFieldValuesGet'
     { _cfvgCreativeFieldId = _Coerce # pCfvgCreativeFieldId_
     , _cfvgProFileId = _Coerce # pCfvgProFileId_

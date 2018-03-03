@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Schemas.Get
     , sgSchemaKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.schemas.get@ method which the
 -- 'SchemasGet' request conforms to.
@@ -57,7 +57,7 @@ type SchemasGetResource =
 -- /See:/ 'schemasGet' smart constructor.
 data SchemasGet = SchemasGet'
     { _sgCustomerId :: !Text
-    , _sgSchemaKey  :: !Text
+    , _sgSchemaKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SchemasGet' with the minimum fields required to make a request.
@@ -71,18 +71,18 @@ schemasGet
     :: Text -- ^ 'sgCustomerId'
     -> Text -- ^ 'sgSchemaKey'
     -> SchemasGet
-schemasGet pSgCustomerId_ pSgSchemaKey_ =
+schemasGet pSgCustomerId_ pSgSchemaKey_ = 
     SchemasGet'
     { _sgCustomerId = pSgCustomerId_
     , _sgSchemaKey = pSgSchemaKey_
     }
 
--- | Immutable id of the Google Apps account
+-- | Immutable ID of the G Suite account
 sgCustomerId :: Lens' SchemasGet Text
 sgCustomerId
   = lens _sgCustomerId (\ s a -> s{_sgCustomerId = a})
 
--- | Name or immutable Id of the schema
+-- | Name or immutable ID of the schema
 sgSchemaKey :: Lens' SchemasGet Text
 sgSchemaKey
   = lens _sgSchemaKey (\ s a -> s{_sgSchemaKey = a})

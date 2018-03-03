@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.RemarketingLists.Insert
     , rliPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.remarketingLists.insert@ method which the
 -- 'RemarketingListsInsert' request conforms to.
 type RemarketingListsInsertResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "remarketingLists" :>
@@ -57,7 +57,7 @@ type RemarketingListsInsertResource =
 -- /See:/ 'remarketingListsInsert' smart constructor.
 data RemarketingListsInsert = RemarketingListsInsert'
     { _rliProFileId :: !(Textual Int64)
-    , _rliPayload   :: !RemarketingList
+    , _rliPayload :: !RemarketingList
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemarketingListsInsert' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ remarketingListsInsert
     :: Int64 -- ^ 'rliProFileId'
     -> RemarketingList -- ^ 'rliPayload'
     -> RemarketingListsInsert
-remarketingListsInsert pRliProFileId_ pRliPayload_ =
+remarketingListsInsert pRliProFileId_ pRliPayload_ = 
     RemarketingListsInsert'
     { _rliProFileId = _Coerce # pRliProFileId_
     , _rliPayload = pRliPayload_

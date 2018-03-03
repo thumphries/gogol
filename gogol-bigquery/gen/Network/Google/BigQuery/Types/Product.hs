@@ -17,13 +17,14 @@
 --
 module Network.Google.BigQuery.Types.Product where
 
-import           Network.Google.BigQuery.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types.Sum
+import Network.Google.Prelude
 
 --
 -- /See:/ 'jobReference' smart constructor.
 data JobReference = JobReference'
-    { _jrJobId     :: !(Maybe Text)
+    { _jrJobId :: !(Maybe Text)
+    , _jrLocation :: !(Maybe Text)
     , _jrProjectId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -33,12 +34,15 @@ data JobReference = JobReference'
 --
 -- * 'jrJobId'
 --
+-- * 'jrLocation'
+--
 -- * 'jrProjectId'
 jobReference
     :: JobReference
-jobReference =
+jobReference = 
     JobReference'
     { _jrJobId = Nothing
+    , _jrLocation = Nothing
     , _jrProjectId = Nothing
     }
 
@@ -47,6 +51,12 @@ jobReference =
 -- is 1,024 characters.
 jrJobId :: Lens' JobReference (Maybe Text)
 jrJobId = lens _jrJobId (\ s a -> s{_jrJobId = a})
+
+-- | [Experimental] The geographic location of the job. Required except for
+-- US and EU.
+jrLocation :: Lens' JobReference (Maybe Text)
+jrLocation
+  = lens _jrLocation (\ s a -> s{_jrLocation = a})
 
 -- | [Required] The ID of the project containing this job.
 jrProjectId :: Lens' JobReference (Maybe Text)
@@ -58,23 +68,25 @@ instance FromJSON JobReference where
           = withObject "JobReference"
               (\ o ->
                  JobReference' <$>
-                   (o .:? "jobId") <*> (o .:? "projectId"))
+                   (o .:? "jobId") <*> (o .:? "location") <*>
+                     (o .:? "projectId"))
 
 instance ToJSON JobReference where
         toJSON JobReference'{..}
           = object
               (catMaybes
                  [("jobId" .=) <$> _jrJobId,
+                  ("location" .=) <$> _jrLocation,
                   ("projectId" .=) <$> _jrProjectId])
 
 --
 -- /See:/ 'tableList' smart constructor.
 data TableList = TableList'
-    { _tlTotalItems    :: !(Maybe (Textual Int32))
-    , _tlEtag          :: !(Maybe Text)
+    { _tlTotalItems :: !(Maybe (Textual Int32))
+    , _tlEtag :: !(Maybe Text)
     , _tlNextPageToken :: !(Maybe Text)
-    , _tlKind          :: !Text
-    , _tlTables        :: !(Maybe [TableListTablesItem])
+    , _tlKind :: !Text
+    , _tlTables :: !(Maybe [TableListTablesItem])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableList' with the minimum fields required to make a request.
@@ -92,7 +104,7 @@ data TableList = TableList'
 -- * 'tlTables'
 tableList
     :: TableList
-tableList =
+tableList = 
     TableList'
     { _tlTotalItems = Nothing
     , _tlEtag = Nothing
@@ -151,16 +163,19 @@ instance ToJSON TableList where
 --
 -- /See:/ 'dataSetListDataSetsItem' smart constructor.
 data DataSetListDataSetsItem = DataSetListDataSetsItem'
-    { _dsldsiFriendlyName     :: !(Maybe Text)
-    , _dsldsiKind             :: !Text
+    { _dsldsiLocation :: !(Maybe Text)
+    , _dsldsiFriendlyName :: !(Maybe Text)
+    , _dsldsiKind :: !Text
     , _dsldsiDataSetReference :: !(Maybe DataSetReference)
-    , _dsldsiId               :: !(Maybe Text)
-    , _dsldsiLabels           :: !(Maybe DataSetListDataSetsItemLabels)
+    , _dsldsiId :: !(Maybe Text)
+    , _dsldsiLabels :: !(Maybe DataSetListDataSetsItemLabels)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DataSetListDataSetsItem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsldsiLocation'
 --
 -- * 'dsldsiFriendlyName'
 --
@@ -173,14 +188,21 @@ data DataSetListDataSetsItem = DataSetListDataSetsItem'
 -- * 'dsldsiLabels'
 dataSetListDataSetsItem
     :: DataSetListDataSetsItem
-dataSetListDataSetsItem =
+dataSetListDataSetsItem = 
     DataSetListDataSetsItem'
-    { _dsldsiFriendlyName = Nothing
+    { _dsldsiLocation = Nothing
+    , _dsldsiFriendlyName = Nothing
     , _dsldsiKind = "bigquery#dataset"
     , _dsldsiDataSetReference = Nothing
     , _dsldsiId = Nothing
     , _dsldsiLabels = Nothing
     }
+
+-- | [Experimental] The geographic location where the data resides.
+dsldsiLocation :: Lens' DataSetListDataSetsItem (Maybe Text)
+dsldsiLocation
+  = lens _dsldsiLocation
+      (\ s a -> s{_dsldsiLocation = a})
 
 -- | A descriptive name for the dataset, if one exists.
 dsldsiFriendlyName :: Lens' DataSetListDataSetsItem (Maybe Text)
@@ -205,8 +227,8 @@ dsldsiDataSetReference
 dsldsiId :: Lens' DataSetListDataSetsItem (Maybe Text)
 dsldsiId = lens _dsldsiId (\ s a -> s{_dsldsiId = a})
 
--- | [Experimental] The labels associated with this dataset. You can use
--- these to organize and group your datasets.
+-- | The labels associated with this dataset. You can use these to organize
+-- and group your datasets.
 dsldsiLabels :: Lens' DataSetListDataSetsItem (Maybe DataSetListDataSetsItemLabels)
 dsldsiLabels
   = lens _dsldsiLabels (\ s a -> s{_dsldsiLabels = a})
@@ -216,7 +238,7 @@ instance FromJSON DataSetListDataSetsItem where
           = withObject "DataSetListDataSetsItem"
               (\ o ->
                  DataSetListDataSetsItem' <$>
-                   (o .:? "friendlyName") <*>
+                   (o .:? "location") <*> (o .:? "friendlyName") <*>
                      (o .:? "kind" .!= "bigquery#dataset")
                      <*> (o .:? "datasetReference")
                      <*> (o .:? "id")
@@ -226,7 +248,8 @@ instance ToJSON DataSetListDataSetsItem where
         toJSON DataSetListDataSetsItem'{..}
           = object
               (catMaybes
-                 [("friendlyName" .=) <$> _dsldsiFriendlyName,
+                 [("location" .=) <$> _dsldsiLocation,
+                  ("friendlyName" .=) <$> _dsldsiFriendlyName,
                   Just ("kind" .= _dsldsiKind),
                   ("datasetReference" .=) <$> _dsldsiDataSetReference,
                   ("id" .=) <$> _dsldsiId,
@@ -235,9 +258,9 @@ instance ToJSON DataSetListDataSetsItem where
 --
 -- /See:/ 'tableDataList' smart constructor.
 data TableDataList = TableDataList'
-    { _tdlEtag      :: !(Maybe Text)
-    , _tdlKind      :: !Text
-    , _tdlRows      :: !(Maybe [TableRow])
+    { _tdlEtag :: !(Maybe Text)
+    , _tdlKind :: !Text
+    , _tdlRows :: !(Maybe [TableRow])
     , _tdlPageToken :: !(Maybe Text)
     , _tdlTotalRows :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -257,7 +280,7 @@ data TableDataList = TableDataList'
 -- * 'tdlTotalRows'
 tableDataList
     :: TableDataList
-tableDataList =
+tableDataList = 
     TableDataList'
     { _tdlEtag = Nothing
     , _tdlKind = "bigquery#tableDataList"
@@ -316,11 +339,12 @@ instance ToJSON TableDataList where
 --
 -- /See:/ 'jobConfigurationTableCopy' smart constructor.
 data JobConfigurationTableCopy = JobConfigurationTableCopy'
-    { _jctcDestinationTable  :: !(Maybe TableReference)
-    , _jctcWriteDisPosition  :: !(Maybe Text)
-    , _jctcSourceTables      :: !(Maybe [TableReference])
+    { _jctcDestinationTable :: !(Maybe TableReference)
+    , _jctcWriteDisPosition :: !(Maybe Text)
+    , _jctcSourceTables :: !(Maybe [TableReference])
     , _jctcCreateDisPosition :: !(Maybe Text)
-    , _jctcSourceTable       :: !(Maybe TableReference)
+    , _jctcSourceTable :: !(Maybe TableReference)
+    , _jctcDestinationEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobConfigurationTableCopy' with the minimum fields required to make a request.
@@ -336,15 +360,18 @@ data JobConfigurationTableCopy = JobConfigurationTableCopy'
 -- * 'jctcCreateDisPosition'
 --
 -- * 'jctcSourceTable'
+--
+-- * 'jctcDestinationEncryptionConfiguration'
 jobConfigurationTableCopy
     :: JobConfigurationTableCopy
-jobConfigurationTableCopy =
+jobConfigurationTableCopy = 
     JobConfigurationTableCopy'
     { _jctcDestinationTable = Nothing
     , _jctcWriteDisPosition = Nothing
     , _jctcSourceTables = Nothing
     , _jctcCreateDisPosition = Nothing
     , _jctcSourceTable = Nothing
+    , _jctcDestinationEncryptionConfiguration = Nothing
     }
 
 -- | [Required] The destination table
@@ -392,6 +419,13 @@ jctcSourceTable
   = lens _jctcSourceTable
       (\ s a -> s{_jctcSourceTable = a})
 
+-- | Custom encryption configuration (e.g., Cloud KMS keys).
+jctcDestinationEncryptionConfiguration :: Lens' JobConfigurationTableCopy (Maybe EncryptionConfiguration)
+jctcDestinationEncryptionConfiguration
+  = lens _jctcDestinationEncryptionConfiguration
+      (\ s a ->
+         s{_jctcDestinationEncryptionConfiguration = a})
+
 instance FromJSON JobConfigurationTableCopy where
         parseJSON
           = withObject "JobConfigurationTableCopy"
@@ -401,7 +435,8 @@ instance FromJSON JobConfigurationTableCopy where
                      (o .:? "writeDisposition")
                      <*> (o .:? "sourceTables" .!= mempty)
                      <*> (o .:? "createDisposition")
-                     <*> (o .:? "sourceTable"))
+                     <*> (o .:? "sourceTable")
+                     <*> (o .:? "destinationEncryptionConfiguration"))
 
 instance ToJSON JobConfigurationTableCopy where
         toJSON JobConfigurationTableCopy'{..}
@@ -411,22 +446,30 @@ instance ToJSON JobConfigurationTableCopy where
                   ("writeDisposition" .=) <$> _jctcWriteDisPosition,
                   ("sourceTables" .=) <$> _jctcSourceTables,
                   ("createDisposition" .=) <$> _jctcCreateDisPosition,
-                  ("sourceTable" .=) <$> _jctcSourceTable])
+                  ("sourceTable" .=) <$> _jctcSourceTable,
+                  ("destinationEncryptionConfiguration" .=) <$>
+                    _jctcDestinationEncryptionConfiguration])
 
 --
 -- /See:/ 'tableListTablesItem' smart constructor.
 data TableListTablesItem = TableListTablesItem'
-    { _tltiTableReference :: !(Maybe TableReference)
-    , _tltiFriendlyName   :: !(Maybe Text)
-    , _tltiKind           :: !Text
-    , _tltiId             :: !(Maybe Text)
-    , _tltiLabels         :: !(Maybe TableListTablesItemLabels)
-    , _tltiType           :: !(Maybe Text)
+    { _tltiCreationTime :: !(Maybe (Textual Int64))
+    , _tltiTableReference :: !(Maybe TableReference)
+    , _tltiFriendlyName :: !(Maybe Text)
+    , _tltiKind :: !Text
+    , _tltiTimePartitioning :: !(Maybe TimePartitioning)
+    , _tltiView :: !(Maybe TableListTablesItemView)
+    , _tltiId :: !(Maybe Text)
+    , _tltiLabels :: !(Maybe TableListTablesItemLabels)
+    , _tltiType :: !(Maybe Text)
+    , _tltiExpirationTime :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableListTablesItem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tltiCreationTime'
 --
 -- * 'tltiTableReference'
 --
@@ -434,22 +477,39 @@ data TableListTablesItem = TableListTablesItem'
 --
 -- * 'tltiKind'
 --
+-- * 'tltiTimePartitioning'
+--
+-- * 'tltiView'
+--
 -- * 'tltiId'
 --
 -- * 'tltiLabels'
 --
 -- * 'tltiType'
+--
+-- * 'tltiExpirationTime'
 tableListTablesItem
     :: TableListTablesItem
-tableListTablesItem =
+tableListTablesItem = 
     TableListTablesItem'
-    { _tltiTableReference = Nothing
+    { _tltiCreationTime = Nothing
+    , _tltiTableReference = Nothing
     , _tltiFriendlyName = Nothing
     , _tltiKind = "bigquery#table"
+    , _tltiTimePartitioning = Nothing
+    , _tltiView = Nothing
     , _tltiId = Nothing
     , _tltiLabels = Nothing
     , _tltiType = Nothing
+    , _tltiExpirationTime = Nothing
     }
+
+-- | The time when this table was created, in milliseconds since the epoch.
+tltiCreationTime :: Lens' TableListTablesItem (Maybe Int64)
+tltiCreationTime
+  = lens _tltiCreationTime
+      (\ s a -> s{_tltiCreationTime = a})
+      . mapping _Coerce
 
 -- | A reference uniquely identifying the table.
 tltiTableReference :: Lens' TableListTablesItem (Maybe TableReference)
@@ -467,12 +527,22 @@ tltiFriendlyName
 tltiKind :: Lens' TableListTablesItem Text
 tltiKind = lens _tltiKind (\ s a -> s{_tltiKind = a})
 
+-- | The time-based partitioning for this table.
+tltiTimePartitioning :: Lens' TableListTablesItem (Maybe TimePartitioning)
+tltiTimePartitioning
+  = lens _tltiTimePartitioning
+      (\ s a -> s{_tltiTimePartitioning = a})
+
+-- | Additional details for a view.
+tltiView :: Lens' TableListTablesItem (Maybe TableListTablesItemView)
+tltiView = lens _tltiView (\ s a -> s{_tltiView = a})
+
 -- | An opaque ID of the table
 tltiId :: Lens' TableListTablesItem (Maybe Text)
 tltiId = lens _tltiId (\ s a -> s{_tltiId = a})
 
--- | [Experimental] The labels associated with this table. You can use these
--- to organize and group your tables.
+-- | The labels associated with this table. You can use these to organize and
+-- group your tables.
 tltiLabels :: Lens' TableListTablesItem (Maybe TableListTablesItemLabels)
 tltiLabels
   = lens _tltiLabels (\ s a -> s{_tltiLabels = a})
@@ -481,26 +551,43 @@ tltiLabels
 tltiType :: Lens' TableListTablesItem (Maybe Text)
 tltiType = lens _tltiType (\ s a -> s{_tltiType = a})
 
+-- | [Optional] The time when this table expires, in milliseconds since the
+-- epoch. If not present, the table will persist indefinitely. Expired
+-- tables will be deleted and their storage reclaimed.
+tltiExpirationTime :: Lens' TableListTablesItem (Maybe Int64)
+tltiExpirationTime
+  = lens _tltiExpirationTime
+      (\ s a -> s{_tltiExpirationTime = a})
+      . mapping _Coerce
+
 instance FromJSON TableListTablesItem where
         parseJSON
           = withObject "TableListTablesItem"
               (\ o ->
                  TableListTablesItem' <$>
-                   (o .:? "tableReference") <*> (o .:? "friendlyName")
+                   (o .:? "creationTime") <*> (o .:? "tableReference")
+                     <*> (o .:? "friendlyName")
                      <*> (o .:? "kind" .!= "bigquery#table")
+                     <*> (o .:? "timePartitioning")
+                     <*> (o .:? "view")
                      <*> (o .:? "id")
                      <*> (o .:? "labels")
-                     <*> (o .:? "type"))
+                     <*> (o .:? "type")
+                     <*> (o .:? "expirationTime"))
 
 instance ToJSON TableListTablesItem where
         toJSON TableListTablesItem'{..}
           = object
               (catMaybes
-                 [("tableReference" .=) <$> _tltiTableReference,
+                 [("creationTime" .=) <$> _tltiCreationTime,
+                  ("tableReference" .=) <$> _tltiTableReference,
                   ("friendlyName" .=) <$> _tltiFriendlyName,
-                  Just ("kind" .= _tltiKind), ("id" .=) <$> _tltiId,
+                  Just ("kind" .= _tltiKind),
+                  ("timePartitioning" .=) <$> _tltiTimePartitioning,
+                  ("view" .=) <$> _tltiView, ("id" .=) <$> _tltiId,
                   ("labels" .=) <$> _tltiLabels,
-                  ("type" .=) <$> _tltiType])
+                  ("type" .=) <$> _tltiType,
+                  ("expirationTime" .=) <$> _tltiExpirationTime])
 
 --
 -- /See:/ 'tableSchema' smart constructor.
@@ -515,7 +602,7 @@ newtype TableSchema = TableSchema'
 -- * 'tsFields'
 tableSchema
     :: TableSchema
-tableSchema =
+tableSchema = 
     TableSchema'
     { _tsFields = Nothing
     }
@@ -539,11 +626,11 @@ instance ToJSON TableSchema where
 --
 -- /See:/ 'projectList' smart constructor.
 data ProjectList = ProjectList'
-    { _plTotalItems    :: !(Maybe (Textual Int32))
-    , _plEtag          :: !(Maybe Text)
+    { _plTotalItems :: !(Maybe (Textual Int32))
+    , _plEtag :: !(Maybe Text)
     , _plNextPageToken :: !(Maybe Text)
-    , _plKind          :: !Text
-    , _plProjects      :: !(Maybe [ProjectListProjectsItem])
+    , _plKind :: !Text
+    , _plProjects :: !(Maybe [ProjectListProjectsItem])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectList' with the minimum fields required to make a request.
@@ -561,7 +648,7 @@ data ProjectList = ProjectList'
 -- * 'plProjects'
 projectList
     :: ProjectList
-projectList =
+projectList = 
     ProjectList'
     { _plTotalItems = Nothing
     , _plEtag = Nothing
@@ -621,7 +708,7 @@ instance ToJSON ProjectList where
 -- /See:/ 'explainQueryStep' smart constructor.
 data ExplainQueryStep = ExplainQueryStep'
     { _eqsSubsteps :: !(Maybe [Text])
-    , _eqsKind     :: !(Maybe Text)
+    , _eqsKind :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExplainQueryStep' with the minimum fields required to make a request.
@@ -633,7 +720,7 @@ data ExplainQueryStep = ExplainQueryStep'
 -- * 'eqsKind'
 explainQueryStep
     :: ExplainQueryStep
-explainQueryStep =
+explainQueryStep = 
     ExplainQueryStep'
     { _eqsSubsteps = Nothing
     , _eqsKind = Nothing
@@ -665,10 +752,99 @@ instance ToJSON ExplainQueryStep where
                   ("kind" .=) <$> _eqsKind])
 
 --
+-- /See:/ 'queryTimelineSample' smart constructor.
+data QueryTimelineSample = QueryTimelineSample'
+    { _qtsPendingInputs :: !(Maybe (Textual Int64))
+    , _qtsTotalSlotMs :: !(Maybe (Textual Int64))
+    , _qtsElapsedMs :: !(Maybe (Textual Int64))
+    , _qtsCompletedInputs :: !(Maybe (Textual Int64))
+    , _qtsActiveInputs :: !(Maybe (Textual Int64))
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'QueryTimelineSample' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qtsPendingInputs'
+--
+-- * 'qtsTotalSlotMs'
+--
+-- * 'qtsElapsedMs'
+--
+-- * 'qtsCompletedInputs'
+--
+-- * 'qtsActiveInputs'
+queryTimelineSample
+    :: QueryTimelineSample
+queryTimelineSample = 
+    QueryTimelineSample'
+    { _qtsPendingInputs = Nothing
+    , _qtsTotalSlotMs = Nothing
+    , _qtsElapsedMs = Nothing
+    , _qtsCompletedInputs = Nothing
+    , _qtsActiveInputs = Nothing
+    }
+
+-- | Total parallel units of work remaining for the active stages.
+qtsPendingInputs :: Lens' QueryTimelineSample (Maybe Int64)
+qtsPendingInputs
+  = lens _qtsPendingInputs
+      (\ s a -> s{_qtsPendingInputs = a})
+      . mapping _Coerce
+
+-- | Cumulative slot-ms consumed by the query.
+qtsTotalSlotMs :: Lens' QueryTimelineSample (Maybe Int64)
+qtsTotalSlotMs
+  = lens _qtsTotalSlotMs
+      (\ s a -> s{_qtsTotalSlotMs = a})
+      . mapping _Coerce
+
+-- | Milliseconds elapsed since the start of query execution.
+qtsElapsedMs :: Lens' QueryTimelineSample (Maybe Int64)
+qtsElapsedMs
+  = lens _qtsElapsedMs (\ s a -> s{_qtsElapsedMs = a})
+      . mapping _Coerce
+
+-- | Total parallel units of work completed by this query.
+qtsCompletedInputs :: Lens' QueryTimelineSample (Maybe Int64)
+qtsCompletedInputs
+  = lens _qtsCompletedInputs
+      (\ s a -> s{_qtsCompletedInputs = a})
+      . mapping _Coerce
+
+-- | Total number of active workers. This does not correspond directly to
+-- slot usage. This is the largest value observed since the last sample.
+qtsActiveInputs :: Lens' QueryTimelineSample (Maybe Int64)
+qtsActiveInputs
+  = lens _qtsActiveInputs
+      (\ s a -> s{_qtsActiveInputs = a})
+      . mapping _Coerce
+
+instance FromJSON QueryTimelineSample where
+        parseJSON
+          = withObject "QueryTimelineSample"
+              (\ o ->
+                 QueryTimelineSample' <$>
+                   (o .:? "pendingInputs") <*> (o .:? "totalSlotMs") <*>
+                     (o .:? "elapsedMs")
+                     <*> (o .:? "completedInputs")
+                     <*> (o .:? "activeInputs"))
+
+instance ToJSON QueryTimelineSample where
+        toJSON QueryTimelineSample'{..}
+          = object
+              (catMaybes
+                 [("pendingInputs" .=) <$> _qtsPendingInputs,
+                  ("totalSlotMs" .=) <$> _qtsTotalSlotMs,
+                  ("elapsedMs" .=) <$> _qtsElapsedMs,
+                  ("completedInputs" .=) <$> _qtsCompletedInputs,
+                  ("activeInputs" .=) <$> _qtsActiveInputs])
+
+--
 -- /See:/ 'queryParameterTypeStructTypesItem' smart constructor.
 data QueryParameterTypeStructTypesItem = QueryParameterTypeStructTypesItem'
-    { _qptstiName        :: !(Maybe Text)
-    , _qptstiType        :: !(Maybe QueryParameterType)
+    { _qptstiName :: !(Maybe Text)
+    , _qptstiType :: !(Maybe QueryParameterType)
     , _qptstiDescription :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -683,7 +859,7 @@ data QueryParameterTypeStructTypesItem = QueryParameterTypeStructTypesItem'
 -- * 'qptstiDescription'
 queryParameterTypeStructTypesItem
     :: QueryParameterTypeStructTypesItem
-queryParameterTypeStructTypesItem =
+queryParameterTypeStructTypesItem = 
     QueryParameterTypeStructTypesItem'
     { _qptstiName = Nothing
     , _qptstiType = Nothing
@@ -727,11 +903,11 @@ instance ToJSON QueryParameterTypeStructTypesItem
 --
 -- /See:/ 'bigtableColumnFamily' smart constructor.
 data BigtableColumnFamily = BigtableColumnFamily'
-    { _bcfFamilyId       :: !(Maybe Text)
-    , _bcfColumns        :: !(Maybe [BigtableColumn])
+    { _bcfFamilyId :: !(Maybe Text)
+    , _bcfColumns :: !(Maybe [BigtableColumn])
     , _bcfOnlyReadLatest :: !(Maybe Bool)
-    , _bcfType           :: !(Maybe Text)
-    , _bcfEncoding       :: !(Maybe Text)
+    , _bcfType :: !(Maybe Text)
+    , _bcfEncoding :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BigtableColumnFamily' with the minimum fields required to make a request.
@@ -749,7 +925,7 @@ data BigtableColumnFamily = BigtableColumnFamily'
 -- * 'bcfEncoding'
 bigtableColumnFamily
     :: BigtableColumnFamily
-bigtableColumnFamily =
+bigtableColumnFamily = 
     BigtableColumnFamily'
     { _bcfFamilyId = Nothing
     , _bcfColumns = Nothing
@@ -824,13 +1000,14 @@ instance ToJSON BigtableColumnFamily where
 --
 -- /See:/ 'jobStatistics' smart constructor.
 data JobStatistics = JobStatistics'
-    { _jsCreationTime        :: !(Maybe (Textual Int64))
-    , _jsStartTime           :: !(Maybe (Textual Int64))
-    , _jsLoad                :: !(Maybe JobStatistics3)
+    { _jsCreationTime :: !(Maybe (Textual Int64))
+    , _jsStartTime :: !(Maybe (Textual Int64))
+    , _jsCompletionRatio :: !(Maybe (Textual Double))
+    , _jsLoad :: !(Maybe JobStatistics3)
     , _jsTotalBytesProcessed :: !(Maybe (Textual Int64))
-    , _jsEndTime             :: !(Maybe (Textual Int64))
-    , _jsQuery               :: !(Maybe JobStatistics2)
-    , _jsExtract             :: !(Maybe JobStatistics4)
+    , _jsEndTime :: !(Maybe (Textual Int64))
+    , _jsQuery :: !(Maybe JobStatistics2)
+    , _jsExtract :: !(Maybe JobStatistics4)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobStatistics' with the minimum fields required to make a request.
@@ -840,6 +1017,8 @@ data JobStatistics = JobStatistics'
 -- * 'jsCreationTime'
 --
 -- * 'jsStartTime'
+--
+-- * 'jsCompletionRatio'
 --
 -- * 'jsLoad'
 --
@@ -852,10 +1031,11 @@ data JobStatistics = JobStatistics'
 -- * 'jsExtract'
 jobStatistics
     :: JobStatistics
-jobStatistics =
+jobStatistics = 
     JobStatistics'
     { _jsCreationTime = Nothing
     , _jsStartTime = Nothing
+    , _jsCompletionRatio = Nothing
     , _jsLoad = Nothing
     , _jsTotalBytesProcessed = Nothing
     , _jsEndTime = Nothing
@@ -878,6 +1058,14 @@ jsStartTime :: Lens' JobStatistics (Maybe Int64)
 jsStartTime
   = lens _jsStartTime (\ s a -> s{_jsStartTime = a}) .
       mapping _Coerce
+
+-- | [Experimental] [Output-only] Job progress (0.0 -> 1.0) for LOAD and
+-- EXTRACT jobs.
+jsCompletionRatio :: Lens' JobStatistics (Maybe Double)
+jsCompletionRatio
+  = lens _jsCompletionRatio
+      (\ s a -> s{_jsCompletionRatio = a})
+      . mapping _Coerce
 
 -- | [Output-only] Statistics for a load job.
 jsLoad :: Lens' JobStatistics (Maybe JobStatistics3)
@@ -913,7 +1101,8 @@ instance FromJSON JobStatistics where
               (\ o ->
                  JobStatistics' <$>
                    (o .:? "creationTime") <*> (o .:? "startTime") <*>
-                     (o .:? "load")
+                     (o .:? "completionRatio")
+                     <*> (o .:? "load")
                      <*> (o .:? "totalBytesProcessed")
                      <*> (o .:? "endTime")
                      <*> (o .:? "query")
@@ -925,6 +1114,7 @@ instance ToJSON JobStatistics where
               (catMaybes
                  [("creationTime" .=) <$> _jsCreationTime,
                   ("startTime" .=) <$> _jsStartTime,
+                  ("completionRatio" .=) <$> _jsCompletionRatio,
                   ("load" .=) <$> _jsLoad,
                   ("totalBytesProcessed" .=) <$>
                     _jsTotalBytesProcessed,
@@ -932,13 +1122,12 @@ instance ToJSON JobStatistics where
                   ("query" .=) <$> _jsQuery,
                   ("extract" .=) <$> _jsExtract])
 
--- | [Experimental] The labels associated with this job. You can use these to
--- organize and group your jobs. Label keys and values can be no longer
--- than 63 characters, can only contain letters, numeric characters,
+-- | The labels associated with this job. You can use these to organize and
+-- group your jobs. Label keys and values can be no longer than 63
+-- characters, can only contain lowercase letters, numeric characters,
 -- underscores and dashes. International characters are allowed. Label
--- values are optional. Label keys must start with a letter and must be
--- unique within a dataset. Both keys and values are additionally
--- constrained to be \<= 128 bytes in size.
+-- values are optional. Label keys must start with a letter and each label
+-- in the list must have a different key.
 --
 -- /See:/ 'jobConfigurationLabels' smart constructor.
 newtype JobConfigurationLabels = JobConfigurationLabels'
@@ -953,7 +1142,7 @@ newtype JobConfigurationLabels = JobConfigurationLabels'
 jobConfigurationLabels
     :: HashMap Text Text -- ^ 'jclAddtional'
     -> JobConfigurationLabels
-jobConfigurationLabels pJclAddtional_ =
+jobConfigurationLabels pJclAddtional_ = 
     JobConfigurationLabels'
     { _jclAddtional = _Coerce # pJclAddtional_
     }
@@ -975,19 +1164,19 @@ instance ToJSON JobConfigurationLabels where
 --
 -- /See:/ 'dataSet' smart constructor.
 data DataSet = DataSet'
-    { _dsCreationTime             :: !(Maybe (Textual Int64))
-    , _dsAccess                   :: !(Maybe [DataSetAccessItem])
-    , _dsEtag                     :: !(Maybe Text)
-    , _dsLocation                 :: !(Maybe Text)
-    , _dsFriendlyName             :: !(Maybe Text)
-    , _dsKind                     :: !Text
-    , _dsLastModifiedTime         :: !(Maybe (Textual Int64))
-    , _dsDataSetReference         :: !(Maybe DataSetReference)
-    , _dsSelfLink                 :: !(Maybe Text)
-    , _dsId                       :: !(Maybe Text)
-    , _dsLabels                   :: !(Maybe DataSetLabels)
+    { _dsCreationTime :: !(Maybe (Textual Int64))
+    , _dsAccess :: !(Maybe [DataSetAccessItem])
+    , _dsEtag :: !(Maybe Text)
+    , _dsLocation :: !(Maybe Text)
+    , _dsFriendlyName :: !(Maybe Text)
+    , _dsKind :: !Text
+    , _dsLastModifiedTime :: !(Maybe (Textual Int64))
+    , _dsDataSetReference :: !(Maybe DataSetReference)
+    , _dsSelfLink :: !(Maybe Text)
+    , _dsId :: !(Maybe Text)
+    , _dsLabels :: !(Maybe DataSetLabels)
     , _dsDefaultTableExpirationMs :: !(Maybe (Textual Int64))
-    , _dsDescription              :: !(Maybe Text)
+    , _dsDescription :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DataSet' with the minimum fields required to make a request.
@@ -1021,7 +1210,7 @@ data DataSet = DataSet'
 -- * 'dsDescription'
 dataSet
     :: DataSet
-dataSet =
+dataSet = 
     DataSet'
     { _dsCreationTime = Nothing
     , _dsAccess = Nothing
@@ -1064,8 +1253,8 @@ dsAccess
 dsEtag :: Lens' DataSet (Maybe Text)
 dsEtag = lens _dsEtag (\ s a -> s{_dsEtag = a})
 
--- | [Experimental] The geographic location where the dataset should reside.
--- Possible values include EU and US. The default value is US.
+-- | The geographic location where the dataset should reside. Possible values
+-- include EU and US. The default value is US.
 dsLocation :: Lens' DataSet (Maybe Text)
 dsLocation
   = lens _dsLocation (\ s a -> s{_dsLocation = a})
@@ -1107,10 +1296,9 @@ dsSelfLink
 dsId :: Lens' DataSet (Maybe Text)
 dsId = lens _dsId (\ s a -> s{_dsId = a})
 
--- | [Experimental] The labels associated with this dataset. You can use
--- these to organize and group your datasets. You can set this property
--- when inserting or updating a dataset. See Labeling Datasets for more
--- information.
+-- | The labels associated with this dataset. You can use these to organize
+-- and group your datasets. You can set this property when inserting or
+-- updating a dataset. See Labeling Datasets for more information.
 dsLabels :: Lens' DataSet (Maybe DataSetLabels)
 dsLabels = lens _dsLabels (\ s a -> s{_dsLabels = a})
 
@@ -1175,9 +1363,9 @@ instance ToJSON DataSet where
 --
 -- /See:/ 'bigtableOptions' smart constructor.
 data BigtableOptions = BigtableOptions'
-    { _boReadRowkeyAsString              :: !(Maybe Bool)
+    { _boReadRowkeyAsString :: !(Maybe Bool)
     , _boIgnoreUnspecifiedColumnFamilies :: !(Maybe Bool)
-    , _boColumnFamilies                  :: !(Maybe [BigtableColumnFamily])
+    , _boColumnFamilies :: !(Maybe [BigtableColumnFamily])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BigtableOptions' with the minimum fields required to make a request.
@@ -1191,7 +1379,7 @@ data BigtableOptions = BigtableOptions'
 -- * 'boColumnFamilies'
 bigtableOptions
     :: BigtableOptions
-bigtableOptions =
+bigtableOptions = 
     BigtableOptions'
     { _boReadRowkeyAsString = Nothing
     , _boIgnoreUnspecifiedColumnFamilies = Nothing
@@ -1251,16 +1439,16 @@ instance ToJSON BigtableOptions where
 --
 -- /See:/ 'externalDataConfiguration' smart constructor.
 data ExternalDataConfiguration = ExternalDataConfiguration'
-    { _edcBigtableOptions     :: !(Maybe BigtableOptions)
+    { _edcBigtableOptions :: !(Maybe BigtableOptions)
     , _edcIgnoreUnknownValues :: !(Maybe Bool)
-    , _edcCompression         :: !(Maybe Text)
-    , _edcSourceFormat        :: !(Maybe Text)
-    , _edcSchema              :: !(Maybe TableSchema)
-    , _edcMaxBadRecords       :: !(Maybe (Textual Int32))
+    , _edcCompression :: !(Maybe Text)
+    , _edcSourceFormat :: !(Maybe Text)
+    , _edcSchema :: !(Maybe TableSchema)
+    , _edcMaxBadRecords :: !(Maybe (Textual Int32))
     , _edcGoogleSheetsOptions :: !(Maybe GoogleSheetsOptions)
-    , _edcAutodetect          :: !(Maybe Bool)
-    , _edcSourceURIs          :: !(Maybe [Text])
-    , _edcCSVOptions          :: !(Maybe CSVOptions)
+    , _edcAutodetect :: !(Maybe Bool)
+    , _edcSourceURIs :: !(Maybe [Text])
+    , _edcCSVOptions :: !(Maybe CSVOptions)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExternalDataConfiguration' with the minimum fields required to make a request.
@@ -1288,7 +1476,7 @@ data ExternalDataConfiguration = ExternalDataConfiguration'
 -- * 'edcCSVOptions'
 externalDataConfiguration
     :: ExternalDataConfiguration
-externalDataConfiguration =
+externalDataConfiguration = 
     ExternalDataConfiguration'
     { _edcBigtableOptions = Nothing
     , _edcIgnoreUnknownValues = Nothing
@@ -1334,11 +1522,8 @@ edcCompression
 -- | [Required] The data format. For CSV files, specify \"CSV\". For Google
 -- sheets, specify \"GOOGLE_SHEETS\". For newline-delimited JSON, specify
 -- \"NEWLINE_DELIMITED_JSON\". For Avro files, specify \"AVRO\". For Google
--- Cloud Datastore backups, specify \"DATASTORE_BACKUP\". [Experimental]
--- For Google Cloud Bigtable, specify \"BIGTABLE\". Please note that
--- reading from Google Cloud Bigtable is experimental and has to be enabled
--- for your project. Please contact Google Cloud Support to enable this for
--- your project.
+-- Cloud Datastore backups, specify \"DATASTORE_BACKUP\". [Beta] For Google
+-- Cloud Bigtable, specify \"BIGTABLE\".
 edcSourceFormat :: Lens' ExternalDataConfiguration (Maybe Text)
 edcSourceFormat
   = lens _edcSourceFormat
@@ -1368,8 +1553,8 @@ edcGoogleSheetsOptions
   = lens _edcGoogleSheetsOptions
       (\ s a -> s{_edcGoogleSheetsOptions = a})
 
--- | [Experimental] Try to detect schema and format options automatically.
--- Any option specified explicitly will be honored.
+-- | Try to detect schema and format options automatically. Any option
+-- specified explicitly will be honored.
 edcAutodetect :: Lens' ExternalDataConfiguration (Maybe Bool)
 edcAutodetect
   = lens _edcAutodetect
@@ -1381,9 +1566,8 @@ edcAutodetect
 -- limits related to load jobs apply to external data sources. For Google
 -- Cloud Bigtable URIs: Exactly one URI can be specified and it has be a
 -- fully specified and valid HTTPS URL for a Google Cloud Bigtable table.
--- For Google Cloud Datastore backups, exactly one URI can be specified,
--- and it must end with \'.backup_info\'. Also, the \'*\' wildcard
--- character is not allowed.
+-- For Google Cloud Datastore backups, exactly one URI can be specified.
+-- Also, the \'*\' wildcard character is not allowed.
 edcSourceURIs :: Lens' ExternalDataConfiguration [Text]
 edcSourceURIs
   = lens _edcSourceURIs
@@ -1435,7 +1619,7 @@ instance ToJSON ExternalDataConfiguration where
 data TableReference = TableReference'
     { _trDataSetId :: !(Maybe Text)
     , _trProjectId :: !(Maybe Text)
-    , _trTableId   :: !(Maybe Text)
+    , _trTableId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableReference' with the minimum fields required to make a request.
@@ -1449,7 +1633,7 @@ data TableReference = TableReference'
 -- * 'trTableId'
 tableReference
     :: TableReference
-tableReference =
+tableReference = 
     TableReference'
     { _trDataSetId = Nothing
     , _trProjectId = Nothing
@@ -1492,11 +1676,11 @@ instance ToJSON TableReference where
 --
 -- /See:/ 'tableFieldSchema' smart constructor.
 data TableFieldSchema = TableFieldSchema'
-    { _tfsMode        :: !(Maybe Text)
-    , _tfsName        :: !(Maybe Text)
-    , _tfsType        :: !(Maybe Text)
+    { _tfsMode :: !(Maybe Text)
+    , _tfsName :: !(Maybe Text)
+    , _tfsType :: !(Maybe Text)
     , _tfsDescription :: !(Maybe Text)
-    , _tfsFields      :: !(Maybe [TableFieldSchema])
+    , _tfsFields :: !(Maybe [TableFieldSchema])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableFieldSchema' with the minimum fields required to make a request.
@@ -1514,7 +1698,7 @@ data TableFieldSchema = TableFieldSchema'
 -- * 'tfsFields'
 tableFieldSchema
     :: TableFieldSchema
-tableFieldSchema =
+tableFieldSchema = 
     TableFieldSchema'
     { _tfsMode = Nothing
     , _tfsName = Nothing
@@ -1542,7 +1726,8 @@ tfsName = lens _tfsName (\ s a -> s{_tfsName = a})
 tfsType :: Lens' TableFieldSchema (Maybe Text)
 tfsType = lens _tfsType (\ s a -> s{_tfsType = a})
 
--- | [Optional] The field description. The maximum length is 16K characters.
+-- | [Optional] The field description. The maximum length is 1,024
+-- characters.
 tfsDescription :: Lens' TableFieldSchema (Maybe Text)
 tfsDescription
   = lens _tfsDescription
@@ -1577,18 +1762,18 @@ instance ToJSON TableFieldSchema where
 --
 -- /See:/ 'getQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
-    { _gqrrJobReference        :: !(Maybe JobReference)
-    , _gqrrEtag                :: !(Maybe Text)
-    , _gqrrKind                :: !Text
-    , _gqrrSchema              :: !(Maybe TableSchema)
+    { _gqrrJobReference :: !(Maybe JobReference)
+    , _gqrrEtag :: !(Maybe Text)
+    , _gqrrKind :: !Text
+    , _gqrrSchema :: !(Maybe TableSchema)
     , _gqrrTotalBytesProcessed :: !(Maybe (Textual Int64))
-    , _gqrrRows                :: !(Maybe [TableRow])
-    , _gqrrPageToken           :: !(Maybe Text)
-    , _gqrrNumDmlAffectedRows  :: !(Maybe (Textual Int64))
-    , _gqrrTotalRows           :: !(Maybe (Textual Word64))
-    , _gqrrErrors              :: !(Maybe [ErrorProto])
-    , _gqrrJobComplete         :: !(Maybe Bool)
-    , _gqrrCacheHit            :: !(Maybe Bool)
+    , _gqrrRows :: !(Maybe [TableRow])
+    , _gqrrPageToken :: !(Maybe Text)
+    , _gqrrNumDmlAffectedRows :: !(Maybe (Textual Int64))
+    , _gqrrTotalRows :: !(Maybe (Textual Word64))
+    , _gqrrErrors :: !(Maybe [ErrorProto])
+    , _gqrrJobComplete :: !(Maybe Bool)
+    , _gqrrCacheHit :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetQueryResultsResponse' with the minimum fields required to make a request.
@@ -1620,7 +1805,7 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- * 'gqrrCacheHit'
 getQueryResultsResponse
     :: GetQueryResultsResponse
-getQueryResultsResponse =
+getQueryResultsResponse = 
     GetQueryResultsResponse'
     { _gqrrJobReference = Nothing
     , _gqrrEtag = Nothing
@@ -1684,8 +1869,8 @@ gqrrPageToken
   = lens _gqrrPageToken
       (\ s a -> s{_gqrrPageToken = a})
 
--- | [Output-only, Experimental] The number of rows affected by a DML
--- statement. Present only for DML statements INSERT, UPDATE or DELETE.
+-- | [Output-only] The number of rows affected by a DML statement. Present
+-- only for DML statements INSERT, UPDATE or DELETE.
 gqrrNumDmlAffectedRows :: Lens' GetQueryResultsResponse (Maybe Int64)
 gqrrNumDmlAffectedRows
   = lens _gqrrNumDmlAffectedRows
@@ -1701,9 +1886,10 @@ gqrrTotalRows
       (\ s a -> s{_gqrrTotalRows = a})
       . mapping _Coerce
 
--- | [Output-only] All errors and warnings encountered during the running of
--- the job. Errors here do not necessarily mean that the job has completed
--- or was unsuccessful.
+-- | [Output-only] The first errors or warnings encountered during the
+-- running of the job. The final message includes the number of errors that
+-- caused the process to stop. Errors here do not necessarily mean that the
+-- job has completed or was unsuccessful.
 gqrrErrors :: Lens' GetQueryResultsResponse [ErrorProto]
 gqrrErrors
   = lens _gqrrErrors (\ s a -> s{_gqrrErrors = a}) .
@@ -1762,10 +1948,10 @@ instance ToJSON GetQueryResultsResponse where
 --
 -- /See:/ 'dataSetList' smart constructor.
 data DataSetList = DataSetList'
-    { _dslEtag          :: !(Maybe Text)
+    { _dslEtag :: !(Maybe Text)
     , _dslNextPageToken :: !(Maybe Text)
-    , _dslKind          :: !Text
-    , _dslDataSets      :: !(Maybe [DataSetListDataSetsItem])
+    , _dslKind :: !Text
+    , _dslDataSets :: !(Maybe [DataSetListDataSetsItem])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DataSetList' with the minimum fields required to make a request.
@@ -1781,7 +1967,7 @@ data DataSetList = DataSetList'
 -- * 'dslDataSets'
 dataSetList
     :: DataSetList
-dataSetList =
+dataSetList = 
     DataSetList'
     { _dslEtag = Nothing
     , _dslNextPageToken = Nothing
@@ -1837,22 +2023,25 @@ instance ToJSON DataSetList where
 --
 -- /See:/ 'queryRequest' smart constructor.
 data QueryRequest = QueryRequest'
-    { _qrUseQueryCache   :: !Bool
-    , _qrPreserveNulls   :: !(Maybe Bool)
-    , _qrKind            :: !Text
+    { _qrLocation :: !(Maybe Text)
+    , _qrUseQueryCache :: !Bool
+    , _qrPreserveNulls :: !(Maybe Bool)
+    , _qrKind :: !Text
     , _qrQueryParameters :: !(Maybe [QueryParameter])
-    , _qrQuery           :: !(Maybe Text)
-    , _qrParameterMode   :: !(Maybe Text)
-    , _qrTimeoutMs       :: !(Maybe (Textual Word32))
-    , _qrUseLegacySQL    :: !Bool
-    , _qrDryRun          :: !(Maybe Bool)
-    , _qrMaxResults      :: !(Maybe (Textual Word32))
-    , _qrDefaultDataSet  :: !(Maybe DataSetReference)
+    , _qrQuery :: !(Maybe Text)
+    , _qrParameterMode :: !(Maybe Text)
+    , _qrTimeoutMs :: !(Maybe (Textual Word32))
+    , _qrUseLegacySQL :: !Bool
+    , _qrDryRun :: !(Maybe Bool)
+    , _qrMaxResults :: !(Maybe (Textual Word32))
+    , _qrDefaultDataSet :: !(Maybe DataSetReference)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qrLocation'
 --
 -- * 'qrUseQueryCache'
 --
@@ -1877,9 +2066,10 @@ data QueryRequest = QueryRequest'
 -- * 'qrDefaultDataSet'
 queryRequest
     :: QueryRequest
-queryRequest =
+queryRequest = 
     QueryRequest'
-    { _qrUseQueryCache = True
+    { _qrLocation = Nothing
+    , _qrUseQueryCache = True
     , _qrPreserveNulls = Nothing
     , _qrKind = "bigquery#queryRequest"
     , _qrQueryParameters = Nothing
@@ -1891,6 +2081,12 @@ queryRequest =
     , _qrMaxResults = Nothing
     , _qrDefaultDataSet = Nothing
     }
+
+-- | [Experimental] The geographic location where the job should run.
+-- Required except for US and EU.
+qrLocation :: Lens' QueryRequest (Maybe Text)
+qrLocation
+  = lens _qrLocation (\ s a -> s{_qrLocation = a})
 
 -- | [Optional] Whether to look for the result in the query cache. The query
 -- cache is a best-effort cache that will be flushed whenever tables in the
@@ -1910,7 +2106,7 @@ qrPreserveNulls
 qrKind :: Lens' QueryRequest Text
 qrKind = lens _qrKind (\ s a -> s{_qrKind = a})
 
--- | [Experimental] Query parameters for Standard SQL queries.
+-- | Query parameters for Standard SQL queries.
 qrQueryParameters :: Lens' QueryRequest [QueryParameter]
 qrQueryParameters
   = lens _qrQueryParameters
@@ -1924,9 +2120,9 @@ qrQueryParameters
 qrQuery :: Lens' QueryRequest (Maybe Text)
 qrQuery = lens _qrQuery (\ s a -> s{_qrQuery = a})
 
--- | [Experimental] Standard SQL only. Set to POSITIONAL to use positional
--- (?) query parameters or to NAMED to use named (\'myparam) query
--- parameters in this query.
+-- | Standard SQL only. Set to POSITIONAL to use positional (?) query
+-- parameters or to NAMED to use named (\'myparam) query parameters in this
+-- query.
 qrParameterMode :: Lens' QueryRequest (Maybe Text)
 qrParameterMode
   = lens _qrParameterMode
@@ -1948,9 +2144,8 @@ qrTimeoutMs
 -- The default value is true. If set to false, the query will use
 -- BigQuery\'s standard SQL:
 -- https:\/\/cloud.google.com\/bigquery\/sql-reference\/ When useLegacySql
--- is set to false, the values of allowLargeResults and flattenResults are
--- ignored; query will be run as if allowLargeResults is true and
--- flattenResults is false.
+-- is set to false, the value of flattenResults is ignored; query will be
+-- run as if flattenResults is false.
 qrUseLegacySQL :: Lens' QueryRequest Bool
 qrUseLegacySQL
   = lens _qrUseLegacySQL
@@ -1987,8 +2182,9 @@ instance FromJSON QueryRequest where
           = withObject "QueryRequest"
               (\ o ->
                  QueryRequest' <$>
-                   (o .:? "useQueryCache" .!= True) <*>
-                     (o .:? "preserveNulls")
+                   (o .:? "location") <*>
+                     (o .:? "useQueryCache" .!= True)
+                     <*> (o .:? "preserveNulls")
                      <*> (o .:? "kind" .!= "bigquery#queryRequest")
                      <*> (o .:? "queryParameters" .!= mempty)
                      <*> (o .:? "query")
@@ -2003,7 +2199,8 @@ instance ToJSON QueryRequest where
         toJSON QueryRequest'{..}
           = object
               (catMaybes
-                 [Just ("useQueryCache" .= _qrUseQueryCache),
+                 [("location" .=) <$> _qrLocation,
+                  Just ("useQueryCache" .= _qrUseQueryCache),
                   ("preserveNulls" .=) <$> _qrPreserveNulls,
                   Just ("kind" .= _qrKind),
                   ("queryParameters" .=) <$> _qrQueryParameters,
@@ -2019,8 +2216,8 @@ instance ToJSON QueryRequest where
 -- /See:/ 'queryParameter' smart constructor.
 data QueryParameter = QueryParameter'
     { _qpParameterValue :: !(Maybe QueryParameterValue)
-    , _qpParameterType  :: !(Maybe QueryParameterType)
-    , _qpName           :: !(Maybe Text)
+    , _qpParameterType :: !(Maybe QueryParameterType)
+    , _qpName :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryParameter' with the minimum fields required to make a request.
@@ -2034,7 +2231,7 @@ data QueryParameter = QueryParameter'
 -- * 'qpName'
 queryParameter
     :: QueryParameter
-queryParameter =
+queryParameter = 
     QueryParameter'
     { _qpParameterValue = Nothing
     , _qpParameterType = Nothing
@@ -2087,7 +2284,7 @@ newtype JobStatistics4 = JobStatistics4'
 -- * 'jsDestinationURIFileCounts'
 jobStatistics4
     :: JobStatistics4
-jobStatistics4 =
+jobStatistics4 = 
     JobStatistics4'
     { _jsDestinationURIFileCounts = Nothing
     }
@@ -2129,7 +2326,7 @@ newtype ProjectReference = ProjectReference'
 -- * 'prProjectId'
 projectReference
     :: ProjectReference
-projectReference =
+projectReference = 
     ProjectReference'
     { _prProjectId = Nothing
     }
@@ -2153,33 +2350,62 @@ instance ToJSON ProjectReference where
 --
 -- /See:/ 'explainQueryStage' smart constructor.
 data ExplainQueryStage = ExplainQueryStage'
-    { _eqsStatus          :: !(Maybe Text)
-    , _eqsWaitRatioMax    :: !(Maybe (Textual Double))
-    , _eqsRecordsWritten  :: !(Maybe (Textual Int64))
-    , _eqsSteps           :: !(Maybe [ExplainQueryStep])
-    , _eqsWriteRatioAvg   :: !(Maybe (Textual Double))
-    , _eqsRecordsRead     :: !(Maybe (Textual Int64))
+    { _eqsReadMsAvg :: !(Maybe (Textual Int64))
+    , _eqsStatus :: !(Maybe Text)
+    , _eqsShuffleOutputBytesSpilled :: !(Maybe (Textual Int64))
+    , _eqsReadMsMax :: !(Maybe (Textual Int64))
+    , _eqsCompletedParallelInputs :: !(Maybe (Textual Int64))
+    , _eqsWaitRatioMax :: !(Maybe (Textual Double))
+    , _eqsParallelInputs :: !(Maybe (Textual Int64))
+    , _eqsShuffleOutputBytes :: !(Maybe (Textual Int64))
+    , _eqsRecordsWritten :: !(Maybe (Textual Int64))
+    , _eqsSteps :: !(Maybe [ExplainQueryStep])
+    , _eqsInputStages :: !(Maybe [Textual Int64])
+    , _eqsWriteRatioAvg :: !(Maybe (Textual Double))
+    , _eqsRecordsRead :: !(Maybe (Textual Int64))
     , _eqsComputeRatioAvg :: !(Maybe (Textual Double))
-    , _eqsName            :: !(Maybe Text)
-    , _eqsReadRatioMax    :: !(Maybe (Textual Double))
-    , _eqsWaitRatioAvg    :: !(Maybe (Textual Double))
-    , _eqsId              :: !(Maybe (Textual Int64))
+    , _eqsName :: !(Maybe Text)
+    , _eqsComputeMsMax :: !(Maybe (Textual Int64))
+    , _eqsReadRatioMax :: !(Maybe (Textual Double))
+    , _eqsWriteMsMax :: !(Maybe (Textual Int64))
+    , _eqsWaitRatioAvg :: !(Maybe (Textual Double))
+    , _eqsWaitMsAvg :: !(Maybe (Textual Int64))
+    , _eqsId :: !(Maybe (Textual Int64))
     , _eqsComputeRatioMax :: !(Maybe (Textual Double))
-    , _eqsWriteRatioMax   :: !(Maybe (Textual Double))
-    , _eqsReadRatioAvg    :: !(Maybe (Textual Double))
+    , _eqsWriteRatioMax :: !(Maybe (Textual Double))
+    , _eqsComputeMsAvg :: !(Maybe (Textual Int64))
+    , _eqsReadRatioAvg :: !(Maybe (Textual Double))
+    , _eqsWriteMsAvg :: !(Maybe (Textual Int64))
+    , _eqsStartMs :: !(Maybe (Textual Int64))
+    , _eqsEndMs :: !(Maybe (Textual Int64))
+    , _eqsWaitMsMax :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExplainQueryStage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'eqsReadMsAvg'
+--
 -- * 'eqsStatus'
 --
+-- * 'eqsShuffleOutputBytesSpilled'
+--
+-- * 'eqsReadMsMax'
+--
+-- * 'eqsCompletedParallelInputs'
+--
 -- * 'eqsWaitRatioMax'
+--
+-- * 'eqsParallelInputs'
+--
+-- * 'eqsShuffleOutputBytes'
 --
 -- * 'eqsRecordsWritten'
 --
 -- * 'eqsSteps'
+--
+-- * 'eqsInputStages'
 --
 -- * 'eqsWriteRatioAvg'
 --
@@ -2189,9 +2415,15 @@ data ExplainQueryStage = ExplainQueryStage'
 --
 -- * 'eqsName'
 --
+-- * 'eqsComputeMsMax'
+--
 -- * 'eqsReadRatioMax'
 --
+-- * 'eqsWriteMsMax'
+--
 -- * 'eqsWaitRatioAvg'
+--
+-- * 'eqsWaitMsAvg'
 --
 -- * 'eqsId'
 --
@@ -2199,37 +2431,102 @@ data ExplainQueryStage = ExplainQueryStage'
 --
 -- * 'eqsWriteRatioMax'
 --
+-- * 'eqsComputeMsAvg'
+--
 -- * 'eqsReadRatioAvg'
+--
+-- * 'eqsWriteMsAvg'
+--
+-- * 'eqsStartMs'
+--
+-- * 'eqsEndMs'
+--
+-- * 'eqsWaitMsMax'
 explainQueryStage
     :: ExplainQueryStage
-explainQueryStage =
+explainQueryStage = 
     ExplainQueryStage'
-    { _eqsStatus = Nothing
+    { _eqsReadMsAvg = Nothing
+    , _eqsStatus = Nothing
+    , _eqsShuffleOutputBytesSpilled = Nothing
+    , _eqsReadMsMax = Nothing
+    , _eqsCompletedParallelInputs = Nothing
     , _eqsWaitRatioMax = Nothing
+    , _eqsParallelInputs = Nothing
+    , _eqsShuffleOutputBytes = Nothing
     , _eqsRecordsWritten = Nothing
     , _eqsSteps = Nothing
+    , _eqsInputStages = Nothing
     , _eqsWriteRatioAvg = Nothing
     , _eqsRecordsRead = Nothing
     , _eqsComputeRatioAvg = Nothing
     , _eqsName = Nothing
+    , _eqsComputeMsMax = Nothing
     , _eqsReadRatioMax = Nothing
+    , _eqsWriteMsMax = Nothing
     , _eqsWaitRatioAvg = Nothing
+    , _eqsWaitMsAvg = Nothing
     , _eqsId = Nothing
     , _eqsComputeRatioMax = Nothing
     , _eqsWriteRatioMax = Nothing
+    , _eqsComputeMsAvg = Nothing
     , _eqsReadRatioAvg = Nothing
+    , _eqsWriteMsAvg = Nothing
+    , _eqsStartMs = Nothing
+    , _eqsEndMs = Nothing
+    , _eqsWaitMsMax = Nothing
     }
+
+-- | Milliseconds the average shard spent reading input.
+eqsReadMsAvg :: Lens' ExplainQueryStage (Maybe Int64)
+eqsReadMsAvg
+  = lens _eqsReadMsAvg (\ s a -> s{_eqsReadMsAvg = a})
+      . mapping _Coerce
 
 -- | Current status for the stage.
 eqsStatus :: Lens' ExplainQueryStage (Maybe Text)
 eqsStatus
   = lens _eqsStatus (\ s a -> s{_eqsStatus = a})
 
+-- | Total number of bytes written to shuffle and spilled to disk.
+eqsShuffleOutputBytesSpilled :: Lens' ExplainQueryStage (Maybe Int64)
+eqsShuffleOutputBytesSpilled
+  = lens _eqsShuffleOutputBytesSpilled
+      (\ s a -> s{_eqsShuffleOutputBytesSpilled = a})
+      . mapping _Coerce
+
+-- | Milliseconds the slowest shard spent reading input.
+eqsReadMsMax :: Lens' ExplainQueryStage (Maybe Int64)
+eqsReadMsMax
+  = lens _eqsReadMsMax (\ s a -> s{_eqsReadMsMax = a})
+      . mapping _Coerce
+
+-- | Number of parallel input segments completed.
+eqsCompletedParallelInputs :: Lens' ExplainQueryStage (Maybe Int64)
+eqsCompletedParallelInputs
+  = lens _eqsCompletedParallelInputs
+      (\ s a -> s{_eqsCompletedParallelInputs = a})
+      . mapping _Coerce
+
 -- | Relative amount of time the slowest shard spent waiting to be scheduled.
 eqsWaitRatioMax :: Lens' ExplainQueryStage (Maybe Double)
 eqsWaitRatioMax
   = lens _eqsWaitRatioMax
       (\ s a -> s{_eqsWaitRatioMax = a})
+      . mapping _Coerce
+
+-- | Number of parallel input segments to be processed.
+eqsParallelInputs :: Lens' ExplainQueryStage (Maybe Int64)
+eqsParallelInputs
+  = lens _eqsParallelInputs
+      (\ s a -> s{_eqsParallelInputs = a})
+      . mapping _Coerce
+
+-- | Total number of bytes written to shuffle.
+eqsShuffleOutputBytes :: Lens' ExplainQueryStage (Maybe Int64)
+eqsShuffleOutputBytes
+  = lens _eqsShuffleOutputBytes
+      (\ s a -> s{_eqsShuffleOutputBytes = a})
       . mapping _Coerce
 
 -- | Number of records written by the stage.
@@ -2245,6 +2542,14 @@ eqsSteps :: Lens' ExplainQueryStage [ExplainQueryStep]
 eqsSteps
   = lens _eqsSteps (\ s a -> s{_eqsSteps = a}) .
       _Default
+      . _Coerce
+
+-- | IDs for stages that are inputs to this stage.
+eqsInputStages :: Lens' ExplainQueryStage [Int64]
+eqsInputStages
+  = lens _eqsInputStages
+      (\ s a -> s{_eqsInputStages = a})
+      . _Default
       . _Coerce
 
 -- | Relative amount of time the average shard spent on writing output.
@@ -2272,6 +2577,13 @@ eqsComputeRatioAvg
 eqsName :: Lens' ExplainQueryStage (Maybe Text)
 eqsName = lens _eqsName (\ s a -> s{_eqsName = a})
 
+-- | Milliseconds the slowest shard spent on CPU-bound tasks.
+eqsComputeMsMax :: Lens' ExplainQueryStage (Maybe Int64)
+eqsComputeMsMax
+  = lens _eqsComputeMsMax
+      (\ s a -> s{_eqsComputeMsMax = a})
+      . mapping _Coerce
+
 -- | Relative amount of time the slowest shard spent reading input.
 eqsReadRatioMax :: Lens' ExplainQueryStage (Maybe Double)
 eqsReadRatioMax
@@ -2279,11 +2591,24 @@ eqsReadRatioMax
       (\ s a -> s{_eqsReadRatioMax = a})
       . mapping _Coerce
 
+-- | Milliseconds the slowest shard spent on writing output.
+eqsWriteMsMax :: Lens' ExplainQueryStage (Maybe Int64)
+eqsWriteMsMax
+  = lens _eqsWriteMsMax
+      (\ s a -> s{_eqsWriteMsMax = a})
+      . mapping _Coerce
+
 -- | Relative amount of time the average shard spent waiting to be scheduled.
 eqsWaitRatioAvg :: Lens' ExplainQueryStage (Maybe Double)
 eqsWaitRatioAvg
   = lens _eqsWaitRatioAvg
       (\ s a -> s{_eqsWaitRatioAvg = a})
+      . mapping _Coerce
+
+-- | Milliseconds the average shard spent waiting to be scheduled.
+eqsWaitMsAvg :: Lens' ExplainQueryStage (Maybe Int64)
+eqsWaitMsAvg
+  = lens _eqsWaitMsAvg (\ s a -> s{_eqsWaitMsAvg = a})
       . mapping _Coerce
 
 -- | Unique ID for stage within plan.
@@ -2306,6 +2631,13 @@ eqsWriteRatioMax
       (\ s a -> s{_eqsWriteRatioMax = a})
       . mapping _Coerce
 
+-- | Milliseconds the average shard spent on CPU-bound tasks.
+eqsComputeMsAvg :: Lens' ExplainQueryStage (Maybe Int64)
+eqsComputeMsAvg
+  = lens _eqsComputeMsAvg
+      (\ s a -> s{_eqsComputeMsAvg = a})
+      . mapping _Coerce
+
 -- | Relative amount of time the average shard spent reading input.
 eqsReadRatioAvg :: Lens' ExplainQueryStage (Maybe Double)
 eqsReadRatioAvg
@@ -2313,67 +2645,127 @@ eqsReadRatioAvg
       (\ s a -> s{_eqsReadRatioAvg = a})
       . mapping _Coerce
 
+-- | Milliseconds the average shard spent on writing output.
+eqsWriteMsAvg :: Lens' ExplainQueryStage (Maybe Int64)
+eqsWriteMsAvg
+  = lens _eqsWriteMsAvg
+      (\ s a -> s{_eqsWriteMsAvg = a})
+      . mapping _Coerce
+
+-- | Stage start time in milliseconds.
+eqsStartMs :: Lens' ExplainQueryStage (Maybe Int64)
+eqsStartMs
+  = lens _eqsStartMs (\ s a -> s{_eqsStartMs = a}) .
+      mapping _Coerce
+
+-- | Stage end time in milliseconds.
+eqsEndMs :: Lens' ExplainQueryStage (Maybe Int64)
+eqsEndMs
+  = lens _eqsEndMs (\ s a -> s{_eqsEndMs = a}) .
+      mapping _Coerce
+
+-- | Milliseconds the slowest shard spent waiting to be scheduled.
+eqsWaitMsMax :: Lens' ExplainQueryStage (Maybe Int64)
+eqsWaitMsMax
+  = lens _eqsWaitMsMax (\ s a -> s{_eqsWaitMsMax = a})
+      . mapping _Coerce
+
 instance FromJSON ExplainQueryStage where
         parseJSON
           = withObject "ExplainQueryStage"
               (\ o ->
                  ExplainQueryStage' <$>
-                   (o .:? "status") <*> (o .:? "waitRatioMax") <*>
-                     (o .:? "recordsWritten")
+                   (o .:? "readMsAvg") <*> (o .:? "status") <*>
+                     (o .:? "shuffleOutputBytesSpilled")
+                     <*> (o .:? "readMsMax")
+                     <*> (o .:? "completedParallelInputs")
+                     <*> (o .:? "waitRatioMax")
+                     <*> (o .:? "parallelInputs")
+                     <*> (o .:? "shuffleOutputBytes")
+                     <*> (o .:? "recordsWritten")
                      <*> (o .:? "steps" .!= mempty)
+                     <*> (o .:? "inputStages" .!= mempty)
                      <*> (o .:? "writeRatioAvg")
                      <*> (o .:? "recordsRead")
                      <*> (o .:? "computeRatioAvg")
                      <*> (o .:? "name")
+                     <*> (o .:? "computeMsMax")
                      <*> (o .:? "readRatioMax")
+                     <*> (o .:? "writeMsMax")
                      <*> (o .:? "waitRatioAvg")
+                     <*> (o .:? "waitMsAvg")
                      <*> (o .:? "id")
                      <*> (o .:? "computeRatioMax")
                      <*> (o .:? "writeRatioMax")
-                     <*> (o .:? "readRatioAvg"))
+                     <*> (o .:? "computeMsAvg")
+                     <*> (o .:? "readRatioAvg")
+                     <*> (o .:? "writeMsAvg")
+                     <*> (o .:? "startMs")
+                     <*> (o .:? "endMs")
+                     <*> (o .:? "waitMsMax"))
 
 instance ToJSON ExplainQueryStage where
         toJSON ExplainQueryStage'{..}
           = object
               (catMaybes
-                 [("status" .=) <$> _eqsStatus,
+                 [("readMsAvg" .=) <$> _eqsReadMsAvg,
+                  ("status" .=) <$> _eqsStatus,
+                  ("shuffleOutputBytesSpilled" .=) <$>
+                    _eqsShuffleOutputBytesSpilled,
+                  ("readMsMax" .=) <$> _eqsReadMsMax,
+                  ("completedParallelInputs" .=) <$>
+                    _eqsCompletedParallelInputs,
                   ("waitRatioMax" .=) <$> _eqsWaitRatioMax,
+                  ("parallelInputs" .=) <$> _eqsParallelInputs,
+                  ("shuffleOutputBytes" .=) <$> _eqsShuffleOutputBytes,
                   ("recordsWritten" .=) <$> _eqsRecordsWritten,
                   ("steps" .=) <$> _eqsSteps,
+                  ("inputStages" .=) <$> _eqsInputStages,
                   ("writeRatioAvg" .=) <$> _eqsWriteRatioAvg,
                   ("recordsRead" .=) <$> _eqsRecordsRead,
                   ("computeRatioAvg" .=) <$> _eqsComputeRatioAvg,
                   ("name" .=) <$> _eqsName,
+                  ("computeMsMax" .=) <$> _eqsComputeMsMax,
                   ("readRatioMax" .=) <$> _eqsReadRatioMax,
+                  ("writeMsMax" .=) <$> _eqsWriteMsMax,
                   ("waitRatioAvg" .=) <$> _eqsWaitRatioAvg,
+                  ("waitMsAvg" .=) <$> _eqsWaitMsAvg,
                   ("id" .=) <$> _eqsId,
                   ("computeRatioMax" .=) <$> _eqsComputeRatioMax,
                   ("writeRatioMax" .=) <$> _eqsWriteRatioMax,
-                  ("readRatioAvg" .=) <$> _eqsReadRatioAvg])
+                  ("computeMsAvg" .=) <$> _eqsComputeMsAvg,
+                  ("readRatioAvg" .=) <$> _eqsReadRatioAvg,
+                  ("writeMsAvg" .=) <$> _eqsWriteMsAvg,
+                  ("startMs" .=) <$> _eqsStartMs,
+                  ("endMs" .=) <$> _eqsEndMs,
+                  ("waitMsMax" .=) <$> _eqsWaitMsMax])
 
 --
 -- /See:/ 'jobConfigurationLoad' smart constructor.
 data JobConfigurationLoad = JobConfigurationLoad'
-    { _jclSkipLeadingRows     :: !(Maybe (Textual Int32))
-    , _jclProjectionFields    :: !(Maybe [Text])
-    , _jclDestinationTable    :: !(Maybe TableReference)
-    , _jclWriteDisPosition    :: !(Maybe Text)
-    , _jclAllowJaggedRows     :: !(Maybe Bool)
-    , _jclSchemaInline        :: !(Maybe Text)
+    { _jclSkipLeadingRows :: !(Maybe (Textual Int32))
+    , _jclProjectionFields :: !(Maybe [Text])
+    , _jclDestinationTable :: !(Maybe TableReference)
+    , _jclWriteDisPosition :: !(Maybe Text)
+    , _jclAllowJaggedRows :: !(Maybe Bool)
+    , _jclSchemaInline :: !(Maybe Text)
     , _jclIgnoreUnknownValues :: !(Maybe Bool)
     , _jclSchemaUpdateOptions :: !(Maybe [Text])
-    , _jclCreateDisPosition   :: !(Maybe Text)
-    , _jclSchemaInlineFormat  :: !(Maybe Text)
+    , _jclCreateDisPosition :: !(Maybe Text)
+    , _jclSchemaInlineFormat :: !(Maybe Text)
     , _jclAllowQuotedNewlines :: !(Maybe Bool)
-    , _jclSourceFormat        :: !(Maybe Text)
-    , _jclSchema              :: !(Maybe TableSchema)
-    , _jclQuote               :: !(Maybe Text)
-    , _jclMaxBadRecords       :: !(Maybe (Textual Int32))
-    , _jclAutodetect          :: !(Maybe Bool)
-    , _jclSourceURIs          :: !(Maybe [Text])
-    , _jclEncoding            :: !(Maybe Text)
-    , _jclFieldDelimiter      :: !(Maybe Text)
-    , _jclNullMarker          :: !(Maybe Text)
+    , _jclSourceFormat :: !(Maybe Text)
+    , _jclSchema :: !(Maybe TableSchema)
+    , _jclTimePartitioning :: !(Maybe TimePartitioning)
+    , _jclQuote :: !(Maybe Text)
+    , _jclMaxBadRecords :: !(Maybe (Textual Int32))
+    , _jclAutodetect :: !(Maybe Bool)
+    , _jclSourceURIs :: !(Maybe [Text])
+    , _jclEncoding :: !(Maybe Text)
+    , _jclDestinationTableProperties :: !(Maybe DestinationTableProperties)
+    , _jclDestinationEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
+    , _jclFieldDelimiter :: !(Maybe Text)
+    , _jclNullMarker :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobConfigurationLoad' with the minimum fields required to make a request.
@@ -2406,6 +2798,8 @@ data JobConfigurationLoad = JobConfigurationLoad'
 --
 -- * 'jclSchema'
 --
+-- * 'jclTimePartitioning'
+--
 -- * 'jclQuote'
 --
 -- * 'jclMaxBadRecords'
@@ -2416,12 +2810,16 @@ data JobConfigurationLoad = JobConfigurationLoad'
 --
 -- * 'jclEncoding'
 --
+-- * 'jclDestinationTableProperties'
+--
+-- * 'jclDestinationEncryptionConfiguration'
+--
 -- * 'jclFieldDelimiter'
 --
 -- * 'jclNullMarker'
 jobConfigurationLoad
     :: JobConfigurationLoad
-jobConfigurationLoad =
+jobConfigurationLoad = 
     JobConfigurationLoad'
     { _jclSkipLeadingRows = Nothing
     , _jclProjectionFields = Nothing
@@ -2436,11 +2834,14 @@ jobConfigurationLoad =
     , _jclAllowQuotedNewlines = Nothing
     , _jclSourceFormat = Nothing
     , _jclSchema = Nothing
+    , _jclTimePartitioning = Nothing
     , _jclQuote = Nothing
     , _jclMaxBadRecords = Nothing
     , _jclAutodetect = Nothing
     , _jclSourceURIs = Nothing
     , _jclEncoding = Nothing
+    , _jclDestinationTableProperties = Nothing
+    , _jclDestinationEncryptionConfiguration = Nothing
     , _jclFieldDelimiter = Nothing
     , _jclNullMarker = Nothing
     }
@@ -2454,12 +2855,12 @@ jclSkipLeadingRows
       (\ s a -> s{_jclSkipLeadingRows = a})
       . mapping _Coerce
 
--- | [Experimental] If sourceFormat is set to \"DATASTORE_BACKUP\", indicates
--- which entity properties to load into BigQuery from a Cloud Datastore
--- backup. Property names are case sensitive and must be top-level
--- properties. If no properties are specified, BigQuery loads all
--- properties. If any named property isn\'t found in the Cloud Datastore
--- backup, an invalid error is returned in the job result.
+-- | If sourceFormat is set to \"DATASTORE_BACKUP\", indicates which entity
+-- properties to load into BigQuery from a Cloud Datastore backup. Property
+-- names are case sensitive and must be top-level properties. If no
+-- properties are specified, BigQuery loads all properties. If any named
+-- property isn\'t found in the Cloud Datastore backup, an invalid error is
+-- returned in the job result.
 jclProjectionFields :: Lens' JobConfigurationLoad [Text]
 jclProjectionFields
   = lens _jclProjectionFields
@@ -2517,10 +2918,11 @@ jclIgnoreUnknownValues
   = lens _jclIgnoreUnknownValues
       (\ s a -> s{_jclIgnoreUnknownValues = a})
 
--- | [Experimental] Allows the schema of the desitination table to be updated
--- as a side effect of the load job. Schema update options are supported in
--- two cases: when writeDisposition is WRITE_APPEND; when writeDisposition
--- is WRITE_TRUNCATE and the destination table is a partition of a table,
+-- | Allows the schema of the destination table to be updated as a side
+-- effect of the load job if a schema is autodetected or supplied in the
+-- job configuration. Schema update options are supported in two cases:
+-- when writeDisposition is WRITE_APPEND; when writeDisposition is
+-- WRITE_TRUNCATE and the destination table is a partition of a table,
 -- specified by partition decorators. For normal tables, WRITE_TRUNCATE
 -- will always overwrite the schema. One or more of the following values
 -- are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to
@@ -2560,7 +2962,8 @@ jclAllowQuotedNewlines
 -- | [Optional] The format of the data files. For CSV files, specify \"CSV\".
 -- For datastore backups, specify \"DATASTORE_BACKUP\". For
 -- newline-delimited JSON, specify \"NEWLINE_DELIMITED_JSON\". For Avro,
--- specify \"AVRO\". The default value is CSV.
+-- specify \"AVRO\". For parquet, specify \"PARQUET\". For orc, specify
+-- \"ORC\". The default value is CSV.
 jclSourceFormat :: Lens' JobConfigurationLoad (Maybe Text)
 jclSourceFormat
   = lens _jclSourceFormat
@@ -2572,6 +2975,13 @@ jclSourceFormat
 jclSchema :: Lens' JobConfigurationLoad (Maybe TableSchema)
 jclSchema
   = lens _jclSchema (\ s a -> s{_jclSchema = a})
+
+-- | If specified, configures time-based partitioning for the destination
+-- table.
+jclTimePartitioning :: Lens' JobConfigurationLoad (Maybe TimePartitioning)
+jclTimePartitioning
+  = lens _jclTimePartitioning
+      (\ s a -> s{_jclTimePartitioning = a})
 
 -- | [Optional] The value that is used to quote data sections in a CSV file.
 -- BigQuery converts the string to ISO-8859-1 encoding, and then uses the
@@ -2593,16 +3003,21 @@ jclMaxBadRecords
       (\ s a -> s{_jclMaxBadRecords = a})
       . mapping _Coerce
 
--- | [Experimental] Indicates if we should automatically infer the options
--- and schema for CSV and JSON sources.
+-- | Indicates if we should automatically infer the options and schema for
+-- CSV and JSON sources.
 jclAutodetect :: Lens' JobConfigurationLoad (Maybe Bool)
 jclAutodetect
   = lens _jclAutodetect
       (\ s a -> s{_jclAutodetect = a})
 
 -- | [Required] The fully-qualified URIs that point to your data in Google
--- Cloud Storage. Each URI can contain one \'*\' wildcard character and it
--- must come after the \'bucket\' name.
+-- Cloud. For Google Cloud Storage URIs: Each URI can contain one \'*\'
+-- wildcard character and it must come after the \'bucket\' name. Size
+-- limits related to load jobs apply to external data sources. For Google
+-- Cloud Bigtable URIs: Exactly one URI can be specified and it has be a
+-- fully specified and valid HTTPS URL for a Google Cloud Bigtable table.
+-- For Google Cloud Datastore backups: Exactly one URI can be specified.
+-- Also, the \'*\' wildcard character is not allowed.
 jclSourceURIs :: Lens' JobConfigurationLoad [Text]
 jclSourceURIs
   = lens _jclSourceURIs
@@ -2617,6 +3032,20 @@ jclSourceURIs
 jclEncoding :: Lens' JobConfigurationLoad (Maybe Text)
 jclEncoding
   = lens _jclEncoding (\ s a -> s{_jclEncoding = a})
+
+-- | [Experimental] [Optional] Properties with which to create the
+-- destination table if it is new.
+jclDestinationTableProperties :: Lens' JobConfigurationLoad (Maybe DestinationTableProperties)
+jclDestinationTableProperties
+  = lens _jclDestinationTableProperties
+      (\ s a -> s{_jclDestinationTableProperties = a})
+
+-- | Custom encryption configuration (e.g., Cloud KMS keys).
+jclDestinationEncryptionConfiguration :: Lens' JobConfigurationLoad (Maybe EncryptionConfiguration)
+jclDestinationEncryptionConfiguration
+  = lens _jclDestinationEncryptionConfiguration
+      (\ s a ->
+         s{_jclDestinationEncryptionConfiguration = a})
 
 -- | [Optional] The separator for fields in a CSV file. The separator can be
 -- any ISO-8859-1 single-byte character. To use a character in the range
@@ -2633,10 +3062,10 @@ jclFieldDelimiter
 -- | [Optional] Specifies a string that represents a null value in a CSV
 -- file. For example, if you specify \"\\N\", BigQuery interprets \"\\N\"
 -- as a null value when loading a CSV file. The default value is the empty
--- string. If you set this property to a custom value, BigQuery still
--- interprets the empty string as a null value for all data types except
--- for STRING and BYTE. For STRING and BYTE columns, BigQuery interprets
--- the empty string as an empty value.
+-- string. If you set this property to a custom value, BigQuery throws an
+-- error if an empty string is present for all data types except for STRING
+-- and BYTE. For STRING and BYTE columns, BigQuery interprets the empty
+-- string as an empty value.
 jclNullMarker :: Lens' JobConfigurationLoad (Maybe Text)
 jclNullMarker
   = lens _jclNullMarker
@@ -2660,11 +3089,14 @@ instance FromJSON JobConfigurationLoad where
                      <*> (o .:? "allowQuotedNewlines")
                      <*> (o .:? "sourceFormat")
                      <*> (o .:? "schema")
+                     <*> (o .:? "timePartitioning")
                      <*> (o .:? "quote")
                      <*> (o .:? "maxBadRecords")
                      <*> (o .:? "autodetect")
                      <*> (o .:? "sourceUris" .!= mempty)
                      <*> (o .:? "encoding")
+                     <*> (o .:? "destinationTableProperties")
+                     <*> (o .:? "destinationEncryptionConfiguration")
                      <*> (o .:? "fieldDelimiter")
                      <*> (o .:? "nullMarker"))
 
@@ -2688,11 +3120,16 @@ instance ToJSON JobConfigurationLoad where
                     _jclAllowQuotedNewlines,
                   ("sourceFormat" .=) <$> _jclSourceFormat,
                   ("schema" .=) <$> _jclSchema,
+                  ("timePartitioning" .=) <$> _jclTimePartitioning,
                   ("quote" .=) <$> _jclQuote,
                   ("maxBadRecords" .=) <$> _jclMaxBadRecords,
                   ("autodetect" .=) <$> _jclAutodetect,
                   ("sourceUris" .=) <$> _jclSourceURIs,
                   ("encoding" .=) <$> _jclEncoding,
+                  ("destinationTableProperties" .=) <$>
+                    _jclDestinationTableProperties,
+                  ("destinationEncryptionConfiguration" .=) <$>
+                    _jclDestinationEncryptionConfiguration,
                   ("fieldDelimiter" .=) <$> _jclFieldDelimiter,
                   ("nullMarker" .=) <$> _jclNullMarker])
 
@@ -2712,7 +3149,7 @@ data DataSetReference = DataSetReference'
 -- * 'dsrProjectId'
 dataSetReference
     :: DataSetReference
-dataSetReference =
+dataSetReference = 
     DataSetReference'
     { _dsrDataSetId = Nothing
     , _dsrProjectId = Nothing
@@ -2747,11 +3184,11 @@ instance ToJSON DataSetReference where
 --
 -- /See:/ 'tableDataInsertAllRequest' smart constructor.
 data TableDataInsertAllRequest = TableDataInsertAllRequest'
-    { _tdiarKind                :: !Text
+    { _tdiarKind :: !Text
     , _tdiarIgnoreUnknownValues :: !(Maybe Bool)
-    , _tdiarRows                :: !(Maybe [TableDataInsertAllRequestRowsItem])
-    , _tdiarTemplateSuffix      :: !(Maybe Text)
-    , _tdiarSkipInvalidRows     :: !(Maybe Bool)
+    , _tdiarRows :: !(Maybe [TableDataInsertAllRequestRowsItem])
+    , _tdiarTemplateSuffix :: !(Maybe Text)
+    , _tdiarSkipInvalidRows :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableDataInsertAllRequest' with the minimum fields required to make a request.
@@ -2769,7 +3206,7 @@ data TableDataInsertAllRequest = TableDataInsertAllRequest'
 -- * 'tdiarSkipInvalidRows'
 tableDataInsertAllRequest
     :: TableDataInsertAllRequest
-tableDataInsertAllRequest =
+tableDataInsertAllRequest = 
     TableDataInsertAllRequest'
     { _tdiarKind = "bigquery#tableDataInsertAllRequest"
     , _tdiarIgnoreUnknownValues = Nothing
@@ -2841,13 +3278,60 @@ instance ToJSON TableDataInsertAllRequest where
                   ("skipInvalidRows" .=) <$> _tdiarSkipInvalidRows])
 
 --
+-- /See:/ 'getServiceAccountResponse' smart constructor.
+data GetServiceAccountResponse = GetServiceAccountResponse'
+    { _gsarEmail :: !(Maybe Text)
+    , _gsarKind :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetServiceAccountResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsarEmail'
+--
+-- * 'gsarKind'
+getServiceAccountResponse
+    :: GetServiceAccountResponse
+getServiceAccountResponse = 
+    GetServiceAccountResponse'
+    { _gsarEmail = Nothing
+    , _gsarKind = "bigquery#getServiceAccountResponse"
+    }
+
+-- | The service account email address.
+gsarEmail :: Lens' GetServiceAccountResponse (Maybe Text)
+gsarEmail
+  = lens _gsarEmail (\ s a -> s{_gsarEmail = a})
+
+-- | The resource type of the response.
+gsarKind :: Lens' GetServiceAccountResponse Text
+gsarKind = lens _gsarKind (\ s a -> s{_gsarKind = a})
+
+instance FromJSON GetServiceAccountResponse where
+        parseJSON
+          = withObject "GetServiceAccountResponse"
+              (\ o ->
+                 GetServiceAccountResponse' <$>
+                   (o .:? "email") <*>
+                     (o .:? "kind" .!=
+                        "bigquery#getServiceAccountResponse"))
+
+instance ToJSON GetServiceAccountResponse where
+        toJSON GetServiceAccountResponse'{..}
+          = object
+              (catMaybes
+                 [("email" .=) <$> _gsarEmail,
+                  Just ("kind" .= _gsarKind)])
+
+--
 -- /See:/ 'projectListProjectsItem' smart constructor.
 data ProjectListProjectsItem = ProjectListProjectsItem'
-    { _plpiFriendlyName     :: !(Maybe Text)
-    , _plpiKind             :: !Text
+    { _plpiFriendlyName :: !(Maybe Text)
+    , _plpiKind :: !Text
     , _plpiProjectReference :: !(Maybe ProjectReference)
-    , _plpiId               :: !(Maybe Text)
-    , _plpiNumericId        :: !(Maybe (Textual Word64))
+    , _plpiId :: !(Maybe Text)
+    , _plpiNumericId :: !(Maybe (Textual Word64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectListProjectsItem' with the minimum fields required to make a request.
@@ -2865,7 +3349,7 @@ data ProjectListProjectsItem = ProjectListProjectsItem'
 -- * 'plpiNumericId'
 projectListProjectsItem
     :: ProjectListProjectsItem
-projectListProjectsItem =
+projectListProjectsItem = 
     ProjectListProjectsItem'
     { _plpiFriendlyName = Nothing
     , _plpiKind = "bigquery#project"
@@ -2926,11 +3410,11 @@ instance ToJSON ProjectListProjectsItem where
 -- /See:/ 'bigtableColumn' smart constructor.
 data BigtableColumn = BigtableColumn'
     { _bcQualifierEncoded :: !(Maybe Bytes)
-    , _bcFieldName        :: !(Maybe Text)
-    , _bcQualifierString  :: !(Maybe Text)
-    , _bcOnlyReadLatest   :: !(Maybe Bool)
-    , _bcType             :: !(Maybe Text)
-    , _bcEncoding         :: !(Maybe Text)
+    , _bcFieldName :: !(Maybe Text)
+    , _bcQualifierString :: !(Maybe Text)
+    , _bcOnlyReadLatest :: !(Maybe Bool)
+    , _bcType :: !(Maybe Text)
+    , _bcEncoding :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BigtableColumn' with the minimum fields required to make a request.
@@ -2950,7 +3434,7 @@ data BigtableColumn = BigtableColumn'
 -- * 'bcEncoding'
 bigtableColumn
     :: BigtableColumn
-bigtableColumn =
+bigtableColumn = 
     BigtableColumn'
     { _bcQualifierEncoded = Nothing
     , _bcFieldName = Nothing
@@ -3040,9 +3524,9 @@ instance ToJSON BigtableColumn where
 --
 -- /See:/ 'streamingbuffer' smart constructor.
 data Streamingbuffer = Streamingbuffer'
-    { _sEstimatedBytes  :: !(Maybe (Textual Word64))
+    { _sEstimatedBytes :: !(Maybe (Textual Word64))
     , _sOldestEntryTime :: !(Maybe (Textual Word64))
-    , _sEstimatedRows   :: !(Maybe (Textual Word64))
+    , _sEstimatedRows :: !(Maybe (Textual Word64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Streamingbuffer' with the minimum fields required to make a request.
@@ -3056,7 +3540,7 @@ data Streamingbuffer = Streamingbuffer'
 -- * 'sEstimatedRows'
 streamingbuffer
     :: Streamingbuffer
-streamingbuffer =
+streamingbuffer = 
     Streamingbuffer'
     { _sEstimatedBytes = Nothing
     , _sOldestEntryTime = Nothing
@@ -3118,7 +3602,7 @@ newtype TableRow = TableRow'
 -- * 'trF'
 tableRow
     :: TableRow
-tableRow =
+tableRow = 
     TableRow'
     { _trF = Nothing
     }
@@ -3142,14 +3626,14 @@ instance ToJSON TableRow where
 --
 -- /See:/ 'jobListJobsItem' smart constructor.
 data JobListJobsItem = JobListJobsItem'
-    { _jljiJobReference  :: !(Maybe JobReference)
-    , _jljiStatus        :: !(Maybe JobStatus)
-    , _jljiState         :: !(Maybe Text)
-    , _jljiUserEmail     :: !(Maybe Text)
-    , _jljiKind          :: !Text
-    , _jljiErrorResult   :: !(Maybe ErrorProto)
-    , _jljiId            :: !(Maybe Text)
-    , _jljiStatistics    :: !(Maybe JobStatistics)
+    { _jljiJobReference :: !(Maybe JobReference)
+    , _jljiStatus :: !(Maybe JobStatus)
+    , _jljiState :: !(Maybe Text)
+    , _jljiUserEmail :: !(Maybe Text)
+    , _jljiKind :: !Text
+    , _jljiErrorResult :: !(Maybe ErrorProto)
+    , _jljiId :: !(Maybe Text)
+    , _jljiStatistics :: !(Maybe JobStatistics)
     , _jljiConfiguration :: !(Maybe JobConfiguration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3176,7 +3660,7 @@ data JobListJobsItem = JobListJobsItem'
 -- * 'jljiConfiguration'
 jobListJobsItem
     :: JobListJobsItem
-jobListJobsItem =
+jobListJobsItem = 
     JobListJobsItem'
     { _jljiJobReference = Nothing
     , _jljiStatus = Nothing
@@ -3270,24 +3754,39 @@ instance ToJSON JobListJobsItem where
 --
 -- /See:/ 'timePartitioning' smart constructor.
 data TimePartitioning = TimePartitioning'
-    { _tpExpirationMs :: !(Maybe (Textual Int64))
-    , _tpType         :: !(Maybe Text)
+    { _tpField :: !(Maybe Text)
+    , _tpExpirationMs :: !(Maybe (Textual Int64))
+    , _tpRequirePartitionFilter :: !Bool
+    , _tpType :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TimePartitioning' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'tpField'
+--
 -- * 'tpExpirationMs'
+--
+-- * 'tpRequirePartitionFilter'
 --
 -- * 'tpType'
 timePartitioning
     :: TimePartitioning
-timePartitioning =
+timePartitioning = 
     TimePartitioning'
-    { _tpExpirationMs = Nothing
+    { _tpField = Nothing
+    , _tpExpirationMs = Nothing
+    , _tpRequirePartitionFilter = False
     , _tpType = Nothing
     }
+
+-- | [Experimental] [Optional] If not set, the table is partitioned by pseudo
+-- column \'_PARTITIONTIME\'; if set, the table is partitioned by this
+-- field. The field must be a top-level TIMESTAMP or DATE field. Its mode
+-- must be NULLABLE or REQUIRED.
+tpField :: Lens' TimePartitioning (Maybe Text)
+tpField = lens _tpField (\ s a -> s{_tpField = a})
 
 -- | [Optional] Number of milliseconds for which to keep the storage for a
 -- partition.
@@ -3297,8 +3796,16 @@ tpExpirationMs
       (\ s a -> s{_tpExpirationMs = a})
       . mapping _Coerce
 
+-- | [Experimental] [Optional] If set to true, queries over this table
+-- require a partition filter that can be used for partition elimination to
+-- be specified.
+tpRequirePartitionFilter :: Lens' TimePartitioning Bool
+tpRequirePartitionFilter
+  = lens _tpRequirePartitionFilter
+      (\ s a -> s{_tpRequirePartitionFilter = a})
+
 -- | [Required] The only type supported is DAY, which will generate one
--- partition per day based on data loading time.
+-- partition per day.
 tpType :: Lens' TimePartitioning (Maybe Text)
 tpType = lens _tpType (\ s a -> s{_tpType = a})
 
@@ -3307,13 +3814,19 @@ instance FromJSON TimePartitioning where
           = withObject "TimePartitioning"
               (\ o ->
                  TimePartitioning' <$>
-                   (o .:? "expirationMs") <*> (o .:? "type"))
+                   (o .:? "field") <*> (o .:? "expirationMs") <*>
+                     (o .:? "requirePartitionFilter" .!= False)
+                     <*> (o .:? "type"))
 
 instance ToJSON TimePartitioning where
         toJSON TimePartitioning'{..}
           = object
               (catMaybes
-                 [("expirationMs" .=) <$> _tpExpirationMs,
+                 [("field" .=) <$> _tpField,
+                  ("expirationMs" .=) <$> _tpExpirationMs,
+                  Just
+                    ("requirePartitionFilter" .=
+                       _tpRequirePartitionFilter),
                   ("type" .=) <$> _tpType])
 
 -- | [Optional] The struct field values, in order of the struct type\'s
@@ -3332,7 +3845,7 @@ newtype QueryParameterValueStructValues = QueryParameterValueStructValues'
 queryParameterValueStructValues
     :: HashMap Text QueryParameterValue -- ^ 'qpvsvAddtional'
     -> QueryParameterValueStructValues
-queryParameterValueStructValues pQpvsvAddtional_ =
+queryParameterValueStructValues pQpvsvAddtional_ = 
     QueryParameterValueStructValues'
     { _qpvsvAddtional = _Coerce # pQpvsvAddtional_
     }
@@ -3354,10 +3867,9 @@ instance FromJSON QueryParameterValueStructValues
 instance ToJSON QueryParameterValueStructValues where
         toJSON = toJSON . _qpvsvAddtional
 
--- | [Experimental] The labels associated with this dataset. You can use
--- these to organize and group your datasets. You can set this property
--- when inserting or updating a dataset. See Labeling Datasets for more
--- information.
+-- | The labels associated with this dataset. You can use these to organize
+-- and group your datasets. You can set this property when inserting or
+-- updating a dataset. See Labeling Datasets for more information.
 --
 -- /See:/ 'dataSetLabels' smart constructor.
 newtype DataSetLabels = DataSetLabels'
@@ -3372,7 +3884,7 @@ newtype DataSetLabels = DataSetLabels'
 dataSetLabels
     :: HashMap Text Text -- ^ 'dslAddtional'
     -> DataSetLabels
-dataSetLabels pDslAddtional_ =
+dataSetLabels pDslAddtional_ = 
     DataSetLabels'
     { _dslAddtional = _Coerce # pDslAddtional_
     }
@@ -3393,12 +3905,13 @@ instance ToJSON DataSetLabels where
 --
 -- /See:/ 'jobConfiguration' smart constructor.
 data JobConfiguration = JobConfiguration'
-    { _jcCopy    :: !(Maybe JobConfigurationTableCopy)
-    , _jcLoad    :: !(Maybe JobConfigurationLoad)
-    , _jcQuery   :: !(Maybe JobConfigurationQuery)
+    { _jcCopy :: !(Maybe JobConfigurationTableCopy)
+    , _jcLoad :: !(Maybe JobConfigurationLoad)
+    , _jcQuery :: !(Maybe JobConfigurationQuery)
+    , _jcJobTimeoutMs :: !(Maybe (Textual Int64))
     , _jcExtract :: !(Maybe JobConfigurationExtract)
-    , _jcLabels  :: !(Maybe JobConfigurationLabels)
-    , _jcDryRun  :: !(Maybe Bool)
+    , _jcLabels :: !(Maybe JobConfigurationLabels)
+    , _jcDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobConfiguration' with the minimum fields required to make a request.
@@ -3411,6 +3924,8 @@ data JobConfiguration = JobConfiguration'
 --
 -- * 'jcQuery'
 --
+-- * 'jcJobTimeoutMs'
+--
 -- * 'jcExtract'
 --
 -- * 'jcLabels'
@@ -3418,11 +3933,12 @@ data JobConfiguration = JobConfiguration'
 -- * 'jcDryRun'
 jobConfiguration
     :: JobConfiguration
-jobConfiguration =
+jobConfiguration = 
     JobConfiguration'
     { _jcCopy = Nothing
     , _jcLoad = Nothing
     , _jcQuery = Nothing
+    , _jcJobTimeoutMs = Nothing
     , _jcExtract = Nothing
     , _jcLabels = Nothing
     , _jcDryRun = Nothing
@@ -3440,18 +3956,25 @@ jcLoad = lens _jcLoad (\ s a -> s{_jcLoad = a})
 jcQuery :: Lens' JobConfiguration (Maybe JobConfigurationQuery)
 jcQuery = lens _jcQuery (\ s a -> s{_jcQuery = a})
 
+-- | [Optional] Job timeout in milliseconds. If this time limit is exceeded,
+-- BigQuery may attempt to terminate the job.
+jcJobTimeoutMs :: Lens' JobConfiguration (Maybe Int64)
+jcJobTimeoutMs
+  = lens _jcJobTimeoutMs
+      (\ s a -> s{_jcJobTimeoutMs = a})
+      . mapping _Coerce
+
 -- | [Pick one] Configures an extract job.
 jcExtract :: Lens' JobConfiguration (Maybe JobConfigurationExtract)
 jcExtract
   = lens _jcExtract (\ s a -> s{_jcExtract = a})
 
--- | [Experimental] The labels associated with this job. You can use these to
--- organize and group your jobs. Label keys and values can be no longer
--- than 63 characters, can only contain letters, numeric characters,
+-- | The labels associated with this job. You can use these to organize and
+-- group your jobs. Label keys and values can be no longer than 63
+-- characters, can only contain lowercase letters, numeric characters,
 -- underscores and dashes. International characters are allowed. Label
--- values are optional. Label keys must start with a letter and must be
--- unique within a dataset. Both keys and values are additionally
--- constrained to be \<= 128 bytes in size.
+-- values are optional. Label keys must start with a letter and each label
+-- in the list must have a different key.
 jcLabels :: Lens' JobConfiguration (Maybe JobConfigurationLabels)
 jcLabels = lens _jcLabels (\ s a -> s{_jcLabels = a})
 
@@ -3468,6 +3991,7 @@ instance FromJSON JobConfiguration where
               (\ o ->
                  JobConfiguration' <$>
                    (o .:? "copy") <*> (o .:? "load") <*> (o .:? "query")
+                     <*> (o .:? "jobTimeoutMs")
                      <*> (o .:? "extract")
                      <*> (o .:? "labels")
                      <*> (o .:? "dryRun"))
@@ -3478,6 +4002,7 @@ instance ToJSON JobConfiguration where
               (catMaybes
                  [("copy" .=) <$> _jcCopy, ("load" .=) <$> _jcLoad,
                   ("query" .=) <$> _jcQuery,
+                  ("jobTimeoutMs" .=) <$> _jcJobTimeoutMs,
                   ("extract" .=) <$> _jcExtract,
                   ("labels" .=) <$> _jcLabels,
                   ("dryRun" .=) <$> _jcDryRun])
@@ -3485,14 +4010,14 @@ instance ToJSON JobConfiguration where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-    { _jJobReference  :: !(Maybe JobReference)
-    , _jStatus        :: !(Maybe JobStatus)
-    , _jEtag          :: !(Maybe Text)
-    , _jUserEmail     :: !(Maybe Text)
-    , _jKind          :: !Text
-    , _jSelfLink      :: !(Maybe Text)
-    , _jId            :: !(Maybe Text)
-    , _jStatistics    :: !(Maybe JobStatistics)
+    { _jJobReference :: !(Maybe JobReference)
+    , _jStatus :: !(Maybe JobStatus)
+    , _jEtag :: !(Maybe Text)
+    , _jUserEmail :: !(Maybe Text)
+    , _jKind :: !Text
+    , _jSelfLink :: !(Maybe Text)
+    , _jId :: !(Maybe Text)
+    , _jStatistics :: !(Maybe JobStatistics)
     , _jConfiguration :: !(Maybe JobConfiguration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3519,7 +4044,7 @@ data Job = Job'
 -- * 'jConfiguration'
 job
     :: Job
-job =
+job = 
     Job'
     { _jJobReference = Nothing
     , _jStatus = Nothing
@@ -3604,10 +4129,46 @@ instance ToJSON Job where
                   ("configuration" .=) <$> _jConfiguration])
 
 --
+-- /See:/ 'encryptionConfiguration' smart constructor.
+newtype EncryptionConfiguration = EncryptionConfiguration'
+    { _ecKmsKeyName :: Maybe Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecKmsKeyName'
+encryptionConfiguration
+    :: EncryptionConfiguration
+encryptionConfiguration = 
+    EncryptionConfiguration'
+    { _ecKmsKeyName = Nothing
+    }
+
+-- | [Optional] Describes the Cloud KMS encryption key that will be used to
+-- protect destination BigQuery table. The BigQuery Service Account
+-- associated with your project requires access to this encryption key.
+ecKmsKeyName :: Lens' EncryptionConfiguration (Maybe Text)
+ecKmsKeyName
+  = lens _ecKmsKeyName (\ s a -> s{_ecKmsKeyName = a})
+
+instance FromJSON EncryptionConfiguration where
+        parseJSON
+          = withObject "EncryptionConfiguration"
+              (\ o ->
+                 EncryptionConfiguration' <$> (o .:? "kmsKeyName"))
+
+instance ToJSON EncryptionConfiguration where
+        toJSON EncryptionConfiguration'{..}
+          = object
+              (catMaybes [("kmsKeyName" .=) <$> _ecKmsKeyName])
+
+--
 -- /See:/ 'tableDataInsertAllResponseInsertErrorsItem' smart constructor.
 data TableDataInsertAllResponseInsertErrorsItem = TableDataInsertAllResponseInsertErrorsItem'
     { _tdiarieiErrors :: !(Maybe [ErrorProto])
-    , _tdiarieiIndex  :: !(Maybe (Textual Word32))
+    , _tdiarieiIndex :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableDataInsertAllResponseInsertErrorsItem' with the minimum fields required to make a request.
@@ -3619,7 +4180,7 @@ data TableDataInsertAllResponseInsertErrorsItem = TableDataInsertAllResponseInse
 -- * 'tdiarieiIndex'
 tableDataInsertAllResponseInsertErrorsItem
     :: TableDataInsertAllResponseInsertErrorsItem
-tableDataInsertAllResponseInsertErrorsItem =
+tableDataInsertAllResponseInsertErrorsItem = 
     TableDataInsertAllResponseInsertErrorsItem'
     { _tdiarieiErrors = Nothing
     , _tdiarieiIndex = Nothing
@@ -3662,12 +4223,12 @@ instance ToJSON
 -- /See:/ 'jobConfigurationExtract' smart constructor.
 data JobConfigurationExtract = JobConfigurationExtract'
     { _jceDestinationFormat :: !(Maybe Text)
-    , _jceSourceTable       :: !(Maybe TableReference)
-    , _jcePrintHeader       :: !Bool
-    , _jceCompression       :: !(Maybe Text)
-    , _jceDestinationURIs   :: !(Maybe [Text])
-    , _jceDestinationURI    :: !(Maybe Text)
-    , _jceFieldDelimiter    :: !(Maybe Text)
+    , _jceSourceTable :: !(Maybe TableReference)
+    , _jcePrintHeader :: !Bool
+    , _jceCompression :: !(Maybe Text)
+    , _jceDestinationURIs :: !(Maybe [Text])
+    , _jceDestinationURI :: !(Maybe Text)
+    , _jceFieldDelimiter :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobConfigurationExtract' with the minimum fields required to make a request.
@@ -3689,7 +4250,7 @@ data JobConfigurationExtract = JobConfigurationExtract'
 -- * 'jceFieldDelimiter'
 jobConfigurationExtract
     :: JobConfigurationExtract
-jobConfigurationExtract =
+jobConfigurationExtract = 
     JobConfigurationExtract'
     { _jceDestinationFormat = Nothing
     , _jceSourceTable = Nothing
@@ -3722,7 +4283,8 @@ jcePrintHeader
       (\ s a -> s{_jcePrintHeader = a})
 
 -- | [Optional] The compression type to use for exported files. Possible
--- values include GZIP and NONE. The default value is NONE.
+-- values include GZIP, DEFLATE, SNAPPY, and NONE. The default value is
+-- NONE. DEFLATE and SNAPPY are only supported for Avro.
 jceCompression :: Lens' JobConfigurationExtract (Maybe Text)
 jceCompression
   = lens _jceCompression
@@ -3780,7 +4342,7 @@ instance ToJSON JobConfigurationExtract where
 -- /See:/ 'jobCancelResponse' smart constructor.
 data JobCancelResponse = JobCancelResponse'
     { _jcrKind :: !Text
-    , _jcrJob  :: !(Maybe Job)
+    , _jcrJob :: !(Maybe Job)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobCancelResponse' with the minimum fields required to make a request.
@@ -3792,7 +4354,7 @@ data JobCancelResponse = JobCancelResponse'
 -- * 'jcrJob'
 jobCancelResponse
     :: JobCancelResponse
-jobCancelResponse =
+jobCancelResponse = 
     JobCancelResponse'
     { _jcrKind = "bigquery#jobCancelResponse"
     , _jcrJob = Nothing
@@ -3835,7 +4397,7 @@ newtype JSONObject = JSONObject'
 jsonObject
     :: HashMap Text JSONValue -- ^ 'joAddtional'
     -> JSONObject
-jsonObject pJoAddtional_ =
+jsonObject pJoAddtional_ = 
     JSONObject'
     { _joAddtional = _Coerce # pJoAddtional_
     }
@@ -3856,24 +4418,26 @@ instance ToJSON JSONObject where
 --
 -- /See:/ 'jobConfigurationQuery' smart constructor.
 data JobConfigurationQuery = JobConfigurationQuery'
-    { _jcqDestinationTable             :: !(Maybe TableReference)
-    , _jcqWriteDisPosition             :: !(Maybe Text)
-    , _jcqPriority                     :: !(Maybe Text)
-    , _jcqUseQueryCache                :: !Bool
-    , _jcqPreserveNulls                :: !(Maybe Bool)
-    , _jcqTableDefinitions             :: !(Maybe JobConfigurationQueryTableDefinitions)
-    , _jcqQueryParameters              :: !(Maybe [QueryParameter])
-    , _jcqSchemaUpdateOptions          :: !(Maybe [Text])
-    , _jcqMaximumBytesBilled           :: !(Maybe (Textual Int64))
-    , _jcqCreateDisPosition            :: !(Maybe Text)
+    { _jcqDestinationTable :: !(Maybe TableReference)
+    , _jcqWriteDisPosition :: !(Maybe Text)
+    , _jcqPriority :: !(Maybe Text)
+    , _jcqUseQueryCache :: !Bool
+    , _jcqPreserveNulls :: !(Maybe Bool)
+    , _jcqTableDefinitions :: !(Maybe JobConfigurationQueryTableDefinitions)
+    , _jcqQueryParameters :: !(Maybe [QueryParameter])
+    , _jcqSchemaUpdateOptions :: !(Maybe [Text])
+    , _jcqMaximumBytesBilled :: !(Maybe (Textual Int64))
+    , _jcqCreateDisPosition :: !(Maybe Text)
     , _jcqUserDefinedFunctionResources :: !(Maybe [UserDefinedFunctionResource])
-    , _jcqAllowLargeResults            :: !(Maybe Bool)
-    , _jcqMaximumBillingTier           :: !(Textual Int32)
-    , _jcqQuery                        :: !(Maybe Text)
-    , _jcqFlattenResults               :: !Bool
-    , _jcqParameterMode                :: !(Maybe Text)
-    , _jcqUseLegacySQL                 :: !(Maybe Bool)
-    , _jcqDefaultDataSet               :: !(Maybe DataSetReference)
+    , _jcqAllowLargeResults :: !Bool
+    , _jcqMaximumBillingTier :: !(Textual Int32)
+    , _jcqTimePartitioning :: !(Maybe TimePartitioning)
+    , _jcqQuery :: !(Maybe Text)
+    , _jcqFlattenResults :: !Bool
+    , _jcqParameterMode :: !(Maybe Text)
+    , _jcqUseLegacySQL :: !(Maybe Bool)
+    , _jcqDestinationEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
+    , _jcqDefaultDataSet :: !(Maybe DataSetReference)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobConfigurationQuery' with the minimum fields required to make a request.
@@ -3906,6 +4470,8 @@ data JobConfigurationQuery = JobConfigurationQuery'
 --
 -- * 'jcqMaximumBillingTier'
 --
+-- * 'jcqTimePartitioning'
+--
 -- * 'jcqQuery'
 --
 -- * 'jcqFlattenResults'
@@ -3914,10 +4480,12 @@ data JobConfigurationQuery = JobConfigurationQuery'
 --
 -- * 'jcqUseLegacySQL'
 --
+-- * 'jcqDestinationEncryptionConfiguration'
+--
 -- * 'jcqDefaultDataSet'
 jobConfigurationQuery
     :: JobConfigurationQuery
-jobConfigurationQuery =
+jobConfigurationQuery = 
     JobConfigurationQuery'
     { _jcqDestinationTable = Nothing
     , _jcqWriteDisPosition = Nothing
@@ -3930,17 +4498,21 @@ jobConfigurationQuery =
     , _jcqMaximumBytesBilled = Nothing
     , _jcqCreateDisPosition = Nothing
     , _jcqUserDefinedFunctionResources = Nothing
-    , _jcqAllowLargeResults = Nothing
+    , _jcqAllowLargeResults = False
     , _jcqMaximumBillingTier = 1
+    , _jcqTimePartitioning = Nothing
     , _jcqQuery = Nothing
     , _jcqFlattenResults = True
     , _jcqParameterMode = Nothing
     , _jcqUseLegacySQL = Nothing
+    , _jcqDestinationEncryptionConfiguration = Nothing
     , _jcqDefaultDataSet = Nothing
     }
 
 -- | [Optional] Describes the table where the query results should be stored.
--- If not present, a new table will be created to store the results.
+-- If not present, a new table will be created to store the results. This
+-- property must be set for large results that exceed the maximum response
+-- size.
 jcqDestinationTable :: Lens' JobConfigurationQuery (Maybe TableReference)
 jcqDestinationTable
   = lens _jcqDestinationTable
@@ -3948,13 +4520,14 @@ jcqDestinationTable
 
 -- | [Optional] Specifies the action that occurs if the destination table
 -- already exists. The following values are supported: WRITE_TRUNCATE: If
--- the table already exists, BigQuery overwrites the table data.
--- WRITE_APPEND: If the table already exists, BigQuery appends the data to
--- the table. WRITE_EMPTY: If the table already exists and contains data, a
--- \'duplicate\' error is returned in the job result. The default value is
--- WRITE_EMPTY. Each action is atomic and only occurs if BigQuery is able
--- to complete the job successfully. Creation, truncation and append
--- actions occur as one atomic update upon job completion.
+-- the table already exists, BigQuery overwrites the table data and uses
+-- the schema from the query result. WRITE_APPEND: If the table already
+-- exists, BigQuery appends the data to the table. WRITE_EMPTY: If the
+-- table already exists and contains data, a \'duplicate\' error is
+-- returned in the job result. The default value is WRITE_EMPTY. Each
+-- action is atomic and only occurs if BigQuery is able to complete the job
+-- successfully. Creation, truncation and append actions occur as one
+-- atomic update upon job completion.
 jcqWriteDisPosition :: Lens' JobConfigurationQuery (Maybe Text)
 jcqWriteDisPosition
   = lens _jcqWriteDisPosition
@@ -3999,15 +4572,15 @@ jcqQueryParameters
       . _Default
       . _Coerce
 
--- | [Experimental] Allows the schema of the destination table to be updated
--- as a side effect of the query job. Schema update options are supported
--- in two cases: when writeDisposition is WRITE_APPEND; when
--- writeDisposition is WRITE_TRUNCATE and the destination table is a
--- partition of a table, specified by partition decorators. For normal
--- tables, WRITE_TRUNCATE will always overwrite the schema. One or more of
--- the following values are specified: ALLOW_FIELD_ADDITION: allow adding a
--- nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a
--- required field in the original schema to nullable.
+-- | Allows the schema of the destination table to be updated as a side
+-- effect of the query job. Schema update options are supported in two
+-- cases: when writeDisposition is WRITE_APPEND; when writeDisposition is
+-- WRITE_TRUNCATE and the destination table is a partition of a table,
+-- specified by partition decorators. For normal tables, WRITE_TRUNCATE
+-- will always overwrite the schema. One or more of the following values
+-- are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to
+-- the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in
+-- the original schema to nullable.
 jcqSchemaUpdateOptions :: Lens' JobConfigurationQuery [Text]
 jcqSchemaUpdateOptions
   = lens _jcqSchemaUpdateOptions
@@ -4035,8 +4608,7 @@ jcqCreateDisPosition
   = lens _jcqCreateDisPosition
       (\ s a -> s{_jcqCreateDisPosition = a})
 
--- | [Experimental] Describes user-defined function resources used in the
--- query.
+-- | Describes user-defined function resources used in the query.
 jcqUserDefinedFunctionResources :: Lens' JobConfigurationQuery [UserDefinedFunctionResource]
 jcqUserDefinedFunctionResources
   = lens _jcqUserDefinedFunctionResources
@@ -4044,9 +4616,13 @@ jcqUserDefinedFunctionResources
       . _Default
       . _Coerce
 
--- | If true, allows the query to produce arbitrarily large result tables at
--- a slight cost in performance. Requires destinationTable to be set.
-jcqAllowLargeResults :: Lens' JobConfigurationQuery (Maybe Bool)
+-- | [Optional] If true and query uses legacy SQL dialect, allows the query
+-- to produce arbitrarily large result tables at a slight cost in
+-- performance. Requires destinationTable to be set. For standard SQL
+-- queries, this flag is ignored and large results are always allowed.
+-- However, you must still set destinationTable when result size exceeds
+-- the allowed maximum response size.
+jcqAllowLargeResults :: Lens' JobConfigurationQuery Bool
 jcqAllowLargeResults
   = lens _jcqAllowLargeResults
       (\ s a -> s{_jcqAllowLargeResults = a})
@@ -4060,21 +4636,30 @@ jcqMaximumBillingTier
       (\ s a -> s{_jcqMaximumBillingTier = a})
       . _Coerce
 
--- | [Required] BigQuery SQL query to execute.
+-- | If specified, configures time-based partitioning for the destination
+-- table.
+jcqTimePartitioning :: Lens' JobConfigurationQuery (Maybe TimePartitioning)
+jcqTimePartitioning
+  = lens _jcqTimePartitioning
+      (\ s a -> s{_jcqTimePartitioning = a})
+
+-- | [Required] SQL query text to execute. The useLegacySql field can be used
+-- to indicate whether the query uses legacy SQL or standard SQL.
 jcqQuery :: Lens' JobConfigurationQuery (Maybe Text)
 jcqQuery = lens _jcqQuery (\ s a -> s{_jcqQuery = a})
 
--- | [Optional] Flattens all nested and repeated fields in the query results.
--- The default value is true. allowLargeResults must be true if this is set
--- to false.
+-- | [Optional] If true and query uses legacy SQL dialect, flattens all
+-- nested and repeated fields in the query results. allowLargeResults must
+-- be true if this is set to false. For standard SQL queries, this flag is
+-- ignored and results are never flattened.
 jcqFlattenResults :: Lens' JobConfigurationQuery Bool
 jcqFlattenResults
   = lens _jcqFlattenResults
       (\ s a -> s{_jcqFlattenResults = a})
 
--- | [Experimental] Standard SQL only. Set to POSITIONAL to use positional
--- (?) query parameters or to NAMED to use named (\'myparam) query
--- parameters in this query.
+-- | Standard SQL only. Set to POSITIONAL to use positional (?) query
+-- parameters or to NAMED to use named (\'myparam) query parameters in this
+-- query.
 jcqParameterMode :: Lens' JobConfigurationQuery (Maybe Text)
 jcqParameterMode
   = lens _jcqParameterMode
@@ -4084,13 +4669,19 @@ jcqParameterMode
 -- The default value is true. If set to false, the query will use
 -- BigQuery\'s standard SQL:
 -- https:\/\/cloud.google.com\/bigquery\/sql-reference\/ When useLegacySql
--- is set to false, the values of allowLargeResults and flattenResults are
--- ignored; query will be run as if allowLargeResults is true and
--- flattenResults is false.
+-- is set to false, the value of flattenResults is ignored; query will be
+-- run as if flattenResults is false.
 jcqUseLegacySQL :: Lens' JobConfigurationQuery (Maybe Bool)
 jcqUseLegacySQL
   = lens _jcqUseLegacySQL
       (\ s a -> s{_jcqUseLegacySQL = a})
+
+-- | Custom encryption configuration (e.g., Cloud KMS keys).
+jcqDestinationEncryptionConfiguration :: Lens' JobConfigurationQuery (Maybe EncryptionConfiguration)
+jcqDestinationEncryptionConfiguration
+  = lens _jcqDestinationEncryptionConfiguration
+      (\ s a ->
+         s{_jcqDestinationEncryptionConfiguration = a})
 
 -- | [Optional] Specifies the default dataset to use for unqualified table
 -- names in the query.
@@ -4115,12 +4706,14 @@ instance FromJSON JobConfigurationQuery where
                      <*> (o .:? "maximumBytesBilled")
                      <*> (o .:? "createDisposition")
                      <*> (o .:? "userDefinedFunctionResources" .!= mempty)
-                     <*> (o .:? "allowLargeResults")
+                     <*> (o .:? "allowLargeResults" .!= False)
                      <*> (o .:? "maximumBillingTier" .!= 1)
+                     <*> (o .:? "timePartitioning")
                      <*> (o .:? "query")
                      <*> (o .:? "flattenResults" .!= True)
                      <*> (o .:? "parameterMode")
                      <*> (o .:? "useLegacySql")
+                     <*> (o .:? "destinationEncryptionConfiguration")
                      <*> (o .:? "defaultDataset"))
 
 instance ToJSON JobConfigurationQuery where
@@ -4140,13 +4733,16 @@ instance ToJSON JobConfigurationQuery where
                   ("createDisposition" .=) <$> _jcqCreateDisPosition,
                   ("userDefinedFunctionResources" .=) <$>
                     _jcqUserDefinedFunctionResources,
-                  ("allowLargeResults" .=) <$> _jcqAllowLargeResults,
+                  Just ("allowLargeResults" .= _jcqAllowLargeResults),
                   Just
                     ("maximumBillingTier" .= _jcqMaximumBillingTier),
+                  ("timePartitioning" .=) <$> _jcqTimePartitioning,
                   ("query" .=) <$> _jcqQuery,
                   Just ("flattenResults" .= _jcqFlattenResults),
                   ("parameterMode" .=) <$> _jcqParameterMode,
                   ("useLegacySql" .=) <$> _jcqUseLegacySQL,
+                  ("destinationEncryptionConfiguration" .=) <$>
+                    _jcqDestinationEncryptionConfiguration,
                   ("defaultDataset" .=) <$> _jcqDefaultDataSet])
 
 --
@@ -4162,7 +4758,7 @@ newtype GoogleSheetsOptions = GoogleSheetsOptions'
 -- * 'gsoSkipLeadingRows'
 googleSheetsOptions
     :: GoogleSheetsOptions
-googleSheetsOptions =
+googleSheetsOptions = 
     GoogleSheetsOptions'
     { _gsoSkipLeadingRows = Nothing
     }
@@ -4199,7 +4795,7 @@ instance ToJSON GoogleSheetsOptions where
 --
 -- /See:/ 'tableDataInsertAllRequestRowsItem' smart constructor.
 data TableDataInsertAllRequestRowsItem = TableDataInsertAllRequestRowsItem'
-    { _tdiarriJSON     :: !(Maybe JSONObject)
+    { _tdiarriJSON :: !(Maybe JSONObject)
     , _tdiarriInsertId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4212,7 +4808,7 @@ data TableDataInsertAllRequestRowsItem = TableDataInsertAllRequestRowsItem'
 -- * 'tdiarriInsertId'
 tableDataInsertAllRequestRowsItem
     :: TableDataInsertAllRequestRowsItem
-tableDataInsertAllRequestRowsItem =
+tableDataInsertAllRequestRowsItem = 
     TableDataInsertAllRequestRowsItem'
     { _tdiarriJSON = Nothing
     , _tdiarriInsertId = Nothing
@@ -4250,10 +4846,10 @@ instance ToJSON TableDataInsertAllRequestRowsItem
 --
 -- /See:/ 'jobList' smart constructor.
 data JobList = JobList'
-    { _jlEtag          :: !(Maybe Text)
+    { _jlEtag :: !(Maybe Text)
     , _jlNextPageToken :: !(Maybe Text)
-    , _jlKind          :: !Text
-    , _jlJobs          :: !(Maybe [JobListJobsItem])
+    , _jlKind :: !Text
+    , _jlJobs :: !(Maybe [JobListJobsItem])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobList' with the minimum fields required to make a request.
@@ -4269,7 +4865,7 @@ data JobList = JobList'
 -- * 'jlJobs'
 jobList
     :: JobList
-jobList =
+jobList = 
     JobList'
     { _jlEtag = Nothing
     , _jlNextPageToken = Nothing
@@ -4332,7 +4928,7 @@ newtype JobConfigurationQueryTableDefinitions = JobConfigurationQueryTableDefini
 jobConfigurationQueryTableDefinitions
     :: HashMap Text ExternalDataConfiguration -- ^ 'jcqtdAddtional'
     -> JobConfigurationQueryTableDefinitions
-jobConfigurationQueryTableDefinitions pJcqtdAddtional_ =
+jobConfigurationQueryTableDefinitions pJcqtdAddtional_ = 
     JobConfigurationQueryTableDefinitions'
     { _jcqtdAddtional = _Coerce # pJcqtdAddtional_
     }
@@ -4368,7 +4964,7 @@ newtype TableCell = TableCell'
 -- * 'tcV'
 tableCell
     :: TableCell
-tableCell =
+tableCell = 
     TableCell'
     { _tcV = Nothing
     }
@@ -4389,8 +4985,8 @@ instance ToJSON TableCell where
 -- /See:/ 'queryParameterValue' smart constructor.
 data QueryParameterValue = QueryParameterValue'
     { _qpvStructValues :: !(Maybe QueryParameterValueStructValues)
-    , _qpvValue        :: !(Maybe Text)
-    , _qpvArrayValues  :: !(Maybe [QueryParameterValue])
+    , _qpvValue :: !(Maybe Text)
+    , _qpvArrayValues :: !(Maybe [QueryParameterValue])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryParameterValue' with the minimum fields required to make a request.
@@ -4404,7 +5000,7 @@ data QueryParameterValue = QueryParameterValue'
 -- * 'qpvArrayValues'
 queryParameterValue
     :: QueryParameterValue
-queryParameterValue =
+queryParameterValue = 
     QueryParameterValue'
     { _qpvStructValues = Nothing
     , _qpvValue = Nothing
@@ -4450,8 +5046,8 @@ instance ToJSON QueryParameterValue where
 -- /See:/ 'viewDefinition' smart constructor.
 data ViewDefinition = ViewDefinition'
     { _vdUserDefinedFunctionResources :: !(Maybe [UserDefinedFunctionResource])
-    , _vdQuery                        :: !(Maybe Text)
-    , _vdUseLegacySQL                 :: !(Maybe Bool)
+    , _vdQuery :: !(Maybe Text)
+    , _vdUseLegacySQL :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ViewDefinition' with the minimum fields required to make a request.
@@ -4465,15 +5061,14 @@ data ViewDefinition = ViewDefinition'
 -- * 'vdUseLegacySQL'
 viewDefinition
     :: ViewDefinition
-viewDefinition =
+viewDefinition = 
     ViewDefinition'
     { _vdUserDefinedFunctionResources = Nothing
     , _vdQuery = Nothing
     , _vdUseLegacySQL = Nothing
     }
 
--- | [Experimental] Describes user-defined function resources used in the
--- query.
+-- | Describes user-defined function resources used in the query.
 vdUserDefinedFunctionResources :: Lens' ViewDefinition [UserDefinedFunctionResource]
 vdUserDefinedFunctionResources
   = lens _vdUserDefinedFunctionResources
@@ -4516,7 +5111,7 @@ instance ToJSON ViewDefinition where
 -- /See:/ 'userDefinedFunctionResource' smart constructor.
 data UserDefinedFunctionResource = UserDefinedFunctionResource'
     { _udfrResourceURI :: !(Maybe Text)
-    , _udfrInlineCode  :: !(Maybe Text)
+    , _udfrInlineCode :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserDefinedFunctionResource' with the minimum fields required to make a request.
@@ -4528,7 +5123,7 @@ data UserDefinedFunctionResource = UserDefinedFunctionResource'
 -- * 'udfrInlineCode'
 userDefinedFunctionResource
     :: UserDefinedFunctionResource
-userDefinedFunctionResource =
+userDefinedFunctionResource = 
     UserDefinedFunctionResource'
     { _udfrResourceURI = Nothing
     , _udfrInlineCode = Nothing
@@ -4566,21 +5161,32 @@ instance ToJSON UserDefinedFunctionResource where
 --
 -- /See:/ 'jobStatistics2' smart constructor.
 data JobStatistics2 = JobStatistics2'
-    { _jSchema                    :: !(Maybe TableSchema)
-    , _jTotalBytesProcessed       :: !(Maybe (Textual Int64))
-    , _jBillingTier               :: !(Maybe (Textual Int32))
+    { _jTotalSlotMs :: !(Maybe (Textual Int64))
+    , _jDdlTargetTable :: !(Maybe TableReference)
+    , _jEstimatedBytesProcessed :: !(Maybe (Textual Int64))
+    , _jSchema :: !(Maybe TableSchema)
+    , _jTotalBytesProcessed :: !(Maybe (Textual Int64))
+    , _jBillingTier :: !(Maybe (Textual Int32))
     , _jUndeclaredQueryParameters :: !(Maybe [QueryParameter])
-    , _jReferencedTables          :: !(Maybe [TableReference])
-    , _jStatementType             :: !(Maybe Text)
-    , _jNumDmlAffectedRows        :: !(Maybe (Textual Int64))
-    , _jQueryPlan                 :: !(Maybe [ExplainQueryStage])
-    , _jCacheHit                  :: !(Maybe Bool)
-    , _jTotalBytesBilled          :: !(Maybe (Textual Int64))
+    , _jReferencedTables :: !(Maybe [TableReference])
+    , _jStatementType :: !(Maybe Text)
+    , _jNumDmlAffectedRows :: !(Maybe (Textual Int64))
+    , _jTimeline :: !(Maybe [QueryTimelineSample])
+    , _jQueryPlan :: !(Maybe [ExplainQueryStage])
+    , _jCacheHit :: !(Maybe Bool)
+    , _jTotalBytesBilled :: !(Maybe (Textual Int64))
+    , _jDdlOperationPerformed :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobStatistics2' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'jTotalSlotMs'
+--
+-- * 'jDdlTargetTable'
+--
+-- * 'jEstimatedBytesProcessed'
 --
 -- * 'jSchema'
 --
@@ -4596,29 +5202,58 @@ data JobStatistics2 = JobStatistics2'
 --
 -- * 'jNumDmlAffectedRows'
 --
+-- * 'jTimeline'
+--
 -- * 'jQueryPlan'
 --
 -- * 'jCacheHit'
 --
 -- * 'jTotalBytesBilled'
+--
+-- * 'jDdlOperationPerformed'
 jobStatistics2
     :: JobStatistics2
-jobStatistics2 =
+jobStatistics2 = 
     JobStatistics2'
-    { _jSchema = Nothing
+    { _jTotalSlotMs = Nothing
+    , _jDdlTargetTable = Nothing
+    , _jEstimatedBytesProcessed = Nothing
+    , _jSchema = Nothing
     , _jTotalBytesProcessed = Nothing
     , _jBillingTier = Nothing
     , _jUndeclaredQueryParameters = Nothing
     , _jReferencedTables = Nothing
     , _jStatementType = Nothing
     , _jNumDmlAffectedRows = Nothing
+    , _jTimeline = Nothing
     , _jQueryPlan = Nothing
     , _jCacheHit = Nothing
     , _jTotalBytesBilled = Nothing
+    , _jDdlOperationPerformed = Nothing
     }
 
--- | [Output-only, Experimental] The schema of the results. Present only for
--- successful dry run of non-legacy SQL queries.
+-- | [Output-only] Slot-milliseconds for the job.
+jTotalSlotMs :: Lens' JobStatistics2 (Maybe Int64)
+jTotalSlotMs
+  = lens _jTotalSlotMs (\ s a -> s{_jTotalSlotMs = a})
+      . mapping _Coerce
+
+-- | [Output-only, Experimental] The DDL target table. Present only for
+-- CREATE\/DROP TABLE\/VIEW queries.
+jDdlTargetTable :: Lens' JobStatistics2 (Maybe TableReference)
+jDdlTargetTable
+  = lens _jDdlTargetTable
+      (\ s a -> s{_jDdlTargetTable = a})
+
+-- | [Output-only] The original estimate of bytes processed for the job.
+jEstimatedBytesProcessed :: Lens' JobStatistics2 (Maybe Int64)
+jEstimatedBytesProcessed
+  = lens _jEstimatedBytesProcessed
+      (\ s a -> s{_jEstimatedBytesProcessed = a})
+      . mapping _Coerce
+
+-- | [Output-only] The schema of the results. Present only for successful dry
+-- run of non-legacy SQL queries.
 jSchema :: Lens' JobStatistics2 (Maybe TableSchema)
 jSchema = lens _jSchema (\ s a -> s{_jSchema = a})
 
@@ -4644,8 +5279,8 @@ jUndeclaredQueryParameters
       . _Default
       . _Coerce
 
--- | [Output-only, Experimental] Referenced tables for the job. Queries that
--- reference more than 50 tables will not have a complete list.
+-- | [Output-only] Referenced tables for the job. Queries that reference more
+-- than 50 tables will not have a complete list.
 jReferencedTables :: Lens' JobStatistics2 [TableReference]
 jReferencedTables
   = lens _jReferencedTables
@@ -4654,20 +5289,38 @@ jReferencedTables
       . _Coerce
 
 -- | [Output-only, Experimental] The type of query statement, if valid.
+-- Possible values (new values might be added in the future): \"SELECT\":
+-- SELECT query. \"INSERT\": INSERT query; see
+-- https:\/\/cloud.google.com\/bigquery\/docs\/reference\/standard-sql\/data-manipulation-language
+-- \"UPDATE\": UPDATE query; see
+-- https:\/\/cloud.google.com\/bigquery\/docs\/reference\/standard-sql\/data-manipulation-language
+-- \"DELETE\": DELETE query; see
+-- https:\/\/cloud.google.com\/bigquery\/docs\/reference\/standard-sql\/data-manipulation-language
+-- \"CREATE_TABLE\": CREATE [OR REPLACE] TABLE without AS SELECT.
+-- \"CREATE_TABLE_AS_SELECT\": CREATE [OR REPLACE] TABLE ... AS SELECT ...
+-- \"DROP_TABLE\": DROP TABLE query. \"CREATE_VIEW\": CREATE [OR REPLACE]
+-- VIEW ... AS SELECT ... \"DROP_VIEW\": DROP VIEW query.
 jStatementType :: Lens' JobStatistics2 (Maybe Text)
 jStatementType
   = lens _jStatementType
       (\ s a -> s{_jStatementType = a})
 
--- | [Output-only, Experimental] The number of rows affected by a DML
--- statement. Present only for DML statements INSERT, UPDATE or DELETE.
+-- | [Output-only] The number of rows affected by a DML statement. Present
+-- only for DML statements INSERT, UPDATE or DELETE.
 jNumDmlAffectedRows :: Lens' JobStatistics2 (Maybe Int64)
 jNumDmlAffectedRows
   = lens _jNumDmlAffectedRows
       (\ s a -> s{_jNumDmlAffectedRows = a})
       . mapping _Coerce
 
--- | [Output-only, Experimental] Describes execution plan for the query.
+-- | [Output-only] [Experimental] Describes a timeline of job execution.
+jTimeline :: Lens' JobStatistics2 [QueryTimelineSample]
+jTimeline
+  = lens _jTimeline (\ s a -> s{_jTimeline = a}) .
+      _Default
+      . _Coerce
+
+-- | [Output-only] Describes execution plan for the query.
 jQueryPlan :: Lens' JobStatistics2 [ExplainQueryStage]
 jQueryPlan
   = lens _jQueryPlan (\ s a -> s{_jQueryPlan = a}) .
@@ -4686,26 +5339,48 @@ jTotalBytesBilled
       (\ s a -> s{_jTotalBytesBilled = a})
       . mapping _Coerce
 
+-- | [Output-only, Experimental] The DDL operation performed, possibly
+-- dependent on the pre-existence of the DDL target. Possible values (new
+-- values might be added in the future): \"CREATE\": The query created the
+-- DDL target. \"SKIP\": No-op. Example cases: the query is CREATE TABLE IF
+-- NOT EXISTS while the table already exists, or the query is DROP TABLE IF
+-- EXISTS while the table does not exist. \"REPLACE\": The query replaced
+-- the DDL target. Example case: the query is CREATE OR REPLACE TABLE, and
+-- the table already exists. \"DROP\": The query deleted the DDL target.
+jDdlOperationPerformed :: Lens' JobStatistics2 (Maybe Text)
+jDdlOperationPerformed
+  = lens _jDdlOperationPerformed
+      (\ s a -> s{_jDdlOperationPerformed = a})
+
 instance FromJSON JobStatistics2 where
         parseJSON
           = withObject "JobStatistics2"
               (\ o ->
                  JobStatistics2' <$>
-                   (o .:? "schema") <*> (o .:? "totalBytesProcessed")
+                   (o .:? "totalSlotMs") <*> (o .:? "ddlTargetTable")
+                     <*> (o .:? "estimatedBytesProcessed")
+                     <*> (o .:? "schema")
+                     <*> (o .:? "totalBytesProcessed")
                      <*> (o .:? "billingTier")
                      <*> (o .:? "undeclaredQueryParameters" .!= mempty)
                      <*> (o .:? "referencedTables" .!= mempty)
                      <*> (o .:? "statementType")
                      <*> (o .:? "numDmlAffectedRows")
+                     <*> (o .:? "timeline" .!= mempty)
                      <*> (o .:? "queryPlan" .!= mempty)
                      <*> (o .:? "cacheHit")
-                     <*> (o .:? "totalBytesBilled"))
+                     <*> (o .:? "totalBytesBilled")
+                     <*> (o .:? "ddlOperationPerformed"))
 
 instance ToJSON JobStatistics2 where
         toJSON JobStatistics2'{..}
           = object
               (catMaybes
-                 [("schema" .=) <$> _jSchema,
+                 [("totalSlotMs" .=) <$> _jTotalSlotMs,
+                  ("ddlTargetTable" .=) <$> _jDdlTargetTable,
+                  ("estimatedBytesProcessed" .=) <$>
+                    _jEstimatedBytesProcessed,
+                  ("schema" .=) <$> _jSchema,
                   ("totalBytesProcessed" .=) <$> _jTotalBytesProcessed,
                   ("billingTier" .=) <$> _jBillingTier,
                   ("undeclaredQueryParameters" .=) <$>
@@ -4713,16 +5388,19 @@ instance ToJSON JobStatistics2 where
                   ("referencedTables" .=) <$> _jReferencedTables,
                   ("statementType" .=) <$> _jStatementType,
                   ("numDmlAffectedRows" .=) <$> _jNumDmlAffectedRows,
+                  ("timeline" .=) <$> _jTimeline,
                   ("queryPlan" .=) <$> _jQueryPlan,
                   ("cacheHit" .=) <$> _jCacheHit,
-                  ("totalBytesBilled" .=) <$> _jTotalBytesBilled])
+                  ("totalBytesBilled" .=) <$> _jTotalBytesBilled,
+                  ("ddlOperationPerformed" .=) <$>
+                    _jDdlOperationPerformed])
 
 --
 -- /See:/ 'jobStatus' smart constructor.
 data JobStatus = JobStatus'
-    { _jsState       :: !(Maybe Text)
+    { _jsState :: !(Maybe Text)
     , _jsErrorResult :: !(Maybe ErrorProto)
-    , _jsErrors      :: !(Maybe [ErrorProto])
+    , _jsErrors :: !(Maybe [ErrorProto])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobStatus' with the minimum fields required to make a request.
@@ -4736,7 +5414,7 @@ data JobStatus = JobStatus'
 -- * 'jsErrors'
 jobStatus
     :: JobStatus
-jobStatus =
+jobStatus = 
     JobStatus'
     { _jsState = Nothing
     , _jsErrorResult = Nothing
@@ -4754,9 +5432,10 @@ jsErrorResult
   = lens _jsErrorResult
       (\ s a -> s{_jsErrorResult = a})
 
--- | [Output-only] All errors encountered during the running of the job.
--- Errors here do not necessarily mean that the job has completed or was
--- unsuccessful.
+-- | [Output-only] The first errors encountered during the running of the
+-- job. The final message includes the number of errors that caused the
+-- process to stop. Errors here do not necessarily mean that the job has
+-- completed or was unsuccessful.
 jsErrors :: Lens' JobStatus [ErrorProto]
 jsErrors
   = lens _jsErrors (\ s a -> s{_jsErrors = a}) .
@@ -4779,13 +5458,12 @@ instance ToJSON JobStatus where
                   ("errorResult" .=) <$> _jsErrorResult,
                   ("errors" .=) <$> _jsErrors])
 
--- | [Experimental] The labels associated with this table. You can use these
--- to organize and group your tables. Label keys and values can be no
--- longer than 63 characters, can only contain letters, numeric characters,
+-- | The labels associated with this table. You can use these to organize and
+-- group your tables. Label keys and values can be no longer than 63
+-- characters, can only contain lowercase letters, numeric characters,
 -- underscores and dashes. International characters are allowed. Label
--- values are optional. Label keys must start with a letter and must be
--- unique within a dataset. Both keys and values are additionally
--- constrained to be \<= 128 bytes in size.
+-- values are optional. Label keys must start with a letter and each label
+-- in the list must have a different key.
 --
 -- /See:/ 'tableLabels' smart constructor.
 newtype TableLabels = TableLabels'
@@ -4800,7 +5478,7 @@ newtype TableLabels = TableLabels'
 tableLabels
     :: HashMap Text Text -- ^ 'tlAddtional'
     -> TableLabels
-tableLabels pTlAddtional_ =
+tableLabels pTlAddtional_ = 
     TableLabels'
     { _tlAddtional = _Coerce # pTlAddtional_
     }
@@ -4819,14 +5497,68 @@ instance ToJSON TableLabels where
         toJSON = toJSON . _tlAddtional
 
 --
+-- /See:/ 'destinationTableProperties' smart constructor.
+data DestinationTableProperties = DestinationTableProperties'
+    { _dtpFriendlyName :: !(Maybe Text)
+    , _dtpDescription :: !(Maybe Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DestinationTableProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtpFriendlyName'
+--
+-- * 'dtpDescription'
+destinationTableProperties
+    :: DestinationTableProperties
+destinationTableProperties = 
+    DestinationTableProperties'
+    { _dtpFriendlyName = Nothing
+    , _dtpDescription = Nothing
+    }
+
+-- | [Optional] The friendly name for the destination table. This will only
+-- be used if the destination table is newly created. If the table already
+-- exists and a value different than the current friendly name is provided,
+-- the job will fail.
+dtpFriendlyName :: Lens' DestinationTableProperties (Maybe Text)
+dtpFriendlyName
+  = lens _dtpFriendlyName
+      (\ s a -> s{_dtpFriendlyName = a})
+
+-- | [Optional] The description for the destination table. This will only be
+-- used if the destination table is newly created. If the table already
+-- exists and a value different than the current description is provided,
+-- the job will fail.
+dtpDescription :: Lens' DestinationTableProperties (Maybe Text)
+dtpDescription
+  = lens _dtpDescription
+      (\ s a -> s{_dtpDescription = a})
+
+instance FromJSON DestinationTableProperties where
+        parseJSON
+          = withObject "DestinationTableProperties"
+              (\ o ->
+                 DestinationTableProperties' <$>
+                   (o .:? "friendlyName") <*> (o .:? "description"))
+
+instance ToJSON DestinationTableProperties where
+        toJSON DestinationTableProperties'{..}
+          = object
+              (catMaybes
+                 [("friendlyName" .=) <$> _dtpFriendlyName,
+                  ("description" .=) <$> _dtpDescription])
+
+--
 -- /See:/ 'dataSetAccessItem' smart constructor.
 data DataSetAccessItem = DataSetAccessItem'
     { _dsaiGroupByEmail :: !(Maybe Text)
-    , _dsaiDomain       :: !(Maybe Text)
+    , _dsaiDomain :: !(Maybe Text)
     , _dsaiSpecialGroup :: !(Maybe Text)
-    , _dsaiRole         :: !(Maybe Text)
-    , _dsaiView         :: !(Maybe TableReference)
-    , _dsaiUserByEmail  :: !(Maybe Text)
+    , _dsaiRole :: !(Maybe Text)
+    , _dsaiView :: !(Maybe TableReference)
+    , _dsaiUserByEmail :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DataSetAccessItem' with the minimum fields required to make a request.
@@ -4846,7 +5578,7 @@ data DataSetAccessItem = DataSetAccessItem'
 -- * 'dsaiUserByEmail'
 dataSetAccessItem
     :: DataSetAccessItem
-dataSetAccessItem =
+dataSetAccessItem = 
     DataSetAccessItem'
     { _dsaiGroupByEmail = Nothing
     , _dsaiDomain = Nothing
@@ -4923,7 +5655,7 @@ instance ToJSON DataSetAccessItem where
 --
 -- /See:/ 'tableDataInsertAllResponse' smart constructor.
 data TableDataInsertAllResponse = TableDataInsertAllResponse'
-    { _tKind         :: !Text
+    { _tKind :: !Text
     , _tInsertErrors :: !(Maybe [TableDataInsertAllResponseInsertErrorsItem])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4936,7 +5668,7 @@ data TableDataInsertAllResponse = TableDataInsertAllResponse'
 -- * 'tInsertErrors'
 tableDataInsertAllResponse
     :: TableDataInsertAllResponse
-tableDataInsertAllResponse =
+tableDataInsertAllResponse = 
     TableDataInsertAllResponse'
     { _tKind = "bigquery#tableDataInsertAllResponse"
     , _tInsertErrors = Nothing
@@ -4974,8 +5706,8 @@ instance ToJSON TableDataInsertAllResponse where
 -- /See:/ 'queryParameterType' smart constructor.
 data QueryParameterType = QueryParameterType'
     { _qptStructTypes :: !(Maybe [QueryParameterTypeStructTypesItem])
-    , _qptType        :: !(Maybe Text)
-    , _qptArrayType   :: !(Maybe QueryParameterType)
+    , _qptType :: !(Maybe Text)
+    , _qptArrayType :: !(Maybe QueryParameterType)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryParameterType' with the minimum fields required to make a request.
@@ -4989,7 +5721,7 @@ data QueryParameterType = QueryParameterType'
 -- * 'qptArrayType'
 queryParameterType
     :: QueryParameterType
-queryParameterType =
+queryParameterType = 
     QueryParameterType'
     { _qptStructTypes = Nothing
     , _qptType = Nothing
@@ -5033,27 +5765,28 @@ instance ToJSON QueryParameterType where
 --
 -- /See:/ 'table' smart constructor.
 data Table = Table'
-    { _tabCreationTime              :: !(Maybe (Textual Int64))
-    , _tabEtag                      :: !(Maybe Text)
-    , _tabNumBytes                  :: !(Maybe (Textual Int64))
+    { _tabCreationTime :: !(Maybe (Textual Int64))
+    , _tabEtag :: !(Maybe Text)
+    , _tabNumBytes :: !(Maybe (Textual Int64))
     , _tabExternalDataConfiguration :: !(Maybe ExternalDataConfiguration)
-    , _tabLocation                  :: !(Maybe Text)
-    , _tabTableReference            :: !(Maybe TableReference)
-    , _tabFriendlyName              :: !(Maybe Text)
-    , _tabKind                      :: !Text
-    , _tabLastModifiedTime          :: !(Maybe (Textual Word64))
-    , _tabSchema                    :: !(Maybe TableSchema)
-    , _tabStreamingBuffer           :: !(Maybe Streamingbuffer)
-    , _tabSelfLink                  :: !(Maybe Text)
-    , _tabTimePartitioning          :: !(Maybe TimePartitioning)
-    , _tabNumRows                   :: !(Maybe (Textual Word64))
-    , _tabView                      :: !(Maybe ViewDefinition)
-    , _tabId                        :: !(Maybe Text)
-    , _tabLabels                    :: !(Maybe TableLabels)
-    , _tabType                      :: !(Maybe Text)
-    , _tabNumLongTermBytes          :: !(Maybe (Textual Int64))
-    , _tabExpirationTime            :: !(Maybe (Textual Int64))
-    , _tabDescription               :: !(Maybe Text)
+    , _tabLocation :: !(Maybe Text)
+    , _tabTableReference :: !(Maybe TableReference)
+    , _tabFriendlyName :: !(Maybe Text)
+    , _tabKind :: !Text
+    , _tabLastModifiedTime :: !(Maybe (Textual Word64))
+    , _tabSchema :: !(Maybe TableSchema)
+    , _tabStreamingBuffer :: !(Maybe Streamingbuffer)
+    , _tabSelfLink :: !(Maybe Text)
+    , _tabEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
+    , _tabTimePartitioning :: !(Maybe TimePartitioning)
+    , _tabNumRows :: !(Maybe (Textual Word64))
+    , _tabView :: !(Maybe ViewDefinition)
+    , _tabId :: !(Maybe Text)
+    , _tabLabels :: !(Maybe TableLabels)
+    , _tabType :: !(Maybe Text)
+    , _tabNumLongTermBytes :: !(Maybe (Textual Int64))
+    , _tabExpirationTime :: !(Maybe (Textual Int64))
+    , _tabDescription :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Table' with the minimum fields required to make a request.
@@ -5084,6 +5817,8 @@ data Table = Table'
 --
 -- * 'tabSelfLink'
 --
+-- * 'tabEncryptionConfiguration'
+--
 -- * 'tabTimePartitioning'
 --
 -- * 'tabNumRows'
@@ -5103,7 +5838,7 @@ data Table = Table'
 -- * 'tabDescription'
 table
     :: Table
-table =
+table = 
     Table'
     { _tabCreationTime = Nothing
     , _tabEtag = Nothing
@@ -5117,6 +5852,7 @@ table =
     , _tabSchema = Nothing
     , _tabStreamingBuffer = Nothing
     , _tabSelfLink = Nothing
+    , _tabEncryptionConfiguration = Nothing
     , _tabTimePartitioning = Nothing
     , _tabNumRows = Nothing
     , _tabView = Nothing
@@ -5203,8 +5939,13 @@ tabSelfLink :: Lens' Table (Maybe Text)
 tabSelfLink
   = lens _tabSelfLink (\ s a -> s{_tabSelfLink = a})
 
--- | [Experimental] If specified, configures time-based partitioning for this
--- table.
+-- | Custom encryption configuration (e.g., Cloud KMS keys).
+tabEncryptionConfiguration :: Lens' Table (Maybe EncryptionConfiguration)
+tabEncryptionConfiguration
+  = lens _tabEncryptionConfiguration
+      (\ s a -> s{_tabEncryptionConfiguration = a})
+
+-- | If specified, configures time-based partitioning for this table.
 tabTimePartitioning :: Lens' Table (Maybe TimePartitioning)
 tabTimePartitioning
   = lens _tabTimePartitioning
@@ -5225,13 +5966,12 @@ tabView = lens _tabView (\ s a -> s{_tabView = a})
 tabId :: Lens' Table (Maybe Text)
 tabId = lens _tabId (\ s a -> s{_tabId = a})
 
--- | [Experimental] The labels associated with this table. You can use these
--- to organize and group your tables. Label keys and values can be no
--- longer than 63 characters, can only contain letters, numeric characters,
+-- | The labels associated with this table. You can use these to organize and
+-- group your tables. Label keys and values can be no longer than 63
+-- characters, can only contain lowercase letters, numeric characters,
 -- underscores and dashes. International characters are allowed. Label
--- values are optional. Label keys must start with a letter and must be
--- unique within a dataset. Both keys and values are additionally
--- constrained to be \<= 128 bytes in size.
+-- values are optional. Label keys must start with a letter and each label
+-- in the list must have a different key.
 tabLabels :: Lens' Table (Maybe TableLabels)
 tabLabels
   = lens _tabLabels (\ s a -> s{_tabLabels = a})
@@ -5254,7 +5994,9 @@ tabNumLongTermBytes
 
 -- | [Optional] The time when this table expires, in milliseconds since the
 -- epoch. If not present, the table will persist indefinitely. Expired
--- tables will be deleted and their storage reclaimed.
+-- tables will be deleted and their storage reclaimed. The
+-- defaultTableExpirationMs property of the encapsulating dataset can be
+-- used to set a default expirationTime on newly created tables.
 tabExpirationTime :: Lens' Table (Maybe Int64)
 tabExpirationTime
   = lens _tabExpirationTime
@@ -5283,6 +6025,7 @@ instance FromJSON Table where
                      <*> (o .:? "schema")
                      <*> (o .:? "streamingBuffer")
                      <*> (o .:? "selfLink")
+                     <*> (o .:? "encryptionConfiguration")
                      <*> (o .:? "timePartitioning")
                      <*> (o .:? "numRows")
                      <*> (o .:? "view")
@@ -5310,6 +6053,8 @@ instance ToJSON Table where
                   ("schema" .=) <$> _tabSchema,
                   ("streamingBuffer" .=) <$> _tabStreamingBuffer,
                   ("selfLink" .=) <$> _tabSelfLink,
+                  ("encryptionConfiguration" .=) <$>
+                    _tabEncryptionConfiguration,
                   ("timePartitioning" .=) <$> _tabTimePartitioning,
                   ("numRows" .=) <$> _tabNumRows,
                   ("view" .=) <$> _tabView, ("id" .=) <$> _tabId,
@@ -5323,9 +6068,9 @@ instance ToJSON Table where
 -- /See:/ 'errorProto' smart constructor.
 data ErrorProto = ErrorProto'
     { _epDebugInfo :: !(Maybe Text)
-    , _epLocation  :: !(Maybe Text)
-    , _epReason    :: !(Maybe Text)
-    , _epMessage   :: !(Maybe Text)
+    , _epLocation :: !(Maybe Text)
+    , _epReason :: !(Maybe Text)
+    , _epMessage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ErrorProto' with the minimum fields required to make a request.
@@ -5341,7 +6086,7 @@ data ErrorProto = ErrorProto'
 -- * 'epMessage'
 errorProto
     :: ErrorProto
-errorProto =
+errorProto = 
     ErrorProto'
     { _epDebugInfo = Nothing
     , _epLocation = Nothing
@@ -5390,12 +6135,12 @@ instance ToJSON ErrorProto where
 --
 -- /See:/ 'csvOptions' smart constructor.
 data CSVOptions = CSVOptions'
-    { _coSkipLeadingRows     :: !(Maybe (Textual Int64))
-    , _coAllowJaggedRows     :: !(Maybe Bool)
+    { _coSkipLeadingRows :: !(Maybe (Textual Int64))
+    , _coAllowJaggedRows :: !(Maybe Bool)
     , _coAllowQuotedNewlines :: !(Maybe Bool)
-    , _coQuote               :: !Text
-    , _coEncoding            :: !(Maybe Text)
-    , _coFieldDelimiter      :: !(Maybe Text)
+    , _coQuote :: !Text
+    , _coEncoding :: !(Maybe Text)
+    , _coFieldDelimiter :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CSVOptions' with the minimum fields required to make a request.
@@ -5415,7 +6160,7 @@ data CSVOptions = CSVOptions'
 -- * 'coFieldDelimiter'
 csvOptions
     :: CSVOptions
-csvOptions =
+csvOptions = 
     CSVOptions'
     { _coSkipLeadingRows = Nothing
     , _coAllowJaggedRows = Nothing
@@ -5506,10 +6251,11 @@ instance ToJSON CSVOptions where
 --
 -- /See:/ 'jobStatistics3' smart constructor.
 data JobStatistics3 = JobStatistics3'
-    { _jsInputFiles     :: !(Maybe (Textual Int64))
-    , _jsOutputRows     :: !(Maybe (Textual Int64))
-    , _jsOutputBytes    :: !(Maybe (Textual Int64))
+    { _jsInputFiles :: !(Maybe (Textual Int64))
+    , _jsOutputRows :: !(Maybe (Textual Int64))
+    , _jsOutputBytes :: !(Maybe (Textual Int64))
     , _jsInputFileBytes :: !(Maybe (Textual Int64))
+    , _jsBadRecords :: !(Maybe (Textual Int64))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobStatistics3' with the minimum fields required to make a request.
@@ -5523,14 +6269,17 @@ data JobStatistics3 = JobStatistics3'
 -- * 'jsOutputBytes'
 --
 -- * 'jsInputFileBytes'
+--
+-- * 'jsBadRecords'
 jobStatistics3
     :: JobStatistics3
-jobStatistics3 =
+jobStatistics3 = 
     JobStatistics3'
     { _jsInputFiles = Nothing
     , _jsOutputRows = Nothing
     , _jsOutputBytes = Nothing
     , _jsInputFileBytes = Nothing
+    , _jsBadRecords = Nothing
     }
 
 -- | [Output-only] Number of source files in a load job.
@@ -5561,6 +6310,15 @@ jsInputFileBytes
       (\ s a -> s{_jsInputFileBytes = a})
       . mapping _Coerce
 
+-- | [Output-only] The number of bad records encountered. Note that if the
+-- job has failed because of more bad records encountered than the maximum
+-- allowed in the load job configuration, then this number can be less than
+-- the total number of bad records present in the input data.
+jsBadRecords :: Lens' JobStatistics3 (Maybe Int64)
+jsBadRecords
+  = lens _jsBadRecords (\ s a -> s{_jsBadRecords = a})
+      . mapping _Coerce
+
 instance FromJSON JobStatistics3 where
         parseJSON
           = withObject "JobStatistics3"
@@ -5568,7 +6326,8 @@ instance FromJSON JobStatistics3 where
                  JobStatistics3' <$>
                    (o .:? "inputFiles") <*> (o .:? "outputRows") <*>
                      (o .:? "outputBytes")
-                     <*> (o .:? "inputFileBytes"))
+                     <*> (o .:? "inputFileBytes")
+                     <*> (o .:? "badRecords"))
 
 instance ToJSON JobStatistics3 where
         toJSON JobStatistics3'{..}
@@ -5577,22 +6336,23 @@ instance ToJSON JobStatistics3 where
                  [("inputFiles" .=) <$> _jsInputFiles,
                   ("outputRows" .=) <$> _jsOutputRows,
                   ("outputBytes" .=) <$> _jsOutputBytes,
-                  ("inputFileBytes" .=) <$> _jsInputFileBytes])
+                  ("inputFileBytes" .=) <$> _jsInputFileBytes,
+                  ("badRecords" .=) <$> _jsBadRecords])
 
 --
 -- /See:/ 'queryResponse' smart constructor.
 data QueryResponse = QueryResponse'
-    { _qJobReference        :: !(Maybe JobReference)
-    , _qKind                :: !Text
-    , _qSchema              :: !(Maybe TableSchema)
+    { _qJobReference :: !(Maybe JobReference)
+    , _qKind :: !Text
+    , _qSchema :: !(Maybe TableSchema)
     , _qTotalBytesProcessed :: !(Maybe (Textual Int64))
-    , _qRows                :: !(Maybe [TableRow])
-    , _qPageToken           :: !(Maybe Text)
-    , _qNumDmlAffectedRows  :: !(Maybe (Textual Int64))
-    , _qTotalRows           :: !(Maybe (Textual Word64))
-    , _qErrors              :: !(Maybe [ErrorProto])
-    , _qJobComplete         :: !(Maybe Bool)
-    , _qCacheHit            :: !(Maybe Bool)
+    , _qRows :: !(Maybe [TableRow])
+    , _qPageToken :: !(Maybe Text)
+    , _qNumDmlAffectedRows :: !(Maybe (Textual Int64))
+    , _qTotalRows :: !(Maybe (Textual Word64))
+    , _qErrors :: !(Maybe [ErrorProto])
+    , _qJobComplete :: !(Maybe Bool)
+    , _qCacheHit :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryResponse' with the minimum fields required to make a request.
@@ -5622,7 +6382,7 @@ data QueryResponse = QueryResponse'
 -- * 'qCacheHit'
 queryResponse
     :: QueryResponse
-queryResponse =
+queryResponse = 
     QueryResponse'
     { _qJobReference = Nothing
     , _qKind = "bigquery#queryResponse"
@@ -5679,8 +6439,8 @@ qPageToken :: Lens' QueryResponse (Maybe Text)
 qPageToken
   = lens _qPageToken (\ s a -> s{_qPageToken = a})
 
--- | [Output-only, Experimental] The number of rows affected by a DML
--- statement. Present only for DML statements INSERT, UPDATE or DELETE.
+-- | [Output-only] The number of rows affected by a DML statement. Present
+-- only for DML statements INSERT, UPDATE or DELETE.
 qNumDmlAffectedRows :: Lens' QueryResponse (Maybe Int64)
 qNumDmlAffectedRows
   = lens _qNumDmlAffectedRows
@@ -5694,9 +6454,10 @@ qTotalRows
   = lens _qTotalRows (\ s a -> s{_qTotalRows = a}) .
       mapping _Coerce
 
--- | [Output-only] All errors and warnings encountered during the running of
--- the job. Errors here do not necessarily mean that the job has completed
--- or was unsuccessful.
+-- | [Output-only] The first errors or warnings encountered during the
+-- running of the job. The final message includes the number of errors that
+-- caused the process to stop. Errors here do not necessarily mean that the
+-- job has completed or was unsuccessful.
 qErrors :: Lens' QueryResponse [ErrorProto]
 qErrors
   = lens _qErrors (\ s a -> s{_qErrors = a}) . _Default
@@ -5746,8 +6507,8 @@ instance ToJSON QueryResponse where
                   ("jobComplete" .=) <$> _qJobComplete,
                   ("cacheHit" .=) <$> _qCacheHit])
 
--- | [Experimental] The labels associated with this dataset. You can use
--- these to organize and group your datasets.
+-- | The labels associated with this dataset. You can use these to organize
+-- and group your datasets.
 --
 -- /See:/ 'dataSetListDataSetsItemLabels' smart constructor.
 newtype DataSetListDataSetsItemLabels = DataSetListDataSetsItemLabels'
@@ -5762,7 +6523,7 @@ newtype DataSetListDataSetsItemLabels = DataSetListDataSetsItemLabels'
 dataSetListDataSetsItemLabels
     :: HashMap Text Text -- ^ 'dsldsilAddtional'
     -> DataSetListDataSetsItemLabels
-dataSetListDataSetsItemLabels pDsldsilAddtional_ =
+dataSetListDataSetsItemLabels pDsldsilAddtional_ = 
     DataSetListDataSetsItemLabels'
     { _dsldsilAddtional = _Coerce # pDsldsilAddtional_
     }
@@ -5783,8 +6544,45 @@ instance FromJSON DataSetListDataSetsItemLabels where
 instance ToJSON DataSetListDataSetsItemLabels where
         toJSON = toJSON . _dsldsilAddtional
 
--- | [Experimental] The labels associated with this table. You can use these
--- to organize and group your tables.
+-- | Additional details for a view.
+--
+-- /See:/ 'tableListTablesItemView' smart constructor.
+newtype TableListTablesItemView = TableListTablesItemView'
+    { _tltivUseLegacySQL :: Maybe Bool
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TableListTablesItemView' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tltivUseLegacySQL'
+tableListTablesItemView
+    :: TableListTablesItemView
+tableListTablesItemView = 
+    TableListTablesItemView'
+    { _tltivUseLegacySQL = Nothing
+    }
+
+-- | True if view is defined in legacy SQL dialect, false if in standard SQL.
+tltivUseLegacySQL :: Lens' TableListTablesItemView (Maybe Bool)
+tltivUseLegacySQL
+  = lens _tltivUseLegacySQL
+      (\ s a -> s{_tltivUseLegacySQL = a})
+
+instance FromJSON TableListTablesItemView where
+        parseJSON
+          = withObject "TableListTablesItemView"
+              (\ o ->
+                 TableListTablesItemView' <$> (o .:? "useLegacySql"))
+
+instance ToJSON TableListTablesItemView where
+        toJSON TableListTablesItemView'{..}
+          = object
+              (catMaybes
+                 [("useLegacySql" .=) <$> _tltivUseLegacySQL])
+
+-- | The labels associated with this table. You can use these to organize and
+-- group your tables.
 --
 -- /See:/ 'tableListTablesItemLabels' smart constructor.
 newtype TableListTablesItemLabels = TableListTablesItemLabels'
@@ -5799,7 +6597,7 @@ newtype TableListTablesItemLabels = TableListTablesItemLabels'
 tableListTablesItemLabels
     :: HashMap Text Text -- ^ 'tltilAddtional'
     -> TableListTablesItemLabels
-tableListTablesItemLabels pTltilAddtional_ =
+tableListTablesItemLabels pTltilAddtional_ = 
     TableListTablesItemLabels'
     { _tltilAddtional = _Coerce # pTltilAddtional_
     }

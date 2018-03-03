@@ -43,8 +43,8 @@ module Network.Google.Resource.CloudUserAccounts.Linux.GetLinuxAccountViews
     , lglavInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.linux.getLinuxAccountViews@ method which the
 -- 'LinuxGetLinuxAccountViews' request conforms to.
@@ -69,13 +69,13 @@ type LinuxGetLinuxAccountViewsResource =
 --
 -- /See:/ 'linuxGetLinuxAccountViews' smart constructor.
 data LinuxGetLinuxAccountViews = LinuxGetLinuxAccountViews'
-    { _lglavOrderBy    :: !(Maybe Text)
-    , _lglavProject    :: !Text
-    , _lglavZone       :: !Text
-    , _lglavFilter     :: !(Maybe Text)
-    , _lglavPageToken  :: !(Maybe Text)
+    { _lglavOrderBy :: !(Maybe Text)
+    , _lglavProject :: !Text
+    , _lglavZone :: !Text
+    , _lglavFilter :: !(Maybe Text)
+    , _lglavPageToken :: !(Maybe Text)
     , _lglavMaxResults :: !(Textual Word32)
-    , _lglavInstance   :: !Text
+    , _lglavInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LinuxGetLinuxAccountViews' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ linuxGetLinuxAccountViews
     -> Text -- ^ 'lglavZone'
     -> Text -- ^ 'lglavInstance'
     -> LinuxGetLinuxAccountViews
-linuxGetLinuxAccountViews pLglavProject_ pLglavZone_ pLglavInstance_ =
+linuxGetLinuxAccountViews pLglavProject_ pLglavZone_ pLglavInstance_ = 
     LinuxGetLinuxAccountViews'
     { _lglavOrderBy = Nothing
     , _lglavProject = pLglavProject_

@@ -33,12 +33,11 @@ module Network.Google.Resource.Games.Pushtokens.Update
     , PushtokensUpdate
 
     -- * Request Lenses
-    , puConsistencyToken
     , puPayload
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.pushtokens.update@ method which the
 -- 'PushtokensUpdate' request conforms to.
@@ -46,40 +45,28 @@ type PushtokensUpdateResource =
      "games" :>
        "v1" :>
          "pushtokens" :>
-           QueryParam "consistencyToken" (Textual Int64) :>
-             QueryParam "alt" AltJSON :>
-               ReqBody '[JSON] PushToken :> Put '[JSON] ()
+           QueryParam "alt" AltJSON :>
+             ReqBody '[JSON] PushToken :> Put '[JSON] ()
 
 -- | Registers a push token for the current user and application.
 --
 -- /See:/ 'pushtokensUpdate' smart constructor.
-data PushtokensUpdate = PushtokensUpdate'
-    { _puConsistencyToken :: !(Maybe (Textual Int64))
-    , _puPayload          :: !PushToken
+newtype PushtokensUpdate = PushtokensUpdate'
+    { _puPayload :: PushToken
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PushtokensUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'puConsistencyToken'
---
 -- * 'puPayload'
 pushtokensUpdate
     :: PushToken -- ^ 'puPayload'
     -> PushtokensUpdate
-pushtokensUpdate pPuPayload_ =
+pushtokensUpdate pPuPayload_ = 
     PushtokensUpdate'
-    { _puConsistencyToken = Nothing
-    , _puPayload = pPuPayload_
+    { _puPayload = pPuPayload_
     }
-
--- | The last-seen mutation timestamp.
-puConsistencyToken :: Lens' PushtokensUpdate (Maybe Int64)
-puConsistencyToken
-  = lens _puConsistencyToken
-      (\ s a -> s{_puConsistencyToken = a})
-      . mapping _Coerce
 
 -- | Multipart request metadata.
 puPayload :: Lens' PushtokensUpdate PushToken
@@ -92,8 +79,7 @@ instance GoogleRequest PushtokensUpdate where
              '["https://www.googleapis.com/auth/games",
                "https://www.googleapis.com/auth/plus.login"]
         requestClient PushtokensUpdate'{..}
-          = go _puConsistencyToken (Just AltJSON) _puPayload
-              gamesService
+          = go (Just AltJSON) _puPayload gamesService
           where go
                   = buildClient
                       (Proxy :: Proxy PushtokensUpdateResource)

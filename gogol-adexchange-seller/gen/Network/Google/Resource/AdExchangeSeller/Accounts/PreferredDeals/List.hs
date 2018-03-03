@@ -36,8 +36,8 @@ module Network.Google.Resource.AdExchangeSeller.Accounts.PreferredDeals.List
     , apdlAccountId
     ) where
 
-import           Network.Google.AdExchangeSeller.Types
-import           Network.Google.Prelude
+import Network.Google.AdExchangeSeller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adexchangeseller.accounts.preferreddeals.list@ method which the
 -- 'AccountsPreferredDealsList' request conforms to.
@@ -65,7 +65,7 @@ newtype AccountsPreferredDealsList = AccountsPreferredDealsList'
 accountsPreferredDealsList
     :: Text -- ^ 'apdlAccountId'
     -> AccountsPreferredDealsList
-accountsPreferredDealsList pApdlAccountId_ =
+accountsPreferredDealsList pApdlAccountId_ = 
     AccountsPreferredDealsList'
     { _apdlAccountId = pApdlAccountId_
     }

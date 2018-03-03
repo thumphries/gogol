@@ -41,8 +41,8 @@ module Network.Google.Resource.SQL.SSLCerts.CreateEphemeral
     , scceInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.sslCerts.createEphemeral@ method which the
 -- 'SSLCertsCreateEphemeral' request conforms to.
@@ -65,8 +65,8 @@ type SSLCertsCreateEphemeralResource =
 --
 -- /See:/ 'sslCertsCreateEphemeral' smart constructor.
 data SSLCertsCreateEphemeral = SSLCertsCreateEphemeral'
-    { _scceProject  :: !Text
-    , _sccePayload  :: !SSLCertsCreateEphemeralRequest
+    { _scceProject :: !Text
+    , _sccePayload :: !SSLCertsCreateEphemeralRequest
     , _scceInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -84,7 +84,7 @@ sslCertsCreateEphemeral
     -> SSLCertsCreateEphemeralRequest -- ^ 'sccePayload'
     -> Text -- ^ 'scceInstance'
     -> SSLCertsCreateEphemeral
-sslCertsCreateEphemeral pScceProject_ pSccePayload_ pScceInstance_ =
+sslCertsCreateEphemeral pScceProject_ pSccePayload_ pScceInstance_ = 
     SSLCertsCreateEphemeral'
     { _scceProject = pScceProject_
     , _sccePayload = pSccePayload_

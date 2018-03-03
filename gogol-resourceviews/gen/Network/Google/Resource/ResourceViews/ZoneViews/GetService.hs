@@ -39,8 +39,8 @@ module Network.Google.Resource.ResourceViews.ZoneViews.GetService
     , zvgsZone
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ResourceViews.Types
+import Network.Google.Prelude
+import Network.Google.ResourceViews.Types
 
 -- | A resource alias for @resourceviews.zoneViews.getService@ method which the
 -- 'ZoneViewsGetService' request conforms to.
@@ -64,8 +64,8 @@ type ZoneViewsGetServiceResource =
 data ZoneViewsGetService = ZoneViewsGetService'
     { _zvgsResourceView :: !Text
     , _zvgsResourceName :: !(Maybe Text)
-    , _zvgsProject      :: !Text
-    , _zvgsZone         :: !Text
+    , _zvgsProject :: !Text
+    , _zvgsZone :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ZoneViewsGetService' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ zoneViewsGetService
     -> Text -- ^ 'zvgsProject'
     -> Text -- ^ 'zvgsZone'
     -> ZoneViewsGetService
-zoneViewsGetService pZvgsResourceView_ pZvgsProject_ pZvgsZone_ =
+zoneViewsGetService pZvgsResourceView_ pZvgsProject_ pZvgsZone_ = 
     ZoneViewsGetService'
     { _zvgsResourceView = pZvgsResourceView_
     , _zvgsResourceName = Nothing

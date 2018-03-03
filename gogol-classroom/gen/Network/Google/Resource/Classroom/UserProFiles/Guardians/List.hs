@@ -61,8 +61,8 @@ module Network.Google.Resource.Classroom.UserProFiles.Guardians.List
     , upfglCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.userProfiles.guardians.list@ method which the
 -- 'UserProFilesGuardiansList' request conforms to.
@@ -71,7 +71,7 @@ type UserProFilesGuardiansListResource =
        "userProfiles" :>
          Capture "studentId" Text :>
            "guardians" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -103,17 +103,17 @@ type UserProFilesGuardiansListResource =
 --
 -- /See:/ 'userProFilesGuardiansList' smart constructor.
 data UserProFilesGuardiansList = UserProFilesGuardiansList'
-    { _upfglStudentId           :: !Text
-    , _upfglXgafv               :: !(Maybe Text)
-    , _upfglUploadProtocol      :: !(Maybe Text)
-    , _upfglPp                  :: !Bool
-    , _upfglAccessToken         :: !(Maybe Text)
-    , _upfglUploadType          :: !(Maybe Text)
-    , _upfglBearerToken         :: !(Maybe Text)
+    { _upfglStudentId :: !Text
+    , _upfglXgafv :: !(Maybe Xgafv)
+    , _upfglUploadProtocol :: !(Maybe Text)
+    , _upfglPp :: !Bool
+    , _upfglAccessToken :: !(Maybe Text)
+    , _upfglUploadType :: !(Maybe Text)
+    , _upfglBearerToken :: !(Maybe Text)
     , _upfglInvitedEmailAddress :: !(Maybe Text)
-    , _upfglPageToken           :: !(Maybe Text)
-    , _upfglPageSize            :: !(Maybe (Textual Int32))
-    , _upfglCallback            :: !(Maybe Text)
+    , _upfglPageToken :: !(Maybe Text)
+    , _upfglPageSize :: !(Maybe (Textual Int32))
+    , _upfglCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserProFilesGuardiansList' with the minimum fields required to make a request.
@@ -144,7 +144,7 @@ data UserProFilesGuardiansList = UserProFilesGuardiansList'
 userProFilesGuardiansList
     :: Text -- ^ 'upfglStudentId'
     -> UserProFilesGuardiansList
-userProFilesGuardiansList pUpfglStudentId_ =
+userProFilesGuardiansList pUpfglStudentId_ = 
     UserProFilesGuardiansList'
     { _upfglStudentId = pUpfglStudentId_
     , _upfglXgafv = Nothing
@@ -171,7 +171,7 @@ upfglStudentId
       (\ s a -> s{_upfglStudentId = a})
 
 -- | V1 error format.
-upfglXgafv :: Lens' UserProFilesGuardiansList (Maybe Text)
+upfglXgafv :: Lens' UserProFilesGuardiansList (Maybe Xgafv)
 upfglXgafv
   = lens _upfglXgafv (\ s a -> s{_upfglXgafv = a})
 
@@ -238,7 +238,10 @@ instance GoogleRequest UserProFilesGuardiansList
          where
         type Rs UserProFilesGuardiansList =
              ListGuardiansResponse
-        type Scopes UserProFilesGuardiansList = '[]
+        type Scopes UserProFilesGuardiansList =
+             '["https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly",
+               "https://www.googleapis.com/auth/classroom.guardianlinks.students",
+               "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly"]
         requestClient UserProFilesGuardiansList'{..}
           = go _upfglStudentId _upfglXgafv _upfglUploadProtocol
               (Just _upfglPp)

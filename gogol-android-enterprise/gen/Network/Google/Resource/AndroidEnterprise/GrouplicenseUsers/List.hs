@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidEnterprise.GrouplicenseUsers.List
     , gulGroupLicenseId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.grouplicenseusers.list@ method which the
 -- 'GrouplicenseUsersList' request conforms to.
@@ -59,7 +59,7 @@ type GrouplicenseUsersListResource =
 --
 -- /See:/ 'grouplicenseUsersList' smart constructor.
 data GrouplicenseUsersList = GrouplicenseUsersList'
-    { _gulEnterpriseId   :: !Text
+    { _gulEnterpriseId :: !Text
     , _gulGroupLicenseId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ grouplicenseUsersList
     :: Text -- ^ 'gulEnterpriseId'
     -> Text -- ^ 'gulGroupLicenseId'
     -> GrouplicenseUsersList
-grouplicenseUsersList pGulEnterpriseId_ pGulGroupLicenseId_ =
+grouplicenseUsersList pGulEnterpriseId_ pGulGroupLicenseId_ = 
     GrouplicenseUsersList'
     { _gulEnterpriseId = pGulEnterpriseId_
     , _gulGroupLicenseId = pGulGroupLicenseId_

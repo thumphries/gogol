@@ -39,8 +39,8 @@ module Network.Google.Resource.GamesManagement.Players.Hide
     , phPlayerId
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.players.hide@ method which the
 -- 'PlayersHide' request conforms to.
@@ -61,7 +61,7 @@ type PlayersHideResource =
 -- /See:/ 'playersHide' smart constructor.
 data PlayersHide = PlayersHide'
     { _phApplicationId :: !Text
-    , _phPlayerId      :: !Text
+    , _phPlayerId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlayersHide' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ playersHide
     :: Text -- ^ 'phApplicationId'
     -> Text -- ^ 'phPlayerId'
     -> PlayersHide
-playersHide pPhApplicationId_ pPhPlayerId_ =
+playersHide pPhApplicationId_ pPhPlayerId_ = 
     PlayersHide'
     { _phApplicationId = pPhApplicationId_
     , _phPlayerId = pPhPlayerId_

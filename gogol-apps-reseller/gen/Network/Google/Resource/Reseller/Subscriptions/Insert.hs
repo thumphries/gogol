@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates\/Transfers a subscription for the customer.
+-- Create or transfer a subscription.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.subscriptions.insert@.
 module Network.Google.Resource.Reseller.Subscriptions.Insert
@@ -38,8 +38,8 @@ module Network.Google.Resource.Reseller.Subscriptions.Insert
     , siCustomerAuthToken
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.subscriptions.insert@ method which the
 -- 'SubscriptionsInsert' request conforms to.
@@ -55,12 +55,12 @@ type SubscriptionsInsertResource =
                      ReqBody '[JSON] Subscription :>
                        Post '[JSON] Subscription
 
--- | Creates\/Transfers a subscription for the customer.
+-- | Create or transfer a subscription.
 --
 -- /See:/ 'subscriptionsInsert' smart constructor.
 data SubscriptionsInsert = SubscriptionsInsert'
-    { _siPayload           :: !Subscription
-    , _siCustomerId        :: !Text
+    { _siPayload :: !Subscription
+    , _siCustomerId :: !Text
     , _siCustomerAuthToken :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ subscriptionsInsert
     :: Subscription -- ^ 'siPayload'
     -> Text -- ^ 'siCustomerId'
     -> SubscriptionsInsert
-subscriptionsInsert pSiPayload_ pSiCustomerId_ =
+subscriptionsInsert pSiPayload_ pSiCustomerId_ = 
     SubscriptionsInsert'
     { _siPayload = pSiPayload_
     , _siCustomerId = pSiCustomerId_
@@ -89,14 +89,20 @@ siPayload :: Lens' SubscriptionsInsert Subscription
 siPayload
   = lens _siPayload (\ s a -> s{_siPayload = a})
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 siCustomerId :: Lens' SubscriptionsInsert Text
 siCustomerId
   = lens _siCustomerId (\ s a -> s{_siCustomerId = a})
 
--- | An auth token needed for transferring a subscription. Can be generated
--- at https:\/\/www.google.com\/a\/cpanel\/customer-domain\/TransferToken.
--- Optional.
+-- | The customerAuthToken query string is required when creating a resold
+-- account that transfers a direct customer\'s subscription or transfers
+-- another reseller customer\'s subscription to your reseller management.
+-- This is a hexadecimal authentication token needed to complete the
+-- subscription transfer. For more information, see the administrator help
+-- center.
 siCustomerAuthToken :: Lens' SubscriptionsInsert (Maybe Text)
 siCustomerAuthToken
   = lens _siCustomerAuthToken

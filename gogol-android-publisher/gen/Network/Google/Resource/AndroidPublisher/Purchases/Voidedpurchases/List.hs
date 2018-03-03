@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the purchases that were cancelled, refunded or charged-back.
+-- Lists the purchases that were canceled, refunded or charged-back.
 --
 -- /See:/ <https://developers.google.com/android-publisher Google Play Developer API Reference> for @androidpublisher.purchases.voidedpurchases.list@.
 module Network.Google.Resource.AndroidPublisher.Purchases.Voidedpurchases.List
@@ -41,8 +41,8 @@ module Network.Google.Resource.AndroidPublisher.Purchases.Voidedpurchases.List
     , pvlMaxResults
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.purchases.voidedpurchases.list@ method which the
 -- 'PurchasesVoidedpurchasesList' request conforms to.
@@ -61,16 +61,16 @@ type PurchasesVoidedpurchasesListResource =
                            QueryParam "alt" AltJSON :>
                              Get '[JSON] VoidedPurchasesListResponse
 
--- | Lists the purchases that were cancelled, refunded or charged-back.
+-- | Lists the purchases that were canceled, refunded or charged-back.
 --
 -- /See:/ 'purchasesVoidedpurchasesList' smart constructor.
 data PurchasesVoidedpurchasesList = PurchasesVoidedpurchasesList'
     { _pvlPackageName :: !Text
-    , _pvlStartTime   :: !(Maybe (Textual Int64))
-    , _pvlToken       :: !(Maybe Text)
-    , _pvlEndTime     :: !(Maybe (Textual Int64))
-    , _pvlStartIndex  :: !(Maybe (Textual Word32))
-    , _pvlMaxResults  :: !(Maybe (Textual Word32))
+    , _pvlStartTime :: !(Maybe (Textual Int64))
+    , _pvlToken :: !(Maybe Text)
+    , _pvlEndTime :: !(Maybe (Textual Int64))
+    , _pvlStartIndex :: !(Maybe (Textual Word32))
+    , _pvlMaxResults :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchasesVoidedpurchasesList' with the minimum fields required to make a request.
@@ -91,7 +91,7 @@ data PurchasesVoidedpurchasesList = PurchasesVoidedpurchasesList'
 purchasesVoidedpurchasesList
     :: Text -- ^ 'pvlPackageName'
     -> PurchasesVoidedpurchasesList
-purchasesVoidedpurchasesList pPvlPackageName_ =
+purchasesVoidedpurchasesList pPvlPackageName_ = 
     PurchasesVoidedpurchasesList'
     { _pvlPackageName = pPvlPackageName_
     , _pvlStartTime = Nothing
@@ -111,7 +111,9 @@ pvlPackageName
 -- | The time, in milliseconds since the Epoch, of the oldest voided in-app
 -- product purchase that you want to see in the response. The value of this
 -- parameter cannot be older than 30 days and is ignored if a pagination
--- token is set. Default value is current time minus 30 days.
+-- token is set. Default value is current time minus 30 days. Note: This
+-- filter is applied on the time at which the record is seen as voided by
+-- our systems and not the actual voided time returned in the response.
 pvlStartTime :: Lens' PurchasesVoidedpurchasesList (Maybe Int64)
 pvlStartTime
   = lens _pvlStartTime (\ s a -> s{_pvlStartTime = a})
@@ -123,7 +125,9 @@ pvlToken = lens _pvlToken (\ s a -> s{_pvlToken = a})
 -- | The time, in milliseconds since the Epoch, of the newest voided in-app
 -- product purchase that you want to see in the response. The value of this
 -- parameter cannot be greater than the current time and is ignored if a
--- pagination token is set. Default value is current time.
+-- pagination token is set. Default value is current time. Note: This
+-- filter is applied on the time at which the record is seen as voided by
+-- our systems and not the actual voided time returned in the response.
 pvlEndTime :: Lens' PurchasesVoidedpurchasesList (Maybe Int64)
 pvlEndTime
   = lens _pvlEndTime (\ s a -> s{_pvlEndTime = a}) .

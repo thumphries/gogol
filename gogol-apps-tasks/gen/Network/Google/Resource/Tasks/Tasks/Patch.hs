@@ -38,8 +38,8 @@ module Network.Google.Resource.Tasks.Tasks.Patch
     , tpTask
     ) where
 
-import           Network.Google.AppsTasks.Types
-import           Network.Google.Prelude
+import Network.Google.AppsTasks.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @tasks.tasks.patch@ method which the
 -- 'TasksPatch' request conforms to.
@@ -57,9 +57,9 @@ type TasksPatchResource =
 --
 -- /See:/ 'tasksPatch' smart constructor.
 data TasksPatch = TasksPatch'
-    { _tpPayload  :: !Task
+    { _tpPayload :: !Task
     , _tpTaskList :: !Text
-    , _tpTask     :: !Text
+    , _tpTask :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksPatch' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ tasksPatch
     -> Text -- ^ 'tpTaskList'
     -> Text -- ^ 'tpTask'
     -> TasksPatch
-tasksPatch pTpPayload_ pTpTaskList_ pTpTask_ =
+tasksPatch pTpPayload_ pTpTaskList_ pTpTask_ = 
     TasksPatch'
     { _tpPayload = pTpPayload_
     , _tpTaskList = pTpTaskList_

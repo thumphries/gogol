@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves line items in CSV format.
+-- Retrieves line items in CSV format. TrueView line items are not
+-- supported.
 --
 -- /See:/ <https://developers.google.com/bid-manager/ DoubleClick Bid Manager API Reference> for @doubleclickbidmanager.lineitems.downloadlineitems@.
 module Network.Google.Resource.DoubleClickBidManager.Lineitems.Downloadlineitems
@@ -36,8 +37,8 @@ module Network.Google.Resource.DoubleClickBidManager.Lineitems.Downloadlineitems
     , ldPayload
     ) where
 
-import           Network.Google.DoubleClickBids.Types
-import           Network.Google.Prelude
+import Network.Google.DoubleClickBids.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @doubleclickbidmanager.lineitems.downloadlineitems@ method which the
 -- 'LineitemsDownloadlineitems' request conforms to.
@@ -50,7 +51,8 @@ type LineitemsDownloadlineitemsResource =
                ReqBody '[JSON] DownloadLineItemsRequest :>
                  Post '[JSON] DownloadLineItemsResponse
 
--- | Retrieves line items in CSV format.
+-- | Retrieves line items in CSV format. TrueView line items are not
+-- supported.
 --
 -- /See:/ 'lineitemsDownloadlineitems' smart constructor.
 newtype LineitemsDownloadlineitems = LineitemsDownloadlineitems'
@@ -65,7 +67,7 @@ newtype LineitemsDownloadlineitems = LineitemsDownloadlineitems'
 lineitemsDownloadlineitems
     :: DownloadLineItemsRequest -- ^ 'ldPayload'
     -> LineitemsDownloadlineitems
-lineitemsDownloadlineitems pLdPayload_ =
+lineitemsDownloadlineitems pLdPayload_ = 
     LineitemsDownloadlineitems'
     { _ldPayload = pLdPayload_
     }
@@ -79,7 +81,8 @@ instance GoogleRequest LineitemsDownloadlineitems
          where
         type Rs LineitemsDownloadlineitems =
              DownloadLineItemsResponse
-        type Scopes LineitemsDownloadlineitems = '[]
+        type Scopes LineitemsDownloadlineitems =
+             '["https://www.googleapis.com/auth/doubleclickbidmanager"]
         requestClient LineitemsDownloadlineitems'{..}
           = go (Just AltJSON) _ldPayload doubleClickBidsService
           where go

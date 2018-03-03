@@ -37,8 +37,8 @@ module Network.Google.Resource.SQL.Instances.StopReplica
     , isrInstance
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.SQLAdmin.Types
+import Network.Google.Prelude
+import Network.Google.SQLAdmin.Types
 
 -- | A resource alias for @sql.instances.stopReplica@ method which the
 -- 'InstancesStopReplica' request conforms to.
@@ -56,7 +56,7 @@ type InstancesStopReplicaResource =
 --
 -- /See:/ 'instancesStopReplica' smart constructor.
 data InstancesStopReplica = InstancesStopReplica'
-    { _isrProject  :: !Text
+    { _isrProject :: !Text
     , _isrInstance :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ instancesStopReplica
     :: Text -- ^ 'isrProject'
     -> Text -- ^ 'isrInstance'
     -> InstancesStopReplica
-instancesStopReplica pIsrProject_ pIsrInstance_ =
+instancesStopReplica pIsrProject_ pIsrInstance_ = 
     InstancesStopReplica'
     { _isrProject = pIsrProject_
     , _isrInstance = pIsrInstance_

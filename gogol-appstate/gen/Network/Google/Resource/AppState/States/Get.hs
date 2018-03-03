@@ -37,8 +37,8 @@ module Network.Google.Resource.AppState.States.Get
     , sgStateKey
     ) where
 
-import           Network.Google.AppState.Types
-import           Network.Google.Prelude
+import Network.Google.AppState.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appstate.states.get@ method which the
 -- 'StatesGet' request conforms to.
@@ -65,7 +65,7 @@ newtype StatesGet = StatesGet'
 statesGet
     :: Int32 -- ^ 'sgStateKey'
     -> StatesGet
-statesGet pSgStateKey_ =
+statesGet pSgStateKey_ = 
     StatesGet'
     { _sgStateKey = _Coerce # pSgStateKey_
     }

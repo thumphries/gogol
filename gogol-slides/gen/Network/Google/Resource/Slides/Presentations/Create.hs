@@ -44,8 +44,8 @@ module Network.Google.Resource.Slides.Presentations.Create
     , pcCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Slides.Types
+import Network.Google.Prelude
+import Network.Google.Slides.Types
 
 -- | A resource alias for @slides.presentations.create@ method which the
 -- 'PresentationsCreate' request conforms to.
@@ -68,14 +68,14 @@ type PresentationsCreateResource =
 --
 -- /See:/ 'presentationsCreate' smart constructor.
 data PresentationsCreate = PresentationsCreate'
-    { _pcXgafv          :: !(Maybe Xgafv)
+    { _pcXgafv :: !(Maybe Xgafv)
     , _pcUploadProtocol :: !(Maybe Text)
-    , _pcPp             :: !Bool
-    , _pcAccessToken    :: !(Maybe Text)
-    , _pcUploadType     :: !(Maybe Text)
-    , _pcPayload        :: !Presentation
-    , _pcBearerToken    :: !(Maybe Text)
-    , _pcCallback       :: !(Maybe Text)
+    , _pcPp :: !Bool
+    , _pcAccessToken :: !(Maybe Text)
+    , _pcUploadType :: !(Maybe Text)
+    , _pcPayload :: !Presentation
+    , _pcBearerToken :: !(Maybe Text)
+    , _pcCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PresentationsCreate' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data PresentationsCreate = PresentationsCreate'
 presentationsCreate
     :: Presentation -- ^ 'pcPayload'
     -> PresentationsCreate
-presentationsCreate pPcPayload_ =
+presentationsCreate pPcPayload_ = 
     PresentationsCreate'
     { _pcXgafv = Nothing
     , _pcUploadProtocol = Nothing
@@ -157,6 +157,7 @@ instance GoogleRequest PresentationsCreate where
         type Rs PresentationsCreate = Presentation
         type Scopes PresentationsCreate =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/presentations"]
         requestClient PresentationsCreate'{..}
           = go _pcXgafv _pcUploadProtocol (Just _pcPp)

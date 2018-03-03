@@ -22,7 +22,7 @@
 --
 -- Retrieves the node pool requested.
 --
--- /See:/ <https://cloud.google.com/container-engine/ Google Container Engine API Reference> for @container.projects.zones.clusters.nodePools.get@.
+-- /See:/ <https://cloud.google.com/container-engine/ Google Kubernetes Engine API Reference> for @container.projects.zones.clusters.nodePools.get@.
 module Network.Google.Resource.Container.Projects.Zones.Clusters.NodePools.Get
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Container.Projects.Zones.Clusters.NodePools.Get
     , pzcnpgCallback
     ) where
 
-import           Network.Google.Container.Types
-import           Network.Google.Prelude
+import Network.Google.Container.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @container.projects.zones.clusters.nodePools.get@ method which the
 -- 'ProjectsZonesClustersNodePoolsGet' request conforms to.
@@ -61,7 +61,7 @@ type ProjectsZonesClustersNodePoolsGetResource =
                  Capture "clusterId" Text :>
                    "nodePools" :>
                      Capture "nodePoolId" Text :>
-                       QueryParam "$.xgafv" Text :>
+                       QueryParam "$.xgafv" Xgafv :>
                          QueryParam "upload_protocol" Text :>
                            QueryParam "pp" Bool :>
                              QueryParam "access_token" Text :>
@@ -75,17 +75,17 @@ type ProjectsZonesClustersNodePoolsGetResource =
 --
 -- /See:/ 'projectsZonesClustersNodePoolsGet' smart constructor.
 data ProjectsZonesClustersNodePoolsGet = ProjectsZonesClustersNodePoolsGet'
-    { _pzcnpgXgafv          :: !(Maybe Text)
+    { _pzcnpgXgafv :: !(Maybe Xgafv)
     , _pzcnpgUploadProtocol :: !(Maybe Text)
-    , _pzcnpgPp             :: !Bool
-    , _pzcnpgAccessToken    :: !(Maybe Text)
-    , _pzcnpgUploadType     :: !(Maybe Text)
-    , _pzcnpgZone           :: !Text
-    , _pzcnpgNodePoolId     :: !Text
-    , _pzcnpgBearerToken    :: !(Maybe Text)
-    , _pzcnpgClusterId      :: !Text
-    , _pzcnpgProjectId      :: !Text
-    , _pzcnpgCallback       :: !(Maybe Text)
+    , _pzcnpgPp :: !Bool
+    , _pzcnpgAccessToken :: !(Maybe Text)
+    , _pzcnpgUploadType :: !(Maybe Text)
+    , _pzcnpgZone :: !Text
+    , _pzcnpgNodePoolId :: !Text
+    , _pzcnpgBearerToken :: !(Maybe Text)
+    , _pzcnpgClusterId :: !Text
+    , _pzcnpgProjectId :: !Text
+    , _pzcnpgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsZonesClustersNodePoolsGet' with the minimum fields required to make a request.
@@ -119,7 +119,7 @@ projectsZonesClustersNodePoolsGet
     -> Text -- ^ 'pzcnpgClusterId'
     -> Text -- ^ 'pzcnpgProjectId'
     -> ProjectsZonesClustersNodePoolsGet
-projectsZonesClustersNodePoolsGet pPzcnpgZone_ pPzcnpgNodePoolId_ pPzcnpgClusterId_ pPzcnpgProjectId_ =
+projectsZonesClustersNodePoolsGet pPzcnpgZone_ pPzcnpgNodePoolId_ pPzcnpgClusterId_ pPzcnpgProjectId_ = 
     ProjectsZonesClustersNodePoolsGet'
     { _pzcnpgXgafv = Nothing
     , _pzcnpgUploadProtocol = Nothing
@@ -135,7 +135,7 @@ projectsZonesClustersNodePoolsGet pPzcnpgZone_ pPzcnpgNodePoolId_ pPzcnpgCluster
     }
 
 -- | V1 error format.
-pzcnpgXgafv :: Lens' ProjectsZonesClustersNodePoolsGet (Maybe Text)
+pzcnpgXgafv :: Lens' ProjectsZonesClustersNodePoolsGet (Maybe Xgafv)
 pzcnpgXgafv
   = lens _pzcnpgXgafv (\ s a -> s{_pzcnpgXgafv = a})
 

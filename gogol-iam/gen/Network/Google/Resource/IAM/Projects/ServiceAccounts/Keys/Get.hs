@@ -44,15 +44,15 @@ module Network.Google.Resource.IAM.Projects.ServiceAccounts.Keys.Get
     , psakgCallback
     ) where
 
-import           Network.Google.IAM.Types
-import           Network.Google.Prelude
+import Network.Google.IAM.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @iam.projects.serviceAccounts.keys.get@ method which the
 -- 'ProjectsServiceAccountsKeysGet' request conforms to.
 type ProjectsServiceAccountsKeysGetResource =
      "v1" :>
        Capture "name" Text :>
-         QueryParam "$.xgafv" Text :>
+         QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
              QueryParam "pp" Bool :>
                QueryParam "access_token" Text :>
@@ -67,15 +67,15 @@ type ProjectsServiceAccountsKeysGetResource =
 --
 -- /See:/ 'projectsServiceAccountsKeysGet' smart constructor.
 data ProjectsServiceAccountsKeysGet = ProjectsServiceAccountsKeysGet'
-    { _psakgXgafv          :: !(Maybe Text)
+    { _psakgXgafv :: !(Maybe Xgafv)
     , _psakgUploadProtocol :: !(Maybe Text)
-    , _psakgPp             :: !Bool
-    , _psakgAccessToken    :: !(Maybe Text)
-    , _psakgUploadType     :: !(Maybe Text)
-    , _psakgBearerToken    :: !(Maybe Text)
-    , _psakgName           :: !Text
-    , _psakgPublicKeyType  :: !(Maybe Text)
-    , _psakgCallback       :: !(Maybe Text)
+    , _psakgPp :: !Bool
+    , _psakgAccessToken :: !(Maybe Text)
+    , _psakgUploadType :: !(Maybe Text)
+    , _psakgBearerToken :: !(Maybe Text)
+    , _psakgName :: !Text
+    , _psakgPublicKeyType :: !(Maybe Text)
+    , _psakgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsServiceAccountsKeysGet' with the minimum fields required to make a request.
@@ -102,7 +102,7 @@ data ProjectsServiceAccountsKeysGet = ProjectsServiceAccountsKeysGet'
 projectsServiceAccountsKeysGet
     :: Text -- ^ 'psakgName'
     -> ProjectsServiceAccountsKeysGet
-projectsServiceAccountsKeysGet pPsakgName_ =
+projectsServiceAccountsKeysGet pPsakgName_ = 
     ProjectsServiceAccountsKeysGet'
     { _psakgXgafv = Nothing
     , _psakgUploadProtocol = Nothing
@@ -116,7 +116,7 @@ projectsServiceAccountsKeysGet pPsakgName_ =
     }
 
 -- | V1 error format.
-psakgXgafv :: Lens' ProjectsServiceAccountsKeysGet (Maybe Text)
+psakgXgafv :: Lens' ProjectsServiceAccountsKeysGet (Maybe Xgafv)
 psakgXgafv
   = lens _psakgXgafv (\ s a -> s{_psakgXgafv = a})
 
@@ -149,10 +149,10 @@ psakgBearerToken
       (\ s a -> s{_psakgBearerToken = a})
 
 -- | The resource name of the service account key in the following format:
--- \`projects\/{project}\/serviceAccounts\/{account}\/keys\/{key}\`. Using
--- \`-\` as a wildcard for the project will infer the project from the
--- account. The \`account\` value can be the \`email\` address or the
--- \`unique_id\` of the service account.
+-- \`projects\/{PROJECT_ID}\/serviceAccounts\/{ACCOUNT}\/keys\/{key}\`.
+-- Using \`-\` as a wildcard for the \`PROJECT_ID\` will infer the project
+-- from the account. The \`ACCOUNT\` value can be the \`email\` address or
+-- the \`unique_id\` of the service account.
 psakgName :: Lens' ProjectsServiceAccountsKeysGet Text
 psakgName
   = lens _psakgName (\ s a -> s{_psakgName = a})

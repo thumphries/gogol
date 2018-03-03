@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Users.Update
     , uUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.users.update@ method which the
 -- 'UsersUpdate' request conforms to.
@@ -70,7 +70,7 @@ usersUpdate
     :: User -- ^ 'uPayload'
     -> Text -- ^ 'uUserKey'
     -> UsersUpdate
-usersUpdate pUPayload_ pUUserKey_ =
+usersUpdate pUPayload_ pUUserKey_ = 
     UsersUpdate'
     { _uPayload = pUPayload_
     , _uUserKey = pUUserKey_
@@ -80,7 +80,7 @@ usersUpdate pUPayload_ pUUserKey_ =
 uPayload :: Lens' UsersUpdate User
 uPayload = lens _uPayload (\ s a -> s{_uPayload = a})
 
--- | Email or immutable Id of the user. If Id, it should match with id of
+-- | Email or immutable ID of the user. If ID, it should match with id of
 -- user object
 uUserKey :: Lens' UsersUpdate Text
 uUserKey = lens _uUserKey (\ s a -> s{_uUserKey = a})

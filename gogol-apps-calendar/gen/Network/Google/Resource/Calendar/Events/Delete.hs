@@ -38,8 +38,8 @@ module Network.Google.Resource.Calendar.Events.Delete
     , edEventId
     ) where
 
-import           Network.Google.AppsCalendar.Types
-import           Network.Google.Prelude
+import Network.Google.AppsCalendar.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @calendar.events.delete@ method which the
 -- 'EventsDelete' request conforms to.
@@ -57,9 +57,9 @@ type EventsDeleteResource =
 --
 -- /See:/ 'eventsDelete' smart constructor.
 data EventsDelete = EventsDelete'
-    { _edCalendarId        :: !Text
+    { _edCalendarId :: !Text
     , _edSendNotifications :: !(Maybe Bool)
-    , _edEventId           :: !Text
+    , _edEventId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventsDelete' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ eventsDelete
     :: Text -- ^ 'edCalendarId'
     -> Text -- ^ 'edEventId'
     -> EventsDelete
-eventsDelete pEdCalendarId_ pEdEventId_ =
+eventsDelete pEdCalendarId_ pEdEventId_ = 
     EventsDelete'
     { _edCalendarId = pEdCalendarId_
     , _edSendNotifications = Nothing

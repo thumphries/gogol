@@ -39,8 +39,8 @@ module Network.Google.Resource.AdSenseHost.CustomChannels.Patch
     , ccpAdClientId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.customchannels.patch@ method which the
 -- 'CustomChannelsPatch' request conforms to.
@@ -61,8 +61,8 @@ type CustomChannelsPatchResource =
 -- /See:/ 'customChannelsPatch' smart constructor.
 data CustomChannelsPatch = CustomChannelsPatch'
     { _ccpCustomChannelId :: !Text
-    , _ccpPayload         :: !CustomChannel
-    , _ccpAdClientId      :: !Text
+    , _ccpPayload :: !CustomChannel
+    , _ccpAdClientId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomChannelsPatch' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ customChannelsPatch
     -> CustomChannel -- ^ 'ccpPayload'
     -> Text -- ^ 'ccpAdClientId'
     -> CustomChannelsPatch
-customChannelsPatch pCcpCustomChannelId_ pCcpPayload_ pCcpAdClientId_ =
+customChannelsPatch pCcpCustomChannelId_ pCcpPayload_ pCcpAdClientId_ = 
     CustomChannelsPatch'
     { _ccpCustomChannelId = pCcpCustomChannelId_
     , _ccpPayload = pCcpPayload_

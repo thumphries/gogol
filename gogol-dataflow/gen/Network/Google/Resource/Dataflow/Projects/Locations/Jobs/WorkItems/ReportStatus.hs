@@ -22,7 +22,7 @@
 --
 -- Reports the status of dataflow WorkItems leased by a worker.
 --
--- /See:/ <https://cloud.google.com/dataflow Google Dataflow API Reference> for @dataflow.projects.locations.jobs.workItems.reportStatus@.
+-- /See:/ <https://cloud.google.com/dataflow Dataflow API Reference> for @dataflow.projects.locations.jobs.workItems.reportStatus@.
 module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.WorkItems.ReportStatus
     (
     -- * REST Resource
@@ -46,8 +46,8 @@ module Network.Google.Resource.Dataflow.Projects.Locations.Jobs.WorkItems.Report
     , pljwirsCallback
     ) where
 
-import           Network.Google.Dataflow.Types
-import           Network.Google.Prelude
+import Network.Google.Dataflow.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dataflow.projects.locations.jobs.workItems.reportStatus@ method which the
 -- 'ProjectsLocationsJobsWorkItemsReportStatus' request conforms to.
@@ -61,7 +61,7 @@ type ProjectsLocationsJobsWorkItemsReportStatusResource
                "jobs" :>
                  Capture "jobId" Text :>
                    "workItems:reportStatus" :>
-                     QueryParam "$.xgafv" Text :>
+                     QueryParam "$.xgafv" Xgafv :>
                        QueryParam "upload_protocol" Text :>
                          QueryParam "pp" Bool :>
                            QueryParam "access_token" Text :>
@@ -77,17 +77,17 @@ type ProjectsLocationsJobsWorkItemsReportStatusResource
 --
 -- /See:/ 'projectsLocationsJobsWorkItemsReportStatus' smart constructor.
 data ProjectsLocationsJobsWorkItemsReportStatus = ProjectsLocationsJobsWorkItemsReportStatus'
-    { _pljwirsXgafv          :: !(Maybe Text)
-    , _pljwirsJobId          :: !Text
+    { _pljwirsXgafv :: !(Maybe Xgafv)
+    , _pljwirsJobId :: !Text
     , _pljwirsUploadProtocol :: !(Maybe Text)
-    , _pljwirsLocation       :: !Text
-    , _pljwirsPp             :: !Bool
-    , _pljwirsAccessToken    :: !(Maybe Text)
-    , _pljwirsUploadType     :: !(Maybe Text)
-    , _pljwirsPayload        :: !ReportWorkItemStatusRequest
-    , _pljwirsBearerToken    :: !(Maybe Text)
-    , _pljwirsProjectId      :: !Text
-    , _pljwirsCallback       :: !(Maybe Text)
+    , _pljwirsLocation :: !Text
+    , _pljwirsPp :: !Bool
+    , _pljwirsAccessToken :: !(Maybe Text)
+    , _pljwirsUploadType :: !(Maybe Text)
+    , _pljwirsPayload :: !ReportWorkItemStatusRequest
+    , _pljwirsBearerToken :: !(Maybe Text)
+    , _pljwirsProjectId :: !Text
+    , _pljwirsCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsLocationsJobsWorkItemsReportStatus' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ projectsLocationsJobsWorkItemsReportStatus
     -> ReportWorkItemStatusRequest -- ^ 'pljwirsPayload'
     -> Text -- ^ 'pljwirsProjectId'
     -> ProjectsLocationsJobsWorkItemsReportStatus
-projectsLocationsJobsWorkItemsReportStatus pPljwirsJobId_ pPljwirsLocation_ pPljwirsPayload_ pPljwirsProjectId_ =
+projectsLocationsJobsWorkItemsReportStatus pPljwirsJobId_ pPljwirsLocation_ pPljwirsPayload_ pPljwirsProjectId_ = 
     ProjectsLocationsJobsWorkItemsReportStatus'
     { _pljwirsXgafv = Nothing
     , _pljwirsJobId = pPljwirsJobId_
@@ -137,7 +137,7 @@ projectsLocationsJobsWorkItemsReportStatus pPljwirsJobId_ pPljwirsLocation_ pPlj
     }
 
 -- | V1 error format.
-pljwirsXgafv :: Lens' ProjectsLocationsJobsWorkItemsReportStatus (Maybe Text)
+pljwirsXgafv :: Lens' ProjectsLocationsJobsWorkItemsReportStatus (Maybe Xgafv)
 pljwirsXgafv
   = lens _pljwirsXgafv (\ s a -> s{_pljwirsXgafv = a})
 
@@ -207,6 +207,8 @@ instance GoogleRequest
                ProjectsLocationsJobsWorkItemsReportStatus
              =
              '["https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/compute",
+               "https://www.googleapis.com/auth/compute.readonly",
                "https://www.googleapis.com/auth/userinfo.email"]
         requestClient
           ProjectsLocationsJobsWorkItemsReportStatus'{..}

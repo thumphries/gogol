@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.RemarketingListShares.Update
     , rlsuPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.remarketingListShares.update@ method which the
 -- 'RemarketingListSharesUpdate' request conforms to.
 type RemarketingListSharesUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "remarketingListShares" :>
@@ -57,7 +57,7 @@ type RemarketingListSharesUpdateResource =
 -- /See:/ 'remarketingListSharesUpdate' smart constructor.
 data RemarketingListSharesUpdate = RemarketingListSharesUpdate'
     { _rlsuProFileId :: !(Textual Int64)
-    , _rlsuPayload   :: !RemarketingListShare
+    , _rlsuPayload :: !RemarketingListShare
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemarketingListSharesUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ remarketingListSharesUpdate
     :: Int64 -- ^ 'rlsuProFileId'
     -> RemarketingListShare -- ^ 'rlsuPayload'
     -> RemarketingListSharesUpdate
-remarketingListSharesUpdate pRlsuProFileId_ pRlsuPayload_ =
+remarketingListSharesUpdate pRlsuProFileId_ pRlsuPayload_ = 
     RemarketingListSharesUpdate'
     { _rlsuProFileId = _Coerce # pRlsuProFileId_
     , _rlsuPayload = pRlsuPayload_

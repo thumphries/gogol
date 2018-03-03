@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends a verification email to the specified send-as alias address. The
--- verification status must be pending.
+-- verification status must be pending. This method is only available to
+-- service account clients that have been delegated domain-wide authority.
 --
 -- /See:/ <https://developers.google.com/gmail/api/ Gmail API Reference> for @gmail.users.settings.sendAs.verify@.
 module Network.Google.Resource.Gmail.Users.Settings.SendAs.Verify
@@ -38,8 +39,8 @@ module Network.Google.Resource.Gmail.Users.Settings.SendAs.Verify
     , ussavSendAsEmail
     ) where
 
-import           Network.Google.Gmail.Types
-import           Network.Google.Prelude
+import Network.Google.Gmail.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gmail.users.settings.sendAs.verify@ method which the
 -- 'UsersSettingsSendAsVerify' request conforms to.
@@ -55,11 +56,12 @@ type UsersSettingsSendAsVerifyResource =
                      QueryParam "alt" AltJSON :> Post '[JSON] ()
 
 -- | Sends a verification email to the specified send-as alias address. The
--- verification status must be pending.
+-- verification status must be pending. This method is only available to
+-- service account clients that have been delegated domain-wide authority.
 --
 -- /See:/ 'usersSettingsSendAsVerify' smart constructor.
 data UsersSettingsSendAsVerify = UsersSettingsSendAsVerify'
-    { _ussavUserId      :: !Text
+    { _ussavUserId :: !Text
     , _ussavSendAsEmail :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -73,7 +75,7 @@ data UsersSettingsSendAsVerify = UsersSettingsSendAsVerify'
 usersSettingsSendAsVerify
     :: Text -- ^ 'ussavSendAsEmail'
     -> UsersSettingsSendAsVerify
-usersSettingsSendAsVerify pUssavSendAsEmail_ =
+usersSettingsSendAsVerify pUssavSendAsEmail_ = 
     UsersSettingsSendAsVerify'
     { _ussavUserId = "me"
     , _ussavSendAsEmail = pUssavSendAsEmail_

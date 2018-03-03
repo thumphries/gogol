@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a datafeed of your Merchant Center account. This method can only
--- be called for non-multi-client accounts.
+-- Updates a datafeed configuration of your Merchant Center account.
 --
 -- /See:/ <https://developers.google.com/shopping-content Content API for Shopping Reference> for @content.datafeeds.update@.
 module Network.Google.Resource.Content.Datafeeds.Update
@@ -40,8 +39,8 @@ module Network.Google.Resource.Content.Datafeeds.Update
     , duDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.datafeeds.update@ method which the
 -- 'DatafeedsUpdate' request conforms to.
@@ -55,15 +54,14 @@ type DatafeedsUpdateResource =
                  QueryParam "alt" AltJSON :>
                    ReqBody '[JSON] Datafeed :> Put '[JSON] Datafeed
 
--- | Updates a datafeed of your Merchant Center account. This method can only
--- be called for non-multi-client accounts.
+-- | Updates a datafeed configuration of your Merchant Center account.
 --
 -- /See:/ 'datafeedsUpdate' smart constructor.
 data DatafeedsUpdate = DatafeedsUpdate'
     { _duMerchantId :: !(Textual Word64)
-    , _duPayload    :: !Datafeed
+    , _duPayload :: !Datafeed
     , _duDatafeedId :: !(Textual Word64)
-    , _duDryRun     :: !(Maybe Bool)
+    , _duDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DatafeedsUpdate' with the minimum fields required to make a request.
@@ -82,7 +80,7 @@ datafeedsUpdate
     -> Datafeed -- ^ 'duPayload'
     -> Word64 -- ^ 'duDatafeedId'
     -> DatafeedsUpdate
-datafeedsUpdate pDuMerchantId_ pDuPayload_ pDuDatafeedId_ =
+datafeedsUpdate pDuMerchantId_ pDuPayload_ pDuDatafeedId_ = 
     DatafeedsUpdate'
     { _duMerchantId = _Coerce # pDuMerchantId_
     , _duPayload = pDuPayload_
@@ -90,6 +88,8 @@ datafeedsUpdate pDuMerchantId_ pDuPayload_ pDuDatafeedId_ =
     , _duDryRun = Nothing
     }
 
+-- | The ID of the account that manages the datafeed. This account cannot be
+-- a multi-client account.
 duMerchantId :: Lens' DatafeedsUpdate Word64
 duMerchantId
   = lens _duMerchantId (\ s a -> s{_duMerchantId = a})
@@ -100,6 +100,7 @@ duPayload :: Lens' DatafeedsUpdate Datafeed
 duPayload
   = lens _duPayload (\ s a -> s{_duPayload = a})
 
+-- | The ID of the datafeed.
 duDatafeedId :: Lens' DatafeedsUpdate Word64
 duDatafeedId
   = lens _duDatafeedId (\ s a -> s{_duDatafeedId = a})

@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Uploads.List
     , mulMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.uploads.list@ method which the
 -- 'ManagementUploadsList' request conforms to.
@@ -64,11 +64,11 @@ type ManagementUploadsListResource =
 --
 -- /See:/ 'managementUploadsList' smart constructor.
 data ManagementUploadsList = ManagementUploadsList'
-    { _mulWebPropertyId      :: !Text
+    { _mulWebPropertyId :: !Text
     , _mulCustomDataSourceId :: !Text
-    , _mulAccountId          :: !Text
-    , _mulStartIndex         :: !(Maybe (Textual Int32))
-    , _mulMaxResults         :: !(Maybe (Textual Int32))
+    , _mulAccountId :: !Text
+    , _mulStartIndex :: !(Maybe (Textual Int32))
+    , _mulMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementUploadsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ managementUploadsList
     -> Text -- ^ 'mulCustomDataSourceId'
     -> Text -- ^ 'mulAccountId'
     -> ManagementUploadsList
-managementUploadsList pMulWebPropertyId_ pMulCustomDataSourceId_ pMulAccountId_ =
+managementUploadsList pMulWebPropertyId_ pMulCustomDataSourceId_ pMulAccountId_ = 
     ManagementUploadsList'
     { _mulWebPropertyId = pMulWebPropertyId_
     , _mulCustomDataSourceId = pMulCustomDataSourceId_

@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.CustomMetrics.Update
     , mcmuAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.customMetrics.update@ method which the
 -- 'ManagementCustomMetricsUpdate' request conforms to.
@@ -64,11 +64,11 @@ type ManagementCustomMetricsUpdateResource =
 --
 -- /See:/ 'managementCustomMetricsUpdate' smart constructor.
 data ManagementCustomMetricsUpdate = ManagementCustomMetricsUpdate'
-    { _mcmuCustomMetricId              :: !Text
-    , _mcmuWebPropertyId               :: !Text
+    { _mcmuCustomMetricId :: !Text
+    , _mcmuWebPropertyId :: !Text
     , _mcmuIgnoreCustomDataSourceLinks :: !Bool
-    , _mcmuPayload                     :: !CustomMetric
-    , _mcmuAccountId                   :: !Text
+    , _mcmuPayload :: !CustomMetric
+    , _mcmuAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementCustomMetricsUpdate' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ managementCustomMetricsUpdate
     -> CustomMetric -- ^ 'mcmuPayload'
     -> Text -- ^ 'mcmuAccountId'
     -> ManagementCustomMetricsUpdate
-managementCustomMetricsUpdate pMcmuCustomMetricId_ pMcmuWebPropertyId_ pMcmuPayload_ pMcmuAccountId_ =
+managementCustomMetricsUpdate pMcmuCustomMetricId_ pMcmuWebPropertyId_ pMcmuPayload_ pMcmuAccountId_ = 
     ManagementCustomMetricsUpdate'
     { _mcmuCustomMetricId = pMcmuCustomMetricId_
     , _mcmuWebPropertyId = pMcmuWebPropertyId_

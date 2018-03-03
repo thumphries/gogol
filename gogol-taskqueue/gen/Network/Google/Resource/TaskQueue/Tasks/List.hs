@@ -37,8 +37,8 @@ module Network.Google.Resource.TaskQueue.Tasks.List
     , tProject
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.list@ method which the
 -- 'TasksList' request conforms to.
@@ -57,7 +57,7 @@ type TasksListResource =
 -- /See:/ 'tasksList' smart constructor.
 data TasksList = TasksList'
     { _tTaskQueue :: !Text
-    , _tProject   :: !Text
+    , _tProject :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksList' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ tasksList
     :: Text -- ^ 'tTaskQueue'
     -> Text -- ^ 'tProject'
     -> TasksList
-tasksList pTTaskQueue_ pTProject_ =
+tasksList pTTaskQueue_ pTProject_ = 
     TasksList'
     { _tTaskQueue = pTTaskQueue_
     , _tProject = pTProject_

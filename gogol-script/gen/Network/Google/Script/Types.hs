@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -32,6 +32,19 @@ module Network.Google.Script.Types
     , spreadsheetsScope
     , groupsScope
 
+    -- * GoogleAppsScriptTypeFunctionSet
+    , GoogleAppsScriptTypeFunctionSet
+    , googleAppsScriptTypeFunctionSet
+    , gastfsValues
+
+    -- * GoogleAppsScriptTypeExecutionAPIConfig
+    , GoogleAppsScriptTypeExecutionAPIConfig
+    , googleAppsScriptTypeExecutionAPIConfig
+    , gasteacAccess
+
+    -- * GoogleAppsScriptTypeProcessProcessType
+    , GoogleAppsScriptTypeProcessProcessType (..)
+
     -- * Status
     , Status
     , status
@@ -39,14 +52,83 @@ module Network.Google.Script.Types
     , sCode
     , sMessage
 
+    -- * GoogleAppsScriptTypeProcessUserAccessLevel
+    , GoogleAppsScriptTypeProcessUserAccessLevel (..)
+
+    -- * Metrics
+    , Metrics
+    , metrics
+    , mActiveUsers
+    , mFailedExecutions
+    , mTotalExecutions
+
+    -- * GoogleAppsScriptTypeProcess
+    , GoogleAppsScriptTypeProcess
+    , googleAppsScriptTypeProcess
+    , gastpProcessStatus
+    , gastpStartTime
+    , gastpProjectName
+    , gastpFunctionName
+    , gastpUserAccessLevel
+    , gastpProcessType
+    , gastpExecutingUser
+    , gastpDuration
+
+    -- * GoogleAppsScriptTypeWebAppConfigExecuteAs
+    , GoogleAppsScriptTypeWebAppConfigExecuteAs (..)
+
+    -- * Project
+    , Project
+    , project
+    , pCreator
+    , pLastModifyUser
+    , pUpdateTime
+    , pScriptId
+    , pTitle
+    , pParentId
+    , pCreateTime
+
     -- * Operation
     , Operation
     , operation
     , oDone
     , oError
     , oResponse
-    , oName
-    , oMetadata
+
+    -- * ListUserProcessesResponse
+    , ListUserProcessesResponse
+    , listUserProcessesResponse
+    , luprNextPageToken
+    , luprProcesses
+
+    -- * Empty
+    , Empty
+    , empty
+
+    -- * GoogleAppsScriptTypeUser
+    , GoogleAppsScriptTypeUser
+    , googleAppsScriptTypeUser
+    , gastuEmail
+    , gastuPhotoURL
+    , gastuDomain
+    , gastuName
+
+    -- * EntryPoint
+    , EntryPoint
+    , entryPoint
+    , epExecutionAPI
+    , epAddOn
+    , epEntryPointType
+    , epWebApp
+
+    -- * ListVersionsResponse
+    , ListVersionsResponse
+    , listVersionsResponse
+    , lvrNextPageToken
+    , lvrVersions
+
+    -- * GoogleAppsScriptTypeExecutionAPIConfigAccess
+    , GoogleAppsScriptTypeExecutionAPIConfigAccess (..)
 
     -- * ExecutionRequest
     , ExecutionRequest
@@ -56,16 +138,82 @@ module Network.Google.Script.Types
     , erDevMode
     , erParameters
 
+    -- * ListScriptProcessesResponse
+    , ListScriptProcessesResponse
+    , listScriptProcessesResponse
+    , lsprNextPageToken
+    , lsprProcesses
+
     -- * StatusDetailsItem
     , StatusDetailsItem
     , statusDetailsItem
     , sdiAddtional
+
+    -- * GoogleAppsScriptTypeScope
+    , GoogleAppsScriptTypeScope
+    , googleAppsScriptTypeScope
+    , gastsAuthorizer
+    , gastsName
+
+    -- * FileType
+    , FileType (..)
 
     -- * ScriptStackTraceElement
     , ScriptStackTraceElement
     , scriptStackTraceElement
     , ssteFunction
     , ssteLineNumber
+
+    -- * Content
+    , Content
+    , content
+    , cScriptId
+    , cFiles
+
+    -- * GoogleAppsScriptTypeScopeSet
+    , GoogleAppsScriptTypeScopeSet
+    , googleAppsScriptTypeScopeSet
+    , gastssValues
+
+    -- * GoogleAppsScriptTypeAddOnEntryPointAddOnType
+    , GoogleAppsScriptTypeAddOnEntryPointAddOnType (..)
+
+    -- * MetricsValue
+    , MetricsValue
+    , metricsValue
+    , mvStartTime
+    , mvValue
+    , mvEndTime
+
+    -- * GoogleAppsScriptTypeAddOnEntryPoint
+    , GoogleAppsScriptTypeAddOnEntryPoint
+    , googleAppsScriptTypeAddOnEntryPoint
+    , gastaoepPostInstallTipURL
+    , gastaoepAddOnType
+    , gastaoepReportIssueURL
+    , gastaoepHelpURL
+    , gastaoepTitle
+    , gastaoepDescription
+
+    -- * GoogleAppsScriptTypeScopeAuthorizer
+    , GoogleAppsScriptTypeScopeAuthorizer (..)
+
+    -- * GoogleAppsScriptTypeWebAppConfig
+    , GoogleAppsScriptTypeWebAppConfig
+    , googleAppsScriptTypeWebAppConfig
+    , gastwacAccess
+    , gastwacExecuteAs
+
+    -- * Version
+    , Version
+    , version
+    , vVersionNumber
+    , vScriptId
+    , vDescription
+    , vCreateTime
+
+    -- * Xgafv
+    , Xgafv (..)
 
     -- * ExecutionError
     , ExecutionError
@@ -74,10 +222,61 @@ module Network.Google.Script.Types
     , eeErrorType
     , eeErrorMessage
 
-    -- * OperationMetadata
-    , OperationMetadata
-    , operationMetadata
-    , omAddtional
+    -- * GoogleAppsScriptTypeWebAppEntryPoint
+    , GoogleAppsScriptTypeWebAppEntryPoint
+    , googleAppsScriptTypeWebAppEntryPoint
+    , gastwaepEntryPointConfig
+    , gastwaepURL
+
+    -- * EntryPointEntryPointType
+    , EntryPointEntryPointType (..)
+
+    -- * CreateProjectRequest
+    , CreateProjectRequest
+    , createProjectRequest
+    , cprTitle
+    , cprParentId
+
+    -- * GoogleAppsScriptTypeProcessProcessStatus
+    , GoogleAppsScriptTypeProcessProcessStatus (..)
+
+    -- * DeploymentConfig
+    , DeploymentConfig
+    , deploymentConfig
+    , dcVersionNumber
+    , dcScriptId
+    , dcManifestFileName
+    , dcDescription
+
+    -- * GoogleAppsScriptTypeWebAppConfigAccess
+    , GoogleAppsScriptTypeWebAppConfigAccess (..)
+
+    -- * ListDeploymentsResponse
+    , ListDeploymentsResponse
+    , listDeploymentsResponse
+    , ldrNextPageToken
+    , ldrDeployments
+
+    -- * GoogleAppsScriptTypeFunction
+    , GoogleAppsScriptTypeFunction
+    , googleAppsScriptTypeFunction
+    , gastfName
+
+    -- * File
+    , File
+    , file
+    , fFunctionSet
+    , fLastModifyUser
+    , fUpdateTime
+    , fName
+    , fSource
+    , fType
+    , fCreateTime
+
+    -- * GoogleAppsScriptTypeExecutionAPIEntryPoint
+    , GoogleAppsScriptTypeExecutionAPIEntryPoint
+    , googleAppsScriptTypeExecutionAPIEntryPoint
+    , gasteaepEntryPointConfig
 
     -- * OperationResponse
     , OperationResponse
@@ -87,21 +286,35 @@ module Network.Google.Script.Types
     -- * ExecutionResponse
     , ExecutionResponse
     , executionResponse
-    , erStatus
     , erResult
+
+    -- * Deployment
+    , Deployment
+    , deployment
+    , dDeploymentId
+    , dFunctionSet
+    , dUpdateTime
+    , dScopeSet
+    , dEntryPoints
+    , dDeploymentConfig
+
+    -- * UpdateDeploymentRequest
+    , UpdateDeploymentRequest
+    , updateDeploymentRequest
+    , udrDeploymentConfig
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Script.Types.Product
-import           Network.Google.Script.Types.Sum
+import Network.Google.Prelude
+import Network.Google.Script.Types.Product
+import Network.Google.Script.Types.Sum
 
--- | Default request referring to version 'v1' of the Google Apps Script Execution API. This contains the host and root path used as a starting point for constructing service requests.
+-- | Default request referring to version 'v1' of the Google Apps Script API. This contains the host and root path used as a starting point for constructing service requests.
 scriptService :: ServiceConfig
 scriptService
   = defaultService (ServiceId "script:v1")
       "script.googleapis.com"
 
--- | View and manage your mail
+-- | Read, send, delete, and manage your email
 mailGoogleComScope :: Proxy '["https://mail.google.com/"]
 mailGoogleComScope = Proxy;
 

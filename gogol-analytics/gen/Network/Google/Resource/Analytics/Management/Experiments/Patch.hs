@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.Experiments.Patch
     , mepExperimentId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.experiments.patch@ method which the
 -- 'ManagementExperimentsPatch' request conforms to.
@@ -66,10 +66,10 @@ type ManagementExperimentsPatchResource =
 -- /See:/ 'managementExperimentsPatch' smart constructor.
 data ManagementExperimentsPatch = ManagementExperimentsPatch'
     { _mepWebPropertyId :: !Text
-    , _mepProFileId     :: !Text
-    , _mepPayload       :: !Experiment
-    , _mepAccountId     :: !Text
-    , _mepExperimentId  :: !Text
+    , _mepProFileId :: !Text
+    , _mepPayload :: !Experiment
+    , _mepAccountId :: !Text
+    , _mepExperimentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementExperimentsPatch' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ managementExperimentsPatch
     -> Text -- ^ 'mepAccountId'
     -> Text -- ^ 'mepExperimentId'
     -> ManagementExperimentsPatch
-managementExperimentsPatch pMepWebPropertyId_ pMepProFileId_ pMepPayload_ pMepAccountId_ pMepExperimentId_ =
+managementExperimentsPatch pMepWebPropertyId_ pMepProFileId_ pMepPayload_ pMepAccountId_ pMepExperimentId_ = 
     ManagementExperimentsPatch'
     { _mepWebPropertyId = pMepWebPropertyId_
     , _mepProFileId = pMepProFileId_

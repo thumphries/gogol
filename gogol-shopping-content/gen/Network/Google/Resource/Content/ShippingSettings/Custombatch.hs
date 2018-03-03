@@ -38,8 +38,8 @@ module Network.Google.Resource.Content.ShippingSettings.Custombatch
     , sscDryRun
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ShoppingContent.Types
+import Network.Google.Prelude
+import Network.Google.ShoppingContent.Types
 
 -- | A resource alias for @content.shippingsettings.custombatch@ method which the
 -- 'ShippingSettingsCustombatch' request conforms to.
@@ -59,7 +59,7 @@ type ShippingSettingsCustombatchResource =
 -- /See:/ 'shippingSettingsCustombatch' smart constructor.
 data ShippingSettingsCustombatch = ShippingSettingsCustombatch'
     { _sscPayload :: !ShippingSettingsCustomBatchRequest
-    , _sscDryRun  :: !(Maybe Bool)
+    , _sscDryRun :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ShippingSettingsCustombatch' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data ShippingSettingsCustombatch = ShippingSettingsCustombatch'
 shippingSettingsCustombatch
     :: ShippingSettingsCustomBatchRequest -- ^ 'sscPayload'
     -> ShippingSettingsCustombatch
-shippingSettingsCustombatch pSscPayload_ =
+shippingSettingsCustombatch pSscPayload_ = 
     ShippingSettingsCustombatch'
     { _sscPayload = pSscPayload_
     , _sscDryRun = Nothing

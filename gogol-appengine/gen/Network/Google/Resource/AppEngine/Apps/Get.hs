@@ -22,7 +22,7 @@
 --
 -- Gets information about an application.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.get@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.get@.
 module Network.Google.Resource.AppEngine.Apps.Get
     (
     -- * REST Resource
@@ -43,8 +43,8 @@ module Network.Google.Resource.AppEngine.Apps.Get
     , agCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.get@ method which the
 -- 'AppsGet' request conforms to.
@@ -52,7 +52,7 @@ type AppsGetResource =
      "v1" :>
        "apps" :>
          Capture "appsId" Text :>
-           QueryParam "$.xgafv" Text :>
+           QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
                QueryParam "pp" Bool :>
                  QueryParam "access_token" Text :>
@@ -65,14 +65,14 @@ type AppsGetResource =
 --
 -- /See:/ 'appsGet' smart constructor.
 data AppsGet = AppsGet'
-    { _agXgafv          :: !(Maybe Text)
+    { _agXgafv :: !(Maybe Xgafv)
     , _agUploadProtocol :: !(Maybe Text)
-    , _agPp             :: !Bool
-    , _agAccessToken    :: !(Maybe Text)
-    , _agUploadType     :: !(Maybe Text)
-    , _agBearerToken    :: !(Maybe Text)
-    , _agAppsId         :: !Text
-    , _agCallback       :: !(Maybe Text)
+    , _agPp :: !Bool
+    , _agAccessToken :: !(Maybe Text)
+    , _agUploadType :: !(Maybe Text)
+    , _agBearerToken :: !(Maybe Text)
+    , _agAppsId :: !Text
+    , _agCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsGet' with the minimum fields required to make a request.
@@ -97,7 +97,7 @@ data AppsGet = AppsGet'
 appsGet
     :: Text -- ^ 'agAppsId'
     -> AppsGet
-appsGet pAgAppsId_ =
+appsGet pAgAppsId_ = 
     AppsGet'
     { _agXgafv = Nothing
     , _agUploadProtocol = Nothing
@@ -110,7 +110,7 @@ appsGet pAgAppsId_ =
     }
 
 -- | V1 error format.
-agXgafv :: Lens' AppsGet (Maybe Text)
+agXgafv :: Lens' AppsGet (Maybe Xgafv)
 agXgafv = lens _agXgafv (\ s a -> s{_agXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

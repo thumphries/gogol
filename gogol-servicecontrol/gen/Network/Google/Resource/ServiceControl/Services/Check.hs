@@ -24,8 +24,8 @@
 -- given operation should proceed. It should be called before the operation
 -- is executed. If feasible, the client should cache the check results and
 -- reuse them for 60 seconds. In case of server errors, the client can rely
--- on the cached results for longer time. NOTE: the \`CheckRequest\` has
--- the size limit of 64KB. This method requires the
+-- on the cached results for longer time. NOTE: the CheckRequest has the
+-- size limit of 64KB. This method requires the
 -- \`servicemanagement.services.check\` permission on the specified
 -- service. For more information, see [Google Cloud
 -- IAM](https:\/\/cloud.google.com\/iam).
@@ -52,8 +52,8 @@ module Network.Google.Resource.ServiceControl.Services.Check
     , scCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceControl.Types
+import Network.Google.Prelude
+import Network.Google.ServiceControl.Types
 
 -- | A resource alias for @servicecontrol.services.check@ method which the
 -- 'ServicesCheck' request conforms to.
@@ -76,23 +76,23 @@ type ServicesCheckResource =
 -- given operation should proceed. It should be called before the operation
 -- is executed. If feasible, the client should cache the check results and
 -- reuse them for 60 seconds. In case of server errors, the client can rely
--- on the cached results for longer time. NOTE: the \`CheckRequest\` has
--- the size limit of 64KB. This method requires the
+-- on the cached results for longer time. NOTE: the CheckRequest has the
+-- size limit of 64KB. This method requires the
 -- \`servicemanagement.services.check\` permission on the specified
 -- service. For more information, see [Google Cloud
 -- IAM](https:\/\/cloud.google.com\/iam).
 --
 -- /See:/ 'servicesCheck' smart constructor.
 data ServicesCheck = ServicesCheck'
-    { _scXgafv          :: !(Maybe Xgafv)
+    { _scXgafv :: !(Maybe Xgafv)
     , _scUploadProtocol :: !(Maybe Text)
-    , _scPp             :: !Bool
-    , _scAccessToken    :: !(Maybe Text)
-    , _scUploadType     :: !(Maybe Text)
-    , _scPayload        :: !CheckRequest
-    , _scBearerToken    :: !(Maybe Text)
-    , _scServiceName    :: !Text
-    , _scCallback       :: !(Maybe Text)
+    , _scPp :: !Bool
+    , _scAccessToken :: !(Maybe Text)
+    , _scUploadType :: !(Maybe Text)
+    , _scPayload :: !CheckRequest
+    , _scBearerToken :: !(Maybe Text)
+    , _scServiceName :: !Text
+    , _scCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServicesCheck' with the minimum fields required to make a request.
@@ -120,7 +120,7 @@ servicesCheck
     :: CheckRequest -- ^ 'scPayload'
     -> Text -- ^ 'scServiceName'
     -> ServicesCheck
-servicesCheck pScPayload_ pScServiceName_ =
+servicesCheck pScPayload_ pScServiceName_ = 
     ServicesCheck'
     { _scXgafv = Nothing
     , _scUploadProtocol = Nothing
@@ -170,8 +170,9 @@ scBearerToken
       (\ s a -> s{_scBearerToken = a})
 
 -- | The service name as specified in its service configuration. For example,
--- \`\"pubsub.googleapis.com\"\`. See google.api.Service for the definition
--- of a service name.
+-- \`\"pubsub.googleapis.com\"\`. See
+-- [google.api.Service](https:\/\/cloud.google.com\/service-management\/reference\/rpc\/google.api#google.api.Service)
+-- for the definition of a service name.
 scServiceName :: Lens' ServicesCheck Text
 scServiceName
   = lens _scServiceName

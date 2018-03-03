@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a build with the specified configuration. The long-running
--- Operation returned by this method will include the ID of the build,
--- which can be passed to GetBuild to determine its status (e.g., success
--- or failure).
+-- Starts a build with the specified configuration. This method returns a
+-- long-running \`Operation\`, which includes the build ID. Pass the build
+-- ID to \`GetBuild\` to determine the build status (such as \`SUCCESS\` or
+-- \`FAILURE\`).
 --
--- /See:/ <https://cloud.google.com/container-builder/docs/ Google Cloud Container Builder API Reference> for @cloudbuild.projects.builds.create@.
+-- /See:/ <https://cloud.google.com/container-builder/docs/ Cloud Container Builder API Reference> for @cloudbuild.projects.builds.create@.
 module Network.Google.Resource.Cloudbuild.Projects.Builds.Create
     (
     -- * REST Resource
@@ -47,8 +47,8 @@ module Network.Google.Resource.Cloudbuild.Projects.Builds.Create
     , pCallback
     ) where
 
-import           Network.Google.ContainerBuilder.Types
-import           Network.Google.Prelude
+import Network.Google.ContainerBuilder.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @cloudbuild.projects.builds.create@ method which the
 -- 'ProjectsBuildsCreate' request conforms to.
@@ -67,22 +67,22 @@ type ProjectsBuildsCreateResource =
                            QueryParam "alt" AltJSON :>
                              ReqBody '[JSON] Build :> Post '[JSON] Operation
 
--- | Starts a build with the specified configuration. The long-running
--- Operation returned by this method will include the ID of the build,
--- which can be passed to GetBuild to determine its status (e.g., success
--- or failure).
+-- | Starts a build with the specified configuration. This method returns a
+-- long-running \`Operation\`, which includes the build ID. Pass the build
+-- ID to \`GetBuild\` to determine the build status (such as \`SUCCESS\` or
+-- \`FAILURE\`).
 --
 -- /See:/ 'projectsBuildsCreate' smart constructor.
 data ProjectsBuildsCreate = ProjectsBuildsCreate'
-    { _pXgafv          :: !(Maybe Xgafv)
+    { _pXgafv :: !(Maybe Xgafv)
     , _pUploadProtocol :: !(Maybe Text)
-    , _pPp             :: !Bool
-    , _pAccessToken    :: !(Maybe Text)
-    , _pUploadType     :: !(Maybe Text)
-    , _pPayload        :: !Build
-    , _pBearerToken    :: !(Maybe Text)
-    , _pProjectId      :: !Text
-    , _pCallback       :: !(Maybe Text)
+    , _pPp :: !Bool
+    , _pAccessToken :: !(Maybe Text)
+    , _pUploadType :: !(Maybe Text)
+    , _pPayload :: !Build
+    , _pBearerToken :: !(Maybe Text)
+    , _pProjectId :: !Text
+    , _pCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsBuildsCreate' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ projectsBuildsCreate
     :: Build -- ^ 'pPayload'
     -> Text -- ^ 'pProjectId'
     -> ProjectsBuildsCreate
-projectsBuildsCreate pPPayload_ pPProjectId_ =
+projectsBuildsCreate pPPayload_ pPProjectId_ = 
     ProjectsBuildsCreate'
     { _pXgafv = Nothing
     , _pUploadProtocol = Nothing

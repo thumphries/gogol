@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.DomainAliases.List
     , dalParentDomainName
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.domainAliases.list@ method which the
 -- 'DomainAliasesList' request conforms to.
@@ -56,7 +56,7 @@ type DomainAliasesListResource =
 --
 -- /See:/ 'domainAliasesList' smart constructor.
 data DomainAliasesList = DomainAliasesList'
-    { _dalCustomer         :: !Text
+    { _dalCustomer :: !Text
     , _dalParentDomainName :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,13 +70,13 @@ data DomainAliasesList = DomainAliasesList'
 domainAliasesList
     :: Text -- ^ 'dalCustomer'
     -> DomainAliasesList
-domainAliasesList pDalCustomer_ =
+domainAliasesList pDalCustomer_ = 
     DomainAliasesList'
     { _dalCustomer = pDalCustomer_
     , _dalParentDomainName = Nothing
     }
 
--- | Immutable id of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 dalCustomer :: Lens' DomainAliasesList Text
 dalCustomer
   = lens _dalCustomer (\ s a -> s{_dalCustomer = a})

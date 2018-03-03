@@ -49,8 +49,8 @@ module Network.Google.Resource.Classroom.Courses.Teachers.Delete
     , ctdCallback
     ) where
 
-import           Network.Google.Classroom.Types
-import           Network.Google.Prelude
+import Network.Google.Classroom.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @classroom.courses.teachers.delete@ method which the
 -- 'CoursesTeachersDelete' request conforms to.
@@ -60,7 +60,7 @@ type CoursesTeachersDeleteResource =
          Capture "courseId" Text :>
            "teachers" :>
              Capture "userId" Text :>
-               QueryParam "$.xgafv" Text :>
+               QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
                    QueryParam "pp" Bool :>
                      QueryParam "access_token" Text :>
@@ -78,15 +78,15 @@ type CoursesTeachersDeleteResource =
 --
 -- /See:/ 'coursesTeachersDelete' smart constructor.
 data CoursesTeachersDelete = CoursesTeachersDelete'
-    { _ctdXgafv          :: !(Maybe Text)
+    { _ctdXgafv :: !(Maybe Xgafv)
     , _ctdUploadProtocol :: !(Maybe Text)
-    , _ctdPp             :: !Bool
-    , _ctdCourseId       :: !Text
-    , _ctdAccessToken    :: !(Maybe Text)
-    , _ctdUploadType     :: !(Maybe Text)
-    , _ctdUserId         :: !Text
-    , _ctdBearerToken    :: !(Maybe Text)
-    , _ctdCallback       :: !(Maybe Text)
+    , _ctdPp :: !Bool
+    , _ctdCourseId :: !Text
+    , _ctdAccessToken :: !(Maybe Text)
+    , _ctdUploadType :: !(Maybe Text)
+    , _ctdUserId :: !Text
+    , _ctdBearerToken :: !(Maybe Text)
+    , _ctdCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CoursesTeachersDelete' with the minimum fields required to make a request.
@@ -114,7 +114,7 @@ coursesTeachersDelete
     :: Text -- ^ 'ctdCourseId'
     -> Text -- ^ 'ctdUserId'
     -> CoursesTeachersDelete
-coursesTeachersDelete pCtdCourseId_ pCtdUserId_ =
+coursesTeachersDelete pCtdCourseId_ pCtdUserId_ = 
     CoursesTeachersDelete'
     { _ctdXgafv = Nothing
     , _ctdUploadProtocol = Nothing
@@ -128,7 +128,7 @@ coursesTeachersDelete pCtdCourseId_ pCtdUserId_ =
     }
 
 -- | V1 error format.
-ctdXgafv :: Lens' CoursesTeachersDelete (Maybe Text)
+ctdXgafv :: Lens' CoursesTeachersDelete (Maybe Xgafv)
 ctdXgafv = lens _ctdXgafv (\ s a -> s{_ctdXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").

@@ -1,5 +1,5 @@
-{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DataKinds          #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE NoImplicitPrelude  #-}
 {-# LANGUAGE OverloadedStrings  #-}
@@ -244,9 +244,9 @@ module Network.Google.Debugger.Types
     , cwiName
     ) where
 
-import           Network.Google.Debugger.Types.Product
-import           Network.Google.Debugger.Types.Sum
-import           Network.Google.Prelude
+import Network.Google.Debugger.Types.Product
+import Network.Google.Debugger.Types.Sum
+import Network.Google.Prelude
 
 -- | Default request referring to version 'v2' of the Stackdriver Debugger API. This contains the host and root path used as a starting point for constructing service requests.
 debuggerService :: ServiceConfig
@@ -254,7 +254,7 @@ debuggerService
   = defaultService (ServiceId "clouddebugger:v2")
       "clouddebugger.googleapis.com"
 
--- | Manage cloud debugger
+-- | Use Stackdriver Debugger
 cloudDebuggerScope :: Proxy '["https://www.googleapis.com/auth/cloud_debugger"]
 cloudDebuggerScope = Proxy;
 

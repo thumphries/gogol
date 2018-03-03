@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.Placements.Update
     , puPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.placements.update@ method which the
 -- 'PlacementsUpdate' request conforms to.
 type PlacementsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "placements" :>
@@ -56,7 +56,7 @@ type PlacementsUpdateResource =
 -- /See:/ 'placementsUpdate' smart constructor.
 data PlacementsUpdate = PlacementsUpdate'
     { _puProFileId :: !(Textual Int64)
-    , _puPayload   :: !Placement
+    , _puPayload :: !Placement
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ placementsUpdate
     :: Int64 -- ^ 'puProFileId'
     -> Placement -- ^ 'puPayload'
     -> PlacementsUpdate
-placementsUpdate pPuProFileId_ pPuPayload_ =
+placementsUpdate pPuProFileId_ pPuPayload_ = 
     PlacementsUpdate'
     { _puProFileId = _Coerce # pPuProFileId_
     , _puPayload = pPuPayload_

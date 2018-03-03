@@ -40,8 +40,8 @@ module Network.Google.Resource.AdSenseHost.AssociationSessions.Start
     , assProductCode
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.associationsessions.start@ method which the
 -- 'AssociationSessionsStart' request conforms to.
@@ -65,9 +65,9 @@ type AssociationSessionsStartResource =
 -- /See:/ 'associationSessionsStart' smart constructor.
 data AssociationSessionsStart = AssociationSessionsStart'
     { _assWebsiteLocale :: !(Maybe Text)
-    , _assUserLocale    :: !(Maybe Text)
-    , _assWebsiteURL    :: !Text
-    , _assProductCode   :: ![AssociationSessionsStartProductCode]
+    , _assUserLocale :: !(Maybe Text)
+    , _assWebsiteURL :: !Text
+    , _assProductCode :: ![AssociationSessionsStartProductCode]
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociationSessionsStart' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ associationSessionsStart
     :: Text -- ^ 'assWebsiteURL'
     -> [AssociationSessionsStartProductCode] -- ^ 'assProductCode'
     -> AssociationSessionsStart
-associationSessionsStart pAssWebsiteURL_ pAssProductCode_ =
+associationSessionsStart pAssWebsiteURL_ pAssProductCode_ = 
     AssociationSessionsStart'
     { _assWebsiteLocale = Nothing
     , _assUserLocale = Nothing

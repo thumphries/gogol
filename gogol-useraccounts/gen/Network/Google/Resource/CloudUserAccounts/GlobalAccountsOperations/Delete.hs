@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.GlobalAccountsOperations.Delete
     , gaodOperation
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.globalAccountsOperations.delete@ method which the
 -- 'GlobalAccountsOperationsDelete' request conforms to.
@@ -56,7 +56,7 @@ type GlobalAccountsOperationsDeleteResource =
 --
 -- /See:/ 'globalAccountsOperationsDelete' smart constructor.
 data GlobalAccountsOperationsDelete = GlobalAccountsOperationsDelete'
-    { _gaodProject   :: !Text
+    { _gaodProject :: !Text
     , _gaodOperation :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ globalAccountsOperationsDelete
     :: Text -- ^ 'gaodProject'
     -> Text -- ^ 'gaodOperation'
     -> GlobalAccountsOperationsDelete
-globalAccountsOperationsDelete pGaodProject_ pGaodOperation_ =
+globalAccountsOperationsDelete pGaodProject_ pGaodOperation_ = 
     GlobalAccountsOperationsDelete'
     { _gaodProject = pGaodProject_
     , _gaodOperation = pGaodOperation_

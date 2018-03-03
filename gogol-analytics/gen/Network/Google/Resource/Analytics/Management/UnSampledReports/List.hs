@@ -40,8 +40,8 @@ module Network.Google.Resource.Analytics.Management.UnSampledReports.List
     , musrlMaxResults
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.unsampledReports.list@ method which the
 -- 'ManagementUnSampledReportsList' request conforms to.
@@ -66,10 +66,10 @@ type ManagementUnSampledReportsListResource =
 -- /See:/ 'managementUnSampledReportsList' smart constructor.
 data ManagementUnSampledReportsList = ManagementUnSampledReportsList'
     { _musrlWebPropertyId :: !Text
-    , _musrlProFileId     :: !Text
-    , _musrlAccountId     :: !Text
-    , _musrlStartIndex    :: !(Maybe (Textual Int32))
-    , _musrlMaxResults    :: !(Maybe (Textual Int32))
+    , _musrlProFileId :: !Text
+    , _musrlAccountId :: !Text
+    , _musrlStartIndex :: !(Maybe (Textual Int32))
+    , _musrlMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ManagementUnSampledReportsList' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ managementUnSampledReportsList
     -> Text -- ^ 'musrlProFileId'
     -> Text -- ^ 'musrlAccountId'
     -> ManagementUnSampledReportsList
-managementUnSampledReportsList pMusrlWebPropertyId_ pMusrlProFileId_ pMusrlAccountId_ =
+managementUnSampledReportsList pMusrlWebPropertyId_ pMusrlProFileId_ pMusrlAccountId_ = 
     ManagementUnSampledReportsList'
     { _musrlWebPropertyId = pMusrlWebPropertyId_
     , _musrlProFileId = pMusrlProFileId_

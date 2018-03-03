@@ -37,8 +37,8 @@ module Network.Google.Resource.PlusDomains.Comments.Insert
     , cPayload
     ) where
 
-import           Network.Google.PlusDomains.Types
-import           Network.Google.Prelude
+import Network.Google.PlusDomains.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @plusDomains.comments.insert@ method which the
 -- 'CommentsInsert' request conforms to.
@@ -56,7 +56,7 @@ type CommentsInsertResource =
 -- /See:/ 'commentsInsert' smart constructor.
 data CommentsInsert = CommentsInsert'
     { _cActivityId :: !Text
-    , _cPayload    :: !Comment
+    , _cPayload :: !Comment
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommentsInsert' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ commentsInsert
     :: Text -- ^ 'cActivityId'
     -> Comment -- ^ 'cPayload'
     -> CommentsInsert
-commentsInsert pCActivityId_ pCPayload_ =
+commentsInsert pCActivityId_ pCPayload_ = 
     CommentsInsert'
     { _cActivityId = pCActivityId_
     , _cPayload = pCPayload_

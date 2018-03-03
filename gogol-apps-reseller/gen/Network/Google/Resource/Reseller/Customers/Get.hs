@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a customer resource if one exists and is owned by the reseller.
+-- Get a customer account.
 --
 -- /See:/ <https://developers.google.com/google-apps/reseller/ Enterprise Apps Reseller API Reference> for @reseller.customers.get@.
 module Network.Google.Resource.Reseller.Customers.Get
@@ -36,8 +36,8 @@ module Network.Google.Resource.Reseller.Customers.Get
     , cgCustomerId
     ) where
 
-import           Network.Google.AppsReseller.Types
-import           Network.Google.Prelude
+import Network.Google.AppsReseller.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @reseller.customers.get@ method which the
 -- 'CustomersGet' request conforms to.
@@ -49,7 +49,7 @@ type CustomersGetResource =
              Capture "customerId" Text :>
                QueryParam "alt" AltJSON :> Get '[JSON] Customer
 
--- | Gets a customer resource if one exists and is owned by the reseller.
+-- | Get a customer account.
 --
 -- /See:/ 'customersGet' smart constructor.
 newtype CustomersGet = CustomersGet'
@@ -64,12 +64,15 @@ newtype CustomersGet = CustomersGet'
 customersGet
     :: Text -- ^ 'cgCustomerId'
     -> CustomersGet
-customersGet pCgCustomerId_ =
+customersGet pCgCustomerId_ = 
     CustomersGet'
     { _cgCustomerId = pCgCustomerId_
     }
 
--- | Id of the Customer
+-- | Either the customer\'s primary domain name or the customer\'s unique
+-- identifier. If using the domain name, we do not recommend using a
+-- customerId as a key for persistent data. If the domain name for a
+-- customerId is changed, the Google system automatically updates.
 cgCustomerId :: Lens' CustomersGet Text
 cgCustomerId
   = lens _cgCustomerId (\ s a -> s{_cgCustomerId = a})

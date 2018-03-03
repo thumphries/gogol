@@ -37,8 +37,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.Delete
     , udUser
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.delete@ method which the
 -- 'UsersDelete' request conforms to.
@@ -57,7 +57,7 @@ type UsersDeleteResource =
 -- /See:/ 'usersDelete' smart constructor.
 data UsersDelete = UsersDelete'
     { _udProject :: !Text
-    , _udUser    :: !Text
+    , _udUser :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UsersDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ usersDelete
     :: Text -- ^ 'udProject'
     -> Text -- ^ 'udUser'
     -> UsersDelete
-usersDelete pUdProject_ pUdUser_ =
+usersDelete pUdProject_ pUdUser_ = 
     UsersDelete'
     { _udProject = pUdProject_
     , _udUser = pUdUser_

@@ -48,8 +48,8 @@ module Network.Google.Resource.Sheets.Spreadsheets.Values.Get
     , svgCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.Sheets.Types
+import Network.Google.Prelude
+import Network.Google.Sheets.Types
 
 -- | A resource alias for @sheets.spreadsheets.values.get@ method which the
 -- 'SpreadsheetsValuesGet' request conforms to.
@@ -77,18 +77,18 @@ type SpreadsheetsValuesGetResource =
 --
 -- /See:/ 'spreadsheetsValuesGet' smart constructor.
 data SpreadsheetsValuesGet = SpreadsheetsValuesGet'
-    { _svgXgafv                :: !(Maybe Xgafv)
-    , _svgValueRenderOption    :: !(Maybe Text)
-    , _svgUploadProtocol       :: !(Maybe Text)
-    , _svgPp                   :: !Bool
-    , _svgAccessToken          :: !(Maybe Text)
-    , _svgSpreadsheetId        :: !Text
-    , _svgUploadType           :: !(Maybe Text)
-    , _svgBearerToken          :: !(Maybe Text)
-    , _svgRange                :: !Text
+    { _svgXgafv :: !(Maybe Xgafv)
+    , _svgValueRenderOption :: !(Maybe Text)
+    , _svgUploadProtocol :: !(Maybe Text)
+    , _svgPp :: !Bool
+    , _svgAccessToken :: !(Maybe Text)
+    , _svgSpreadsheetId :: !Text
+    , _svgUploadType :: !(Maybe Text)
+    , _svgBearerToken :: !(Maybe Text)
+    , _svgRange :: !Text
     , _svgDateTimeRenderOption :: !(Maybe Text)
-    , _svgMajorDimension       :: !(Maybe Text)
-    , _svgCallback             :: !(Maybe Text)
+    , _svgMajorDimension :: !(Maybe Text)
+    , _svgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpreadsheetsValuesGet' with the minimum fields required to make a request.
@@ -122,7 +122,7 @@ spreadsheetsValuesGet
     :: Text -- ^ 'svgSpreadsheetId'
     -> Text -- ^ 'svgRange'
     -> SpreadsheetsValuesGet
-spreadsheetsValuesGet pSvgSpreadsheetId_ pSvgRange_ =
+spreadsheetsValuesGet pSvgSpreadsheetId_ pSvgRange_ = 
     SpreadsheetsValuesGet'
     { _svgXgafv = Nothing
     , _svgValueRenderOption = Nothing
@@ -214,6 +214,7 @@ instance GoogleRequest SpreadsheetsValuesGet where
         type Rs SpreadsheetsValuesGet = ValueRange
         type Scopes SpreadsheetsValuesGet =
              '["https://www.googleapis.com/auth/drive",
+               "https://www.googleapis.com/auth/drive.file",
                "https://www.googleapis.com/auth/drive.readonly",
                "https://www.googleapis.com/auth/spreadsheets",
                "https://www.googleapis.com/auth/spreadsheets.readonly"]

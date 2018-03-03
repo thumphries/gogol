@@ -42,8 +42,8 @@ module Network.Google.Resource.AndroidEnterprise.Products.Approve
     , paProductId
     ) where
 
-import           Network.Google.AndroidEnterprise.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidEnterprise.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidenterprise.products.approve@ method which the
 -- 'ProductsApprove' request conforms to.
@@ -68,8 +68,8 @@ type ProductsApproveResource =
 -- /See:/ 'productsApprove' smart constructor.
 data ProductsApprove = ProductsApprove'
     { _paEnterpriseId :: !Text
-    , _paPayload      :: !ProductsApproveRequest
-    , _paProductId    :: !Text
+    , _paPayload :: !ProductsApproveRequest
+    , _paProductId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProductsApprove' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ productsApprove
     -> ProductsApproveRequest -- ^ 'paPayload'
     -> Text -- ^ 'paProductId'
     -> ProductsApprove
-productsApprove pPaEnterpriseId_ pPaPayload_ pPaProductId_ =
+productsApprove pPaEnterpriseId_ pPaPayload_ pPaProductId_ = 
     ProductsApprove'
     { _paEnterpriseId = pPaEnterpriseId_
     , _paPayload = pPaPayload_

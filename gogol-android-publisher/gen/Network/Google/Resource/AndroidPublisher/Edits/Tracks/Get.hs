@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Tracks.Get
     , etgtEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.tracks.get@ method which the
 -- 'EditsTracksGet' request conforms to.
@@ -52,7 +52,7 @@ type EditsTracksGetResource =
              "edits" :>
                Capture "editId" Text :>
                  "tracks" :>
-                   Capture "track" EditsTracksGetTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :> Get '[JSON] Track
 
 -- | Fetches the track configuration for the specified track type. Includes
@@ -60,9 +60,9 @@ type EditsTracksGetResource =
 --
 -- /See:/ 'editsTracksGet' smart constructor.
 data EditsTracksGet = EditsTracksGet'
-    { _etgtTrack       :: !EditsTracksGetTrack
+    { _etgtTrack :: !Text
     , _etgtPackageName :: !Text
-    , _etgtEditId      :: !Text
+    , _etgtEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTracksGet' with the minimum fields required to make a request.
@@ -75,19 +75,20 @@ data EditsTracksGet = EditsTracksGet'
 --
 -- * 'etgtEditId'
 editsTracksGet
-    :: EditsTracksGetTrack -- ^ 'etgtTrack'
+    :: Text -- ^ 'etgtTrack'
     -> Text -- ^ 'etgtPackageName'
     -> Text -- ^ 'etgtEditId'
     -> EditsTracksGet
-editsTracksGet pEtgtTrack_ pEtgtPackageName_ pEtgtEditId_ =
+editsTracksGet pEtgtTrack_ pEtgtPackageName_ pEtgtEditId_ = 
     EditsTracksGet'
     { _etgtTrack = pEtgtTrack_
     , _etgtPackageName = pEtgtPackageName_
     , _etgtEditId = pEtgtEditId_
     }
 
--- | The track type to read or modify.
-etgtTrack :: Lens' EditsTracksGet EditsTracksGetTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etgtTrack :: Lens' EditsTracksGet Text
 etgtTrack
   = lens _etgtTrack (\ s a -> s{_etgtTrack = a})
 

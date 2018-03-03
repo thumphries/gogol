@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Commit
     , ecEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.commit@ method which the
 -- 'EditsCommit' request conforms to.
@@ -56,7 +56,7 @@ type EditsCommitResource =
 -- /See:/ 'editsCommit' smart constructor.
 data EditsCommit = EditsCommit'
     { _ecPackageName :: !Text
-    , _ecEditId      :: !Text
+    , _ecEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsCommit' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ editsCommit
     :: Text -- ^ 'ecPackageName'
     -> Text -- ^ 'ecEditId'
     -> EditsCommit
-editsCommit pEcPackageName_ pEcEditId_ =
+editsCommit pEcPackageName_ pEcEditId_ = 
     EditsCommit'
     { _ecPackageName = pEcPackageName_
     , _ecEditId = pEcEditId_

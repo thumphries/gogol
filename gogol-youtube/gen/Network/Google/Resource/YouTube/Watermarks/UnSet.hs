@@ -37,8 +37,8 @@ module Network.Google.Resource.YouTube.Watermarks.UnSet
     , wusOnBehalfOfContentOwner
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.watermarks.unset@ method which the
 -- 'WatermarksUnSet' request conforms to.
@@ -55,7 +55,7 @@ type WatermarksUnSetResource =
 --
 -- /See:/ 'watermarksUnSet' smart constructor.
 data WatermarksUnSet = WatermarksUnSet'
-    { _wusChannelId              :: !Text
+    { _wusChannelId :: !Text
     , _wusOnBehalfOfContentOwner :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ data WatermarksUnSet = WatermarksUnSet'
 watermarksUnSet
     :: Text -- ^ 'wusChannelId'
     -> WatermarksUnSet
-watermarksUnSet pWusChannelId_ =
+watermarksUnSet pWusChannelId_ = 
     WatermarksUnSet'
     { _wusChannelId = pWusChannelId_
     , _wusOnBehalfOfContentOwner = Nothing

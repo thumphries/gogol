@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.ChangeLogs.Get
     , clgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.changeLogs.get@ method which the
 -- 'ChangeLogsGet' request conforms to.
 type ChangeLogsGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "changeLogs" :>
@@ -56,7 +56,7 @@ type ChangeLogsGetResource =
 -- /See:/ 'changeLogsGet' smart constructor.
 data ChangeLogsGet = ChangeLogsGet'
     { _clgProFileId :: !(Textual Int64)
-    , _clgId        :: !(Textual Int64)
+    , _clgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeLogsGet' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ changeLogsGet
     :: Int64 -- ^ 'clgProFileId'
     -> Int64 -- ^ 'clgId'
     -> ChangeLogsGet
-changeLogsGet pClgProFileId_ pClgId_ =
+changeLogsGet pClgProFileId_ pClgId_ = 
     ChangeLogsGet'
     { _clgProFileId = _Coerce # pClgProFileId_
     , _clgId = _Coerce # pClgId_

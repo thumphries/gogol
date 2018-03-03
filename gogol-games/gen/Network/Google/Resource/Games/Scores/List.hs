@@ -33,7 +33,6 @@ module Network.Google.Resource.Games.Scores.List
     , ScoresList
 
     -- * Request Lenses
-    , sllConsistencyToken
     , sllCollection
     , sllTimeSpan
     , sllLeaderboardId
@@ -42,8 +41,8 @@ module Network.Google.Resource.Games.Scores.List
     , sllMaxResults
     ) where
 
-import           Network.Google.Games.Types
-import           Network.Google.Prelude
+import Network.Google.Games.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @games.scores.list@ method which the
 -- 'ScoresList' request conforms to.
@@ -55,31 +54,27 @@ type ScoresListResource =
              "scores" :>
                Capture "collection" ScoresListCollection :>
                  QueryParam "timeSpan" ScoresListTimeSpan :>
-                   QueryParam "consistencyToken" (Textual Int64) :>
-                     QueryParam "language" Text :>
-                       QueryParam "pageToken" Text :>
-                         QueryParam "maxResults" (Textual Int32) :>
-                           QueryParam "alt" AltJSON :>
-                             Get '[JSON] LeaderboardScores
+                   QueryParam "language" Text :>
+                     QueryParam "pageToken" Text :>
+                       QueryParam "maxResults" (Textual Int32) :>
+                         QueryParam "alt" AltJSON :>
+                           Get '[JSON] LeaderboardScores
 
 -- | Lists the scores in a leaderboard, starting from the top.
 --
 -- /See:/ 'scoresList' smart constructor.
 data ScoresList = ScoresList'
-    { _sllConsistencyToken :: !(Maybe (Textual Int64))
-    , _sllCollection       :: !ScoresListCollection
-    , _sllTimeSpan         :: !ScoresListTimeSpan
-    , _sllLeaderboardId    :: !Text
-    , _sllLanguage         :: !(Maybe Text)
-    , _sllPageToken        :: !(Maybe Text)
-    , _sllMaxResults       :: !(Maybe (Textual Int32))
+    { _sllCollection :: !ScoresListCollection
+    , _sllTimeSpan :: !ScoresListTimeSpan
+    , _sllLeaderboardId :: !Text
+    , _sllLanguage :: !(Maybe Text)
+    , _sllPageToken :: !(Maybe Text)
+    , _sllMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScoresList' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'sllConsistencyToken'
 --
 -- * 'sllCollection'
 --
@@ -97,23 +92,15 @@ scoresList
     -> ScoresListTimeSpan -- ^ 'sllTimeSpan'
     -> Text -- ^ 'sllLeaderboardId'
     -> ScoresList
-scoresList pSllCollection_ pSllTimeSpan_ pSllLeaderboardId_ =
+scoresList pSllCollection_ pSllTimeSpan_ pSllLeaderboardId_ = 
     ScoresList'
-    { _sllConsistencyToken = Nothing
-    , _sllCollection = pSllCollection_
+    { _sllCollection = pSllCollection_
     , _sllTimeSpan = pSllTimeSpan_
     , _sllLeaderboardId = pSllLeaderboardId_
     , _sllLanguage = Nothing
     , _sllPageToken = Nothing
     , _sllMaxResults = Nothing
     }
-
--- | The last-seen mutation timestamp.
-sllConsistencyToken :: Lens' ScoresList (Maybe Int64)
-sllConsistencyToken
-  = lens _sllConsistencyToken
-      (\ s a -> s{_sllConsistencyToken = a})
-      . mapping _Coerce
 
 -- | The collection of scores you\'re requesting.
 sllCollection :: Lens' ScoresList ScoresListCollection
@@ -159,7 +146,6 @@ instance GoogleRequest ScoresList where
         requestClient ScoresList'{..}
           = go _sllLeaderboardId _sllCollection
               (Just _sllTimeSpan)
-              _sllConsistencyToken
               _sllLanguage
               _sllPageToken
               _sllMaxResults

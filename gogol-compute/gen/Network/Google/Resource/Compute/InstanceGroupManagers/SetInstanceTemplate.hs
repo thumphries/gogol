@@ -35,14 +35,15 @@ module Network.Google.Resource.Compute.InstanceGroupManagers.SetInstanceTemplate
     , InstanceGroupManagersSetInstanceTemplate
 
     -- * Request Lenses
+    , igmsitRequestId
     , igmsitProject
     , igmsitInstanceGroupManager
     , igmsitZone
     , igmsitPayload
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.instanceGroupManagers.setInstanceTemplate@ method which the
 -- 'InstanceGroupManagersSetInstanceTemplate' request conforms to.
@@ -57,10 +58,11 @@ type InstanceGroupManagersSetInstanceTemplateResource
                  "instanceGroupManagers" :>
                    Capture "instanceGroupManager" Text :>
                      "setInstanceTemplate" :>
-                       QueryParam "alt" AltJSON :>
-                         ReqBody '[JSON]
-                           InstanceGroupManagersSetInstanceTemplateRequest
-                           :> Post '[JSON] Operation
+                       QueryParam "requestId" Text :>
+                         QueryParam "alt" AltJSON :>
+                           ReqBody '[JSON]
+                             InstanceGroupManagersSetInstanceTemplateRequest
+                             :> Post '[JSON] Operation
 
 -- | Specifies the instance template to use when creating new instances in
 -- this group. The templates for existing instances in the group do not
@@ -68,15 +70,18 @@ type InstanceGroupManagersSetInstanceTemplateResource
 --
 -- /See:/ 'instanceGroupManagersSetInstanceTemplate' smart constructor.
 data InstanceGroupManagersSetInstanceTemplate = InstanceGroupManagersSetInstanceTemplate'
-    { _igmsitProject              :: !Text
+    { _igmsitRequestId :: !(Maybe Text)
+    , _igmsitProject :: !Text
     , _igmsitInstanceGroupManager :: !Text
-    , _igmsitZone                 :: !Text
-    , _igmsitPayload              :: !InstanceGroupManagersSetInstanceTemplateRequest
+    , _igmsitZone :: !Text
+    , _igmsitPayload :: !InstanceGroupManagersSetInstanceTemplateRequest
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupManagersSetInstanceTemplate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igmsitRequestId'
 --
 -- * 'igmsitProject'
 --
@@ -91,13 +96,29 @@ instanceGroupManagersSetInstanceTemplate
     -> Text -- ^ 'igmsitZone'
     -> InstanceGroupManagersSetInstanceTemplateRequest -- ^ 'igmsitPayload'
     -> InstanceGroupManagersSetInstanceTemplate
-instanceGroupManagersSetInstanceTemplate pIgmsitProject_ pIgmsitInstanceGroupManager_ pIgmsitZone_ pIgmsitPayload_ =
+instanceGroupManagersSetInstanceTemplate pIgmsitProject_ pIgmsitInstanceGroupManager_ pIgmsitZone_ pIgmsitPayload_ = 
     InstanceGroupManagersSetInstanceTemplate'
-    { _igmsitProject = pIgmsitProject_
+    { _igmsitRequestId = Nothing
+    , _igmsitProject = pIgmsitProject_
     , _igmsitInstanceGroupManager = pIgmsitInstanceGroupManager_
     , _igmsitZone = pIgmsitZone_
     , _igmsitPayload = pIgmsitPayload_
     }
+
+-- | An optional request ID to identify requests. Specify a unique request ID
+-- so that if you must retry your request, the server will know to ignore
+-- the request if it has already been completed. For example, consider a
+-- situation where you make an initial request and the request times out.
+-- If you make the request again with the same request ID, the server can
+-- check if original operation with the same request ID was received, and
+-- if so, will ignore the second request. This prevents clients from
+-- accidentally creating duplicate commitments. The request ID must be a
+-- valid UUID with the exception that zero UUID is not supported
+-- (00000000-0000-0000-0000-000000000000).
+igmsitRequestId :: Lens' InstanceGroupManagersSetInstanceTemplate (Maybe Text)
+igmsitRequestId
+  = lens _igmsitRequestId
+      (\ s a -> s{_igmsitRequestId = a})
 
 -- | Project ID for this request.
 igmsitProject :: Lens' InstanceGroupManagersSetInstanceTemplate Text
@@ -134,6 +155,7 @@ instance GoogleRequest
           InstanceGroupManagersSetInstanceTemplate'{..}
           = go _igmsitProject _igmsitZone
               _igmsitInstanceGroupManager
+              _igmsitRequestId
               (Just AltJSON)
               _igmsitPayload
               computeService

@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSense.Reports.Saved.List
     , rslMaxResults
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.reports.saved.list@ method which the
 -- 'ReportsSavedList' request conforms to.
@@ -55,7 +55,7 @@ type ReportsSavedListResource =
 --
 -- /See:/ 'reportsSavedList' smart constructor.
 data ReportsSavedList = ReportsSavedList'
-    { _rslPageToken  :: !(Maybe Text)
+    { _rslPageToken :: !(Maybe Text)
     , _rslMaxResults :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data ReportsSavedList = ReportsSavedList'
 -- * 'rslMaxResults'
 reportsSavedList
     :: ReportsSavedList
-reportsSavedList =
+reportsSavedList = 
     ReportsSavedList'
     { _rslPageToken = Nothing
     , _rslMaxResults = Nothing

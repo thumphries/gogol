@@ -37,8 +37,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Testers.Update
     , etutEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.testers.update@ method which the
 -- 'EditsTestersUpdate' request conforms to.
@@ -50,17 +50,17 @@ type EditsTestersUpdateResource =
              "edits" :>
                Capture "editId" Text :>
                  "testers" :>
-                   Capture "track" EditsTestersUpdateTrack :>
+                   Capture "track" Text :>
                      QueryParam "alt" AltJSON :>
                        ReqBody '[JSON] Testers :> Put '[JSON] Testers
 
 --
 -- /See:/ 'editsTestersUpdate' smart constructor.
 data EditsTestersUpdate = EditsTestersUpdate'
-    { _etutTrack       :: !EditsTestersUpdateTrack
+    { _etutTrack :: !Text
     , _etutPackageName :: !Text
-    , _etutPayload     :: !Testers
-    , _etutEditId      :: !Text
+    , _etutPayload :: !Testers
+    , _etutEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsTestersUpdate' with the minimum fields required to make a request.
@@ -75,12 +75,12 @@ data EditsTestersUpdate = EditsTestersUpdate'
 --
 -- * 'etutEditId'
 editsTestersUpdate
-    :: EditsTestersUpdateTrack -- ^ 'etutTrack'
+    :: Text -- ^ 'etutTrack'
     -> Text -- ^ 'etutPackageName'
     -> Testers -- ^ 'etutPayload'
     -> Text -- ^ 'etutEditId'
     -> EditsTestersUpdate
-editsTestersUpdate pEtutTrack_ pEtutPackageName_ pEtutPayload_ pEtutEditId_ =
+editsTestersUpdate pEtutTrack_ pEtutPackageName_ pEtutPayload_ pEtutEditId_ = 
     EditsTestersUpdate'
     { _etutTrack = pEtutTrack_
     , _etutPackageName = pEtutPackageName_
@@ -88,7 +88,9 @@ editsTestersUpdate pEtutTrack_ pEtutPackageName_ pEtutPayload_ pEtutEditId_ =
     , _etutEditId = pEtutEditId_
     }
 
-etutTrack :: Lens' EditsTestersUpdate EditsTestersUpdateTrack
+-- | The track to read or modify. Acceptable values are: \"alpha\", \"beta\",
+-- \"production\" or \"rollout\".
+etutTrack :: Lens' EditsTestersUpdate Text
 etutTrack
   = lens _etutTrack (\ s a -> s{_etutTrack = a})
 

@@ -37,8 +37,8 @@ module Network.Google.Resource.BigQuery.DataSets.Insert
     , dsiProjectId
     ) where
 
-import           Network.Google.BigQuery.Types
-import           Network.Google.Prelude
+import Network.Google.BigQuery.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @bigquery.datasets.insert@ method which the
 -- 'DataSetsInsert' request conforms to.
@@ -55,7 +55,7 @@ type DataSetsInsertResource =
 --
 -- /See:/ 'dataSetsInsert' smart constructor.
 data DataSetsInsert = DataSetsInsert'
-    { _dsiPayload   :: !DataSet
+    { _dsiPayload :: !DataSet
     , _dsiProjectId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ dataSetsInsert
     :: DataSet -- ^ 'dsiPayload'
     -> Text -- ^ 'dsiProjectId'
     -> DataSetsInsert
-dataSetsInsert pDsiPayload_ pDsiProjectId_ =
+dataSetsInsert pDsiPayload_ pDsiProjectId_ = 
     DataSetsInsert'
     { _dsiPayload = pDsiPayload_
     , _dsiProjectId = pDsiProjectId_

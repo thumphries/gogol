@@ -38,8 +38,8 @@ module Network.Google.Resource.AndroidPublisher.Reviews.Get
     , rgTranslationLanguage
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.reviews.get@ method which the
 -- 'ReviewsGet' request conforms to.
@@ -57,8 +57,8 @@ type ReviewsGetResource =
 --
 -- /See:/ 'reviewsGet' smart constructor.
 data ReviewsGet = ReviewsGet'
-    { _rgReviewId            :: !Text
-    , _rgPackageName         :: !Text
+    { _rgReviewId :: !Text
+    , _rgPackageName :: !Text
     , _rgTranslationLanguage :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ reviewsGet
     :: Text -- ^ 'rgReviewId'
     -> Text -- ^ 'rgPackageName'
     -> ReviewsGet
-reviewsGet pRgReviewId_ pRgPackageName_ =
+reviewsGet pRgReviewId_ pRgPackageName_ = 
     ReviewsGet'
     { _rgReviewId = pRgReviewId_
     , _rgPackageName = pRgPackageName_

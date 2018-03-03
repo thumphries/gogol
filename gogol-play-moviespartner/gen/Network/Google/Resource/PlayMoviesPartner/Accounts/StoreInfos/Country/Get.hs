@@ -47,8 +47,8 @@ module Network.Google.Resource.PlayMoviesPartner.Accounts.StoreInfos.Country.Get
     , asicgCallback
     ) where
 
-import           Network.Google.PlayMoviesPartner.Types
-import           Network.Google.Prelude
+import Network.Google.PlayMoviesPartner.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @playmoviespartner.accounts.storeInfos.country.get@ method which the
 -- 'AccountsStoreInfosCountryGet' request conforms to.
@@ -60,7 +60,7 @@ type AccountsStoreInfosCountryGetResource =
              Capture "videoId" Text :>
                "country" :>
                  Capture "country" Text :>
-                   QueryParam "$.xgafv" Text :>
+                   QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
                        QueryParam "pp" Bool :>
                          QueryParam "access_token" Text :>
@@ -76,16 +76,16 @@ type AccountsStoreInfosCountryGetResource =
 --
 -- /See:/ 'accountsStoreInfosCountryGet' smart constructor.
 data AccountsStoreInfosCountryGet = AccountsStoreInfosCountryGet'
-    { _asicgXgafv          :: !(Maybe Text)
+    { _asicgXgafv :: !(Maybe Xgafv)
     , _asicgUploadProtocol :: !(Maybe Text)
-    , _asicgCountry        :: !Text
-    , _asicgPp             :: !Bool
-    , _asicgAccessToken    :: !(Maybe Text)
-    , _asicgUploadType     :: !(Maybe Text)
-    , _asicgVideoId        :: !Text
-    , _asicgAccountId      :: !Text
-    , _asicgBearerToken    :: !(Maybe Text)
-    , _asicgCallback       :: !(Maybe Text)
+    , _asicgCountry :: !Text
+    , _asicgPp :: !Bool
+    , _asicgAccessToken :: !(Maybe Text)
+    , _asicgUploadType :: !(Maybe Text)
+    , _asicgVideoId :: !Text
+    , _asicgAccountId :: !Text
+    , _asicgBearerToken :: !(Maybe Text)
+    , _asicgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountsStoreInfosCountryGet' with the minimum fields required to make a request.
@@ -116,7 +116,7 @@ accountsStoreInfosCountryGet
     -> Text -- ^ 'asicgVideoId'
     -> Text -- ^ 'asicgAccountId'
     -> AccountsStoreInfosCountryGet
-accountsStoreInfosCountryGet pAsicgCountry_ pAsicgVideoId_ pAsicgAccountId_ =
+accountsStoreInfosCountryGet pAsicgCountry_ pAsicgVideoId_ pAsicgAccountId_ = 
     AccountsStoreInfosCountryGet'
     { _asicgXgafv = Nothing
     , _asicgUploadProtocol = Nothing
@@ -131,7 +131,7 @@ accountsStoreInfosCountryGet pAsicgCountry_ pAsicgVideoId_ pAsicgAccountId_ =
     }
 
 -- | V1 error format.
-asicgXgafv :: Lens' AccountsStoreInfosCountryGet (Maybe Text)
+asicgXgafv :: Lens' AccountsStoreInfosCountryGet (Maybe Xgafv)
 asicgXgafv
   = lens _asicgXgafv (\ s a -> s{_asicgXgafv = a})
 

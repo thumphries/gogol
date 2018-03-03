@@ -44,8 +44,8 @@ module Network.Google.Resource.PubSub.Projects.Snapshots.GetIAMPolicy
     , psgipCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.PubSub.Types
+import Network.Google.Prelude
+import Network.Google.PubSub.Types
 
 -- | A resource alias for @pubsub.projects.snapshots.getIamPolicy@ method which the
 -- 'ProjectsSnapshotsGetIAMPolicy' request conforms to.
@@ -66,14 +66,14 @@ type ProjectsSnapshotsGetIAMPolicyResource =
 --
 -- /See:/ 'projectsSnapshotsGetIAMPolicy' smart constructor.
 data ProjectsSnapshotsGetIAMPolicy = ProjectsSnapshotsGetIAMPolicy'
-    { _psgipXgafv          :: !(Maybe Xgafv)
+    { _psgipXgafv :: !(Maybe Xgafv)
     , _psgipUploadProtocol :: !(Maybe Text)
-    , _psgipPp             :: !Bool
-    , _psgipAccessToken    :: !(Maybe Text)
-    , _psgipUploadType     :: !(Maybe Text)
-    , _psgipBearerToken    :: !(Maybe Text)
-    , _psgipResource       :: !Text
-    , _psgipCallback       :: !(Maybe Text)
+    , _psgipPp :: !Bool
+    , _psgipAccessToken :: !(Maybe Text)
+    , _psgipUploadType :: !(Maybe Text)
+    , _psgipBearerToken :: !(Maybe Text)
+    , _psgipResource :: !Text
+    , _psgipCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsSnapshotsGetIAMPolicy' with the minimum fields required to make a request.
@@ -98,7 +98,7 @@ data ProjectsSnapshotsGetIAMPolicy = ProjectsSnapshotsGetIAMPolicy'
 projectsSnapshotsGetIAMPolicy
     :: Text -- ^ 'psgipResource'
     -> ProjectsSnapshotsGetIAMPolicy
-projectsSnapshotsGetIAMPolicy pPsgipResource_ =
+projectsSnapshotsGetIAMPolicy pPsgipResource_ = 
     ProjectsSnapshotsGetIAMPolicy'
     { _psgipXgafv = Nothing
     , _psgipUploadProtocol = Nothing
@@ -143,9 +143,8 @@ psgipBearerToken
   = lens _psgipBearerToken
       (\ s a -> s{_psgipBearerToken = a})
 
--- | REQUIRED: The resource for which the policy is being requested.
--- \`resource\` is usually specified as a path. For example, a Project
--- resource is specified as \`projects\/{project}\`.
+-- | REQUIRED: The resource for which the policy is being requested. See the
+-- operation documentation for the appropriate value for this field.
 psgipResource :: Lens' ProjectsSnapshotsGetIAMPolicy Text
 psgipResource
   = lens _psgipResource

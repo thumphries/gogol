@@ -38,8 +38,8 @@ module Network.Google.Resource.CloudUserAccounts.Users.Insert
     , uiPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.UserAccounts.Types
+import Network.Google.Prelude
+import Network.Google.UserAccounts.Types
 
 -- | A resource alias for @clouduseraccounts.users.insert@ method which the
 -- 'UsersInsert' request conforms to.
@@ -73,7 +73,7 @@ usersInsert
     :: Text -- ^ 'uiProject'
     -> User -- ^ 'uiPayload'
     -> UsersInsert
-usersInsert pUiProject_ pUiPayload_ =
+usersInsert pUiProject_ pUiPayload_ = 
     UsersInsert'
     { _uiProject = pUiProject_
     , _uiPayload = pUiPayload_

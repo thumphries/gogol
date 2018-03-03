@@ -37,8 +37,8 @@ module Network.Google.Resource.Analytics.Management.Filters.Get
     , mfgAccountId
     ) where
 
-import           Network.Google.Analytics.Types
-import           Network.Google.Prelude
+import Network.Google.Analytics.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @analytics.management.filters.get@ method which the
 -- 'ManagementFiltersGet' request conforms to.
@@ -56,7 +56,7 @@ type ManagementFiltersGetResource =
 --
 -- /See:/ 'managementFiltersGet' smart constructor.
 data ManagementFiltersGet = ManagementFiltersGet'
-    { _mfgFilterId  :: !Text
+    { _mfgFilterId :: !Text
     , _mfgAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ managementFiltersGet
     :: Text -- ^ 'mfgFilterId'
     -> Text -- ^ 'mfgAccountId'
     -> ManagementFiltersGet
-managementFiltersGet pMfgFilterId_ pMfgAccountId_ =
+managementFiltersGet pMfgFilterId_ pMfgAccountId_ = 
     ManagementFiltersGet'
     { _mfgFilterId = pMfgFilterId_
     , _mfgAccountId = pMfgAccountId_

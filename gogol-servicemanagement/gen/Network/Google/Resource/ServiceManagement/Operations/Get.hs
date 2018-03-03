@@ -45,8 +45,8 @@ module Network.Google.Resource.ServiceManagement.Operations.Get
     , ogCallback
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.ServiceManagement.Types
+import Network.Google.Prelude
+import Network.Google.ServiceManagement.Types
 
 -- | A resource alias for @servicemanagement.operations.get@ method which the
 -- 'OperationsGet' request conforms to.
@@ -68,14 +68,14 @@ type OperationsGetResource =
 --
 -- /See:/ 'operationsGet' smart constructor.
 data OperationsGet = OperationsGet'
-    { _ogXgafv          :: !(Maybe Xgafv)
+    { _ogXgafv :: !(Maybe Xgafv)
     , _ogUploadProtocol :: !(Maybe Text)
-    , _ogPp             :: !Bool
-    , _ogAccessToken    :: !(Maybe Text)
-    , _ogUploadType     :: !(Maybe Text)
-    , _ogBearerToken    :: !(Maybe Text)
-    , _ogName           :: !Text
-    , _ogCallback       :: !(Maybe Text)
+    , _ogPp :: !Bool
+    , _ogAccessToken :: !(Maybe Text)
+    , _ogUploadType :: !(Maybe Text)
+    , _ogBearerToken :: !(Maybe Text)
+    , _ogName :: !Text
+    , _ogCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OperationsGet' with the minimum fields required to make a request.
@@ -100,7 +100,7 @@ data OperationsGet = OperationsGet'
 operationsGet
     :: Text -- ^ 'ogName'
     -> OperationsGet
-operationsGet pOgName_ =
+operationsGet pOgName_ = 
     OperationsGet'
     { _ogXgafv = Nothing
     , _ogUploadProtocol = Nothing

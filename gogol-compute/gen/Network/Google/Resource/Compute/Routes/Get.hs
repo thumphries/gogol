@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Routes.Get
     , rrRoute
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.routes.get@ method which the
 -- 'RoutesGet' request conforms to.
@@ -59,7 +59,7 @@ type RoutesGetResource =
 -- /See:/ 'routesGet' smart constructor.
 data RoutesGet = RoutesGet'
     { _rrProject :: !Text
-    , _rrRoute   :: !Text
+    , _rrRoute :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoutesGet' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ routesGet
     :: Text -- ^ 'rrProject'
     -> Text -- ^ 'rrRoute'
     -> RoutesGet
-routesGet pRrProject_ pRrRoute_ =
+routesGet pRrProject_ pRrRoute_ = 
     RoutesGet'
     { _rrProject = pRrProject_
     , _rrRoute = pRrRoute_

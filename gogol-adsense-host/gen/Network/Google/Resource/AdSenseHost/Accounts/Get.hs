@@ -36,8 +36,8 @@ module Network.Google.Resource.AdSenseHost.Accounts.Get
     , agAccountId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.accounts.get@ method which the
 -- 'AccountsGet' request conforms to.
@@ -63,7 +63,7 @@ newtype AccountsGet = AccountsGet'
 accountsGet
     :: Text -- ^ 'agAccountId'
     -> AccountsGet
-accountsGet pAgAccountId_ =
+accountsGet pAgAccountId_ = 
     AccountsGet'
     { _agAccountId = pAgAccountId_
     }

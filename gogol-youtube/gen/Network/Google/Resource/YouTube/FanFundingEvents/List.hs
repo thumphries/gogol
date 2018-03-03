@@ -39,8 +39,8 @@ module Network.Google.Resource.YouTube.FanFundingEvents.List
     , ffelMaxResults
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.fanFundingEvents.list@ method which the
 -- 'FanFundingEventsList' request conforms to.
@@ -59,9 +59,9 @@ type FanFundingEventsListResource =
 --
 -- /See:/ 'fanFundingEventsList' smart constructor.
 data FanFundingEventsList = FanFundingEventsList'
-    { _ffelPart       :: !Text
-    , _ffelHl         :: !(Maybe Text)
-    , _ffelPageToken  :: !(Maybe Text)
+    { _ffelPart :: !Text
+    , _ffelHl :: !(Maybe Text)
+    , _ffelPageToken :: !(Maybe Text)
     , _ffelMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -79,7 +79,7 @@ data FanFundingEventsList = FanFundingEventsList'
 fanFundingEventsList
     :: Text -- ^ 'ffelPart'
     -> FanFundingEventsList
-fanFundingEventsList pFfelPart_ =
+fanFundingEventsList pFfelPart_ = 
     FanFundingEventsList'
     { _ffelPart = pFfelPart_
     , _ffelHl = Nothing

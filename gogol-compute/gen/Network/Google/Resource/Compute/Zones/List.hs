@@ -40,8 +40,8 @@ module Network.Google.Resource.Compute.Zones.List
     , zlMaxResults
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.zones.list@ method which the
 -- 'ZonesList' request conforms to.
@@ -61,10 +61,10 @@ type ZonesListResource =
 --
 -- /See:/ 'zonesList' smart constructor.
 data ZonesList = ZonesList'
-    { _zlOrderBy    :: !(Maybe Text)
-    , _zlProject    :: !Text
-    , _zlFilter     :: !(Maybe Text)
-    , _zlPageToken  :: !(Maybe Text)
+    { _zlOrderBy :: !(Maybe Text)
+    , _zlProject :: !Text
+    , _zlFilter :: !(Maybe Text)
+    , _zlPageToken :: !(Maybe Text)
     , _zlMaxResults :: !(Textual Word32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -84,7 +84,7 @@ data ZonesList = ZonesList'
 zonesList
     :: Text -- ^ 'zlProject'
     -> ZonesList
-zonesList pZlProject_ =
+zonesList pZlProject_ = 
     ZonesList'
     { _zlOrderBy = Nothing
     , _zlProject = pZlProject_
@@ -110,26 +110,25 @@ zlProject :: Lens' ZonesList Text
 zlProject
   = lens _zlProject (\ s a -> s{_zlProject = a})
 
--- | Sets a filter expression for filtering listed resources, in the form
--- filter={expression}. Your {expression} must be in the format: field_name
--- comparison_string literal_string. The field_name is the name of the
--- field you want to compare. Only atomic field types are supported
--- (string, number, boolean). The comparison_string must be either eq
--- (equals) or ne (not equals). The literal_string is the string value to
--- filter to. The literal value must be valid for the type of field you are
--- filtering by (string, number, boolean). For string fields, the literal
--- value is interpreted as a regular expression using RE2 syntax. The
--- literal value must match the entire field. For example, to filter for
--- instances that do not have a name of example-instance, you would use
--- filter=name ne example-instance. You can filter on nested fields. For
--- example, you could filter on instances that have set the
--- scheduling.automaticRestart field to true. Use filtering on nested
--- fields to take advantage of labels to organize and search for results
--- based on label values. To filter on multiple expressions, provide each
--- separate expression within parentheses. For example,
--- (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
--- expressions are treated as AND expressions, meaning that resources must
--- match all expressions to pass the filters.
+-- | Sets a filter {expression} for filtering listed resources. Your
+-- {expression} must be in the format: field_name comparison_string
+-- literal_string. The field_name is the name of the field you want to
+-- compare. Only atomic field types are supported (string, number,
+-- boolean). The comparison_string must be either eq (equals) or ne (not
+-- equals). The literal_string is the string value to filter to. The
+-- literal value must be valid for the type of field you are filtering by
+-- (string, number, boolean). For string fields, the literal value is
+-- interpreted as a regular expression using RE2 syntax. The literal value
+-- must match the entire field. For example, to filter for instances that
+-- do not have a name of example-instance, you would use name ne
+-- example-instance. You can filter on nested fields. For example, you
+-- could filter on instances that have set the scheduling.automaticRestart
+-- field to true. Use filtering on nested fields to take advantage of
+-- labels to organize and search for results based on label values. To
+-- filter on multiple expressions, provide each separate expression within
+-- parentheses. For example, (scheduling.automaticRestart eq true) (zone eq
+-- us-central1-f). Multiple expressions are treated as AND expressions,
+-- meaning that resources must match all expressions to pass the filters.
 zlFilter :: Lens' ZonesList (Maybe Text)
 zlFilter = lens _zlFilter (\ s a -> s{_zlFilter = a})
 
@@ -142,7 +141,8 @@ zlPageToken
 -- | The maximum number of results per page that should be returned. If the
 -- number of available results is larger than maxResults, Compute Engine
 -- returns a nextPageToken that can be used to get the next page of results
--- in subsequent list requests.
+-- in subsequent list requests. Acceptable values are 0 to 500, inclusive.
+-- (Default: 500)
 zlMaxResults :: Lens' ZonesList Word32
 zlMaxResults
   = lens _zlMaxResults (\ s a -> s{_zlMaxResults = a})

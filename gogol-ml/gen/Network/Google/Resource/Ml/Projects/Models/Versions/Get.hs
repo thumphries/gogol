@@ -22,11 +22,11 @@
 --
 -- Gets information about a model version. Models can have multiple
 -- versions. You can call
--- [projects.models.versions.list](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/list)
+-- [projects.models.versions.list](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/list)
 -- to get the same information that this method returns for all of the
 -- versions of a model.
 --
--- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Reference> for @ml.projects.models.versions.get@.
+-- /See:/ <https://cloud.google.com/ml/ Google Cloud Machine Learning Engine Reference> for @ml.projects.models.versions.get@.
 module Network.Google.Resource.Ml.Projects.Models.Versions.Get
     (
     -- * REST Resource
@@ -47,13 +47,13 @@ module Network.Google.Resource.Ml.Projects.Models.Versions.Get
     , pmvgCallback
     ) where
 
-import           Network.Google.MachineLearning.Types
-import           Network.Google.Prelude
+import Network.Google.MachineLearning.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @ml.projects.models.versions.get@ method which the
 -- 'ProjectsModelsVersionsGet' request conforms to.
 type ProjectsModelsVersionsGetResource =
-     "v1beta1" :>
+     "v1" :>
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
@@ -63,24 +63,24 @@ type ProjectsModelsVersionsGetResource =
                    QueryParam "bearer_token" Text :>
                      QueryParam "callback" Text :>
                        QueryParam "alt" AltJSON :>
-                         Get '[JSON] GoogleCloudMlV1beta1__Version
+                         Get '[JSON] GoogleCloudMlV1__Version
 
 -- | Gets information about a model version. Models can have multiple
 -- versions. You can call
--- [projects.models.versions.list](\/ml\/reference\/rest\/v1beta1\/projects.models.versions\/list)
+-- [projects.models.versions.list](\/ml-engine\/reference\/rest\/v1\/projects.models.versions\/list)
 -- to get the same information that this method returns for all of the
 -- versions of a model.
 --
 -- /See:/ 'projectsModelsVersionsGet' smart constructor.
 data ProjectsModelsVersionsGet = ProjectsModelsVersionsGet'
-    { _pmvgXgafv          :: !(Maybe Xgafv)
+    { _pmvgXgafv :: !(Maybe Xgafv)
     , _pmvgUploadProtocol :: !(Maybe Text)
-    , _pmvgPp             :: !Bool
-    , _pmvgAccessToken    :: !(Maybe Text)
-    , _pmvgUploadType     :: !(Maybe Text)
-    , _pmvgBearerToken    :: !(Maybe Text)
-    , _pmvgName           :: !Text
-    , _pmvgCallback       :: !(Maybe Text)
+    , _pmvgPp :: !Bool
+    , _pmvgAccessToken :: !(Maybe Text)
+    , _pmvgUploadType :: !(Maybe Text)
+    , _pmvgBearerToken :: !(Maybe Text)
+    , _pmvgName :: !Text
+    , _pmvgCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsModelsVersionsGet' with the minimum fields required to make a request.
@@ -105,7 +105,7 @@ data ProjectsModelsVersionsGet = ProjectsModelsVersionsGet'
 projectsModelsVersionsGet
     :: Text -- ^ 'pmvgName'
     -> ProjectsModelsVersionsGet
-projectsModelsVersionsGet pPmvgName_ =
+projectsModelsVersionsGet pPmvgName_ = 
     ProjectsModelsVersionsGet'
     { _pmvgXgafv = Nothing
     , _pmvgUploadProtocol = Nothing
@@ -150,8 +150,7 @@ pmvgBearerToken
   = lens _pmvgBearerToken
       (\ s a -> s{_pmvgBearerToken = a})
 
--- | Required. The name of the version. Authorization: requires \`Viewer\`
--- role on the parent project.
+-- | Required. The name of the version.
 pmvgName :: Lens' ProjectsModelsVersionsGet Text
 pmvgName = lens _pmvgName (\ s a -> s{_pmvgName = a})
 
@@ -163,7 +162,7 @@ pmvgCallback
 instance GoogleRequest ProjectsModelsVersionsGet
          where
         type Rs ProjectsModelsVersionsGet =
-             GoogleCloudMlV1beta1__Version
+             GoogleCloudMlV1__Version
         type Scopes ProjectsModelsVersionsGet =
              '["https://www.googleapis.com/auth/cloud-platform"]
         requestClient ProjectsModelsVersionsGet'{..}

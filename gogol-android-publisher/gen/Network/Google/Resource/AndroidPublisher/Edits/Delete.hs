@@ -39,8 +39,8 @@ module Network.Google.Resource.AndroidPublisher.Edits.Delete
     , edEditId
     ) where
 
-import           Network.Google.AndroidPublisher.Types
-import           Network.Google.Prelude
+import Network.Google.AndroidPublisher.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @androidpublisher.edits.delete@ method which the
 -- 'EditsDelete' request conforms to.
@@ -60,7 +60,7 @@ type EditsDeleteResource =
 -- /See:/ 'editsDelete' smart constructor.
 data EditsDelete = EditsDelete'
     { _edPackageName :: !Text
-    , _edEditId      :: !Text
+    , _edEditId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EditsDelete' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ editsDelete
     :: Text -- ^ 'edPackageName'
     -> Text -- ^ 'edEditId'
     -> EditsDelete
-editsDelete pEdPackageName_ pEdEditId_ =
+editsDelete pEdPackageName_ pEdEditId_ = 
     EditsDelete'
     { _edPackageName = pEdPackageName_
     , _edEditId = pEdEditId_

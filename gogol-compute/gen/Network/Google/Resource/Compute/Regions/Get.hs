@@ -38,8 +38,8 @@ module Network.Google.Resource.Compute.Regions.Get
     , rgRegion
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.regions.get@ method which the
 -- 'RegionsGet' request conforms to.
@@ -58,7 +58,7 @@ type RegionsGetResource =
 -- /See:/ 'regionsGet' smart constructor.
 data RegionsGet = RegionsGet'
     { _rgProject :: !Text
-    , _rgRegion  :: !Text
+    , _rgRegion :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegionsGet' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ regionsGet
     :: Text -- ^ 'rgProject'
     -> Text -- ^ 'rgRegion'
     -> RegionsGet
-regionsGet pRgProject_ pRgRegion_ =
+regionsGet pRgProject_ pRgRegion_ = 
     RegionsGet'
     { _rgProject = pRgProject_
     , _rgRegion = pRgRegion_

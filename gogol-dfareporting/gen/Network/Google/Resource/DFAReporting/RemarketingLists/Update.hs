@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.RemarketingLists.Update
     , rluPayload
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.remarketingLists.update@ method which the
 -- 'RemarketingListsUpdate' request conforms to.
 type RemarketingListsUpdateResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "remarketingLists" :>
@@ -57,7 +57,7 @@ type RemarketingListsUpdateResource =
 -- /See:/ 'remarketingListsUpdate' smart constructor.
 data RemarketingListsUpdate = RemarketingListsUpdate'
     { _rluProFileId :: !(Textual Int64)
-    , _rluPayload   :: !RemarketingList
+    , _rluPayload :: !RemarketingList
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemarketingListsUpdate' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ remarketingListsUpdate
     :: Int64 -- ^ 'rluProFileId'
     -> RemarketingList -- ^ 'rluPayload'
     -> RemarketingListsUpdate
-remarketingListsUpdate pRluProFileId_ pRluPayload_ =
+remarketingListsUpdate pRluProFileId_ pRluPayload_ = 
     RemarketingListsUpdate'
     { _rluProFileId = _Coerce # pRluProFileId_
     , _rluPayload = pRluPayload_

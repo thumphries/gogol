@@ -38,8 +38,8 @@ module Network.Google.Resource.TaskQueue.Tasks.Insert
     , tiPayload
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.TaskQueue.Types
+import Network.Google.Prelude
+import Network.Google.TaskQueue.Types
 
 -- | A resource alias for @taskqueue.tasks.insert@ method which the
 -- 'TasksInsert' request conforms to.
@@ -59,8 +59,8 @@ type TasksInsertResource =
 -- /See:/ 'tasksInsert' smart constructor.
 data TasksInsert = TasksInsert'
     { _tiTaskQueue :: !Text
-    , _tiProject   :: !Text
-    , _tiPayload   :: !Task
+    , _tiProject :: !Text
+    , _tiPayload :: !Task
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TasksInsert' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ tasksInsert
     -> Text -- ^ 'tiProject'
     -> Task -- ^ 'tiPayload'
     -> TasksInsert
-tasksInsert pTiTaskQueue_ pTiProject_ pTiPayload_ =
+tasksInsert pTiTaskQueue_ pTiProject_ pTiPayload_ = 
     TasksInsert'
     { _tiTaskQueue = pTiTaskQueue_
     , _tiProject = pTiProject_

@@ -53,14 +53,14 @@ module Network.Google.Resource.DFAReporting.Creatives.List
     , cMaxResults
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.creatives.list@ method which the
 -- 'CreativesList' request conforms to.
 type CreativesListResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "creatives" :>
@@ -97,23 +97,23 @@ type CreativesListResource =
 --
 -- /See:/ 'creativesList' smart constructor.
 data CreativesList = CreativesList'
-    { _cRenderingIds         :: !(Maybe [Textual Int64])
-    , _cAdvertiserId         :: !(Maybe (Textual Int64))
-    , _cSearchString         :: !(Maybe Text)
-    , _cSizeIds              :: !(Maybe [Textual Int64])
+    { _cRenderingIds :: !(Maybe [Textual Int64])
+    , _cAdvertiserId :: !(Maybe (Textual Int64))
+    , _cSearchString :: !(Maybe Text)
+    , _cSizeIds :: !(Maybe [Textual Int64])
     , _cCompanionCreativeIds :: !(Maybe [Textual Int64])
-    , _cCampaignId           :: !(Maybe (Textual Int64))
-    , _cTypes                :: !(Maybe [CreativesListTypes])
-    , _cIds                  :: !(Maybe [Textual Int64])
-    , _cProFileId            :: !(Textual Int64)
-    , _cSortOrder            :: !(Maybe CreativesListSortOrder)
-    , _cActive               :: !(Maybe Bool)
-    , _cCreativeFieldIds     :: !(Maybe [Textual Int64])
-    , _cPageToken            :: !(Maybe Text)
-    , _cSortField            :: !(Maybe CreativesListSortField)
-    , _cStudioCreativeId     :: !(Maybe (Textual Int64))
-    , _cArchived             :: !(Maybe Bool)
-    , _cMaxResults           :: !(Maybe (Textual Int32))
+    , _cCampaignId :: !(Maybe (Textual Int64))
+    , _cTypes :: !(Maybe [CreativesListTypes])
+    , _cIds :: !(Maybe [Textual Int64])
+    , _cProFileId :: !(Textual Int64)
+    , _cSortOrder :: !CreativesListSortOrder
+    , _cActive :: !(Maybe Bool)
+    , _cCreativeFieldIds :: !(Maybe [Textual Int64])
+    , _cPageToken :: !(Maybe Text)
+    , _cSortField :: !CreativesListSortField
+    , _cStudioCreativeId :: !(Maybe (Textual Int64))
+    , _cArchived :: !(Maybe Bool)
+    , _cMaxResults :: !(Textual Int32)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreativesList' with the minimum fields required to make a request.
@@ -156,7 +156,7 @@ data CreativesList = CreativesList'
 creativesList
     :: Int64 -- ^ 'cProFileId'
     -> CreativesList
-creativesList pCProFileId_ =
+creativesList pCProFileId_ = 
     CreativesList'
     { _cRenderingIds = Nothing
     , _cAdvertiserId = Nothing
@@ -167,14 +167,14 @@ creativesList pCProFileId_ =
     , _cTypes = Nothing
     , _cIds = Nothing
     , _cProFileId = _Coerce # pCProFileId_
-    , _cSortOrder = Nothing
+    , _cSortOrder = CAscending
     , _cActive = Nothing
     , _cCreativeFieldIds = Nothing
     , _cPageToken = Nothing
-    , _cSortField = Nothing
+    , _cSortField = CID
     , _cStudioCreativeId = Nothing
     , _cArchived = Nothing
-    , _cMaxResults = Nothing
+    , _cMaxResults = 1000
     }
 
 -- | Select only creatives with these rendering IDs.
@@ -243,8 +243,8 @@ cProFileId
   = lens _cProFileId (\ s a -> s{_cProFileId = a}) .
       _Coerce
 
--- | Order of sorted results, default is ASCENDING.
-cSortOrder :: Lens' CreativesList (Maybe CreativesListSortOrder)
+-- | Order of sorted results.
+cSortOrder :: Lens' CreativesList CreativesListSortOrder
 cSortOrder
   = lens _cSortOrder (\ s a -> s{_cSortOrder = a})
 
@@ -267,7 +267,7 @@ cPageToken
   = lens _cPageToken (\ s a -> s{_cPageToken = a})
 
 -- | Field by which to sort the list.
-cSortField :: Lens' CreativesList (Maybe CreativesListSortField)
+cSortField :: Lens' CreativesList CreativesListSortField
 cSortField
   = lens _cSortField (\ s a -> s{_cSortField = a})
 
@@ -285,10 +285,10 @@ cArchived
   = lens _cArchived (\ s a -> s{_cArchived = a})
 
 -- | Maximum number of results to return.
-cMaxResults :: Lens' CreativesList (Maybe Int32)
+cMaxResults :: Lens' CreativesList Int32
 cMaxResults
   = lens _cMaxResults (\ s a -> s{_cMaxResults = a}) .
-      mapping _Coerce
+      _Coerce
 
 instance GoogleRequest CreativesList where
         type Rs CreativesList = CreativesListResponse
@@ -303,14 +303,14 @@ instance GoogleRequest CreativesList where
               _cCampaignId
               (_cTypes ^. _Default)
               (_cIds ^. _Default)
-              _cSortOrder
+              (Just _cSortOrder)
               _cActive
               (_cCreativeFieldIds ^. _Default)
               _cPageToken
-              _cSortField
+              (Just _cSortField)
               _cStudioCreativeId
               _cArchived
-              _cMaxResults
+              (Just _cMaxResults)
               (Just AltJSON)
               dFAReportingService
           where go

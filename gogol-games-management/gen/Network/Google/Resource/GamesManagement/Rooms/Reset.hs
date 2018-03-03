@@ -36,8 +36,8 @@ module Network.Google.Resource.GamesManagement.Rooms.Reset
 
     ) where
 
-import           Network.Google.GamesManagement.Types
-import           Network.Google.Prelude
+import Network.Google.GamesManagement.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @gamesManagement.rooms.reset@ method which the
 -- 'RoomsReset' request conforms to.
@@ -54,7 +54,7 @@ type RoomsResetResource =
 --
 -- /See:/ 'roomsReset' smart constructor.
 data RoomsReset =
-    RoomsReset'
+    RoomsReset' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RoomsReset' with the minimum fields required to make a request.

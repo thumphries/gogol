@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.RoleAssignments.Delete
     , radRoleAssignmentId
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.roleAssignments.delete@ method which the
 -- 'RoleAssignmentsDelete' request conforms to.
@@ -56,7 +56,7 @@ type RoleAssignmentsDeleteResource =
 --
 -- /See:/ 'roleAssignmentsDelete' smart constructor.
 data RoleAssignmentsDelete = RoleAssignmentsDelete'
-    { _radCustomer         :: !Text
+    { _radCustomer :: !Text
     , _radRoleAssignmentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,13 +71,13 @@ roleAssignmentsDelete
     :: Text -- ^ 'radCustomer'
     -> Text -- ^ 'radRoleAssignmentId'
     -> RoleAssignmentsDelete
-roleAssignmentsDelete pRadCustomer_ pRadRoleAssignmentId_ =
+roleAssignmentsDelete pRadCustomer_ pRadRoleAssignmentId_ = 
     RoleAssignmentsDelete'
     { _radCustomer = pRadCustomer_
     , _radRoleAssignmentId = pRadRoleAssignmentId_
     }
 
--- | Immutable ID of the Google Apps account.
+-- | Immutable ID of the G Suite account.
 radCustomer :: Lens' RoleAssignmentsDelete Text
 radCustomer
   = lens _radCustomer (\ s a -> s{_radCustomer = a})

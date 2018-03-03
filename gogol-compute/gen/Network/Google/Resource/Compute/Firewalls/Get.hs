@@ -37,8 +37,8 @@ module Network.Google.Resource.Compute.Firewalls.Get
     , fgFirewall
     ) where
 
-import           Network.Google.Compute.Types
-import           Network.Google.Prelude
+import Network.Google.Compute.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @compute.firewalls.get@ method which the
 -- 'FirewallsGet' request conforms to.
@@ -56,7 +56,7 @@ type FirewallsGetResource =
 --
 -- /See:/ 'firewallsGet' smart constructor.
 data FirewallsGet = FirewallsGet'
-    { _fgProject  :: !Text
+    { _fgProject :: !Text
     , _fgFirewall :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ firewallsGet
     :: Text -- ^ 'fgProject'
     -> Text -- ^ 'fgFirewall'
     -> FirewallsGet
-firewallsGet pFgProject_ pFgFirewall_ =
+firewallsGet pFgProject_ pFgFirewall_ = 
     FirewallsGet'
     { _fgProject = pFgProject_
     , _fgFirewall = pFgFirewall_

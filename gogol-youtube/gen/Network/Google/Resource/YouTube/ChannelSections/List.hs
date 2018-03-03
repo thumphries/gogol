@@ -41,8 +41,8 @@ module Network.Google.Resource.YouTube.ChannelSections.List
     , cslId
     ) where
 
-import           Network.Google.Prelude
-import           Network.Google.YouTube.Types
+import Network.Google.Prelude
+import Network.Google.YouTube.Types
 
 -- | A resource alias for @youtube.channelSections.list@ method which the
 -- 'ChannelSectionsList' request conforms to.
@@ -63,12 +63,12 @@ type ChannelSectionsListResource =
 --
 -- /See:/ 'channelSectionsList' smart constructor.
 data ChannelSectionsList = ChannelSectionsList'
-    { _cslPart                   :: !Text
-    , _cslMine                   :: !(Maybe Bool)
-    , _cslChannelId              :: !(Maybe Text)
-    , _cslHl                     :: !(Maybe Text)
+    { _cslPart :: !Text
+    , _cslMine :: !(Maybe Bool)
+    , _cslChannelId :: !(Maybe Text)
+    , _cslHl :: !(Maybe Text)
     , _cslOnBehalfOfContentOwner :: !(Maybe Text)
-    , _cslId                     :: !(Maybe Text)
+    , _cslId :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChannelSectionsList' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ data ChannelSectionsList = ChannelSectionsList'
 channelSectionsList
     :: Text -- ^ 'cslPart'
     -> ChannelSectionsList
-channelSectionsList pCslPart_ =
+channelSectionsList pCslPart_ = 
     ChannelSectionsList'
     { _cslPart = pCslPart_
     , _cslMine = Nothing

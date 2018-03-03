@@ -34,8 +34,8 @@ module Network.Google.Resource.AdSense.Metadata.Metrics.List
 
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.metadata.metrics.list@ method which the
 -- 'MetadataMetricsList' request conforms to.
@@ -50,7 +50,7 @@ type MetadataMetricsListResource =
 --
 -- /See:/ 'metadataMetricsList' smart constructor.
 data MetadataMetricsList =
-    MetadataMetricsList'
+    MetadataMetricsList' 
     deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetadataMetricsList' with the minimum fields required to make a request.

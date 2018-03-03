@@ -37,8 +37,8 @@ module Network.Google.Resource.Directory.Tokens.Delete
     , tdUserKey
     ) where
 
-import           Network.Google.Directory.Types
-import           Network.Google.Prelude
+import Network.Google.Directory.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @directory.tokens.delete@ method which the
 -- 'TokensDelete' request conforms to.
@@ -57,7 +57,7 @@ type TokensDeleteResource =
 -- /See:/ 'tokensDelete' smart constructor.
 data TokensDelete = TokensDelete'
     { _tdClientId :: !Text
-    , _tdUserKey  :: !Text
+    , _tdUserKey :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TokensDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ tokensDelete
     :: Text -- ^ 'tdClientId'
     -> Text -- ^ 'tdUserKey'
     -> TokensDelete
-tokensDelete pTdClientId_ pTdUserKey_ =
+tokensDelete pTdClientId_ pTdUserKey_ = 
     TokensDelete'
     { _tdClientId = pTdClientId_
     , _tdUserKey = pTdUserKey_

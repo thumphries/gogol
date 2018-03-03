@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSense.Accounts.Get
     , agAccountId
     ) where
 
-import           Network.Google.AdSense.Types
-import           Network.Google.Prelude
+import Network.Google.AdSense.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsense.accounts.get@ method which the
 -- 'AccountsGet' request conforms to.
@@ -54,7 +54,7 @@ type AccountsGetResource =
 --
 -- /See:/ 'accountsGet' smart constructor.
 data AccountsGet = AccountsGet'
-    { _agTree      :: !(Maybe Bool)
+    { _agTree :: !(Maybe Bool)
     , _agAccountId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data AccountsGet = AccountsGet'
 accountsGet
     :: Text -- ^ 'agAccountId'
     -> AccountsGet
-accountsGet pAgAccountId_ =
+accountsGet pAgAccountId_ = 
     AccountsGet'
     { _agTree = Nothing
     , _agAccountId = pAgAccountId_

@@ -22,10 +22,15 @@
 --
 -- Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns UNIMPLEMENTED.NOTE: the
--- name binding below allows API services to override the binding to use
--- different resource name schemes, such as users\/*\/operations.
+-- name binding allows API services to override the binding to use
+-- different resource name schemes, such as users\/*\/operations. To
+-- override the binding, API services can add a binding such as
+-- \"\/v1\/{name=users\/*}\/operations\" to their service configuration.
+-- For backwards compatibility, the default name includes the operations
+-- collection id, however overriding users must ensure the name binding is
+-- the parent resource, without the operations collection id.
 --
--- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ Google App Engine Admin API Reference> for @appengine.apps.operations.list@.
+-- /See:/ <https://cloud.google.com/appengine/docs/admin-api/ App Engine Admin API Reference> for @appengine.apps.operations.list@.
 module Network.Google.Resource.AppEngine.Apps.Operations.List
     (
     -- * REST Resource
@@ -49,8 +54,8 @@ module Network.Google.Resource.AppEngine.Apps.Operations.List
     , aolCallback
     ) where
 
-import           Network.Google.AppEngine.Types
-import           Network.Google.Prelude
+import Network.Google.AppEngine.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @appengine.apps.operations.list@ method which the
 -- 'AppsOperationsList' request conforms to.
@@ -59,7 +64,7 @@ type AppsOperationsListResource =
        "apps" :>
          Capture "appsId" Text :>
            "operations" :>
-             QueryParam "$.xgafv" Text :>
+             QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
                  QueryParam "pp" Bool :>
                    QueryParam "access_token" Text :>
@@ -74,22 +79,27 @@ type AppsOperationsListResource =
 
 -- | Lists operations that match the specified filter in the request. If the
 -- server doesn\'t support this method, it returns UNIMPLEMENTED.NOTE: the
--- name binding below allows API services to override the binding to use
--- different resource name schemes, such as users\/*\/operations.
+-- name binding allows API services to override the binding to use
+-- different resource name schemes, such as users\/*\/operations. To
+-- override the binding, API services can add a binding such as
+-- \"\/v1\/{name=users\/*}\/operations\" to their service configuration.
+-- For backwards compatibility, the default name includes the operations
+-- collection id, however overriding users must ensure the name binding is
+-- the parent resource, without the operations collection id.
 --
 -- /See:/ 'appsOperationsList' smart constructor.
 data AppsOperationsList = AppsOperationsList'
-    { _aolXgafv          :: !(Maybe Text)
+    { _aolXgafv :: !(Maybe Xgafv)
     , _aolUploadProtocol :: !(Maybe Text)
-    , _aolPp             :: !Bool
-    , _aolAccessToken    :: !(Maybe Text)
-    , _aolUploadType     :: !(Maybe Text)
-    , _aolBearerToken    :: !(Maybe Text)
-    , _aolAppsId         :: !Text
-    , _aolFilter         :: !(Maybe Text)
-    , _aolPageToken      :: !(Maybe Text)
-    , _aolPageSize       :: !(Maybe (Textual Int32))
-    , _aolCallback       :: !(Maybe Text)
+    , _aolPp :: !Bool
+    , _aolAccessToken :: !(Maybe Text)
+    , _aolUploadType :: !(Maybe Text)
+    , _aolBearerToken :: !(Maybe Text)
+    , _aolAppsId :: !Text
+    , _aolFilter :: !(Maybe Text)
+    , _aolPageToken :: !(Maybe Text)
+    , _aolPageSize :: !(Maybe (Textual Int32))
+    , _aolCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppsOperationsList' with the minimum fields required to make a request.
@@ -120,7 +130,7 @@ data AppsOperationsList = AppsOperationsList'
 appsOperationsList
     :: Text -- ^ 'aolAppsId'
     -> AppsOperationsList
-appsOperationsList pAolAppsId_ =
+appsOperationsList pAolAppsId_ = 
     AppsOperationsList'
     { _aolXgafv = Nothing
     , _aolUploadProtocol = Nothing
@@ -136,7 +146,7 @@ appsOperationsList pAolAppsId_ =
     }
 
 -- | V1 error format.
-aolXgafv :: Lens' AppsOperationsList (Maybe Text)
+aolXgafv :: Lens' AppsOperationsList (Maybe Xgafv)
 aolXgafv = lens _aolXgafv (\ s a -> s{_aolXgafv = a})
 
 -- | Upload protocol for media (e.g. \"raw\", \"multipart\").
@@ -167,7 +177,7 @@ aolBearerToken
   = lens _aolBearerToken
       (\ s a -> s{_aolBearerToken = a})
 
--- | Part of \`name\`. The name of the operation collection.
+-- | Part of \`name\`. The name of the operation\'s parent resource.
 aolAppsId :: Lens' AppsOperationsList Text
 aolAppsId
   = lens _aolAppsId (\ s a -> s{_aolAppsId = a})

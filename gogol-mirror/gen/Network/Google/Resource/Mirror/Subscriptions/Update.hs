@@ -37,8 +37,8 @@ module Network.Google.Resource.Mirror.Subscriptions.Update
     , suId
     ) where
 
-import           Network.Google.Mirror.Types
-import           Network.Google.Prelude
+import Network.Google.Mirror.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @mirror.subscriptions.update@ method which the
 -- 'SubscriptionsUpdate' request conforms to.
@@ -56,7 +56,7 @@ type SubscriptionsUpdateResource =
 -- /See:/ 'subscriptionsUpdate' smart constructor.
 data SubscriptionsUpdate = SubscriptionsUpdate'
     { _suPayload :: !Subscription
-    , _suId      :: !Text
+    , _suId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubscriptionsUpdate' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ subscriptionsUpdate
     :: Subscription -- ^ 'suPayload'
     -> Text -- ^ 'suId'
     -> SubscriptionsUpdate
-subscriptionsUpdate pSuPayload_ pSuId_ =
+subscriptionsUpdate pSuPayload_ pSuId_ = 
     SubscriptionsUpdate'
     { _suPayload = pSuPayload_
     , _suId = pSuId_

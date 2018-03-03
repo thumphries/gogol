@@ -47,8 +47,8 @@ module Network.Google.Resource.Monitoring.Projects.TimeSeries.Create
     , ptscCallback
     ) where
 
-import           Network.Google.Monitoring.Types
-import           Network.Google.Prelude
+import Network.Google.Monitoring.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @monitoring.projects.timeSeries.create@ method which the
 -- 'ProjectsTimeSeriesCreate' request conforms to.
@@ -74,15 +74,15 @@ type ProjectsTimeSeriesCreateResource =
 --
 -- /See:/ 'projectsTimeSeriesCreate' smart constructor.
 data ProjectsTimeSeriesCreate = ProjectsTimeSeriesCreate'
-    { _ptscXgafv          :: !(Maybe Xgafv)
+    { _ptscXgafv :: !(Maybe Xgafv)
     , _ptscUploadProtocol :: !(Maybe Text)
-    , _ptscPp             :: !Bool
-    , _ptscAccessToken    :: !(Maybe Text)
-    , _ptscUploadType     :: !(Maybe Text)
-    , _ptscPayload        :: !CreateTimeSeriesRequest
-    , _ptscBearerToken    :: !(Maybe Text)
-    , _ptscName           :: !Text
-    , _ptscCallback       :: !(Maybe Text)
+    , _ptscPp :: !Bool
+    , _ptscAccessToken :: !(Maybe Text)
+    , _ptscUploadType :: !(Maybe Text)
+    , _ptscPayload :: !CreateTimeSeriesRequest
+    , _ptscBearerToken :: !(Maybe Text)
+    , _ptscName :: !Text
+    , _ptscCallback :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProjectsTimeSeriesCreate' with the minimum fields required to make a request.
@@ -110,7 +110,7 @@ projectsTimeSeriesCreate
     :: CreateTimeSeriesRequest -- ^ 'ptscPayload'
     -> Text -- ^ 'ptscName'
     -> ProjectsTimeSeriesCreate
-projectsTimeSeriesCreate pPtscPayload_ pPtscName_ =
+projectsTimeSeriesCreate pPtscPayload_ pPtscName_ = 
     ProjectsTimeSeriesCreate'
     { _ptscXgafv = Nothing
     , _ptscUploadProtocol = Nothing

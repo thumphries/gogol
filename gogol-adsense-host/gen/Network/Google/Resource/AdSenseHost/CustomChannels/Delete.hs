@@ -37,8 +37,8 @@ module Network.Google.Resource.AdSenseHost.CustomChannels.Delete
     , ccdAdClientId
     ) where
 
-import           Network.Google.AdSenseHost.Types
-import           Network.Google.Prelude
+import Network.Google.AdSenseHost.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @adsensehost.customchannels.delete@ method which the
 -- 'CustomChannelsDelete' request conforms to.
@@ -57,7 +57,7 @@ type CustomChannelsDeleteResource =
 -- /See:/ 'customChannelsDelete' smart constructor.
 data CustomChannelsDelete = CustomChannelsDelete'
     { _ccdCustomChannelId :: !Text
-    , _ccdAdClientId      :: !Text
+    , _ccdAdClientId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomChannelsDelete' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ customChannelsDelete
     :: Text -- ^ 'ccdCustomChannelId'
     -> Text -- ^ 'ccdAdClientId'
     -> CustomChannelsDelete
-customChannelsDelete pCcdCustomChannelId_ pCcdAdClientId_ =
+customChannelsDelete pCcdCustomChannelId_ pCcdAdClientId_ = 
     CustomChannelsDelete'
     { _ccdCustomChannelId = pCcdCustomChannelId_
     , _ccdAdClientId = pCcdAdClientId_

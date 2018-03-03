@@ -37,14 +37,14 @@ module Network.Google.Resource.DFAReporting.TargetingTemplates.Get
     , ttgId
     ) where
 
-import           Network.Google.DFAReporting.Types
-import           Network.Google.Prelude
+import Network.Google.DFAReporting.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @dfareporting.targetingTemplates.get@ method which the
 -- 'TargetingTemplatesGet' request conforms to.
 type TargetingTemplatesGetResource =
      "dfareporting" :>
-       "v2.7" :>
+       "v3.0" :>
          "userprofiles" :>
            Capture "profileId" (Textual Int64) :>
              "targetingTemplates" :>
@@ -57,7 +57,7 @@ type TargetingTemplatesGetResource =
 -- /See:/ 'targetingTemplatesGet' smart constructor.
 data TargetingTemplatesGet = TargetingTemplatesGet'
     { _ttgProFileId :: !(Textual Int64)
-    , _ttgId        :: !(Textual Int64)
+    , _ttgId :: !(Textual Int64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TargetingTemplatesGet' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ targetingTemplatesGet
     :: Int64 -- ^ 'ttgProFileId'
     -> Int64 -- ^ 'ttgId'
     -> TargetingTemplatesGet
-targetingTemplatesGet pTtgProFileId_ pTtgId_ =
+targetingTemplatesGet pTtgProFileId_ pTtgId_ = 
     TargetingTemplatesGet'
     { _ttgProFileId = _Coerce # pTtgProFileId_
     , _ttgId = _Coerce # pTtgId_

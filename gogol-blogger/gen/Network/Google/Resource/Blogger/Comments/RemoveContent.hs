@@ -38,8 +38,8 @@ module Network.Google.Resource.Blogger.Comments.RemoveContent
     , crcCommentId
     ) where
 
-import           Network.Google.Blogger.Types
-import           Network.Google.Prelude
+import Network.Google.Blogger.Types
+import Network.Google.Prelude
 
 -- | A resource alias for @blogger.comments.removeContent@ method which the
 -- 'CommentsRemoveContent' request conforms to.
@@ -59,8 +59,8 @@ type CommentsRemoveContentResource =
 --
 -- /See:/ 'commentsRemoveContent' smart constructor.
 data CommentsRemoveContent = CommentsRemoveContent'
-    { _crcBlogId    :: !Text
-    , _crcPostId    :: !Text
+    { _crcBlogId :: !Text
+    , _crcPostId :: !Text
     , _crcCommentId :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -78,7 +78,7 @@ commentsRemoveContent
     -> Text -- ^ 'crcPostId'
     -> Text -- ^ 'crcCommentId'
     -> CommentsRemoveContent
-commentsRemoveContent pCrcBlogId_ pCrcPostId_ pCrcCommentId_ =
+commentsRemoveContent pCrcBlogId_ pCrcPostId_ pCrcCommentId_ = 
     CommentsRemoveContent'
     { _crcBlogId = pCrcBlogId_
     , _crcPostId = pCrcPostId_
