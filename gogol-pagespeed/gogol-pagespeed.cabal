@@ -1,5 +1,5 @@
 name:                  gogol-pagespeed
-version:               0.3.0
+version:               
 synopsis:              Google PageSpeed Insights SDK.
 homepage:              https://github.com/brendanhay/gogol
 bug-reports:           https://github.com/brendanhay/gogol/issues

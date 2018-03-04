@@ -48,5 +48,5 @@ library
         , Network.Google.Reports.Types.Sum
 
     build-depends:
-          gogol-core == .*
+          gogol-core == 0.3.0.*
         , base       >= 4.7 && < 5

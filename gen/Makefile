@@ -5,12 +5,12 @@ MODEL_DIR := model
 OUT_DIR   := ..
 
 define version =
-$(shell sed -n 's/^version: *\([0-9]*\.[0-9]*\.[0-9]\).*$$/\1/p' $(1))
+$(shell sed -n 's/^version: *\([0-9]*\.[0-9]*\.[0-9]\).*$/\1/p' $(1))
 endef
 
-VERSION        = $(shell sed -n 's/^version: *\(.*\)$$/\1/p' gogol-gen.cabal)
-CORE_VERSION   = $(call version,$(TOP)/core/gogol-core.cabal)
-CLIENT_VERSION = $(call version,$(TOP)/gen/gogol-gen.cabal)
+VERSION        = 0.3.0
+CORE_VERSION   = 0.3.0
+CLIENT_VERSION = 0.3.0
 
 MODELS ?= $(shell find $(MODEL_DIR) -type f -name '*.json' | sort)
 

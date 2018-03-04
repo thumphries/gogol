@@ -1,5 +1,5 @@
 name:                  gogol-script
-version:               0.3.0
+version:               
 synopsis:              Google Apps Script SDK.
 homepage:              https://github.com/brendanhay/gogol
 bug-reports:           https://github.com/brendanhay/gogol/issues
