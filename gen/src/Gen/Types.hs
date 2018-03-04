@@ -128,6 +128,7 @@ parseVersion x = first (mappend (Text.unpack x) . mappend " -> ") $
     preface = A.takeWhile (/= '_') *> void (A.char '_') <|> pure ()
     number  = A.takeWhile  (/= 'v') *> A.char 'v' *> A.double
     preview = A.takeWhile (/= 'p') *> A.char 'p' *> A.double
+    label   = A.takeWhile (const True)
 
     alpha = A.string "alpha"
          *> (Alpha <$> optional A.decimal <*> optional A.letter)
@@ -136,6 +137,7 @@ parseVersion x = first (mappend (Text.unpack x) . mappend " -> ") $
     beta  = optional preview
          *> A.string "beta"
          *> (Beta <$> optional A.decimal <*> optional A.letter)
+         <* label
         <&> Just
 
     sandbox = Just Sandbox <$ A.string "sandbox"
